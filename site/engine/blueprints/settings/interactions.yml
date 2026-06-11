@@ -1,0 +1,5 @@
+label: Interactions
+icon: text
+fields:
+  # image: settings/interactions/animation-image
+  reveal: settings/interactions/animation

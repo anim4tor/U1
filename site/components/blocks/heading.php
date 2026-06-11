@@ -1,0 +1,1 @@
+<<?= $level = $block->level()->or('h2') ?> data-scroll data-reveal-text="lines" class="<?= $block->mod() ?>"><?= $block->text() ?></<?= $level ?>>

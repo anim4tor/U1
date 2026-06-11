@@ -1,0 +1,27 @@
+/*	
+
+	MOLECULSE: Nav
+
+*/
+:root {
+	
+}
+nav.breadcrumbs {
+	
+	.dot {
+		--size: 0.4em;
+		display: inline-block;
+		width: var(--size);
+		height: var(--size);
+		border-radius: 50%;
+/*		background-color: currentColor;*/
+
+		&.large {
+		    --size: 1em;
+		}
+
+		&[disabled] {
+			opacity: .4;
+		}
+	}
+}

@@ -1,0 +1,12 @@
+type: files
+template: logo
+label: Logo
+layout: cards
+size: medium
+multiple: false
+uploads:
+  template: logo
+image:
+  # cover: true
+  ratio: 4/1
+  back: white

@@ -1,0 +1,1 @@
+<?= snippet('atoms/Button', ['url' => $block->link()->toPage() ? $block->link()->toPage()->url() : $block->link()->url(), 'label' => $block->label(), 'theme' => $block->style(), 'target' => $block->target()]) ?>

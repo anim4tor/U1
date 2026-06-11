@@ -1,0 +1,457 @@
+label: Theme
+columns:
+  - width: 1/1
+    fields:
+      scalingH:
+        type: headline
+        label: Spacing
+
+  - width: 3/4
+    fields:  
+      scale:
+        label: Scale spacing
+        help: Adjusts site spacing scale
+        type: range
+        default: 1
+        min: 0
+        max: 2
+        step: 0.1
+
+  - width: 1/4
+    fields:
+      scaleSetup:
+        width: 1/3
+        label: Customize spacing
+        help: Customize site spacing details
+        type: toggle
+
+  - width: 1/1
+    fields:
+      scaleCustom:
+        type: group
+        when:
+          scaleSetup: true
+        fields:
+          scaleL:
+            type: line
+          min:
+            width: 1/2
+            label: Minimal unit
+            type: number
+            default: 1
+            min: 0.1
+            max: 2
+            step: 0.1
+            after: rem
+
+          base:
+            width: 1/2
+            label: Flexible unit
+            type: number
+            default: 2.0
+            placeholder: 2.0
+            min: 0.5
+            max: 3
+            step: 0.1
+            after: vw
+
+          vpad:
+            width: 1/2
+            label: Vertical spacing
+            help: Adjusts site vertical spacing
+            type: range
+            min: 0
+            max: 1
+            step: 0.1
+
+          hpad:
+            width: 1/2
+            label: Horizonatal spacing
+            help: Adjusts site horizontal spacing
+            type: range
+            min: 0
+            max: 1
+            step: 0.1
+
+          gap:
+            width: 1/2
+            label: Gap spacing
+            help: Adjusts site gaps spacing
+            type: range
+            min: 0
+            max: 1
+            step: 0.1
+
+  - width: 1/1
+    fields:
+      paletteL:
+        type: line
+      paletteH:
+        type: headline
+        label: Barevná paleta
+
+  - width: 3/4
+    fields:
+      bg:
+        type: color
+        mode: options
+        label: Background color
+        help: Default background color
+        width: 1/2
+        options:
+          type: query
+          # query: kirby.option('gi.colors')
+          query: site.palette.toStructure
+          text: "{{ item.name }}"
+          value: "{{ item.color }}"
+
+      col:
+        type: color
+        mode: options
+        label: Text color
+        help: Default text color
+        width: 1/2
+        options:
+          type: query
+          # query: kirby.option('gi.colors')
+          query: site.palette.toStructure
+          text: "{{ item.name }}"
+          value: "{{ item.color }}"
+
+  - width: 1/4
+    fields:
+      paletteSetup:
+        label: Customize colors
+        help: Customize site color palette
+        type: toggle
+
+  - width: 1/1
+    fields:
+      paletteCustom:
+        type: group
+        when:
+          paletteSetup: true
+        fields:
+          paletteL2:
+            type: line
+          palette:
+            when:
+              paletteSetup: true
+            type: structure
+            columns:
+              label:
+                width: 1/2
+              color:
+                width: 1/2
+            fields:
+              name:
+                type: text
+              label:
+                type: text
+              color:
+                type: color
+                alpha: true
+
+  - width: 1/1
+    fields:
+      typeL:
+        type: line
+      typeH:
+        type: headline
+        label: Typografie
+
+  - width: 3/4
+    fields:
+
+      bodyFace:
+        type: select
+        label: Body font
+        width: 1/2
+        options:
+          type: query
+          # query: kirby.option('gi.colors')
+          query: site.fontFaces.toStructure
+          text: "{{ item.family }}"
+          value: "{{ item.family }}"
+
+      headingFace:
+        type: select
+        label: Heading font
+        width: 1/2
+        options:
+          type: query
+          # query: kirby.option('gi.colors')
+          query: site.fontFaces.toStructure
+          text: "{{ item.family }}"
+          value: "{{ item.family }}"
+
+      buttonFace:
+        type: select
+        label: Button font
+        width: 1/2
+        options:
+          type: query
+          # query: kirby.option('gi.colors')
+          query: site.fontFaces.toStructure
+          text: "{{ item.family }}"
+          value: "{{ item.family }}"
+
+      scriptFace:
+        type: select
+        label: Script font
+        width: 1/2
+        options:
+          type: query
+          # query: kirby.option('gi.colors')
+          query: site.fontFaces.toStructure
+          text: "{{ item.family }}"
+          value: "{{ item.family }}"
+
+      # typeScaleDefault:
+      #   label: Default scale
+      #   width: 2/3
+      #   type: range
+      #   default: 1.618
+      #   placeholder: 1.618
+      #   min: 1
+      #   max: 2
+      #   step: 0.01
+  - width: 1/4
+    fields:
+      typeSetup:
+        label: Customize type
+        help: Customize site typography
+        type: toggle
+
+  - width: 1/1
+    fields:
+      typeCustom:
+        type: group
+        when:
+          typeSetup: true
+        fields:
+          typeL2:
+            type: line
+          typeScaleBody:
+            label: Body scale
+            width: 1/2
+            type: range
+            default: 1.125
+            placeholder: 1.125
+            min: 1
+            max: 2
+            step: 0.01
+
+          typeScaleHeading:
+            label: Heading scale
+            width: 1/2
+            type: range
+            default: 1.618
+            placeholder: 1.618
+            min: 1
+            max: 2
+            step: 0.01
+
+          typeBaseMin: 
+            width: 1/4
+            label: Body base
+            type: number
+            default: 16
+            placeholder: 16
+            min: 0
+            max: 30
+            after: px
+
+          typeBodyMin: 
+            width: 1/4
+            label: Body min
+            help: Body type minimal size
+            type: number
+            default: 0.8
+            placeholder: 0.8
+            min: 0.5
+            max: 5
+            step: 0.1
+            after: rem
+
+          typeBaseFlexible: 
+            width: 1/4
+            label: Flexible base
+            type: number
+            default: 1.0
+            placeholder: 1.0
+            min: 0.5
+            max: 3
+            step: 0.1
+            after: vw
+
+          typeHeadingMin: 
+            width: 1/4
+            label: Flexible min
+            help: Heading type minimal size
+            type: number
+            default: 1.2
+            placeholder: 1.2
+            min: 0.5
+            max: 5
+            step: 0.1
+            after: rem
+
+
+          typescale:
+            type: structure
+            label: Type scale
+            help: Overrides auto scaling
+            fields:
+              html:
+                type: toggles
+                options:
+                  - Body
+                  - Heading
+                  - Button
+                  - Script
+              headingLevel: 
+                when:
+                  html: Heading
+                label: Level
+                type: number
+                min: 1
+                max: 6
+                before: H
+              bodyLevel:
+                when: 
+                  html: Body
+                label: Level
+                type: toggles
+                options:
+                  - value: lg
+                    text: Large
+                  - value: md
+                    text: Medium
+                  - value: default
+                    text: Default
+                  - value: sm
+                    text: Small
+                  - value: xs
+                    text: Tiny
+              typeface:
+                type: select
+                label: Typeface
+                options:
+                  type: query
+                  # query: kirby.option('gi.colors')
+                  query: site.fontFaces.toStructure
+                  text: "{{ item.family }}"
+                  value: "{{ item.family }}"
+              unit:
+                label: Size unit
+                width: 2/3
+                type: toggles
+                default: scale
+                options:
+                  - scale
+                  - custom
+              size:
+                when:
+                  unit: custom
+                width: 1/3
+                label: Size
+                type: number
+                min: 0.1
+                max: 20
+                step: 0.1
+
+              weight:
+                label: Weight
+                type: select
+                width: 1/2
+                options:
+                  - light
+                  - regular
+                  - medium
+                  - bold
+              case:
+                label: Case
+                type: select
+                default: normal
+                width: 1/2
+                options:
+                  - normal
+                  - uppercase
+                  - capitalize
+                  - lowercase
+
+          
+          
+
+          fontFaces:
+            label: Fontfaces
+            type: structure
+            wysiwyg: true
+            help: Declare fontfaces from assets folder or import from Google/Adobe fonts
+
+            fields:
+              family:
+                type: text
+                width: 2/3
+              class:
+                type: select
+                width: 1/3
+                options:
+                  - Sans Serif
+                  - Serif
+                  - Slab Serif
+                  - Script
+                  - Mono
+                  - Hand
+              source:
+                type: toggles
+                options:
+                  - Local
+                  - Import
+              src:
+                when:
+                  source: Local
+                type: text
+                after: ".woff"
+
+              url:
+                when:
+                  source: Import
+                type: text
+                before: "@import"
+
+              weight:
+                type: multiselect
+                width: 1/2
+                options:
+                  - 100
+                  - 200
+                  - 300
+                  - 400
+                  - 500
+                  - 600
+                  - 700
+                  - 800
+                  - 900
+
+              style:
+                type: multiselect
+                width: 1/2
+                options:
+                  - normal
+                  - italic
+
+
+      # uploadFonts:
+      #   type: files
+      #   buttons: false
+      #   size: medium
+       
+      # googelFont:
+      #   type: multiselect
+
+      #   options:
+      #     type: api
+      #     url: assets/fonts/google.json
+      #     # url: https://www.googleapis.com/webfonts/v1/webfonts?key=AIzaSyC8FI7LVaRx0lCLdd21p5Bhbghtpbdatk0

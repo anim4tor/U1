@@ -1,0 +1,142 @@
+name: Size
+type: group
+icon: code
+fields:
+  size:l:
+    type: line
+  size:h:
+    type: headline
+    label: Size
+    width: 3/4
+
+  size:tabs: 
+    extends: fields/tabs
+    width: 1/4
+
+  size:desktop:
+    type: group
+    when:
+      size:tabs: desktop
+    fields:
+
+      css=grid__fullheight:
+        label: Full height
+        type: toggle
+        width: 1/2
+
+      css=grid__fullwidth:
+        label: Full width
+        type: toggle
+        width: 1/2
+        
+      inline=width:
+        label: Width
+        type: range
+        min: 0
+        max: 100
+        default: 0
+        placeholder: auto
+        icon: space-center
+        width: 1/2
+
+      inline=height:
+        label: Height
+        type: range
+        min: 0
+        max: 100
+        default: 0
+        placeholder: auto
+        icon: space-center
+        width: 1/2
+
+      inline=width-min:
+        label: Min width
+        type: range
+        min: 0
+        max: 100
+        default: 100
+        after: 'vw'
+        icon: space-center
+        width: 1/2
+
+      inline=height-min:
+        label: Min height
+        type: range
+        min: 0
+        max: 100
+        default: 100
+        after: 'vh'
+        icon: space-center
+        width: 1/2
+
+      inline=width-max:
+        label: Max width
+        type: range
+        min: 0
+        max: 100
+        default: 100
+        after: '%'
+        icon: space-center
+        width: 1/2
+
+      inline=height-max:
+        label: Max height
+        type: range
+        min: 0
+        max: 100
+        default: 100
+        after: '%'
+        icon: space-center
+        width: 1/2
+
+      css=overflow:
+        label: Overflow
+        type: toggles
+        options:
+          - value: visible
+            text: Visible
+            icon: visible
+          - value: hidden
+            text: Hidden
+            icon: hidden
+          - value: clip
+            text: Clip
+            icon: clip
+          - value: scroll
+            text: Scroll
+            icon: scroll
+
+      inline=ratio:
+        label: Aspect ratio
+        type: toggles
+        options:
+          - 16:9
+          - 3:2
+          - 2:3
+          - 2:1
+          - 1:1
+          - Custom
+
+      inline=ratio__w:
+        label: Ratio width
+        when:
+          inline=ratio: Custom
+        type: range
+        min: 0
+        max: 100
+        default: 0
+        placeholder: 0
+        width: 1/2
+        help: Determines aspect ratio width
+
+      inline=ratio__h:
+        label: Ratio height
+        when:
+          inline=ratio: Custom
+        type: range
+        min: 0
+        max: 100
+        default: 0
+        placeholder: 0
+        width: 1/2
+        help: Determines aspect ratio height

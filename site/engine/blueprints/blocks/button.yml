@@ -1,0 +1,61 @@
+name: Button
+type: button
+icon: bolt
+fields:
+  label:
+    label: Label
+    type: text
+    width: 1/2
+
+  style:
+    type: select
+    empty: false
+    default: 'invert'
+    labels: false
+    width: 1/4
+    options:
+      - value: invert
+        text: Invert
+      - value: dark
+        text: Dark
+      - value: ghost
+        text: Border
+  hover:
+    type: select
+    empty: false
+    default: 'dark'
+    labels: false
+    width: 1/4
+    options:
+      - value: invert
+        text: Invert
+      - value: dark
+        text: Dark
+      - value: ghost
+        text: Border
+
+  size:
+    type: select
+    empty: false
+    default: 'default'
+    labels: false
+    width: 1/4
+
+    options:
+      - value: small
+        text: Small
+      - value: default
+        text: Default
+      - value: large
+        text: Large
+        
+  link:
+    label: Url
+    type: link
+    width: 3/4
+
+  target:
+    label: Target
+    type: toggle
+    text: Open in new window?
+    width: 1/4

@@ -1,0 +1,171 @@
+/*	
+
+	COLORS
+
+*/
+@import "../Media/media";
+:root {
+
+}
+
+$colors : (
+	/*brand*/
+	prim		: #191B20,
+	sec			: #F3F3F0,
+	acc 		: #CFC4FE,
+
+	neon	  : #F4EE32,
+	lime    : #DDF432,
+	yellow	: #F4CD32,
+	orange  : #F49A32,
+	pink 		: #D56FF7,
+	violet 	: #B3BAE7,
+	purple  : #986FF7,
+	red     : #DB6B57,
+	crimson : #DB5F7E,
+	grey    : #afbec8,
+	cyan    : #11B5BB,
+	marine  : #7FC2DB,
+	blue    : #034DBC,
+
+	/*greys*/
+	light		: #EDECE7,
+	dark		: #191B20,
+	
+	/*type*/
+	text 		: #191B20,
+
+	/*defaults*/
+	black 		: #000000,
+	white 		: #FFFFFF,
+	invert		: #FFFFFF
+
+);
+
+$utils: ( 
+	inherit: inherit, 
+	current: currentcolor, 
+	transparent: transparent 
+);
+
+$alphas: (
+	5 	  : 0.05,
+	10 	  : 0.1,
+	20		: 0.2,
+	30		: 0.3,
+	40		: 0.4,
+	50		: 0.5,
+	60		: 0.6,
+	70		: 0.7,
+	80		: 0.8,
+	90		: 0.9,
+	100	  : 1.0,
+);
+$hues: (
+	
+);
+
+$opacity : (
+	/*opacity*/
+	1 		: 0.1,
+	2			: 0.2,
+	3			: 0.3,
+	4 		: 0.4,
+	5			: 0.5,
+	6			: 0.6,
+	7 		: 0.7,
+	8			: 0.8,
+	9			: 0.9,
+);
+
+@function toRGB($color) {
+    @return red($color), green($color), blue($color);
+}
+
+@function color($color, $alpha: 1) {
+  @return rgba(map-get($colors, $color), $alpha)
+}
+
+@mixin bg-color {
+  @each $label, $hex in $colors {
+		&__#{$label} {
+		  background-color: #{color($label)};
+		  --background: #{toRGB($hex)};
+		}
+		@each $aLabel, $alpha in $alphas {
+		 	  &__#{$label}\/#{$aLabel} {
+ 	    	  background-color: #{color($label,$alpha)};
+ 	    	  --background: #{toRGB($hex)};
+		 	  }
+		}
+  } 
+}
+
+@mixin text-color {
+  @each $label, $hex in $colors {
+		&__#{$label} {
+		  color: #{color($label)};
+		  --col: #{toRGB($hex)};
+		}
+		@each $aLabel, $alpha in $alphas {
+		 	  &__#{$label}\/#{$aLabel} {
+ 	    	  color: #{color($label,$alpha)};
+ 	    	  --col: #{toRGB($hex)};
+		 	  }
+		}
+  } 
+}
+
+@mixin fill-color {
+  @each $label, $hex in $colors {
+		&__#{$label} {
+		  fill: #{color($label)};
+		}
+		@each $aLabel, $alpha in $alphas {
+		 	  &__#{$label}\/#{$aLabel} {
+ 	    	  fill: #{color($label,$alpha)};
+		 	  }
+		}
+  } 
+}
+
+
+@each $modifier , $breakpoint in $map-grid-props {
+	@if($modifier == '') {
+		.bg {
+			@include bg-color;
+		}
+		.color {
+			@include text-color;
+		}
+		.fill {
+			@include fill-color;
+		}
+	
+	} @else {
+		@include create-mq($breakpoint, 'max') {
+			.#{$modifier}\:bg {
+				@include bg-color;
+			}
+			.#{$modifier}\:color {
+				@include text-color;
+			}
+			.#{$modifier}\:fill {
+				@include fill-color;
+			}
+		}
+	}
+}
+
+:root {
+	
+	@each $label, $hex in $colors {
+	    --color-#{$label}: #{toRGB($hex)};
+	}
+
+}
+
+.bg__inherit {
+	background: rgba(var(--background),1);
+/*	--background: rgba(var(--background),1);*/
+}

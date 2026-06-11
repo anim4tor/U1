@@ -1,0 +1,49 @@
+name: Image animations
+type: group
+icon: code
+fields:
+  attr=data-parallax+data-scroll-css-progress:
+    label: Parallax image
+    type: toggle
+    default: false
+    width: 1/4
+
+  attr=data-scroll-speed:
+    when:
+      attr=data-parallax: true
+    label: Scroll speed
+    help: Relative to native page scrolling
+    type: range
+    min: -2
+    max: 2
+    step: 0.01
+    default: 0
+    placeholder: 0
+    width: 3/4
+
+  attr=data-scroll:
+    label: Reveal image?
+    type: toggle
+    default: false
+    width: 1/4
+
+  attr=data-reveal-image:
+    when:
+      attr=data-scroll: true
+    label: Reveal from
+    type: toggles
+    labels: false
+    width: 3/4
+    options:
+      - value: top
+        text: top
+        icon: arrow-down
+      - value: left
+        text: left
+        icon: arrow-right
+      - value: bottom
+        text: bottom
+        icon: arrow-up
+      - value: right
+        text: right
+        icon: arrow-left

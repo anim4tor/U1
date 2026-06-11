@@ -1,0 +1,9 @@
+type: pages
+label: Články
+
+size: medium
+create: post
+template: post
+parent: site.find('blog')
+image:
+  cover: true

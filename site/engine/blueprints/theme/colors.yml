@@ -1,0 +1,71 @@
+label: Colors
+columns:
+  - width: 1/1
+    fields:
+      paletteL:
+        type: line
+      paletteH:
+        type: headline
+        label: Barevná paleta
+
+  - width: 3/4
+    fields:
+      bg:
+        type: color
+        mode: options
+        label: Background color
+        help: Default background color
+        width: 1/2
+        options:
+          type: query
+          # query: kirby.option('gi.colors')
+          query: site.palette.toStructure
+          text: "{{ item.name }}"
+          value: "{{ item.color }}"
+
+      col:
+        type: color
+        mode: options
+        label: Text color
+        help: Default text color
+        width: 1/2
+        options:
+          type: query
+          # query: kirby.option('gi.colors')
+          query: site.palette.toStructure
+          text: "{{ item.name }}"
+          value: "{{ item.color }}"
+
+  - width: 1/4
+    fields:
+      paletteSetup:
+        label: Customize colors
+        help: Customize site color palette
+        type: toggle
+
+  - width: 1/1
+    fields:
+      paletteCustom:
+        type: group
+        when:
+          paletteSetup: true
+        fields:
+          paletteL2:
+            type: line
+          palette:
+            when:
+              paletteSetup: true
+            type: structure
+            columns:
+              label:
+                width: 1/2
+              color:
+                width: 1/2
+            fields:
+              name:
+                type: text
+              label:
+                type: text
+              color:
+                type: color
+                alpha: true

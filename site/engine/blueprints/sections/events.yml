@@ -1,0 +1,13 @@
+type: pages
+headline: Events
+parent: site.find("akce")
+size: large
+info: "{{ page.images.count }} image(s)"
+layout: cards
+template: event
+empty: Add event
+image:
+  query: page.cover.toFile
+  cover: true
+  ratio: 5/4
+#

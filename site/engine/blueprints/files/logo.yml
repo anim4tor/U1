@@ -1,0 +1,33 @@
+title: Logo
+
+accept: 
+  type: image
+  maxsize: 5000000 # size in byte = 3 MB
+
+# create:
+#   width: 1200
+#   format: webp
+
+columns:
+  - width: 1/2
+    sections:
+      content:
+        type: fields
+        fields:
+          caption:
+            label: Caption
+            type: textarea
+            size: medium
+  - width: 1/2
+    sections:
+      meta:
+        type: fields
+        fields:
+          alt:
+            label: Alternative Text
+            type: text
+          link:
+            label: Link
+            type: url
+
+          

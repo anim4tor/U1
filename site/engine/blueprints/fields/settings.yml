@@ -1,0 +1,12 @@
+name: Settings
+type: group
+icon: code
+
+tabs:
+  style: settings/style
+  interactions: settings/interactions
+  settings: settings/node
+    
+    
+
+  

@@ -1,0 +1,9 @@
+type: object
+label: Odkaz
+fields:
+  url:
+    label: Url
+    type: link
+  text:
+    label: Text
+    type: text

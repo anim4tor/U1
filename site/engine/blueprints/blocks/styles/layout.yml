@@ -1,0 +1,7 @@
+name: Layout
+type: layout
+icon: code
+preview: fields
+wysiwyg: true
+fields:
+  child: settings/style/layout

@@ -1,0 +1,1 @@
+<?= snippet('molecules/Nav/'.$nav->type(), [ 'items' => $items, 'position' => $nav->position() ]) ?>

@@ -1,0 +1,43 @@
+name: field.blocks.text.name
+icon: text
+wysiwyg: true
+preview: text
+tabs:
+  text:
+    fields:
+      text:
+        label: field.blocks.heading.text
+        type: writer
+        placeholder: field.blocks.text.placeholder
+
+      mod:
+        label: Modify size
+        type: toggles
+        options:
+          - value: xl
+            text: Extra
+          - value: l
+            text: Large
+          - value: m
+            text: Medium
+          - value: default
+            text: Default
+          - value: s
+            text: Small
+          - value: xs
+            text: Tiny
+      
+      face:
+        label: Fontface
+        type: toggles
+        options:
+          - value: heading
+            text: Heading
+          - value: body
+            text: Body
+          - value: button
+            text: Button        
+
+  interactions: settings/interactions/animation
+  node: settings/node
+

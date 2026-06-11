@@ -1,0 +1,201 @@
+Title: Yoga i-D
+
+----
+
+Ctacontact: [{"content":{"text":"Jóga je cesta, která pokračuje i mimo podložku.","level":"h2","mod":"s","attr=data-scroll":"false","attr=data-reveal":"","attr=data-reveal-children":"false","attr=data-reveal-words":"false","attr=data-reveal-section":"false","bid":"","attr":"","href":"","node":""},"id":"cca7af1a-8a67-4bac-abb7-4248428c7344","isHidden":false,"type":"heading"},{"content":{"label":"Kontaktujte nás","style":"dark","hover":"","size":"default","link":"page://doRc5nITMHUh4oMq","target":"false"},"id":"c32b7557-d654-4960-b1fc-925674f89043","isHidden":false,"type":"button"}]
+
+----
+
+Ctamenu:
+
+- page://2KXhsd8bxkU6MDcP
+- page://kkyHn1VfWYtSbaLP
+- page://9gw1uZEVi5ReN4wb
+- page://0j5PLDVM3c0BZlmY
+
+----
+
+Contactcompany: YOGA i-D
+
+----
+
+Contactemail: hello@yogaid.cz
+
+----
+
+Contactphone: +420 603 209 789
+
+----
+
+Contactphonenote: Dle rozvrhu studia
+
+----
+
+Contactaddress: Poštovská 68/3, 602 00 Brno-střed
+
+----
+
+Contactmapurl: https://maps.app.goo.gl/As6nDPsG4w7Y2dax9
+
+----
+
+Contactaddressnote: Budova bývalé pošty, vstup hlavním vchodem, po schodech vpravo
+
+----
+
+Contactic: 
+
+----
+
+Contactbank: 
+
+----
+
+Contactdata: 
+
+----
+
+Contactopening: Studio není otevřeno celý den. Recepce funguje dle rozvrhu studia
+
+----
+
+Social:
+
+- 
+  platform: Instagram
+  link: >
+    https://www.instagram.com/yogaid_official/
+- 
+  platform: Facebook
+  link: https://www.facebook.com/yogaid.cz
+- 
+  platform: YouTube
+  link: >
+    https://www.youtube.com/channel/UCSKmxJI8GVIqv1ZnjqFE2dA
+
+----
+
+Meta-description: 
+
+----
+
+Meta-title-separator: -
+
+----
+
+Meta-website-owner: 
+
+----
+
+Meta-org-name: 
+
+----
+
+Meta-org-logo: 
+
+----
+
+Meta-person: 
+
+----
+
+Og-site-name: 
+
+----
+
+Og-image: 
+
+----
+
+Robots-index: 
+
+----
+
+Robots-follow: 
+
+----
+
+Robots-archive: 
+
+----
+
+Robots-imageindex: 
+
+----
+
+Robots-snippet: 
+
+----
+
+Meta-files: 
+
+----
+
+Seoheadscripts: 
+
+----
+
+Seobodyscripts: 
+
+----
+
+Logo: 
+
+----
+
+Menu:
+
+- page://MmSVXZxHZZhaScx2
+- page://I3kiDunG2jr4ZrU8
+- page://yGLdjSyu1uvtMvpU
+- page://MeoGp7yHR44VbOHk
+- page://p96Qi6H0T3wo0yzM
+- page://NzphF7xSdMUSWv0j
+
+----
+
+Submenu: 
+
+----
+
+Cta: 
+
+----
+
+Footermenu: 
+
+----
+
+Footerlogo: 
+
+----
+
+Footerclaim: 
+
+----
+
+Footersubmenu: 
+
+----
+
+Contactqr: 
+
+----
+
+Partnerheading: 
+
+----
+
+Partners: 
+
+----
+
+Ctadonate: 
+
+----
+
+Ctaschools: 
+
+----
+
+Ctanonprofit: 

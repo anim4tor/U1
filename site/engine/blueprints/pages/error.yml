@@ -1,0 +1,26 @@
+title: Error
+
+tabs:
+  content:
+    fields:
+      error:
+        extends: fields/header
+        width: 1/2
+
+      gradientFrom:
+        width: 1/4
+        label: Gradient From
+        type: color
+        mode: options
+        options:
+          type: query
+          query: kirby.option('colors')
+      gradientTo:
+        width: 1/4
+        label: Gradient To
+        type: color
+        mode: options
+        options:
+          type: query
+          query: kirby.option('colors')
+  meta: tabs/meta/page

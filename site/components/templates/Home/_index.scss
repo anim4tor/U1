@@ -1,0 +1,54 @@
+/*
+
+	PAGE: Index 
+	
+*/
+@import "../../atoms/Animation/animation";
+
+:root {
+
+}
+
+[page="home"] {
+
+}
+
+/*.intro__title {
+	[data-reveal-out] {
+		clip-path: inset(0% -10% -20% -10%);
+		
+	}
+	&.is-inview {
+		[data-reveal-out] [data-char] {
+			animation: reveal-out 1200ms $defaultEasing calc(1600ms + var(--char-index) * 50ms) forwards;
+		}
+	}
+}*/
+
+[intro-slider] {
+	[slide] {
+		clip-path: inset(10% -10% -20% -10%);
+
+		[data-word] {
+			clip-path: none;
+			transform: none;
+
+		}
+		[data-char] {
+			clip-path: none;
+			--delay: calc(var(--char-index) * 20ms + var(--init-delay, 0ms));
+			transform: translateY(-1.25em);
+		}
+		&.is-active {
+			visibility: visible;
+			[data-char] {
+				transform: none;
+			}
+		}
+	}
+}
+
+.reveal-enabled .is-inview [intro-slider] [slide] {
+	visibility: visible;
+}
+

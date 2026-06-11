@@ -1,0 +1,57 @@
+{
+  "name": "bnomei/kirby3-mobile-detect",
+  "type": "kirby-plugin",
+  "version": "1.4.1",
+  "license": "MIT",
+  "description": "Static Class and Page Methods for using Mobile Detect Lib",
+  "authors": [
+    {
+      "name": "Bruno Meilick",
+      "email": "b@bnomei.com"
+    }
+  ],
+  "keywords": [
+    "kirby3",
+    "kirby3-cms",
+    "kirby3-plugin",
+    "mobile-detect"
+  ],
+  "autoload": {
+    "psr-4": {
+      "Bnomei\\": "classes/"
+    }
+  },
+  "config": {
+    "optimize-autoloader": true,
+    "sort-packages": true,
+    "allow-plugins": {
+      "getkirby/composer-installer": true
+    }
+  },
+  "require": {
+    "php": ">=8.0",
+    "getkirby/composer-installer": "^1.1",
+    "mobiledetect/mobiledetectlib": "^2.8"
+  },
+  "require-dev": {
+    "getkirby/cms": "^3.5",
+    "php-coveralls/php-coveralls": "^2.1",
+    "phpunit/phpunit": "^9.5"
+  },
+  "scripts": {
+    "analyze": "phpstan analyse classes",
+    "fix": "php-cs-fixer fix",
+    "test": [
+      "mkdir -p tests/logs",
+      "@putenv XDEBUG_MODE=coverage",
+      "phpunit --configuration ./phpunit.xml"
+    ],
+    "dist": [
+      "composer install --no-dev --optimize-autoloader",
+      "git rm -rf --cached .; git add .;"
+    ]
+  },
+  "extra": {
+    "kirby-cms-path": "tests/kirby"
+  }
+}

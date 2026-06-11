@@ -1,0 +1,134 @@
+title: Web
+icon: display
+
+options:
+  title: false
+  duplicate: false
+  status: false
+  url: false
+  delete: false
+
+tabs:
+
+  # SITEMAP
+  # -------------------
+  pages:
+    label: Content
+    icon: sitemap
+    columns:
+      - width: 2/3
+        sections:
+          pages:
+            type: pages
+            label: Stránky
+            layout: cards
+            size: small
+            query: site.children.not(site.children.unlisted)
+            image:
+              query: page.cover.toFile
+              query: false
+              image: false
+              color: black
+              ratio: 5/3
+              back: "{{ page.gradientFrom }}"
+              back: "linear-gradient(45deg, {{ page.gradientFrom }} 0%, {{ page.gradientTo }} 100%)"
+
+      - width: 1/3
+        sections:
+          
+          drafts:
+            type: pages
+            label: Ostatní
+            help: Nepublikované a pomocné stránky
+            query: site.children.not(site.children.listed).filterBy('intendedTemplate', 'not in', ['theme','forms','modals','ajax'])
+
+          new:
+            type: pages
+            label: Drafty
+            help: Nedokončené stránky
+            query: site.children.drafts
+
+  # CTA
+  # -------------------
+  cta:
+    label: CTA
+    icon: bolt
+    columns:
+      - width: 1/1
+        fields:
+          ctaContact:
+            extends: fields/header
+            label: Contact Cta
+          ctaMenu:
+            type: pages
+            label: Menu
+
+  # CONTACT
+  # -------------------
+  contact:
+    label: Studio
+    icon: account
+    columns:
+      - width: 1/1
+        fields:
+          contactCompany:
+            type: text
+            label: Název
+            width: 1/2
+          contactEmail:
+            type: text
+            label: E-mail
+            width: 1/2
+          contactPhone:
+            type: text
+            label: Telefon
+            width: 1/2
+          contactPhoneNote:
+            type: writer
+            inline: true
+            label: Poznámka
+            width: 1/2
+          contactAddress:
+            type: text
+            label: Adresa
+            width: 1/3
+          contactMapUrl:
+            type: link
+            label: Mapa
+            width: 1/3
+          contactAddressNote:
+            type: writer
+            inline: true
+            label: Poznámka
+            width: 1/3
+          contactIc:
+            label: IČO
+            type: text
+            width: 1/3
+          contactBank:
+            label: Číslo účtu
+            type: text
+            width: 1/3
+          contactData:
+            label: Datová schránka
+            type: text
+            width: 1/3
+          contactOpening:
+            type: writer
+            inline: true
+            label: Otevírací doba
+            width: 1/2
+
+          social:
+            label: Sociální profily
+            type: structure
+            fields:
+              platform:
+                type: text
+              link:
+                type: url
+            width: 1/2
+
+  
+
+  meta: tabs/meta/site

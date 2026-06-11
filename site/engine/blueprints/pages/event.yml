@@ -1,0 +1,66 @@
+title: Event
+
+status:
+  draft: true
+  unlisted: true
+  listed: true
+
+tabs:
+  content:
+    columns:
+      - width: 1/2
+        fields:
+          cover:
+            type: files
+            template: cover
+            info: "{{ file.dimensions }}"
+            uploads:
+              template: cover
+            image:
+              ratio: 5/4
+              cover: true
+            min: 1
+            layout: cards
+            size: full
+            
+      - width: 1/2
+        fields:
+          excerpt:
+            type: writer
+            inline: true
+          category:
+            type: multiselect
+            options:
+              Workshop
+              Kurz
+              Komunita
+          date:
+            type: date
+            width: 1/2  
+          time:
+            type: time
+            width: 1/2
+          limit:
+            type: toggle
+            default: false
+            width: 1/2
+          seats:
+            type: number
+            when:
+              limit: true
+            width: 1/2
+          free:
+            type: toggle
+            default: true
+            width: 1/2
+          price:
+            type: number
+            width: 1/2
+            when:
+              free: false
+            after: Kč
+          desc:
+            type: writer
+       
+
+  meta: tabs/meta/page

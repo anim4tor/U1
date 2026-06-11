@@ -1,0 +1,430 @@
+Title: Theme
+
+----
+
+Scale: 1
+
+----
+
+Scalesetup: true
+
+----
+
+Min: 1
+
+----
+
+Base: 2
+
+----
+
+Vpad: 1
+
+----
+
+Hpad: 1
+
+----
+
+Gap: 0.5
+
+----
+
+Bg: #faf9f5
+
+----
+
+Col: #001c18
+
+----
+
+Palettesetup: true
+
+----
+
+Palette:
+
+-
+  name: primary-green
+  label: 'Primární zelená'
+  color: '#8f9e2e'
+-
+  name: prim
+  label: '1. barva'
+  color: '#001c18'
+-
+  name: olive
+  label: '2. barva'
+  color: '#59594e'
+-
+  name: sand
+  label: '3. barva'
+  color: '#cdcac2'
+-
+  name: light
+  label: '4. barva'
+  color: '#e8e5de'
+-
+  name: invert
+  label: Světlá
+  color: '#ffffff'
+-
+  name: white
+  label: Bílá
+  color: '#ffffff'
+-
+  name: none
+  label: Transparent
+  color: '#ffffff00'
+
+----
+
+Bodyface: Montserrat
+
+----
+
+Headingface: the-seasons
+
+----
+
+Scriptface: 
+
+----
+
+Typesetup: true
+
+----
+
+Typescalebody: 1.15
+
+----
+
+Typescaleheading: 1.7
+
+----
+
+Typebasemin: 
+
+----
+
+Typebodymin: 0.8
+
+----
+
+Typebaseflexible: 1
+
+----
+
+Typeheadingmin: 1
+
+----
+
+Typescale:
+
+-
+  html: Body
+  headinglevel: 1.0
+  bodylevel: ''
+  typeface: ''
+  unit: custom
+  size: 7.5
+  weight: light
+  case: normal
+-
+  html: Heading
+  headinglevel: 2.0
+  bodylevel: ''
+  typeface: ''
+  unit: scale
+  size: ''
+  weight: regular
+  case: normal
+-
+  html: ''
+  headinglevel: ''
+  bodylevel: ''
+  typeface: ''
+  unit: ''
+  size: ''
+  weight: ''
+  case: normal
+
+----
+
+Fontfaces:
+
+-
+  family: Canela
+  class: ''
+  source: Local
+  src: Canela-Thin-Web
+  url: ''
+  weight: ''
+  style: normal
+-
+  family: Montserrat
+  class: 'Sans Serif'
+  source: Import
+  src: ''
+  url: 'https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap'
+  weight: ''
+  style: ''
+-
+  family: the-seasons
+  class: Serif
+  source: Import
+  src: ''
+  url: 'https://use.typekit.net/ako1oce.css'
+  weight: ''
+  style: ''
+
+----
+
+Buttons:
+
+-
+  buttonname: primary
+  buttonface: the-seasons
+  buttonwidth: 1.0
+  buttonradius: 0.4
+  buttonsize: 1.0
+
+----
+
+Buttonvpad: 0.8
+
+----
+
+Buttonhpad: 1.5
+
+----
+
+Buttonstypes:
+
+-
+  buttonname: primary
+  buttonface: the-seasons
+  buttonwidth: 1.0
+  buttonradius: 10.0
+
+----
+
+Buttonface: Montserrat
+
+----
+
+Metatemplate: {{ title }} | Stáňa Hurtová - Z Nitra Ženy
+
+----
+
+Metadescription: 
+
+----
+
+Ogtemplate: 
+
+----
+
+Ogdescription: 
+
+----
+
+Ogsitename: 
+
+----
+
+Ogimage: []
+
+----
+
+Robotsindex: true
+
+----
+
+Robotsfollow: true
+
+----
+
+Robotsarchive: true
+
+----
+
+Robotsimageindex: true
+
+----
+
+Robotssnippet: true
+
+----
+
+Socialmediaaccounts:
+
+twitter: ''
+facebook: ''
+instagram: ''
+youtube: ''
+linkedin: ''
+
+----
+
+Seoheadscripts:
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GRGX2MK34Q"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-GRGX2MK34Q');
+</script>
+
+----
+
+Seobodyscripts: 
+
+----
+
+Typescaledefault: 1.7
+
+----
+
+Typescalemultiplier: 1.618
+
+----
+
+Typescalecustom: 1.65
+
+----
+
+Fontbody: Montserrat
+
+----
+
+Fontbodyweight: 
+
+----
+
+Fontheading: the-seasons
+
+----
+
+Fontheadingweight: 
+
+----
+
+Fontsizes:
+
+-
+  html: Body
+  headinglevel: ''
+  bodylevel: md
+  typeface: Canela
+  size: 1.0
+  weight: regular
+  case: normal
+  level: 1
+
+----
+
+Fontlabel: Montserrat
+
+----
+
+Fontlabelweight: 
+
+----
+
+Fontscript: 
+
+----
+
+Fontbutton: Montserrat
+
+----
+
+Fontimport:
+
+-
+  family: Montserrat
+  url: 'https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap'
+-
+  family: the-seasons
+  url: 'https://use.typekit.net/ako1oce.css'
+
+----
+
+Googelfont: Aladin, Alatsi
+
+----
+
+Fontface: 
+
+----
+
+Customfont: 
+
+----
+
+Unit: 2
+
+----
+
+Scalemin: 1
+
+----
+
+Scaleunit: 2.5
+
+----
+
+Scale-min: 
+
+----
+
+Scale-unit: 
+
+----
+
+Color1: #5e2d2d
+
+----
+
+Color2: #278972
+
+----
+
+Social: []
+
+----
+
+Twittercardtype: summary
+
+----
+
+Scrollheadereventattributes: data-scroll data-scroll-repeat data-scroll-ignore-fold data-scroll-position='enter' data-scroll-offset='100%, -99%' data-scroll-call='scrollEvent'
+
+----
+
+Font: Allura
+
+----
+
+Sizeh5: 0
+
+----
+
+Fontheadingsize:
+
+-
+  _id: 1bec72ac-2fc6-40f6-a4e7-635ccab826d9
+  level: 1
+  'desktop:size': 7.2
+  'mobile:size': 8
+
+----
+
+Sizeh2: 1
+
+----
+
+Uuid: Nkg43LNvqdXSg1lU

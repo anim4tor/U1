@@ -1,0 +1,104 @@
+/*
+
+	MOLECULES: Title 
+	
+*/
+@import "../../atoms/Media/media";
+@import "../../atoms/Animation/animation";
+
+:root {
+
+}
+
+.path__title {
+	width: 100vw;
+	height: 50vh;
+	margin-left: 0vw;
+
+	@include xs-screen {
+		height: 25vh;
+		margin-left: -25vw;
+	}
+	
+	.char, .whitespace {
+	  offset-path: var(--offset-path);
+	  --offset-scale: 0.5em;
+	  --offset-adjust: 0.0em;
+	  &[data-char="i"],
+	  &[data-char="í"],
+	  &[data-char="l"],
+	  &[data-char="j"] {
+	  	--offset-adjust: 0.16em;
+	  }
+	  &[data-char="t"] {
+	  	--offset-adjust: 0.14em;
+	  }
+	  &[data-char="A"] {
+	  	--offset-adjust: -0.08em;
+	  }
+	  &[data-char="č"],
+	  &[data-char="r"] {
+	  	--offset-adjust: 0.025em;
+	  }
+	  --offset: calc(var(--char-length) - var(--offset-adjust));
+/*	  offset-distance: calc(50em + var(--offset) - var(--progress) * 55em);*/
+	  offset-distance: calc(0em + var(--offset) - var(--progress) * 10em);
+	  offset-position: auto;
+	  offset-anchor: center center;
+	  position: absolute;
+	  text-align: center;
+
+	  @include xs-screen {
+			animation: loop 10s linear infinite alternate;
+
+	  }
+	}
+
+	.whitespace {
+		width: 0.4em;
+		display: inline-block;
+	}
+
+}
+
+@keyframes loop {
+  0% {
+    offset-distance: calc(var(--offset) - 10rem);
+/*    color: hotpink;*/
+  }
+  100% {
+    offset-distance: calc(var(--offset) - 100rem);
+  }
+}
+
+[data-scroll-trigger] [data-reveal-path] [data-char] {
+  --delay: calc(var(--char-index) * 10ms);
+  @include animation((transform, clip-path));
+  transition-delay: var(--delay);
+
+  display: inline-block;
+  line-height: 1em;
+
+  transform: translateY(calc(1em - var(--trigger)*1em));
+/*  clip-path: inset(-120% -10% 120% -10%);*/
+	clip-path: inset(calc(-120% + var(--trigger)*110%) -10% calc(120% - var(--trigger)*130%) -10%);
+}
+
+
+:root {
+	--offset-path: path('M1 175C95 117 343.9 1 587.5 1C1049.5 1 1204.5 387 1709.5 387C2027.5 387 2211.33 245.667 2291 175');
+}
+
+
+.path__curve__1 {
+/*	--offset-path: path('M1 175C95 117 343.9 1 587.5 1C1049.5 1 1204.5 387 1709.5 387C2027.5 387 2211.33 245.667 2291 175');*/
+	--offset-path: path('M-1156.5 0C-1075.17-59.5-837.4-178.5-537-178.5-161.5-178.5 182 215.5 560.5 215.5 863.3 215.5 1070.3333 71.833 1136 0');
+
+}
+
+.path__curve__2 {
+/*	--offset-path: path('M1 179.5C66.6667 251.333 273.7 395 576.5 395C955 395 1298.5 1 1674 1C1974.4 1 2212.17 120 2293.5 179.5');*/
+	--offset-path: path('M1156.5 0C1075.17 59.5 837.4 178.5 537 178.5 161.5 178.5-182-215.5-560.5-215.5-863.3-215.5-1070.3333-71.833-1136 0');
+}
+
+

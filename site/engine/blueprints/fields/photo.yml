@@ -1,0 +1,11 @@
+type: files
+label: Fotografie
+template: large-image
+layout: cards
+size: medium
+info: "{{ file.dimensions }}"
+uploads:
+  template: large-image
+image:
+  ratio: 5/4
+  cover: true

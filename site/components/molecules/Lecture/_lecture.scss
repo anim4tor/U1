@@ -1,0 +1,53 @@
+/*  
+
+    MOLECULES: Class
+
+*/
+:root {
+    
+}
+
+.class__item.--small,
+.class__item.--default {
+    [href] {
+        .lecture__figure {
+            @include animation;
+            width: 0;
+            margin-right: 0;
+        }
+        img {
+            @include animation;
+            transform-origin: bottom left;
+            transform: scale(0);
+        }
+        &:hover {
+            .lecture__figure {
+                width: calc(var(--spacing) * var(--figure_size));
+                margin-right: calc(var(--spacing) * 0.5);
+            }
+            img {
+                transform: scale(1.1);
+            }
+        }
+    }
+}
+.class__item.--small {
+    --figure_size: 2;
+}
+.class__item.--default {
+    --figure_size: 3;
+}
+.class__item.--large {
+    [href] {
+        overflow: hidden;
+        .lecture__figure {
+            @include animation;
+            transform: scale(1.1);
+        }
+        &:hover {
+            .lecture__figure {
+                transform: scale(1);
+            }
+        }
+    }
+}

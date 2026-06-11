@@ -1,0 +1,37 @@
+title: Lecture
+
+status:
+  draft: true
+  unlisted: true
+  listed: true
+
+tabs:
+  content:
+    fields:
+      hero:
+        extends: fields/hero
+      intro:
+        extends: fields/header
+        label: Intro
+      features:
+        width: 1/1
+        extends: fields/header
+        label: Features
+      details:
+        width: 1/1
+        extends: fields/header
+        label: Details
+      meditation:
+        width: 1/1
+        type: writer
+        inline: true
+      gallery:
+        width: 1/1
+        type: blocks
+        empty: No images yet
+        layouts:
+          - "1/1"
+        fieldsets:
+          - gallery
+
+  meta: tabs/meta/page

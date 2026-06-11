@@ -1,0 +1,4 @@
+sections:
+  livePreview:
+    type: preview
+    # aspectRatio: 5/3

@@ -1,0 +1,31 @@
+title: Events
+
+tabs:
+  content:
+    columns:
+      - width: 1/1
+        fields:
+          hero:
+            extends: fields/hero
+        
+      - width: 2/3
+        sections:
+          listed:
+            extends: sections/events
+            headline: Featured events
+            status: listed
+
+      - width: 1/3
+        sections:
+          drafts:
+            extends: sections/events
+            headline: Drafts
+            layout: list
+            status: draft
+          unlisted:
+            extends: sections/events
+            headline: Archive
+            layout: list
+            status: unlisted
+
+  meta: tabs/meta/page

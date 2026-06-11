@@ -1,0 +1,8 @@
+name: Info
+icon: info
+preview: fields
+wysiwyg: true
+fields:
+  text:
+    label: Obsah
+    type: blocks

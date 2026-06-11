@@ -1,0 +1,247 @@
+/*
+
+	TYPOGRAPHY
+	
+*/
+
+@import "../Media/media";
+:root {
+  --xl: 1.85;
+  --l: 1.5;
+  --m: 1.25;
+
+  --screen-scale: 1;
+  @include create-mq($screen-mobile, 'max') {
+      --screen-scale: 0.7;
+  }
+}
+
+/*
+    FONT FACES
+*/
+
+@font-face {
+    font-family: 'Plain';
+    src: url('../fonts/Plain-Light.woff2') format('woff2'),
+        url('../fonts/Plain-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Plain';
+    src: url('../fonts/Plain-Regular.woff2') format('woff2'),
+        url('../fonts/Plain-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Plain';
+    src: url('../fonts/Plain-Medium.woff2') format('woff2'),
+        url('../fonts/Plain-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+/*
+	IMPORTS
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+/*
+    Levels
+*/
+
+$levels: 'small', 'default', 'large', 5, 4, 3, 2, 1;
+
+@each $modifier , $breakpoint in $map-grid-props {
+    @if($modifier == '') {
+        @each $level in $levels {
+            h#{$level},
+            .font__size__#{$level} {
+                --output-size: calc(var(--font-size-#{$level}));
+                font-size: var(--output-size);
+                line-height: var(--line-height-#{$level});
+            }
+        }
+    } @else {
+        @each $level in $levels {
+            @include create-mq($breakpoint, 'max') {
+                .#{$modifier}\:font__size__#{$level} {
+                    --output-size: calc(var(--font-size-#{$level}));
+                    font-size: var(--output-size);
+                    line-height: var(--line-height-#{$level});
+                }
+            }
+        }
+    }
+}
+
+
+
+/*
+    Modifiers
+*/
+$mods: ( 
+    xl: 2,
+    l: 1.5,
+    m: 1.25,
+    df: 1,
+    s: 0.85,
+    xs: 0.7
+);
+@each $modifier , $breakpoint in $map-grid-props {
+    @if($modifier == '') {
+        @each $mod, $scale in $mods {
+            .#{$mod} {
+                font-size: calc(var(--output-size) * #{$scale});
+                h1, h2, h3, h4, h5, h6,
+                p, a, li {
+                    font-size: calc(var(--output-size) * #{$scale});
+                }
+            }
+        }
+    } @else {
+        @include create-mq($breakpoint, 'max') {
+            @each $mod, $scale in $mods {
+                .#{$modifier}\:#{$mod} {
+                    font-size: calc(var(--output-size) * #{$scale});
+                    h1, h2, h3, h4, h5, h6,
+                    p, a, li {
+                        font-size: calc(var(--output-size) * #{$scale});
+                    }
+                }
+            }
+        }
+    }
+}
+
+/*
+    Body
+*/
+
+html {font-size: 100%;} /*16px*/
+body {
+  --output-size: var(--font-size-default);
+  font-family: var(--font-family-body);
+  font-size: var(--output-size);
+  line-height: var(--line-height-default);
+  font-weight: var(--font-weight-body);
+  font-optical-sizing: auto;
+}
+
+/*
+    Headings
+*/
+
+h1, h2, h3, h4, h5 {
+    font-size: var(--output-size);
+    font-family: var(--font-family-heading);
+    font-weight: var(--font-weight-heading);
+    font-optical-sizing: auto;
+    letter-spacing: -0.05em;
+    margin-top: -0.2em;
+}
+.ff__heading,
+.ff__heading *
+{
+    font-family: var(--font-family-heading);
+}
+
+/*
+    Paragraphs
+*/
+
+p, a {
+    font-size: var(--output-size);
+    font-family: var(--font-family-body);
+    font-weight: var(--font-weight-body);
+    letter-spacing: -0.035em;
+}
+p {
+    margin-top: -0.2em;
+}
+.ff__body,
+.ff__body *
+{
+    font-family: var(--font-family-body);
+}
+
+
+/*
+    Utils
+*/
+
+.text__right {
+    text-align: right;
+}
+
+.text__center {
+    text-align: center;
+}
+
+.text__left {
+    text-align: left;
+}
+
+.text__justify {
+    text-align: justify;
+}
+
+.lighter {
+    font-weight: lighter;
+}
+.bolder {
+    font-weight: bolder;
+}
+
+.lower {
+    text-transform: capitalize;
+}
+
+.upper {
+    text-transform: uppercase;
+}
+
+.mono {
+  font-family: var(--font-family-body), sans-serif;
+  font-size: 0.8rem;
+  font-weight: 500;
+  line-height: 1.4em;
+  text-transform: uppercase;
+
+  h1, h2, h3, h4, h5 {
+    text-transform: capitalize;
+  }
+
+  &.xs {
+    @include xs-screen {
+        font-size: 0.6rem;
+        margin-top: 0.5em;
+    }
+  }
+}
+
+.hyphens {
+   -webkit-hyphens: auto;
+   -moz-hyphens: auto;
+   hyphens: auto; 
+   word-wrap: break-word
+}
+
+.dot {
+    --size: 2px;
+    display: inline-block;
+    width: var(--size);
+    height: var(--size);
+    border-radius: 50%;
+    background-color: currentColor;
+
+    &.large {
+        --size: 0.5em;
+    }
+}

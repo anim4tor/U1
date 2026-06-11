@@ -1,0 +1,217 @@
+/*
+
+	ORGANISM: Booking
+	
+*/
+@import "../../atoms/Media/media";
+@import "../../atoms/Animation/animation";
+@import "../../atoms/Theme/border";
+:root {
+	--booking-width: 40vw;
+	--booking-wider: 60vw;
+
+	@include xs-screen {
+		--booking-width: 100vw;
+	}
+}
+
+
+[fab] {
+	--size: Max(calc(var(--spacing)*2.15), 62px);
+	z-index: 1000;
+	position: fixed;
+	bottom: var(--spacing);
+	right: var(--spacing);
+	display: block;
+
+	button {
+		width: var(--size);
+		height: var(--size);
+		clip-path: polygon(15% 15%, 50% 0, 85% 15%, 100% 50%, 85% 85%, 50% 100%, 15% 85%, 0 50%);		display: flex;
+		align-items: center;
+		justify-content: center;
+		@include animation;
+		
+		svg path {
+			fill: rgb(var(--color-invert));
+		}
+
+		&:hover {
+			clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+		}
+	}
+
+
+}
+
+booking,
+[data-booking] {
+	backdrop-filter: blur(0rem) brightness(1);
+	
+	[data-booking-widget] {
+		max-height: calc(100vh - calc(var(--spacing)*4));
+		overflow-y: auto;
+		
+		@include animation((clip-path), 600ms);
+		transition-delay: var(--delay);
+		clip-path: inset(100% 0% 0% 100%);
+
+		[data-pane-container] {
+			@include animation((height, width), 600ms);
+		}
+	}
+		nav [data-tab], nav [href] {
+			& > * {
+				@include animation((transform), 600ms);
+			}
+			&:hover > * {
+				transform: translateX(0.5em);
+			}
+		}
+
+		[data-pane] {
+			@include animation((transform, opacity), 600ms);
+			opacity: 0;
+			transform: translateY(-1em);
+			width: var(--booking-width);
+
+			&.wider {
+				width: var(--booking-wider);
+			}
+
+			&[data-active] {
+				opacity: 1;
+				transition-delay: 400ms;
+				transform: none;
+			}
+		}
+}
+
+[data-booking] {
+	--delay: 100ms;
+	z-index: 999;
+	visibility: hidden;
+	pointer-events: none;
+	position: fixed;
+	inset: 0;
+	@include animation;
+	transition-duration: 600ms;
+}
+
+	[data-booking-reveal] {
+		@include animation;
+		visibility: hidden;
+		transition-delay: var(--out-delay);
+		--delay: 0ms;
+
+	    @for $i from 1 through 12 {
+	    	&:nth-child(#{$i}) {
+	    	  --out-delay: calc(var(--delay, 0) + #{$i} * 100ms);
+	    	}
+	    }
+		transform: rotate(-30deg) scale(0);
+
+		[data-word] {
+		    @include animation((transform, clip-path));
+		    transition-delay: var(--out-delay);
+
+		    display: inline-block;
+		    line-height: 1em;
+
+		    transform: translateY(2em);
+		    clip-path: inset(-120% -10% 120% -10%);
+		}
+	}
+
+	[data-booking-hide] {
+		@include animation;
+		transition-delay: var(--out-delay);
+		--delay: 200ms;
+		@for $i from 1 through 12 {
+			&:nth-child(#{$i}) {
+			  --out-delay: calc(var(--delay, 0) + #{$i} * 100ms);
+			}
+		}
+		visibility: visible;
+		transform: rotate(0deg) scale(1);
+	}
+
+[booking-open] {
+	
+	[data-booking] {
+		visibility: visible;
+		pointer-events: all;
+		backdrop-filter: blur(1rem) brightness(0.7);
+		
+		[data-booking-widget] {
+			transition-delay: 0ms;
+			clip-path: inset(0% 0% 0% 0%);
+		}
+	}
+
+	[data-booking-reveal] {
+		visibility: visible;
+		transform: rotate(0deg) scale(1);
+		--delay: 200ms;
+
+		[data-word] {
+			opacity: 1;
+			transform: none;
+			clip-path: inset(0% 0% 0% 0%);
+			visibility: visible;
+		}
+	}
+
+	[data-booking-hide] {
+		visibility: hidden;
+		--delay: 0ms;
+		transform: rotate(-30deg) scale(0);
+	}
+}
+
+[data-booking-toggle] {
+	cursor: pointer;
+}
+
+calendar {
+	day {
+/*		box-shadow: 0 0 0 1px rgba(var(--color-dark),0.1);*/
+	}
+	day:not([current]) {
+		.daynum {
+			opacity: .2;
+		}
+		.event {
+/*			filter: grayscale(100%);*/
+/*			opacity: .2;*/
+
+			.dot {
+				--size: 0.5em;
+			}
+			p {
+				opacity: 0;
+			}
+		}
+	}
+	day[current] {
+		background: rgba(var(--color-dark),1);
+		color: rgba(var(--color-invert),1);
+	}
+	day:not([current]):hover {
+		background: rgba(var(--color-invert),1);
+		.daynum {
+			opacity: 1;
+		}
+		.event {
+			filter: none;
+			opacity: 1;
+
+			.dot {
+				--size: 0.5em;
+			}
+			p {
+				opacity: 1;
+			}
+		}
+	}
+}

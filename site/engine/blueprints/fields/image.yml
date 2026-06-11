@@ -1,0 +1,9 @@
+type: files
+template: image
+label: Obrázek
+layout: cards
+size: large
+uploads:
+  template: image
+image:
+  cover: true

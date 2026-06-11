@@ -1,0 +1,11 @@
+type: group
+fields:
+  seoHeadScripts:
+    label: <head> scripts
+    type: textarea
+    buttons: false
+    
+  seoBodyScripts:
+    label: <body> scripts
+    type: textarea
+    buttons: false

@@ -1,0 +1,15 @@
+label: Nested tabs
+type: toggles
+default: desktop
+labels: false
+# grow: false
+options:
+  - value: desktop
+    text: Desktop
+    icon: display
+  - value: table
+    text: Tablet
+    icon: tablet
+  - value: mobile
+    text: Mobile
+    icon: mobile

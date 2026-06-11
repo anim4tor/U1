@@ -1,0 +1,15 @@
+type: group
+fields:
+  customTitle:
+    label: Custom title
+    width: 1/4
+    type: writer
+    inline: true
+  menuTitle:
+    label: Menu label
+    width: 1/4
+    type: text
+  subtitle:
+    width: 1/2
+    type: writer
+    inline: true

@@ -1,0 +1,13 @@
+type: blocks
+label: Hlavička sekce
+fieldsets:
+  - heading
+  - text
+  - list
+  - line
+  - image
+  - gallery
+  - video
+  - code
+  - markdown
+  - button

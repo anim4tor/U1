@@ -1,0 +1,13 @@
+title: Contact
+
+tabs:
+  content:
+    columns:
+      - width: 1/1
+        fields:
+          hero:
+            extends: fields/hero
+          intro:
+            extends: fields/header
+
+  meta: tabs/meta/page

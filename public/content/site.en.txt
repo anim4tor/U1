@@ -1,0 +1,201 @@
+Title: Yoga i-D
+
+----
+
+Ctacontact: [{"content":{"text":"Yoga is a journey that continues off the mat.","level":"h2","mod":"s","attr=data-scroll":"false","attr=data-reveal":"","attr=data-reveal-children":"false","attr=data-reveal-words":"false","attr=data-reveal-section":"false","bid":"","attr":"","href":"","node":""},"id":"cca7af1a-8a67-4bac-abb7-4248428c7344","isHidden":false,"type":"heading"},{"content":{"label":"Contact us","style":"dark","size":"default","link":"page://NzphF7xSdMUSWv0j","target":"false"},"id":"c32b7557-d654-4960-b1fc-925674f89043","isHidden":false,"type":"button"}]
+
+----
+
+Ctamenu:
+
+- page://MmSVXZxHZZhaScx2
+- page://I3kiDunG2jr4ZrU8
+- page://yGLdjSyu1uvtMvpU
+- page://MeoGp7yHR44VbOHk
+
+----
+
+Contactcompany: YOGA i-D
+
+----
+
+Contactemail: hello@yogaid.cz
+
+----
+
+Contactphone: +420 603 209 789
+
+----
+
+Contactphonenote: According to the studio schedule
+
+----
+
+Contactaddress: Poštovská 68/3, 602 00 Brno-střed
+
+----
+
+Contactmapurl: https://maps.app.goo.gl/As6nDPsG4w7Y2dax9
+
+----
+
+Contactaddressnote: The building used to be a post office. The entrance is through the main door and then up the stairs to the right.
+
+----
+
+Contactic: 
+
+----
+
+Contactbank: 
+
+----
+
+Contactdata: 
+
+----
+
+Contactopening: The studio is not open all day. The reception operates according to the studio schedule
+
+----
+
+Social:
+
+- 
+  platform: Instagram
+  link: >
+    https://www.instagram.com/yogaid_official/
+- 
+  platform: Facebook
+  link: https://www.facebook.com/yogaid.cz
+- 
+  platform: YouTube
+  link: >
+    https://www.youtube.com/channel/UCSKmxJI8GVIqv1ZnjqFE2dA
+
+----
+
+Meta-description: 
+
+----
+
+Meta-title-separator: -
+
+----
+
+Meta-website-owner: 
+
+----
+
+Meta-org-name: 
+
+----
+
+Meta-org-logo: 
+
+----
+
+Meta-person: 
+
+----
+
+Og-site-name: 
+
+----
+
+Og-image: 
+
+----
+
+Robots-index: 
+
+----
+
+Robots-follow: 
+
+----
+
+Robots-archive: 
+
+----
+
+Robots-imageindex: 
+
+----
+
+Robots-snippet: 
+
+----
+
+Meta-files: 
+
+----
+
+Seoheadscripts: 
+
+----
+
+Seobodyscripts: 
+
+----
+
+Logo: 
+
+----
+
+Menu:
+
+- page://MmSVXZxHZZhaScx2
+- page://I3kiDunG2jr4ZrU8
+- page://yGLdjSyu1uvtMvpU
+- page://MeoGp7yHR44VbOHk
+- page://p96Qi6H0T3wo0yzM
+- page://NzphF7xSdMUSWv0j
+
+----
+
+Submenu: 
+
+----
+
+Cta: 
+
+----
+
+Footermenu: 
+
+----
+
+Footerlogo: 
+
+----
+
+Footerclaim: 
+
+----
+
+Footersubmenu: 
+
+----
+
+Contactqr: 
+
+----
+
+Partnerheading: 
+
+----
+
+Partners: 
+
+----
+
+Ctadonate: 
+
+----
+
+Ctaschools: 
+
+----
+
+Ctanonprofit: 

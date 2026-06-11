@@ -1,0 +1,51 @@
+/*  
+
+    PAGE: Lecture
+
+*/
+:root {
+    
+}
+
+.meditation {
+    .sticky__wrapper {
+        height: 500vh;
+        width: 100vw;
+    }
+
+    [data-reveal-progress] {
+        visibility: visible;
+
+        [data-word] {
+            transform: none;
+            clip-path: initial;
+            filter: blur(calc(1em - var(--word-total)*0.5*1em*(var(--progress) - (var(--word-index) + 0)/(var(--word-total) + 2))));
+            opacity: calc(0 + var(--word-total)*0.5*1*(var(--progress) - (var(--word-index) + 0)/(var(--word-total) + 2)));
+
+
+        }
+            [data-char] {
+                transform: none;
+                clip-path: initial;
+                filter: blur(calc(1em - var(--char-total)*1em*(var(--progress) - (var(--char-index) + 0)/(var(--char-total)/2 + 1))));
+                opacity: calc(0 + var(--char-total)*1*(var(--progress) - (var(--char-index) + 0)/(var(--char-total)/2 + 1)));
+            }
+    }
+}
+
+.octagon {
+    @include animation;
+    transition-duration: 3s;
+    transform: scale(calc(0.8 + var(--trigger-in)*0.2 - var(--trigger-out)*0.2));
+    opacity: calc(0 + var(--trigger-in)*1 - var(--trigger-out)*1);
+    svg {
+        &:first-child {
+            opacity: .3;
+            transform: rotate(calc(10deg + 90deg*var(--progress)));
+        }
+        &:last-child {
+            opacity: .15;
+            transform: rotate(calc(0deg - 90deg*var(--progress)));
+        }
+    }
+}

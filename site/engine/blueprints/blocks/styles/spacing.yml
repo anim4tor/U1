@@ -1,0 +1,7 @@
+name: Spacing
+type: spacing
+icon: code
+preview: fields
+wysiwyg: true
+fields:
+  child: settings/style/spacing

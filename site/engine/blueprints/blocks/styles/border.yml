@@ -1,0 +1,7 @@
+name: Border
+type: border
+icon: code
+preview: fields
+wysiwyg: true
+fields:
+  borders: settings/style/border

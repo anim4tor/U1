@@ -1,0 +1,80 @@
+label: Buttons
+columns:
+  - width: 1/1
+    fields:
+      buttonL:
+        type: line
+      buttonH:
+        type: headline
+        label: Nastavení tlačítek
+
+  - width: 3/4
+    fields:
+      buttons:
+        type: structure
+        label: Buttons
+        fields:
+          buttonName:
+            type: text
+            label: Name
+          buttonFace:
+            type: select
+            label: Font face
+            width: 1/2
+            options:
+              type: query
+              query: page('theme').fontFaces.toStructure
+              text: "{{ item.family }}"
+              value: "{{ item.family }}"
+
+          buttonWidth: 
+            width: 1/2
+            label: Border width
+            type: number
+            default: 0
+            placeholder: 0
+            min: 0
+            after: 'px'
+
+          buttonRadius: 
+            width: 1/2
+            label: Border radius
+            type: range
+            default: 0
+            placeholder: 0
+            min: 0
+            max: 2
+            step: 0.05
+            after: 'em'
+
+          buttonSize: 
+            width: 1/1
+            label: Size
+            type: range
+            default: 1
+            placeholder: 1
+            min: 0
+            max: 2
+            step: 0.05
+
+      buttonVPad:
+        width: 1/2
+        label: Vertical padding
+        type: range
+        default: 1
+        placeholder: 1
+        min: 0
+        max: 5
+        step: 0.1
+        after: 'em'
+
+      buttonHPad:
+        width: 1/2
+        label: Horizontal padding
+        type: range
+        default: 1
+        placeholder: 1
+        min: 0
+        max: 5
+        step: 0.1
+        after: 'em'

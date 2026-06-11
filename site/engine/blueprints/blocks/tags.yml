@@ -1,0 +1,7 @@
+name: Label
+icon: tag
+preview: fields
+wysiwyg: true
+fields:
+  tags: 
+    type: tags

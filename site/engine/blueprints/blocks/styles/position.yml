@@ -1,0 +1,7 @@
+name: Position
+type: position
+icon: code
+preview: fields
+wysiwyg: true
+fields:
+  child: settings/style/position

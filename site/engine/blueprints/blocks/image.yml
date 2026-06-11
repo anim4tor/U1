@@ -1,0 +1,15 @@
+name: Obrázek
+icon: image
+preview: image
+size: full
+tabs:
+  file:   
+    fields:
+      image: 
+        extends: fields/image
+        max: 1
+
+  interactions: settings/interactions/animation-image
+  settings: settings/node
+  
+      

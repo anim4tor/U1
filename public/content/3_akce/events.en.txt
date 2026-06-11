@@ -1,0 +1,53 @@
+Title: Events
+
+----
+
+Slug: events
+
+----
+
+Customtitle: 
+
+----
+
+Subtitle: You can look forward to enriching topics, deepening your knowledge, yoga practice, and extraordinary teachers. At any time during the year, you will find a theme that appeals to you and interests you.
+
+----
+
+Menutitle: Workshops & Courses
+
+----
+
+Gradientfrom: #afbec8
+
+----
+
+Gradientto: #b3bae7
+
+----
+
+Cover: 
+
+----
+
+Meta-description: 
+
+----
+
+Meta-title: 
+
+----
+
+Meta-canonical-url: 
+
+----
+
+Og-title: 
+
+----
+
+Og-description: 
+
+----
+
+Og-image: 

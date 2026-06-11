@@ -1,0 +1,68 @@
+/*
+
+	FORM INPUTS
+
+*/
+input, textarea, select {
+	font-family: var(--font-body);
+	font-size: var(--font-size-lg);
+	line-height: var(--line-height-default);
+	font-weight: var(--font-weight-body);
+	letter-spacing: 0.035em;
+	padding: calc(var(--spacing)*1) 0;
+	color: currentColor;
+	position: relative;
+	width: 100%;
+	border-bottom: 1px solid rgba(var(--col),.2);
+
+	&::placeholder {
+		color: rgba(var(--col),.4);
+	}
+
+	&:focus, &:target {
+		border-bottom: 1px solid rgba(var(--col),1);
+	}
+
+	&.invalid {
+		animation: invalid 2s linear;
+/*		border-color: color(red);*/
+	}
+}
+
+.field {
+	position: relative;
+	width: 100%;
+	&:after {
+		content: '';
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+	}
+}
+
+[data-checkbox] {
+/*	display: inline-flex;*/
+	width: auto;
+	input {
+		position: absolute;
+		opacity: 0;
+		cursor: pointer;
+		height: 0;
+		width: 0;
+	}
+
+	input:checked + div.button {
+		background: rgba(var(--color-invert),1);
+		color: rgba(var(--color-dark),1);
+	}
+}
+
+.honeypot {
+    position: absolute;
+    left: -9999px;
+}
+
+input[type="file"] {
+	font-size: calc(var(--font-size-md)*1);
+}

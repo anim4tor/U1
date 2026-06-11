@@ -1,0 +1,301 @@
+name: Background
+type: group
+icon: code
+fields:
+  bg:l:
+    type: line
+  bg:h:
+    type: headline
+    label: Background
+    width: 3/4
+
+  bg:tabs: 
+    extends: fields/tabs
+    width: 1/4
+
+  bg:desktop:
+    type: group
+    when:
+      bg:tabs: desktop
+    fields:
+      
+      background:
+        type: structure
+        label: Backgrounds
+        columns:
+          bg-type:
+            width: 1/1
+
+        fields:
+          bg-type:
+            type: toggles
+            label: Type
+            options:
+              - value: image
+                icon: image
+              - value: linear gradient
+                icon: linear-gradient
+              - value: radial gradient
+                icon: radial-gradient
+              - value: color
+                icon: color
+
+          bg__image:
+            type: group
+            when:
+              bg-type: image
+            fields:
+              upload-image:
+                type: files
+                label: Image
+                template: cover
+                layout: cards
+                uploads:
+                  template: cover
+                image:
+                  cover: true
+
+              image_size:
+                type: toggles
+                label: Image size
+                options:
+                  - custom
+                  - cover
+                  - contain
+
+              image_width:
+                type: number
+                when:
+                  image_size: custom
+                label: Width
+                width: 1/2
+                min: 0
+                after: '%'
+
+              image_height:
+                type: number
+                when:
+                  size: custom
+                label: Height
+                width: 1/2
+                min: 0
+                after: '%'
+
+              image_left:
+                type: number
+                label: Position left
+                width: 1/2
+                min: 0
+                after: '%'
+
+              image_top:
+                type: number
+                label: Position top
+                width: 1/2
+                min: 0
+                after: '%'
+
+              image_fixed:
+                type: toggle
+                label: Fixed
+                width: 1/2
+
+          bg__linear-gradient:
+            type: group
+            when:
+              bg-type: linear gradient
+            fields:
+              linear_angle:
+                type: number
+                label: Angle
+                min: -360
+                max: 360
+                after: deg
+              linear__steps:
+                type: structure
+                label: Steps
+                fields: 
+                  position:
+                    type: range
+                    min: 0
+                    max: 100
+                    step: 1
+                    after: '%'
+                  color-from:
+                    type: toggles
+                    label: Color
+                    default: theme
+                    width: 1/2
+                    options:
+                      - theme
+                      - custom
+                  color:
+                    type: color
+                    when: 
+                      color-from: theme
+                    mode: options
+                    label: Theme color
+                    width: 1/2
+                    options:
+                      type: query
+                      query: site.palette.toStructure
+                      text: "{{ item.name }}"
+                      value: "{{ item.color }}"
+                  ccolor:
+                    type: color
+                    when: 
+                      color-from: custom
+                    label: Custom color
+                    alpha: true
+                    width: 1/2
+                  alpha:
+                    type: range
+                    width: 1/2
+                    min: 0
+                    max: 1
+                    step: 0.01
+
+          bg__radial-gradient:
+            type: group
+            when:
+              bg-type: radial gradient
+            fields:
+              radial_left:
+                type: number
+                label: Left
+                width: 1/2
+                min: 0
+                after: '%'
+
+              radial_top:
+                type: number
+                label: Top
+                width: 1/2
+                min: 0
+                after: '%'
+
+              radial_steps:
+                type: structure
+                label: Steps
+                fields: 
+                  position:
+                    type: range
+                    min: 0
+                    max: 100
+                    step: 1
+                    after: '%'
+                  color-from:
+                    type: toggles
+                    label: Color
+                    default: theme
+                    width: 1/2
+                    options:
+                      - theme
+                      - custom
+                  color:
+                    type: color
+                    when: 
+                      color-from: theme
+                    mode: options
+                    label: Theme color
+                    width: 1/2
+                    options:
+                      type: query
+                      query: site.palette.toStructure
+                      text: "{{ item.name }}"
+                      value: "{{ item.color }}"
+                  ccolor:
+                    type: color
+                    when: 
+                      color-from: custom
+                    label: Custom color
+                    alpha: true
+                    width: 1/2
+                  alpha:
+                    type: range
+                    width: 1/2
+                    min: 0
+                    max: 1
+                    step: 0.01
+
+
+          bg__color:
+            type: group
+            when:
+              bg-type: color
+            fields:
+              color-from:
+                type: toggles
+                label: Color
+                default: theme
+                width: 1/2
+                options:
+                  - theme
+                  - custom
+              preset-color:
+                type: color
+                when: 
+                  color-from: theme
+                mode: options
+                label: Theme color
+                width: 1/2
+                options:
+                  type: query
+                  query: site.palette.toStructure
+                  text: "{{ item.name }}"
+                  value: "{{ item.color }}"
+              custom-color:
+                type: color
+                when: 
+                  color-from: custom
+                label: Custom color
+                alpha: true
+                width: 1/2
+
+      color:
+        type: toggles
+        label: Color
+        default: theme
+        width: 1/2
+        options:
+          - theme
+          - custom
+      css=bg:
+        type: color
+        when: 
+          color: theme
+        mode: options
+        label: Theme colors
+        width: 1/2
+        options:
+          type: query
+          query: site.palette.toStructure
+          text: "{{ item.name }}"
+          value: "{{ item.color }}"
+
+      inline=custom-bg-color:
+        type: color
+        when: 
+          color: custom
+        label: Custom color
+        alpha: true
+        width: 1/2
+
+
+      # file=bg-image:
+      #   type: files
+      #   template: cover
+      #   label: Background image
+      #   layout: cards
+      #   width: 1/2
+      #   uploads:
+      #     template: cover
+      #   image:
+      #     cover: true
+
+      # attr=data-parallax:
+      #   label: Parallax background
+      #   type: toggle
+      #   default: false
+      #   width: 1/2
+

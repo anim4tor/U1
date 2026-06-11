@@ -1,0 +1,113 @@
+Title: Ashtanga
+
+----
+
+Customtitle: 
+
+----
+
+Subtitle: Meditace v pohybu a s nadhledem
+
+----
+
+Menutitle: 
+
+----
+
+Cover: - file://wrGT8Ph4JTJrXfv9
+
+----
+
+Intro: [{"content":{"text":"Ashtanga Yoga is the fluidity of movement in harmony with the Ujjayi breath. It is among the more physically demanding forms of yoga.","level":"h2","mod":"","attr=data-scroll":"true","attr=data-reveal":"bottom","attr=data-reveal-children":"false","attr=data-reveal-words":"false","attr=data-reveal-section":"false","bid":"","attr":"","href":"","node":""},"id":"d9851c44-fc1c-49f7-8444-986b24ecfebe","isHidden":false,"type":"heading"},{"content":{"text":"<p>The practice consists of a fixed sequence of asanas performed at a steady pace. Every inhale and exhale is matched with a movement. During this practice, you will sweat, strengthen your body, and flush out toxins. It is truly meditation in motion.</p>","mod":"l","face":"","attr=data-scroll":"true","attr=data-reveal":"","attr=data-reveal-children":"false","attr=data-reveal-words":"false","attr=data-reveal-section":"false","bid":"","attr":"","href":"","node":""},"id":"853b5688-e2a2-465c-9669-9222c7427037","isHidden":false,"type":"text"}]
+
+----
+
+Features: [{"content":{"text":"Meditation in motion","level":"h3","mod":"s","attr=data-scroll":"false","attr=data-reveal":"","attr=data-reveal-children":"false","attr=data-reveal-words":"false","attr=data-reveal-section":"false","bid":"","attr":"","href":"","node":""},"id":"02bba89f-a387-49d3-b322-fbb50230f29f","isHidden":false,"type":"heading"},{"content":{"text":"<p>Ashtanga Yoga is a comprehensive system consisting of six series in total. Most commonly, you will encounter the Primary Series, which focuses heavily on forward folds to detoxify and strengthen the physical body, and the Intermediate Series, which incorporates more backbends and arm balances to open energy channels. Subsequent series focus primarily on the ultimate flexibility of both body and mind.</p>","mod":"","face":"","attr=data-scroll":"false","attr=data-reveal":"","attr=data-reveal-children":"false","attr=data-reveal-words":"false","attr=data-reveal-section":"false","bid":"","attr":"","href":"","node":""},"id":"2e5c9306-de46-4842-9d1f-abe37e8c1440","isHidden":false,"type":"text"},{"content":{"images":["file://UFX9EdJ2bK51qgKN","file://NyS1vOu0onqgFdvy"],"caption":"","ratio":"","crop":"false"},"id":"cf0e18e7-350b-433e-ba3e-b7e23b3fa665","isHidden":false,"type":"gallery"}]
+
+----
+
+Details: [{"content":{"text":"Mysore Style: Your Personal Practice","level":"h3","mod":"s","attr=data-scroll":"false","attr=data-reveal":"","attr=data-reveal-children":"false","attr=data-reveal-words":"false","attr=data-reveal-section":"false","bid":"","attr":"","href":"","node":""},"id":"d97e0f5d-e8e2-473a-8593-5b3b259ffda4","isHidden":false,"type":"heading"},{"content":{"text":"<p>At our studio, we teach Ashtanga traditionally, in the style of non-led Mysore classes. Whether you are just starting out or are an advanced yogi, you guide your own practice on the wave of your own breath. You can always adapt individual asanas or vinyasas to how you Subtitle in the moment. If you are a beginner, there is nothing to fear—the teacher is always there for you to explain and guide you through every step.</p>","mod":"","face":"","attr=data-scroll":"false","attr=data-reveal":"","attr=data-reveal-children":"false","attr=data-reveal-words":"false","attr=data-reveal-section":"false","bid":"","attr":"","href":"","node":""},"id":"d7382acd-c4b8-41f4-9bf8-d846f2d4c81c","isHidden":false,"type":"text"},{"content":{"text":"<p>Do you prefer dynamic exercise at your own pace? * Do you already know the Ashtanga sequences? Then Mysore classes are the perfect choice. These self-led sessions are also ideal for experienced practitioners, as the teacher provides hands-on adjustments and leads you toward deeper precision. Ashtanga is a practice.</p>","mod":"","face":"","attr=data-scroll":"false","attr=data-reveal":"","attr=data-reveal-children":"false","attr=data-reveal-words":"false","attr=data-reveal-section":"false","bid":"","attr":"","href":"","node":""},"id":"b78ea485-6d99-4c97-a702-5fddc5be10a1","isHidden":false,"type":"text"},{"content":[],"id":"81d76173-c25b-41a1-b766-6f1d2bb1b81d","isHidden":false,"type":"line"},{"content":{"text":"Led Classes: The Power of the Group","level":"h3","mod":"s","attr=data-scroll":"false","attr=data-reveal":"","attr=data-reveal-children":"false","attr=data-reveal-words":"false","attr=data-reveal-section":"false","bid":"","attr":"","href":"","node":""},"id":"3c5dc53a-6914-4a18-bfc7-345661d394b0","isHidden":false,"type":"heading"},{"content":{"text":"<p>If you are already familiar with a series and know how to adjust poses to your needs, you can try our Led Classes. The magic of a led class lies in surrendering your pace to the teacher and being carried by the collective energy of the group. In these sessions, you will hear the names of the asanas in Sanskrit and the traditional counting of vinyasas.</p>","mod":"","face":"","attr=data-scroll":"false","attr=data-reveal":"","attr=data-reveal-children":"false","attr=data-reveal-words":"false","attr=data-reveal-section":"false","bid":"","attr":"","href":"","node":""},"id":"1784e9eb-d743-4443-a9a1-e264c3a809c7","isHidden":false,"type":"text"}]
+
+----
+
+Meditation: Inhale, exhale, inhale, activate the bandhas, Surya Namaskar A, Surya Namaskar B, exhale. Inhale, exhale, forward fold, inhale, Samasthiti… Focus on yourself, transcend your ego.
+
+----
+
+Gallery: [{"content":{"images":["file://zRvxEYm0qfpAwbLb","file://tzm9tj3ZtKuBq9HO","file://eanulhSErYXN2NIK"],"caption":"","ratio":"","crop":"false"},"id":"e82f8986-670b-494e-97e6-4b153291223b","isHidden":false,"type":"gallery"}]
+
+----
+
+Meta-description: Classic, on the wave of your own breath
+
+----
+
+Meta-title: 
+
+----
+
+Meta-canonical-url: 
+
+----
+
+Og-title: 
+
+----
+
+Og-description: 
+
+----
+
+Og-image: 
+
+----
+
+Robots-index: 
+
+----
+
+Robots-follow: 
+
+----
+
+Robots-archive: 
+
+----
+
+Robots-imageindex: 
+
+----
+
+Robots-snippet: 
+
+----
+
+Desc: 
+
+----
+
+Client: 
+
+----
+
+Year: 
+
+----
+
+Services: 
+
+----
+
+Collab: 
+
+----
+
+Preview: 
+
+----
+
+Link: 
+
+----
+
+Uuid: CslLIoHaRswS48h6

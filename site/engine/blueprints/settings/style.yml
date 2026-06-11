@@ -1,0 +1,27 @@
+label: Style
+icon: text
+fields:
+  help:
+    label: ''
+    type: info
+    icon: alert
+    theme: warning
+    text: "Changing these will override default block/layout styling"
+
+  class:
+    type: text
+    label: Selector
+    grow: false
+
+  styles: 
+    type: blocks
+    empty: No styles yet
+    fieldsets:
+      - styles/child
+      - styles/border
+      - styles/layout
+      - styles/spacing
+      - styles/size
+      - styles/position
+      - styles/background
+      - styles/effects

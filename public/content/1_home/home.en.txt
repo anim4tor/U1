@@ -1,0 +1,113 @@
+Title: Home
+
+----
+
+Customtitle: Your Yoga. iDentity.
+
+----
+
+Subtitle:
+
+- 
+  text: Yoga in Brno city centre
+- 
+  text: Professional guidance
+- 
+  text: Yoga helps, find your own
+- 
+  text: Follow us @yogaid_official
+
+----
+
+Menutitle: 
+
+----
+
+Gradientfrom: #f4ee32
+
+----
+
+Gradientto: #f4cd32
+
+----
+
+Cover: - file://qNmMJV8tmyb1vPgc
+
+----
+
+Introfigure: - file://zDZPB9oLxuHxZYik
+
+----
+
+Intro: [{"content":{"text":"<p>Our Story</p><p></p><p></p>","mod":"l","face":"","attr=data-scroll":"false","attr=data-reveal":"","attr=data-reveal-children":"false","attr=data-reveal-words":"false","attr=data-reveal-section":"false","bid":"","attr":"","href":"","node":""},"id":"ae1076cc-75d7-4977-b4fa-64c0cf481dc7","isHidden":false,"type":"text"},{"content":{"text":"Identity through movement","level":"h2","mod":"","attr=data-scroll":"false","attr=data-reveal":"","attr=data-reveal-children":"false","attr=data-reveal-words":"false","attr=data-reveal-section":"false","bid":"","attr":"","href":"","node":""},"id":"7196bce0-bdfc-40d3-99c8-81950bf23875","isHidden":false,"type":"heading"},{"content":{"text":"<p>A modern yoga studio in the heart of Karlín, where precision of movement meets peace of mind. We believe that yoga isn't about perfect Instagram poses, but about discovering your own body and its possibilities. Our studio was born as a space for those seeking quality without unnecessary esoteric clutter.</p>","mod":"","face":"","attr=data-scroll":"false","attr=data-reveal":"","attr=data-reveal-children":"false","attr=data-reveal-words":"false","attr=data-reveal-section":"false","bid":"","attr":"","href":"","node":""},"id":"acde31ea-6c4b-4f2b-9c8a-766553205da8","isHidden":false,"type":"text"},{"content":{"label":"More about us","style":"dark","size":"default","link":"page://p96Qi6H0T3wo0yzM","target":"false"},"id":"cdda7ed8-0e05-463c-9ae6-d5637b13a258","isHidden":false,"type":"button"}]
+
+----
+
+Events: [{"content":{"text":"We regularly host specialized workshops, weekend intensives, and community events.","level":"h3","mod":"m","attr=data-scroll":"false","attr=data-reveal":"","attr=data-reveal-children":"false","attr=data-reveal-words":"false","attr=data-reveal-section":"false","bid":"","attr":"","href":"","node":""},"id":"d9fcc57f-cce4-4a1f-9f0b-33d2b9155c19","isHidden":false,"type":"heading"},{"content":{"text":"<p>Follow us for daily inspiration, technique tips, and the latest studio news.  </p>","mod":"","face":"","attr=data-scroll":"false","attr=data-reveal":"","attr=data-reveal-children":"false","attr=data-reveal-words":"false","attr=data-reveal-section":"false","bid":"","attr":"","href":"","node":""},"id":"06a4e8fe-6b11-4308-a25d-0c4d310f7795","isHidden":false,"type":"text"},{"content":{"label":"View events","style":"invert","size":"default","link":"page://I3kiDunG2jr4ZrU8","target":"false"},"id":"23a1d797-01a0-493f-9dc5-c3f668330487","isHidden":false,"type":"button"}]
+
+----
+
+Eventsfigure:
+
+- file://t0B2FGoPDbL1vMgA
+- file://YLg0QnrFN404GeyO
+
+----
+
+Lectures: [{"content":{"text":"Yoga helps — find the practice that’s right for you. Which style will suit you best?","level":"h3","mod":"","attr=data-scroll":"false","attr=data-reveal":"","attr=data-reveal-children":"false","attr=data-reveal-words":"false","attr=data-reveal-section":"false","bid":"","attr":"","href":"","node":""},"id":"c84bde7d-c51c-4cd7-bc7f-0e6de85f7a1d","isHidden":false,"type":"heading"},{"content":{"label":"View all lectures","style":"invert","size":"default","link":"page://MmSVXZxHZZhaScx2","target":"false"},"id":"be053305-6b13-4367-b7b2-81da8bd8351e","isHidden":false,"type":"button"}]
+
+----
+
+Meta-description: Your Yoga. Your Identity.
+
+----
+
+Meta-title: Yoga i-D - Your Yoga. Your Identity.
+
+----
+
+Meta-canonical-url: 
+
+----
+
+Og-title: 
+
+----
+
+Og-description: 
+
+----
+
+Og-image: 
+
+----
+
+Robots-index: 
+
+----
+
+Robots-follow: 
+
+----
+
+Robots-archive: 
+
+----
+
+Robots-imageindex: 
+
+----
+
+Robots-snippet: 
+
+----
+
+Lectureslist: Explore our lectures
+
+----
+
+Features: 
+
+----
+
+Uuid: oHq8CfTYV9UQWLF8

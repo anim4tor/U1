@@ -1,0 +1,171 @@
+/*
+
+	ATOM: Reveal
+	
+*/
+@import "../Media/media";
+@import "../../atoms/Animation/animation";
+:root {
+	--reveal-duration: 600ms;
+  --reveal-stack: 50ms;
+}
+
+
+/*
+
+  Base reveal
+  
+*/
+
+[data-reveal] {
+  @include animation(transform);
+  visibility: hidden;
+  transition-delay: var(--delay);
+  @for $i from 1 through 12 {
+    &:nth-child(#{$i}) {
+      --delay: calc(var(--in-delay, 0) + #{$i} * 100ms);
+    }
+  }
+  transform: rotate(30deg) scale(0);
+}
+
+[data-reveal="opacity"] {
+  transform: none;
+  opacity: 0;
+}
+[data-scroll]:not([data-scroll-ignore]).is-inview [data-reveal],
+[data-scroll]:not([data-scroll-ignore]).is-inview[data-reveal],
+[data-scroll][data-scroll-ignore].is-inview [data-tab-reveal][data-active] [data-reveal] {
+  visibility: visible;
+  transform: none;
+  opacity: 1;
+}
+
+
+[data-hover-reveal] {
+  visibility: hidden;
+  clip-path: inset(100% 0% 0% 0%);
+  @include animation(clip-path);
+  transition-delay: var(--delay);
+  @for $i from 1 through 10 {
+    &:nth-child(#{$i}) {
+      --delay: calc(#{$i} * 25ms);
+    }
+  }
+}
+[data-hoverable]:hover [data-hover-reveal] {
+  visibility: visible;
+  clip-path: inset(0% 0% 0% 0%);
+}
+
+/*
+
+  Reveal images
+  
+*/
+
+[data-reveal-image] {
+    clip-path: inset(100% 0 0 0);
+    @include animation((clip-path));
+}
+
+.is-inview[data-reveal-image], 
+.is-inview [data-reveal-image] {
+    clip-path: inset(0% 0 0 0);
+}
+
+
+/*
+
+  Reveal text
+  
+*/
+@mixin reveal-text-setup {
+  visibility: hidden;
+  [data-word] {
+    display: inline-block;
+    vertical-align: bottom;
+    clip-path: inset(-0.2em -0.1em -0.2em -0.1em);
+    
+    & > span {
+      display: inline-block;
+      transform: translateY(110%);
+      @include animation((transform), var(--reveal-duration), var(--delay));
+    }
+  }
+}
+
+@mixin reveal-text-line {
+  @include reveal-text-setup;
+  [data-word] > span {
+    --delay: calc(var(--line-index) * var(--reveal-stack) + var(--in-delay, 0ms));
+    --reveal-duration: 1.2s;
+  }
+}
+@mixin reveal-text-word {
+  @include reveal-text-setup;
+  [data-word] > span {
+    --delay: calc(var(--word-index) * var(--reveal-stack) + var(--in-delay, 0ms));  
+  }
+}
+@mixin reveal-text-char {
+  @include reveal-text-setup;
+  [data-word] > [data-char] {
+    --delay: calc(var(--char-index) * var(--reveal-stack) + var(--in-delay, 0ms));
+  }
+}
+
+@mixin reveal-text-in {
+  visibility: visible;
+  [data-word] > [data-char],
+  [data-word] > span {
+    transform: none;
+  }
+}
+@mixin reveal-text-out {
+  visibility: hidden;
+  [data-word] > [data-char],
+  [data-word] > span {
+    --init-delay : var(--out-delay, 600ms);
+    animation: reveal-out 1200ms $defaultEasing calc(var(--delay) + var(--out-delay)) forwards;
+  }
+}
+@keyframes reveal-out {
+  to {
+    transform: translateY(150%);
+  }
+}
+
+[data-reveal-text] {
+  @include reveal-text-char;
+}
+[data-reveal-text="words"] {
+  @include reveal-text-word;
+}
+[data-reveal-text="lines"] {
+  @include reveal-text-line;
+}
+
+[data-scroll]:not([data-scroll-ignore]).is-inview [data-reveal-text],
+[data-scroll]:not([data-scroll-ignore]).is-inview[data-reveal-text] {
+  @include reveal-text-in;
+}
+
+[data-reveal-text-out] {
+  @include reveal-text-out;
+}
+
+
+
+/*
+
+  Scroll reveal
+
+*/
+
+[data-scroll-trigger] {
+  --in:        calc(var(--progress) - var(--start));
+  --trigger-in:    clamp(0,calc(var(--in)*10000),1);
+  --out:       calc(var(--progress) - var(--end));
+  --trigger-out:   clamp(0,calc(var(--out)*10000),1);
+}

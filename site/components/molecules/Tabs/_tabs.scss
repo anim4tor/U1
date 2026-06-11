@@ -1,0 +1,76 @@
+/* 
+
+	ORGANISMS: Tabs
+
+*/
+
+@import "../../atoms/Media/media";
+@import "../../atoms/Animation/animation";
+:root {
+
+}
+
+[data-tabs] {
+/*	overflow: hidden;*/
+}
+
+[data-pane-container] {
+	width: 100%;
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: 1fr;
+	align-items: start;
+	overflow: hidden;
+}
+
+	[data-pane] {
+		grid-column: 1;
+		grid-row: 1;
+/*		visibility: hidden;*/
+		opacity: 0;
+		pointer-events: none;
+/*		display: none;*/
+
+/*		@include animation;*/
+/*		position: absolute;*/
+
+		&[data-active] {
+/*			visibility: visible;*/
+			opacity: 1;
+			pointer-events: all;
+			display: grid;
+/*			position: relative;*/
+		}
+	}
+
+
+[data-tab] {
+	cursor: pointer;
+	&.button[data-active]:not([theme="dark"]) {
+		background: rgba(var(--color-invert),1);
+		color: rgba(var(--color-text),1);
+		border-color: transparent;
+	}
+	&:not([data-active]) {
+/*		opacity: .4;*/
+	}
+}
+
+/* Accessibility focus */
+/*[role="tab"]:focus { outline: 2px solid #007bff; }*/
+[role="tab"]:focus { 
+	position: relative;
+	&:after {
+		content: '';
+		position: absolute;
+		inset: 0;
+		background: currentColor;
+		opacity: 0.1;
+	}
+}
+
+
+/* Hide inactive panes but keep them in DOM for SEO/Accessibility */
+[data-pane]:not([data-active]) {
+/*    display: none;*/
+}

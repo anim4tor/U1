@@ -1,0 +1,143 @@
+name: Layout
+type: group
+icon: code
+width: 1/2
+fields:
+  layout:l:
+    type: line
+
+  layout:h:
+    type: headline
+    label: Layout
+    width: 3/4
+
+  layout:tabs: 
+    extends: fields/tabs
+    width: 1/4
+
+  layout:desktop:
+    type: group
+    when:
+      layout:tabs: desktop
+    fields:
+
+      css=display:
+        label: Display
+        type: toggles
+        options:
+          grid: grid
+          flex: flex
+          block: block
+          none: none
+
+      css=grid:
+        label: Place items
+        type: toggles
+        labels: false
+        # grow: false
+        width: 1/2
+        options:
+          - value: start start
+            text: top-left
+            icon: top-left
+          - value: start center
+            text: top-center
+            icon: top-center
+          - value: start end
+            text: top-right
+            icon: top-right
+          - value: start stretch
+            text: top-stretch
+            icon: top-stretch
+
+          - value: center start
+            text: middle-left
+            icon: center-left
+          - value: center center
+            text: center
+            icon: center
+          - value: center end
+            text: center-right
+            icon: center-right
+          - value: center stretch
+            text: center-stretch
+            icon: center-stretch
+
+          - value: end start
+            text: bottom-left
+            icon: bottom-left
+          - value: end center
+            text: bottom-center
+            icon: bottom-center
+          - value: end end
+            text: bottom-right
+            icon: bottom-right
+          - value: end stretch
+            text: bottom-stretch
+            icon: bottom-stretch
+
+          - value: stretch start
+            text: stretch-left
+            icon: stretch-left
+          - value: stretch center
+            text: stretch-center
+            icon: stretch-center
+          - value: stretch end
+            text: stretch-right
+            icon: stretch-right
+          - value: stretch stretch
+            text: stretch
+            icon: stretch
+
+      css=gap:
+        label: Gap
+        type: range
+        min: 0
+        max: 20
+        width: 1/2
+
+      css=align__content:
+        label: Justify content
+        type: toggles
+        labels: false
+        grow: false
+        width: 1/2
+        options:
+          - value: auto
+            icon: none
+          - value: start
+            icon: align-start
+          - value: center
+            icon: align-center
+          - value: end
+            icon: align-end
+          - value: stretch
+            icon: align-stretch
+          - value: space-around
+            icon: align-space-around
+          - value: space-between
+            icon: align-space-between
+
+      css=justify__content:
+        label: Align content
+        type: toggles
+        labels: false
+        grow: false
+        width: 1/2
+        options:
+          - value: auto
+            icon: none
+          - value: start
+            icon: justify-start
+          - value: center
+            icon: justify-center
+          - value: end
+            icon: justify-end
+          - value: stretch
+            icon: justify-stretch
+          - value: space-around
+            icon: justify-space-around
+          - value: space-between
+            icon: justify-space-between
+
+      

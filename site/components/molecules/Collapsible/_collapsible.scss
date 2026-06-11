@@ -1,0 +1,110 @@
+/*
+
+	MOLECULES: Collapsible
+
+*/
+
+
+@import "../../atoms/Media/media";
+@import "../../atoms/Animation/animation";
+:root {
+
+}
+
+accordion-list {
+  display: block;
+}
+
+collapsible {
+  display: block;
+}
+collapsible summary[collapsible-trigger] {
+  cursor: pointer;
+}
+collapsible detail[collapsible-detail] {
+  display: grid;
+  grid-template-rows: 0fr;
+  contain: paint;
+  @include animation(grid-template-rows);
+  transition-timing-function: cubic-bezier(0.190, 1.000, 0.220, 1.000);;
+  margin: 0 calc(-1*var(--pad));
+  padding: 0 calc(1*var(--pad));
+
+  & > div {
+  	min-height: 0;
+  	@include animation;
+  	transition-timing-function: cubic-bezier(0.190, 1.000, 0.220, 1.000);;
+  	visibility: hidden;
+
+  	[collapsible-reveal] {
+  		will-change: transform;
+  		@include animation(transform);
+  		transition-delay: 0ms;
+  		transform: translateY(100%) scale(0);
+  	}
+  }
+}
+collapsible[open] {
+
+}
+collapsible[open] detail[collapsible-detail] {
+  --init: 1;
+  grid-template-rows: 1fr;
+
+  & > div {
+  	visibility: visible;
+
+  	[collapsible-reveal] {
+  		transform: none;
+
+		@for $i from 1 through 30 {
+			&:nth-child(#{$i}) {
+				transition-delay: calc(var(--init) * 50ms + var(--delay) + #{$i} * 50ms);
+			}
+		}
+  	}
+  }
+}
+
+[collapsible-icon] {
+  span {
+    display: block;
+    width: 1.2rem;
+    height: 1px;
+    background: currentColor;
+
+    &:nth-child(2) {
+      @include animation(transform);
+/*      transform-origin: center center;*/
+        transform: scaleY(1) rotate(90deg);
+    }
+  }
+}
+collapsible[open] [collapsible-icon] {
+  span:nth-child(2) {
+    transform: scaleY(0) rotate(0deg);
+  }
+}
+
+[data-collapsible-reveal] > * {
+  visibility: visible;
+  opacity: 0;
+  @include animation((transform, opacity));
+  transition-delay: var(--delay);
+  transform: translateY(calc(var(--reveal-offset)*1));
+
+  @for $i from 1 through 10 {
+    &:nth-child(#{$i}) {
+      --delay: calc(var(--init-delay) + var(--inc-delay)*#{$i});
+    }
+  }
+}
+collapsible[open] [data-collapsible-reveal] > * {
+  opacity: 1;
+  transform: none;
+}
+
+collapsible.bleed {
+  margin-left: calc(-1*var(--pad));
+  width: calc(100% + 2*var(--pad));
+}

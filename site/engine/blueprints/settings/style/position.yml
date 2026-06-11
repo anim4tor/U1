@@ -1,0 +1,140 @@
+name: Position
+type: group
+icon: code
+fields:
+  position:l:
+    type: line
+
+  position:h:
+    type: headline
+    label: Position
+    width: 3/4
+
+  position:tabs: 
+    extends: fields/tabs
+    width: 1/4
+
+  position:desktop:
+    type: group
+    when:
+      position:tabs: desktop
+    fields:
+      css=position:
+        label: Position
+        type: toggles
+        options:
+          static: static
+          realtive: relative
+          absolute: absolute
+          fixed: fixed
+          sticky: sticky
+
+      css=inset:
+        label: Position inset
+        type: toggles
+        labels: false
+        # grow: false
+        whenQuery: css=position != 'static' && css=position != 'relative'
+        width: 1/1
+        options:
+          - value: 0% auto auto 0%
+            text: Top left
+            icon: top-left
+          - value: 0% 0% auto auto
+            text: Top right
+            icon: top-right
+          - value: auto auto 0% 0%
+            text: Bottom left
+            icon: bottom-left
+          - value: auto 0% 0% auto
+            text: Bottom right
+            icon: bottom-right
+
+          - value: 0% auto 0% 0%
+            text: Left
+            icon: stretch-left
+          - value: 0% 0% 0% auto
+            text: Right
+            icon: stretch-right
+          - value: auto 0% 0%
+            text: Bottom
+            icon: bottom-stretch
+          - value: 0% 0% auto
+            text: Top
+            icon: top-stretch
+
+          - value: 0%
+            text: Full
+            icon: stretch
+
+      
+      # top
+      inset:
+        type: group
+        whenQuery: css=position != 'static'
+        fields:
+          hidden:tl:
+            type: gap
+            width: 1/3
+          css=inset__top:
+            label: ''
+            type: number
+            icon: inner-top
+            min: 0
+            max: 100
+            after: '%'
+            placeholder: auto
+            width: 1/3
+          hidden:t2:
+            type: gap
+            width: 1/3
+
+          # center
+          css=inset__left:
+            label: ''
+            type: number
+            icon: inner-left
+            min: 0
+            max: 100
+            after: '%'
+            placeholder: 0
+            width: 1/3
+          hidden:label:
+            type: text
+            label: Inset
+            width: 1/3
+          css=inset__right:
+            label: ''
+            type: number
+            icon: inner-right
+            min: 0
+            max: 100
+            after: '%'
+            placeholder: 0
+            width: 1/3
+          # hidden:t3:
+          #   type: line
+          #   width: 3/6
+
+          # bottom
+          hidden:t4:
+            type: gap
+            width: 1/3
+          css=inset__bottom:
+            label: ''
+            type: number
+            icon: inner-bottom
+            min: 0
+            max: 100
+            after: '%'
+            placeholder: 0
+            width: 1/3
+          hidden:t5:
+            type: gap
+            width: 1/3
+
+      css=z:
+        label: 'Z-index'
+        type: number
+        min: 0
+        placeholder: Auto

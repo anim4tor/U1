@@ -1,0 +1,89 @@
+Title: Speciální
+
+----
+
+Slug: specialni
+
+----
+
+Customtitle: 
+
+----
+
+Subtitle: Firemní ásany a speciální akce
+
+----
+
+Menutitle: 
+
+----
+
+Gradientfrom: #b3bae7
+
+----
+
+Gradientto: #986ff7
+
+----
+
+Cover: - file://KqFS9cF1PX4h7GGt
+
+----
+
+Intro: [{"content":{"text":"<p>Firemní ásany</p>","mod":"","face":"","attr=data-scroll":"false","attr=data-reveal":"","attr=data-reveal-children":"false","attr=data-reveal-words":"false","attr=data-reveal-section":"false","bid":"","attr":"","href":"","node":""},"id":"34f7b5ec-b0e7-4019-8dff-888004ba7f4e","isHidden":false,"type":"text"},{"content":{"text":"Chcete cvičit jógu v práci?","level":"h2","mod":"","attr=data-scroll":"false","attr=data-reveal":"","attr=data-reveal-children":"false","attr=data-reveal-words":"false","attr=data-reveal-section":"false","bid":"","attr":"","href":"","node":""},"id":"d7054a3a-1c44-4513-93e2-ba4ee07444da","isHidden":false,"type":"heading"},{"content":{"text":"<p>Zaslechli jste něco o józe, ale nevíte, jak začít? Víte, že existuje řada odnoží jógy, ale nevíte, která je pro vás ta pravá? A nebo chcete s jógou začít úplně od začátku? Přesně pro vás jsme připravili nabídku firemních lekcí jógy přímo na míru vašim potřebám. </p>","mod":"l","face":"","attr=data-scroll":"false","attr=data-reveal":"","attr=data-reveal-children":"false","attr=data-reveal-words":"false","attr=data-reveal-section":"false","bid":"","attr":"","href":"","node":""},"id":"3deb95e5-01ba-4b93-a5a2-bc7fd5196f53","isHidden":false,"type":"text"}]
+
+----
+
+Features: [{"content":{"text":"Ashtanga jóga a její základní principy","level":"h3","mod":"","attr=data-scroll":"false","attr=data-reveal":"","attr=data-reveal-children":"false","attr=data-reveal-words":"false","attr=data-reveal-section":"false","bid":"","attr":"","href":"","node":""},"id":"f9d6c42b-4dd0-4995-be50-dfb21e20237c","isHidden":false,"type":"heading"},{"content":{"text":"<p>Pokud si vyberete například ashtanga jógu, seznámíme vás s jejím systémem a základními principy. Naučíme se pozdravy slunci A a B a základní pozice, včetně jejich různých modifikací pro ty, co mají nějaké zdravotní omezení. Vysvětlíme si, jak správně dýchat a jak propojit pozice s dechem. Ukážeme si možnosti asistence a dopomocí v ásánách. A taky nás čeká pár pěkných vychytávek, takže to bude stát za to.&nbsp;</p>","mod":"","face":"","attr=data-scroll":"false","attr=data-reveal":"","attr=data-reveal-children":"false","attr=data-reveal-words":"false","attr=data-reveal-section":"false","bid":"","attr":"","href":"","node":""},"id":"762a1feb-6d7a-4a34-ae39-459210de1990","isHidden":false,"type":"text"},{"content":{"images":["file://snR8uxrou4IWk3uN"],"caption":"","ratio":"","crop":"false"},"id":"bcca820e-28f1-437f-b3af-b2f802754d72","isHidden":false,"type":"gallery"}]
+
+----
+
+Details: [{"content":{"text":"Informace k workshopu","level":"h3","mod":"","attr=data-scroll":"false","attr=data-reveal":"","attr=data-reveal-children":"false","attr=data-reveal-words":"false","attr=data-reveal-section":"false","bid":"","attr":"","href":"","node":""},"id":"298ee256-ece9-443a-a0c3-f923013e801a","isHidden":false,"type":"heading"},{"content":{"text":"<p>Tempo firemních lekcí bude mírné a jednotlivé pozice si podrobně vysvětlíme. Ukážeme si, že na lekci může přijít kdokoli, i když s jógou zrovna začíná. Má tam totiž učitele, který se mu bude věnovat a vše mu vysvětlí a ukáže. Zjistíme, že kouzlo jógové lekce spočívá v energii skupiny, která nám pomáhá vytvářet vlastní praxi a žene nás vpřed. Prostě bude zábava a budeme u toho tak trochu čarovat.&nbsp;</p>","mod":"","face":"","attr=data-scroll":"false","attr=data-reveal":"","attr=data-reveal-children":"false","attr=data-reveal-words":"false","attr=data-reveal-section":"false","bid":"","attr":"","href":"","node":""},"id":"fbf11759-661a-445a-a15b-d1406d3e7174","isHidden":false,"type":"text"},{"content":{"text":"<p>Stačí se ozvat na <a href=\"mailto:hello@yogaid.cz\">hello@yogaid.cz</a> nebo +420 603 209 789.</p>","mod":"l","face":"","attr=data-scroll":"false","attr=data-reveal":"","attr=data-reveal-children":"false","attr=data-reveal-words":"false","attr=data-reveal-section":"false","bid":"","attr":"","href":"","node":""},"id":"cb465c4d-6515-42ed-9d16-d05aca4dd8e1","isHidden":false,"type":"text"},{"content":{"text":"<p>Lektoři: Zdeněk Havlíček a lektoři YOGA i-D</p>","mod":"","face":"","attr=data-scroll":"false","attr=data-reveal":"","attr=data-reveal-children":"false","attr=data-reveal-words":"false","attr=data-reveal-section":"false","bid":"","attr":"","href":"","node":""},"id":"3a227169-d623-4c1e-b4b6-6043573f79d6","isHidden":false,"type":"text"}]
+
+----
+
+Meta-description: 
+
+----
+
+Meta-title: 
+
+----
+
+Meta-canonical-url: 
+
+----
+
+Og-title: 
+
+----
+
+Og-description: 
+
+----
+
+Og-image: 
+
+----
+
+Robots-index: 
+
+----
+
+Robots-follow: 
+
+----
+
+Robots-archive: 
+
+----
+
+Robots-imageindex: 
+
+----
+
+Robots-snippet: 
+
+----
+
+Uuid: 9gw1uZEVi5ReN4wb

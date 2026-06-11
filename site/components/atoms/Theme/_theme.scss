@@ -1,0 +1,101 @@
+/*  
+
+    THEME
+
+*/
+@import "../Media/media";
+@import "../Animation/animation";
+:root {
+
+    --scale: 1;
+    --scale-fluid: 2;
+    --scale-min: 1;
+    --scale-vpad: 1;
+    --scale-hpad: 1;
+    --scale-gap: 1;
+    --spacing: Max(calc(var(--scale-min) * 1rem), calc(var(--scale-fluid) * 1vw * var(--scale)));
+    --pad: var(--spacing);
+
+    --font-family-body: 'Plain', sans-serif;
+    --font-family-heading: /*'New Spirit Light Condensed',*/ 'Plain', sans-serif;
+    --font-family-mono: 'Roboto Mono', mono;
+    --font-weight-heading: 300;
+    --font-weight-body: 300;
+
+    $levels: 5, 4, 3, 2, 1;
+/*    $start: 1.0;*/
+    $start: 0.8;
+    $line: 1.2;
+    $scale: 1.65;
+    $size: $start;
+
+    @each $level in $levels {
+        --font-size-#{$level}: Max(#{$start}rem, #{$size}vw);
+        --line-height-#{$level}: #{$line};
+        $size: $size * $scale;
+        $start: $start * $scale;
+        $line: $line - ( 0.04 * $scale );
+    }
+
+    @include create-mq($screen-mobile, 'max') {
+        $start: 0.8;
+        $line: 1.2;
+        $scale: 1.30;
+        $size: $start;
+        @each $level in $levels {
+            --font-size-#{$level}: Max(#{$start}rem, #{$size}vw);
+            --line-height-#{$level}: #{$line};
+            $size: $size * $scale;
+            $start: $start * $scale;
+            $line: $line - ( 0.04 * $scale );
+        }
+    }
+
+    $levels: 'small', 'default', 'large';
+    $start: 0.714;
+    $line: 1.5;
+    $scale: 1.4;
+    $size: $start;
+    @each $level in $levels {
+        --font-size-#{$level}: Max(#{$start}rem, #{$size}vw);
+        --line-height-#{$level}: #{$line};
+        $size: $size * $scale;
+        $start: $start * $scale;
+        $line: $line - ( 0.035 * $scale );
+    }
+
+    @include create-mq($screen-mobile, 'max') {
+        $start: 0.714;
+        $line: 1.5;
+        $scale: 1.222;
+        $size: $start;
+        @each $level in $levels {
+            --font-size-#{$level}: Max(#{$start}rem, #{$size}vw);
+            --line-height-#{$level}: #{$line};
+            $size: $size * $scale;
+            $start: $start * $scale;
+            $line: $line - ( 0.035 * $scale );
+        }
+    }
+
+}
+
+[theme] {
+    color: rgba(var(--col),1);
+    background: rgba(var(--background),1);
+}
+
+[theme="invert"] {
+    --background: var(--color-invert);
+    --col: var(--color-text);
+}
+
+[theme="light"] {
+    --background: var(--color-light);
+    --col: var(--color-text);
+}
+
+[theme="dark"] {
+    --background: var(--color-dark);
+    --col: var(--color-light);
+}

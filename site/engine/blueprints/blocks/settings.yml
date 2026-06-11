@@ -1,0 +1,4 @@
+name: Settings
+icon: code
+type: settings
+extends: fields/settings

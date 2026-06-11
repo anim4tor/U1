@@ -1,0 +1,58 @@
+name: Text animations
+type: group
+icon: code
+fields:
+  animationh:
+    type: headline
+    label: Animation
+  animationl:
+    type: line
+
+  attr=data-scroll:
+    label: Reveal text?
+    type: toggle
+    default: false
+    width: 1/6
+
+  reveal:
+    type: group
+    when:
+      attr=data-scroll: true
+    fields:
+      attr=data-reveal:
+        label: Reveal from
+        type: toggles
+        labels: false
+        width: 2/6
+        options:
+          - value: top
+            text: top
+            icon: arrow-down
+          - value: left
+            text: left
+            icon: arrow-right
+          - value: bottom
+            text: bottom
+            icon: arrow-up
+          - value: right
+            text: right
+            icon: arrow-left
+
+      attr=data-reveal-children:
+        label: Animate children
+        help: Reveal animation affects only child elements
+        type: toggle
+        default: false
+        width: 2/6
+
+      attr=data-reveal-words:
+        label: Split words
+        type: toggle
+        default: false
+        width: 1/6
+
+  attr=data-reveal-section:
+    label: Reveal section?
+    type: toggle
+    default: false
+    width: 1/6

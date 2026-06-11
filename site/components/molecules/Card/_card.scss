@@ -1,0 +1,16 @@
+/*	
+
+	MOLECULSE: Card
+
+*/
+:root {
+	--card-radius: 1em;
+	--card-shadow: 0 1em 3em -0.5em rgba(var(--color-black),0.15);
+}
+.card {
+	border-radius: var(--card-radius);
+
+	&.shadow {
+		box-shadow: var(--card-shadow);
+	}
+}

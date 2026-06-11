@@ -1,0 +1,27 @@
+/*
+
+	FOOTER
+	
+*/
+:root {
+	--progress: 0;
+}
+
+
+footer,
+.footer {
+
+	pointer-events: none;
+	& > * {
+		pointer-events: all;
+	}
+
+	&__logo {
+		font-size: 23.24288vw;
+	}
+
+}
+
+[data-footer] {
+	
+}

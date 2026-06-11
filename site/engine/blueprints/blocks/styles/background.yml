@@ -1,0 +1,7 @@
+name: Background
+type: background
+icon: code
+preview: fields
+wysiwyg: true
+fields:
+  child: settings/style/background

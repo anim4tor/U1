@@ -1,0 +1,266 @@
+/*
+	FLEXBOX MIXINS
+*/
+
+/* 
+	Flexbox Containers
+
+	display: flex | inline-flex
+	http:w3.org/tr/css3-flexbox/#flex-containers
+	(Placeholder selectors for each type, for those who rather @extend)
+*/
+
+@mixin flexbox {
+	display: flex;
+}
+
+%flexbox { @include flexbox; }
+
+@mixin inline-flex {
+	display: inline-flex;
+}
+
+%inline-flex { @include inline-flex; }
+
+/* 
+	Flexbox Direction
+
+	Values: row | row-reverse | column | column-reverse
+	Default: row
+	http:w3.org/tr/css3-flexbox/#flex-direction-property
+*/
+
+@mixin flex-direction($value: row) {
+	flex-direction: $value;
+}
+	/*Shorter version:*/
+	@mixin flex-dir($args...) { @include flex-direction($args...); }
+
+/* 
+	Flexbox Wrap
+
+	Values: nowrap | wrap | wrap-reverse
+	Default: nowrap
+	http:w3.org/tr/css3-flexbox/#flex-wrap-property
+*/
+
+@mixin flex-wrap($value: nowrap) {
+	flex-wrap: $value;
+}
+
+/* 
+	Flexbox Flow (shorthand)
+
+	Values: <flex-direction> | <flex-wrap> 
+	Default: row nowrap
+	http:w3.org/tr/css3-flexbox/#flex-flow-property
+*/
+
+@mixin flex-flow($values: (row nowrap)) {
+	/*No Webkit Box fallback.*/
+	flex-flow: $values;
+}
+
+/* 
+	Flexbox Order
+
+	Default: 0
+	http:w3.org/tr/css3-flexbox/#order-property
+*/
+
+@mixin order($int: 0) {
+	order: $int;
+}
+
+/* 
+	Flexbox Grow
+
+	Default: 0
+	http:w3.org/tr/css3-flexbox/#flex-grow-property
+*/
+
+@mixin flex-grow($int: 0) {
+	flex-grow: $int;
+}
+
+
+/* 
+	Flexbox Shrink
+
+	Default: 1
+	http:w3.org/tr/css3-flexbox/#flex-shrink-property
+*/
+
+@mixin flex-shrink($int: 1) {
+	flex-shrink: $int;
+}
+
+
+/* 
+	Flexbox Basis
+
+	Values: Like "width" 
+	Default: auto
+	http:www.w3.org/TR/css3-flexbox/#flex-basis-property
+*/
+
+@mixin flex-basis($value: auto) {
+	flex-basis: $value;
+}
+
+/* 
+	Flexbox "Flex" (shorthand)
+
+	Values: none | <flex-grow> <flex-shrink> || <flex-basis>
+	Default: See individual properties (1 1 0).
+	http:w3.org/tr/css3-flexbox/#flex-property
+*/
+
+@mixin flex($fg: 1, $fs: null, $fb: null) {
+	flex: $fg $fs $fb;
+}
+
+/* 
+	Flexbox Justify Content
+
+	Values: flex-start | flex-end | center | space-between | space-around
+	Default: flex-start
+	http:w3.org/tr/css3-flexbox/#justify-content-property
+*/
+
+@mixin justify-content($value: flex-start) {
+	justify-content: $value;
+}
+	/*Shorter version:*/
+	@mixin flex-just($args...) { @include justify-content($args...); }
+
+/* 
+	Flexbox Align Items
+
+	Values: flex-start | flex-end | center | baseline | stretch
+	Default: stretch
+	http:w3.org/tr/css3-flexbox/#align-items-property
+*/
+
+@mixin align-items($value: stretch) {
+	align-items: $value;
+}
+
+/* 
+	Flexbox Align Self
+
+ 	Values: auto | flex-start | flex-end | center | baseline | stretch
+ 	Default: auto
+*/
+
+@mixin align-self($value: auto) {
+	align-self: $value;
+}
+
+/*
+	Flexbox Align Content
+
+	Values: flex-start | flex-end | center | space-between | space-around | stretch
+	Default: stretch
+	http:w3.org/tr/css3-flexbox/#align-content-property
+*/
+
+@mixin align-content($value: stretch) {
+	align-content: $value;
+}
+
+/*
+	FLEX MODULES
+*/
+
+.flex {
+	@include flexbox;
+}
+
+@mixin flex-centered {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+.flex-centered {
+	@include flex-centered;
+}
+
+@mixin flex-align-center {
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+}
+.flex-align-center {
+	@include flex-align-center;
+}
+
+@mixin flex-align-top {
+	display: flex;
+	justify-content: flex-start;
+	flex-direction: row;
+}
+.flex-align-top {
+	@include flex-align-top;
+}
+
+@mixin flex-align-middle {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+}
+.flex-align-middle {
+	@include flex-align-middle;
+}
+
+@mixin flex-align-bottom {
+	display: flex;
+	justify-content: flex-end;
+	flex-direction: column;
+}
+.flex-align-bottom {
+	@include flex-align-bottom;
+}
+
+@mixin flex-justify {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.flex-justify {
+	@include flex-justify;
+}
+
+@mixin flex-justify-col {
+	display: flex;
+	justify-content: space-between;
+	flex-direction: column;
+}
+.flex-justify-col {
+	@include flex-justify-col;
+}
+
+@mixin flex-justify-col {
+	display: flex;
+	justify-content: space-between;
+	flex-direction: column;
+}
+.flex-justify-col {
+	@include flex-justify-col;
+}
+
+@mixin flex-align-center-col {
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	flex-direction: column;
+
+}
+.flex-align-center-col {
+	@include flex-align-center-col;
+}
+
+
+
+

@@ -1,0 +1,27 @@
+/*  
+
+    MOLECULES: Event
+
+*/
+:root {
+    
+}
+
+.event__figure, .event__body {
+    @include animation;
+}
+.event__item [href]:hover {
+    .event__figure, .event__body {
+        transform: translateX(2em);
+    }
+}
+.event__excerpt {
+    max-width: 37.5vw;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    @include xs-screen {
+        max-width: 100%;
+    }
+}

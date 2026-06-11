@@ -1,0 +1,28 @@
+name: Effects
+type: group
+icon: code
+fields:
+  effects:l:
+    type: line
+  effects:h:
+    type: headline
+    label: Effects
+    width: 3/4
+
+  effects:tabs: 
+    extends: fields/tabs
+    width: 1/4
+
+  effects:desktop:
+    type: group
+    when:
+      effects:tabs: desktop
+    fields:
+      opacity:
+        type: range
+        min: 0
+        max: 1
+        step: 0.1
+        placeholder: 1
+        width: 1/2
+      

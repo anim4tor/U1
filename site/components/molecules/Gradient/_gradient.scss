@@ -1,0 +1,55 @@
+/*
+
+	MOLECULES: Gradient 
+	
+*/
+@import "../../atoms/Animation/animation";
+
+:root {
+  --circle-path: ellipse(60vw 60vh at 50% 50%);
+}
+
+.gradient {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  @include animation(opacity, 10s, 1s);
+}
+
+.blob {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  border-radius: 50%;
+  filter: blur(50px); /* Initial soft edge for the blob itself */
+  
+  offset-rotate: 0deg;
+  offset-path: var(--circle-path);
+  animation: orbit 30s linear infinite;
+  mix-blend-mode: overlay;
+  opacity: 0.75;
+}
+
+.blob-1 {
+  background: radial-gradient(ellipse 100% 50% at 50% 50%, rgba(var(--background)) 0%, transparent 70%);
+}
+
+.blob-2 {
+  background: radial-gradient(ellipse 100% 50% at 50% 50%, rgba(var(--background)) 0%, transparent 70%);
+  animation-delay: -8s; /* Offsets it so they stay on opposite sides */
+}
+
+.blur-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  backdrop-filter: blur(120px); /* This creates the "Ride Out" liquid effect */
+  background: rgba(0, 0, 0, 0.001); 
+}
+
+@keyframes orbit {
+  from { offset-distance: 0%; }
+  to { offset-distance: 100%; }
+}

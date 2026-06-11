@@ -1,0 +1,31 @@
+name: 🔨 Staging Deployment
+on:
+  push:
+    tags:
+      - '*'
+jobs:
+  build:
+    name: 🔨 Staging
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - name: 🚚 Get latest code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      - name: 📂 Sync files
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: 185.102.21.205
+          username: jiriklusak.cz
+          password: 3kNWXaeG
+          server-dir: public_html/projects/yogaid.cz/
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/kirby/**
+            **/media/**
+            **/content/**
+            **/cache/**

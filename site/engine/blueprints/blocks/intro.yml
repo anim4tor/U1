@@ -1,0 +1,9 @@
+type: intro
+label: Intro
+wysiwyg: true
+preview: fields
+fields: 
+  cover: fields/image
+  content: 
+    label: Sekce
+    extends: fields/blocks

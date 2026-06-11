@@ -1,0 +1,47 @@
+name: Flex
+icon: grid-top
+wysiwyg: true
+preview: fields
+tabs:
+  layout:
+    fields:
+      blocks:
+        type: blocks
+        label: ''
+        fieldsets:
+          layout:
+            type: group
+            label: Layout
+            fieldsets:
+              - settings
+          text:
+            type: group
+            label: Text
+            fieldsets:
+              - heading
+              - text
+              - list
+              - quote
+              - tags
+              - code
+              - markdown
+          media:
+            type: group
+            label: Media
+            fieldsets:
+              - image
+              - gallery
+              - video
+          structure:
+            type: group
+            label: Structure
+            fieldsets:
+              - table
+              - collapsible
+              - slider
+
+  style: settings/style
+  interactions: settings/interactions/animation
+  settings: settings/node
+  
+

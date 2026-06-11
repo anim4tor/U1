@@ -1,0 +1,96 @@
+name: Flex child
+type: group
+icon: code
+fields:
+  child:l:
+    type: line
+
+  child:h:
+    type: headline
+    label: Child
+    width: 3/4
+
+  child:tabs: 
+    extends: fields/tabs
+    width: 1/4
+
+  child:desktop:
+    type: group
+    when:
+      child:tabs: desktop
+    fields:
+
+      css=align__self:
+        label: Align self
+        type: toggles
+        labels: false
+        default: auto
+        width: 1/2
+        options:
+          - value: auto
+            icon: none
+          - value: start
+            icon: align-start
+          - value: center
+            icon: align-center
+          - value: end
+            icon: align-end
+          - value: stretch
+            icon: align-stretch
+
+      css=justify__self:
+        label: Justify self
+        type: toggles
+        labels: false
+        default: auto
+        width: 1/2
+        options:
+          - value: auto
+            icon: none
+          - value: start
+            icon: justify-start
+          - value: center
+            icon: justify-center
+          - value: end
+            icon: justify-end
+          - value: stretch
+            icon: justify-stretch
+
+      css=order:
+        label: Order
+        type: number
+        placeholder: auto
+        min: 0
+        max: 12
+        width: 1/2
+
+      css=order__first:
+        label: First
+        type: toggle
+        width: 1/4
+
+      css=order__last:
+        label: Last
+        type: toggle
+        width: 1/4
+
+      css=col__span:
+        label: Column span
+        type: range
+        min: 0
+        max: 12
+        width: 1/2
+
+      css=row__span:
+        label: Row span
+        type: range
+        min: 0
+        max: 12
+        width: 1/2
+
+  child:help:
+    label: ''
+    type: info
+    icon: code
+    theme: passive
+    text: "Setup child layout within flex/grid container"

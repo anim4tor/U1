@@ -1,0 +1,116 @@
+/*
+
+	ORGANISMS: Loader
+
+*/
+@import "../../atoms/Media/media";
+@import "../../atoms/Animation/animation";
+:root {
+
+}
+
+.loader {
+  --progress: 0;
+  z-index: 9999;
+  position: fixed;
+  inset: 0;
+  [data-progress] {
+    transform-origin: center right;
+    transform: scaleX(calc(1 - var(--progress)*1));
+  }
+}
+  
+[data-loader] {
+  pointer-events: none;
+}
+  
+  [data-loader-bg] {
+    position: absolute;
+    inset: 0;
+    @include animation(transform, 600ms);
+    transform-origin: center right;
+    transform: scaleX(1);
+  }
+  [data-loader-logo] {
+    z-index: 1;
+    position: relative;
+    perspective: 400;
+    transform-style: preserve-3d;
+
+    svg path {
+      stroke: white;
+      stroke-width: 10px;
+    }
+    svg {
+      width: 2.5em;
+      height: 2.5em;
+      transform-style: preserve-3d;
+
+      &:nth-child(1) {
+          opacity: 1;
+/*          transform: rotateY(-90deg);*/
+          animation: loading 2s linear infinite;
+      }
+      &:nth-child(2) {
+          opacity: 1;
+/*          transform: rotate(0deg);*/
+          animation: loading 3s linear infinite;
+      }
+    }
+    @include animation(opacity, 600ms);
+/*    transition-duration: 3s;*/
+/*    transform: scale(calc(0.5 + 0.0*var(--progress)));*/
+/*    opacity: calc(1 - 1*(var(--progress) - 0.5));*/
+  }
+
+@keyframes loading {
+  to {
+    transform: rotateY(360deg);
+  }
+}
+
+[data-reveal-on-loader] {
+  visibility: hidden;
+  clip-path: inset(100% 0% 0% 0%);
+  @include animation(clip-path, 0.5s);
+}
+
+html.on-loader {
+
+  [data-reveal-on-loader] {
+    visibility: visible;
+    clip-path: inset(0% 0% 0% 0%);
+  }
+
+}
+
+
+html[data-loading] {
+  pointer-events: none;
+
+  [data-loader] {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: all;
+  }
+}
+
+html[data-transition] {
+  [data-loader-bg] {
+    transform: scaleX(0);
+  }
+  [data-loader-logo] {
+    opacity: 0;
+  }
+  [data-counter] {
+    display: block;
+    transform: translateY(2em);
+  }
+}
+html[data-transition-out] {
+  [data-loader-bg] {
+    transform-origin: center left;
+    transform: scaleX(1);
+  }
+}
+

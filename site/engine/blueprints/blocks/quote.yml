@@ -1,0 +1,24 @@
+name: field.blocks.quote.name
+icon: quote
+wysiwyg: true
+preview: quote
+tabs:
+  quote:
+    fields:
+      text:
+        label: field.blocks.quote.text.label
+        placeholder: field.blocks.quote.text.placeholder
+        type: writer
+        inline: true
+        icon: quote
+      citation:
+        label: field.blocks.quote.citation.label
+        placeholder: field.blocks.quote.citation.placeholder
+        type: writer
+        inline: true
+        icon: user
+  
+  style: settings/style
+  interactions: settings/interactions/animation
+  settings: settings/node
+  

@@ -1,0 +1,233 @@
+name: Border
+type: group
+icon: code
+preview: fields
+wysiwyg: true
+fields:
+  border:l:
+    type: line
+  border:h:
+    type: headline
+    label: Border
+    width: 3/4
+
+  border:tabs: 
+    extends: fields/tabs
+    width: 1/4
+
+  border:desktop:
+    type: group
+    when:
+      border:tabs: desktop
+    fields:
+      
+      border:
+        type: group
+        width: 1/3
+        fields:
+
+          # top
+          gap2:
+            type: gap
+            width: 4/9
+          css=border__top:
+            label: ''
+            type: toggles
+            default: none
+            labels: false
+            options:
+              - value: solid
+                icon: border-top
+            icon: border-top
+            width: 1/6
+          gap3:
+            type: gap
+            width: 4/9
+
+          # center
+          gap33:
+            type: gap
+            width: 2/9
+          css=border__left:
+            label: ''
+            type: toggles
+            default: none
+            labels: false
+            options:
+              - value: true
+                icon: border-left
+            icon: border-left
+            width: 1/6
+          css=border__all:
+            label: ''
+            type: toggles
+            default: none
+            labels: false
+            options:
+              - value: true
+                icon: border-all
+            icon: border-left
+            width: 1/6
+          css=border__right:
+            label: ''
+            type: toggles
+            default: none
+            labels: false
+            options:
+              - value: true
+                icon: border-right
+            icon: border-right
+            width: 1/6
+          gap44:
+            type: gap
+            width: 2/9
+
+          # bottom
+          gap4:
+            type: gap
+            width: 4/9
+          css=border__bottom:
+            label: ''
+            type: toggles
+            default: none
+            labels: false
+            options:
+              - value: true
+                icon: border-bottom
+            icon: border-bottom
+            width: 1/6
+          gap5:
+            type: gap
+            width: 4/9
+
+          
+      inline=border-width:
+        label: Width
+        type: number
+        min: 0
+        after: px
+        step: 0.5
+        default: 1
+        placeholder: 1
+        width: 1/2
+
+      css=border__style:
+        label: Style
+        width: 1/2
+        type: toggles
+        default: solid
+        labels: false
+        options:
+          - value: none
+            icon: none
+          - value: solid
+            icon: border-solid
+          - value: dashed
+            icon: border-dashed
+          - value: dotted
+            icon: border-dotted
+
+      radius:
+        type: toggles
+        label: Corners
+        width: 1/2
+        options:
+          - value: all
+            text: All
+            icon: radius-all
+          - value: individual
+            text: Individual
+            icon: radius-individual
+      
+      inline=radius:
+        type: number
+        label: Radius
+        when:
+          radius: all
+        width: 1/2
+        min: 0
+        step: 0.1
+        default: 0
+        placeholder: 0
+        after: em
+
+      individual_radius:
+        type: group
+        width: 1/2
+        when:
+          radius: individual
+        fields:
+          inline=top-left-radius:
+            type: number
+            label: Top left
+            icon: radius-top-left
+            width: 1/4
+            min: 0
+            step: 0.1
+            default: 0
+            placeholder: 0
+            after: em
+          inline=top-right-radius:
+            type: number
+            label: Top right
+            icon: radius-top-right
+            width: 1/4
+            min: 0
+            step: 0.1
+            default: 0
+            placeholder: 0
+            after: em
+          gap1: 
+            type: gap
+            width: 1/2
+          inline=bottom-left-radius:
+            type: number
+            label: Bottom left
+            icon: radius-bottom-left
+            width: 1/4
+            min: 0
+            step: 0.1
+            default: 0
+            placeholder: 0
+            after: em
+          inline=bottom-right-radius:
+            type: number
+            label: Bottom right
+            icon: radius-bottom-right
+            width: 1/4
+            min: 0
+            step: 0.1
+            default: 0
+            placeholder: 0
+            after: em
+      
+
+          # border_color-from:
+          #   type: toggles
+          #   label: Color
+          #   default: theme
+          #   width: 1/2
+          #   options:
+          #     - theme
+          #     - custom
+
+          # border_color:
+          #   type: color
+          #   when: 
+          #     border_color-from: theme
+          #   mode: options
+          #   label: Theme color
+          #   width: 1/2
+          #   options:
+          #     type: query
+          #     query: site.palette.toStructure
+          #     text: "{{ item.name }}"
+          #     value: "{{ item.color }}"
+
+          # border_ccolor:
+          #   type: color
+          #   when: 
+          #     border_color-from: custom
+          #   label: Custom color
+          #   alpha: true
+          #   width: 1/2

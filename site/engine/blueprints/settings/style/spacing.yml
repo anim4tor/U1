@@ -1,0 +1,127 @@
+name: Spacing
+type: group
+icon: code
+fields:
+  spacing:l:
+    type: line
+
+  spacing:h:
+    type: headline
+    label: Spacing
+    width: 3/4
+
+  spacing:tabs: 
+    extends: fields/tabs
+    width: 1/4
+
+  spacing:desktop:
+    type: group
+    when:
+      spacing:tabs: desktop
+    fields:
+     
+      # top
+      hidden:tl:
+        type: gap
+        width: 1/6
+      css=inner__top:
+        label: ''
+        type: number
+        icon: inner-top
+        min: 0
+        max: 20
+        placeholder: 0
+        width: 1/6
+      hidden:t2:
+        type: gap
+        width: 1/6
+      hidden:t3:
+        type: gap
+        width: 1/6
+      css=wrap__top:
+        label: ''
+        type: number
+        icon: wrap-top
+        min: 0
+        max: 20
+        placeholder: 0
+        width: 1/6
+      hidden:t4:
+        type: gap
+        width: 1/6
+
+      # center
+      css=inner__left:
+        label: ''
+        type: number
+        icon: inner-left
+        min: 0
+        max: 20
+        placeholder: 0
+        width: 1/6
+      hidden:label:
+        type: text
+        label: Inner
+        width: 1/6
+      css=inner__right:
+        label: ''
+        type: number
+        icon: inner-right
+        min: 0
+        max: 20
+        placeholder: 0
+        width: 1/6
+      css=wrap__left:
+        label: ''
+        type: number
+        icon: wrap-left
+        min: 0
+        max: 20
+        placeholder: 0
+        width: 1/6
+      hidden:label2:
+        type: text
+        label: Wrap
+        width: 1/6
+      css=wrap__right:
+        label: ''
+        type: number
+        icon: wrap-right
+        min: 0
+        max: 20
+        placeholder: 0
+        width: 1/6
+
+      # bottom
+      hidden:t7:
+        type: gap
+        width: 1/6
+      css=inner__bottom:
+        label: ''
+        type: number
+        icon: inner-bottom
+        min: 0
+        max: 20
+        placeholder: 0
+        width: 1/6
+      hidden:t8:
+        type: gap
+        width: 1/6
+      hidden:t9:
+        type: gap
+        width: 1/6
+      css=wrap__bottom:
+        label: ''
+        type: number
+        icon: wrap-bottom
+        min: 0
+        max: 20
+        placeholder: 0
+        width: 1/6
+      hidden:t10:
+        type: gap
+        width: 1/6
+        
+      
+
+      
