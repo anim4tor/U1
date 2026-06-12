@@ -7209,6 +7209,7 @@
 :root {
   --reveal-duration: 600ms;
   --reveal-stack: 50ms;
+  --reveal-delay: 200ms;
 }
 
 /*
@@ -7391,20 +7392,21 @@
   display: inline-block;
   -webkit-transform: translateY(110%);
           transform: translateY(110%);
-  -webkit-transition-property: -webkit-transform;
-  transition-property: -webkit-transform;
-  transition-property: transform;
-  transition-property: transform, -webkit-transform;
+  -webkit-transition-property: color, -webkit-transform;
+  transition-property: color, -webkit-transform;
+  transition-property: transform, color;
+  transition-property: transform, color, -webkit-transform;
   -webkit-transition-duration: var(--reveal-duration);
           transition-duration: var(--reveal-duration);
   -webkit-transition-delay: var(--delay);
           transition-delay: var(--delay);
   -webkit-transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
           transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: transform;
+  will-change: transform, color;
+  color: rgba(var(--color-acc), 1);
 }
 [data-reveal-text] [data-word] > [data-char] {
-  --delay: calc(var(--char-index) * var(--reveal-stack) + var(--in-delay, 0ms));
+  --delay: calc(var(--char-index) * var(--reveal-stack)/var(--word-total) + var(--in-delay, var(--reveal-delay, 0ms)));
 }
 
 [data-reveal-text=words] {
@@ -7419,20 +7421,21 @@
   display: inline-block;
   -webkit-transform: translateY(110%);
           transform: translateY(110%);
-  -webkit-transition-property: -webkit-transform;
-  transition-property: -webkit-transform;
-  transition-property: transform;
-  transition-property: transform, -webkit-transform;
+  -webkit-transition-property: color, -webkit-transform;
+  transition-property: color, -webkit-transform;
+  transition-property: transform, color;
+  transition-property: transform, color, -webkit-transform;
   -webkit-transition-duration: var(--reveal-duration);
           transition-duration: var(--reveal-duration);
   -webkit-transition-delay: var(--delay);
           transition-delay: var(--delay);
   -webkit-transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
           transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: transform;
+  will-change: transform, color;
+  color: rgba(var(--color-acc), 1);
 }
 [data-reveal-text=words] [data-word] > span {
-  --delay: calc(var(--word-index) * var(--reveal-stack) + var(--in-delay, 0ms));
+  --delay: calc(var(--word-index) * var(--reveal-stack) + var(--in-delay, var(--reveal-delay, 0ms)));
 }
 
 [data-reveal-text=lines] {
@@ -7447,20 +7450,21 @@
   display: inline-block;
   -webkit-transform: translateY(110%);
           transform: translateY(110%);
-  -webkit-transition-property: -webkit-transform;
-  transition-property: -webkit-transform;
-  transition-property: transform;
-  transition-property: transform, -webkit-transform;
+  -webkit-transition-property: color, -webkit-transform;
+  transition-property: color, -webkit-transform;
+  transition-property: transform, color;
+  transition-property: transform, color, -webkit-transform;
   -webkit-transition-duration: var(--reveal-duration);
           transition-duration: var(--reveal-duration);
   -webkit-transition-delay: var(--delay);
           transition-delay: var(--delay);
   -webkit-transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
           transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: transform;
+  will-change: transform, color;
+  color: rgba(var(--color-acc), 1);
 }
 [data-reveal-text=lines] [data-word] > span {
-  --delay: calc(var(--line-index) * var(--reveal-stack) + var(--in-delay, 0ms));
+  --delay: calc(var(--line-index) * var(--reveal-stack) + var(--in-delay, var(--reveal-delay, 0ms)));
   --reveal-duration: 1.2s;
 }
 
@@ -7474,6 +7478,7 @@
 [data-scroll]:not([data-scroll-ignore]).is-inview[data-reveal-text] [data-word] > span {
   -webkit-transform: none;
           transform: none;
+  color: rgba(var(--col), 1);
 }
 
 [data-reveal-text-out] {

@@ -17,16 +17,16 @@
     --pad: var(--spacing);
 
     --font-family-body: 'Plain', sans-serif;
-    --font-family-heading: /*'New Spirit Light Condensed',*/ 'Plain', sans-serif;
+    --font-family-heading: 'ABCArizonaFlare', sans-serif;
     --font-family-mono: 'Roboto Mono', mono;
     --font-weight-heading: 300;
-    --font-weight-body: 300;
+    --font-weight-body: 400;
 
     $levels: 5, 4, 3, 2, 1;
 /*    $start: 1.0;*/
     $start: 0.8;
     $line: 1.2;
-    $scale: 1.65;
+    $scale: 1.55;
     $size: $start;
 
     @each $level in $levels {

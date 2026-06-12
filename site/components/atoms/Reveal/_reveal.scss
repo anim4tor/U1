@@ -8,6 +8,7 @@
 :root {
 	--reveal-duration: 600ms;
   --reveal-stack: 50ms;
+  --reveal-delay: 200ms;
 }
 
 
@@ -90,7 +91,8 @@
     & > span {
       display: inline-block;
       transform: translateY(110%);
-      @include animation((transform), var(--reveal-duration), var(--delay));
+      @include animation((transform, color), var(--reveal-duration), var(--delay));
+      color: rgba(var(--color-acc),1);
     }
   }
 }
@@ -98,20 +100,20 @@
 @mixin reveal-text-line {
   @include reveal-text-setup;
   [data-word] > span {
-    --delay: calc(var(--line-index) * var(--reveal-stack) + var(--in-delay, 0ms));
+    --delay: calc(var(--line-index) * var(--reveal-stack) + var(--in-delay, var(--reveal-delay, 0ms)));
     --reveal-duration: 1.2s;
   }
 }
 @mixin reveal-text-word {
   @include reveal-text-setup;
   [data-word] > span {
-    --delay: calc(var(--word-index) * var(--reveal-stack) + var(--in-delay, 0ms));  
+    --delay: calc(var(--word-index) * var(--reveal-stack) + var(--in-delay, var(--reveal-delay, 0ms))); 
   }
 }
 @mixin reveal-text-char {
   @include reveal-text-setup;
   [data-word] > [data-char] {
-    --delay: calc(var(--char-index) * var(--reveal-stack) + var(--in-delay, 0ms));
+    --delay: calc(var(--char-index) * var(--reveal-stack)/var(--word-total) + var(--in-delay, var(--reveal-delay, 0ms)));
   }
 }
 
@@ -120,6 +122,7 @@
   [data-word] > [data-char],
   [data-word] > span {
     transform: none;
+    color: rgba(var(--col),1);
   }
 }
 @mixin reveal-text-out {

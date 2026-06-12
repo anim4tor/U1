@@ -46,6 +46,17 @@
     font-style: normal;
     font-display: swap;
 }
+
+@font-face {
+    font-family: 'ABCArizonaFlare';
+    src: url('../fonts/ABCArizonaFlare-Regular.woff2') format('woff2'),
+        url('../fonts/ABCArizonaFlare-Regular.woff2') format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+
 /*
 	IMPORTS
 */
@@ -87,6 +98,7 @@ $levels: 'small', 'default', 'large', 5, 4, 3, 2, 1;
     Modifiers
 */
 $mods: ( 
+    xxl: 3.5,
     xl: 2,
     l: 1.5,
     m: 1.25,
@@ -145,6 +157,7 @@ h1, h2, h3, h4, h5 {
     font-optical-sizing: auto;
     letter-spacing: -0.05em;
     margin-top: -0.2em;
+    text-transform: uppercase;
 }
 .ff__heading,
 .ff__heading *
@@ -244,4 +257,16 @@ p {
     &.large {
         --size: 0.5em;
     }
+}
+
+::selection {
+    background: rgba(var(--color-acc),1);
+    color: rgba(var(--color-text),1);
+    text-shadow: none;
+}
+
+::-moz-selection {
+    background: rgba(var(--color-acc),1);
+    color: rgba(var(--color-text),1);
+    text-shadow: none;
 }

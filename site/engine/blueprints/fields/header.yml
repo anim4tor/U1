@@ -3,6 +3,7 @@ label: Hlavička sekce
 fieldsets:
   - heading
   - text
+  - label
   - list
   - line
   - image

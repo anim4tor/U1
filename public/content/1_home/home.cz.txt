@@ -2,20 +2,7 @@ Title: Domů
 
 ----
 
-Customtitle: Tvoje yoga. iDentita.
-
-----
-
-Subtitle:
-
-- 
-  text: Yogové studio v centru Brna
-- 
-  text: Zažij něco výjimečného
-- 
-  text: Jóga pomáhá, najdi si tu svou
-- 
-  text: Sleduj nás na @yogaid_official
+Customtitle: Workspaces That Works
 
 ----
 
@@ -23,23 +10,29 @@ Menutitle:
 
 ----
 
-Gradientfrom: #f4ee32
+Cover: - file://SC5zFBn08awUwikt
 
 ----
 
-Gradientto: #f4cd32
+Intro: [{"content":{"text":"<p>(OUR STUDIO)</p>","mod":"","face":"body","attr=data-scroll":"false","attr=data-reveal":"","attr=data-reveal-children":"false","attr=data-reveal-words":"false","attr=data-reveal-section":"false","bid":"","attr":"","href":"","node":""},"id":"ce0ab77f-7ee9-4922-960d-81f836a0cbde","isHidden":false,"type":"label"},{"content":{"text":"We create the identity of interiors. As designers and experienced consultants.","level":"h2","mod":"l","attr=data-scroll":"false","attr=data-reveal":"","attr=data-reveal-children":"false","attr=data-reveal-words":"false","attr=data-reveal-section":"false","bid":"","attr":"","href":"","node":""},"id":"7196bce0-bdfc-40d3-99c8-81950bf23875","isHidden":false,"type":"heading"},{"content":{"text":"<p>Design development through aesthetics to functionality in line with the latest technologies, structural aspects of projects - construction, materials, sustainable practices and coordination between teams of engineers and construction workers.</p>","mod":"","face":"","attr=data-scroll":"false","attr=data-reveal":"","attr=data-reveal-children":"false","attr=data-reveal-words":"false","attr=data-reveal-section":"false","bid":"","attr":"","href":"","node":""},"id":"acde31ea-6c4b-4f2b-9c8a-766553205da8","isHidden":false,"type":"text"},{"content":{"label":"Více o nás","style":"dark","hover":"","size":"default","link":"page://yAaVa524crrP12m4","target":"false"},"id":"cdda7ed8-0e05-463c-9ae6-d5637b13a258","isHidden":false,"type":"button"}]
 
 ----
 
-Cover: - file://NzykNfMAfNzweSga
+Introfigure: - file://NegEtcgy19EZlvSd
 
 ----
 
-Introfigure: - file://tnGdVitWc9LlGoWT
+Introfeatures:
 
-----
-
-Intro: [{"content":{"text":"<p>Náš příběh</p><p></p><p></p>","mod":"l","face":"","attr=data-scroll":"false","attr=data-reveal":"","attr=data-reveal-children":"false","attr=data-reveal-words":"false","attr=data-reveal-section":"false","bid":"","attr":"","href":"","node":""},"id":"ae1076cc-75d7-4977-b4fa-64c0cf481dc7","isHidden":false,"type":"text"},{"content":{"text":"Identita skrze pohyb","level":"h2","mod":"","attr=data-scroll":"false","attr=data-reveal":"","attr=data-reveal-children":"false","attr=data-reveal-words":"false","attr=data-reveal-section":"false","bid":"","attr":"","href":"","node":""},"id":"7196bce0-bdfc-40d3-99c8-81950bf23875","isHidden":false,"type":"heading"},{"content":{"text":"<p>Moderní jógové studio v srdci Brna, kde se preciznost pohybu potkává s klidem mysli. Věříme, že jóga není o dokonalých pózách na Instagram, ale o objevování vlastního těla a jeho možností. Naše studio vzniklo jako prostor pro ty, kteří hledají kvalitu bez zbytečného esoterického balastu.</p>","mod":"","face":"","attr=data-scroll":"false","attr=data-reveal":"","attr=data-reveal-children":"false","attr=data-reveal-words":"false","attr=data-reveal-section":"false","bid":"","attr":"","href":"","node":""},"id":"acde31ea-6c4b-4f2b-9c8a-766553205da8","isHidden":false,"type":"text"},{"content":{"label":"Více o nás","style":"dark","hover":"","size":"default","link":"page://yAaVa524crrP12m4","target":"false"},"id":"cdda7ed8-0e05-463c-9ae6-d5637b13a258","isHidden":false,"type":"button"}]
+- 
+  feature: "200"
+  label: (+PROJECTS)
+- 
+  feature: "90"
+  label: (+PEOPLE)
+- 
+  feature: "10"
+  label: (+YEARS)
 
 ----
 
@@ -62,7 +55,7 @@ Meta-description: Tvoje jóga. Tvoje identita.
 
 ----
 
-Meta-title: Yoga i-D - Tvoje jóga. Tvoje identita.
+Meta-title: 
 
 ----
 
@@ -99,6 +92,27 @@ Robots-imageindex:
 ----
 
 Robots-snippet: 
+
+----
+
+Subtitle:
+
+- 
+  text: Yogové studio v centru Brna
+- 
+  text: Zažij něco výjimečného
+- 
+  text: Jóga pomáhá, najdi si tu svou
+- 
+  text: Sleduj nás na @yogaid_official
+
+----
+
+Gradientfrom: #f4ee32
+
+----
+
+Gradientto: #f4cd32
 
 ----
 

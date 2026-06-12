@@ -8,33 +8,11 @@ tabs:
         width: 1/2
         type: writer
         inline: true
-      subtitle:
-        width: 1/2
-        type: structure
-        label: Subtitle slider
-        fields:
-          text:
-            type: text
       menuTitle:
         label: Menu label
         width: 1/2
         type: text
-      gradientFrom:
-        width: 1/4
-        label: Gradient From
-        type: color
-        mode: options
-        options:
-          type: query
-          query: kirby.option('colors')
-      gradientTo:
-        width: 1/4
-        label: Gradient To
-        type: color
-        mode: options
-        options:
-          type: query
-          query: kirby.option('colors')
+      
       cover:
         width: 1/1
         type: files
@@ -49,15 +27,26 @@ tabs:
         layout: cards
         size: full
 
-      introFigure:
-        extends: fields/image
-        width: 1/2
-        size: cover
-        max: 1
       intro:
-        width: 1/2
+        width: 1/3
         extends: fields/header
         label: Intro
+      introFigure:
+        extends: fields/image
+        width: 1/3
+        size: cover
+        max: 1
+      introFeatures:
+        width: 1/3
+        type: structure
+        fields:
+          feature:
+            label: Number
+            type: text
+          label:
+            label: Label
+            type: text
+
       events:
         width: 1/2
         extends: fields/header
