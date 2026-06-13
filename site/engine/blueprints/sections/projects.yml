@@ -1,0 +1,13 @@
+type: pages
+headline: Projects
+parent: site.find("projects")
+size: large
+info: "{{ page.images.count }} image(s)"
+layout: cards
+template: project
+empty: Add project
+image:
+  query: page.cover.toFile
+  cover: true
+  ratio: 5/3
+#

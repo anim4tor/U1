@@ -55,9 +55,9 @@ tabs:
         extends: fields/image
         width: 1/2
         max: 2
-      lectures:
+      projects:
         width: 1/1
         extends: fields/header
-        label: Lectures
+        label: Projects
 
   meta: tabs/meta/page

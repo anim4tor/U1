@@ -66,17 +66,12 @@
 
 		</div>
 		<div class="relative font__size__1 xl flex justify__end align__end">(↓)</div>
-		<?php if ($fig = $page->introFigure()->toFile()) : ?>
-			<div class="grid" >
-				<?= snippet('atoms/Image', ['img' => $fig, 'parallax' => 5, 'css' => 'h__20 mobile:h__20']) ?>
-			</div>
-			<div class="grid" >
-				<?= snippet('atoms/Image', ['img' => $fig, 'parallax' => 5, 'css' => 'h__20 mobile:h__20']) ?>
-			</div>
-			<div class="grid" >
-				<?= snippet('atoms/Image', ['img' => $fig, 'parallax' => 5, 'css' => 'h__20 mobile:h__20']) ?>
-			</div>
-		<?php endif ?>
+		<ul class="flex justify__start no__wrap gap__2">	
+		<?php foreach (collection('Projects') as $project) : ?>
+			<?= snippet('molecules/Project', compact('project')) ?>
+		<?php endforeach ?>
+		</ul>
+		
 	</div>
 </section>
 
@@ -129,12 +124,12 @@
 </section>
 <?php endif ?>
 
-<?php if ($page->lectures()->isNotEmpty()) : ?>
+<?php if ($page->projects()->isNotEmpty()) : ?>
 <section class="lectures">
 	<div class="inner-y__5 grid gap__5">
 		<div class="grid inner-x__4 mobile:inner-x__1">
 			<div class="grid place__center-start gap__1 wrap-x__10 mobile:wrap-x__0">
-				<?= snippet('molecules/Header', ['header' => $page->lectures()]) ?>
+				<?= snippet('molecules/Header', ['header' => $page->projects()]) ?>
 			</div>
 		</div>
 		<div class="grid inner-x__4 mobile:inner-x__1">
@@ -142,8 +137,8 @@
 				<p class="s"><?= t('explore-lectures') ?></p>
 			</div>
 			<ul class="class__list grid">
-				<?php foreach (collection('Lectures') as $lecture) : ?>
-					<?= snippet('molecules/Lecture', compact('lecture')) ?>
+				<?php foreach (collection('Projects') as $project) : ?>
+					<?= snippet('molecules/Project', compact('project')) ?>
 				<?php endforeach ?>
 			</ul>
 		</div>
