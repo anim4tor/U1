@@ -137,10 +137,10 @@
     justify-content:center
 }
 .k-block-type-settings .k-block-name,.k-block-type-tags .k-block-type-fields-header,.k-field-type-layout .k-field-header,.k-field-type-tags .k-field-header{
-    display:none!important
+/*    display:none!important*/
 }
 .k-block-type-tags .k-block-type-fields-form{
-    padding-top:var(--spacing-3)
+/*    padding-top:var(--spacing-3)*/
 }
 .k-drawer .k-layout{
     margin-bottom:0px!important

@@ -1,0 +1,127 @@
+Title: Volareza - Restaurace Evropa
+
+----
+
+Cover: - file://aLmmfjg8CobVdnq4
+
+----
+
+Intro: Respekt k&nbsp;prostoru, precizní truhlářská výroba a&nbsp;citlivé propojení historického odkazu s&nbsp;moderním provozem. Rekonstrukce hotelu Evropa pod taktovkou U1 ukazuje, že i&nbsp;technicky náročné zadání může vyústit v&nbsp;čistý a&nbsp;harmonický interiér.
+
+----
+
+Claim: 
+
+----
+
+Details: <p><strong>Preciznost bez kompromisů</strong></p><p>Zadání od investora bylo jasné – nešlo jen o&nbsp;dodávku nábytku, ale o&nbsp;kompletní vytvoření reprezentativního prostředí, kde se nespoléhá na improvizaci. Naším úkolem bylo navázat na koncepci ateliéru Dimense, technicky ji do detailu vyřešit a&nbsp;dohlédnout na to, aby prostor fungoval dlouhodobě i&nbsp;v náročném denním provozu. Klíčem k&nbsp;úspěchu byla koordinace profesí a&nbsp;důraz na řemeslný detail.</p><p>&nbsp;<strong>Dialog starého s&nbsp;novým</strong></p><p>Interiér je postaven na dialogu mezi historickou pompézností a&nbsp;současnými materiály. Designérka Tereza Matyášková hledala cestu, jak do interiéru přivést novou vrstvu, která by přirozeně zapadla do historického rámce.</p><p><strong>Replika vstupních dveří:</strong> Pravděpodobně nejnáročnější částí zakázky byla výroba vstupních dveří. Pod dohledem památkové péče vznikla věrná replika původních dveří, která do puntíku zachovává profilaci, kování i&nbsp;odstín lazury.</p><p><strong>Kazetový strop:</strong> Dominantou hlavního sálu je nový kazetový podhled. Ten nejenže dává prostoru rytmus a&nbsp;noblesu, ale chytře řeší akustiku a&nbsp;technické rozvody osvětlení.</p><p><strong>Materiálové kontrasty:</strong> V&nbsp;prostoru se potkává klasické dřevo s&nbsp;netradičním obkladem baru z&nbsp;trapézového plechu. Historickou atmosféru doplňují skládací skleněné příčky s&nbsp;potiskem dobových rytin, které umožňují variabilně oddělit klidnější zóny.</p><p><strong>Výsledek: Prostor, který má atmosféru</strong></p><p>Díky precizní práci projektového manažera Martina Čuhela přímo na místě se podařilo zkoordinovat návaznosti profesí v&nbsp;krátkých termínech. Světlo, struktura materiálů a&nbsp;logické uspořádání se spojily v&nbsp;jeden funkční celek, který působí mimořádně klidně a&nbsp;sjednoceně.</p><p><em>"Jsem upřímně pyšná na kvalitu, ve které se podařilo interiér realizovat. V&nbsp;prostoru, kde se každá nepřesnost opticky násobí, je preciznost výroby zásadní – a&nbsp;povedlo se to. Ten pocit, když se spojí světlo, materiály a&nbsp;struktura do jednoho celku, je přesně to, co si z&nbsp;Evropy odnáším."</em></p><p>— <strong>Tereza Matyášková</strong>, Designérka U1</p>
+
+----
+
+Quote: 
+
+----
+
+Footnote: 
+
+----
+
+Client: Vojenská lázeňská a rekreační zařízení, příspěvková organizace
+
+----
+
+Concept: Atelier Dimense
+
+----
+
+Date: 2025-01-01
+
+----
+
+Place: Praha 10 - Vršovice
+
+----
+
+Industry: Pohostinství
+
+----
+
+Space: Kuchyně, Bar, Lobby
+
+----
+
+Hash: 
+
+----
+
+Gallery:
+
+- file://2qI2BU4bqaoPqIzX
+- file://8qAHqPprc1ddYcUR
+- file://cMcdvrZecq78ACU6
+- file://wi7rYIgpzhvSmkN8
+- file://tX942wkz1vAeTKrX
+- file://a8M4ENxEhgOVwTHI
+- file://1KY4IxgClFhGIACb
+- file://2gBvbHBTKg6fBKeQ
+- file://zyOcatTWVP5FWGWZ
+- file://KjgKUHKFmgNstb2b
+- file://wWwwhoy49JTwSdtV
+- file://13TtfrExTGRnl1A3
+- file://hj7HRXqchnVIPxqQ
+- file://UvNvtH065zJpx57P
+- file://bId5rCzkY6T07UIr
+- file://QEGC8AqpgSoHUTlf
+- file://GKJNgBT3m7lbX5dp
+
+----
+
+Author: Tomáš Lumpe
+
+----
+
+Meta-description: 
+
+----
+
+Meta-title: 
+
+----
+
+Meta-canonical-url: 
+
+----
+
+Og-title: 
+
+----
+
+Og-description: 
+
+----
+
+Og-image: 
+
+----
+
+Robots-index: 
+
+----
+
+Robots-follow: 
+
+----
+
+Robots-archive: 
+
+----
+
+Robots-imageindex: 
+
+----
+
+Robots-snippet: 
+
+----
+
+Uuid: 4YelEyMbDu0MnevU

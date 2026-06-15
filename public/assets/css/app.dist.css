@@ -7207,7 +7207,7 @@
 }
 
 :root {
-  --reveal-duration: 600ms;
+  --reveal-duration: 1200ms;
   --reveal-stack: 50ms;
   --reveal-delay: 200ms;
 }
@@ -7390,8 +7390,8 @@
 }
 [data-reveal-text] [data-word] > span {
   display: inline-block;
-  -webkit-transform: translateY(110%);
-          transform: translateY(110%);
+  -webkit-transform: translateY(1.5em);
+          transform: translateY(1.5em);
   -webkit-transition-property: color, -webkit-transform;
   transition-property: color, -webkit-transform;
   transition-property: transform, color;
@@ -7406,6 +7406,12 @@
   color: rgba(var(--color-acc), 1);
 }
 [data-reveal-text] [data-word] > [data-char] {
+  -webkit-transform: translateY(1.5em) scaleX(0);
+          transform: translateY(1.5em) scaleX(0);
+  -webkit-transition-duration: calc(var(--reveal-duration) * 1);
+          transition-duration: calc(var(--reveal-duration) * 1);
+  -webkit-transform-origin: left center;
+          transform-origin: left center;
   --delay: calc(var(--char-index) * var(--reveal-stack)/var(--word-total) + var(--in-delay, var(--reveal-delay, 0ms)));
 }
 
@@ -7419,8 +7425,8 @@
 }
 [data-reveal-text=words] [data-word] > span {
   display: inline-block;
-  -webkit-transform: translateY(110%);
-          transform: translateY(110%);
+  -webkit-transform: translateY(1.5em);
+          transform: translateY(1.5em);
   -webkit-transition-property: color, -webkit-transform;
   transition-property: color, -webkit-transform;
   transition-property: transform, color;
@@ -7448,8 +7454,8 @@
 }
 [data-reveal-text=lines] [data-word] > span {
   display: inline-block;
-  -webkit-transform: translateY(110%);
-          transform: translateY(110%);
+  -webkit-transform: translateY(1.5em);
+          transform: translateY(1.5em);
   -webkit-transition-property: color, -webkit-transform;
   transition-property: color, -webkit-transform;
   transition-property: transform, color;
@@ -7561,6 +7567,7 @@ icon svg, .icon svg {
 }
 icon svg path, .icon svg path {
   fill: currentColor;
+  stroke: currentColor;
 }
 icon.large, .icon.large {
   --icon-size: 36px;
@@ -7589,12 +7596,12 @@ icon.large, .icon.large {
 
 @-webkit-keyframes icon-open {
   49.9999% {
-    -webkit-transform: translate(100%, -100%);
-            transform: translate(100%, -100%);
+    -webkit-transform: translate(100%);
+            transform: translate(100%);
   }
   50% {
-    -webkit-transform: translate(-100%, 100%);
-            transform: translate(-100%, 100%);
+    -webkit-transform: translate(-100%);
+            transform: translate(-100%);
   }
   0% {
     -webkit-transform: translate(0%, 0%);
@@ -7604,12 +7611,12 @@ icon.large, .icon.large {
 
 @keyframes icon-open {
   49.9999% {
-    -webkit-transform: translate(100%, -100%);
-            transform: translate(100%, -100%);
+    -webkit-transform: translate(100%);
+            transform: translate(100%);
   }
   50% {
-    -webkit-transform: translate(-100%, 100%);
-            transform: translate(-100%, 100%);
+    -webkit-transform: translate(-100%);
+            transform: translate(-100%);
   }
   0% {
     -webkit-transform: translate(0%, 0%);
@@ -22842,7 +22849,7 @@ p a[href]:hover:before {
 }
 
 :root {
-  --img-radius: 0em;
+  --img-radius: 0.5em;
 }
 
 figure {
@@ -22851,7 +22858,7 @@ figure {
   aspect-ratio: var(--aspect-ratio);
 }
 figure:not(.no__radius) {
-  border-radius: var(--img-radius);
+  /*    border-radius: var(--img-radius);*/
 }
 figure img, figure video {
   width: 100%;
@@ -22885,8 +22892,8 @@ img.no__style {
 [data-parallax] img {
   /*    height: 100%;*/
   /*    width: auto;*/
-  -webkit-transform: translateY(calc(var(--speed, 10) * -10% * var(--h) / 100vh + var(--speed, 10) * 20% * var(--h) / 100vh * var(--progress))) scale(calc(1.2 - 0.2 * var(--progress)));
-          transform: translateY(calc(var(--speed, 10) * -10% * var(--h) / 100vh + var(--speed, 10) * 20% * var(--h) / 100vh * var(--progress))) scale(calc(1.2 - 0.2 * var(--progress)));
+  -webkit-transform: translateY(calc(var(--speed, 10) * -10% * var(--h) / 100vh / 2 + var(--speed, 10) * 20% * var(--h) / 100vh / 2 * var(--progress))) scale(calc(1.1 - 0.1 * var(--progress)));
+          transform: translateY(calc(var(--speed, 10) * -10% * var(--h) / 100vh / 2 + var(--speed, 10) * 20% * var(--h) / 100vh / 2 * var(--progress))) scale(calc(1.1 - 0.1 * var(--progress)));
 }
 
 .overlay__bottom:after {
@@ -22918,6 +22925,10 @@ img.no__style {
   aspect-ratio: 1/1;
   border-radius: 50%;
   overflow: hidden;
+}
+
+.radius {
+  --radius: var(--img-radius);
 }
 
 /*
@@ -26586,8 +26597,8 @@ img.no__style {
     MOLECULES: Class
 
 */
-.class__item.--small [href] .lecture__figure,
-.class__item.--default [href] .lecture__figure {
+.project__item.--small [href] .project__figure,
+.project__item.--default [href] .project__figure {
   -webkit-transition-property: all;
   transition-property: all;
   -webkit-transition-duration: 1200ms;
@@ -26600,8 +26611,8 @@ img.no__style {
   width: 0;
   margin-right: 0;
 }
-.class__item.--small [href] img,
-.class__item.--default [href] img {
+.project__item.--small [href] img,
+.project__item.--default [href] img {
   -webkit-transition-property: all;
   transition-property: all;
   -webkit-transition-duration: 1200ms;
@@ -26616,29 +26627,29 @@ img.no__style {
   -webkit-transform: scale(0);
           transform: scale(0);
 }
-.class__item.--small [href]:hover .lecture__figure,
-.class__item.--default [href]:hover .lecture__figure {
+.project__item.--small [href]:hover .project__figure,
+.project__item.--default [href]:hover .project__figure {
   width: calc(var(--spacing) * var(--figure_size));
   margin-right: calc(var(--spacing) * 0.5);
 }
-.class__item.--small [href]:hover img,
-.class__item.--default [href]:hover img {
+.project__item.--small [href]:hover img,
+.project__item.--default [href]:hover img {
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
 }
 
-.class__item.--small {
+.project__item.--small {
   --figure_size: 2;
 }
 
-.class__item.--default {
+.project__item.--default {
   --figure_size: 3;
 }
 
-.class__item.--large [href] {
+.project__item.--large [href] .project__figure {
   overflow: hidden;
 }
-.class__item.--large [href] .lecture__figure {
+.project__item.--large [href] .project__figure figure {
   -webkit-transition-property: all;
   transition-property: all;
   -webkit-transition-duration: 1200ms;
@@ -26651,7 +26662,7 @@ img.no__style {
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
 }
-.class__item.--large [href]:hover .lecture__figure {
+.project__item.--large [href]:hover .project__figure figure {
   -webkit-transform: scale(1);
           transform: scale(1);
 }
@@ -30334,20 +30345,13 @@ img.no__style {
   border-color: transparent;
 }
 [data-tab]:not([data-active]) {
-  /*		opacity: .4;*/
+  opacity: 0.4;
 }
 
 /* Accessibility focus */
 /*[role="tab"]:focus { outline: 2px solid #007bff; }*/
 [role=tab]:focus {
   position: relative;
-}
-[role=tab]:focus:after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: currentColor;
-  opacity: 0.1;
 }
 
 /* Hide inactive panes but keep them in DOM for SEO/Accessibility */
@@ -38442,8 +38446,8 @@ html body hr {
   }
 }
 [data-header][collapsed] {
-  background: rgb(var(--color-dark));
-  color: rgb(var(--color-invert));
+  /*		background: rgb(var(--color-dark));*/
+  /*		color: rgb(var(--color-invert));*/
   mix-blend-mode: initial;
 }
 [data-header][collapsed] .logo {
@@ -47204,7 +47208,8 @@ html body hr {
 [fab] button {
   width: var(--size);
   height: var(--size);
-  clip-path: polygon(15% 15%, 50% 0, 85% 15%, 100% 50%, 85% 85%, 50% 100%, 15% 85%, 0 50%);
+  border-radius: 50%;
+  /*		clip-path: polygon(15% 15%, 50% 0, 85% 15%, 100% 50%, 85% 85%, 50% 100%, 15% 85%, 0 50%);		 */
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -47228,7 +47233,7 @@ html body hr {
   fill: rgb(var(--color-invert));
 }
 [fab] button:hover {
-  clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+  /*			clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);*/
 }
 
 booking,

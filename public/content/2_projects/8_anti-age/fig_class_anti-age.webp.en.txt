@@ -1,9 +1,0 @@
-Caption: 
-
-----
-
-Uuid: RpyyfBeKii0zicLK
-
-----
-
-Template: cover

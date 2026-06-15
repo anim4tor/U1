@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="cs" class="no-js" theme="dark" data-loading>
+<html lang="cs" class="no-js" theme="light" data-loading>
 
 <!-- The head -->
 <?php snippet('organisms/Head') ?>

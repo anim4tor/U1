@@ -1,0 +1,32 @@
+title: Solution
+
+status:
+  draft: true
+  unlisted: true
+  listed: true
+
+tabs:
+  content:
+    columns:
+      - width: 1/2
+        fields:
+          cover:
+            width: 1/1
+            type: files
+            template: cover
+            info: "{{ file.dimensions }}"
+            uploads:
+              template: cover
+            image:
+              ratio: 5/4
+              cover: true
+            max: 1
+            layout: cards
+            size: full
+      - width: 1/2
+        fields:
+          intro:
+            type: writer
+          details:
+            type: writer
+  meta: tabs/meta/page

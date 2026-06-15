@@ -8,7 +8,7 @@
 @import "../../atoms/Media/media";
 @import "../../atoms/Animation/animation";
 :root {
-  --img-radius: 0em;
+  --img-radius: 0.5em;
 }
 
 
@@ -18,7 +18,7 @@ figure {
   aspect-ratio: var(--aspect-ratio);
 
   &:not(.no__radius) {
-    border-radius: var(--img-radius);
+/*    border-radius: var(--img-radius);*/
   }
 
   img, video {
@@ -54,7 +54,7 @@ img {
   img {
 /*    height: 100%;*/
 /*    width: auto;*/
-    transform: translateY(calc(var(--speed, 10)*-10%*(var(--h)/100vh) + var(--speed, 10)*20%*(var(--h)/100vh) * var(--progress))) scale(calc(1.2 - 0.2 * var(--progress)));
+    transform: translateY(calc(var(--speed, 10)*-10%*(var(--h)/100vh/2) + var(--speed, 10)*20%*(var(--h)/100vh/2) * var(--progress))) scale(calc(1.1 - 0.1 * var(--progress)));
   }
 }
 
@@ -79,4 +79,8 @@ img {
   aspect-ratio: 1/1;
   border-radius: 50%;
   overflow: hidden;
+}
+
+.radius {
+  --radius: var(--img-radius);
 }

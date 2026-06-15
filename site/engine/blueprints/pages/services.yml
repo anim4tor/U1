@@ -1,0 +1,52 @@
+title: Services
+
+tabs:
+  solutions:
+    columns:
+      - width: 2/3
+        sections:
+          listed:
+            extends: sections/solutions
+            headline: Solutions
+            status: listed
+
+      - width: 1/3
+        sections:
+          drafts:
+            extends: sections/solutions
+            headline: Drafts
+            layout: list
+            status: draft
+          unlisted:
+            extends: sections/solutions
+            headline: Archive
+            layout: list
+            status: unlisted
+  process:
+    fields:
+      process:
+        type: structure
+        fields:
+          step:
+            type: number
+          label:
+            type: text
+          figure:
+            type: files
+            template: image
+            info: "{{ file.dimensions }}"
+            uploads:
+              template: image
+            image:
+              ratio: 5/4
+              cover: true
+          detail:
+            type: writer
+  content:
+    columns:
+      - width: 1/1
+        fields:
+          hero:
+            extends: fields/hero
+
+  meta: tabs/meta/page

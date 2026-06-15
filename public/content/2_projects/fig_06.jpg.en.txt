@@ -1,5 +1,0 @@
-Uuid: BWLvOEe6oye580de
-
-----
-
-Template: blocks/image

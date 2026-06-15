@@ -1,13 +1,8 @@
 title: Lectures
 
 tabs:
-  content:
+  portfolio:
     columns:
-      - width: 1/1
-        fields:
-          hero:
-            extends: fields/hero
-                
       - width: 2/3
         sections:
           listed:
@@ -27,6 +22,13 @@ tabs:
             headline: Archive
             layout: list
             status: unlisted
+  content:
+    columns:
+      - width: 1/1
+        fields:
+          hero:
+            extends: fields/hero
+                
       - width: 1/1
         fields:
           specials:

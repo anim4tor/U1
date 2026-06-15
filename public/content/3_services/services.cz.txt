@@ -1,0 +1,209 @@
+Title: Služby
+
+----
+
+Slug: sluzby
+
+----
+
+Process:
+
+- 
+  step: 1
+  label: Dialogue
+  figure:
+    - file://zFyM7mkR8tJn9ji8
+  detail: '<p>Design development through aesthetics to functionality in line with the latest technologies, structural aspects of projects - construction, materials, sustainable practices and coordination between teams of engineers and construction workers.</p>'
+- 
+  step: 2
+  label: Study
+  figure:
+    - file://fasksxUBw3yoj1KI
+  detail: '<p>Each medical interior is designed to meet the highest standards of hygiene, effectively integrating the necessary technologies while providing ergonomics, which is essential in a medical environment.</p>'
+- 
+  step: 3
+  label: Construction
+  figure:
+    - file://53P5FBsqz5I7vHKT
+  detail: "<p>We design and implement hotel interiors with an emphasis on aesthetics, unique guest experience and flawless front and back office operations. We prepare a financial estimate, take into account the technical requirements of the building and make the most of the space's potential. We will promote efficient operations and positively impact guest comfort and satisfaction.</p>"
+- 
+  step: 4
+  label: Furnishing
+  figure:
+    - file://hFn5ayNg1V6j0uK1
+  detail: "<p>We've been supplying our own furniture and products and providing design services globally for over 20 years; there are no limits to the size and technical difficulty of our projects. We can tailor furniture to meet subjective user needs and corporate objectives, while also factoring in ergonomics and technological developments.</p>"
+- 
+  step: 5
+  label: Research
+  figure:
+    - file://a2cFqWkrgoEevamW
+  detail: '<p>From rough construction to brand-new offices? <br>With us, you can manage it in just eight weeks. Our expert team designs and delivers interiors, including structural modifications. From dry and wet processes, through building technology, to the interior; from shell and core to details that will streamline your job. We supervise the craftsmen and contractors, make sure deadlines are met and, most importantly, keep the price within your budget.</p>'
+
+----
+
+Cover: 
+
+----
+
+Intro: 
+
+----
+
+Claim: 
+
+----
+
+Meta-description: 
+
+----
+
+Meta-title: 
+
+----
+
+Meta-canonical-url: 
+
+----
+
+Og-title: 
+
+----
+
+Og-description: 
+
+----
+
+Og-image: 
+
+----
+
+Robots-index: 
+
+----
+
+Robots-follow: 
+
+----
+
+Robots-archive: 
+
+----
+
+Robots-imageindex: 
+
+----
+
+Robots-snippet: 
+
+----
+
+Customtitle: 
+
+----
+
+Subtitle: Ceny lekcí &amp; Členství
+
+----
+
+Menutitle: Ceník & Členství
+
+----
+
+Gradientfrom: #11b5bb
+
+----
+
+Gradientto: #7fc2db
+
+----
+
+Single:
+
+- 
+  label: 1 lekce
+  duration: "60"
+  price: "240"
+  item: 1 lession
+- 
+  label: 1 lekce Iynegar yogy
+  duration: "60"
+  price: "270"
+  item: 1 lession Iynegar yoga
+- 
+  label: 1 lekce
+  duration: "75"
+  price: "270"
+  item: 1 lession
+- 
+  label: 1 lekce Iynegar yogy
+  duration: "75"
+  price: "310"
+  item: 1 lession Iynegar yoga
+- 
+  label: 1 lekce
+  duration: "90"
+  price: "290"
+  item: 1 lession
+- 
+  label: 1 lekce Iynegar yogy
+  duration: "90"
+  price: "350"
+  item: 1 lession Iynegar yoga
+
+----
+
+Passes:
+
+- 
+  label: 10 lekcí
+  duration: "60"
+  price: "2100"
+- 
+  label: 10 lekcí Iynegar yogy
+  duration: "60"
+  price: "2400"
+- 
+  label: 10 lekcí
+  duration: "75"
+  price: "2300"
+- 
+  label: 10 lekcí Iynegar yogy
+  duration: "75"
+  price: "2800"
+- 
+  label: 10 lekcí
+  duration: "90"
+  price: "2600"
+- 
+  label: 10 lekcí Iynegar yogy
+  duration: "90"
+  price: "3200"
+
+----
+
+Credit: [{"content":{"text":"Volný kredit","level":"h3","mod":"","attr=data-scroll":"false","attr=data-reveal":"","attr=data-reveal-children":"false","attr=data-reveal-words":"false","attr=data-reveal-section":"false","bid":"","attr":"","href":"","node":""},"id":"f8021e3d-01c5-4854-80c4-c651da56e1c8","isHidden":false,"type":"heading"},{"content":{"text":"<p>Volný kredit využiješ, pokud chceš chodit na různé typy lekcí v různé délce. Při nákupu kreditu ve výši alespoň 2000 Kč dostaneš 15% navíc. Pokud například nakoupíš za 2000 Kč, dostaneš od nás 300 Kč navíc, při nákupu za 3000 Kč dostaneš 450 Kč atd. Kredit je možné využívat na libovolné lekce a nemusíš mít několik permanentek.</p>","mod":"","face":"","attr=data-scroll":"false","attr=data-reveal":"","attr=data-reveal-children":"false","attr=data-reveal-words":"false","attr=data-reveal-section":"false","bid":"","attr":"","href":"","node":""},"id":"b9e52c6e-fa2b-4218-8df1-883794a629a4","isHidden":false,"type":"text"}]
+
+----
+
+Membership:
+
+- 
+  label: 1 měsíc
+  price: "2500"
+- 
+  label: 3 měsíce (cena za 1 měsíc)
+  price: "2400"
+- 
+  label: 6 měsíců (cena za 1 měsíc)
+  price: "2300"
+- 
+  label: 12 měsíců (cena za 1 měsíc)
+  price: "2200"
+
+----
+
+Benefits: [{"content":{"text":"Výhody členství","level":"h3","mod":"","attr=data-scroll":"false","attr=data-reveal":"","attr=data-reveal-children":"false","attr=data-reveal-words":"false","attr=data-reveal-section":"false","bid":"","attr":"","href":"","node":""},"id":"00998dbf-6d65-48b4-b61f-1cc1fe8b517f","isHidden":false,"type":"heading"},{"content":{"text":"<ul><li>neomezený vstup na všechny lekce a kurzy</li><li>slevy na nákup zboží ve studiu i v online obchodu (připravujeme)</li><li>další speciální výhody pro tebe i přátele (připravujeme, více informací již brzy)</li></ul>","mod":"m","attr=data-scroll":"false","attr=data-reveal":"","attr=data-reveal-children":"false","attr=data-reveal-words":"false","attr=data-reveal-section":"false","bid":"","attr":"","href":"","node":""},"id":"a76274c2-c1f8-4b4a-b184-b23d141c0fae","isHidden":false,"type":"list"},{"content":{"text":"<p>Na recepci přijímáme platby v hotovosti i platebními kartami. Lekce, kurzy, workshopy, permanentky i členství lze také zakoupit online v rezervačním systému s platební bránou. Přijímáme benefitní poukázky a karty od společnosti Pluxee. Přijímáme platby v rámci benefitních programů společností Benefit Plus, Benefity, Edenred a Up Česká republika.<br><br>Na vybrané lekce v délce 60 minut přijímáme benefitní program Multisport. Tento program nelze využít na jiné typy lekcí či kurzů. Rezervace prostřednictvím benefitních programů je povinná.<br><br>Na rezervace se vztahují platné storno podmínky.</p>","mod":"","face":"","attr=data-scroll":"false","attr=data-reveal":"","attr=data-reveal-children":"false","attr=data-reveal-words":"false","attr=data-reveal-section":"false","bid":"","attr":"","href":"","node":""},"id":"9f8f4963-e271-453f-8f3e-58975e6b2468","isHidden":false,"type":"text"}]
+
+----
+
+Uuid: 0j5PLDVM3c0BZlmY

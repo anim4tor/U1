@@ -7,31 +7,64 @@ status:
 
 tabs:
   content:
-    fields:
-      hero:
-        extends: fields/hero
-      intro:
-        extends: fields/header
-        label: Intro
-      features:
-        width: 1/1
-        extends: fields/header
-        label: Features
-      details:
-        width: 1/1
-        extends: fields/header
-        label: Details
-      meditation:
-        width: 1/1
-        type: writer
-        inline: true
-      gallery:
-        width: 1/1
-        type: blocks
-        empty: No images yet
-        layouts:
-          - "1/1"
-        fieldsets:
-          - gallery
+    columns:
+      - width: 2/3
+
+        fields:
+          hero:
+            extends: fields/hero
+          details:
+            type: writer
+          quote:
+            type: writer
+          footnote:
+            type: writer
+          
+
+      - width: 1/3
+        fields:
+          client:
+            label: Client
+            type: text
+          concept:
+            label: Koncept
+            type: text
+          date:
+            type: date
+            label: Rok realizace
+          place:
+            type: text
+            label: Lokalita
+          industry:
+            type: tags
+            label: Obor podnikání
+          space:
+            type: tags
+            label: Typ prostoru
+          hash:
+            type: tags
+            label: Hashtags
+
+  gallery:
+    columns:
+      - width: 2/3
+        fields:
+          gallery:
+            width: 1/1
+            type: files
+            template: image
+            info: "{{ file.dimensions }}"
+            uploads:
+              template: image
+            image:
+              ratio: 5/4
+              cover: true
+            layout: cards
+            size: large
+            empty: No images yet
+      - width: 1/3
+        fields:
+          author:
+            type: text
 
   meta: tabs/meta/page

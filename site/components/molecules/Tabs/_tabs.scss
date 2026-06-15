@@ -52,7 +52,7 @@
 		border-color: transparent;
 	}
 	&:not([data-active]) {
-/*		opacity: .4;*/
+		opacity: .4;
 	}
 }
 
@@ -60,13 +60,7 @@
 /*[role="tab"]:focus { outline: 2px solid #007bff; }*/
 [role="tab"]:focus { 
 	position: relative;
-	&:after {
-		content: '';
-		position: absolute;
-		inset: 0;
-		background: currentColor;
-		opacity: 0.1;
-	}
+	
 }
 
 

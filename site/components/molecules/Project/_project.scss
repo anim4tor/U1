@@ -7,10 +7,10 @@
     
 }
 
-.class__item.--small,
-.class__item.--default {
+.project__item.--small,
+.project__item.--default {
     [href] {
-        .lecture__figure {
+        .project__figure {
             @include animation;
             width: 0;
             margin-right: 0;
@@ -21,7 +21,7 @@
             transform: scale(0);
         }
         &:hover {
-            .lecture__figure {
+            .project__figure {
                 width: calc(var(--spacing) * var(--figure_size));
                 margin-right: calc(var(--spacing) * 0.5);
             }
@@ -31,21 +31,23 @@
         }
     }
 }
-.class__item.--small {
+.project__item.--small {
     --figure_size: 2;
 }
-.class__item.--default {
+.project__item.--default {
     --figure_size: 3;
 }
-.class__item.--large {
+.project__item.--large {
     [href] {
-        overflow: hidden;
-        .lecture__figure {
+        .project__figure {
+            overflow: hidden;
+        }
+        .project__figure figure {
             @include animation;
             transform: scale(1.1);
         }
         &:hover {
-            .lecture__figure {
+            .project__figure figure {
                 transform: scale(1);
             }
         }

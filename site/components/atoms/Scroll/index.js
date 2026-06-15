@@ -123,7 +123,7 @@ class Scroll {
             normalizeWheel: true,
         });
 
-        history.scrollRestoration = 'manual'
+        // history.scrollRestoration = 'manual'
 
         // Event listener pro onScroll (nahrazuje scrollCallback)
         this.engine.on('scroll', (e) => this.onScroll(e));

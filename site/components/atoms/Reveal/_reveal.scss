@@ -6,7 +6,7 @@
 @import "../Media/media";
 @import "../../atoms/Animation/animation";
 :root {
-	--reveal-duration: 600ms;
+	--reveal-duration: 1200ms;
   --reveal-stack: 50ms;
   --reveal-delay: 200ms;
 }
@@ -90,7 +90,7 @@
     
     & > span {
       display: inline-block;
-      transform: translateY(110%);
+      transform: translateY(1.5em);
       @include animation((transform, color), var(--reveal-duration), var(--delay));
       color: rgba(var(--color-acc),1);
     }
@@ -113,6 +113,9 @@
 @mixin reveal-text-char {
   @include reveal-text-setup;
   [data-word] > [data-char] {
+    transform: translateY(1.5em) scaleX(0);
+    transition-duration: calc(var(--reveal-duration)*1);
+    transform-origin: left center;
     --delay: calc(var(--char-index) * var(--reveal-stack)/var(--word-total) + var(--in-delay, var(--reveal-delay, 0ms)));
   }
 }

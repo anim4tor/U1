@@ -25,9 +25,9 @@
 	}
 ?>
 <div fab data-scroll data-reveal style="--in-delay: 600ms">
-	<button class="" data-scroll data-booking-toggle theme="dark" >
-		<div class="grid__stack color__invert">
-			<div data-booking-hide class="grid"><?= svg('public/assets/images/ui/ui_calendar.svg') ?></div>
+	<button class="bg__acc" data-scroll data-booking-toggle >
+		<div class="grid__stack color__invert ">
+			<div data-booking-hide class="grid"><?= svg('public/assets/images/hand.svg') ?></div>
 			<div data-booking-reveal class="grid"><?= svg('public/assets/images/ui/ui_close.svg') ?></div>
 		</div>
 	</button>

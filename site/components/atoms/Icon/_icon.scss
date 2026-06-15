@@ -19,6 +19,7 @@ icon, .icon {
 /*        height: 100%;*/
         path {
             fill: currentColor;
+            stroke: currentColor;
         }
     }
 
@@ -54,10 +55,10 @@ icon, .icon {
 
 @keyframes icon-open {
     49.9999% {
-        transform: translate(100%, -100%);
+        transform: translate(100%);
     }
     50% {
-        transform: translate(-100%, 100%);
+        transform: translate(-100%);
     }
     0% {
         transform: translate(0%, 0%);

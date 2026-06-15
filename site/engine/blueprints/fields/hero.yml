@@ -1,34 +1,6 @@
 type: group
 fields:
-  customTitle:
-    label: Custom title
-    width: 1/2
-    type: writer
-    inline: true
-  subtitle:
-    width: 1/2
-    type: writer
-    inline: true
-  menuTitle:
-    label: Menu label
-    width: 1/2
-    type: text
-  gradientFrom:
-    width: 1/4
-    label: Gradient From
-    type: color
-    mode: options
-    options:
-      type: query
-      query: kirby.option('colors')
-  gradientTo:
-    width: 1/4
-    label: Gradient To
-    type: color
-    mode: options
-    options:
-      type: query
-      query: kirby.option('colors')
+  
   cover:
     width: 1/1
     type: files
@@ -42,3 +14,9 @@ fields:
     max: 1
     layout: cards
     size: full
+  intro:
+    type: writer
+    inline: true
+  claim:
+    type: writer
+    inline: true

@@ -98,7 +98,7 @@ $levels: 'small', 'default', 'large', 5, 4, 3, 2, 1;
     Modifiers
 */
 $mods: ( 
-    xxl: 3.5,
+    xxl: 3,
     xl: 2,
     l: 1.5,
     m: 1.25,
@@ -152,12 +152,12 @@ body {
 
 h1, h2, h3, h4, h5 {
     font-size: var(--output-size);
-    font-family: var(--font-family-heading);
+    font-family: var(--font-family-body);
     font-weight: var(--font-weight-heading);
     font-optical-sizing: auto;
     letter-spacing: -0.05em;
     margin-top: -0.2em;
-    text-transform: uppercase;
+/*    text-transform: uppercase;*/
 }
 .ff__heading,
 .ff__heading *
@@ -182,6 +182,7 @@ p {
 .ff__body *
 {
     font-family: var(--font-family-body);
+    margin-top: 0;
 }
 
 
@@ -257,6 +258,11 @@ p {
     &.large {
         --size: 0.5em;
     }
+}
+
+.outlined {
+    -webkit-text-stroke: 0.015em rgb(var(--background));
+    letter-spacing: -0.05em;
 }
 
 ::selection {

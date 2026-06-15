@@ -3,9 +3,11 @@
 	$parallax ??= false;
 	$url ??= null;
 	$css ??= false;
+	$reveal ??= true;
 	$alt = $img ? $img->alt()->esc() : 'Image';
 ?>
-<figure data-scroll data-reveal-image
+<figure data-scroll 
+    <?= $reveal ? 'data-reveal-image' : null ?>
 	<?= $parallax ? 'data-scroll-progress data-parallax style="--speed: '.$parallax.'"' : null ?>
 	class="<?= $css ?>"
 >
