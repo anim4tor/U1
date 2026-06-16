@@ -17,14 +17,14 @@
 			<?= snippet('molecules/Header', ['header' => $page->intro(), 'type' => ['text']]) ?>
 		</div>
 		<div></div>
-		<div class="span__3 flex justify__space-between">
+		<!-- <div class="span__3 flex justify__space-between">
 			<?php foreach ($page->introFeatures()->toStructure() as $feature) : ?>
 				<div class="flex inner-y__2" data-scroll>
 					<div class="font__size__1 ff__heading xxl outlined" data-reveal-text="lines"><?= $feature->feature() ?></div>
 					<div class="s" data-reveal-text="lines"><?= $feature->label() ?></div>
 				</div>
 			<?php endforeach ?>
-		</div>
+		</div> -->
 	</div>
 </section>
 <?php endif ?>

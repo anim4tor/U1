@@ -4,7 +4,7 @@
 			<div class="intro__cover absolute inset__stretch grid overlay__bottom"><?= snippet('atoms/Image', ['img' => $cover, 'parallax' => 2]) ?></div>
 		<?php endif ?> -->
 		<div class="intro__title relative span__3 mobile:span__1" data-scroll data-scroll-speed="-0.5">
-			<h1 class="xl" data-reveal-text>Overview <br>Of Our Process</h1>
+			<h1 class="xl" data-reveal-text>The Process</h1>
 		</div>
 		<div class="relative flex justify__end align__start"><strong class="s upper" data-reveal-text="lines">(The Process)</strong></div>
 	</div>
