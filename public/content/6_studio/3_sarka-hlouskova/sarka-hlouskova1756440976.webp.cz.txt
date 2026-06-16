@@ -1,5 +1,0 @@
-Uuid: hkTncHyyYI9MTxNU
-
-----
-
-Template: image

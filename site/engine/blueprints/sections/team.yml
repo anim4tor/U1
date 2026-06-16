@@ -3,8 +3,8 @@ headline: Team
 parent: site.find("studio")
 size: small
 layout: cards
-template: instructor
-empty: Add instructor
+template: team
+empty: Add team
 image:
   query: page.photo.toFile
   cover: true

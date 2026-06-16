@@ -393,7 +393,7 @@ class Tabs {
         });
 
         if (nextPane && this.DOM.container) {
-            this.DOM.container.style.height = `${nextPane.scrollHeight}px`;
+            // this.DOM.container.style.height = `${nextPane.scrollHeight}px`;
         }
 
         this.data.active = this.data.next;

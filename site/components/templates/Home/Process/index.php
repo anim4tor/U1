@@ -1,0 +1,40 @@
+<section class="process" theme="invert">
+	<div class="grid__4 mobile:grid__1 mobile:h__auto inner__1 inner-y__2 mobile:inner-t__10 mobile:gap__2 relative" theme="light" data-scroll>
+		<!-- <?php if ($cover = $page->cover()->toFile()) : ?>
+			<div class="intro__cover absolute inset__stretch grid overlay__bottom"><?= snippet('atoms/Image', ['img' => $cover, 'parallax' => 2]) ?></div>
+		<?php endif ?> -->
+		<div class="intro__title relative span__3 mobile:span__1" data-scroll data-scroll-speed="-0.5">
+			<h1 class="xl" data-reveal-text>Overview <br>Of Our Process</h1>
+		</div>
+		<div class="relative flex justify__end align__start"><strong class="s upper" data-reveal-text="lines">(The Process)</strong></div>
+	</div>
+	<div class="grid__2 gap__2 relative place__start-start inner-y__2 inner-b__5" theme="light" data-tabs>
+		<div class="sticky top__0 grid h__100v inner-y__1" >
+			<div class="grid place__start-start inner-x__1" >
+				<?php foreach (collection('Process') as $step) : ?>
+					<div data-tab class="flex align__start inner-y__05" data-scroll >
+						<h3 class="font__size__1" data-reveal-text data-split-ignore><?= $step->label() ?></h3>
+						<span data-reveal-text="lines" class="-wrap-t__03">(<?= $step->step() ?>)</span>
+					</div>
+				<?php endforeach ?>
+			</div>
+			<div class="grid place__end-end inner-x__1 " data-scroll data-scroll-ignore>
+				<div data-pane-container class="grid__stack place__end-end">
+					<?php foreach (collection('Process') as $step) : ?>
+					<div data-pane="step-<?= $step->step()?>" class="grid__2">
+						<div></div>
+						<p class="upper s" data-reveal-text="lines" data-split-ignore><?= $step->detail()->inline() ?></p>
+					</div>
+					<?php endforeach ?>
+				</div>
+			</div>
+		</div>
+		<div class="grid inner-r__1">
+			<?php foreach (collection('Process') as $step) : ?>
+				<?php if ($img = $step->figure()->toFile()) : ?>
+					<div data-pane-trigger=step-<?= $step->step()?> id="trigger-<?= $step->step() ?>" class=""><?= snippet('atoms/Image', ['img' => $img, 'parallax' => 8, 'reveal' => false, 'css' => 'vh__19 radius']) ?></div>
+				<?php endif ?>
+			<?php endforeach ?>
+		</div>
+	</div>
+</section>

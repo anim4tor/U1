@@ -1,0 +1,64 @@
+/*
+
+	MOLECULES: Toggles
+
+*/
+
+
+@import "../../atoms/Media/media";
+@import "../../atoms/Animation/animation";
+:root {
+
+}
+
+[data-toggles] {
+
+  [data-target] {
+    clip-path: inset(0% 100% 0% 0%);
+    tranform: none;
+
+    &.is-active {
+      clip-path: inset(0% 0% 0% 0%);
+    }
+
+    &.is-opening {
+      animation: toggle-in $defaultDuration $defaultEasing;
+    }
+
+    &.is-closing {
+      clip-path: inset(0% 0% 0% 0%);
+      animation: toggle-out $defaultDuration $defaultEasing;
+      --reveal-delay: 0ms;
+    }
+  }
+  [data-target]:not(.is-active) {
+/*    visibility: hidden;*/
+  }
+
+  [data-hover-toggle], [data-toggle] {
+    --reveal-delay: 0ms;
+    --reveal-duration: 600ms;
+    @include animation((opacity));
+    &:not(.is-active) {
+      opacity: 0.4;
+    }
+  }
+
+}
+
+@keyframes toggle-in {
+  0% {
+    clip-path: inset(0% 100% 0% 0%);
+  }
+  100% {
+    clip-path: inset(0% 0% 0% 0%);
+  }
+}
+@keyframes toggle-out {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(33%);
+  }
+}

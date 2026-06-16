@@ -53,3 +53,20 @@
         }
     }
 }
+
+.item.--large {
+    [href] {
+        .item__figure {
+            overflow: hidden;
+        }
+        .item__figure figure {
+            @include animation;
+            transform: scale(1.1);
+        }
+        &:hover {
+            .item__figure figure {
+                transform: scale(1);
+            }
+        }
+    }
+}

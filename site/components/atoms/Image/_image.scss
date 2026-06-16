@@ -54,7 +54,7 @@ img {
   img {
 /*    height: 100%;*/
 /*    width: auto;*/
-    transform: translateY(calc(var(--speed, 10)*-10%*(var(--h)/100vh/2) + var(--speed, 10)*20%*(var(--h)/100vh/2) * var(--progress))) scale(calc(1.1 - 0.1 * var(--progress)));
+    transform: translateY(calc(var(--speed, 10)*-10%*(var(--h)/100vh) + var(--speed, 10)*20%*(var(--h)/100vh) * var(--progress))) scale(calc(1.1 - 0.1 * var(--progress)));
   }
 }
 

@@ -1,0 +1,35 @@
+title: Team
+icon: 👩‍💼
+
+status:
+  draft: To be hired
+  unlisted: Past
+  listed: Active
+
+columns:
+  main:
+    width: 2/3
+    fields:
+      bio:
+        label: Bio
+        type: writer
+
+  sidebar:
+    width: 1/3
+    fields:
+      # slug:
+      #   type: slug
+      #   sync: title
+      photo:
+        type: files
+        headline: Profile image
+        template: image
+        info: "{{ file.dimensions }}"
+        uploads:
+          template: image
+        image:
+          ratio: 4/5
+          cover: true
+        min: 1
+        layout: cards
+        size: full
