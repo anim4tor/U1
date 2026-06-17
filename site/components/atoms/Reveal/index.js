@@ -15,24 +15,26 @@ class Reveal {
             entries.forEach(entry => {
                 const el = entry.target;
                 const shouldRepeat = el.hasAttribute('data-scroll-repeat');
-                const isProgress = el.hasAttribute('data-scroll-progress');
+                const isProgress = el.hasAttribute('data-scroll-progress') || el.hasAttribute('data-start') || el.hasAttribute('data-end');
                 const hasText = el.matches('[data-reveal-text]') || el.querySelector('[data-reveal-text]');
 
                 if (entry.isIntersecting) {
 
                     if (hasText && !el.classList.contains('is-split')) {
                         this._splitText(el);
-                    } else {
+                    } else if (!isProgress) {
+                        // Klasické elementy bez progressu/rozsahu aktivujeme ihned
                         el.classList.add('is-inview');
                     }
 
+                    // Pokud je to progress element nebo má nastavený custom rozsah
                     if (isProgress && !this.progressElements.includes(el)) {
-                        // Před přidáním prvku si nacachujeme jeho rozměry
                         this._cacheSingleElementDimensions(el);
                         this.progressElements.push(el);
                         this._calculateElementProgress(el);
                     }
 
+                    // Pokud prvek nemá repeat, progress ani text, přestaneme ho úplně sledovat
                     if (!shouldRepeat && !isProgress && !hasText) {
                         this.observer.unobserve(el);
                     }
@@ -42,17 +44,26 @@ class Reveal {
                             this._revertText(el);
                         }
                     } else {
-                        el.classList.remove('is-inview');
+                        // Klasické prvky bez progressu zhasínáme tady
+                        if (!isProgress) {
+                            el.classList.remove('is-inview');
+                        }
                     }
                     
                     if (isProgress) {
+                        // Při odchodu mimo viewport (včetně marginu) vyčistíme progress loop
                         this.progressElements = this.progressElements.filter(item => item !== el);
+                        
+                        // Pokud má zapnutý repeat, odebereme třídu i progress elementům
+                        if (shouldRepeat || el.hasAttribute('data-start') || el.hasAttribute('data-end')) {
+                            el.classList.remove('is-inview');
+                        }
                     }
                 }
             });
         }, { rootMargin: '99% 0% 0% 0%', threshold: [0, 1] });
 
-        // Tady je tvůj scroll listener, ošetřený přes passive validation
+        // Scroll listener ošetřený přes passive validation
         window.addEventListener('scroll', () => {
             if (this.progressElements.length > 0) {
                 window.requestAnimationFrame(() => this._updateProgress());
@@ -62,7 +73,9 @@ class Reveal {
 
     preCalculate() {
         document.querySelectorAll(this.selector).forEach(el => {
-            if (el.hasAttribute('data-scroll-progress')) {
+            const isProgress = el.hasAttribute('data-scroll-progress') || el.hasAttribute('data-start') || el.hasAttribute('data-end');
+            
+            if (isProgress) {
                 // Nacachujeme pozici hned na začátku
                 this._cacheSingleElementDimensions(el);
                 this._calculateElementProgress(el);
@@ -110,7 +123,10 @@ class Reveal {
         });
 
         requestAnimationFrame(() => {
-            parentEl.classList.add('is-inview');
+            const isProgress = parentEl.hasAttribute('data-scroll-progress') || parentEl.hasAttribute('data-start') || parentEl.hasAttribute('data-end');
+            if (!isProgress) {
+                parentEl.classList.add('is-inview');
+            }
         });
     }
 
@@ -133,40 +149,50 @@ class Reveal {
 
     // --- Progress Engine (Optimalizovaný) ---
 
-    // Pomocná metoda pro uložení rozměrů jednoho prvku bez zatížení scrollu
     _cacheSingleElementDimensions(el) {
         const rect = el.getBoundingClientRect();
         const scrollTop = window.scrollY || window.pageYOffset;
         
-        // Uložíme si absolutní top pozici vůči celému dokumentu a výšku elementu
         el._absoluteTop = rect.top + scrollTop;
         el._cachedHeight = rect.height;
     }
 
-    // Přepočítá všechny aktivní i neaktivní progress elementy (volá se na resize okna)
     _cacheProgressElementsDimensions() {
-        document.querySelectorAll(`${this.selector}[data-scroll-progress]`).forEach(el => {
-            this._cacheSingleElementDimensions(el);
+        document.querySelectorAll(this.selector).forEach(el => {
+            const isProgress = el.hasAttribute('data-scroll-progress') || el.hasAttribute('data-start') || el.hasAttribute('data-end');
+            if (isProgress) {
+                this._cacheSingleElementDimensions(el);
+            }
         });
     }
 
     _calculateElementProgress(el) {
-        // Pokud z nějakého důvodu ještě nemá cache (bezpečnostní pojistka)
         if (el._absoluteTop === undefined) {
             this._cacheSingleElementDimensions(el);
         }
 
         const scrollTop = window.scrollY || window.pageYOffset;
         const windowHeight = window.innerHeight;
-
-        // Simulujeme rect.top odečtením scrollu od absolutní pozice z cache
         const simulatedRectTop = el._absoluteTop - scrollTop;
 
-        // Výpočet progressu s využitím nacachované výšky (el._cachedHeight)
+        // Výpočet progressu (0 = spodek obrazovky, 1 = vršek obrazovky)
         const progress = Math.max(0, Math.min(1, (windowHeight - simulatedRectTop) / (windowHeight + el._cachedHeight)));
         
-        // Posíláme čisté číslo (odstraněno .toFixed(3)) pro dokonale hladký subpixelový posun
         el.style.setProperty('--progress', progress);
+
+        // --- Logika pro data-start a data-end rozsahy ---
+        const start = el.hasAttribute('data-start') ? parseFloat(el.getAttribute('data-start')) : 0;
+        const end = el.hasAttribute('data-end') ? parseFloat(el.getAttribute('data-end')) : 1;
+        const shouldRepeat = el.hasAttribute('data-scroll-repeat');
+
+        if (progress >= start && progress <= end) {
+            el.classList.add('is-inview');
+        } else {
+            // Třídu odebereme, pokud má zapnutý repeat, nebo pokud k ní uživatel ještě nedoscrolloval zespodu
+            if (shouldRepeat || progress < start) {
+                el.classList.remove('is-inview');
+            }
+        }
     }
 
     _updateProgress() {
@@ -180,14 +206,6 @@ class Reveal {
 
 var REVEAL;
 function initReveals() {
-	console.log(' ... init Reveal animations')
-	REVEAL = new Reveal();
-
-	// document.querySelectorAll('[data-reveal-text],.button').forEach(el => {
-	//   var split = Splitting({ target: el, by: el.getAttribute('data-reveal-text') });
-	// })
-	// document.querySelectorAll('[data-reveal-text]:not(.chars) [data-word]').forEach(word => {
-	//     word.innerHTML = `<span>${word.textContent}</span>`;
-	// });
+    console.log(' ... init Reveal animations');
+    REVEAL = new Reveal();
 }
-

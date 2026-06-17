@@ -126,6 +126,15 @@
   [data-word] > span {
     transform: none;
     color: rgba(var(--col),1);
+    animation: reveal-in 1200ms $defaultEasing var(--delay);
+  }
+}
+@mixin text-in {
+  visibility: visible;
+  [data-word] > [data-char],
+  [data-word] > span {
+    transform: none;
+    color: rgba(var(--col),1);
   }
 }
 @mixin reveal-text-out {
@@ -134,6 +143,23 @@
   [data-word] > span {
     --init-delay : var(--out-delay, 600ms);
     animation: reveal-out 1200ms $defaultEasing calc(var(--delay) + var(--out-delay)) forwards;
+  }
+}
+@keyframes reveal-in {
+  0% {
+    transform: translateY(1.5em);
+  }
+  30% {
+    color: rgba(var(--color-acc),1);
+  }
+  100% {
+    transform: none;
+    color: rgba(var(--col),1);
+  }
+}
+@keyframes hover-in {
+  to {
+    color: rgba(var(--color-acc),1);
   }
 }
 @keyframes reveal-out {
