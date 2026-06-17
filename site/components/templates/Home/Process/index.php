@@ -17,7 +17,7 @@
 					<?php if ($img = $step->figure()->toFile()) : ?>
 						<div class="item__figure"><?= snippet('atoms/Image', ['img' => $img, 'parallax' => 2, 'reveal' => false, 'css' => 'vh__8 vw__8 radius']) ?></div>
 					<?php endif ?>
-					<p class="upper s text__center" data-scroll-trigger style="--start: 0.4; --end: 0.7" data-reveal-text="lines" data-split-ignore><?= $step->detail()->inline() ?></p>
+					<p class="upper s text__center" data-scroll-reveal style="--start: 0.45; --end: 0.75" data-reveal-text="lines" data-split-ignore><?= $step->detail()->inline() ?></p>
 				</div>
 			<?php endforeach ?>
 			</ul>
