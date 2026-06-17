@@ -1,23 +1,10 @@
 <section class="cta">
-	<div class="grid__5 mobile:grid__1 border__top ">
-		<div class="span__3 grid no__overflow relative">
-			<div class="absolute inset__stretch grid mobile:relative mobile:h__20">
-				<?= snippet('atoms/Image', ['url' => 'fig_home_cta.jpg', 'parallax' => 10]) ?>
-			</div>
-		</div>
-		<div class="span__2 grid place__start-stretch border__bottom">
-			<div class="grid place__center-start gap__1 inner-x__2 mobile:inner-x__1 inner-y__4">
-				<?= snippet('molecules/Header', ['header' => $site->ctaContact()]) ?>
-			</div>
-			<?php if ($site->ctaMenu()->isNotEmpty()) : ?>
-				<ul>
-					<?php foreach ($site->ctaMenu()->toPages() as $page): ?>
-						<li class="inner-x__2 mobile:inner-x__1 border__top inner-y__05">
-							<?= snippet('atoms/Link', ['url' => $page->url(), 'label' => $page->menuTitle()->isNotEmpty() ? $page->menuTitle() : $page->title(), 'css' => 'inner-y__1 font__size__4 m']) ?>
-						</li>
-					<?php endforeach ?>
-				</ul>
-			<?php endif ?>
+	<div class="bg radius absolute inset__stretch" theme="acc"></div>
+	<div class="relative grid__3 gap__1 mobile:grid__1 inner__1 inner-y__2">
+		<div class="item__figure grid radius"><?= snippet('atoms/Image', ['url' => 'home_cta.png', 'parallax' => 2 ]) ?></div>
+		<div class="span__2 grid gap__6 place__start-start">
+			<h2 class="xxl">Let’s Discuss Your Next Vision.  </h2>
+			<?= snippet('atoms/Button', [ 'label' => 'Tell us about your project']) ?>
 		</div>
 	</div>
 </section>

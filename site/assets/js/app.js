@@ -45,10 +45,10 @@ const init = async () => {
         initScroll, 
         initReveals,
         initAside, 
-        initBooking, 
         initTabs, 
         initCollapsibles, 
-        initToggles
+        initToggles,
+        initCarousels
     ];
     
     // Spustíme komponenty (await počká na ty, které vrací Promise)
@@ -101,6 +101,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 //@prepros-prepend vendor/lenis.min.js
 //@prepros-prepend vendor/splitting.min.js
+//@prepros-prepend vendor/gsap.min.js
 //@prepros-prepend ../../components/atoms/Scroll/index.js
 //@prepros-prepend ../../components/atoms/Reveal/index.js
 //@prepros-prepend ../../components/molecules/Collapsible/index.js
@@ -108,4 +109,4 @@ document.addEventListener('DOMContentLoaded', async () => {
 //@prepros-prepend ../../components/molecules/Tabs/index.js
 //@prepros-prepend ../../components/organisms/Loader/index.js
 //@prepros-prepend ../../components/organisms/Aside/index.js
-//@prepros-prepend ../../components/organisms/Booking/index.js
+//@prepros-prepend ../../components/organisms/Carousel/index.js

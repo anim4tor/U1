@@ -8,7 +8,8 @@
 @import "../../atoms/Media/media";
 @import "../../atoms/Animation/animation";
 :root {
-  --img-radius: 0.5em;
+  --img-radius: 1.5em;
+  --img-radius: 0em;
 }
 
 
@@ -51,11 +52,15 @@ img {
 
 [data-parallax] {
   overflow: hidden;
-  img {
-/*    height: 100%;*/
-/*    width: auto;*/
-    transform: translateY(calc(var(--speed, 10)*-10%*(var(--h)/100vh) + var(--speed, 10)*20%*(var(--h)/100vh) * var(--progress))) scale(calc(1.1 - 0.1 * var(--progress)));
-  }
+    
+    img {
+      /* Donutí prohlížeč renderovat obrázek přes GPU */
+/*      will-change: transform;*/
+/*      transform-style: preserve-3d;*/
+/*      backface-visibility: hidden;*/
+
+      transform: translateY(calc(var(--speed, 10)*-10%*(var(--h)/100vh) + var(--speed, 10)*20%*(var(--h)/100vh) * var(--progress))) scale(calc(1.1 - 0.1 * var(--progress)));
+    }
 }
 
 .overlay__bottom:after {

@@ -9,6 +9,7 @@
 :root {
 	--button-size: 40px;
 	--button-radius: 2em;
+	--button-spacing: 1.0em;
 	--checkbox-radius: 1rem;
 }
 .button {
@@ -27,7 +28,7 @@
 	font-weight: 400;
 	height: var(--button-size);
 	min-width: var(--button-size);
-	padding: 0 1.0em;
+	padding: 0 Var(--button-spacing);
 	border-radius: var(--button-radius);
 	white-space: nowrap;
 /*	color: currentColor;*/

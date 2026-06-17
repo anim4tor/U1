@@ -1,40 +1,29 @@
-<section class="process" theme="invert">
-	<div class="grid__4 mobile:grid__1 mobile:h__auto inner__1 inner-y__2 mobile:inner-t__10 mobile:gap__2 relative" theme="light" data-scroll>
-		<!-- <?php if ($cover = $page->cover()->toFile()) : ?>
-			<div class="intro__cover absolute inset__stretch grid overlay__bottom"><?= snippet('atoms/Image', ['img' => $cover, 'parallax' => 2]) ?></div>
-		<?php endif ?> -->
-		<div class="intro__title relative span__3 mobile:span__1" data-scroll data-scroll-speed="-0.5">
-			<h1 class="xl" data-reveal-text>The Process</h1>
+<section class="process" theme="invert" >
+	<div class="relative grid gap__2 inner-x__1 inner-y__2">
+		<div class="" data-scroll>
+			<h1 class="xl flex justify__space-between" data-reveal-text><span>The</span><span>Process</span></h1>
 		</div>
-		<div class="relative flex justify__end align__start"><strong class="s upper" data-reveal-text="lines">(The Process)</strong></div>
 	</div>
-	<div class="grid__2 gap__2 relative place__start-start inner-y__2 inner-b__5" theme="light" data-tabs>
-		<div class="sticky top__0 grid h__100v inner-y__1" >
-			<div class="grid place__start-start inner-x__1" >
-				<?php foreach (collection('Process') as $step) : ?>
-					<div data-tab class="flex align__start inner-y__05" data-scroll >
+	<div >
+		<div class="grid__3 gap__2 inner__1 inner-b__5" >
+			<div></div>
+			<ul class="grid gap__2 place__center-center" >	
+			<?php foreach (collection('Process') as $step) : ?>
+				<div class="grid place__center-center gap__1" data-scroll data-scroll-ignore data-scroll-progress>
+					<div class="flex align__start gap__02 inner-y__02" data-scroll >
 						<h3 class="font__size__1" data-reveal-text data-split-ignore><?= $step->label() ?></h3>
 						<span data-reveal-text="lines" class="-wrap-t__03">(<?= $step->step() ?>)</span>
 					</div>
-				<?php endforeach ?>
-			</div>
-			<div class="grid place__end-end inner-x__1 " data-scroll data-scroll-ignore>
-				<div data-pane-container class="grid__stack place__end-end">
-					<?php foreach (collection('Process') as $step) : ?>
-					<div data-pane="step-<?= $step->step()?>" class="grid__2">
-						<div></div>
-						<p class="upper s" data-reveal-text="lines" data-split-ignore><?= $step->detail()->inline() ?></p>
-					</div>
-					<?php endforeach ?>
+					<?php if ($img = $step->figure()->toFile()) : ?>
+						<div class="item__figure"><?= snippet('atoms/Image', ['img' => $img, 'parallax' => 2, 'reveal' => false, 'css' => 'vh__8 vw__8 radius']) ?></div>
+					<?php endif ?>
+					<p class="upper s text__center" data-scroll-trigger style="--start: 0.4; --end: 0.7" data-reveal-text="lines" data-split-ignore><?= $step->detail()->inline() ?></p>
 				</div>
-			</div>
-		</div>
-		<div class="grid inner-r__1">
-			<?php foreach (collection('Process') as $step) : ?>
-				<?php if ($img = $step->figure()->toFile()) : ?>
-					<div data-pane-trigger=step-<?= $step->step()?> id="trigger-<?= $step->step() ?>" class=""><?= snippet('atoms/Image', ['img' => $img, 'parallax' => 8, 'reveal' => false, 'css' => 'vh__19 radius']) ?></div>
-				<?php endif ?>
 			<?php endforeach ?>
+			</ul>
+			<div></div>
 		</div>
+	
 	</div>
+	<!-- <div class=vh__15></div> -->
 </section>

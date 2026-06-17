@@ -7,66 +7,51 @@
     
 }
 
-.project__item.--small,
-.project__item.--default {
+.item {
     [href] {
-        .project__figure {
+        .item__figure {
+            overflow: hidden;
             @include animation;
-            width: 0;
-            margin-right: 0;
+            clip-path: inset(0% 0% 0% 0%);
+
         }
-        img {
+        .item__figure figure {
             @include animation;
-            transform-origin: bottom left;
-            transform: scale(0);
+            transform: scale(1);
         }
-        &:hover {
-            .project__figure {
-                width: calc(var(--spacing) * var(--figure_size));
-                margin-right: calc(var(--spacing) * 0.5);
-            }
-            img {
-                transform: scale(1.1);
-            }
-        }
+        
+    }
+
+    .item__meta {
+        @include animation;
+        clip-path: inset(0% 0% 100% 0%);
+
     }
 }
-.project__item.--small {
-    --figure_size: 2;
-}
-.project__item.--default {
-    --figure_size: 3;
-}
-.project__item.--large {
-    [href] {
-        .project__figure {
-            overflow: hidden;
-        }
-        .project__figure figure {
-            @include animation;
-            transform: scale(1.1);
-        }
-        &:hover {
-            .project__figure figure {
-                transform: scale(1);
+
+.item.--project {
+    [href]:hover {
+        .item__figure {
+            clip-path: inset(2% 2% 2% 2%);
+            figure {
+                transform: scale(1.05);
             }
+        }
+        .item__meta {
+            clip-path: inset(0% 0% 0% 0%);
         }
     }
 }
 
-.item.--large {
-    [href] {
-        .item__figure {
-            overflow: hidden;
+/* Schovani meta udaju pokud je slider dragovan */
+[data-carousel-scroll].is-dragged [data-slide] .item.--project {
+    .item__figure {
+        clip-path: inset(10% 10% 10% 10%);
+        figure {
+            transform: scale(0.9);
         }
-        .item__figure figure {
-            @include animation;
-            transform: scale(1.1);
-        }
-        &:hover {
-            .item__figure figure {
-                transform: scale(1);
-            }
-        }
+    }
+    .item__meta {
+        clip-path: inset(0% 0% 100% 0%);
     }
 }

@@ -103,11 +103,13 @@ $pos: (
   	@each $label, $attr in $gap {
 	  	@if($i == 0) { 
 	  		&#{$label}__#{$i} {
-	  		  #{$attr}: calc(0.15 * var(--spacing));
+	  		  --gap: calc(0.15 * var(--spacing));
+	  		  #{$attr}: var(--gap);
 	  		}
 	  	} @else {
 		    &#{$label}__#{$i} {
-		      #{$attr}: calc(#{$i} * var(--spacing));
+		      --gap: calc(#{$i} * var(--spacing));
+		      #{$attr}: var(--gap);
 		    }
 	  	}
   	}
@@ -115,7 +117,8 @@ $pos: (
   @for $i from 1 through 9 {
   	@each $label, $attr in $gap {
       &#{$label}__0#{$i} {
-	      #{$attr}: calc(#{$i/10} * var(--spacing));
+	      --gap: calc(#{$i/10} * var(--spacing));
+	      #{$attr}: var(--gap);
 	    }
 	  }
   } 

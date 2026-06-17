@@ -3,8 +3,11 @@ class Reveal {
         this.selector = selector;
         this.progressElements = [];
         this.observer = null;
-    	this.preCalculate()
+        this.preCalculate();
         this.init();
+        
+        // Sledujeme resize okna, abychom přepočítali cache pozic, když uživatel změní velikost prohlížeče
+        window.addEventListener('resize', () => this._cacheProgressElementsDimensions());
     }
 
     init() {
@@ -24,6 +27,8 @@ class Reveal {
                     }
 
                     if (isProgress && !this.progressElements.includes(el)) {
+                        // Před přidáním prvku si nacachujeme jeho rozměry
+                        this._cacheSingleElementDimensions(el);
                         this.progressElements.push(el);
                         this._calculateElementProgress(el);
                     }
@@ -32,28 +37,22 @@ class Reveal {
                         this.observer.unobserve(el);
                     }
                 } else {
-				    // Pokud prvek NENÍ nastaven jako "repeat", revertujeme text při odchodu
-				    if (!shouldRepeat) {
-				        if (hasText) {
-				            this._revertText(el);
-				        }
-				        // Poznámka: is-inview NEMAŽEME, protože jsi chtěl, aby tam zůstala
-				    } else {
-				        // Pokud má data-scroll-repeat, uklidíme úplně všechno včetně is-inview
-				        el.classList.remove('is-inview');
-				        // if (hasText) {
-				        //     this._revertText(el);
-				        // }
-				    }
-				    
-				    // Progress čistíme vždy
-				    if (isProgress) {
-				        this.progressElements = this.progressElements.filter(item => item !== el);
-				    }
-				}
+                    if (!shouldRepeat) {
+                        if (hasText) {
+                            this._revertText(el);
+                        }
+                    } else {
+                        el.classList.remove('is-inview');
+                    }
+                    
+                    if (isProgress) {
+                        this.progressElements = this.progressElements.filter(item => item !== el);
+                    }
+                }
             });
-        }, { rootMargin: '99% 0% 0% 0%', threshold: [0,1] });
+        }, { rootMargin: '99% 0% 0% 0%', threshold: [0, 1] });
 
+        // Tady je tvůj scroll listener, ošetřený přes passive validation
         window.addEventListener('scroll', () => {
             if (this.progressElements.length > 0) {
                 window.requestAnimationFrame(() => this._updateProgress());
@@ -62,36 +61,34 @@ class Reveal {
     }
 
     preCalculate() {
-	    document.querySelectorAll(this.selector).forEach(el => {
-	        // 1. Logika pro Progress (stávající)
-	        if (el.hasAttribute('data-scroll-progress')) {
-	            this._calculateElementProgress(el);
-	        }
+        document.querySelectorAll(this.selector).forEach(el => {
+            if (el.hasAttribute('data-scroll-progress')) {
+                // Nacachujeme pozici hned na začátku
+                this._cacheSingleElementDimensions(el);
+                this._calculateElementProgress(el);
+            }
 
-	        // 2. Logika POUZE pro obrázky s reveal animací
-	        const imageTargets = el.matches('[data-reveal-image]') 
-	            ? [el, ...el.querySelectorAll('[data-reveal-image]')] 
-	            : el.querySelectorAll('[data-reveal-image]');
+            const imageTargets = el.matches('[data-reveal-image]') 
+                ? [el, ...el.querySelectorAll('[data-reveal-image]')] 
+                : el.querySelectorAll('[data-reveal-image]');
 
-	        if (imageTargets.length > 0) {
-	            imageTargets.forEach(img => {
-	                const rect = img.getBoundingClientRect();
-	                const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+            if (imageTargets.length > 0) {
+                imageTargets.forEach(img => {
+                    const rect = img.getBoundingClientRect();
+                    const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
 
-	                if (isVisible) {
-	                    // Je ve viewportu při načtení -> rovnou inview, bez animace
-	                    img.classList.add('is-inview');
-	                } else {
-	                    // Není vidět -> přidáme třídu pro aktivaci animace při scrollu
-	                    img.classList.add('is-animated');
-	                }
-	            });
-	        }
-	    });
-	}
+                    if (isVisible) {
+                        img.classList.add('is-inview');
+                    } else {
+                        img.classList.add('is-animated');
+                    }
+                });
+            }
+        });
+    }
 
     enable() {
-    	document.documentElement.classList.add('reveal-enabled');
+        document.documentElement.classList.add('reveal-enabled');
         this.refresh();
     }
 
@@ -118,35 +115,58 @@ class Reveal {
     }
 
     _revertText(parentEl) {
-	    // Najdi všechny prvky k revertování (včetně parenta samotného)
-	    const targets = parentEl.matches('[data-reveal-text]') 
-	        ? [parentEl, ...parentEl.querySelectorAll('[data-reveal-text]')] 
-	        : Array.from(parentEl.querySelectorAll('[data-reveal-text]'));
+        const targets = parentEl.matches('[data-reveal-text]') 
+            ? [parentEl, ...parentEl.querySelectorAll('[data-reveal-text]')] 
+            : Array.from(parentEl.querySelectorAll('[data-reveal-text]'));
 
-	    targets.forEach(target => {
+        targets.forEach(target => {
+            if (target.hasAttribute('data-split-ignore')) {
+                return;
+            }
 
-	    	if (target.hasAttribute('data-split-ignore')) {
-	            return;
-	        }
+            if (target.dataset.originalText) {
+                target.innerHTML = target.dataset.originalText;
+            }
+            target.classList.remove('is-split');
+        });
+    }
 
-	        // Vrať původní obsah
-	        if (target.dataset.originalText) {
-	            target.innerHTML = target.dataset.originalText;
-	        }
-	        
-	        // Odstraň třídu split, aby CSS animace přestaly běžet
-	        target.classList.remove('is-split');
-	    });
+    // --- Progress Engine (Optimalizovaný) ---
 
-	    // parentEl.classList.remove('is-split');
-	}
+    // Pomocná metoda pro uložení rozměrů jednoho prvku bez zatížení scrollu
+    _cacheSingleElementDimensions(el) {
+        const rect = el.getBoundingClientRect();
+        const scrollTop = window.scrollY || window.pageYOffset;
+        
+        // Uložíme si absolutní top pozici vůči celému dokumentu a výšku elementu
+        el._absoluteTop = rect.top + scrollTop;
+        el._cachedHeight = rect.height;
+    }
 
-    // --- Progress Engine ---
+    // Přepočítá všechny aktivní i neaktivní progress elementy (volá se na resize okna)
+    _cacheProgressElementsDimensions() {
+        document.querySelectorAll(`${this.selector}[data-scroll-progress]`).forEach(el => {
+            this._cacheSingleElementDimensions(el);
+        });
+    }
 
     _calculateElementProgress(el) {
-        const rect = el.getBoundingClientRect();
-        const progress = Math.max(0, Math.min(1, (window.innerHeight - rect.top) / (window.innerHeight + rect.height)));
-        el.style.setProperty('--progress', progress.toFixed(3));
+        // Pokud z nějakého důvodu ještě nemá cache (bezpečnostní pojistka)
+        if (el._absoluteTop === undefined) {
+            this._cacheSingleElementDimensions(el);
+        }
+
+        const scrollTop = window.scrollY || window.pageYOffset;
+        const windowHeight = window.innerHeight;
+
+        // Simulujeme rect.top odečtením scrollu od absolutní pozice z cache
+        const simulatedRectTop = el._absoluteTop - scrollTop;
+
+        // Výpočet progressu s využitím nacachované výšky (el._cachedHeight)
+        const progress = Math.max(0, Math.min(1, (windowHeight - simulatedRectTop) / (windowHeight + el._cachedHeight)));
+        
+        // Posíláme čisté číslo (odstraněno .toFixed(3)) pro dokonale hladký subpixelový posun
+        el.style.setProperty('--progress', progress);
     }
 
     _updateProgress() {

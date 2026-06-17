@@ -99,3 +99,8 @@
     --background: var(--color-dark);
     --col: var(--color-light);
 }
+
+[theme="acc"] {
+    --background: var(--color-acc);
+    --col: var(--color-text);
+}

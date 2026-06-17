@@ -48,7 +48,7 @@
 
 section.team[data-tabs] {
 	[data-pane-container] {
-		margin-bottom: -100vh;
+		margin-bottom: -75vh;
 	}
 	[data-pane-scroll] {
 		transform: translateY(calc(25vh - 50vh*var(--progress)));
@@ -67,6 +67,29 @@ section.team[data-tabs] {
 		figure {
 			clip-path: inset(0% 50% 0% 50%);
 		}
+	}
+}
+
+section.process {
+	.item__figure {
+/*			clip-path: inset(0% 50% 0% 50%);*/
+/*			clip-path: inset(0% 50% 0% 50%);*/
+		transform: scale(calc(0.3 + (var(--progress)*1.4) - (Max(0,(var(--progress) - 0.5))*2.8) ));
+	}
+	[data-scroll-reveal] [data-word] > span {
+		--reveal-delay: 0ms;
+		--reveal-duration: 600ms;
+/*		color: rgb(var(--color-acc)) !important;*/
+		--start: 0.4;
+		--end: 0.7;
+
+		--in: calc(var(--progress) - var(--start));
+		--trigger: clamp(0, calc(var(--in)*10000),1);
+		--out: calc(var(--progress) - var(--end));
+/*		--trigger-out: clamp(0,calc(var(--out)*10000),1);*/
+
+		transform: translateY(calc(var(--trigger)*1.5em));
+        color: rgba(var(--color-acc),calc(var(--trigger)*1));
 	}
 }
 

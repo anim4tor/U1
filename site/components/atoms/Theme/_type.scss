@@ -152,12 +152,12 @@ body {
 
 h1, h2, h3, h4, h5 {
     font-size: var(--output-size);
-    font-family: var(--font-family-body);
+    font-family: var(--font-family-heading);
     font-weight: var(--font-weight-heading);
     font-optical-sizing: auto;
     letter-spacing: -0.05em;
-    margin-top: -0.2em;
-/*    text-transform: uppercase;*/
+/*    margin-top: -0.2em;*/
+    text-transform: uppercase;
 }
 .ff__heading,
 .ff__heading *

@@ -1,7 +1,7 @@
 <section class="intro radius">
 	<div class="intro__header grid__4 mobile:grid__1 h__100v mobile:h__auto inner__1 mobile:inner-t__10 mobile:gap__2 relative color__invert" data-scroll>
 		<?php if ($cover = $page->cover()->toFile()) : ?>
-			<div class="intro__cover absolute inset__stretch grid "><?= snippet('atoms/Image', ['img' => $cover, 'parallax' => 2, 'reveal' => false, 'css' => 'overlay__bottom']) ?></div>
+			<div class="intro__cover absolute inset__stretch grid "><?= snippet('atoms/Image', ['img' => $cover, 'parallax' => 5, 'reveal' => false, 'css' => 'overlay__bottom']) ?></div>
 		<?php endif ?>
 		<div class="span__4 grid__4 relative flex justify__space-between align__end" data-reveal-text="words">
 			<div class="upper s">Featured project</div>

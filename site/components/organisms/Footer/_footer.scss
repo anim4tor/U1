@@ -10,16 +10,19 @@
 
 footer,
 .footer {
-
+	position: relative;
 	pointer-events: none;
 	& > * {
 		pointer-events: all;
 	}
 
-	&__logo {
-		font-size: 23.24288vw;
+	.footer__logo  {
+		height: 2em;
+		svg {
+			width: auto;
+			height: 100%;
+		}
 	}
-
 }
 
 [data-footer] {
