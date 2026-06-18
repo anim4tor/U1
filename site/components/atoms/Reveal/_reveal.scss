@@ -6,7 +6,7 @@
 @import "../Media/media";
 @import "../../atoms/Animation/animation";
 :root {
-	--reveal-duration: 1200ms;
+	--reveal-duration: 1500ms;
   --reveal-stack: 50ms;
   --reveal-delay: 200ms;
 }
@@ -43,22 +43,6 @@
 }
 
 
-[data-hover-reveal] {
-  visibility: hidden;
-  clip-path: inset(100% 0% 0% 0%);
-  @include animation(clip-path);
-  transition-delay: var(--delay);
-  @for $i from 1 through 10 {
-    &:nth-child(#{$i}) {
-      --delay: calc(#{$i} * 25ms);
-    }
-  }
-}
-[data-hoverable]:hover [data-hover-reveal] {
-  visibility: visible;
-  clip-path: inset(0% 0% 0% 0%);
-}
-
 /*
 
   Reveal images
@@ -83,6 +67,7 @@
 */
 @mixin reveal-text-setup {
   visibility: hidden;
+  transition: visibility 0s linear var(--reveal-duration);
   [data-word] {
     display: inline-block;
     vertical-align: bottom;
@@ -91,8 +76,8 @@
     & > span {
       display: inline-block;
       transform: translateY(1.5em);
-      @include animation((transform, color), var(--reveal-duration), var(--delay));
-      color: rgba(var(--color-acc),1);
+      @include animation((transform, color), var(--reveal-duration), (var(--delay), calc(var(--delay) + 200ms)));
+      
     }
   }
 }
@@ -101,7 +86,6 @@
   @include reveal-text-setup;
   [data-word] > span {
     --delay: calc(var(--line-index) * var(--reveal-stack) + var(--in-delay, var(--reveal-delay, 0ms)));
-    --reveal-duration: 1.2s;
   }
 }
 @mixin reveal-text-word {
@@ -113,22 +97,22 @@
 @mixin reveal-text-char {
   @include reveal-text-setup;
   [data-word] > [data-char] {
-/*    transform: scaleX(0);*/
-    transition-duration: calc(var(--reveal-duration)*1);
-    transform-origin: center center;
+    color: rgba(var(--color-acc),1);
     --delay: calc(var(--char-index) * var(--reveal-stack)/((var(--word-total) + 1)/2) + var(--in-delay, var(--reveal-delay, 0ms)));
   }
 }
 
 @mixin reveal-text-in {
   visibility: visible;
+  transition: visibility 0s linear 0s;
   [data-word] > [data-char],
   [data-word] > span {
     transform: none;
     color: rgba(var(--col),1);
-    animation: reveal-in 1200ms $defaultEasing var(--delay);
+/*    animation: reveal-in var(--reveal-duration) $defaultEasing var(--delay) forwards;*/
   }
 }
+
 @mixin text-in {
   visibility: visible;
   [data-word] > [data-char],
@@ -142,12 +126,13 @@
   [data-word] > [data-char],
   [data-word] > span {
     --init-delay : var(--out-delay, 600ms);
-    animation: reveal-out 1200ms $defaultEasing calc(var(--delay) + var(--out-delay)) forwards;
+    animation: reveal-out var(--reveal-duration) $defaultEasing calc(var(--delay) + var(--out-delay)) forwards;
   }
 }
 @keyframes reveal-in {
   0% {
     transform: translateY(1.5em);
+/*    transform: scaleX(0);*/
   }
   30% {
     color: rgba(var(--color-acc),1);
@@ -168,13 +153,13 @@
   }
 }
 
-[data-reveal-text] {
+[data-reveal-text]:not([data-hover-reveal]) {
   @include reveal-text-char;
 }
-[data-reveal-text="words"] {
+[data-reveal-text="words"]:not([data-hover-reveal]) {
   @include reveal-text-word;
 }
-[data-reveal-text="lines"] {
+[data-reveal-text="lines"]:not([data-hover-reveal]) {
   @include reveal-text-line;
 }
 
@@ -198,4 +183,26 @@
   --trigger-in:    clamp(0,calc(var(--in)*10000),1);
   --out:       calc(var(--progress) - var(--end));
   --trigger-out:   clamp(0,calc(var(--out)*10000),1);
+}
+
+/*
+
+  Hover reveal
+  
+*/
+
+/* 1. VÝCHOZÍ STAV (když se na element neklepe ani neNajíždí) */
+[data-hover-reveal] {
+  &[data-reveal-text],
+  [data-reveal-text] {
+    @include reveal-text-setup;
+  }
+}
+
+/* 2. HOVER IN STAV (když na něj najedeš) */
+[data-hoverable]:hover [data-hover-reveal] {
+  &[data-reveal-text],
+  [data-reveal-text] {
+    @include reveal-text-in;
+  }
 }

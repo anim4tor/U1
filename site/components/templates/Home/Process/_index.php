@@ -13,7 +13,7 @@
 		<div class="sticky top__0 grid h__100v inner-y__1" >
 			<div class="grid place__start-start inner-x__1" >
 				<?php foreach (collection('Process') as $step) : ?>
-					<div data-tab class="flex align__start gap__02 inner-y__02" data-scroll >
+					<div data-tab="step-<?= $step->step()?>" class="flex align__start gap__02 inner-y__02" data-scroll >
 						<h3 class="font__size__1" data-reveal-text data-split-ignore><?= $step->label() ?></h3>
 						<span data-reveal-text="lines" class="-wrap-t__03">(<?= $step->step() ?>)</span>
 					</div>
@@ -24,7 +24,7 @@
 					<?php foreach (collection('Process') as $step) : ?>
 					<div data-pane="step-<?= $step->step()?>" class="grid__2">
 						<div></div>
-						<p class="upper s" data-reveal-text="lines" data-split-ignore><?= $step->detail()->inline() ?></p>
+						<p class="upper s" data-reveal-text="lines" data-split-ignore data-tab-reveal><?= $step->detail()->inline() ?></p>
 					</div>
 					<?php endforeach ?>
 				</div>

@@ -1,37 +1,41 @@
 title: Studio
 
 tabs:
-  team:
+
+  people:
     columns:
-      - width: 1/1
-        fields:
-          hero:
-            extends: fields/hero
-          intro:
-            extends: fields/header
-            label: Intro
-          team:
-            extends: fields/header
-            label: Team
             
       - width: 2/3
         sections:
           listed:
-            extends: sections/team
-            headline: Teams
+            extends: sections/employees
+            headline: Employees
             status: listed
 
       - width: 1/3
         sections:
           drafts:
-            extends: sections/team
+            extends: sections/employees
             headline: To be hired
             layout: list
             status: draft
           unlisted:
-            extends: sections/team
+            extends: sections/employees
             headline: Inactive
             layout: list
             status: unlisted
+  teams:
+    columns:     
+      - width: 1/1
+        fields:
+          teams:
+            type: structure
+            fields:
+              name:
+                type: text
+              details: 
+                type: writer
+              leader:
+                type: pages
 
   meta: tabs/meta/page

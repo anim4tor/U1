@@ -27,7 +27,7 @@
 /*		grid-column: 1;*/
 /*		grid-row: 1;*/
 /*		visibility: hidden;*/
-		opacity: 0;
+/*		opacity: 0;*/
 		pointer-events: none;
 /*		display: none;*/
 
@@ -36,9 +36,9 @@
 
 		&[data-active] {
 /*			visibility: visible;*/
-			opacity: 1;
+/*			opacity: 1;*/
 			pointer-events: all;
-			display: grid;
+/*			display: grid;*/
 /*			position: relative;*/
 		}
 	}
@@ -67,4 +67,20 @@
 /* Hide inactive panes but keep them in DOM for SEO/Accessibility */
 [data-pane]:not([data-active]) {
 /*    display: none;*/
+}
+
+[data-tab-reveal] {
+  &[data-reveal-text],
+  [data-reveal-text] {
+    @include reveal-text-setup;
+  }
+}
+
+/* 2. HOVER IN STAV (když na něj najedeš) */
+[data-pane][data-active] [data-tab-reveal] {
+  &[data-reveal-text],
+  [data-reveal-text] {
+  	--in-delay: 600ms;
+    @include reveal-text-in;
+  }
 }

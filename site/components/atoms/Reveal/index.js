@@ -3,11 +3,8 @@ class Reveal {
         this.selector = selector;
         this.progressElements = [];
         this.observer = null;
-        this.preCalculate();
+    	this.preCalculate()
         this.init();
-        
-        // Sledujeme resize okna, abychom přepočítali cache pozic, když uživatel změní velikost prohlížeče
-        window.addEventListener('resize', () => this._cacheProgressElementsDimensions());
     }
 
     init() {
@@ -15,55 +12,48 @@ class Reveal {
             entries.forEach(entry => {
                 const el = entry.target;
                 const shouldRepeat = el.hasAttribute('data-scroll-repeat');
-                const isProgress = el.hasAttribute('data-scroll-progress') || el.hasAttribute('data-start') || el.hasAttribute('data-end');
+                const isProgress = el.hasAttribute('data-scroll-progress');
                 const hasText = el.matches('[data-reveal-text]') || el.querySelector('[data-reveal-text]');
 
                 if (entry.isIntersecting) {
 
                     if (hasText && !el.classList.contains('is-split')) {
                         this._splitText(el);
-                    } else if (!isProgress) {
-                        // Klasické elementy bez progressu/rozsahu aktivujeme ihned
+                    } else {
                         el.classList.add('is-inview');
                     }
 
-                    // Pokud je to progress element nebo má nastavený custom rozsah
                     if (isProgress && !this.progressElements.includes(el)) {
-                        this._cacheSingleElementDimensions(el);
                         this.progressElements.push(el);
                         this._calculateElementProgress(el);
                     }
 
-                    // Pokud prvek nemá repeat, progress ani text, přestaneme ho úplně sledovat
                     if (!shouldRepeat && !isProgress && !hasText) {
                         this.observer.unobserve(el);
                     }
                 } else {
-                    if (!shouldRepeat) {
-                        if (hasText) {
-                            this._revertText(el);
-                        }
-                    } else {
-                        // Klasické prvky bez progressu zhasínáme tady
-                        if (!isProgress) {
-                            el.classList.remove('is-inview');
-                        }
-                    }
-                    
-                    if (isProgress) {
-                        // Při odchodu mimo viewport (včetně marginu) vyčistíme progress loop
-                        this.progressElements = this.progressElements.filter(item => item !== el);
-                        
-                        // Pokud má zapnutý repeat, odebereme třídu i progress elementům
-                        if (shouldRepeat || el.hasAttribute('data-start') || el.hasAttribute('data-end')) {
-                            el.classList.remove('is-inview');
-                        }
-                    }
-                }
+				    // Pokud prvek NENÍ nastaven jako "repeat", revertujeme text při odchodu
+				    if (!shouldRepeat) {
+				        if (hasText) {
+				            this._revertText(el);
+				        }
+				        // Poznámka: is-inview NEMAŽEME, protože jsi chtěl, aby tam zůstala
+				    } else {
+				        // Pokud má data-scroll-repeat, uklidíme úplně všechno včetně is-inview
+				        el.classList.remove('is-inview');
+				        // if (hasText) {
+				        //     this._revertText(el);
+				        // }
+				    }
+				    
+				    // Progress čistíme vždy
+				    if (isProgress) {
+				        this.progressElements = this.progressElements.filter(item => item !== el);
+				    }
+				}
             });
-        }, { rootMargin: '99% 0% 0% 0%', threshold: [0, 1] });
+        }, { rootMargin: '99% 0% 0% 0%', threshold: [0,1] });
 
-        // Scroll listener ošetřený přes passive validation
         window.addEventListener('scroll', () => {
             if (this.progressElements.length > 0) {
                 window.requestAnimationFrame(() => this._updateProgress());
@@ -72,36 +62,36 @@ class Reveal {
     }
 
     preCalculate() {
-        document.querySelectorAll(this.selector).forEach(el => {
-            const isProgress = el.hasAttribute('data-scroll-progress') || el.hasAttribute('data-start') || el.hasAttribute('data-end');
-            
-            if (isProgress) {
-                // Nacachujeme pozici hned na začátku
-                this._cacheSingleElementDimensions(el);
-                this._calculateElementProgress(el);
-            }
+	    document.querySelectorAll(this.selector).forEach(el => {
+	        // 1. Logika pro Progress (stávající)
+	        if (el.hasAttribute('data-scroll-progress')) {
+	            // this._calculateElementProgress(el);
+	        }
 
-            const imageTargets = el.matches('[data-reveal-image]') 
-                ? [el, ...el.querySelectorAll('[data-reveal-image]')] 
-                : el.querySelectorAll('[data-reveal-image]');
+	        // 2. Logika POUZE pro obrázky s reveal animací
+	        const imageTargets = el.matches('[data-reveal-image]') 
+	            ? [el, ...el.querySelectorAll('[data-reveal-image]')] 
+	            : el.querySelectorAll('[data-reveal-image]');
 
-            if (imageTargets.length > 0) {
-                imageTargets.forEach(img => {
-                    const rect = img.getBoundingClientRect();
-                    const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+	        if (imageTargets.length > 0) {
+	            imageTargets.forEach(img => {
+	                const rect = img.getBoundingClientRect();
+	                const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
 
-                    if (isVisible) {
-                        img.classList.add('is-inview');
-                    } else {
-                        img.classList.add('is-animated');
-                    }
-                });
-            }
-        });
-    }
+	                if (isVisible) {
+	                    // Je ve viewportu při načtení -> rovnou inview, bez animace
+	                    img.classList.add('is-inview');
+	                } else {
+	                    // Není vidět -> přidáme třídu pro aktivaci animace při scrollu
+	                    img.classList.add('is-animated');
+	                }
+	            });
+	        }
+	    });
+	}
 
     enable() {
-        document.documentElement.classList.add('reveal-enabled');
+    	document.documentElement.classList.add('reveal-enabled');
         this.refresh();
     }
 
@@ -123,76 +113,40 @@ class Reveal {
         });
 
         requestAnimationFrame(() => {
-            const isProgress = parentEl.hasAttribute('data-scroll-progress') || parentEl.hasAttribute('data-start') || parentEl.hasAttribute('data-end');
-            if (!isProgress) {
-                parentEl.classList.add('is-inview');
-            }
+            parentEl.classList.add('is-inview');
         });
     }
 
     _revertText(parentEl) {
-        const targets = parentEl.matches('[data-reveal-text]') 
-            ? [parentEl, ...parentEl.querySelectorAll('[data-reveal-text]')] 
-            : Array.from(parentEl.querySelectorAll('[data-reveal-text]'));
+	    // Najdi všechny prvky k revertování (včetně parenta samotného)
+	    const targets = parentEl.matches('[data-reveal-text]') 
+	        ? [parentEl, ...parentEl.querySelectorAll('[data-reveal-text]')] 
+	        : Array.from(parentEl.querySelectorAll('[data-reveal-text]'));
 
-        targets.forEach(target => {
-            if (target.hasAttribute('data-split-ignore')) {
-                return;
-            }
+	    targets.forEach(target => {
 
-            if (target.dataset.originalText) {
-                target.innerHTML = target.dataset.originalText;
-            }
-            target.classList.remove('is-split');
-        });
-    }
+	    	if (target.hasAttribute('data-split-ignore')) {
+	            return;
+	        }
 
-    // --- Progress Engine (Optimalizovaný) ---
+	        // Vrať původní obsah
+	        if (target.dataset.originalText) {
+	            target.innerHTML = target.dataset.originalText;
+	        }
+	        
+	        // Odstraň třídu split, aby CSS animace přestaly běžet
+	        target.classList.remove('is-split');
+	    });
 
-    _cacheSingleElementDimensions(el) {
-        const rect = el.getBoundingClientRect();
-        const scrollTop = window.scrollY || window.pageYOffset;
-        
-        el._absoluteTop = rect.top + scrollTop;
-        el._cachedHeight = rect.height;
-    }
+	    // parentEl.classList.remove('is-split');
+	}
 
-    _cacheProgressElementsDimensions() {
-        document.querySelectorAll(this.selector).forEach(el => {
-            const isProgress = el.hasAttribute('data-scroll-progress') || el.hasAttribute('data-start') || el.hasAttribute('data-end');
-            if (isProgress) {
-                this._cacheSingleElementDimensions(el);
-            }
-        });
-    }
+    // --- Progress Engine ---
 
     _calculateElementProgress(el) {
-        if (el._absoluteTop === undefined) {
-            this._cacheSingleElementDimensions(el);
-        }
-
-        const scrollTop = window.scrollY || window.pageYOffset;
-        const windowHeight = window.innerHeight;
-        const simulatedRectTop = el._absoluteTop - scrollTop;
-
-        // Výpočet progressu (0 = spodek obrazovky, 1 = vršek obrazovky)
-        const progress = Math.max(0, Math.min(1, (windowHeight - simulatedRectTop) / (windowHeight + el._cachedHeight)));
-        
-        el.style.setProperty('--progress', progress);
-
-        // --- Logika pro data-start a data-end rozsahy ---
-        const start = el.hasAttribute('data-start') ? parseFloat(el.getAttribute('data-start')) : 0;
-        const end = el.hasAttribute('data-end') ? parseFloat(el.getAttribute('data-end')) : 1;
-        const shouldRepeat = el.hasAttribute('data-scroll-repeat');
-
-        if (progress >= start && progress <= end) {
-            el.classList.add('is-inview');
-        } else {
-            // Třídu odebereme, pokud má zapnutý repeat, nebo pokud k ní uživatel ještě nedoscrolloval zespodu
-            if (shouldRepeat || progress < start) {
-                el.classList.remove('is-inview');
-            }
-        }
+        const rect = el.getBoundingClientRect();
+        const progress = Math.max(0, Math.min(1, (window.innerHeight - rect.top) / (window.innerHeight + rect.height)));
+        el.style.setProperty('--progress', progress.toFixed(3));
     }
 
     _updateProgress() {
@@ -206,6 +160,14 @@ class Reveal {
 
 var REVEAL;
 function initReveals() {
-    console.log(' ... init Reveal animations');
-    REVEAL = new Reveal();
+	console.log(' ... init Reveal animations')
+	REVEAL = new Reveal();
+
+	// document.querySelectorAll('[data-reveal-text],.button').forEach(el => {
+	//   var split = Splitting({ target: el, by: el.getAttribute('data-reveal-text') });
+	// })
+	// document.querySelectorAll('[data-reveal-text]:not(.chars) [data-word]').forEach(word => {
+	//     word.innerHTML = `<span>${word.textContent}</span>`;
+	// });
 }
+

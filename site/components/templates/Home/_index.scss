@@ -18,6 +18,7 @@
 	[data-hover-toggle].is-active span {
 		--reveal-delay: 0ms;
 		--reveal-duration: 600ms;
+		transition-delay: var(--delay);
 /*    	animation: hover-in 1200ms $defaultEasing var(--delay) forwards !important;*/
 		color: rgb(var(--color-acc)) !important;
 	}
@@ -48,25 +49,29 @@
 }
 
 section.team[data-tabs] {
-	[data-pane-container] {
+	/*[data-pane-container] {
 		margin-bottom: -75vh;
-	}
-	[data-pane-scroll] {
-		transform: translateY(calc(25vh - 50vh*var(--progress)));
-	}
-	[data-pane]:not([data-active]) {
-		height: 0;
+	}*/
+	
+	[data-pane] {
+		position: relative;
+		.item__figure {
+			transform: translateX(0%);
+			clip-path: inset(0% 100% 0% 0%);
+		}
 	}
 	[data-pane][data-active] {
-		height: auto;
-		figure {
+		z-index: 1;
+		.item__figure {
 			@include animation((clip-path));
 			clip-path: inset(0% 0% 0% 0%);
 		}
 	}
-	[data-pane] {
-		figure {
-			clip-path: inset(0% 50% 0% 50%);
+	[data-pane].is-closing {
+		.item__figure {
+			@include animation((transform));
+			transform: translateX(20%);
+			clip-path: inset(0% 0% 0% 0%);
 		}
 	}
 }

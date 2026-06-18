@@ -1,0 +1,12 @@
+type: pages
+headline: Employee
+parent: site.find("studio")
+size: small
+layout: cards
+template: employee
+empty: Add employee
+image:
+  query: page.photo.toFile
+  cover: true
+  ratio: 4/5
+#

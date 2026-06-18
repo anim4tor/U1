@@ -1,6 +1,6 @@
 <?php
 return function () {
-	return page('studio')->children()->listed();
+	return page('studio')->teams()->toStructure();
 };
 
 

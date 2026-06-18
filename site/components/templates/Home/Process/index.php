@@ -9,16 +9,16 @@
 			<div></div>
 			<ul class="grid gap__2 place__center-center" >	
 			<?php foreach (collection('Process') as $step) : ?>
-				<div class="grid place__center-center gap__1" data-scroll data-start="0.4" data-scroll-progress >
-					<div class="flex align__start gap__02 inner-y__02" data-scroll >
-						<h3 class="font__size__1" data-reveal-text data-split-ignore><?= $step->label() ?></h3>
-						<span data-reveal-text="lines" class="-wrap-t__03">(<?= $step->step() ?>)</span>
+				<a href="" class="grid place__center-center gap__05 inner-b__1" data-scroll data-scroll-progress data-scroll-ignore data-hoverable >
+					<div class="flex align__start gap__02 inner-y__02" data-scroll>
+						<h3 class="font__size__1" data-reveal-text><?= $step->label() ?></h3>
+						<span data-reveal-text="lines" class="-wrap-t__03" style="--in-delay: 1200ms">(<?= $step->step() ?>)</span>
 					</div>
 					<?php if ($img = $step->figure()->toFile()) : ?>
 						<div class="item__figure"><?= snippet('atoms/Image', ['img' => $img, 'parallax' => 2, 'reveal' => false, 'css' => 'vh__8 vw__8 radius']) ?></div>
 					<?php endif ?>
-					<p class="upper s text__center" data-reveal-text="lines" data-split-ignore><?= $step->detail()->inline() ?></p>
-				</div>
+					<p class="upper s text__center" data-hover-reveal data-split-ignore data-reveal-text="lines"><?= $step->detail()->inline() ?></p>
+				</a>
 			<?php endforeach ?>
 			</ul>
 			<div></div>
