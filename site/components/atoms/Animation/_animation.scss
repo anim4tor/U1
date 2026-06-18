@@ -1,6 +1,7 @@
 /*defaults*/
-$defaultEasing: cubic-bezier(0.16, 1, 0.3, 1);
-$defaultDuration: 1200ms;
+/*$defaultEasing: cubic-bezier(0.16, 1, 0.3, 1);*/
+$defaultEasing: cubic-bezier(0.4, 0, 0.2, 1);
+$defaultDuration: 800ms;
 
 @mixin animation($property: all, $duration: $defaultDuration, $delay: 0ms, $easing: $defaultEasing) {
   transition-property: $property;

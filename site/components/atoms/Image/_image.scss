@@ -70,7 +70,7 @@ img {
   background: linear-gradient(to top, black 0%, rgba(black, .25) 100%);
   opacity: .75;
 }
-
+/*
 [href] {
   figure img {
     @include animation;
@@ -78,7 +78,7 @@ img {
   &:hover figure img {
     transform: scale(1.1);
   }
-}
+}*/
 
 .aspect__circle {
   aspect-ratio: 1/1;

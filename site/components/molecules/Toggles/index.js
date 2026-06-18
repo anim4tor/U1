@@ -17,8 +17,8 @@ class Toggles {
         this.fallbackTimeouts = new Map();
 
         this.config = {
-            hoverDelay: 0,       
-            fallbackDuration: 1000  
+            hoverDelay: 100,       
+            fallbackDuration: 800  
         };
 
         this.init();

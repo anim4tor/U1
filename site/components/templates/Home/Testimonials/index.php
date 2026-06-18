@@ -16,7 +16,7 @@
 	<div class="relative z__1 grid__3 gap__2 h__100v mobile:grid__1 inner__1 mobile:inner-x__1 inner-y__2" >
 		<div data-tab-prev></div>
 		<div class="grid place__center-center">
-			<div data-pane-container class="grid " theme="light" data-scroll data-scroll-ignore data-reveal-image>
+			<div data-pane-container class="grid " data-scroll data-scroll-ignore data-reveal-image>
 
 				<div class="grid__stack inner__1 radius" theme="dark">
 					<?php foreach (collection('Projects') as $project) : ?>

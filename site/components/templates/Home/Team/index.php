@@ -1,4 +1,4 @@
-<section class="team" theme="invert" data-tabs>
+<section class="team" theme="invert" data-tabs="hoverable">
 	<div class="relative grid gap__2 inner-x__1 inner-y__2">
 		<div class="" data-scroll>
 			<h1 class="xl flex justify__space-between" data-reveal-text><span>Our</span><span>Teams</span></h1>
@@ -12,8 +12,8 @@
 						$employees = collection('Employees')->filterBy('team', '*=', $team->name())->count();
 					?>
 					<div data-tab="team-<?= $team->indexOf(collection('Team')) ?>" class="flex gap__02" data-scroll>
-						<h3 class="font__size__1 no__wrap" data-reveal-text data-split-ignore><?= $team->name() ?></h3>
-						<span data-reveal-text="lines" data-split-ignore style="--in-delay: 1200ms" class="-wrap-t__03">(<?= $employees ?>)</span>
+						<h3 class="font__size__1 s no__wrap" data-reveal-text data-split-ignore><?= $team->name() ?></h3>
+						<div data-reveal-text="" data-split-ignore style="--in-delay: 800ms" class="-wrap-t__03">(<?= $employees ?>)</div>
 					</div>
 				<?php endforeach ?>
 			</div>

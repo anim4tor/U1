@@ -12,6 +12,7 @@
 
 */
 /*defaults*/
+/*$defaultEasing: cubic-bezier(0.16, 1, 0.3, 1);*/
 @-webkit-keyframes bounce {
   from, 20%, 53%, to {
     -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
@@ -3626,6 +3627,7 @@
 
 */
 /*defaults*/
+/*$defaultEasing: cubic-bezier(0.16, 1, 0.3, 1);*/
 @-webkit-keyframes bounce {
   from, 20%, 53%, to {
     -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
@@ -7207,9 +7209,9 @@
 }
 
 :root {
-  --reveal-duration: 1500ms;
+  --reveal-duration: 800ms;
   --reveal-stack: 50ms;
-  --reveal-delay: 200ms;
+  --reveal-delay: 0ms;
 }
 
 /*
@@ -7222,12 +7224,12 @@
   transition-property: -webkit-transform;
   transition-property: transform;
   transition-property: transform, -webkit-transform;
-  -webkit-transition-duration: 1200ms;
-          transition-duration: 1200ms;
+  -webkit-transition-duration: 800ms;
+          transition-duration: 800ms;
   -webkit-transition-delay: 0ms;
           transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
-          transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   will-change: transform;
   visibility: hidden;
   -webkit-transition-delay: var(--delay);
@@ -7298,12 +7300,12 @@
   clip-path: inset(0% 100% 0% 0%);
   -webkit-transition-property: clip-path;
   transition-property: clip-path;
-  -webkit-transition-duration: 1200ms;
-          transition-duration: 1200ms;
+  -webkit-transition-duration: 800ms;
+          transition-duration: 800ms;
   -webkit-transition-delay: 0ms;
           transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
-          transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   will-change: clip-path;
 }
 
@@ -7407,11 +7409,11 @@
           transition-duration: var(--reveal-duration);
   -webkit-transition-delay: var(--delay), calc(var(--delay) + 200ms);
           transition-delay: var(--delay), calc(var(--delay) + 200ms);
-  -webkit-transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
-          transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   will-change: transform, color;
 }
-[data-reveal-text]:not([data-hover-reveal]) [data-word] > [data-char] {
+[data-reveal-text]:not([data-hover-reveal]) [data-word] > span {
   color: rgba(var(--color-acc), 1);
   --delay: calc(var(--char-index) * var(--reveal-stack)/((var(--word-total) + 1)/2) + var(--in-delay, var(--reveal-delay, 0ms)));
 }
@@ -7438,8 +7440,8 @@
           transition-duration: var(--reveal-duration);
   -webkit-transition-delay: var(--delay), calc(var(--delay) + 200ms);
           transition-delay: var(--delay), calc(var(--delay) + 200ms);
-  -webkit-transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
-          transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   will-change: transform, color;
 }
 [data-reveal-text=words]:not([data-hover-reveal]) [data-word] > span {
@@ -7468,8 +7470,8 @@
           transition-duration: var(--reveal-duration);
   -webkit-transition-delay: var(--delay), calc(var(--delay) + 200ms);
           transition-delay: var(--delay), calc(var(--delay) + 200ms);
-  -webkit-transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
-          transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   will-change: transform, color;
 }
 [data-reveal-text=lines]:not([data-hover-reveal]) [data-word] > span {
@@ -7498,8 +7500,8 @@
 [data-reveal-text-out] [data-word] > [data-char],
 [data-reveal-text-out] [data-word] > span {
   --init-delay: var(--out-delay, 600ms);
-  -webkit-animation: reveal-out var(--reveal-duration) cubic-bezier(0.16, 1, 0.3, 1) calc(var(--delay) + var(--out-delay)) forwards;
-          animation: reveal-out var(--reveal-duration) cubic-bezier(0.16, 1, 0.3, 1) calc(var(--delay) + var(--out-delay)) forwards;
+  -webkit-animation: reveal-out var(--reveal-duration) cubic-bezier(0.4, 0, 0.2, 1) calc(var(--delay) + var(--out-delay)) forwards;
+          animation: reveal-out var(--reveal-duration) cubic-bezier(0.4, 0, 0.2, 1) calc(var(--delay) + var(--out-delay)) forwards;
 }
 
 /*
@@ -7545,8 +7547,8 @@
           transition-duration: var(--reveal-duration);
   -webkit-transition-delay: var(--delay), calc(var(--delay) + 200ms);
           transition-delay: var(--delay), calc(var(--delay) + 200ms);
-  -webkit-transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
-          transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   will-change: transform, color;
 }
 
@@ -7687,6 +7689,7 @@ icon.large, .icon.large {
 
 */
 /*defaults*/
+/*$defaultEasing: cubic-bezier(0.16, 1, 0.3, 1);*/
 @-webkit-keyframes bounce {
   from, 20%, 53%, to {
     -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
@@ -11929,6 +11932,7 @@ html body hr {
 }
 
 /*defaults*/
+/*$defaultEasing: cubic-bezier(0.16, 1, 0.3, 1);*/
 @-webkit-keyframes bounce {
   from, 20%, 53%, to {
     -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
@@ -15606,24 +15610,24 @@ html body hr {
   transition-property: -webkit-transform;
   transition-property: transform;
   transition-property: transform, -webkit-transform;
-  -webkit-transition-duration: 1200ms;
-          transition-duration: 1200ms;
+  -webkit-transition-duration: 800ms;
+          transition-duration: 800ms;
   -webkit-transition-delay: 0ms;
           transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
-          transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   will-change: transform;
   transition-delay: 0ms;
 }
 .button {
   -webkit-transition-property: all;
   transition-property: all;
-  -webkit-transition-duration: 1200ms;
-          transition-duration: 1200ms;
+  -webkit-transition-duration: 800ms;
+          transition-duration: 800ms;
   -webkit-transition-delay: 0ms;
           transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
-          transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   will-change: all;
 }
 .button[theme=invert]:hover {
@@ -15658,8 +15662,8 @@ html body hr {
           transition-duration: 600ms;
   -webkit-transition-delay: 0ms;
           transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
-          transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   will-change: transform;
 }
 .button > [aria-label]:after {
@@ -15679,6 +15683,7 @@ html body hr {
 
 */
 /*defaults*/
+/*$defaultEasing: cubic-bezier(0.16, 1, 0.3, 1);*/
 @-webkit-keyframes bounce {
   from, 20%, 53%, to {
     -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
@@ -19272,12 +19277,12 @@ nav .link[href]:before {
   background: currentColor;
   -webkit-transition-property: all;
   transition-property: all;
-  -webkit-transition-duration: 1200ms;
-          transition-duration: 1200ms;
+  -webkit-transition-duration: 800ms;
+          transition-duration: 800ms;
   -webkit-transition-delay: 0ms;
           transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
-          transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   will-change: all;
   -webkit-transform: scale(0);
           transform: scale(0);
@@ -19301,12 +19306,12 @@ p a[href]:before {
   background: currentColor;
   -webkit-transition-property: all;
   transition-property: all;
-  -webkit-transition-duration: 1200ms;
-          transition-duration: 1200ms;
+  -webkit-transition-duration: 800ms;
+          transition-duration: 800ms;
   -webkit-transition-delay: 0ms;
           transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
-          transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   will-change: all;
   -webkit-transform: scale(1);
           transform: scale(1);
@@ -19327,6 +19332,7 @@ p a[href]:hover:before {
 
 */
 /*defaults*/
+/*$defaultEasing: cubic-bezier(0.16, 1, 0.3, 1);*/
 @-webkit-keyframes bounce {
   from, 20%, 53%, to {
     -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
@@ -22967,22 +22973,15 @@ img.no__style {
   opacity: 0.75;
 }
 
-[href] figure img {
-  -webkit-transition-property: all;
-  transition-property: all;
-  -webkit-transition-duration: 1200ms;
-          transition-duration: 1200ms;
-  -webkit-transition-delay: 0ms;
-          transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
-          transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: all;
-}
-[href]:hover figure img {
-  -webkit-transform: scale(1.1);
-          transform: scale(1.1);
-}
-
+/*
+[href] {
+  figure img {
+    @include animation;
+  }
+  &:hover figure img {
+    transform: scale(1.1);
+  }
+}*/
 .aspect__circle {
   aspect-ratio: 1/1;
   border-radius: 50%;
@@ -23006,24 +23005,24 @@ img.no__style {
   overflow: hidden;
   -webkit-transition-property: all;
   transition-property: all;
-  -webkit-transition-duration: 1200ms;
-          transition-duration: 1200ms;
+  -webkit-transition-duration: 800ms;
+          transition-duration: 800ms;
   -webkit-transition-delay: 0ms;
           transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
-          transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   will-change: all;
   clip-path: inset(0% 0% 0% 0%);
 }
 .item [href] .item__figure figure {
   -webkit-transition-property: all;
   transition-property: all;
-  -webkit-transition-duration: 1200ms;
-          transition-duration: 1200ms;
+  -webkit-transition-duration: 800ms;
+          transition-duration: 800ms;
   -webkit-transition-delay: 0ms;
           transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
-          transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   will-change: all;
   -webkit-transform: scale(1);
           transform: scale(1);
@@ -23031,12 +23030,12 @@ img.no__style {
 .item .item__meta {
   -webkit-transition-property: all;
   transition-property: all;
-  -webkit-transition-duration: 1200ms;
-          transition-duration: 1200ms;
+  -webkit-transition-duration: 800ms;
+          transition-duration: 800ms;
   -webkit-transition-delay: 0ms;
           transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
-          transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   will-change: all;
   clip-path: inset(0% 0% 100% 0%);
 }
@@ -23072,12 +23071,12 @@ img.no__style {
 .event__figure, .event__body {
   -webkit-transition-property: all;
   transition-property: all;
-  -webkit-transition-duration: 1200ms;
-          transition-duration: 1200ms;
+  -webkit-transition-duration: 800ms;
+          transition-duration: 800ms;
   -webkit-transition-delay: 0ms;
           transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
-          transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   will-change: all;
 }
 
@@ -23109,6 +23108,7 @@ img.no__style {
 
 */
 /*defaults*/
+/*$defaultEasing: cubic-bezier(0.16, 1, 0.3, 1);*/
 @-webkit-keyframes bounce {
   from, 20%, 53%, to {
     -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
@@ -26705,31 +26705,15 @@ img.no__style {
 
 [data-pane-container] {
   width: 100%;
-  /*	display: grid;*/
-  /*	grid-template-columns: 1fr;*/
-  /*	grid-template-rows: 1fr;*/
-  /*	align-items: start;*/
   overflow: hidden;
 }
 
 [data-pane] {
-  /*		grid-column: 1;*/
-  /*		grid-row: 1;*/
-  /*		visibility: hidden;*/
-  /*		opacity: 0;*/
   pointer-events: none;
-  /*		display: none;*/
-  /*		@include animation;*/
-  /*		position: absolute;*/
 }
 [data-pane][data-active] {
-  /*			visibility: visible;*/
-  /*			opacity: 1;*/
   z-index: 1;
   pointer-events: all;
-  /*			--p: 1;*/
-  /*			display: grid;*/
-  /*			position: relative;*/
 }
 
 [data-tab] {
@@ -26780,8 +26764,8 @@ img.no__style {
           transition-duration: var(--reveal-duration);
   -webkit-transition-delay: var(--delay), calc(var(--delay) + 200ms);
           transition-delay: var(--delay), calc(var(--delay) + 200ms);
-  -webkit-transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
-          transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   will-change: transform, color;
 }
 [data-tab-reveal][data-reveal-image],
@@ -26794,7 +26778,7 @@ img.no__style {
 [data-pane][data-active] [data-tab-reveal] [data-reveal-text],
 [data-pane][data-active][data-tab-reveal][data-reveal-text],
 [data-pane][data-active][data-tab-reveal] [data-reveal-text] {
-  --in-delay: 600ms;
+  --in-delay: 800ms;
   visibility: visible;
   -webkit-transition: visibility 0s linear 0s;
   transition: visibility 0s linear 0s;
@@ -26818,12 +26802,12 @@ img.no__style {
 [data-pane][data-active][data-tab-reveal] [data-reveal-image] {
   -webkit-transition-property: clip-path;
   transition-property: clip-path;
-  -webkit-transition-duration: 1200ms;
-          transition-duration: 1200ms;
+  -webkit-transition-duration: 800ms;
+          transition-duration: 800ms;
   -webkit-transition-delay: 0ms;
           transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
-          transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   will-change: clip-path;
   clip-path: inset(0% 0% 0% 0%);
 }
@@ -26843,17 +26827,16 @@ img.no__style {
   transition-property: -webkit-transform;
   transition-property: transform;
   transition-property: transform, -webkit-transform;
-  -webkit-transition-duration: 1200ms;
-          transition-duration: 1200ms;
+  -webkit-transition-duration: 800ms;
+          transition-duration: 800ms;
   -webkit-transition-delay: 0ms;
           transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
-          transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   will-change: transform;
   -webkit-transform: translateX(20%);
           transform: translateX(20%);
-  -webkit-transition-delay: 50ms;
-          transition-delay: 50ms;
+  /*		transition-delay: 50ms;*/
   clip-path: inset(0% 0% 0% 0%);
 }
 [data-pane].is-closing[data-tab-reveal][data-reveal-cover] figure,
@@ -26874,6 +26857,7 @@ img.no__style {
 
 */
 /*defaults*/
+/*$defaultEasing: cubic-bezier(0.16, 1, 0.3, 1);*/
 @-webkit-keyframes bounce {
   from, 20%, 53%, to {
     -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
@@ -30462,13 +30446,13 @@ img.no__style {
   clip-path: inset(0% 0% 0% 0%);
 }
 [data-toggles] [data-target].is-opening {
-  -webkit-animation: toggle-in 1200ms cubic-bezier(0.16, 1, 0.3, 1);
-          animation: toggle-in 1200ms cubic-bezier(0.16, 1, 0.3, 1);
+  -webkit-animation: toggle-in 800ms cubic-bezier(0.4, 0, 0.2, 1);
+          animation: toggle-in 800ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 [data-toggles] [data-target].is-closing {
   clip-path: inset(0% 0% 0% 0%);
-  -webkit-animation: toggle-out 1200ms cubic-bezier(0.16, 1, 0.3, 1) 100ms;
-          animation: toggle-out 1200ms cubic-bezier(0.16, 1, 0.3, 1) 100ms;
+  -webkit-animation: toggle-out 800ms cubic-bezier(0.4, 0, 0.2, 1) 100ms;
+          animation: toggle-out 800ms cubic-bezier(0.4, 0, 0.2, 1) 100ms;
   --reveal-delay: 0ms;
 }
 [data-toggles] [data-target]:not(.is-active) {
@@ -30479,12 +30463,12 @@ img.no__style {
   --reveal-duration: 600ms;
   -webkit-transition-property: opacity;
   transition-property: opacity;
-  -webkit-transition-duration: 1200ms;
-          transition-duration: 1200ms;
+  -webkit-transition-duration: 800ms;
+          transition-duration: 800ms;
   -webkit-transition-delay: 0ms;
           transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
-          transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   will-change: opacity;
 }
 [data-toggles] [data-hover-toggle]:not(.is-active), [data-toggles] [data-toggle]:not(.is-active) {
@@ -30566,6 +30550,7 @@ section {
 
 */
 /*defaults*/
+/*$defaultEasing: cubic-bezier(0.16, 1, 0.3, 1);*/
 @-webkit-keyframes bounce {
   from, 20%, 53%, to {
     -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
@@ -34174,8 +34159,8 @@ section {
           transition-duration: 600ms;
   -webkit-transition-delay: 0ms;
           transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
-          transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   will-change: transform;
   -webkit-transform-origin: center right;
           transform-origin: center right;
@@ -34220,8 +34205,8 @@ section {
           transition-duration: 600ms;
   -webkit-transition-delay: 0ms;
           transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
-          transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   will-change: opacity;
   /*    transition-duration: 3s;*/
   /*    transform: scale(calc(0.5 + 0.0*var(--progress)));*/
@@ -34250,8 +34235,8 @@ section {
           transition-duration: 0.5s;
   -webkit-transition-delay: 0ms;
           transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
-          transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   will-change: clip-path;
 }
 
@@ -34300,6 +34285,7 @@ html[data-transition-out] [data-loader-bg] {
 
 */
 /*defaults*/
+/*$defaultEasing: cubic-bezier(0.16, 1, 0.3, 1);*/
 @-webkit-keyframes bounce {
   from, 20%, 53%, to {
     -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
@@ -38558,12 +38544,12 @@ html body hr {
 .header .logo, .aside__header .logo {
   -webkit-transition-property: all;
   transition-property: all;
-  -webkit-transition-duration: 1200ms;
-          transition-duration: 1200ms;
+  -webkit-transition-duration: 800ms;
+          transition-duration: 800ms;
   -webkit-transition-delay: 0ms;
           transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
-          transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   will-change: all;
 }
 .header .logo svg, .aside__header .logo svg {
@@ -38571,12 +38557,12 @@ html body hr {
   height: var(--size);
   -webkit-transition-property: all;
   transition-property: all;
-  -webkit-transition-duration: 1200ms;
-          transition-duration: 1200ms;
+  -webkit-transition-duration: 800ms;
+          transition-duration: 800ms;
   -webkit-transition-delay: 0ms;
           transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
-          transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   will-change: all;
 }
 .header .logo svg path, .aside__header .logo svg path {
@@ -38586,24 +38572,24 @@ html body hr {
 .header .button, .aside__header .button {
   -webkit-transition-property: all;
   transition-property: all;
-  -webkit-transition-duration: 1200ms;
-          transition-duration: 1200ms;
+  -webkit-transition-duration: 800ms;
+          transition-duration: 800ms;
   -webkit-transition-delay: 0ms;
           transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
-          transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   will-change: all;
 }
 
 [data-header] {
   -webkit-transition-property: all;
   transition-property: all;
-  -webkit-transition-duration: 1200ms;
-          transition-duration: 1200ms;
+  -webkit-transition-duration: 800ms;
+          transition-duration: 800ms;
   -webkit-transition-delay: 0ms;
           transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
-          transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   will-change: all;
 }
 [data-header][collapsed] {
@@ -38684,6 +38670,7 @@ footer .footer__logo svg,
 
 */
 /*defaults*/
+/*$defaultEasing: cubic-bezier(0.16, 1, 0.3, 1);*/
 @-webkit-keyframes bounce {
   from, 20%, 53%, to {
     -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
@@ -42921,8 +42908,8 @@ aside [data-aside-widget],
           transition-duration: 600ms;
   -webkit-transition-delay: 0ms;
           transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
-          transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   will-change: clip-path;
   -webkit-transition-delay: var(--delay);
           transition-delay: var(--delay);
@@ -42936,8 +42923,8 @@ aside [data-aside-widget] [data-pane-container],
           transition-duration: 600ms;
   -webkit-transition-delay: 0ms;
           transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
-          transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   will-change: height, width;
 }
 
@@ -42950,12 +42937,12 @@ aside [data-aside-widget] [data-pane-container],
   inset: 0;
   -webkit-transition-property: all;
   transition-property: all;
-  -webkit-transition-duration: 1200ms;
-          transition-duration: 1200ms;
+  -webkit-transition-duration: 800ms;
+          transition-duration: 800ms;
   -webkit-transition-delay: 0ms;
           transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
-          transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   will-change: all;
   -webkit-transition-duration: 600ms;
           transition-duration: 600ms;
@@ -42964,12 +42951,12 @@ aside [data-aside-widget] [data-pane-container],
 [data-aside-reveal] {
   -webkit-transition-property: all;
   transition-property: all;
-  -webkit-transition-duration: 1200ms;
-          transition-duration: 1200ms;
+  -webkit-transition-duration: 800ms;
+          transition-duration: 800ms;
   -webkit-transition-delay: 0ms;
           transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
-          transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   will-change: all;
   visibility: hidden;
   -webkit-transition-delay: var(--out-delay);
@@ -43021,12 +43008,12 @@ aside [data-aside-widget] [data-pane-container],
   transition-property: clip-path, -webkit-transform;
   transition-property: transform, clip-path;
   transition-property: transform, clip-path, -webkit-transform;
-  -webkit-transition-duration: 1200ms;
-          transition-duration: 1200ms;
+  -webkit-transition-duration: 800ms;
+          transition-duration: 800ms;
   -webkit-transition-delay: 0ms;
           transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
-          transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   will-change: transform, clip-path;
   -webkit-transition-delay: var(--out-delay);
           transition-delay: var(--out-delay);
@@ -43040,12 +43027,12 @@ aside [data-aside-widget] [data-pane-container],
 [data-aside-hide] {
   -webkit-transition-property: all;
   transition-property: all;
-  -webkit-transition-duration: 1200ms;
-          transition-duration: 1200ms;
+  -webkit-transition-duration: 800ms;
+          transition-duration: 800ms;
   -webkit-transition-delay: 0ms;
           transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
-          transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   will-change: all;
   -webkit-transition-delay: var(--out-delay);
           transition-delay: var(--out-delay);
@@ -43154,12 +43141,12 @@ carousel {
       flex-shrink: 0;
   -webkit-transition-property: all;
   transition-property: all;
-  -webkit-transition-duration: 1200ms;
-          transition-duration: 1200ms;
+  -webkit-transition-duration: 800ms;
+          transition-duration: 800ms;
   -webkit-transition-delay: 0ms;
           transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
-          transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   will-change: all;
   /*		opacity: 0;*/
 }
@@ -43215,24 +43202,24 @@ carousel {
   left: calc(var(--pad) * var(--inset) + var(--active) * var(--pad) * var(--gap) + var(--active) * var(--size));
   -webkit-transition-property: all;
   transition-property: all;
-  -webkit-transition-duration: 1200ms;
-          transition-duration: 1200ms;
+  -webkit-transition-duration: 800ms;
+          transition-duration: 800ms;
   -webkit-transition-delay: 0ms;
           transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
-          transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   will-change: all;
 }
 
 [data-active-reveal] {
   -webkit-transition-property: all;
   transition-property: all;
-  -webkit-transition-duration: 1200ms;
-          transition-duration: 1200ms;
+  -webkit-transition-duration: 800ms;
+          transition-duration: 800ms;
   -webkit-transition-delay: 0ms;
           transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
-          transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   will-change: all;
 }
 [data-active-reveal]:not([data-reveal-lines]) {
@@ -43250,12 +43237,12 @@ carousel {
   transition-property: -webkit-transform;
   transition-property: transform;
   transition-property: transform, -webkit-transform;
-  -webkit-transition-duration: 1200ms;
-          transition-duration: 1200ms;
+  -webkit-transition-duration: 800ms;
+          transition-duration: 800ms;
   -webkit-transition-delay: 0ms;
           transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
-          transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   will-change: transform;
   display: inline-block;
   will-change: transform;
@@ -43304,6 +43291,7 @@ carousel {
 
 */
 /*defaults*/
+/*$defaultEasing: cubic-bezier(0.16, 1, 0.3, 1);*/
 @-webkit-keyframes bounce {
   from, 20%, 53%, to {
     -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
@@ -47562,12 +47550,12 @@ html body hr {
           justify-content: center;
   -webkit-transition-property: all;
   transition-property: all;
-  -webkit-transition-duration: 1200ms;
-          transition-duration: 1200ms;
+  -webkit-transition-duration: 800ms;
+          transition-duration: 800ms;
   -webkit-transition-delay: 0ms;
           transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
-          transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   will-change: all;
 }
 [fab] button svg path {
@@ -47591,8 +47579,8 @@ booking [data-booking-widget],
           transition-duration: 600ms;
   -webkit-transition-delay: 0ms;
           transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
-          transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   will-change: clip-path;
   -webkit-transition-delay: var(--delay);
           transition-delay: var(--delay);
@@ -47606,8 +47594,8 @@ booking [data-booking-widget] [data-pane-container],
           transition-duration: 600ms;
   -webkit-transition-delay: 0ms;
           transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
-          transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   will-change: height, width;
 }
 booking nav [data-tab] > *, booking nav [href] > *,
@@ -47621,8 +47609,8 @@ booking nav [data-tab] > *, booking nav [href] > *,
           transition-duration: 600ms;
   -webkit-transition-delay: 0ms;
           transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
-          transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   will-change: transform;
 }
 booking nav [data-tab]:hover > *, booking nav [href]:hover > *,
@@ -47641,8 +47629,8 @@ booking [data-pane],
           transition-duration: 600ms;
   -webkit-transition-delay: 0ms;
           transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
-          transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   will-change: transform, opacity;
   opacity: 0;
   -webkit-transform: translateY(-1em);
@@ -47671,12 +47659,12 @@ booking [data-pane][data-active],
   inset: 0;
   -webkit-transition-property: all;
   transition-property: all;
-  -webkit-transition-duration: 1200ms;
-          transition-duration: 1200ms;
+  -webkit-transition-duration: 800ms;
+          transition-duration: 800ms;
   -webkit-transition-delay: 0ms;
           transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
-          transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   will-change: all;
   -webkit-transition-duration: 600ms;
           transition-duration: 600ms;
@@ -47685,12 +47673,12 @@ booking [data-pane][data-active],
 [data-booking-reveal] {
   -webkit-transition-property: all;
   transition-property: all;
-  -webkit-transition-duration: 1200ms;
-          transition-duration: 1200ms;
+  -webkit-transition-duration: 800ms;
+          transition-duration: 800ms;
   -webkit-transition-delay: 0ms;
           transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
-          transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   will-change: all;
   visibility: hidden;
   -webkit-transition-delay: var(--out-delay);
@@ -47742,12 +47730,12 @@ booking [data-pane][data-active],
   transition-property: clip-path, -webkit-transform;
   transition-property: transform, clip-path;
   transition-property: transform, clip-path, -webkit-transform;
-  -webkit-transition-duration: 1200ms;
-          transition-duration: 1200ms;
+  -webkit-transition-duration: 800ms;
+          transition-duration: 800ms;
   -webkit-transition-delay: 0ms;
           transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
-          transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   will-change: transform, clip-path;
   -webkit-transition-delay: var(--out-delay);
           transition-delay: var(--out-delay);
@@ -47761,12 +47749,12 @@ booking [data-pane][data-active],
 [data-booking-hide] {
   -webkit-transition-property: all;
   transition-property: all;
-  -webkit-transition-duration: 1200ms;
-          transition-duration: 1200ms;
+  -webkit-transition-duration: 800ms;
+          transition-duration: 800ms;
   -webkit-transition-delay: 0ms;
           transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
-          transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   will-change: all;
   -webkit-transition-delay: var(--out-delay);
           transition-delay: var(--out-delay);
@@ -47897,6 +47885,7 @@ calendar day:not([current]):hover .event p {
 
 */
 /*defaults*/
+/*$defaultEasing: cubic-bezier(0.16, 1, 0.3, 1);*/
 @-webkit-keyframes bounce {
   from, 20%, 53%, to {
     -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
@@ -51517,12 +51506,12 @@ calendar day:not([current]):hover .event p {
   /*			background-color: rgba(var(--color-dark),.4);*/
   -webkit-transition-property: all;
   transition-property: all;
-  -webkit-transition-duration: 1200ms;
-          transition-duration: 1200ms;
+  -webkit-transition-duration: 800ms;
+          transition-duration: 800ms;
   -webkit-transition-delay: 0ms;
           transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
-          transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   will-change: all;
   opacity: 0;
   /*			backdrop-filter: blur(30px);*/
@@ -51592,12 +51581,12 @@ calendar day:not([current]):hover .event p {
   top: calc(var(--pad) * 0.5);
   -webkit-transition-property: all;
   transition-property: all;
-  -webkit-transition-duration: 1200ms;
-          transition-duration: 1200ms;
+  -webkit-transition-duration: 800ms;
+          transition-duration: 800ms;
   -webkit-transition-delay: 0ms;
           transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
-          transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   will-change: all;
 }
 .modal__close a {
@@ -51642,12 +51631,12 @@ html .modal__layout {
   transition-property: -webkit-transform;
   transition-property: transform;
   transition-property: transform, -webkit-transform;
-  -webkit-transition-duration: 1200ms;
-          transition-duration: 1200ms;
+  -webkit-transition-duration: 800ms;
+          transition-duration: 800ms;
   -webkit-transition-delay: 0ms;
           transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
-          transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   will-change: transform;
   /*			visibility: hidden;*/
   pointer-events: none;
@@ -51659,12 +51648,12 @@ html .modal__widget {
   transition-property: -webkit-transform;
   transition-property: transform;
   transition-property: transform, -webkit-transform;
-  -webkit-transition-duration: 1200ms;
-          transition-duration: 1200ms;
+  -webkit-transition-duration: 800ms;
+          transition-duration: 800ms;
   -webkit-transition-delay: 0ms;
           transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
-          transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   will-change: transform;
   -webkit-transform: translateY(100%);
           transform: translateY(100%);
@@ -51767,12 +51756,12 @@ html.no-scroll body {
   transition-property: -webkit-transform;
   transition-property: transform;
   transition-property: transform, -webkit-transform;
-  -webkit-transition-duration: 1200ms;
-          transition-duration: 1200ms;
+  -webkit-transition-duration: 800ms;
+          transition-duration: 800ms;
   -webkit-transition-delay: 0ms;
           transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
-          transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   will-change: transform;
 }
 [modal][close-next] {
@@ -51784,12 +51773,12 @@ html.no-scroll body {
           transform: translateX(100%);
 }
 [modal][open-next] {
-  -webkit-animation: nextModal 1200ms cubic-bezier(0.16, 1, 0.3, 1);
-          animation: nextModal 1200ms cubic-bezier(0.16, 1, 0.3, 1);
+  -webkit-animation: nextModal 800ms cubic-bezier(0.4, 0, 0.2, 1);
+          animation: nextModal 800ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 [modal][open-prev] {
-  -webkit-animation: prevModal 1200ms cubic-bezier(0.16, 1, 0.3, 1);
-          animation: prevModal 1200ms cubic-bezier(0.16, 1, 0.3, 1);
+  -webkit-animation: prevModal 800ms cubic-bezier(0.4, 0, 0.2, 1);
+          animation: prevModal 800ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 @-webkit-keyframes prevModal {
@@ -51853,6 +51842,7 @@ html.no-scroll body {
 
 */
 /*defaults*/
+/*$defaultEasing: cubic-bezier(0.16, 1, 0.3, 1);*/
 @-webkit-keyframes bounce {
   from, 20%, 53%, to {
     -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
@@ -55445,12 +55435,12 @@ html.no-scroll body {
 [data-tabs] [data-tab] {
   -webkit-transition-property: opacity;
   transition-property: opacity;
-  -webkit-transition-duration: 1200ms;
-          transition-duration: 1200ms;
+  -webkit-transition-duration: 800ms;
+          transition-duration: 800ms;
   -webkit-transition-delay: 0ms;
           transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
-          transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   will-change: opacity;
 }
 [data-tabs] [data-tab]:hover {
@@ -55518,12 +55508,12 @@ section.process .item__figure {
 .octagon {
   -webkit-transition-property: all;
   transition-property: all;
-  -webkit-transition-duration: 1200ms;
-          transition-duration: 1200ms;
+  -webkit-transition-duration: 800ms;
+          transition-duration: 800ms;
   -webkit-transition-delay: 0ms;
           transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
-          transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   will-change: all;
   -webkit-transition-duration: 3s;
           transition-duration: 3s;

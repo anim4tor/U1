@@ -6,9 +6,9 @@
 @import "../Media/media";
 @import "../../atoms/Animation/animation";
 :root {
-	--reveal-duration: 1500ms;
+	--reveal-duration: #{$defaultDuration};
   --reveal-stack: 50ms;
-  --reveal-delay: 200ms;
+  --reveal-delay: 0ms;
 }
 
 
@@ -129,7 +129,7 @@
 }
 @mixin reveal-text-char {
   @include reveal-text-setup;
-  [data-word] > [data-char] {
+  [data-word] > span {
     color: rgba(var(--color-acc),1);
     --delay: calc(var(--char-index) * var(--reveal-stack)/((var(--word-total) + 1)/2) + var(--in-delay, var(--reveal-delay, 0ms)));
   }
