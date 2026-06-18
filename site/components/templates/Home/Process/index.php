@@ -12,7 +12,7 @@
 				<a href="" class="grid place__center-center gap__05 inner-b__1" data-scroll data-scroll-progress data-scroll-ignore data-hoverable >
 					<div class="flex align__start gap__02 inner-y__02" data-scroll>
 						<h3 class="font__size__1" data-reveal-text><?= $step->label() ?></h3>
-						<span data-reveal-text="lines" class="-wrap-t__03" style="--in-delay: 1200ms">(<?= $step->step() ?>)</span>
+						<span data-reveal-text="lines" class="-wrap-t__03" data-split-ignore style="--in-delay: 1200ms">(<?= $step->step() ?>)</span>
 					</div>
 					<?php if ($img = $step->figure()->toFile()) : ?>
 						<div class="item__figure"><?= snippet('atoms/Image', ['img' => $img, 'parallax' => 2, 'reveal' => false, 'css' => 'vh__8 vw__8 radius']) ?></div>

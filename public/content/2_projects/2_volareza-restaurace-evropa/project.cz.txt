@@ -80,6 +80,22 @@ Author: Tomáš Lumpe
 
 ----
 
+Testimonialquote: <p>City results on schedule is unmatched. I highly recommend them to anyone looking for reliable and professional expertise.</p>
+
+----
+
+Testimonialauthor: Jiří Klusák
+
+----
+
+Testimonialposition: Senior Designer
+
+----
+
+Testimonialimage: - file://jzdn8mBddVUtQz0M
+
+----
+
 Meta-description: 
 
 ----

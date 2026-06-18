@@ -10,8 +10,19 @@
 
 }
 
+@property --p {
+  syntax: '<number>';
+  inherits: true;
+  initial-value: 0;
+}
+
 [data-tabs] {
 /*	overflow: hidden;*/
+}
+
+[data-tab-prev],
+[data-tab-next] {
+	cursor: pointer;
 }
 
 [data-pane-container] {
@@ -28,6 +39,7 @@
 /*		grid-row: 1;*/
 /*		visibility: hidden;*/
 /*		opacity: 0;*/
+		
 		pointer-events: none;
 /*		display: none;*/
 
@@ -37,7 +49,9 @@
 		&[data-active] {
 /*			visibility: visible;*/
 /*			opacity: 1;*/
+			z-index: 1;
 			pointer-events: all;
+/*			--p: 1;*/
 /*			display: grid;*/
 /*			position: relative;*/
 		}
@@ -74,13 +88,50 @@
   [data-reveal-text] {
     @include reveal-text-setup;
   }
+
+  &[data-reveal-image],
+  [data-reveal-image] {
+  	clip-path: inset(0% 100% 0% 0%);
+  }
 }
 
 /* 2. HOVER IN STAV (když na něj najedeš) */
-[data-pane][data-active] [data-tab-reveal] {
+[data-pane][data-active] [data-tab-reveal],
+[data-pane][data-active][data-tab-reveal] {
   &[data-reveal-text],
   [data-reveal-text] {
   	--in-delay: 600ms;
     @include reveal-text-in;
   }
+
+  &[data-reveal-image],
+  [data-reveal-image] {
+  	@include animation((clip-path));
+  	clip-path: inset(0% 0% 0% 0%);
+  }
+
+  &[data-reveal-cover],
+  [data-reveal-cover] {
+  	figure {
+		transition: --p var(--reveal-duration) cubic-bezier(0.4, 0, 0.2, 1);
+  		--p: 1;
+  	}
+  }
+}
+
+[data-pane].is-closing[data-tab-reveal],
+[data-pane].is-closing [data-tab-reveal] {
+	&[data-reveal-image],
+	[data-reveal-image] {
+		@include animation((transform));
+		transform: translateX(20%);
+		transition-delay: 50ms;
+		clip-path: inset(0% 0% 0% 0%);
+	}
+	&[data-reveal-cover],
+	[data-reveal-cover] {
+		figure {
+			--p: 1;
+		}
+	}
 }

@@ -7307,9 +7307,25 @@
   will-change: clip-path;
 }
 
+[data-reveal-cover] figure {
+  --items: 1;
+  --p: 0;
+  --mask: transparent 0% calc( 5% - (var(--p) * 2 - 0) * 5% ), black calc( 5% - (var(--p) * 2 - 0) * 5% ) 5%, transparent 5% calc( 10% - (var(--p) * 2 - 0.05) * 5% ), black calc( 10% - (var(--p) * 2 - 0.05) * 5% ) 10%, transparent 10% calc( 15% - (var(--p) * 2 - 0.1) * 5% ), black calc( 15% - (var(--p) * 2 - 0.1) * 5% ) 15%, transparent 15% calc( 20% - (var(--p) * 2 - 0.15) * 5% ), black calc( 20% - (var(--p) * 2 - 0.15) * 5% ) 20%, transparent 20% calc( 25% - (var(--p) * 2 - 0.2) * 5% ), black calc( 25% - (var(--p) * 2 - 0.2) * 5% ) 25%, transparent 25% calc( 30% - (var(--p) * 2 - 0.25) * 5% ), black calc( 30% - (var(--p) * 2 - 0.25) * 5% ) 30%, transparent 30% calc( 35% - (var(--p) * 2 - 0.3) * 5% ), black calc( 35% - (var(--p) * 2 - 0.3) * 5% ) 35%, transparent 35% calc( 40% - (var(--p) * 2 - 0.35) * 5% ), black calc( 40% - (var(--p) * 2 - 0.35) * 5% ) 40%, transparent 40% calc( 45% - (var(--p) * 2 - 0.4) * 5% ), black calc( 45% - (var(--p) * 2 - 0.4) * 5% ) 45%, transparent 45% calc( 50% - (var(--p) * 2 - 0.45) * 5% ), black calc( 50% - (var(--p) * 2 - 0.45) * 5% ) 50%, transparent 50% calc( 55% - (var(--p) * 2 - 0.5) * 5% ), black calc( 55% - (var(--p) * 2 - 0.5) * 5% ) 55%, transparent 55% calc( 60% - (var(--p) * 2 - 0.55) * 5% ), black calc( 60% - (var(--p) * 2 - 0.55) * 5% ) 60%, transparent 60% calc( 65% - (var(--p) * 2 - 0.6) * 5% ), black calc( 65% - (var(--p) * 2 - 0.6) * 5% ) 65%, transparent 65% calc( 70% - (var(--p) * 2 - 0.65) * 5% ), black calc( 70% - (var(--p) * 2 - 0.65) * 5% ) 70%, transparent 70% calc( 75% - (var(--p) * 2 - 0.7) * 5% ), black calc( 75% - (var(--p) * 2 - 0.7) * 5% ) 75%, transparent 75% calc( 80% - (var(--p) * 2 - 0.75) * 5% ), black calc( 80% - (var(--p) * 2 - 0.75) * 5% ) 80%, transparent 80% calc( 85% - (var(--p) * 2 - 0.8) * 5% ), black calc( 85% - (var(--p) * 2 - 0.8) * 5% ) 85%, transparent 85% calc( 90% - (var(--p) * 2 - 0.85) * 5% ), black calc( 90% - (var(--p) * 2 - 0.85) * 5% ) 90%, transparent 90% calc( 95% - (var(--p) * 2 - 0.9) * 5% ), black calc( 95% - (var(--p) * 2 - 0.9) * 5% ) 95%, transparent 95% calc( 100% - (var(--p) * 2 - 0.95) * 5% ), black calc( 100% - (var(--p) * 2 - 0.95) * 5% ) 100%;;
+  -webkit-mask-image: -webkit-gradient(linear, left top, right top, from(var(--mask)));;
+  -webkit-mask-image: linear-gradient(90deg, var(--mask));;
+          mask-image: -webkit-gradient(linear, left top, right top, from(var(--mask)));;
+          mask-image: linear-gradient(90deg, var(--mask));
+}
+
 .is-inview[data-reveal-image],
 .is-inview [data-reveal-image] {
   clip-path: inset(0% 0% 0% 0%);
+}
+
+[data-scroll].is-inview[data-reveal-cover] figure,
+[data-scroll].is-inview [data-reveal-cover] figure {
+  --p: 1;
+  transition: --p var(--reveal-duration) cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /*
@@ -7381,8 +7397,8 @@
 }
 [data-reveal-text]:not([data-hover-reveal]) [data-word] > span {
   display: inline-block;
-  -webkit-transform: translateY(1.5em);
-          transform: translateY(1.5em);
+  -webkit-transform: translateY(2em);
+          transform: translateY(2em);
   -webkit-transition-property: color, -webkit-transform;
   transition-property: color, -webkit-transform;
   transition-property: transform, color;
@@ -7412,8 +7428,8 @@
 }
 [data-reveal-text=words]:not([data-hover-reveal]) [data-word] > span {
   display: inline-block;
-  -webkit-transform: translateY(1.5em);
-          transform: translateY(1.5em);
+  -webkit-transform: translateY(2em);
+          transform: translateY(2em);
   -webkit-transition-property: color, -webkit-transform;
   transition-property: color, -webkit-transform;
   transition-property: transform, color;
@@ -7442,8 +7458,8 @@
 }
 [data-reveal-text=lines]:not([data-hover-reveal]) [data-word] > span {
   display: inline-block;
-  -webkit-transform: translateY(1.5em);
-          transform: translateY(1.5em);
+  -webkit-transform: translateY(2em);
+          transform: translateY(2em);
   -webkit-transition-property: color, -webkit-transform;
   transition-property: color, -webkit-transform;
   transition-property: transform, color;
@@ -7519,8 +7535,8 @@
 [data-hover-reveal][data-reveal-text] [data-word] > span,
 [data-hover-reveal] [data-reveal-text] [data-word] > span {
   display: inline-block;
-  -webkit-transform: translateY(1.5em);
-          transform: translateY(1.5em);
+  -webkit-transform: translateY(2em);
+          transform: translateY(2em);
   -webkit-transition-property: color, -webkit-transform;
   transition-property: color, -webkit-transform;
   transition-property: transform, color;
@@ -26673,8 +26689,18 @@ img.no__style {
   animation-name: slideOutUp;
 }
 
+@property --p {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 0;
+}
 [data-tabs] {
   /*	overflow: hidden;*/
+}
+
+[data-tab-prev],
+[data-tab-next] {
+  cursor: pointer;
 }
 
 [data-pane-container] {
@@ -26699,7 +26725,9 @@ img.no__style {
 [data-pane][data-active] {
   /*			visibility: visible;*/
   /*			opacity: 1;*/
+  z-index: 1;
   pointer-events: all;
+  /*			--p: 1;*/
   /*			display: grid;*/
   /*			position: relative;*/
 }
@@ -26742,8 +26770,8 @@ img.no__style {
 [data-tab-reveal][data-reveal-text] [data-word] > span,
 [data-tab-reveal] [data-reveal-text] [data-word] > span {
   display: inline-block;
-  -webkit-transform: translateY(1.5em);
-          transform: translateY(1.5em);
+  -webkit-transform: translateY(2em);
+          transform: translateY(2em);
   -webkit-transition-property: color, -webkit-transform;
   transition-property: color, -webkit-transform;
   transition-property: transform, color;
@@ -26756,10 +26784,16 @@ img.no__style {
           transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
   will-change: transform, color;
 }
+[data-tab-reveal][data-reveal-image],
+[data-tab-reveal] [data-reveal-image] {
+  clip-path: inset(0% 100% 0% 0%);
+}
 
 /* 2. HOVER IN STAV (když na něj najedeš) */
 [data-pane][data-active] [data-tab-reveal][data-reveal-text],
-[data-pane][data-active] [data-tab-reveal] [data-reveal-text] {
+[data-pane][data-active] [data-tab-reveal] [data-reveal-text],
+[data-pane][data-active][data-tab-reveal][data-reveal-text],
+[data-pane][data-active][data-tab-reveal] [data-reveal-text] {
   --in-delay: 600ms;
   visibility: visible;
   -webkit-transition: visibility 0s linear 0s;
@@ -26768,11 +26802,65 @@ img.no__style {
 [data-pane][data-active] [data-tab-reveal][data-reveal-text] [data-word] > [data-char],
 [data-pane][data-active] [data-tab-reveal][data-reveal-text] [data-word] > span,
 [data-pane][data-active] [data-tab-reveal] [data-reveal-text] [data-word] > [data-char],
-[data-pane][data-active] [data-tab-reveal] [data-reveal-text] [data-word] > span {
+[data-pane][data-active] [data-tab-reveal] [data-reveal-text] [data-word] > span,
+[data-pane][data-active][data-tab-reveal][data-reveal-text] [data-word] > [data-char],
+[data-pane][data-active][data-tab-reveal][data-reveal-text] [data-word] > span,
+[data-pane][data-active][data-tab-reveal] [data-reveal-text] [data-word] > [data-char],
+[data-pane][data-active][data-tab-reveal] [data-reveal-text] [data-word] > span {
   -webkit-transform: none;
           transform: none;
   color: rgba(var(--col), 1);
   /*    animation: reveal-in var(--reveal-duration) $defaultEasing var(--delay) forwards;*/
+}
+[data-pane][data-active] [data-tab-reveal][data-reveal-image],
+[data-pane][data-active] [data-tab-reveal] [data-reveal-image],
+[data-pane][data-active][data-tab-reveal][data-reveal-image],
+[data-pane][data-active][data-tab-reveal] [data-reveal-image] {
+  -webkit-transition-property: clip-path;
+  transition-property: clip-path;
+  -webkit-transition-duration: 1200ms;
+          transition-duration: 1200ms;
+  -webkit-transition-delay: 0ms;
+          transition-delay: 0ms;
+  -webkit-transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+          transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: clip-path;
+  clip-path: inset(0% 0% 0% 0%);
+}
+[data-pane][data-active] [data-tab-reveal][data-reveal-cover] figure,
+[data-pane][data-active] [data-tab-reveal] [data-reveal-cover] figure,
+[data-pane][data-active][data-tab-reveal][data-reveal-cover] figure,
+[data-pane][data-active][data-tab-reveal] [data-reveal-cover] figure {
+  transition: --p var(--reveal-duration) cubic-bezier(0.4, 0, 0.2, 1);
+  --p: 1;
+}
+
+[data-pane].is-closing[data-tab-reveal][data-reveal-image],
+[data-pane].is-closing[data-tab-reveal] [data-reveal-image],
+[data-pane].is-closing [data-tab-reveal][data-reveal-image],
+[data-pane].is-closing [data-tab-reveal] [data-reveal-image] {
+  -webkit-transition-property: -webkit-transform;
+  transition-property: -webkit-transform;
+  transition-property: transform;
+  transition-property: transform, -webkit-transform;
+  -webkit-transition-duration: 1200ms;
+          transition-duration: 1200ms;
+  -webkit-transition-delay: 0ms;
+          transition-delay: 0ms;
+  -webkit-transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+          transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+  -webkit-transform: translateX(20%);
+          transform: translateX(20%);
+  -webkit-transition-delay: 50ms;
+          transition-delay: 50ms;
+  clip-path: inset(0% 0% 0% 0%);
+}
+[data-pane].is-closing[data-tab-reveal][data-reveal-cover] figure,
+[data-pane].is-closing[data-tab-reveal] [data-reveal-cover] figure,
+[data-pane].is-closing [data-tab-reveal][data-reveal-cover] figure,
+[data-pane].is-closing [data-tab-reveal] [data-reveal-cover] figure {
+  --p: 1;
 }
 
 /*
@@ -30379,8 +30467,8 @@ img.no__style {
 }
 [data-toggles] [data-target].is-closing {
   clip-path: inset(0% 0% 0% 0%);
-  -webkit-animation: toggle-out 1200ms cubic-bezier(0.16, 1, 0.3, 1);
-          animation: toggle-out 1200ms cubic-bezier(0.16, 1, 0.3, 1);
+  -webkit-animation: toggle-out 1200ms cubic-bezier(0.16, 1, 0.3, 1) 100ms;
+          animation: toggle-out 1200ms cubic-bezier(0.16, 1, 0.3, 1) 100ms;
   --reveal-delay: 0ms;
 }
 [data-toggles] [data-target]:not(.is-active) {
@@ -55393,67 +55481,11 @@ html.no-scroll body {
   visibility: visible;
 }
 
-section.team[data-tabs] {
-  /*[data-pane-container] {
-  	margin-bottom: -75vh;
-  }*/
-}
-section.team[data-tabs] [data-pane] {
-  position: relative;
-}
-section.team[data-tabs] [data-pane] .item__figure {
-  -webkit-transform: translateX(0%);
-          transform: translateX(0%);
-  clip-path: inset(0% 100% 0% 0%);
-}
-section.team[data-tabs] [data-pane][data-active] {
-  z-index: 1;
-}
-section.team[data-tabs] [data-pane][data-active] .item__figure {
-  -webkit-transition-property: clip-path;
-  transition-property: clip-path;
-  -webkit-transition-duration: 1200ms;
-          transition-duration: 1200ms;
-  -webkit-transition-delay: 0ms;
-          transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
-          transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: clip-path;
-  clip-path: inset(0% 0% 0% 0%);
-}
-section.team[data-tabs] [data-pane].is-closing .item__figure {
-  -webkit-transition-property: -webkit-transform;
-  transition-property: -webkit-transform;
-  transition-property: transform;
-  transition-property: transform, -webkit-transform;
-  -webkit-transition-duration: 1200ms;
-          transition-duration: 1200ms;
-  -webkit-transition-delay: 0ms;
-          transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
-          transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: transform;
-  -webkit-transform: translateX(20%);
-          transform: translateX(20%);
-  clip-path: inset(0% 0% 0% 0%);
-}
-
 section.process .item__figure {
   -webkit-transform: scale(calc(0.3 + var(--progress) * 1.4 - max(0, var(--progress) - 0.5) * 2.8));
           transform: scale(calc(0.3 + var(--progress) * 1.4 - max(0, var(--progress) - 0.5) * 2.8));
 }
 
-/*.intro__title {
-	[data-reveal-out] {
-		clip-path: inset(0% -10% -20% -10%);
-
-	}
-	&.is-inview {
-		[data-reveal-out] [data-char] {
-			animation: reveal-out 1200ms $defaultEasing calc(1600ms + var(--char-index) * 50ms) forwards;
-		}
-	}
-}*/
 /*  
 
     PAGE: Lecture

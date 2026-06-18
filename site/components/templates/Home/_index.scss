@@ -48,48 +48,8 @@
 	visibility: visible;
 }
 
-section.team[data-tabs] {
-	/*[data-pane-container] {
-		margin-bottom: -75vh;
-	}*/
-	
-	[data-pane] {
-		position: relative;
-		.item__figure {
-			transform: translateX(0%);
-			clip-path: inset(0% 100% 0% 0%);
-		}
-	}
-	[data-pane][data-active] {
-		z-index: 1;
-		.item__figure {
-			@include animation((clip-path));
-			clip-path: inset(0% 0% 0% 0%);
-		}
-	}
-	[data-pane].is-closing {
-		.item__figure {
-			@include animation((transform));
-			transform: translateX(20%);
-			clip-path: inset(0% 0% 0% 0%);
-		}
-	}
-}
-
 section.process {
 	.item__figure {
 		transform: scale(calc(0.3 + (var(--progress)*1.4) - (Max(0,(var(--progress) - 0.5))*2.8) ));
 	}
 }
-
-/*.intro__title {
-	[data-reveal-out] {
-		clip-path: inset(0% -10% -20% -10%);
-		
-	}
-	&.is-inview {
-		[data-reveal-out] [data-char] {
-			animation: reveal-out 1200ms $defaultEasing calc(1600ms + var(--char-index) * 50ms) forwards;
-		}
-	}
-}*/

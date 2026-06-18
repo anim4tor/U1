@@ -22,6 +22,19 @@ tabs:
             headline: Archive
             layout: list
             status: unlisted
+
+  testimonials:
+    columns:
+      - width: 1/3
+        testimonials:
+          type: structure
+          fields:
+            client:
+              type: text
+            details: 
+              type: writer
+            leader:
+              type: pages
   content:
     columns:
       - width: 1/1

@@ -13,7 +13,7 @@
 					?>
 					<div data-tab="team-<?= $team->indexOf(collection('Team')) ?>" class="flex gap__02" data-scroll>
 						<h3 class="font__size__1 no__wrap" data-reveal-text data-split-ignore><?= $team->name() ?></h3>
-						<span data-reveal-text="lines" class="-wrap-t__03">(<?= $employees ?>)</span>
+						<span data-reveal-text="lines" data-split-ignore style="--in-delay: 1200ms" class="-wrap-t__03">(<?= $employees ?>)</span>
 					</div>
 				<?php endforeach ?>
 			</div>
@@ -31,15 +31,15 @@
 			<div class="grid__stack no__overflow">
 				<?php foreach (collection('Team') as $team) : ?>
 					<?php if ($leader = $team->leader()->toPage()) : ?>
-					<div data-pane="team-<?= $team->indexOf(collection('Team')) ?>" class="" data-scroll data-scroll-ignore>
+					<div data-pane="team-<?= $team->indexOf(collection('Team')) ?>" class="" data-scroll data-scroll-ignore data-tab-reveal>
 						<div class="grid place__start-end gap__05">
 							<?php if ($photo = $leader->photo()->toFile()) : ?>
-								<div class="item__figure radius no__overflow "><?= snippet('atoms/Image', ['img' => $photo, 'parallax' => 1, 'css' => 'w__10 aspect__3/4 grid' ]) ?></div>
+								<div data-reveal-image class="item__figure radius no__overflow "><?= snippet('atoms/Image', ['img' => $photo, 'parallax' => 1, 'css' => 'w__10 aspect__3/4 grid' ]) ?></div>
 							<?php endif ?>
 
 							<div class="flex gap__05 justify__space-between upper wrap">
-								<span class="font__size__default s ff__body" data-split-ignore data-reveal-text="lines" data-tab-reveal><?= $leader->title() ?></span>
-								<h3 class="font__size__default s ff__body" data-split-ignore data-reveal-text="lines" data-tab-reveal>(<?= $leader->role() ?>)</h3>
+								<span class="font__size__default s ff__body" data-split-ignore data-reveal-text="lines" ><?= $leader->title() ?></span>
+								<h3 class="font__size__default s ff__body" data-split-ignore data-reveal-text="lines" >(<?= $leader->role() ?>)</h3>
 							</div>
 						</div>
 					</div>

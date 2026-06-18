@@ -61,7 +61,7 @@ class Toggles {
                     clearTimeout(this.closingTimeouts.get(hoverEl));
                     this.closingTimeouts.delete(hoverEl);
                     
-                    hoverEl.classList.add('is-active'); // Pro jistotu aktivujeme tlačítko
+                    hoverEl.classList.add('is-active'); 
 
                     if (activeTarget) {
                         this.clearFallback(activeTarget);
@@ -80,17 +80,24 @@ class Toggles {
                     return; 
                 }
 
-                // Pokud přejíždíme z jiného prvku, musíme starý prvek (tlačítko i target) poslat do zavírací fáze
+                // ÚPRAVA ZDE: Pokud přejíždíme z jiného prvku, odložíme jeho zavření o hoverDelay
                 this.DOM.hovers.forEach(otherHover => {
                     if (otherHover !== hoverEl && otherHover.classList.contains('is-active')) {
-                        // Zhasneme předchozí aktivní tlačítko
-                        otherHover.classList.remove('is-active');
                         
                         const otherTargetId = otherHover.getAttribute('data-hover-toggle');
                         const otherTarget = this.DOM.targets.find(t => t.getAttribute('data-target') === otherTargetId);
                         
                         if (otherTarget && (otherTarget.classList.contains('is-active') || otherTarget.classList.contains('is-opening'))) {
-                            this.closeTarget(otherTarget);
+                            // Zhasneme předchozí tlačítko až s targetem
+                            const delayCloseId = setTimeout(() => {
+                                otherHover.classList.remove('is-active');
+                                this.closeTarget(otherTarget);
+                                this.closingTimeouts.delete(otherHover);
+                            }, this.config.hoverDelay);
+
+                            this.closingTimeouts.set(otherHover, delayCloseId);
+                        } else {
+                            otherHover.classList.remove('is-active');
                         }
                     }
                 });
@@ -109,7 +116,6 @@ class Toggles {
 
             // DEAKTIVACE (Odjetí myši)
             hoverEl.addEventListener('mouseleave', (e) => {
-                // Pokud myš jen rychle projela a nestihla se ustálit, zrušíme plánované otevření targetu a zhasneme tlačítko
                 if (this.activationTimeouts.has(hoverEl)) {
                     clearTimeout(this.activationTimeouts.get(hoverEl));
                     this.activationTimeouts.delete(hoverEl);
@@ -117,24 +123,26 @@ class Toggles {
                     return;
                 }
 
-                // Zjišťujeme, kam kurzor z tlačítka odešel
                 const nextElement = e.relatedTarget;
                 const isMovingToAnotherHover = nextElement && this.DOM.hovers.some(hover => hover.contains(nextElement));
 
                 if (!isMovingToAnotherHover) {
-                    // KEEPIN' LAST ON: Myš odešla úplně mimo menu (do prázdna).
-                    // Nic neodebíráme, tlačítko i target zůstávají svítit v is-active.
+                    // Myš odešla úplně mimo menu – zachováme aktivní
                     return;
                 }
 
-                // Pokud přejíždíme na jiný hover item, naplánujeme standardní zavření starého targetu
+                // Standardní odjezd na jiný hover prvek (ošetřeno přes timeout)
                 if (activeTarget.classList.contains('is-active') || activeTarget.classList.contains('is-opening')) {
-                    const closingTimeoutId = setTimeout(() => {
-                        this.closeTarget(activeTarget);
-                        this.closingTimeouts.delete(hoverEl);
-                    }, this.config.hoverDelay);
+                    // Pokud už pro toto tlačítko neběží jiný zavírací timeout (např. z mouseenter)
+                    if (!this.closingTimeouts.has(hoverEl)) {
+                        const closingTimeoutId = setTimeout(() => {
+                            hoverEl.classList.remove('is-active');
+                            this.closeTarget(activeTarget);
+                            this.closingTimeouts.delete(hoverEl);
+                        }, this.config.hoverDelay);
 
-                    this.closingTimeouts.set(hoverEl, closingTimeoutId);
+                        this.closingTimeouts.set(hoverEl, closingTimeoutId);
+                    }
                 }
             });
         });

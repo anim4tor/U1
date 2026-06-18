@@ -140,7 +140,7 @@ class Tabs {
         const lastActivePaneValue = lastActiveTab ? (lastActiveTab.dataset.tab || lastActiveTab.dataset.asyncTab || String(this.data.active)) : null;
 
         // Délka animace v ms
-        const animationDuration = 1200;
+        const animationDuration = 1700;
         let hasAnimation = false;
 
         // Přidání třídy 'is-closing' na staré taby a panely

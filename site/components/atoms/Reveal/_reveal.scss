@@ -54,10 +54,43 @@
     @include animation((clip-path));
 }
 
+[data-reveal-cover] {
+  $mask: '';
+  $steps: 20;
+  $inc: 100% / $steps;
+
+  @for $i from 1 through $steps {
+    // Změna: z ($steps - $i) na ($i - 1)
+    $mask: $mask + 'transparent #{$inc * ($i - 1)} calc( #{$inc*$i} - (var(--p) * 2 - #{($i - 1)/$steps}) * #{$inc} )';
+    $mask: $mask + ', ';
+    $mask: $mask + 'black calc( #{$inc*$i} - (var(--p) * 2 - #{($i - 1)/$steps}) * #{$inc} ) #{$inc*$i}';
+    @if $i < $steps {
+      $mask: $mask + ', ';
+    } @else {
+      $mask: $mask + ';';
+    }
+  }
+
+  figure {
+    --items: 1;
+    --p: 0;
+    --mask: #{$mask};
+    mask-image: linear-gradient(90deg, var(--mask));
+  }
+}
+
 .is-inview[data-reveal-image], 
 .is-inview [data-reveal-image] {
     clip-path: inset(0% 0% 0% 0%);
 }
+
+[data-scroll].is-inview[data-reveal-cover] figure, 
+[data-scroll].is-inview [data-reveal-cover] figure {
+    --p: 1;
+    transition: --p var(--reveal-duration) cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+
 
 
 /*
@@ -75,7 +108,7 @@
     
     & > span {
       display: inline-block;
-      transform: translateY(1.5em);
+      transform: translateY(2em);
       @include animation((transform, color), var(--reveal-duration), (var(--delay), calc(var(--delay) + 200ms)));
       
     }

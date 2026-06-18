@@ -67,4 +67,36 @@ tabs:
           author:
             type: text
 
+  testimonial:
+    columns:
+      - width: 2/3
+        fields:
+          testimonialQuote:
+            type: writer
+            label: Quote
+
+      - width: 1/3
+        fields:
+          
+          testimonialAuthor:
+            type: text
+            label: Author
+          testimonialPosition:
+            type: text
+            label: Position
+          testimonialImage:
+            type: files
+            label: Image/Logo
+            template: logo
+            info: "{{ file.dimensions }}"
+            uploads:
+              template: logo
+            image:
+              ratio: 4/5
+              cover: true
+            min: 1
+            layout: cards
+            size: small
+    
+
   meta: tabs/meta/page

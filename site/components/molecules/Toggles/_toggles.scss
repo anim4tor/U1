@@ -27,7 +27,7 @@
 
     &.is-closing {
       clip-path: inset(0% 0% 0% 0%);
-      animation: toggle-out $defaultDuration $defaultEasing;
+      animation: toggle-out $defaultDuration $defaultEasing 100ms;
       --reveal-delay: 0ms;
     }
   }

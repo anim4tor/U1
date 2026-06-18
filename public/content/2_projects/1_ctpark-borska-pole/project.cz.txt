@@ -18,11 +18,19 @@ Details: <p>Od holého betonu až po hotové kanceláře. U1 space design zastř
 
 ----
 
+Quote: 
+
+----
+
 Footnote: <p>Děkujeme klientovi za důvěru, Ing. arch. Kateřině Šauerové za skvělý architektonický návrh a&nbsp;všem partnerům za spolupráci.</p>
 
 ----
 
 Client: Mezinárodní klient
+
+----
+
+Concept: 
 
 ----
 
@@ -55,6 +63,26 @@ Gallery:
 - file://TTMJJQ3acdqa3BUL
 - file://5inyjVYibO2hQALc
 - file://VequhDnKi43Ocv1Q
+
+----
+
+Author: 
+
+----
+
+Testimonialquote: <p>Working with this team has been a game-changer for our business. Their attention to detail and ability to deliver high-quality results on schedule is unmatched. I highly recommend them to anyone looking for reliable and professional expertise.</p>
+
+----
+
+Testimonialauthor: David L.
+
+----
+
+Testimonialposition: Operations Manager
+
+----
+
+Testimonialimage: - file://PRdD7coQC5pznXGK
 
 ----
 
