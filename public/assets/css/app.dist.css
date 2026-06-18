@@ -26778,7 +26778,7 @@ img.no__style {
 [data-pane][data-active] [data-tab-reveal] [data-reveal-text],
 [data-pane][data-active][data-tab-reveal][data-reveal-text],
 [data-pane][data-active][data-tab-reveal] [data-reveal-text] {
-  --in-delay: 800ms;
+  --in-delay: 400ms;
   visibility: visible;
   -webkit-transition: visibility 0s linear 0s;
   transition: visibility 0s linear 0s;

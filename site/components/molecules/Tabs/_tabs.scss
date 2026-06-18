@@ -82,7 +82,7 @@
 [data-pane][data-active][data-tab-reveal] {
   &[data-reveal-text],
   [data-reveal-text] {
-  	--in-delay: 800ms;
+  	--in-delay: 400ms;
     @include reveal-text-in;
   }
 
