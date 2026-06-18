@@ -13,17 +13,6 @@
 
 }
 
-
-[data-toggles] {
-	[data-hover-toggle].is-active span {
-		--reveal-delay: 0ms;
-		--reveal-duration: 600ms;
-		transition-delay: var(--delay);
-/*    	animation: hover-in 1200ms $defaultEasing var(--delay) forwards !important;*/
-		color: rgb(var(--color-acc)) !important;
-	}
-}
-
 [data-tabs] {
 	[data-tab] {
 		@include animation(opacity);
@@ -36,16 +25,6 @@
 		--reveal-duration: 600ms;
 		color: rgb(var(--color-acc)) !important;
 	}
-	[data-pane][data-active] [data-reveal-text] {
-		--reveal-delay: 0ms;
-		--reveal-duration: 600ms;
-/*		color: rgb(var(--color-acc)) !important;*/
-		@include reveal-text-in;
-	}
-}
-
-.reveal-enabled .is-inview [intro-slider] [slide] {
-	visibility: visible;
 }
 
 section.process {

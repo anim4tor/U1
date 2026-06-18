@@ -47,7 +47,6 @@ const init = async () => {
         initAside, 
         initTabs, 
         initCollapsibles, 
-        initToggles,
         initCarousels
     ];
     
@@ -105,7 +104,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 //@prepros-prepend ../../components/atoms/Scroll/index.js
 //@prepros-prepend ../../components/atoms/Reveal/index.js
 //@prepros-prepend ../../components/molecules/Collapsible/index.js
-//@prepros-prepend ../../components/molecules/Toggles/index.js
 //@prepros-prepend ../../components/molecules/Tabs/index.js
 //@prepros-prepend ../../components/organisms/Loader/index.js
 //@prepros-prepend ../../components/organisms/Aside/index.js
