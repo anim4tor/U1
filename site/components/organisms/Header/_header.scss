@@ -7,7 +7,7 @@
 @import "../../atoms/Animation/animation";
 @import "../../atoms/Theme/border";
 :root {
-	--header-height: auto;
+	--header-height: 55px;
 
 }
 
@@ -21,6 +21,7 @@
 
 	&__widget {
 		pointer-events: all;
+		border-radius: var(--circle-size);
 	}
 }
 
@@ -57,10 +58,82 @@
 	}
 }
 
+[navbar-widget] {
+	height: var(--header-height);
+	width: 100%;
+}
+
+[fab] {
+/*	--size: Max(calc(var(--spacing)*2.15), 62px);*/
+	z-index: 1000;
+/*	position: fixed;*/
+/*	t: var(--spacing);*/
+/*	right: var(--spacing);*/
+	display: block;
+
+	button {
+		height: var(--header-height);
+		border-radius: var(--header-height);
+/*		clip-path: polygon(15% 15%, 50% 0, 85% 15%, 100% 50%, 85% 85%, 50% 100%, 15% 85%, 0 50%);		 */
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		@include animation;
+		
+		svg path {
+			fill: var(--color-invert);
+		}
+
+		&:hover {
+/*			clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);*/
+		}
+	}
+
+
+}
+
 [data-header] {
 	@include animation;
-	&[collapsed] {
 
-		
-	}	
+	[navbar], [navbar-widget], [navbar-menu] {
+		@include animation;
+	}
+	[navbar] {
+		width: 60vw;
+	}
+	[navbar-menu] {
+		width: 100%;
+	}
+	[fab] {
+		@include animation;
+/*		transform: translateY(calc(100% + var(--spacing)*1));*/
+	}
+
+	&[hide] {
+
+		[navbar-widget] {
+/*			transform: translateY(calc(-100% - var(--spacing)*1));*/
+		}
+			
+
+		[fab] {
+/*			display: none;*/
+			transform: none;
+		}
+
+	}
+
+	&[collapsed] {
+		[navbar] {
+			width: 30vw;
+		}
+		[navbar-widget] {
+/*			--ncol: 2;*/
+		}
+		[navbar-menu] {
+/*			display: none;*/
+			opacity: 0;
+			width: 0;
+		}
+	}
 }

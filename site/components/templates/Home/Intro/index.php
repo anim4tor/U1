@@ -28,7 +28,7 @@
 			</div>
 			<div class="upper s flex justify__end" data-tab-next>Next</div>
 		</div>
-		<div class="intro__title relative place__end-stretch span__4 mobile:span__1 inner-y__05" data-scroll data-scroll-speed="-0.5">
+		<div class="intro__title relative place__end-stretch span__4 mobile:span__1 inner-y__05" data-scroll style="--in-delay: 500ms">
 			<h1 class="s">
 				<div data-reveal-text="">We deliver <br> workspaces <br>that works</div>
 			</h1>

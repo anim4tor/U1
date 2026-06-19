@@ -9,8 +9,7 @@
     <?php snippet('organisms/Aside'); ?>
 
     <!-- The booking widget --> 
-    <?php snippet('organisms/Booking'); ?>
-
+    
     <!-- The theme widget --> 
     <?php snippet('atoms/Theme'); ?>
     

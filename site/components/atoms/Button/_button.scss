@@ -8,9 +8,11 @@
 
 :root {
 	--button-size: 40px;
+	--circle-size: 50px;
 	--button-radius: 2em;
 	--button-spacing: 1.0em;
 	--button-family: var(--ff-body);
+	--button-font-size: calc(var(--font-size-default)*0.9);
 	--checkbox-radius: 1rem;
 }
 .button {
@@ -21,11 +23,11 @@
 	align-items: center;
 	justify-content: center;
 	text-align: center;
-	gap: 0.15em;
+	gap: 0.5em;
 	flex-shrink: 0;
 
 	font-family: var(--button-family);
-	font-size: calc(var(--font-size-default));
+	font-size: var(--button-font-size);
 	font-weight: 400;
 	height: var(--button-size);
 	min-width: var(--button-size);
@@ -47,13 +49,16 @@
 		}
 	}
 
-	.circle {
-		--circle-size: var(--button-size);
+	&.circle {
 		border-radius: calc(var(--circle-size, var(--button-size))/2);
-		padding: 0;
-		width: var(--circle-size, var(--button-size));
+/*		padding: 0;*/
+		min-width: var(--circle-size, var(--button-size));
 		height: var(--circle-size, var(--button-size));
 		justify-content: center;
+
+		&:has(.icon) {
+			width: var(--circle-size, var(--button-size));
+		}
 
 		&.--large {
 			--circle-size: calc(var(--button-size)*1.5);
@@ -112,6 +117,10 @@
 	    --background: transparent;
 	    --col: var(--color-text);
 	    @include border;
+	}
+	&[theme="acc"] {
+	    --background: var(--color-acc);
+	    --col: var(--color-invert);
 	}
 	&[theme="invert-ghost"] {
 	    --background: transparent;

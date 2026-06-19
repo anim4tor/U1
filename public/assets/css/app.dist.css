@@ -15520,9 +15520,11 @@ html body hr {
 
 :root {
   --button-size: 40px;
+  --circle-size: 50px;
   --button-radius: 2em;
   --button-spacing: 1.0em;
   --button-family: var(--ff-body);
+  --button-font-size: calc(var(--font-size-default)*0.9);
   --checkbox-radius: 1rem;
 }
 
@@ -15539,11 +15541,11 @@ html body hr {
       -ms-flex-pack: center;
           justify-content: center;
   text-align: center;
-  gap: 0.15em;
+  gap: 0.5em;
   -ms-flex-negative: 0;
       flex-shrink: 0;
   font-family: var(--button-family);
-  font-size: calc(var(--font-size-default));
+  font-size: var(--button-font-size);
   font-weight: 400;
   height: var(--button-size);
   min-width: var(--button-size);
@@ -15564,17 +15566,19 @@ html body hr {
   width: 100%;
   height: 100%;
 }
-.button .circle {
-  --circle-size: var(--button-size);
+.button.circle {
   border-radius: calc(var(--circle-size, var(--button-size)) / 2);
-  padding: 0;
-  width: var(--circle-size, var(--button-size));
+  /*		padding: 0;*/
+  min-width: var(--circle-size, var(--button-size));
   height: var(--circle-size, var(--button-size));
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
 }
-.button .circle.--large {
+.button.circle:has(.icon) {
+  width: var(--circle-size, var(--button-size));
+}
+.button.circle.--large {
   --circle-size: calc(var(--button-size)*1.5);
 }
 .button.--small {
@@ -15649,6 +15653,10 @@ html body hr {
   --background: transparent;
   --col: var(--color-text);
   border: var(--border-width) solid color-mix(in srgb, var(--col) 20%, transparent);
+}
+.button[theme=acc] {
+  --background: var(--color-acc);
+  --col: var(--color-invert);
 }
 .button[theme=invert-ghost] {
   --background: transparent;
@@ -35616,7 +35624,7 @@ html body hr {
 }
 
 :root {
-  --header-height: auto;
+  --header-height: 55px;
 }
 
 .header {
@@ -35630,6 +35638,7 @@ html body hr {
 }
 .header__widget {
   pointer-events: all;
+  border-radius: var(--circle-size);
 }
 
 .header, .aside__header {
@@ -35689,6 +35698,49 @@ html body hr {
   will-change: all;
 }
 
+[navbar-widget] {
+  height: var(--header-height);
+  width: 100%;
+}
+
+[fab] {
+  /*	--size: Max(calc(var(--spacing)*2.15), 62px);*/
+  z-index: 1000;
+  /*	position: fixed;*/
+  /*	t: var(--spacing);*/
+  /*	right: var(--spacing);*/
+  display: block;
+}
+[fab] button {
+  height: var(--header-height);
+  border-radius: var(--header-height);
+  /*		clip-path: polygon(15% 15%, 50% 0, 85% 15%, 100% 50%, 85% 85%, 50% 100%, 15% 85%, 0 50%);		 */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-transition-property: all;
+  transition-property: all;
+  -webkit-transition-duration: var(--animation-duration, 1s);
+          transition-duration: var(--animation-duration, 1s);
+  -webkit-transition-delay: var(--animation-delay, 0ms);
+          transition-delay: var(--animation-delay, 0ms);
+  -webkit-transition-timing-function: var(--animation-timing, ease-in-out);
+          transition-timing-function: var(--animation-timing, ease-in-out);
+  will-change: all;
+}
+[fab] button svg path {
+  fill: var(--color-invert);
+}
+[fab] button:hover {
+  /*			clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);*/
+}
+
 [data-header] {
   -webkit-transition-property: all;
   transition-property: all;
@@ -35700,6 +35752,55 @@ html body hr {
           transition-timing-function: var(--animation-timing, ease-in-out);
   will-change: all;
 }
+[data-header] [navbar], [data-header] [navbar-widget], [data-header] [navbar-menu] {
+  -webkit-transition-property: all;
+  transition-property: all;
+  -webkit-transition-duration: var(--animation-duration, 1s);
+          transition-duration: var(--animation-duration, 1s);
+  -webkit-transition-delay: var(--animation-delay, 0ms);
+          transition-delay: var(--animation-delay, 0ms);
+  -webkit-transition-timing-function: var(--animation-timing, ease-in-out);
+          transition-timing-function: var(--animation-timing, ease-in-out);
+  will-change: all;
+}
+[data-header] [navbar] {
+  width: 60vw;
+}
+[data-header] [navbar-menu] {
+  width: 100%;
+}
+[data-header] [fab] {
+  -webkit-transition-property: all;
+  transition-property: all;
+  -webkit-transition-duration: var(--animation-duration, 1s);
+          transition-duration: var(--animation-duration, 1s);
+  -webkit-transition-delay: var(--animation-delay, 0ms);
+          transition-delay: var(--animation-delay, 0ms);
+  -webkit-transition-timing-function: var(--animation-timing, ease-in-out);
+          transition-timing-function: var(--animation-timing, ease-in-out);
+  will-change: all;
+  /*		transform: translateY(calc(100% + var(--spacing)*1));*/
+}
+[data-header][hide] [navbar-widget] {
+  /*			transform: translateY(calc(-100% - var(--spacing)*1));*/
+}
+[data-header][hide] [fab] {
+  /*			display: none;*/
+  -webkit-transform: none;
+          transform: none;
+}
+[data-header][collapsed] [navbar] {
+  width: 30vw;
+}
+[data-header][collapsed] [navbar-widget] {
+  /*			--ncol: 2;*/
+}
+[data-header][collapsed] [navbar-menu] {
+  /*			display: none;*/
+  opacity: 0;
+  width: 0;
+}
+
 /*
 
 	FOOTER
@@ -44605,45 +44706,6 @@ html body hr {
   :root {
     --booking-width: 100vw;
   }
-}
-
-[fab] {
-  --size: Max(calc(var(--spacing)*2.15), 62px);
-  z-index: 1000;
-  position: fixed;
-  bottom: var(--spacing);
-  right: var(--spacing);
-  display: block;
-}
-[fab] button {
-  width: var(--size);
-  height: var(--size);
-  border-radius: 50%;
-  /*		clip-path: polygon(15% 15%, 50% 0, 85% 15%, 100% 50%, 85% 85%, 50% 100%, 15% 85%, 0 50%);		 */
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-transition-property: all;
-  transition-property: all;
-  -webkit-transition-duration: var(--animation-duration, 1s);
-          transition-duration: var(--animation-duration, 1s);
-  -webkit-transition-delay: var(--animation-delay, 0ms);
-          transition-delay: var(--animation-delay, 0ms);
-  -webkit-transition-timing-function: var(--animation-timing, ease-in-out);
-          transition-timing-function: var(--animation-timing, ease-in-out);
-  will-change: all;
-}
-[fab] button svg path {
-  fill: var(--color-invert);
-}
-[fab] button:hover {
-  /*			clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);*/
 }
 
 booking,

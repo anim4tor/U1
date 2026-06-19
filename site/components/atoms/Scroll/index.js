@@ -1,106 +1,3 @@
-/*
-
-    SCROLL
-
-*/
-
-// class Scroll {
-//     constructor(container) {
-//        	this.engine = null;
-//        	this.container = container;
-//         this.init();
-//     }
-
-//     init() {
-//       console.log(' ... init Smooth scrolling')
-//     	this.engine = new LocomotiveScroll({
-//     	  lenisOptions: {
-//     	    // content: this.container,
-//           wrapper: document.querySelector('body'),
-//           content: document.querySelector('[data-scroll-content]'),
-//     	    orientation: 'vertical',
-//     	    smoothWheel: true,
-//     	    lerp: 0.5,
-//     	    duration: 1,
-//     	    normalizeWheel: true,
-//     	  },
-//     	  scrollCallback: this.onScroll
-//     	});
-//     	// console.log(this.engine)
-//     }
-
-//   	destroy() {
-//   		// console.log('Destroy Smooth scroll ...')
-// 	  	this.engine.destroy()
-// 	  	this.engine = null;
-//   		console.log(this.engine)
-//   	}
-
-//   	stop() {
-//   		// console.log('Stop Smooth scroll ...')
-//   		requestAnimationFrame(() => {
-//   			this.engine.stop()
-//   		})
-//   	}
-
-//   	start() {
-//   		// console.log('Start Smooth scroll ...')
-//   		requestAnimationFrame(() => {
-//   			this.engine.start()
-//   		})
-//   	}
-
-//   	resize() {
-//   		// console.log('Update Smooth scroll ...')
-//   		this.engine.resize()
-//   	}
-
-//     onScroll({ scroll, limit, velocity, direction, progress }) {
-//   	    // console.log(scroll, limit, velocity, direction, progress);
-//   			if (direction > 0) {
-//   				if(scroll > 100) {
-//   					document.querySelector('[data-header]').setAttribute('hide',true)
-//   					document.querySelector('[data-header]').setAttribute('collapsed',true)
-//   				}
-//   			} else {
-//   				document.querySelector('[data-header]').removeAttribute('hide')
-//   				if(scroll < 100) {
-//   					document.querySelector('[data-header]').removeAttribute('collapsed',true)
-//   				}
-
-//   			}
-//   	}
-
-//   	scrollTo(params) {
-//   	    const { target, options } = params;
-//   	    this.engine.scrollTo(target, options);
-//   	}
-// }
-
-// document.querySelectorAll('[data-scroll-call]').forEach( el => {
-//     el.setAttribute('data-back',el.getAttribute('theme'))
-// })
-// window.addEventListener('theme', (e) => {
-//     const { target, way, from } = e.detail;
-//     console.log(`target: ${target}`, `way: ${way}`, `from: ${from}`);
-//     var theme = target.getAttribute('data-theme');
-//     var back = target.getAttribute('data-back');
-//     if (way == "enter") {
-//        target.setAttribute('theme',theme);
-//     } else {
-//        target.setAttribute('theme',back);
-//     }
-// });
-
-// var SCROLL;
-// function initScroll() {
-// 	SCROLL = new Scroll(document.querySelector('[data-scroll-container]'));
-// }
-
-/*
-    SCROLL - LENIS NATIVE
-*/
-
 class Scroll {
     constructor(container) {
         this.engine = null;
@@ -111,7 +8,7 @@ class Scroll {
     init() {
         console.log(' ... init Smooth scrolling')
         
-        // Lenis inicializace
+        // Lenis initialization
         this.engine = new Lenis({
             wrapper: window,
             content: document.querySelector('[data-scroll-content]'),
@@ -123,12 +20,10 @@ class Scroll {
             normalizeWheel: true,
         });
 
-        // history.scrollRestoration = 'manual'
-
-        // Event listener pro onScroll (nahrazuje scrollCallback)
+        // Event listener for onScroll
         this.engine.on('scroll', (e) => this.onScroll(e));
 
-        // RAF smyčka pro plynulý scroll
+        // RAF loop for smooth scroll
         const raf = (time) => {
             this.engine.raf(time);
             requestAnimationFrame(raf);
@@ -137,71 +32,64 @@ class Scroll {
     }
 
     destroy() {
-        this.engine.destroy();
-        this.engine = null;
+        if (this.engine) {
+            this.engine.destroy();
+            this.engine = null;
+        }
     }
 
     stop() {
-        this.engine.stop();
+        if (this.engine) this.engine.stop();
     }
 
     start() {
-        this.engine.start();
+        if (this.engine) this.engine.start();
     }
 
     resize() {
-        // Lenis se většinou resizeuje sám, ale pokud potřebuješ:
-        // window.dispatchEvent(new Event('resize'));
-    }
-
-    onScroll({ scroll, velocity, direction }) {
-        const header = document.querySelector('[data-header]');
-
-        direction = e.direction === 1 ? 'down' : 'up';
-        document.documentElement.setAttribute('data-scroll-direction', direction);
-
-        if (!header) return;
-
-        // Logika pro header
-        if (direction === 'down' && scroll > 100) {
-            header.setAttribute('hide', 'true');
-            header.setAttribute('collapsed', 'true');
-        } else if (direction === 'up') {
-            header.removeAttribute('hide');
-            if (scroll < 100) {
-                header.removeAttribute('collapsed');
-            }
-        }
+        if (this.engine) this.engine.dimensions.resize();
     }
 
     onScroll(e) {
-        // e.direction: 1 = down, -1 = up
-        const direction = e.direction === 1 ? 'down' : 'up';
-
-        // 1. Nastavení atributu na html element
-        document.documentElement.setAttribute('data-scroll-direction', direction);
-
-        // 2. Logika pro header (stávající)
+        // e.direction can be: 1 (down), -1 (up), or 0 (stopped)
         const header = document.querySelector('[data-header]');
-        if (header) {
-            if (direction === 'down' && e.scroll > 100) {
-                header.setAttribute('hide', 'true');
+        
+        if (!header) return;
+
+        // 1. Only update when actively moving DOWN
+        if (e.direction === 1) {
+            document.documentElement.setAttribute('data-scroll-direction', 'down');
+            
+            // Collapse at 100px
+            if (e.scroll > 100) {
                 header.setAttribute('collapsed', 'true');
-            } else if (direction === 'up') {
-                header.removeAttribute('hide');
-                if (e.scroll < 100) {
-                    header.removeAttribute('collapsed');
-                }
+            }
+            // Hide at 200px
+            if (e.scroll > 200) {
+                header.setAttribute('hide', 'true');
+            }
+            
+        // 2. Only update when actively moving UP
+        } else if (e.direction === -1) {
+            document.documentElement.setAttribute('data-scroll-direction', 'up');
+            
+            // Reveal header immediately when scrolling up
+            header.removeAttribute('hide');
+            
+            // Expand header back to normal only when close to the top (under 100px)
+            if (e.scroll < 100) {
+                header.removeAttribute('collapsed');
             }
         }
+        // If e.direction is 0 (stopped), it safely does nothing, preserving the header's state.
     }
 
     scrollTo(target, options = {}) {
-        this.engine.scrollTo(target, options);
+        if (this.engine) this.engine.scrollTo(target, options);
     }
 }
 
-// Inicializace
+// Initialization
 var SCROLL;
 function initScroll() {
     SCROLL = new Scroll(document.querySelector('[data-scroll-container]'));
