@@ -76,6 +76,7 @@
     --p: 0;
     --mask: #{$mask};
     mask-image: linear-gradient(90deg, var(--mask));
+    height: 100vh;
   }
 }
 

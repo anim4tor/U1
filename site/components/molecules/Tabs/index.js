@@ -17,7 +17,7 @@ class Tabs {
 
         // Konfigurace časů na jednom místě
         this.settings = {
-            animationDuration: 800,  // Jak dlouho trvá, než se úplně schová odcházející panel (ms)
+            animationDuration: 1000,  // Jak dlouho trvá, než se úplně schová odcházející panel (ms)
             debounceDuration: 200   // Jak dlouho musí myš stát na tabu, než se aktivuje panel (ms)
         };
 

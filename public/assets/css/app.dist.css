@@ -7319,6 +7319,7 @@
   -webkit-mask-image: linear-gradient(90deg, var(--mask));;
           mask-image: -webkit-gradient(linear, left top, right top, from(var(--mask)));;
           mask-image: linear-gradient(90deg, var(--mask));
+  height: 100vh;
 }
 
 .is-inview[data-reveal-image],
