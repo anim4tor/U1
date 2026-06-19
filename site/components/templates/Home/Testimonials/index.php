@@ -21,13 +21,21 @@
 				<div class="grid__stack inner__1 img__radius" theme="dark">
 					<?php foreach (collection('Projects') as $project) : ?>
 						<div data-pane="testimonial-<?= $project->indexOf(collection('Projects')) ?>" class="grid gap__4 place__space-between-start" data-tab-reveal>
-							<div class="grid place__start-start gap__1">
-								<div class="no__overflow w__3" >
-									<?php if ($image = $project->testimonialImage()->toFile()) : ?>
-										<div class="item__figure" data-reveal-image>
-											<?= snippet('atoms/Image', ['img' => $image, 'parallax' => 2, 'css' => '']) ?>
-										</div>
-									<?php endif ?>
+							<div class="grid place__start-stretch gap__1">
+								<div class="flex justify__space-between">
+									<div class="no__overflow w__3" >
+										<?php if ($image = $project->testimonialImage()->toFile()) : ?>
+											<div class="item__figure" data-reveal-image>
+												<?= snippet('atoms/Image', ['img' => $image, 'parallax' => 2, 'css' => '']) ?>
+											</div>
+										<?php endif ?>
+									</div>
+									<div class="flex gap__02 justify__end align__start">
+										<button data-tab-prev class="button upper" theme="invert-ghost" ><span class="icon"><?= svg('public/assets/images/ui/ui_arrow-left.svg') ?></span></button>
+										<button data-tab-next class="button upper" theme="invert-ghost" ><span class="icon"><?= svg('public/assets/images/ui/ui_arrow-right.svg') ?></span></button>
+
+										<!-- <?= snippet('atoms/Link', ['url' => 'projects', 'label' => 'All projects']) ?> -->
+									</div>
 								</div>
 								<p class="quote m ff__heading upper" data-reveal-text="lines" data-split-ignore>"<?= $project->testimonialQuote()->inline() ?>"</p>
 							</div>

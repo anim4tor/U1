@@ -31,11 +31,11 @@ $opacity : (
   10    : 1.0,
 );
 
-@mixin border($direction : '', $alpha : 0.3) {
+@mixin border($direction : '', $alpha : 20%) {
   @if($direction == '') {
-    border: var(--border-width) solid rgba(var(--col), $alpha);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) #{$alpha}, transparent);
   } @else {
-    border#{$direction}: var(--border-width) solid rgba(var(--col), $alpha);
+    border#{$direction}: var(--border-width) solid color-mix(in srgb, var(--col) #{$alpha}, transparent);
   }
 }
 

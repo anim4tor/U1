@@ -161,7 +161,7 @@
 				<div class="grid">
 					<label class="ff__body op__4 xs">Transform</label>
 					<select name="tt-heading" data-theme-setup>
-						<option value="unset">Unset</option>
+						<option value="none">None</option>
 						<option value="uppercase">Uppercase</option>
 						<option value="lowercase">Lowercase</option>
 					</select>
@@ -186,8 +186,9 @@
 				<div class="grid">
 					<label class="ff__body op__4 xs">Transform</label>
 					<select name="tt-body" data-theme-setup>
-						<option value="unset">Unset</option>
+						<option value="none">None</option>
 						<option value="uppercase">Uppercase</option>
+						<option value="lowercase">Lowercase</option>
 					</select>
 				</div>
 				<div class="grid">

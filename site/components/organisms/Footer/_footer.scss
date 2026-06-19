@@ -30,7 +30,7 @@ footer,
 			& [data-word] span {
 				--reveal-delay: 0ms;
 				--reveal-duration: 600ms;
-				color: rgb(var(--color-acc)) !important;
+				color: var(--color-acc) !important;
 			}
 		}
 	}

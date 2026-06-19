@@ -34,7 +34,7 @@
 	white-space: nowrap;
 /*	color: currentColor;*/
 	&.border {
-  		@include border('',0.2);
+  		@include border;
 	}
 	icon, .icon {
 		
@@ -111,12 +111,12 @@
 	&[theme="ghost"] {
 	    --background: transparent;
 	    --col: var(--color-text);
-	    border: 1px solid currentColor;
+	    @include border;
 	}
 	&[theme="invert-ghost"] {
 	    --background: transparent;
 	    --col: var(--color-invert);
-	    border: 1px solid currentColor;
+	    @include border;
 	}
 }
 

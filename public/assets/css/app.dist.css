@@ -7213,7 +7213,7 @@
 :root {
   --reveal-duration: var(--animation-duration);
   --reveal-stack: var(--animation-stagger);
-  --reveal-delay: var(--animation-delay);
+  --reveal-delay: calc(var(--animation-delay) + 0ms);
 }
 
 /*
@@ -7410,8 +7410,8 @@
   transition-property: transform, color, -webkit-transform;
   -webkit-transition-duration: var(--reveal-duration);
           transition-duration: var(--reveal-duration);
-  -webkit-transition-delay: var(--delay), calc(var(--delay) + 200ms);
-          transition-delay: var(--delay), calc(var(--delay) + 200ms);
+  -webkit-transition-delay: var(--delay), calc(var(--delay) + 300ms);
+          transition-delay: var(--delay), calc(var(--delay) + 300ms);
   -webkit-transition-timing-function: var(--animation-timing, ease-in-out);
           transition-timing-function: var(--animation-timing, ease-in-out);
   will-change: transform, color;
@@ -7441,8 +7441,8 @@
   transition-property: transform, color, -webkit-transform;
   -webkit-transition-duration: var(--reveal-duration);
           transition-duration: var(--reveal-duration);
-  -webkit-transition-delay: var(--delay), calc(var(--delay) + 200ms);
-          transition-delay: var(--delay), calc(var(--delay) + 200ms);
+  -webkit-transition-delay: var(--delay), calc(var(--delay) + 300ms);
+          transition-delay: var(--delay), calc(var(--delay) + 300ms);
   -webkit-transition-timing-function: var(--animation-timing, ease-in-out);
           transition-timing-function: var(--animation-timing, ease-in-out);
   will-change: transform, color;
@@ -7471,8 +7471,8 @@
   transition-property: transform, color, -webkit-transform;
   -webkit-transition-duration: var(--reveal-duration);
           transition-duration: var(--reveal-duration);
-  -webkit-transition-delay: var(--delay), calc(var(--delay) + 200ms);
-          transition-delay: var(--delay), calc(var(--delay) + 200ms);
+  -webkit-transition-delay: var(--delay), calc(var(--delay) + 300ms);
+          transition-delay: var(--delay), calc(var(--delay) + 300ms);
   -webkit-transition-timing-function: var(--animation-timing, ease-in-out);
           transition-timing-function: var(--animation-timing, ease-in-out);
   will-change: transform, color;
@@ -7548,8 +7548,8 @@
   transition-property: transform, color, -webkit-transform;
   -webkit-transition-duration: var(--reveal-duration);
           transition-duration: var(--reveal-duration);
-  -webkit-transition-delay: var(--delay), calc(var(--delay) + 200ms);
-          transition-delay: var(--delay), calc(var(--delay) + 200ms);
+  -webkit-transition-delay: var(--delay), calc(var(--delay) + 300ms);
+          transition-delay: var(--delay), calc(var(--delay) + 300ms);
   -webkit-transition-timing-function: var(--animation-timing, ease-in-out);
           transition-timing-function: var(--animation-timing, ease-in-out);
   will-change: transform, color;
@@ -11307,612 +11307,612 @@ ul li {
 }
 
 .border {
-  border: var(--border-width) solid rgba(var(--col), 0.3);
+  border: var(--border-width) solid color-mix(in srgb, var(--col) 20%, transparent);
 }
 
 .border\/0 {
-  border: var(--border-width) solid rgba(var(--col), 0);
+  border: var(--border-width) solid color-mix(in srgb, var(--col) 0, transparent);
 }
 
 .border\/1 {
-  border: var(--border-width) solid rgba(var(--col), 0.1);
+  border: var(--border-width) solid color-mix(in srgb, var(--col) 0.1, transparent);
 }
 
 .border\/2 {
-  border: var(--border-width) solid rgba(var(--col), 0.2);
+  border: var(--border-width) solid color-mix(in srgb, var(--col) 0.2, transparent);
 }
 
 .border\/3 {
-  border: var(--border-width) solid rgba(var(--col), 0.3);
+  border: var(--border-width) solid color-mix(in srgb, var(--col) 0.3, transparent);
 }
 
 .border\/4 {
-  border: var(--border-width) solid rgba(var(--col), 0.4);
+  border: var(--border-width) solid color-mix(in srgb, var(--col) 0.4, transparent);
 }
 
 .border\/5 {
-  border: var(--border-width) solid rgba(var(--col), 0.5);
+  border: var(--border-width) solid color-mix(in srgb, var(--col) 0.5, transparent);
 }
 
 .border\/6 {
-  border: var(--border-width) solid rgba(var(--col), 0.6);
+  border: var(--border-width) solid color-mix(in srgb, var(--col) 0.6, transparent);
 }
 
 .border\/7 {
-  border: var(--border-width) solid rgba(var(--col), 0.7);
+  border: var(--border-width) solid color-mix(in srgb, var(--col) 0.7, transparent);
 }
 
 .border\/8 {
-  border: var(--border-width) solid rgba(var(--col), 0.8);
+  border: var(--border-width) solid color-mix(in srgb, var(--col) 0.8, transparent);
 }
 
 .border\/9 {
-  border: var(--border-width) solid rgba(var(--col), 0.9);
+  border: var(--border-width) solid color-mix(in srgb, var(--col) 0.9, transparent);
 }
 
 .border\/10 {
-  border: var(--border-width) solid rgba(var(--col), 1);
+  border: var(--border-width) solid color-mix(in srgb, var(--col) 1, transparent);
 }
 
 .border__left {
-  border-left: var(--border-width) solid rgba(var(--col), 0.3);
+  border-left: var(--border-width) solid color-mix(in srgb, var(--col) 20%, transparent);
 }
 
 .border__left\/0 {
-  border-left: var(--border-width) solid rgba(var(--col), 0);
+  border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0, transparent);
 }
 
 .border__left\/1 {
-  border-left: var(--border-width) solid rgba(var(--col), 0.1);
+  border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.1, transparent);
 }
 
 .border__left\/2 {
-  border-left: var(--border-width) solid rgba(var(--col), 0.2);
+  border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.2, transparent);
 }
 
 .border__left\/3 {
-  border-left: var(--border-width) solid rgba(var(--col), 0.3);
+  border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.3, transparent);
 }
 
 .border__left\/4 {
-  border-left: var(--border-width) solid rgba(var(--col), 0.4);
+  border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.4, transparent);
 }
 
 .border__left\/5 {
-  border-left: var(--border-width) solid rgba(var(--col), 0.5);
+  border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.5, transparent);
 }
 
 .border__left\/6 {
-  border-left: var(--border-width) solid rgba(var(--col), 0.6);
+  border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.6, transparent);
 }
 
 .border__left\/7 {
-  border-left: var(--border-width) solid rgba(var(--col), 0.7);
+  border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.7, transparent);
 }
 
 .border__left\/8 {
-  border-left: var(--border-width) solid rgba(var(--col), 0.8);
+  border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.8, transparent);
 }
 
 .border__left\/9 {
-  border-left: var(--border-width) solid rgba(var(--col), 0.9);
+  border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.9, transparent);
 }
 
 .border__left\/10 {
-  border-left: var(--border-width) solid rgba(var(--col), 1);
+  border-left: var(--border-width) solid color-mix(in srgb, var(--col) 1, transparent);
 }
 
 .border__right {
-  border-right: var(--border-width) solid rgba(var(--col), 0.3);
+  border-right: var(--border-width) solid color-mix(in srgb, var(--col) 20%, transparent);
 }
 
 .border__right\/0 {
-  border-right: var(--border-width) solid rgba(var(--col), 0);
+  border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0, transparent);
 }
 
 .border__right\/1 {
-  border-right: var(--border-width) solid rgba(var(--col), 0.1);
+  border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.1, transparent);
 }
 
 .border__right\/2 {
-  border-right: var(--border-width) solid rgba(var(--col), 0.2);
+  border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.2, transparent);
 }
 
 .border__right\/3 {
-  border-right: var(--border-width) solid rgba(var(--col), 0.3);
+  border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.3, transparent);
 }
 
 .border__right\/4 {
-  border-right: var(--border-width) solid rgba(var(--col), 0.4);
+  border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.4, transparent);
 }
 
 .border__right\/5 {
-  border-right: var(--border-width) solid rgba(var(--col), 0.5);
+  border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.5, transparent);
 }
 
 .border__right\/6 {
-  border-right: var(--border-width) solid rgba(var(--col), 0.6);
+  border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.6, transparent);
 }
 
 .border__right\/7 {
-  border-right: var(--border-width) solid rgba(var(--col), 0.7);
+  border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.7, transparent);
 }
 
 .border__right\/8 {
-  border-right: var(--border-width) solid rgba(var(--col), 0.8);
+  border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.8, transparent);
 }
 
 .border__right\/9 {
-  border-right: var(--border-width) solid rgba(var(--col), 0.9);
+  border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.9, transparent);
 }
 
 .border__right\/10 {
-  border-right: var(--border-width) solid rgba(var(--col), 1);
+  border-right: var(--border-width) solid color-mix(in srgb, var(--col) 1, transparent);
 }
 
 .border__top {
-  border-top: var(--border-width) solid rgba(var(--col), 0.3);
+  border-top: var(--border-width) solid color-mix(in srgb, var(--col) 20%, transparent);
 }
 
 .border__top\/0 {
-  border-top: var(--border-width) solid rgba(var(--col), 0);
+  border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0, transparent);
 }
 
 .border__top\/1 {
-  border-top: var(--border-width) solid rgba(var(--col), 0.1);
+  border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.1, transparent);
 }
 
 .border__top\/2 {
-  border-top: var(--border-width) solid rgba(var(--col), 0.2);
+  border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.2, transparent);
 }
 
 .border__top\/3 {
-  border-top: var(--border-width) solid rgba(var(--col), 0.3);
+  border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.3, transparent);
 }
 
 .border__top\/4 {
-  border-top: var(--border-width) solid rgba(var(--col), 0.4);
+  border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.4, transparent);
 }
 
 .border__top\/5 {
-  border-top: var(--border-width) solid rgba(var(--col), 0.5);
+  border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.5, transparent);
 }
 
 .border__top\/6 {
-  border-top: var(--border-width) solid rgba(var(--col), 0.6);
+  border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.6, transparent);
 }
 
 .border__top\/7 {
-  border-top: var(--border-width) solid rgba(var(--col), 0.7);
+  border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.7, transparent);
 }
 
 .border__top\/8 {
-  border-top: var(--border-width) solid rgba(var(--col), 0.8);
+  border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.8, transparent);
 }
 
 .border__top\/9 {
-  border-top: var(--border-width) solid rgba(var(--col), 0.9);
+  border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.9, transparent);
 }
 
 .border__top\/10 {
-  border-top: var(--border-width) solid rgba(var(--col), 1);
+  border-top: var(--border-width) solid color-mix(in srgb, var(--col) 1, transparent);
 }
 
 .border__bottom {
-  border-bottom: var(--border-width) solid rgba(var(--col), 0.3);
+  border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 20%, transparent);
 }
 
 .border__bottom\/0 {
-  border-bottom: var(--border-width) solid rgba(var(--col), 0);
+  border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0, transparent);
 }
 
 .border__bottom\/1 {
-  border-bottom: var(--border-width) solid rgba(var(--col), 0.1);
+  border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.1, transparent);
 }
 
 .border__bottom\/2 {
-  border-bottom: var(--border-width) solid rgba(var(--col), 0.2);
+  border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.2, transparent);
 }
 
 .border__bottom\/3 {
-  border-bottom: var(--border-width) solid rgba(var(--col), 0.3);
+  border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.3, transparent);
 }
 
 .border__bottom\/4 {
-  border-bottom: var(--border-width) solid rgba(var(--col), 0.4);
+  border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.4, transparent);
 }
 
 .border__bottom\/5 {
-  border-bottom: var(--border-width) solid rgba(var(--col), 0.5);
+  border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.5, transparent);
 }
 
 .border__bottom\/6 {
-  border-bottom: var(--border-width) solid rgba(var(--col), 0.6);
+  border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.6, transparent);
 }
 
 .border__bottom\/7 {
-  border-bottom: var(--border-width) solid rgba(var(--col), 0.7);
+  border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.7, transparent);
 }
 
 .border__bottom\/8 {
-  border-bottom: var(--border-width) solid rgba(var(--col), 0.8);
+  border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.8, transparent);
 }
 
 .border__bottom\/9 {
-  border-bottom: var(--border-width) solid rgba(var(--col), 0.9);
+  border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.9, transparent);
 }
 
 .border__bottom\/10 {
-  border-bottom: var(--border-width) solid rgba(var(--col), 1);
+  border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 1, transparent);
 }
 
 @media screen and (max-width: 768px) {
   .tablet\:border {
-    border: var(--border-width) solid rgba(var(--col), 0.3);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 20%, transparent);
   }
   .tablet\:border\/0 {
-    border: var(--border-width) solid rgba(var(--col), 0);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 0, transparent);
   }
   .tablet\:border\/1 {
-    border: var(--border-width) solid rgba(var(--col), 0.1);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 0.1, transparent);
   }
   .tablet\:border\/2 {
-    border: var(--border-width) solid rgba(var(--col), 0.2);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 0.2, transparent);
   }
   .tablet\:border\/3 {
-    border: var(--border-width) solid rgba(var(--col), 0.3);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 0.3, transparent);
   }
   .tablet\:border\/4 {
-    border: var(--border-width) solid rgba(var(--col), 0.4);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 0.4, transparent);
   }
   .tablet\:border\/5 {
-    border: var(--border-width) solid rgba(var(--col), 0.5);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 0.5, transparent);
   }
   .tablet\:border\/6 {
-    border: var(--border-width) solid rgba(var(--col), 0.6);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 0.6, transparent);
   }
   .tablet\:border\/7 {
-    border: var(--border-width) solid rgba(var(--col), 0.7);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 0.7, transparent);
   }
   .tablet\:border\/8 {
-    border: var(--border-width) solid rgba(var(--col), 0.8);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 0.8, transparent);
   }
   .tablet\:border\/9 {
-    border: var(--border-width) solid rgba(var(--col), 0.9);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 0.9, transparent);
   }
   .tablet\:border\/10 {
-    border: var(--border-width) solid rgba(var(--col), 1);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 1, transparent);
   }
   .tablet\:border__left {
-    border-left: var(--border-width) solid rgba(var(--col), 0.3);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 20%, transparent);
   }
   .tablet\:border__left\/0 {
-    border-left: var(--border-width) solid rgba(var(--col), 0);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0, transparent);
   }
   .tablet\:border__left\/1 {
-    border-left: var(--border-width) solid rgba(var(--col), 0.1);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.1, transparent);
   }
   .tablet\:border__left\/2 {
-    border-left: var(--border-width) solid rgba(var(--col), 0.2);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.2, transparent);
   }
   .tablet\:border__left\/3 {
-    border-left: var(--border-width) solid rgba(var(--col), 0.3);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.3, transparent);
   }
   .tablet\:border__left\/4 {
-    border-left: var(--border-width) solid rgba(var(--col), 0.4);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.4, transparent);
   }
   .tablet\:border__left\/5 {
-    border-left: var(--border-width) solid rgba(var(--col), 0.5);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.5, transparent);
   }
   .tablet\:border__left\/6 {
-    border-left: var(--border-width) solid rgba(var(--col), 0.6);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.6, transparent);
   }
   .tablet\:border__left\/7 {
-    border-left: var(--border-width) solid rgba(var(--col), 0.7);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.7, transparent);
   }
   .tablet\:border__left\/8 {
-    border-left: var(--border-width) solid rgba(var(--col), 0.8);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.8, transparent);
   }
   .tablet\:border__left\/9 {
-    border-left: var(--border-width) solid rgba(var(--col), 0.9);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.9, transparent);
   }
   .tablet\:border__left\/10 {
-    border-left: var(--border-width) solid rgba(var(--col), 1);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 1, transparent);
   }
   .tablet\:border__right {
-    border-right: var(--border-width) solid rgba(var(--col), 0.3);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 20%, transparent);
   }
   .tablet\:border__right\/0 {
-    border-right: var(--border-width) solid rgba(var(--col), 0);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0, transparent);
   }
   .tablet\:border__right\/1 {
-    border-right: var(--border-width) solid rgba(var(--col), 0.1);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.1, transparent);
   }
   .tablet\:border__right\/2 {
-    border-right: var(--border-width) solid rgba(var(--col), 0.2);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.2, transparent);
   }
   .tablet\:border__right\/3 {
-    border-right: var(--border-width) solid rgba(var(--col), 0.3);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.3, transparent);
   }
   .tablet\:border__right\/4 {
-    border-right: var(--border-width) solid rgba(var(--col), 0.4);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.4, transparent);
   }
   .tablet\:border__right\/5 {
-    border-right: var(--border-width) solid rgba(var(--col), 0.5);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.5, transparent);
   }
   .tablet\:border__right\/6 {
-    border-right: var(--border-width) solid rgba(var(--col), 0.6);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.6, transparent);
   }
   .tablet\:border__right\/7 {
-    border-right: var(--border-width) solid rgba(var(--col), 0.7);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.7, transparent);
   }
   .tablet\:border__right\/8 {
-    border-right: var(--border-width) solid rgba(var(--col), 0.8);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.8, transparent);
   }
   .tablet\:border__right\/9 {
-    border-right: var(--border-width) solid rgba(var(--col), 0.9);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.9, transparent);
   }
   .tablet\:border__right\/10 {
-    border-right: var(--border-width) solid rgba(var(--col), 1);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 1, transparent);
   }
   .tablet\:border__top {
-    border-top: var(--border-width) solid rgba(var(--col), 0.3);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 20%, transparent);
   }
   .tablet\:border__top\/0 {
-    border-top: var(--border-width) solid rgba(var(--col), 0);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0, transparent);
   }
   .tablet\:border__top\/1 {
-    border-top: var(--border-width) solid rgba(var(--col), 0.1);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.1, transparent);
   }
   .tablet\:border__top\/2 {
-    border-top: var(--border-width) solid rgba(var(--col), 0.2);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.2, transparent);
   }
   .tablet\:border__top\/3 {
-    border-top: var(--border-width) solid rgba(var(--col), 0.3);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.3, transparent);
   }
   .tablet\:border__top\/4 {
-    border-top: var(--border-width) solid rgba(var(--col), 0.4);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.4, transparent);
   }
   .tablet\:border__top\/5 {
-    border-top: var(--border-width) solid rgba(var(--col), 0.5);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.5, transparent);
   }
   .tablet\:border__top\/6 {
-    border-top: var(--border-width) solid rgba(var(--col), 0.6);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.6, transparent);
   }
   .tablet\:border__top\/7 {
-    border-top: var(--border-width) solid rgba(var(--col), 0.7);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.7, transparent);
   }
   .tablet\:border__top\/8 {
-    border-top: var(--border-width) solid rgba(var(--col), 0.8);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.8, transparent);
   }
   .tablet\:border__top\/9 {
-    border-top: var(--border-width) solid rgba(var(--col), 0.9);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.9, transparent);
   }
   .tablet\:border__top\/10 {
-    border-top: var(--border-width) solid rgba(var(--col), 1);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 1, transparent);
   }
   .tablet\:border__bottom {
-    border-bottom: var(--border-width) solid rgba(var(--col), 0.3);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 20%, transparent);
   }
   .tablet\:border__bottom\/0 {
-    border-bottom: var(--border-width) solid rgba(var(--col), 0);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0, transparent);
   }
   .tablet\:border__bottom\/1 {
-    border-bottom: var(--border-width) solid rgba(var(--col), 0.1);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.1, transparent);
   }
   .tablet\:border__bottom\/2 {
-    border-bottom: var(--border-width) solid rgba(var(--col), 0.2);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.2, transparent);
   }
   .tablet\:border__bottom\/3 {
-    border-bottom: var(--border-width) solid rgba(var(--col), 0.3);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.3, transparent);
   }
   .tablet\:border__bottom\/4 {
-    border-bottom: var(--border-width) solid rgba(var(--col), 0.4);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.4, transparent);
   }
   .tablet\:border__bottom\/5 {
-    border-bottom: var(--border-width) solid rgba(var(--col), 0.5);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.5, transparent);
   }
   .tablet\:border__bottom\/6 {
-    border-bottom: var(--border-width) solid rgba(var(--col), 0.6);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.6, transparent);
   }
   .tablet\:border__bottom\/7 {
-    border-bottom: var(--border-width) solid rgba(var(--col), 0.7);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.7, transparent);
   }
   .tablet\:border__bottom\/8 {
-    border-bottom: var(--border-width) solid rgba(var(--col), 0.8);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.8, transparent);
   }
   .tablet\:border__bottom\/9 {
-    border-bottom: var(--border-width) solid rgba(var(--col), 0.9);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.9, transparent);
   }
   .tablet\:border__bottom\/10 {
-    border-bottom: var(--border-width) solid rgba(var(--col), 1);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 1, transparent);
   }
 }
 @media screen and (max-width: 480px) {
   .mobile\:border {
-    border: var(--border-width) solid rgba(var(--col), 0.3);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 20%, transparent);
   }
   .mobile\:border\/0 {
-    border: var(--border-width) solid rgba(var(--col), 0);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 0, transparent);
   }
   .mobile\:border\/1 {
-    border: var(--border-width) solid rgba(var(--col), 0.1);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 0.1, transparent);
   }
   .mobile\:border\/2 {
-    border: var(--border-width) solid rgba(var(--col), 0.2);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 0.2, transparent);
   }
   .mobile\:border\/3 {
-    border: var(--border-width) solid rgba(var(--col), 0.3);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 0.3, transparent);
   }
   .mobile\:border\/4 {
-    border: var(--border-width) solid rgba(var(--col), 0.4);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 0.4, transparent);
   }
   .mobile\:border\/5 {
-    border: var(--border-width) solid rgba(var(--col), 0.5);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 0.5, transparent);
   }
   .mobile\:border\/6 {
-    border: var(--border-width) solid rgba(var(--col), 0.6);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 0.6, transparent);
   }
   .mobile\:border\/7 {
-    border: var(--border-width) solid rgba(var(--col), 0.7);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 0.7, transparent);
   }
   .mobile\:border\/8 {
-    border: var(--border-width) solid rgba(var(--col), 0.8);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 0.8, transparent);
   }
   .mobile\:border\/9 {
-    border: var(--border-width) solid rgba(var(--col), 0.9);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 0.9, transparent);
   }
   .mobile\:border\/10 {
-    border: var(--border-width) solid rgba(var(--col), 1);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 1, transparent);
   }
   .mobile\:border__left {
-    border-left: var(--border-width) solid rgba(var(--col), 0.3);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 20%, transparent);
   }
   .mobile\:border__left\/0 {
-    border-left: var(--border-width) solid rgba(var(--col), 0);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0, transparent);
   }
   .mobile\:border__left\/1 {
-    border-left: var(--border-width) solid rgba(var(--col), 0.1);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.1, transparent);
   }
   .mobile\:border__left\/2 {
-    border-left: var(--border-width) solid rgba(var(--col), 0.2);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.2, transparent);
   }
   .mobile\:border__left\/3 {
-    border-left: var(--border-width) solid rgba(var(--col), 0.3);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.3, transparent);
   }
   .mobile\:border__left\/4 {
-    border-left: var(--border-width) solid rgba(var(--col), 0.4);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.4, transparent);
   }
   .mobile\:border__left\/5 {
-    border-left: var(--border-width) solid rgba(var(--col), 0.5);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.5, transparent);
   }
   .mobile\:border__left\/6 {
-    border-left: var(--border-width) solid rgba(var(--col), 0.6);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.6, transparent);
   }
   .mobile\:border__left\/7 {
-    border-left: var(--border-width) solid rgba(var(--col), 0.7);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.7, transparent);
   }
   .mobile\:border__left\/8 {
-    border-left: var(--border-width) solid rgba(var(--col), 0.8);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.8, transparent);
   }
   .mobile\:border__left\/9 {
-    border-left: var(--border-width) solid rgba(var(--col), 0.9);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.9, transparent);
   }
   .mobile\:border__left\/10 {
-    border-left: var(--border-width) solid rgba(var(--col), 1);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 1, transparent);
   }
   .mobile\:border__right {
-    border-right: var(--border-width) solid rgba(var(--col), 0.3);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 20%, transparent);
   }
   .mobile\:border__right\/0 {
-    border-right: var(--border-width) solid rgba(var(--col), 0);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0, transparent);
   }
   .mobile\:border__right\/1 {
-    border-right: var(--border-width) solid rgba(var(--col), 0.1);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.1, transparent);
   }
   .mobile\:border__right\/2 {
-    border-right: var(--border-width) solid rgba(var(--col), 0.2);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.2, transparent);
   }
   .mobile\:border__right\/3 {
-    border-right: var(--border-width) solid rgba(var(--col), 0.3);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.3, transparent);
   }
   .mobile\:border__right\/4 {
-    border-right: var(--border-width) solid rgba(var(--col), 0.4);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.4, transparent);
   }
   .mobile\:border__right\/5 {
-    border-right: var(--border-width) solid rgba(var(--col), 0.5);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.5, transparent);
   }
   .mobile\:border__right\/6 {
-    border-right: var(--border-width) solid rgba(var(--col), 0.6);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.6, transparent);
   }
   .mobile\:border__right\/7 {
-    border-right: var(--border-width) solid rgba(var(--col), 0.7);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.7, transparent);
   }
   .mobile\:border__right\/8 {
-    border-right: var(--border-width) solid rgba(var(--col), 0.8);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.8, transparent);
   }
   .mobile\:border__right\/9 {
-    border-right: var(--border-width) solid rgba(var(--col), 0.9);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.9, transparent);
   }
   .mobile\:border__right\/10 {
-    border-right: var(--border-width) solid rgba(var(--col), 1);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 1, transparent);
   }
   .mobile\:border__top {
-    border-top: var(--border-width) solid rgba(var(--col), 0.3);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 20%, transparent);
   }
   .mobile\:border__top\/0 {
-    border-top: var(--border-width) solid rgba(var(--col), 0);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0, transparent);
   }
   .mobile\:border__top\/1 {
-    border-top: var(--border-width) solid rgba(var(--col), 0.1);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.1, transparent);
   }
   .mobile\:border__top\/2 {
-    border-top: var(--border-width) solid rgba(var(--col), 0.2);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.2, transparent);
   }
   .mobile\:border__top\/3 {
-    border-top: var(--border-width) solid rgba(var(--col), 0.3);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.3, transparent);
   }
   .mobile\:border__top\/4 {
-    border-top: var(--border-width) solid rgba(var(--col), 0.4);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.4, transparent);
   }
   .mobile\:border__top\/5 {
-    border-top: var(--border-width) solid rgba(var(--col), 0.5);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.5, transparent);
   }
   .mobile\:border__top\/6 {
-    border-top: var(--border-width) solid rgba(var(--col), 0.6);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.6, transparent);
   }
   .mobile\:border__top\/7 {
-    border-top: var(--border-width) solid rgba(var(--col), 0.7);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.7, transparent);
   }
   .mobile\:border__top\/8 {
-    border-top: var(--border-width) solid rgba(var(--col), 0.8);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.8, transparent);
   }
   .mobile\:border__top\/9 {
-    border-top: var(--border-width) solid rgba(var(--col), 0.9);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.9, transparent);
   }
   .mobile\:border__top\/10 {
-    border-top: var(--border-width) solid rgba(var(--col), 1);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 1, transparent);
   }
   .mobile\:border__bottom {
-    border-bottom: var(--border-width) solid rgba(var(--col), 0.3);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 20%, transparent);
   }
   .mobile\:border__bottom\/0 {
-    border-bottom: var(--border-width) solid rgba(var(--col), 0);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0, transparent);
   }
   .mobile\:border__bottom\/1 {
-    border-bottom: var(--border-width) solid rgba(var(--col), 0.1);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.1, transparent);
   }
   .mobile\:border__bottom\/2 {
-    border-bottom: var(--border-width) solid rgba(var(--col), 0.2);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.2, transparent);
   }
   .mobile\:border__bottom\/3 {
-    border-bottom: var(--border-width) solid rgba(var(--col), 0.3);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.3, transparent);
   }
   .mobile\:border__bottom\/4 {
-    border-bottom: var(--border-width) solid rgba(var(--col), 0.4);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.4, transparent);
   }
   .mobile\:border__bottom\/5 {
-    border-bottom: var(--border-width) solid rgba(var(--col), 0.5);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.5, transparent);
   }
   .mobile\:border__bottom\/6 {
-    border-bottom: var(--border-width) solid rgba(var(--col), 0.6);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.6, transparent);
   }
   .mobile\:border__bottom\/7 {
-    border-bottom: var(--border-width) solid rgba(var(--col), 0.7);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.7, transparent);
   }
   .mobile\:border__bottom\/8 {
-    border-bottom: var(--border-width) solid rgba(var(--col), 0.8);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.8, transparent);
   }
   .mobile\:border__bottom\/9 {
-    border-bottom: var(--border-width) solid rgba(var(--col), 0.9);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.9, transparent);
   }
   .mobile\:border__bottom\/10 {
-    border-bottom: var(--border-width) solid rgba(var(--col), 1);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 1, transparent);
   }
 }
 html body hr {
   border: none;
-  borderbottom: var(--border-width) solid rgba(var(--col), 0.3);
+  borderbottom: var(--border-width) solid color-mix(in srgb, var(--col) 20%, transparent);
   margin: 0;
   padding: 0;
   height: 0;
@@ -15553,7 +15553,7 @@ html body hr {
   /*	color: currentColor;*/
 }
 .button.border {
-  border: var(--border-width) solid rgba(var(--col), 0.2);
+  border: var(--border-width) solid color-mix(in srgb, var(--col) 20%, transparent);
 }
 .button.--left {
   -webkit-box-pack: start;
@@ -15648,12 +15648,12 @@ html body hr {
 .button[theme=ghost] {
   --background: transparent;
   --col: var(--color-text);
-  border: 1px solid currentColor;
+  border: var(--border-width) solid color-mix(in srgb, var(--col) 20%, transparent);
 }
 .button[theme=invert-ghost] {
   --background: transparent;
   --col: var(--color-invert);
-  border: 1px solid currentColor;
+  border: var(--border-width) solid color-mix(in srgb, var(--col) 20%, transparent);
 }
 
 .button {
@@ -22965,612 +22965,612 @@ input[type=file] {
 }
 
 .border {
-  border: var(--border-width) solid rgba(var(--col), 0.3);
+  border: var(--border-width) solid color-mix(in srgb, var(--col) 20%, transparent);
 }
 
 .border\/0 {
-  border: var(--border-width) solid rgba(var(--col), 0);
+  border: var(--border-width) solid color-mix(in srgb, var(--col) 0, transparent);
 }
 
 .border\/1 {
-  border: var(--border-width) solid rgba(var(--col), 0.1);
+  border: var(--border-width) solid color-mix(in srgb, var(--col) 0.1, transparent);
 }
 
 .border\/2 {
-  border: var(--border-width) solid rgba(var(--col), 0.2);
+  border: var(--border-width) solid color-mix(in srgb, var(--col) 0.2, transparent);
 }
 
 .border\/3 {
-  border: var(--border-width) solid rgba(var(--col), 0.3);
+  border: var(--border-width) solid color-mix(in srgb, var(--col) 0.3, transparent);
 }
 
 .border\/4 {
-  border: var(--border-width) solid rgba(var(--col), 0.4);
+  border: var(--border-width) solid color-mix(in srgb, var(--col) 0.4, transparent);
 }
 
 .border\/5 {
-  border: var(--border-width) solid rgba(var(--col), 0.5);
+  border: var(--border-width) solid color-mix(in srgb, var(--col) 0.5, transparent);
 }
 
 .border\/6 {
-  border: var(--border-width) solid rgba(var(--col), 0.6);
+  border: var(--border-width) solid color-mix(in srgb, var(--col) 0.6, transparent);
 }
 
 .border\/7 {
-  border: var(--border-width) solid rgba(var(--col), 0.7);
+  border: var(--border-width) solid color-mix(in srgb, var(--col) 0.7, transparent);
 }
 
 .border\/8 {
-  border: var(--border-width) solid rgba(var(--col), 0.8);
+  border: var(--border-width) solid color-mix(in srgb, var(--col) 0.8, transparent);
 }
 
 .border\/9 {
-  border: var(--border-width) solid rgba(var(--col), 0.9);
+  border: var(--border-width) solid color-mix(in srgb, var(--col) 0.9, transparent);
 }
 
 .border\/10 {
-  border: var(--border-width) solid rgba(var(--col), 1);
+  border: var(--border-width) solid color-mix(in srgb, var(--col) 1, transparent);
 }
 
 .border__left {
-  border-left: var(--border-width) solid rgba(var(--col), 0.3);
+  border-left: var(--border-width) solid color-mix(in srgb, var(--col) 20%, transparent);
 }
 
 .border__left\/0 {
-  border-left: var(--border-width) solid rgba(var(--col), 0);
+  border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0, transparent);
 }
 
 .border__left\/1 {
-  border-left: var(--border-width) solid rgba(var(--col), 0.1);
+  border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.1, transparent);
 }
 
 .border__left\/2 {
-  border-left: var(--border-width) solid rgba(var(--col), 0.2);
+  border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.2, transparent);
 }
 
 .border__left\/3 {
-  border-left: var(--border-width) solid rgba(var(--col), 0.3);
+  border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.3, transparent);
 }
 
 .border__left\/4 {
-  border-left: var(--border-width) solid rgba(var(--col), 0.4);
+  border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.4, transparent);
 }
 
 .border__left\/5 {
-  border-left: var(--border-width) solid rgba(var(--col), 0.5);
+  border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.5, transparent);
 }
 
 .border__left\/6 {
-  border-left: var(--border-width) solid rgba(var(--col), 0.6);
+  border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.6, transparent);
 }
 
 .border__left\/7 {
-  border-left: var(--border-width) solid rgba(var(--col), 0.7);
+  border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.7, transparent);
 }
 
 .border__left\/8 {
-  border-left: var(--border-width) solid rgba(var(--col), 0.8);
+  border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.8, transparent);
 }
 
 .border__left\/9 {
-  border-left: var(--border-width) solid rgba(var(--col), 0.9);
+  border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.9, transparent);
 }
 
 .border__left\/10 {
-  border-left: var(--border-width) solid rgba(var(--col), 1);
+  border-left: var(--border-width) solid color-mix(in srgb, var(--col) 1, transparent);
 }
 
 .border__right {
-  border-right: var(--border-width) solid rgba(var(--col), 0.3);
+  border-right: var(--border-width) solid color-mix(in srgb, var(--col) 20%, transparent);
 }
 
 .border__right\/0 {
-  border-right: var(--border-width) solid rgba(var(--col), 0);
+  border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0, transparent);
 }
 
 .border__right\/1 {
-  border-right: var(--border-width) solid rgba(var(--col), 0.1);
+  border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.1, transparent);
 }
 
 .border__right\/2 {
-  border-right: var(--border-width) solid rgba(var(--col), 0.2);
+  border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.2, transparent);
 }
 
 .border__right\/3 {
-  border-right: var(--border-width) solid rgba(var(--col), 0.3);
+  border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.3, transparent);
 }
 
 .border__right\/4 {
-  border-right: var(--border-width) solid rgba(var(--col), 0.4);
+  border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.4, transparent);
 }
 
 .border__right\/5 {
-  border-right: var(--border-width) solid rgba(var(--col), 0.5);
+  border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.5, transparent);
 }
 
 .border__right\/6 {
-  border-right: var(--border-width) solid rgba(var(--col), 0.6);
+  border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.6, transparent);
 }
 
 .border__right\/7 {
-  border-right: var(--border-width) solid rgba(var(--col), 0.7);
+  border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.7, transparent);
 }
 
 .border__right\/8 {
-  border-right: var(--border-width) solid rgba(var(--col), 0.8);
+  border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.8, transparent);
 }
 
 .border__right\/9 {
-  border-right: var(--border-width) solid rgba(var(--col), 0.9);
+  border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.9, transparent);
 }
 
 .border__right\/10 {
-  border-right: var(--border-width) solid rgba(var(--col), 1);
+  border-right: var(--border-width) solid color-mix(in srgb, var(--col) 1, transparent);
 }
 
 .border__top {
-  border-top: var(--border-width) solid rgba(var(--col), 0.3);
+  border-top: var(--border-width) solid color-mix(in srgb, var(--col) 20%, transparent);
 }
 
 .border__top\/0 {
-  border-top: var(--border-width) solid rgba(var(--col), 0);
+  border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0, transparent);
 }
 
 .border__top\/1 {
-  border-top: var(--border-width) solid rgba(var(--col), 0.1);
+  border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.1, transparent);
 }
 
 .border__top\/2 {
-  border-top: var(--border-width) solid rgba(var(--col), 0.2);
+  border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.2, transparent);
 }
 
 .border__top\/3 {
-  border-top: var(--border-width) solid rgba(var(--col), 0.3);
+  border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.3, transparent);
 }
 
 .border__top\/4 {
-  border-top: var(--border-width) solid rgba(var(--col), 0.4);
+  border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.4, transparent);
 }
 
 .border__top\/5 {
-  border-top: var(--border-width) solid rgba(var(--col), 0.5);
+  border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.5, transparent);
 }
 
 .border__top\/6 {
-  border-top: var(--border-width) solid rgba(var(--col), 0.6);
+  border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.6, transparent);
 }
 
 .border__top\/7 {
-  border-top: var(--border-width) solid rgba(var(--col), 0.7);
+  border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.7, transparent);
 }
 
 .border__top\/8 {
-  border-top: var(--border-width) solid rgba(var(--col), 0.8);
+  border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.8, transparent);
 }
 
 .border__top\/9 {
-  border-top: var(--border-width) solid rgba(var(--col), 0.9);
+  border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.9, transparent);
 }
 
 .border__top\/10 {
-  border-top: var(--border-width) solid rgba(var(--col), 1);
+  border-top: var(--border-width) solid color-mix(in srgb, var(--col) 1, transparent);
 }
 
 .border__bottom {
-  border-bottom: var(--border-width) solid rgba(var(--col), 0.3);
+  border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 20%, transparent);
 }
 
 .border__bottom\/0 {
-  border-bottom: var(--border-width) solid rgba(var(--col), 0);
+  border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0, transparent);
 }
 
 .border__bottom\/1 {
-  border-bottom: var(--border-width) solid rgba(var(--col), 0.1);
+  border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.1, transparent);
 }
 
 .border__bottom\/2 {
-  border-bottom: var(--border-width) solid rgba(var(--col), 0.2);
+  border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.2, transparent);
 }
 
 .border__bottom\/3 {
-  border-bottom: var(--border-width) solid rgba(var(--col), 0.3);
+  border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.3, transparent);
 }
 
 .border__bottom\/4 {
-  border-bottom: var(--border-width) solid rgba(var(--col), 0.4);
+  border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.4, transparent);
 }
 
 .border__bottom\/5 {
-  border-bottom: var(--border-width) solid rgba(var(--col), 0.5);
+  border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.5, transparent);
 }
 
 .border__bottom\/6 {
-  border-bottom: var(--border-width) solid rgba(var(--col), 0.6);
+  border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.6, transparent);
 }
 
 .border__bottom\/7 {
-  border-bottom: var(--border-width) solid rgba(var(--col), 0.7);
+  border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.7, transparent);
 }
 
 .border__bottom\/8 {
-  border-bottom: var(--border-width) solid rgba(var(--col), 0.8);
+  border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.8, transparent);
 }
 
 .border__bottom\/9 {
-  border-bottom: var(--border-width) solid rgba(var(--col), 0.9);
+  border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.9, transparent);
 }
 
 .border__bottom\/10 {
-  border-bottom: var(--border-width) solid rgba(var(--col), 1);
+  border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 1, transparent);
 }
 
 @media screen and (max-width: 768px) {
   .tablet\:border {
-    border: var(--border-width) solid rgba(var(--col), 0.3);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 20%, transparent);
   }
   .tablet\:border\/0 {
-    border: var(--border-width) solid rgba(var(--col), 0);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 0, transparent);
   }
   .tablet\:border\/1 {
-    border: var(--border-width) solid rgba(var(--col), 0.1);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 0.1, transparent);
   }
   .tablet\:border\/2 {
-    border: var(--border-width) solid rgba(var(--col), 0.2);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 0.2, transparent);
   }
   .tablet\:border\/3 {
-    border: var(--border-width) solid rgba(var(--col), 0.3);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 0.3, transparent);
   }
   .tablet\:border\/4 {
-    border: var(--border-width) solid rgba(var(--col), 0.4);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 0.4, transparent);
   }
   .tablet\:border\/5 {
-    border: var(--border-width) solid rgba(var(--col), 0.5);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 0.5, transparent);
   }
   .tablet\:border\/6 {
-    border: var(--border-width) solid rgba(var(--col), 0.6);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 0.6, transparent);
   }
   .tablet\:border\/7 {
-    border: var(--border-width) solid rgba(var(--col), 0.7);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 0.7, transparent);
   }
   .tablet\:border\/8 {
-    border: var(--border-width) solid rgba(var(--col), 0.8);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 0.8, transparent);
   }
   .tablet\:border\/9 {
-    border: var(--border-width) solid rgba(var(--col), 0.9);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 0.9, transparent);
   }
   .tablet\:border\/10 {
-    border: var(--border-width) solid rgba(var(--col), 1);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 1, transparent);
   }
   .tablet\:border__left {
-    border-left: var(--border-width) solid rgba(var(--col), 0.3);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 20%, transparent);
   }
   .tablet\:border__left\/0 {
-    border-left: var(--border-width) solid rgba(var(--col), 0);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0, transparent);
   }
   .tablet\:border__left\/1 {
-    border-left: var(--border-width) solid rgba(var(--col), 0.1);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.1, transparent);
   }
   .tablet\:border__left\/2 {
-    border-left: var(--border-width) solid rgba(var(--col), 0.2);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.2, transparent);
   }
   .tablet\:border__left\/3 {
-    border-left: var(--border-width) solid rgba(var(--col), 0.3);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.3, transparent);
   }
   .tablet\:border__left\/4 {
-    border-left: var(--border-width) solid rgba(var(--col), 0.4);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.4, transparent);
   }
   .tablet\:border__left\/5 {
-    border-left: var(--border-width) solid rgba(var(--col), 0.5);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.5, transparent);
   }
   .tablet\:border__left\/6 {
-    border-left: var(--border-width) solid rgba(var(--col), 0.6);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.6, transparent);
   }
   .tablet\:border__left\/7 {
-    border-left: var(--border-width) solid rgba(var(--col), 0.7);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.7, transparent);
   }
   .tablet\:border__left\/8 {
-    border-left: var(--border-width) solid rgba(var(--col), 0.8);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.8, transparent);
   }
   .tablet\:border__left\/9 {
-    border-left: var(--border-width) solid rgba(var(--col), 0.9);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.9, transparent);
   }
   .tablet\:border__left\/10 {
-    border-left: var(--border-width) solid rgba(var(--col), 1);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 1, transparent);
   }
   .tablet\:border__right {
-    border-right: var(--border-width) solid rgba(var(--col), 0.3);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 20%, transparent);
   }
   .tablet\:border__right\/0 {
-    border-right: var(--border-width) solid rgba(var(--col), 0);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0, transparent);
   }
   .tablet\:border__right\/1 {
-    border-right: var(--border-width) solid rgba(var(--col), 0.1);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.1, transparent);
   }
   .tablet\:border__right\/2 {
-    border-right: var(--border-width) solid rgba(var(--col), 0.2);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.2, transparent);
   }
   .tablet\:border__right\/3 {
-    border-right: var(--border-width) solid rgba(var(--col), 0.3);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.3, transparent);
   }
   .tablet\:border__right\/4 {
-    border-right: var(--border-width) solid rgba(var(--col), 0.4);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.4, transparent);
   }
   .tablet\:border__right\/5 {
-    border-right: var(--border-width) solid rgba(var(--col), 0.5);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.5, transparent);
   }
   .tablet\:border__right\/6 {
-    border-right: var(--border-width) solid rgba(var(--col), 0.6);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.6, transparent);
   }
   .tablet\:border__right\/7 {
-    border-right: var(--border-width) solid rgba(var(--col), 0.7);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.7, transparent);
   }
   .tablet\:border__right\/8 {
-    border-right: var(--border-width) solid rgba(var(--col), 0.8);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.8, transparent);
   }
   .tablet\:border__right\/9 {
-    border-right: var(--border-width) solid rgba(var(--col), 0.9);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.9, transparent);
   }
   .tablet\:border__right\/10 {
-    border-right: var(--border-width) solid rgba(var(--col), 1);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 1, transparent);
   }
   .tablet\:border__top {
-    border-top: var(--border-width) solid rgba(var(--col), 0.3);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 20%, transparent);
   }
   .tablet\:border__top\/0 {
-    border-top: var(--border-width) solid rgba(var(--col), 0);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0, transparent);
   }
   .tablet\:border__top\/1 {
-    border-top: var(--border-width) solid rgba(var(--col), 0.1);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.1, transparent);
   }
   .tablet\:border__top\/2 {
-    border-top: var(--border-width) solid rgba(var(--col), 0.2);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.2, transparent);
   }
   .tablet\:border__top\/3 {
-    border-top: var(--border-width) solid rgba(var(--col), 0.3);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.3, transparent);
   }
   .tablet\:border__top\/4 {
-    border-top: var(--border-width) solid rgba(var(--col), 0.4);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.4, transparent);
   }
   .tablet\:border__top\/5 {
-    border-top: var(--border-width) solid rgba(var(--col), 0.5);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.5, transparent);
   }
   .tablet\:border__top\/6 {
-    border-top: var(--border-width) solid rgba(var(--col), 0.6);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.6, transparent);
   }
   .tablet\:border__top\/7 {
-    border-top: var(--border-width) solid rgba(var(--col), 0.7);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.7, transparent);
   }
   .tablet\:border__top\/8 {
-    border-top: var(--border-width) solid rgba(var(--col), 0.8);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.8, transparent);
   }
   .tablet\:border__top\/9 {
-    border-top: var(--border-width) solid rgba(var(--col), 0.9);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.9, transparent);
   }
   .tablet\:border__top\/10 {
-    border-top: var(--border-width) solid rgba(var(--col), 1);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 1, transparent);
   }
   .tablet\:border__bottom {
-    border-bottom: var(--border-width) solid rgba(var(--col), 0.3);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 20%, transparent);
   }
   .tablet\:border__bottom\/0 {
-    border-bottom: var(--border-width) solid rgba(var(--col), 0);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0, transparent);
   }
   .tablet\:border__bottom\/1 {
-    border-bottom: var(--border-width) solid rgba(var(--col), 0.1);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.1, transparent);
   }
   .tablet\:border__bottom\/2 {
-    border-bottom: var(--border-width) solid rgba(var(--col), 0.2);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.2, transparent);
   }
   .tablet\:border__bottom\/3 {
-    border-bottom: var(--border-width) solid rgba(var(--col), 0.3);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.3, transparent);
   }
   .tablet\:border__bottom\/4 {
-    border-bottom: var(--border-width) solid rgba(var(--col), 0.4);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.4, transparent);
   }
   .tablet\:border__bottom\/5 {
-    border-bottom: var(--border-width) solid rgba(var(--col), 0.5);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.5, transparent);
   }
   .tablet\:border__bottom\/6 {
-    border-bottom: var(--border-width) solid rgba(var(--col), 0.6);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.6, transparent);
   }
   .tablet\:border__bottom\/7 {
-    border-bottom: var(--border-width) solid rgba(var(--col), 0.7);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.7, transparent);
   }
   .tablet\:border__bottom\/8 {
-    border-bottom: var(--border-width) solid rgba(var(--col), 0.8);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.8, transparent);
   }
   .tablet\:border__bottom\/9 {
-    border-bottom: var(--border-width) solid rgba(var(--col), 0.9);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.9, transparent);
   }
   .tablet\:border__bottom\/10 {
-    border-bottom: var(--border-width) solid rgba(var(--col), 1);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 1, transparent);
   }
 }
 @media screen and (max-width: 480px) {
   .mobile\:border {
-    border: var(--border-width) solid rgba(var(--col), 0.3);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 20%, transparent);
   }
   .mobile\:border\/0 {
-    border: var(--border-width) solid rgba(var(--col), 0);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 0, transparent);
   }
   .mobile\:border\/1 {
-    border: var(--border-width) solid rgba(var(--col), 0.1);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 0.1, transparent);
   }
   .mobile\:border\/2 {
-    border: var(--border-width) solid rgba(var(--col), 0.2);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 0.2, transparent);
   }
   .mobile\:border\/3 {
-    border: var(--border-width) solid rgba(var(--col), 0.3);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 0.3, transparent);
   }
   .mobile\:border\/4 {
-    border: var(--border-width) solid rgba(var(--col), 0.4);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 0.4, transparent);
   }
   .mobile\:border\/5 {
-    border: var(--border-width) solid rgba(var(--col), 0.5);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 0.5, transparent);
   }
   .mobile\:border\/6 {
-    border: var(--border-width) solid rgba(var(--col), 0.6);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 0.6, transparent);
   }
   .mobile\:border\/7 {
-    border: var(--border-width) solid rgba(var(--col), 0.7);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 0.7, transparent);
   }
   .mobile\:border\/8 {
-    border: var(--border-width) solid rgba(var(--col), 0.8);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 0.8, transparent);
   }
   .mobile\:border\/9 {
-    border: var(--border-width) solid rgba(var(--col), 0.9);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 0.9, transparent);
   }
   .mobile\:border\/10 {
-    border: var(--border-width) solid rgba(var(--col), 1);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 1, transparent);
   }
   .mobile\:border__left {
-    border-left: var(--border-width) solid rgba(var(--col), 0.3);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 20%, transparent);
   }
   .mobile\:border__left\/0 {
-    border-left: var(--border-width) solid rgba(var(--col), 0);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0, transparent);
   }
   .mobile\:border__left\/1 {
-    border-left: var(--border-width) solid rgba(var(--col), 0.1);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.1, transparent);
   }
   .mobile\:border__left\/2 {
-    border-left: var(--border-width) solid rgba(var(--col), 0.2);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.2, transparent);
   }
   .mobile\:border__left\/3 {
-    border-left: var(--border-width) solid rgba(var(--col), 0.3);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.3, transparent);
   }
   .mobile\:border__left\/4 {
-    border-left: var(--border-width) solid rgba(var(--col), 0.4);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.4, transparent);
   }
   .mobile\:border__left\/5 {
-    border-left: var(--border-width) solid rgba(var(--col), 0.5);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.5, transparent);
   }
   .mobile\:border__left\/6 {
-    border-left: var(--border-width) solid rgba(var(--col), 0.6);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.6, transparent);
   }
   .mobile\:border__left\/7 {
-    border-left: var(--border-width) solid rgba(var(--col), 0.7);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.7, transparent);
   }
   .mobile\:border__left\/8 {
-    border-left: var(--border-width) solid rgba(var(--col), 0.8);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.8, transparent);
   }
   .mobile\:border__left\/9 {
-    border-left: var(--border-width) solid rgba(var(--col), 0.9);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.9, transparent);
   }
   .mobile\:border__left\/10 {
-    border-left: var(--border-width) solid rgba(var(--col), 1);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 1, transparent);
   }
   .mobile\:border__right {
-    border-right: var(--border-width) solid rgba(var(--col), 0.3);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 20%, transparent);
   }
   .mobile\:border__right\/0 {
-    border-right: var(--border-width) solid rgba(var(--col), 0);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0, transparent);
   }
   .mobile\:border__right\/1 {
-    border-right: var(--border-width) solid rgba(var(--col), 0.1);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.1, transparent);
   }
   .mobile\:border__right\/2 {
-    border-right: var(--border-width) solid rgba(var(--col), 0.2);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.2, transparent);
   }
   .mobile\:border__right\/3 {
-    border-right: var(--border-width) solid rgba(var(--col), 0.3);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.3, transparent);
   }
   .mobile\:border__right\/4 {
-    border-right: var(--border-width) solid rgba(var(--col), 0.4);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.4, transparent);
   }
   .mobile\:border__right\/5 {
-    border-right: var(--border-width) solid rgba(var(--col), 0.5);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.5, transparent);
   }
   .mobile\:border__right\/6 {
-    border-right: var(--border-width) solid rgba(var(--col), 0.6);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.6, transparent);
   }
   .mobile\:border__right\/7 {
-    border-right: var(--border-width) solid rgba(var(--col), 0.7);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.7, transparent);
   }
   .mobile\:border__right\/8 {
-    border-right: var(--border-width) solid rgba(var(--col), 0.8);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.8, transparent);
   }
   .mobile\:border__right\/9 {
-    border-right: var(--border-width) solid rgba(var(--col), 0.9);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.9, transparent);
   }
   .mobile\:border__right\/10 {
-    border-right: var(--border-width) solid rgba(var(--col), 1);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 1, transparent);
   }
   .mobile\:border__top {
-    border-top: var(--border-width) solid rgba(var(--col), 0.3);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 20%, transparent);
   }
   .mobile\:border__top\/0 {
-    border-top: var(--border-width) solid rgba(var(--col), 0);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0, transparent);
   }
   .mobile\:border__top\/1 {
-    border-top: var(--border-width) solid rgba(var(--col), 0.1);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.1, transparent);
   }
   .mobile\:border__top\/2 {
-    border-top: var(--border-width) solid rgba(var(--col), 0.2);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.2, transparent);
   }
   .mobile\:border__top\/3 {
-    border-top: var(--border-width) solid rgba(var(--col), 0.3);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.3, transparent);
   }
   .mobile\:border__top\/4 {
-    border-top: var(--border-width) solid rgba(var(--col), 0.4);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.4, transparent);
   }
   .mobile\:border__top\/5 {
-    border-top: var(--border-width) solid rgba(var(--col), 0.5);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.5, transparent);
   }
   .mobile\:border__top\/6 {
-    border-top: var(--border-width) solid rgba(var(--col), 0.6);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.6, transparent);
   }
   .mobile\:border__top\/7 {
-    border-top: var(--border-width) solid rgba(var(--col), 0.7);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.7, transparent);
   }
   .mobile\:border__top\/8 {
-    border-top: var(--border-width) solid rgba(var(--col), 0.8);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.8, transparent);
   }
   .mobile\:border__top\/9 {
-    border-top: var(--border-width) solid rgba(var(--col), 0.9);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.9, transparent);
   }
   .mobile\:border__top\/10 {
-    border-top: var(--border-width) solid rgba(var(--col), 1);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 1, transparent);
   }
   .mobile\:border__bottom {
-    border-bottom: var(--border-width) solid rgba(var(--col), 0.3);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 20%, transparent);
   }
   .mobile\:border__bottom\/0 {
-    border-bottom: var(--border-width) solid rgba(var(--col), 0);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0, transparent);
   }
   .mobile\:border__bottom\/1 {
-    border-bottom: var(--border-width) solid rgba(var(--col), 0.1);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.1, transparent);
   }
   .mobile\:border__bottom\/2 {
-    border-bottom: var(--border-width) solid rgba(var(--col), 0.2);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.2, transparent);
   }
   .mobile\:border__bottom\/3 {
-    border-bottom: var(--border-width) solid rgba(var(--col), 0.3);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.3, transparent);
   }
   .mobile\:border__bottom\/4 {
-    border-bottom: var(--border-width) solid rgba(var(--col), 0.4);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.4, transparent);
   }
   .mobile\:border__bottom\/5 {
-    border-bottom: var(--border-width) solid rgba(var(--col), 0.5);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.5, transparent);
   }
   .mobile\:border__bottom\/6 {
-    border-bottom: var(--border-width) solid rgba(var(--col), 0.6);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.6, transparent);
   }
   .mobile\:border__bottom\/7 {
-    border-bottom: var(--border-width) solid rgba(var(--col), 0.7);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.7, transparent);
   }
   .mobile\:border__bottom\/8 {
-    border-bottom: var(--border-width) solid rgba(var(--col), 0.8);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.8, transparent);
   }
   .mobile\:border__bottom\/9 {
-    border-bottom: var(--border-width) solid rgba(var(--col), 0.9);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.9, transparent);
   }
   .mobile\:border__bottom\/10 {
-    border-bottom: var(--border-width) solid rgba(var(--col), 1);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 1, transparent);
   }
 }
 html body hr {
   border: none;
-  borderbottom: var(--border-width) solid rgba(var(--col), 0.3);
+  borderbottom: var(--border-width) solid color-mix(in srgb, var(--col) 20%, transparent);
   margin: 0;
   padding: 0;
   height: 0;
@@ -27444,8 +27444,8 @@ img.no__style {
   transition-property: transform, color, -webkit-transform;
   -webkit-transition-duration: var(--reveal-duration);
           transition-duration: var(--reveal-duration);
-  -webkit-transition-delay: var(--delay), calc(var(--delay) + 200ms);
-          transition-delay: var(--delay), calc(var(--delay) + 200ms);
+  -webkit-transition-delay: var(--delay), calc(var(--delay) + 300ms);
+          transition-delay: var(--delay), calc(var(--delay) + 300ms);
   -webkit-transition-timing-function: var(--animation-timing, ease-in-out);
           transition-timing-function: var(--animation-timing, ease-in-out);
   will-change: transform, color;
@@ -34987,612 +34987,612 @@ html[data-transition-out] [data-loader-bg] {
 }
 
 .border {
-  border: var(--border-width) solid rgba(var(--col), 0.3);
+  border: var(--border-width) solid color-mix(in srgb, var(--col) 20%, transparent);
 }
 
 .border\/0 {
-  border: var(--border-width) solid rgba(var(--col), 0);
+  border: var(--border-width) solid color-mix(in srgb, var(--col) 0, transparent);
 }
 
 .border\/1 {
-  border: var(--border-width) solid rgba(var(--col), 0.1);
+  border: var(--border-width) solid color-mix(in srgb, var(--col) 0.1, transparent);
 }
 
 .border\/2 {
-  border: var(--border-width) solid rgba(var(--col), 0.2);
+  border: var(--border-width) solid color-mix(in srgb, var(--col) 0.2, transparent);
 }
 
 .border\/3 {
-  border: var(--border-width) solid rgba(var(--col), 0.3);
+  border: var(--border-width) solid color-mix(in srgb, var(--col) 0.3, transparent);
 }
 
 .border\/4 {
-  border: var(--border-width) solid rgba(var(--col), 0.4);
+  border: var(--border-width) solid color-mix(in srgb, var(--col) 0.4, transparent);
 }
 
 .border\/5 {
-  border: var(--border-width) solid rgba(var(--col), 0.5);
+  border: var(--border-width) solid color-mix(in srgb, var(--col) 0.5, transparent);
 }
 
 .border\/6 {
-  border: var(--border-width) solid rgba(var(--col), 0.6);
+  border: var(--border-width) solid color-mix(in srgb, var(--col) 0.6, transparent);
 }
 
 .border\/7 {
-  border: var(--border-width) solid rgba(var(--col), 0.7);
+  border: var(--border-width) solid color-mix(in srgb, var(--col) 0.7, transparent);
 }
 
 .border\/8 {
-  border: var(--border-width) solid rgba(var(--col), 0.8);
+  border: var(--border-width) solid color-mix(in srgb, var(--col) 0.8, transparent);
 }
 
 .border\/9 {
-  border: var(--border-width) solid rgba(var(--col), 0.9);
+  border: var(--border-width) solid color-mix(in srgb, var(--col) 0.9, transparent);
 }
 
 .border\/10 {
-  border: var(--border-width) solid rgba(var(--col), 1);
+  border: var(--border-width) solid color-mix(in srgb, var(--col) 1, transparent);
 }
 
 .border__left {
-  border-left: var(--border-width) solid rgba(var(--col), 0.3);
+  border-left: var(--border-width) solid color-mix(in srgb, var(--col) 20%, transparent);
 }
 
 .border__left\/0 {
-  border-left: var(--border-width) solid rgba(var(--col), 0);
+  border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0, transparent);
 }
 
 .border__left\/1 {
-  border-left: var(--border-width) solid rgba(var(--col), 0.1);
+  border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.1, transparent);
 }
 
 .border__left\/2 {
-  border-left: var(--border-width) solid rgba(var(--col), 0.2);
+  border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.2, transparent);
 }
 
 .border__left\/3 {
-  border-left: var(--border-width) solid rgba(var(--col), 0.3);
+  border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.3, transparent);
 }
 
 .border__left\/4 {
-  border-left: var(--border-width) solid rgba(var(--col), 0.4);
+  border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.4, transparent);
 }
 
 .border__left\/5 {
-  border-left: var(--border-width) solid rgba(var(--col), 0.5);
+  border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.5, transparent);
 }
 
 .border__left\/6 {
-  border-left: var(--border-width) solid rgba(var(--col), 0.6);
+  border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.6, transparent);
 }
 
 .border__left\/7 {
-  border-left: var(--border-width) solid rgba(var(--col), 0.7);
+  border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.7, transparent);
 }
 
 .border__left\/8 {
-  border-left: var(--border-width) solid rgba(var(--col), 0.8);
+  border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.8, transparent);
 }
 
 .border__left\/9 {
-  border-left: var(--border-width) solid rgba(var(--col), 0.9);
+  border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.9, transparent);
 }
 
 .border__left\/10 {
-  border-left: var(--border-width) solid rgba(var(--col), 1);
+  border-left: var(--border-width) solid color-mix(in srgb, var(--col) 1, transparent);
 }
 
 .border__right {
-  border-right: var(--border-width) solid rgba(var(--col), 0.3);
+  border-right: var(--border-width) solid color-mix(in srgb, var(--col) 20%, transparent);
 }
 
 .border__right\/0 {
-  border-right: var(--border-width) solid rgba(var(--col), 0);
+  border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0, transparent);
 }
 
 .border__right\/1 {
-  border-right: var(--border-width) solid rgba(var(--col), 0.1);
+  border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.1, transparent);
 }
 
 .border__right\/2 {
-  border-right: var(--border-width) solid rgba(var(--col), 0.2);
+  border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.2, transparent);
 }
 
 .border__right\/3 {
-  border-right: var(--border-width) solid rgba(var(--col), 0.3);
+  border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.3, transparent);
 }
 
 .border__right\/4 {
-  border-right: var(--border-width) solid rgba(var(--col), 0.4);
+  border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.4, transparent);
 }
 
 .border__right\/5 {
-  border-right: var(--border-width) solid rgba(var(--col), 0.5);
+  border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.5, transparent);
 }
 
 .border__right\/6 {
-  border-right: var(--border-width) solid rgba(var(--col), 0.6);
+  border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.6, transparent);
 }
 
 .border__right\/7 {
-  border-right: var(--border-width) solid rgba(var(--col), 0.7);
+  border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.7, transparent);
 }
 
 .border__right\/8 {
-  border-right: var(--border-width) solid rgba(var(--col), 0.8);
+  border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.8, transparent);
 }
 
 .border__right\/9 {
-  border-right: var(--border-width) solid rgba(var(--col), 0.9);
+  border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.9, transparent);
 }
 
 .border__right\/10 {
-  border-right: var(--border-width) solid rgba(var(--col), 1);
+  border-right: var(--border-width) solid color-mix(in srgb, var(--col) 1, transparent);
 }
 
 .border__top {
-  border-top: var(--border-width) solid rgba(var(--col), 0.3);
+  border-top: var(--border-width) solid color-mix(in srgb, var(--col) 20%, transparent);
 }
 
 .border__top\/0 {
-  border-top: var(--border-width) solid rgba(var(--col), 0);
+  border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0, transparent);
 }
 
 .border__top\/1 {
-  border-top: var(--border-width) solid rgba(var(--col), 0.1);
+  border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.1, transparent);
 }
 
 .border__top\/2 {
-  border-top: var(--border-width) solid rgba(var(--col), 0.2);
+  border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.2, transparent);
 }
 
 .border__top\/3 {
-  border-top: var(--border-width) solid rgba(var(--col), 0.3);
+  border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.3, transparent);
 }
 
 .border__top\/4 {
-  border-top: var(--border-width) solid rgba(var(--col), 0.4);
+  border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.4, transparent);
 }
 
 .border__top\/5 {
-  border-top: var(--border-width) solid rgba(var(--col), 0.5);
+  border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.5, transparent);
 }
 
 .border__top\/6 {
-  border-top: var(--border-width) solid rgba(var(--col), 0.6);
+  border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.6, transparent);
 }
 
 .border__top\/7 {
-  border-top: var(--border-width) solid rgba(var(--col), 0.7);
+  border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.7, transparent);
 }
 
 .border__top\/8 {
-  border-top: var(--border-width) solid rgba(var(--col), 0.8);
+  border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.8, transparent);
 }
 
 .border__top\/9 {
-  border-top: var(--border-width) solid rgba(var(--col), 0.9);
+  border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.9, transparent);
 }
 
 .border__top\/10 {
-  border-top: var(--border-width) solid rgba(var(--col), 1);
+  border-top: var(--border-width) solid color-mix(in srgb, var(--col) 1, transparent);
 }
 
 .border__bottom {
-  border-bottom: var(--border-width) solid rgba(var(--col), 0.3);
+  border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 20%, transparent);
 }
 
 .border__bottom\/0 {
-  border-bottom: var(--border-width) solid rgba(var(--col), 0);
+  border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0, transparent);
 }
 
 .border__bottom\/1 {
-  border-bottom: var(--border-width) solid rgba(var(--col), 0.1);
+  border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.1, transparent);
 }
 
 .border__bottom\/2 {
-  border-bottom: var(--border-width) solid rgba(var(--col), 0.2);
+  border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.2, transparent);
 }
 
 .border__bottom\/3 {
-  border-bottom: var(--border-width) solid rgba(var(--col), 0.3);
+  border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.3, transparent);
 }
 
 .border__bottom\/4 {
-  border-bottom: var(--border-width) solid rgba(var(--col), 0.4);
+  border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.4, transparent);
 }
 
 .border__bottom\/5 {
-  border-bottom: var(--border-width) solid rgba(var(--col), 0.5);
+  border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.5, transparent);
 }
 
 .border__bottom\/6 {
-  border-bottom: var(--border-width) solid rgba(var(--col), 0.6);
+  border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.6, transparent);
 }
 
 .border__bottom\/7 {
-  border-bottom: var(--border-width) solid rgba(var(--col), 0.7);
+  border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.7, transparent);
 }
 
 .border__bottom\/8 {
-  border-bottom: var(--border-width) solid rgba(var(--col), 0.8);
+  border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.8, transparent);
 }
 
 .border__bottom\/9 {
-  border-bottom: var(--border-width) solid rgba(var(--col), 0.9);
+  border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.9, transparent);
 }
 
 .border__bottom\/10 {
-  border-bottom: var(--border-width) solid rgba(var(--col), 1);
+  border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 1, transparent);
 }
 
 @media screen and (max-width: 768px) {
   .tablet\:border {
-    border: var(--border-width) solid rgba(var(--col), 0.3);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 20%, transparent);
   }
   .tablet\:border\/0 {
-    border: var(--border-width) solid rgba(var(--col), 0);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 0, transparent);
   }
   .tablet\:border\/1 {
-    border: var(--border-width) solid rgba(var(--col), 0.1);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 0.1, transparent);
   }
   .tablet\:border\/2 {
-    border: var(--border-width) solid rgba(var(--col), 0.2);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 0.2, transparent);
   }
   .tablet\:border\/3 {
-    border: var(--border-width) solid rgba(var(--col), 0.3);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 0.3, transparent);
   }
   .tablet\:border\/4 {
-    border: var(--border-width) solid rgba(var(--col), 0.4);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 0.4, transparent);
   }
   .tablet\:border\/5 {
-    border: var(--border-width) solid rgba(var(--col), 0.5);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 0.5, transparent);
   }
   .tablet\:border\/6 {
-    border: var(--border-width) solid rgba(var(--col), 0.6);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 0.6, transparent);
   }
   .tablet\:border\/7 {
-    border: var(--border-width) solid rgba(var(--col), 0.7);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 0.7, transparent);
   }
   .tablet\:border\/8 {
-    border: var(--border-width) solid rgba(var(--col), 0.8);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 0.8, transparent);
   }
   .tablet\:border\/9 {
-    border: var(--border-width) solid rgba(var(--col), 0.9);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 0.9, transparent);
   }
   .tablet\:border\/10 {
-    border: var(--border-width) solid rgba(var(--col), 1);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 1, transparent);
   }
   .tablet\:border__left {
-    border-left: var(--border-width) solid rgba(var(--col), 0.3);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 20%, transparent);
   }
   .tablet\:border__left\/0 {
-    border-left: var(--border-width) solid rgba(var(--col), 0);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0, transparent);
   }
   .tablet\:border__left\/1 {
-    border-left: var(--border-width) solid rgba(var(--col), 0.1);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.1, transparent);
   }
   .tablet\:border__left\/2 {
-    border-left: var(--border-width) solid rgba(var(--col), 0.2);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.2, transparent);
   }
   .tablet\:border__left\/3 {
-    border-left: var(--border-width) solid rgba(var(--col), 0.3);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.3, transparent);
   }
   .tablet\:border__left\/4 {
-    border-left: var(--border-width) solid rgba(var(--col), 0.4);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.4, transparent);
   }
   .tablet\:border__left\/5 {
-    border-left: var(--border-width) solid rgba(var(--col), 0.5);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.5, transparent);
   }
   .tablet\:border__left\/6 {
-    border-left: var(--border-width) solid rgba(var(--col), 0.6);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.6, transparent);
   }
   .tablet\:border__left\/7 {
-    border-left: var(--border-width) solid rgba(var(--col), 0.7);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.7, transparent);
   }
   .tablet\:border__left\/8 {
-    border-left: var(--border-width) solid rgba(var(--col), 0.8);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.8, transparent);
   }
   .tablet\:border__left\/9 {
-    border-left: var(--border-width) solid rgba(var(--col), 0.9);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.9, transparent);
   }
   .tablet\:border__left\/10 {
-    border-left: var(--border-width) solid rgba(var(--col), 1);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 1, transparent);
   }
   .tablet\:border__right {
-    border-right: var(--border-width) solid rgba(var(--col), 0.3);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 20%, transparent);
   }
   .tablet\:border__right\/0 {
-    border-right: var(--border-width) solid rgba(var(--col), 0);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0, transparent);
   }
   .tablet\:border__right\/1 {
-    border-right: var(--border-width) solid rgba(var(--col), 0.1);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.1, transparent);
   }
   .tablet\:border__right\/2 {
-    border-right: var(--border-width) solid rgba(var(--col), 0.2);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.2, transparent);
   }
   .tablet\:border__right\/3 {
-    border-right: var(--border-width) solid rgba(var(--col), 0.3);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.3, transparent);
   }
   .tablet\:border__right\/4 {
-    border-right: var(--border-width) solid rgba(var(--col), 0.4);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.4, transparent);
   }
   .tablet\:border__right\/5 {
-    border-right: var(--border-width) solid rgba(var(--col), 0.5);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.5, transparent);
   }
   .tablet\:border__right\/6 {
-    border-right: var(--border-width) solid rgba(var(--col), 0.6);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.6, transparent);
   }
   .tablet\:border__right\/7 {
-    border-right: var(--border-width) solid rgba(var(--col), 0.7);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.7, transparent);
   }
   .tablet\:border__right\/8 {
-    border-right: var(--border-width) solid rgba(var(--col), 0.8);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.8, transparent);
   }
   .tablet\:border__right\/9 {
-    border-right: var(--border-width) solid rgba(var(--col), 0.9);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.9, transparent);
   }
   .tablet\:border__right\/10 {
-    border-right: var(--border-width) solid rgba(var(--col), 1);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 1, transparent);
   }
   .tablet\:border__top {
-    border-top: var(--border-width) solid rgba(var(--col), 0.3);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 20%, transparent);
   }
   .tablet\:border__top\/0 {
-    border-top: var(--border-width) solid rgba(var(--col), 0);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0, transparent);
   }
   .tablet\:border__top\/1 {
-    border-top: var(--border-width) solid rgba(var(--col), 0.1);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.1, transparent);
   }
   .tablet\:border__top\/2 {
-    border-top: var(--border-width) solid rgba(var(--col), 0.2);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.2, transparent);
   }
   .tablet\:border__top\/3 {
-    border-top: var(--border-width) solid rgba(var(--col), 0.3);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.3, transparent);
   }
   .tablet\:border__top\/4 {
-    border-top: var(--border-width) solid rgba(var(--col), 0.4);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.4, transparent);
   }
   .tablet\:border__top\/5 {
-    border-top: var(--border-width) solid rgba(var(--col), 0.5);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.5, transparent);
   }
   .tablet\:border__top\/6 {
-    border-top: var(--border-width) solid rgba(var(--col), 0.6);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.6, transparent);
   }
   .tablet\:border__top\/7 {
-    border-top: var(--border-width) solid rgba(var(--col), 0.7);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.7, transparent);
   }
   .tablet\:border__top\/8 {
-    border-top: var(--border-width) solid rgba(var(--col), 0.8);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.8, transparent);
   }
   .tablet\:border__top\/9 {
-    border-top: var(--border-width) solid rgba(var(--col), 0.9);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.9, transparent);
   }
   .tablet\:border__top\/10 {
-    border-top: var(--border-width) solid rgba(var(--col), 1);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 1, transparent);
   }
   .tablet\:border__bottom {
-    border-bottom: var(--border-width) solid rgba(var(--col), 0.3);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 20%, transparent);
   }
   .tablet\:border__bottom\/0 {
-    border-bottom: var(--border-width) solid rgba(var(--col), 0);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0, transparent);
   }
   .tablet\:border__bottom\/1 {
-    border-bottom: var(--border-width) solid rgba(var(--col), 0.1);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.1, transparent);
   }
   .tablet\:border__bottom\/2 {
-    border-bottom: var(--border-width) solid rgba(var(--col), 0.2);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.2, transparent);
   }
   .tablet\:border__bottom\/3 {
-    border-bottom: var(--border-width) solid rgba(var(--col), 0.3);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.3, transparent);
   }
   .tablet\:border__bottom\/4 {
-    border-bottom: var(--border-width) solid rgba(var(--col), 0.4);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.4, transparent);
   }
   .tablet\:border__bottom\/5 {
-    border-bottom: var(--border-width) solid rgba(var(--col), 0.5);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.5, transparent);
   }
   .tablet\:border__bottom\/6 {
-    border-bottom: var(--border-width) solid rgba(var(--col), 0.6);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.6, transparent);
   }
   .tablet\:border__bottom\/7 {
-    border-bottom: var(--border-width) solid rgba(var(--col), 0.7);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.7, transparent);
   }
   .tablet\:border__bottom\/8 {
-    border-bottom: var(--border-width) solid rgba(var(--col), 0.8);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.8, transparent);
   }
   .tablet\:border__bottom\/9 {
-    border-bottom: var(--border-width) solid rgba(var(--col), 0.9);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.9, transparent);
   }
   .tablet\:border__bottom\/10 {
-    border-bottom: var(--border-width) solid rgba(var(--col), 1);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 1, transparent);
   }
 }
 @media screen and (max-width: 480px) {
   .mobile\:border {
-    border: var(--border-width) solid rgba(var(--col), 0.3);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 20%, transparent);
   }
   .mobile\:border\/0 {
-    border: var(--border-width) solid rgba(var(--col), 0);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 0, transparent);
   }
   .mobile\:border\/1 {
-    border: var(--border-width) solid rgba(var(--col), 0.1);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 0.1, transparent);
   }
   .mobile\:border\/2 {
-    border: var(--border-width) solid rgba(var(--col), 0.2);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 0.2, transparent);
   }
   .mobile\:border\/3 {
-    border: var(--border-width) solid rgba(var(--col), 0.3);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 0.3, transparent);
   }
   .mobile\:border\/4 {
-    border: var(--border-width) solid rgba(var(--col), 0.4);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 0.4, transparent);
   }
   .mobile\:border\/5 {
-    border: var(--border-width) solid rgba(var(--col), 0.5);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 0.5, transparent);
   }
   .mobile\:border\/6 {
-    border: var(--border-width) solid rgba(var(--col), 0.6);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 0.6, transparent);
   }
   .mobile\:border\/7 {
-    border: var(--border-width) solid rgba(var(--col), 0.7);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 0.7, transparent);
   }
   .mobile\:border\/8 {
-    border: var(--border-width) solid rgba(var(--col), 0.8);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 0.8, transparent);
   }
   .mobile\:border\/9 {
-    border: var(--border-width) solid rgba(var(--col), 0.9);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 0.9, transparent);
   }
   .mobile\:border\/10 {
-    border: var(--border-width) solid rgba(var(--col), 1);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 1, transparent);
   }
   .mobile\:border__left {
-    border-left: var(--border-width) solid rgba(var(--col), 0.3);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 20%, transparent);
   }
   .mobile\:border__left\/0 {
-    border-left: var(--border-width) solid rgba(var(--col), 0);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0, transparent);
   }
   .mobile\:border__left\/1 {
-    border-left: var(--border-width) solid rgba(var(--col), 0.1);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.1, transparent);
   }
   .mobile\:border__left\/2 {
-    border-left: var(--border-width) solid rgba(var(--col), 0.2);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.2, transparent);
   }
   .mobile\:border__left\/3 {
-    border-left: var(--border-width) solid rgba(var(--col), 0.3);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.3, transparent);
   }
   .mobile\:border__left\/4 {
-    border-left: var(--border-width) solid rgba(var(--col), 0.4);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.4, transparent);
   }
   .mobile\:border__left\/5 {
-    border-left: var(--border-width) solid rgba(var(--col), 0.5);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.5, transparent);
   }
   .mobile\:border__left\/6 {
-    border-left: var(--border-width) solid rgba(var(--col), 0.6);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.6, transparent);
   }
   .mobile\:border__left\/7 {
-    border-left: var(--border-width) solid rgba(var(--col), 0.7);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.7, transparent);
   }
   .mobile\:border__left\/8 {
-    border-left: var(--border-width) solid rgba(var(--col), 0.8);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.8, transparent);
   }
   .mobile\:border__left\/9 {
-    border-left: var(--border-width) solid rgba(var(--col), 0.9);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.9, transparent);
   }
   .mobile\:border__left\/10 {
-    border-left: var(--border-width) solid rgba(var(--col), 1);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 1, transparent);
   }
   .mobile\:border__right {
-    border-right: var(--border-width) solid rgba(var(--col), 0.3);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 20%, transparent);
   }
   .mobile\:border__right\/0 {
-    border-right: var(--border-width) solid rgba(var(--col), 0);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0, transparent);
   }
   .mobile\:border__right\/1 {
-    border-right: var(--border-width) solid rgba(var(--col), 0.1);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.1, transparent);
   }
   .mobile\:border__right\/2 {
-    border-right: var(--border-width) solid rgba(var(--col), 0.2);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.2, transparent);
   }
   .mobile\:border__right\/3 {
-    border-right: var(--border-width) solid rgba(var(--col), 0.3);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.3, transparent);
   }
   .mobile\:border__right\/4 {
-    border-right: var(--border-width) solid rgba(var(--col), 0.4);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.4, transparent);
   }
   .mobile\:border__right\/5 {
-    border-right: var(--border-width) solid rgba(var(--col), 0.5);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.5, transparent);
   }
   .mobile\:border__right\/6 {
-    border-right: var(--border-width) solid rgba(var(--col), 0.6);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.6, transparent);
   }
   .mobile\:border__right\/7 {
-    border-right: var(--border-width) solid rgba(var(--col), 0.7);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.7, transparent);
   }
   .mobile\:border__right\/8 {
-    border-right: var(--border-width) solid rgba(var(--col), 0.8);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.8, transparent);
   }
   .mobile\:border__right\/9 {
-    border-right: var(--border-width) solid rgba(var(--col), 0.9);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.9, transparent);
   }
   .mobile\:border__right\/10 {
-    border-right: var(--border-width) solid rgba(var(--col), 1);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 1, transparent);
   }
   .mobile\:border__top {
-    border-top: var(--border-width) solid rgba(var(--col), 0.3);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 20%, transparent);
   }
   .mobile\:border__top\/0 {
-    border-top: var(--border-width) solid rgba(var(--col), 0);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0, transparent);
   }
   .mobile\:border__top\/1 {
-    border-top: var(--border-width) solid rgba(var(--col), 0.1);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.1, transparent);
   }
   .mobile\:border__top\/2 {
-    border-top: var(--border-width) solid rgba(var(--col), 0.2);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.2, transparent);
   }
   .mobile\:border__top\/3 {
-    border-top: var(--border-width) solid rgba(var(--col), 0.3);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.3, transparent);
   }
   .mobile\:border__top\/4 {
-    border-top: var(--border-width) solid rgba(var(--col), 0.4);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.4, transparent);
   }
   .mobile\:border__top\/5 {
-    border-top: var(--border-width) solid rgba(var(--col), 0.5);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.5, transparent);
   }
   .mobile\:border__top\/6 {
-    border-top: var(--border-width) solid rgba(var(--col), 0.6);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.6, transparent);
   }
   .mobile\:border__top\/7 {
-    border-top: var(--border-width) solid rgba(var(--col), 0.7);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.7, transparent);
   }
   .mobile\:border__top\/8 {
-    border-top: var(--border-width) solid rgba(var(--col), 0.8);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.8, transparent);
   }
   .mobile\:border__top\/9 {
-    border-top: var(--border-width) solid rgba(var(--col), 0.9);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.9, transparent);
   }
   .mobile\:border__top\/10 {
-    border-top: var(--border-width) solid rgba(var(--col), 1);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 1, transparent);
   }
   .mobile\:border__bottom {
-    border-bottom: var(--border-width) solid rgba(var(--col), 0.3);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 20%, transparent);
   }
   .mobile\:border__bottom\/0 {
-    border-bottom: var(--border-width) solid rgba(var(--col), 0);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0, transparent);
   }
   .mobile\:border__bottom\/1 {
-    border-bottom: var(--border-width) solid rgba(var(--col), 0.1);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.1, transparent);
   }
   .mobile\:border__bottom\/2 {
-    border-bottom: var(--border-width) solid rgba(var(--col), 0.2);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.2, transparent);
   }
   .mobile\:border__bottom\/3 {
-    border-bottom: var(--border-width) solid rgba(var(--col), 0.3);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.3, transparent);
   }
   .mobile\:border__bottom\/4 {
-    border-bottom: var(--border-width) solid rgba(var(--col), 0.4);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.4, transparent);
   }
   .mobile\:border__bottom\/5 {
-    border-bottom: var(--border-width) solid rgba(var(--col), 0.5);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.5, transparent);
   }
   .mobile\:border__bottom\/6 {
-    border-bottom: var(--border-width) solid rgba(var(--col), 0.6);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.6, transparent);
   }
   .mobile\:border__bottom\/7 {
-    border-bottom: var(--border-width) solid rgba(var(--col), 0.7);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.7, transparent);
   }
   .mobile\:border__bottom\/8 {
-    border-bottom: var(--border-width) solid rgba(var(--col), 0.8);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.8, transparent);
   }
   .mobile\:border__bottom\/9 {
-    border-bottom: var(--border-width) solid rgba(var(--col), 0.9);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.9, transparent);
   }
   .mobile\:border__bottom\/10 {
-    border-bottom: var(--border-width) solid rgba(var(--col), 1);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 1, transparent);
   }
 }
 html body hr {
   border: none;
-  borderbottom: var(--border-width) solid rgba(var(--col), 0.3);
+  borderbottom: var(--border-width) solid color-mix(in srgb, var(--col) 20%, transparent);
   margin: 0;
   padding: 0;
   height: 0;
@@ -35735,7 +35735,7 @@ footer .footer__nav .link:hover [data-word] span,
 .footer .footer__nav .link:hover [data-word] span {
   --reveal-delay: 0ms;
   --reveal-duration: 600ms;
-  color: rgb(var(--color-acc)) !important;
+  color: var(--color-acc) !important;
 }
 
 /*
@@ -39347,612 +39347,612 @@ footer .footer__nav .link:hover [data-word] span,
 }
 
 .border {
-  border: var(--border-width) solid rgba(var(--col), 0.3);
+  border: var(--border-width) solid color-mix(in srgb, var(--col) 20%, transparent);
 }
 
 .border\/0 {
-  border: var(--border-width) solid rgba(var(--col), 0);
+  border: var(--border-width) solid color-mix(in srgb, var(--col) 0, transparent);
 }
 
 .border\/1 {
-  border: var(--border-width) solid rgba(var(--col), 0.1);
+  border: var(--border-width) solid color-mix(in srgb, var(--col) 0.1, transparent);
 }
 
 .border\/2 {
-  border: var(--border-width) solid rgba(var(--col), 0.2);
+  border: var(--border-width) solid color-mix(in srgb, var(--col) 0.2, transparent);
 }
 
 .border\/3 {
-  border: var(--border-width) solid rgba(var(--col), 0.3);
+  border: var(--border-width) solid color-mix(in srgb, var(--col) 0.3, transparent);
 }
 
 .border\/4 {
-  border: var(--border-width) solid rgba(var(--col), 0.4);
+  border: var(--border-width) solid color-mix(in srgb, var(--col) 0.4, transparent);
 }
 
 .border\/5 {
-  border: var(--border-width) solid rgba(var(--col), 0.5);
+  border: var(--border-width) solid color-mix(in srgb, var(--col) 0.5, transparent);
 }
 
 .border\/6 {
-  border: var(--border-width) solid rgba(var(--col), 0.6);
+  border: var(--border-width) solid color-mix(in srgb, var(--col) 0.6, transparent);
 }
 
 .border\/7 {
-  border: var(--border-width) solid rgba(var(--col), 0.7);
+  border: var(--border-width) solid color-mix(in srgb, var(--col) 0.7, transparent);
 }
 
 .border\/8 {
-  border: var(--border-width) solid rgba(var(--col), 0.8);
+  border: var(--border-width) solid color-mix(in srgb, var(--col) 0.8, transparent);
 }
 
 .border\/9 {
-  border: var(--border-width) solid rgba(var(--col), 0.9);
+  border: var(--border-width) solid color-mix(in srgb, var(--col) 0.9, transparent);
 }
 
 .border\/10 {
-  border: var(--border-width) solid rgba(var(--col), 1);
+  border: var(--border-width) solid color-mix(in srgb, var(--col) 1, transparent);
 }
 
 .border__left {
-  border-left: var(--border-width) solid rgba(var(--col), 0.3);
+  border-left: var(--border-width) solid color-mix(in srgb, var(--col) 20%, transparent);
 }
 
 .border__left\/0 {
-  border-left: var(--border-width) solid rgba(var(--col), 0);
+  border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0, transparent);
 }
 
 .border__left\/1 {
-  border-left: var(--border-width) solid rgba(var(--col), 0.1);
+  border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.1, transparent);
 }
 
 .border__left\/2 {
-  border-left: var(--border-width) solid rgba(var(--col), 0.2);
+  border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.2, transparent);
 }
 
 .border__left\/3 {
-  border-left: var(--border-width) solid rgba(var(--col), 0.3);
+  border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.3, transparent);
 }
 
 .border__left\/4 {
-  border-left: var(--border-width) solid rgba(var(--col), 0.4);
+  border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.4, transparent);
 }
 
 .border__left\/5 {
-  border-left: var(--border-width) solid rgba(var(--col), 0.5);
+  border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.5, transparent);
 }
 
 .border__left\/6 {
-  border-left: var(--border-width) solid rgba(var(--col), 0.6);
+  border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.6, transparent);
 }
 
 .border__left\/7 {
-  border-left: var(--border-width) solid rgba(var(--col), 0.7);
+  border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.7, transparent);
 }
 
 .border__left\/8 {
-  border-left: var(--border-width) solid rgba(var(--col), 0.8);
+  border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.8, transparent);
 }
 
 .border__left\/9 {
-  border-left: var(--border-width) solid rgba(var(--col), 0.9);
+  border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.9, transparent);
 }
 
 .border__left\/10 {
-  border-left: var(--border-width) solid rgba(var(--col), 1);
+  border-left: var(--border-width) solid color-mix(in srgb, var(--col) 1, transparent);
 }
 
 .border__right {
-  border-right: var(--border-width) solid rgba(var(--col), 0.3);
+  border-right: var(--border-width) solid color-mix(in srgb, var(--col) 20%, transparent);
 }
 
 .border__right\/0 {
-  border-right: var(--border-width) solid rgba(var(--col), 0);
+  border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0, transparent);
 }
 
 .border__right\/1 {
-  border-right: var(--border-width) solid rgba(var(--col), 0.1);
+  border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.1, transparent);
 }
 
 .border__right\/2 {
-  border-right: var(--border-width) solid rgba(var(--col), 0.2);
+  border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.2, transparent);
 }
 
 .border__right\/3 {
-  border-right: var(--border-width) solid rgba(var(--col), 0.3);
+  border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.3, transparent);
 }
 
 .border__right\/4 {
-  border-right: var(--border-width) solid rgba(var(--col), 0.4);
+  border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.4, transparent);
 }
 
 .border__right\/5 {
-  border-right: var(--border-width) solid rgba(var(--col), 0.5);
+  border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.5, transparent);
 }
 
 .border__right\/6 {
-  border-right: var(--border-width) solid rgba(var(--col), 0.6);
+  border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.6, transparent);
 }
 
 .border__right\/7 {
-  border-right: var(--border-width) solid rgba(var(--col), 0.7);
+  border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.7, transparent);
 }
 
 .border__right\/8 {
-  border-right: var(--border-width) solid rgba(var(--col), 0.8);
+  border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.8, transparent);
 }
 
 .border__right\/9 {
-  border-right: var(--border-width) solid rgba(var(--col), 0.9);
+  border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.9, transparent);
 }
 
 .border__right\/10 {
-  border-right: var(--border-width) solid rgba(var(--col), 1);
+  border-right: var(--border-width) solid color-mix(in srgb, var(--col) 1, transparent);
 }
 
 .border__top {
-  border-top: var(--border-width) solid rgba(var(--col), 0.3);
+  border-top: var(--border-width) solid color-mix(in srgb, var(--col) 20%, transparent);
 }
 
 .border__top\/0 {
-  border-top: var(--border-width) solid rgba(var(--col), 0);
+  border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0, transparent);
 }
 
 .border__top\/1 {
-  border-top: var(--border-width) solid rgba(var(--col), 0.1);
+  border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.1, transparent);
 }
 
 .border__top\/2 {
-  border-top: var(--border-width) solid rgba(var(--col), 0.2);
+  border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.2, transparent);
 }
 
 .border__top\/3 {
-  border-top: var(--border-width) solid rgba(var(--col), 0.3);
+  border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.3, transparent);
 }
 
 .border__top\/4 {
-  border-top: var(--border-width) solid rgba(var(--col), 0.4);
+  border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.4, transparent);
 }
 
 .border__top\/5 {
-  border-top: var(--border-width) solid rgba(var(--col), 0.5);
+  border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.5, transparent);
 }
 
 .border__top\/6 {
-  border-top: var(--border-width) solid rgba(var(--col), 0.6);
+  border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.6, transparent);
 }
 
 .border__top\/7 {
-  border-top: var(--border-width) solid rgba(var(--col), 0.7);
+  border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.7, transparent);
 }
 
 .border__top\/8 {
-  border-top: var(--border-width) solid rgba(var(--col), 0.8);
+  border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.8, transparent);
 }
 
 .border__top\/9 {
-  border-top: var(--border-width) solid rgba(var(--col), 0.9);
+  border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.9, transparent);
 }
 
 .border__top\/10 {
-  border-top: var(--border-width) solid rgba(var(--col), 1);
+  border-top: var(--border-width) solid color-mix(in srgb, var(--col) 1, transparent);
 }
 
 .border__bottom {
-  border-bottom: var(--border-width) solid rgba(var(--col), 0.3);
+  border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 20%, transparent);
 }
 
 .border__bottom\/0 {
-  border-bottom: var(--border-width) solid rgba(var(--col), 0);
+  border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0, transparent);
 }
 
 .border__bottom\/1 {
-  border-bottom: var(--border-width) solid rgba(var(--col), 0.1);
+  border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.1, transparent);
 }
 
 .border__bottom\/2 {
-  border-bottom: var(--border-width) solid rgba(var(--col), 0.2);
+  border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.2, transparent);
 }
 
 .border__bottom\/3 {
-  border-bottom: var(--border-width) solid rgba(var(--col), 0.3);
+  border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.3, transparent);
 }
 
 .border__bottom\/4 {
-  border-bottom: var(--border-width) solid rgba(var(--col), 0.4);
+  border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.4, transparent);
 }
 
 .border__bottom\/5 {
-  border-bottom: var(--border-width) solid rgba(var(--col), 0.5);
+  border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.5, transparent);
 }
 
 .border__bottom\/6 {
-  border-bottom: var(--border-width) solid rgba(var(--col), 0.6);
+  border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.6, transparent);
 }
 
 .border__bottom\/7 {
-  border-bottom: var(--border-width) solid rgba(var(--col), 0.7);
+  border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.7, transparent);
 }
 
 .border__bottom\/8 {
-  border-bottom: var(--border-width) solid rgba(var(--col), 0.8);
+  border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.8, transparent);
 }
 
 .border__bottom\/9 {
-  border-bottom: var(--border-width) solid rgba(var(--col), 0.9);
+  border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.9, transparent);
 }
 
 .border__bottom\/10 {
-  border-bottom: var(--border-width) solid rgba(var(--col), 1);
+  border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 1, transparent);
 }
 
 @media screen and (max-width: 768px) {
   .tablet\:border {
-    border: var(--border-width) solid rgba(var(--col), 0.3);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 20%, transparent);
   }
   .tablet\:border\/0 {
-    border: var(--border-width) solid rgba(var(--col), 0);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 0, transparent);
   }
   .tablet\:border\/1 {
-    border: var(--border-width) solid rgba(var(--col), 0.1);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 0.1, transparent);
   }
   .tablet\:border\/2 {
-    border: var(--border-width) solid rgba(var(--col), 0.2);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 0.2, transparent);
   }
   .tablet\:border\/3 {
-    border: var(--border-width) solid rgba(var(--col), 0.3);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 0.3, transparent);
   }
   .tablet\:border\/4 {
-    border: var(--border-width) solid rgba(var(--col), 0.4);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 0.4, transparent);
   }
   .tablet\:border\/5 {
-    border: var(--border-width) solid rgba(var(--col), 0.5);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 0.5, transparent);
   }
   .tablet\:border\/6 {
-    border: var(--border-width) solid rgba(var(--col), 0.6);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 0.6, transparent);
   }
   .tablet\:border\/7 {
-    border: var(--border-width) solid rgba(var(--col), 0.7);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 0.7, transparent);
   }
   .tablet\:border\/8 {
-    border: var(--border-width) solid rgba(var(--col), 0.8);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 0.8, transparent);
   }
   .tablet\:border\/9 {
-    border: var(--border-width) solid rgba(var(--col), 0.9);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 0.9, transparent);
   }
   .tablet\:border\/10 {
-    border: var(--border-width) solid rgba(var(--col), 1);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 1, transparent);
   }
   .tablet\:border__left {
-    border-left: var(--border-width) solid rgba(var(--col), 0.3);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 20%, transparent);
   }
   .tablet\:border__left\/0 {
-    border-left: var(--border-width) solid rgba(var(--col), 0);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0, transparent);
   }
   .tablet\:border__left\/1 {
-    border-left: var(--border-width) solid rgba(var(--col), 0.1);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.1, transparent);
   }
   .tablet\:border__left\/2 {
-    border-left: var(--border-width) solid rgba(var(--col), 0.2);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.2, transparent);
   }
   .tablet\:border__left\/3 {
-    border-left: var(--border-width) solid rgba(var(--col), 0.3);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.3, transparent);
   }
   .tablet\:border__left\/4 {
-    border-left: var(--border-width) solid rgba(var(--col), 0.4);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.4, transparent);
   }
   .tablet\:border__left\/5 {
-    border-left: var(--border-width) solid rgba(var(--col), 0.5);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.5, transparent);
   }
   .tablet\:border__left\/6 {
-    border-left: var(--border-width) solid rgba(var(--col), 0.6);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.6, transparent);
   }
   .tablet\:border__left\/7 {
-    border-left: var(--border-width) solid rgba(var(--col), 0.7);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.7, transparent);
   }
   .tablet\:border__left\/8 {
-    border-left: var(--border-width) solid rgba(var(--col), 0.8);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.8, transparent);
   }
   .tablet\:border__left\/9 {
-    border-left: var(--border-width) solid rgba(var(--col), 0.9);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.9, transparent);
   }
   .tablet\:border__left\/10 {
-    border-left: var(--border-width) solid rgba(var(--col), 1);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 1, transparent);
   }
   .tablet\:border__right {
-    border-right: var(--border-width) solid rgba(var(--col), 0.3);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 20%, transparent);
   }
   .tablet\:border__right\/0 {
-    border-right: var(--border-width) solid rgba(var(--col), 0);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0, transparent);
   }
   .tablet\:border__right\/1 {
-    border-right: var(--border-width) solid rgba(var(--col), 0.1);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.1, transparent);
   }
   .tablet\:border__right\/2 {
-    border-right: var(--border-width) solid rgba(var(--col), 0.2);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.2, transparent);
   }
   .tablet\:border__right\/3 {
-    border-right: var(--border-width) solid rgba(var(--col), 0.3);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.3, transparent);
   }
   .tablet\:border__right\/4 {
-    border-right: var(--border-width) solid rgba(var(--col), 0.4);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.4, transparent);
   }
   .tablet\:border__right\/5 {
-    border-right: var(--border-width) solid rgba(var(--col), 0.5);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.5, transparent);
   }
   .tablet\:border__right\/6 {
-    border-right: var(--border-width) solid rgba(var(--col), 0.6);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.6, transparent);
   }
   .tablet\:border__right\/7 {
-    border-right: var(--border-width) solid rgba(var(--col), 0.7);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.7, transparent);
   }
   .tablet\:border__right\/8 {
-    border-right: var(--border-width) solid rgba(var(--col), 0.8);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.8, transparent);
   }
   .tablet\:border__right\/9 {
-    border-right: var(--border-width) solid rgba(var(--col), 0.9);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.9, transparent);
   }
   .tablet\:border__right\/10 {
-    border-right: var(--border-width) solid rgba(var(--col), 1);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 1, transparent);
   }
   .tablet\:border__top {
-    border-top: var(--border-width) solid rgba(var(--col), 0.3);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 20%, transparent);
   }
   .tablet\:border__top\/0 {
-    border-top: var(--border-width) solid rgba(var(--col), 0);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0, transparent);
   }
   .tablet\:border__top\/1 {
-    border-top: var(--border-width) solid rgba(var(--col), 0.1);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.1, transparent);
   }
   .tablet\:border__top\/2 {
-    border-top: var(--border-width) solid rgba(var(--col), 0.2);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.2, transparent);
   }
   .tablet\:border__top\/3 {
-    border-top: var(--border-width) solid rgba(var(--col), 0.3);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.3, transparent);
   }
   .tablet\:border__top\/4 {
-    border-top: var(--border-width) solid rgba(var(--col), 0.4);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.4, transparent);
   }
   .tablet\:border__top\/5 {
-    border-top: var(--border-width) solid rgba(var(--col), 0.5);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.5, transparent);
   }
   .tablet\:border__top\/6 {
-    border-top: var(--border-width) solid rgba(var(--col), 0.6);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.6, transparent);
   }
   .tablet\:border__top\/7 {
-    border-top: var(--border-width) solid rgba(var(--col), 0.7);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.7, transparent);
   }
   .tablet\:border__top\/8 {
-    border-top: var(--border-width) solid rgba(var(--col), 0.8);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.8, transparent);
   }
   .tablet\:border__top\/9 {
-    border-top: var(--border-width) solid rgba(var(--col), 0.9);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.9, transparent);
   }
   .tablet\:border__top\/10 {
-    border-top: var(--border-width) solid rgba(var(--col), 1);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 1, transparent);
   }
   .tablet\:border__bottom {
-    border-bottom: var(--border-width) solid rgba(var(--col), 0.3);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 20%, transparent);
   }
   .tablet\:border__bottom\/0 {
-    border-bottom: var(--border-width) solid rgba(var(--col), 0);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0, transparent);
   }
   .tablet\:border__bottom\/1 {
-    border-bottom: var(--border-width) solid rgba(var(--col), 0.1);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.1, transparent);
   }
   .tablet\:border__bottom\/2 {
-    border-bottom: var(--border-width) solid rgba(var(--col), 0.2);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.2, transparent);
   }
   .tablet\:border__bottom\/3 {
-    border-bottom: var(--border-width) solid rgba(var(--col), 0.3);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.3, transparent);
   }
   .tablet\:border__bottom\/4 {
-    border-bottom: var(--border-width) solid rgba(var(--col), 0.4);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.4, transparent);
   }
   .tablet\:border__bottom\/5 {
-    border-bottom: var(--border-width) solid rgba(var(--col), 0.5);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.5, transparent);
   }
   .tablet\:border__bottom\/6 {
-    border-bottom: var(--border-width) solid rgba(var(--col), 0.6);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.6, transparent);
   }
   .tablet\:border__bottom\/7 {
-    border-bottom: var(--border-width) solid rgba(var(--col), 0.7);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.7, transparent);
   }
   .tablet\:border__bottom\/8 {
-    border-bottom: var(--border-width) solid rgba(var(--col), 0.8);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.8, transparent);
   }
   .tablet\:border__bottom\/9 {
-    border-bottom: var(--border-width) solid rgba(var(--col), 0.9);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.9, transparent);
   }
   .tablet\:border__bottom\/10 {
-    border-bottom: var(--border-width) solid rgba(var(--col), 1);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 1, transparent);
   }
 }
 @media screen and (max-width: 480px) {
   .mobile\:border {
-    border: var(--border-width) solid rgba(var(--col), 0.3);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 20%, transparent);
   }
   .mobile\:border\/0 {
-    border: var(--border-width) solid rgba(var(--col), 0);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 0, transparent);
   }
   .mobile\:border\/1 {
-    border: var(--border-width) solid rgba(var(--col), 0.1);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 0.1, transparent);
   }
   .mobile\:border\/2 {
-    border: var(--border-width) solid rgba(var(--col), 0.2);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 0.2, transparent);
   }
   .mobile\:border\/3 {
-    border: var(--border-width) solid rgba(var(--col), 0.3);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 0.3, transparent);
   }
   .mobile\:border\/4 {
-    border: var(--border-width) solid rgba(var(--col), 0.4);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 0.4, transparent);
   }
   .mobile\:border\/5 {
-    border: var(--border-width) solid rgba(var(--col), 0.5);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 0.5, transparent);
   }
   .mobile\:border\/6 {
-    border: var(--border-width) solid rgba(var(--col), 0.6);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 0.6, transparent);
   }
   .mobile\:border\/7 {
-    border: var(--border-width) solid rgba(var(--col), 0.7);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 0.7, transparent);
   }
   .mobile\:border\/8 {
-    border: var(--border-width) solid rgba(var(--col), 0.8);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 0.8, transparent);
   }
   .mobile\:border\/9 {
-    border: var(--border-width) solid rgba(var(--col), 0.9);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 0.9, transparent);
   }
   .mobile\:border\/10 {
-    border: var(--border-width) solid rgba(var(--col), 1);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 1, transparent);
   }
   .mobile\:border__left {
-    border-left: var(--border-width) solid rgba(var(--col), 0.3);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 20%, transparent);
   }
   .mobile\:border__left\/0 {
-    border-left: var(--border-width) solid rgba(var(--col), 0);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0, transparent);
   }
   .mobile\:border__left\/1 {
-    border-left: var(--border-width) solid rgba(var(--col), 0.1);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.1, transparent);
   }
   .mobile\:border__left\/2 {
-    border-left: var(--border-width) solid rgba(var(--col), 0.2);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.2, transparent);
   }
   .mobile\:border__left\/3 {
-    border-left: var(--border-width) solid rgba(var(--col), 0.3);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.3, transparent);
   }
   .mobile\:border__left\/4 {
-    border-left: var(--border-width) solid rgba(var(--col), 0.4);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.4, transparent);
   }
   .mobile\:border__left\/5 {
-    border-left: var(--border-width) solid rgba(var(--col), 0.5);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.5, transparent);
   }
   .mobile\:border__left\/6 {
-    border-left: var(--border-width) solid rgba(var(--col), 0.6);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.6, transparent);
   }
   .mobile\:border__left\/7 {
-    border-left: var(--border-width) solid rgba(var(--col), 0.7);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.7, transparent);
   }
   .mobile\:border__left\/8 {
-    border-left: var(--border-width) solid rgba(var(--col), 0.8);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.8, transparent);
   }
   .mobile\:border__left\/9 {
-    border-left: var(--border-width) solid rgba(var(--col), 0.9);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.9, transparent);
   }
   .mobile\:border__left\/10 {
-    border-left: var(--border-width) solid rgba(var(--col), 1);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 1, transparent);
   }
   .mobile\:border__right {
-    border-right: var(--border-width) solid rgba(var(--col), 0.3);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 20%, transparent);
   }
   .mobile\:border__right\/0 {
-    border-right: var(--border-width) solid rgba(var(--col), 0);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0, transparent);
   }
   .mobile\:border__right\/1 {
-    border-right: var(--border-width) solid rgba(var(--col), 0.1);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.1, transparent);
   }
   .mobile\:border__right\/2 {
-    border-right: var(--border-width) solid rgba(var(--col), 0.2);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.2, transparent);
   }
   .mobile\:border__right\/3 {
-    border-right: var(--border-width) solid rgba(var(--col), 0.3);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.3, transparent);
   }
   .mobile\:border__right\/4 {
-    border-right: var(--border-width) solid rgba(var(--col), 0.4);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.4, transparent);
   }
   .mobile\:border__right\/5 {
-    border-right: var(--border-width) solid rgba(var(--col), 0.5);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.5, transparent);
   }
   .mobile\:border__right\/6 {
-    border-right: var(--border-width) solid rgba(var(--col), 0.6);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.6, transparent);
   }
   .mobile\:border__right\/7 {
-    border-right: var(--border-width) solid rgba(var(--col), 0.7);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.7, transparent);
   }
   .mobile\:border__right\/8 {
-    border-right: var(--border-width) solid rgba(var(--col), 0.8);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.8, transparent);
   }
   .mobile\:border__right\/9 {
-    border-right: var(--border-width) solid rgba(var(--col), 0.9);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.9, transparent);
   }
   .mobile\:border__right\/10 {
-    border-right: var(--border-width) solid rgba(var(--col), 1);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 1, transparent);
   }
   .mobile\:border__top {
-    border-top: var(--border-width) solid rgba(var(--col), 0.3);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 20%, transparent);
   }
   .mobile\:border__top\/0 {
-    border-top: var(--border-width) solid rgba(var(--col), 0);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0, transparent);
   }
   .mobile\:border__top\/1 {
-    border-top: var(--border-width) solid rgba(var(--col), 0.1);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.1, transparent);
   }
   .mobile\:border__top\/2 {
-    border-top: var(--border-width) solid rgba(var(--col), 0.2);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.2, transparent);
   }
   .mobile\:border__top\/3 {
-    border-top: var(--border-width) solid rgba(var(--col), 0.3);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.3, transparent);
   }
   .mobile\:border__top\/4 {
-    border-top: var(--border-width) solid rgba(var(--col), 0.4);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.4, transparent);
   }
   .mobile\:border__top\/5 {
-    border-top: var(--border-width) solid rgba(var(--col), 0.5);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.5, transparent);
   }
   .mobile\:border__top\/6 {
-    border-top: var(--border-width) solid rgba(var(--col), 0.6);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.6, transparent);
   }
   .mobile\:border__top\/7 {
-    border-top: var(--border-width) solid rgba(var(--col), 0.7);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.7, transparent);
   }
   .mobile\:border__top\/8 {
-    border-top: var(--border-width) solid rgba(var(--col), 0.8);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.8, transparent);
   }
   .mobile\:border__top\/9 {
-    border-top: var(--border-width) solid rgba(var(--col), 0.9);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.9, transparent);
   }
   .mobile\:border__top\/10 {
-    border-top: var(--border-width) solid rgba(var(--col), 1);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 1, transparent);
   }
   .mobile\:border__bottom {
-    border-bottom: var(--border-width) solid rgba(var(--col), 0.3);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 20%, transparent);
   }
   .mobile\:border__bottom\/0 {
-    border-bottom: var(--border-width) solid rgba(var(--col), 0);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0, transparent);
   }
   .mobile\:border__bottom\/1 {
-    border-bottom: var(--border-width) solid rgba(var(--col), 0.1);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.1, transparent);
   }
   .mobile\:border__bottom\/2 {
-    border-bottom: var(--border-width) solid rgba(var(--col), 0.2);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.2, transparent);
   }
   .mobile\:border__bottom\/3 {
-    border-bottom: var(--border-width) solid rgba(var(--col), 0.3);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.3, transparent);
   }
   .mobile\:border__bottom\/4 {
-    border-bottom: var(--border-width) solid rgba(var(--col), 0.4);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.4, transparent);
   }
   .mobile\:border__bottom\/5 {
-    border-bottom: var(--border-width) solid rgba(var(--col), 0.5);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.5, transparent);
   }
   .mobile\:border__bottom\/6 {
-    border-bottom: var(--border-width) solid rgba(var(--col), 0.6);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.6, transparent);
   }
   .mobile\:border__bottom\/7 {
-    border-bottom: var(--border-width) solid rgba(var(--col), 0.7);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.7, transparent);
   }
   .mobile\:border__bottom\/8 {
-    border-bottom: var(--border-width) solid rgba(var(--col), 0.8);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.8, transparent);
   }
   .mobile\:border__bottom\/9 {
-    border-bottom: var(--border-width) solid rgba(var(--col), 0.9);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.9, transparent);
   }
   .mobile\:border__bottom\/10 {
-    border-bottom: var(--border-width) solid rgba(var(--col), 1);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 1, transparent);
   }
 }
 html body hr {
   border: none;
-  borderbottom: var(--border-width) solid rgba(var(--col), 0.3);
+  borderbottom: var(--border-width) solid color-mix(in srgb, var(--col) 20%, transparent);
   margin: 0;
   padding: 0;
   height: 0;
@@ -43969,612 +43969,612 @@ carousel {
 }
 
 .border {
-  border: var(--border-width) solid rgba(var(--col), 0.3);
+  border: var(--border-width) solid color-mix(in srgb, var(--col) 20%, transparent);
 }
 
 .border\/0 {
-  border: var(--border-width) solid rgba(var(--col), 0);
+  border: var(--border-width) solid color-mix(in srgb, var(--col) 0, transparent);
 }
 
 .border\/1 {
-  border: var(--border-width) solid rgba(var(--col), 0.1);
+  border: var(--border-width) solid color-mix(in srgb, var(--col) 0.1, transparent);
 }
 
 .border\/2 {
-  border: var(--border-width) solid rgba(var(--col), 0.2);
+  border: var(--border-width) solid color-mix(in srgb, var(--col) 0.2, transparent);
 }
 
 .border\/3 {
-  border: var(--border-width) solid rgba(var(--col), 0.3);
+  border: var(--border-width) solid color-mix(in srgb, var(--col) 0.3, transparent);
 }
 
 .border\/4 {
-  border: var(--border-width) solid rgba(var(--col), 0.4);
+  border: var(--border-width) solid color-mix(in srgb, var(--col) 0.4, transparent);
 }
 
 .border\/5 {
-  border: var(--border-width) solid rgba(var(--col), 0.5);
+  border: var(--border-width) solid color-mix(in srgb, var(--col) 0.5, transparent);
 }
 
 .border\/6 {
-  border: var(--border-width) solid rgba(var(--col), 0.6);
+  border: var(--border-width) solid color-mix(in srgb, var(--col) 0.6, transparent);
 }
 
 .border\/7 {
-  border: var(--border-width) solid rgba(var(--col), 0.7);
+  border: var(--border-width) solid color-mix(in srgb, var(--col) 0.7, transparent);
 }
 
 .border\/8 {
-  border: var(--border-width) solid rgba(var(--col), 0.8);
+  border: var(--border-width) solid color-mix(in srgb, var(--col) 0.8, transparent);
 }
 
 .border\/9 {
-  border: var(--border-width) solid rgba(var(--col), 0.9);
+  border: var(--border-width) solid color-mix(in srgb, var(--col) 0.9, transparent);
 }
 
 .border\/10 {
-  border: var(--border-width) solid rgba(var(--col), 1);
+  border: var(--border-width) solid color-mix(in srgb, var(--col) 1, transparent);
 }
 
 .border__left {
-  border-left: var(--border-width) solid rgba(var(--col), 0.3);
+  border-left: var(--border-width) solid color-mix(in srgb, var(--col) 20%, transparent);
 }
 
 .border__left\/0 {
-  border-left: var(--border-width) solid rgba(var(--col), 0);
+  border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0, transparent);
 }
 
 .border__left\/1 {
-  border-left: var(--border-width) solid rgba(var(--col), 0.1);
+  border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.1, transparent);
 }
 
 .border__left\/2 {
-  border-left: var(--border-width) solid rgba(var(--col), 0.2);
+  border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.2, transparent);
 }
 
 .border__left\/3 {
-  border-left: var(--border-width) solid rgba(var(--col), 0.3);
+  border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.3, transparent);
 }
 
 .border__left\/4 {
-  border-left: var(--border-width) solid rgba(var(--col), 0.4);
+  border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.4, transparent);
 }
 
 .border__left\/5 {
-  border-left: var(--border-width) solid rgba(var(--col), 0.5);
+  border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.5, transparent);
 }
 
 .border__left\/6 {
-  border-left: var(--border-width) solid rgba(var(--col), 0.6);
+  border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.6, transparent);
 }
 
 .border__left\/7 {
-  border-left: var(--border-width) solid rgba(var(--col), 0.7);
+  border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.7, transparent);
 }
 
 .border__left\/8 {
-  border-left: var(--border-width) solid rgba(var(--col), 0.8);
+  border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.8, transparent);
 }
 
 .border__left\/9 {
-  border-left: var(--border-width) solid rgba(var(--col), 0.9);
+  border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.9, transparent);
 }
 
 .border__left\/10 {
-  border-left: var(--border-width) solid rgba(var(--col), 1);
+  border-left: var(--border-width) solid color-mix(in srgb, var(--col) 1, transparent);
 }
 
 .border__right {
-  border-right: var(--border-width) solid rgba(var(--col), 0.3);
+  border-right: var(--border-width) solid color-mix(in srgb, var(--col) 20%, transparent);
 }
 
 .border__right\/0 {
-  border-right: var(--border-width) solid rgba(var(--col), 0);
+  border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0, transparent);
 }
 
 .border__right\/1 {
-  border-right: var(--border-width) solid rgba(var(--col), 0.1);
+  border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.1, transparent);
 }
 
 .border__right\/2 {
-  border-right: var(--border-width) solid rgba(var(--col), 0.2);
+  border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.2, transparent);
 }
 
 .border__right\/3 {
-  border-right: var(--border-width) solid rgba(var(--col), 0.3);
+  border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.3, transparent);
 }
 
 .border__right\/4 {
-  border-right: var(--border-width) solid rgba(var(--col), 0.4);
+  border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.4, transparent);
 }
 
 .border__right\/5 {
-  border-right: var(--border-width) solid rgba(var(--col), 0.5);
+  border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.5, transparent);
 }
 
 .border__right\/6 {
-  border-right: var(--border-width) solid rgba(var(--col), 0.6);
+  border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.6, transparent);
 }
 
 .border__right\/7 {
-  border-right: var(--border-width) solid rgba(var(--col), 0.7);
+  border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.7, transparent);
 }
 
 .border__right\/8 {
-  border-right: var(--border-width) solid rgba(var(--col), 0.8);
+  border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.8, transparent);
 }
 
 .border__right\/9 {
-  border-right: var(--border-width) solid rgba(var(--col), 0.9);
+  border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.9, transparent);
 }
 
 .border__right\/10 {
-  border-right: var(--border-width) solid rgba(var(--col), 1);
+  border-right: var(--border-width) solid color-mix(in srgb, var(--col) 1, transparent);
 }
 
 .border__top {
-  border-top: var(--border-width) solid rgba(var(--col), 0.3);
+  border-top: var(--border-width) solid color-mix(in srgb, var(--col) 20%, transparent);
 }
 
 .border__top\/0 {
-  border-top: var(--border-width) solid rgba(var(--col), 0);
+  border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0, transparent);
 }
 
 .border__top\/1 {
-  border-top: var(--border-width) solid rgba(var(--col), 0.1);
+  border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.1, transparent);
 }
 
 .border__top\/2 {
-  border-top: var(--border-width) solid rgba(var(--col), 0.2);
+  border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.2, transparent);
 }
 
 .border__top\/3 {
-  border-top: var(--border-width) solid rgba(var(--col), 0.3);
+  border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.3, transparent);
 }
 
 .border__top\/4 {
-  border-top: var(--border-width) solid rgba(var(--col), 0.4);
+  border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.4, transparent);
 }
 
 .border__top\/5 {
-  border-top: var(--border-width) solid rgba(var(--col), 0.5);
+  border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.5, transparent);
 }
 
 .border__top\/6 {
-  border-top: var(--border-width) solid rgba(var(--col), 0.6);
+  border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.6, transparent);
 }
 
 .border__top\/7 {
-  border-top: var(--border-width) solid rgba(var(--col), 0.7);
+  border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.7, transparent);
 }
 
 .border__top\/8 {
-  border-top: var(--border-width) solid rgba(var(--col), 0.8);
+  border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.8, transparent);
 }
 
 .border__top\/9 {
-  border-top: var(--border-width) solid rgba(var(--col), 0.9);
+  border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.9, transparent);
 }
 
 .border__top\/10 {
-  border-top: var(--border-width) solid rgba(var(--col), 1);
+  border-top: var(--border-width) solid color-mix(in srgb, var(--col) 1, transparent);
 }
 
 .border__bottom {
-  border-bottom: var(--border-width) solid rgba(var(--col), 0.3);
+  border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 20%, transparent);
 }
 
 .border__bottom\/0 {
-  border-bottom: var(--border-width) solid rgba(var(--col), 0);
+  border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0, transparent);
 }
 
 .border__bottom\/1 {
-  border-bottom: var(--border-width) solid rgba(var(--col), 0.1);
+  border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.1, transparent);
 }
 
 .border__bottom\/2 {
-  border-bottom: var(--border-width) solid rgba(var(--col), 0.2);
+  border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.2, transparent);
 }
 
 .border__bottom\/3 {
-  border-bottom: var(--border-width) solid rgba(var(--col), 0.3);
+  border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.3, transparent);
 }
 
 .border__bottom\/4 {
-  border-bottom: var(--border-width) solid rgba(var(--col), 0.4);
+  border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.4, transparent);
 }
 
 .border__bottom\/5 {
-  border-bottom: var(--border-width) solid rgba(var(--col), 0.5);
+  border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.5, transparent);
 }
 
 .border__bottom\/6 {
-  border-bottom: var(--border-width) solid rgba(var(--col), 0.6);
+  border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.6, transparent);
 }
 
 .border__bottom\/7 {
-  border-bottom: var(--border-width) solid rgba(var(--col), 0.7);
+  border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.7, transparent);
 }
 
 .border__bottom\/8 {
-  border-bottom: var(--border-width) solid rgba(var(--col), 0.8);
+  border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.8, transparent);
 }
 
 .border__bottom\/9 {
-  border-bottom: var(--border-width) solid rgba(var(--col), 0.9);
+  border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.9, transparent);
 }
 
 .border__bottom\/10 {
-  border-bottom: var(--border-width) solid rgba(var(--col), 1);
+  border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 1, transparent);
 }
 
 @media screen and (max-width: 768px) {
   .tablet\:border {
-    border: var(--border-width) solid rgba(var(--col), 0.3);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 20%, transparent);
   }
   .tablet\:border\/0 {
-    border: var(--border-width) solid rgba(var(--col), 0);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 0, transparent);
   }
   .tablet\:border\/1 {
-    border: var(--border-width) solid rgba(var(--col), 0.1);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 0.1, transparent);
   }
   .tablet\:border\/2 {
-    border: var(--border-width) solid rgba(var(--col), 0.2);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 0.2, transparent);
   }
   .tablet\:border\/3 {
-    border: var(--border-width) solid rgba(var(--col), 0.3);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 0.3, transparent);
   }
   .tablet\:border\/4 {
-    border: var(--border-width) solid rgba(var(--col), 0.4);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 0.4, transparent);
   }
   .tablet\:border\/5 {
-    border: var(--border-width) solid rgba(var(--col), 0.5);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 0.5, transparent);
   }
   .tablet\:border\/6 {
-    border: var(--border-width) solid rgba(var(--col), 0.6);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 0.6, transparent);
   }
   .tablet\:border\/7 {
-    border: var(--border-width) solid rgba(var(--col), 0.7);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 0.7, transparent);
   }
   .tablet\:border\/8 {
-    border: var(--border-width) solid rgba(var(--col), 0.8);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 0.8, transparent);
   }
   .tablet\:border\/9 {
-    border: var(--border-width) solid rgba(var(--col), 0.9);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 0.9, transparent);
   }
   .tablet\:border\/10 {
-    border: var(--border-width) solid rgba(var(--col), 1);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 1, transparent);
   }
   .tablet\:border__left {
-    border-left: var(--border-width) solid rgba(var(--col), 0.3);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 20%, transparent);
   }
   .tablet\:border__left\/0 {
-    border-left: var(--border-width) solid rgba(var(--col), 0);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0, transparent);
   }
   .tablet\:border__left\/1 {
-    border-left: var(--border-width) solid rgba(var(--col), 0.1);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.1, transparent);
   }
   .tablet\:border__left\/2 {
-    border-left: var(--border-width) solid rgba(var(--col), 0.2);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.2, transparent);
   }
   .tablet\:border__left\/3 {
-    border-left: var(--border-width) solid rgba(var(--col), 0.3);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.3, transparent);
   }
   .tablet\:border__left\/4 {
-    border-left: var(--border-width) solid rgba(var(--col), 0.4);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.4, transparent);
   }
   .tablet\:border__left\/5 {
-    border-left: var(--border-width) solid rgba(var(--col), 0.5);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.5, transparent);
   }
   .tablet\:border__left\/6 {
-    border-left: var(--border-width) solid rgba(var(--col), 0.6);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.6, transparent);
   }
   .tablet\:border__left\/7 {
-    border-left: var(--border-width) solid rgba(var(--col), 0.7);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.7, transparent);
   }
   .tablet\:border__left\/8 {
-    border-left: var(--border-width) solid rgba(var(--col), 0.8);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.8, transparent);
   }
   .tablet\:border__left\/9 {
-    border-left: var(--border-width) solid rgba(var(--col), 0.9);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.9, transparent);
   }
   .tablet\:border__left\/10 {
-    border-left: var(--border-width) solid rgba(var(--col), 1);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 1, transparent);
   }
   .tablet\:border__right {
-    border-right: var(--border-width) solid rgba(var(--col), 0.3);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 20%, transparent);
   }
   .tablet\:border__right\/0 {
-    border-right: var(--border-width) solid rgba(var(--col), 0);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0, transparent);
   }
   .tablet\:border__right\/1 {
-    border-right: var(--border-width) solid rgba(var(--col), 0.1);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.1, transparent);
   }
   .tablet\:border__right\/2 {
-    border-right: var(--border-width) solid rgba(var(--col), 0.2);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.2, transparent);
   }
   .tablet\:border__right\/3 {
-    border-right: var(--border-width) solid rgba(var(--col), 0.3);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.3, transparent);
   }
   .tablet\:border__right\/4 {
-    border-right: var(--border-width) solid rgba(var(--col), 0.4);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.4, transparent);
   }
   .tablet\:border__right\/5 {
-    border-right: var(--border-width) solid rgba(var(--col), 0.5);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.5, transparent);
   }
   .tablet\:border__right\/6 {
-    border-right: var(--border-width) solid rgba(var(--col), 0.6);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.6, transparent);
   }
   .tablet\:border__right\/7 {
-    border-right: var(--border-width) solid rgba(var(--col), 0.7);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.7, transparent);
   }
   .tablet\:border__right\/8 {
-    border-right: var(--border-width) solid rgba(var(--col), 0.8);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.8, transparent);
   }
   .tablet\:border__right\/9 {
-    border-right: var(--border-width) solid rgba(var(--col), 0.9);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.9, transparent);
   }
   .tablet\:border__right\/10 {
-    border-right: var(--border-width) solid rgba(var(--col), 1);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 1, transparent);
   }
   .tablet\:border__top {
-    border-top: var(--border-width) solid rgba(var(--col), 0.3);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 20%, transparent);
   }
   .tablet\:border__top\/0 {
-    border-top: var(--border-width) solid rgba(var(--col), 0);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0, transparent);
   }
   .tablet\:border__top\/1 {
-    border-top: var(--border-width) solid rgba(var(--col), 0.1);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.1, transparent);
   }
   .tablet\:border__top\/2 {
-    border-top: var(--border-width) solid rgba(var(--col), 0.2);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.2, transparent);
   }
   .tablet\:border__top\/3 {
-    border-top: var(--border-width) solid rgba(var(--col), 0.3);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.3, transparent);
   }
   .tablet\:border__top\/4 {
-    border-top: var(--border-width) solid rgba(var(--col), 0.4);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.4, transparent);
   }
   .tablet\:border__top\/5 {
-    border-top: var(--border-width) solid rgba(var(--col), 0.5);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.5, transparent);
   }
   .tablet\:border__top\/6 {
-    border-top: var(--border-width) solid rgba(var(--col), 0.6);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.6, transparent);
   }
   .tablet\:border__top\/7 {
-    border-top: var(--border-width) solid rgba(var(--col), 0.7);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.7, transparent);
   }
   .tablet\:border__top\/8 {
-    border-top: var(--border-width) solid rgba(var(--col), 0.8);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.8, transparent);
   }
   .tablet\:border__top\/9 {
-    border-top: var(--border-width) solid rgba(var(--col), 0.9);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.9, transparent);
   }
   .tablet\:border__top\/10 {
-    border-top: var(--border-width) solid rgba(var(--col), 1);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 1, transparent);
   }
   .tablet\:border__bottom {
-    border-bottom: var(--border-width) solid rgba(var(--col), 0.3);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 20%, transparent);
   }
   .tablet\:border__bottom\/0 {
-    border-bottom: var(--border-width) solid rgba(var(--col), 0);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0, transparent);
   }
   .tablet\:border__bottom\/1 {
-    border-bottom: var(--border-width) solid rgba(var(--col), 0.1);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.1, transparent);
   }
   .tablet\:border__bottom\/2 {
-    border-bottom: var(--border-width) solid rgba(var(--col), 0.2);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.2, transparent);
   }
   .tablet\:border__bottom\/3 {
-    border-bottom: var(--border-width) solid rgba(var(--col), 0.3);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.3, transparent);
   }
   .tablet\:border__bottom\/4 {
-    border-bottom: var(--border-width) solid rgba(var(--col), 0.4);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.4, transparent);
   }
   .tablet\:border__bottom\/5 {
-    border-bottom: var(--border-width) solid rgba(var(--col), 0.5);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.5, transparent);
   }
   .tablet\:border__bottom\/6 {
-    border-bottom: var(--border-width) solid rgba(var(--col), 0.6);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.6, transparent);
   }
   .tablet\:border__bottom\/7 {
-    border-bottom: var(--border-width) solid rgba(var(--col), 0.7);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.7, transparent);
   }
   .tablet\:border__bottom\/8 {
-    border-bottom: var(--border-width) solid rgba(var(--col), 0.8);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.8, transparent);
   }
   .tablet\:border__bottom\/9 {
-    border-bottom: var(--border-width) solid rgba(var(--col), 0.9);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.9, transparent);
   }
   .tablet\:border__bottom\/10 {
-    border-bottom: var(--border-width) solid rgba(var(--col), 1);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 1, transparent);
   }
 }
 @media screen and (max-width: 480px) {
   .mobile\:border {
-    border: var(--border-width) solid rgba(var(--col), 0.3);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 20%, transparent);
   }
   .mobile\:border\/0 {
-    border: var(--border-width) solid rgba(var(--col), 0);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 0, transparent);
   }
   .mobile\:border\/1 {
-    border: var(--border-width) solid rgba(var(--col), 0.1);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 0.1, transparent);
   }
   .mobile\:border\/2 {
-    border: var(--border-width) solid rgba(var(--col), 0.2);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 0.2, transparent);
   }
   .mobile\:border\/3 {
-    border: var(--border-width) solid rgba(var(--col), 0.3);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 0.3, transparent);
   }
   .mobile\:border\/4 {
-    border: var(--border-width) solid rgba(var(--col), 0.4);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 0.4, transparent);
   }
   .mobile\:border\/5 {
-    border: var(--border-width) solid rgba(var(--col), 0.5);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 0.5, transparent);
   }
   .mobile\:border\/6 {
-    border: var(--border-width) solid rgba(var(--col), 0.6);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 0.6, transparent);
   }
   .mobile\:border\/7 {
-    border: var(--border-width) solid rgba(var(--col), 0.7);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 0.7, transparent);
   }
   .mobile\:border\/8 {
-    border: var(--border-width) solid rgba(var(--col), 0.8);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 0.8, transparent);
   }
   .mobile\:border\/9 {
-    border: var(--border-width) solid rgba(var(--col), 0.9);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 0.9, transparent);
   }
   .mobile\:border\/10 {
-    border: var(--border-width) solid rgba(var(--col), 1);
+    border: var(--border-width) solid color-mix(in srgb, var(--col) 1, transparent);
   }
   .mobile\:border__left {
-    border-left: var(--border-width) solid rgba(var(--col), 0.3);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 20%, transparent);
   }
   .mobile\:border__left\/0 {
-    border-left: var(--border-width) solid rgba(var(--col), 0);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0, transparent);
   }
   .mobile\:border__left\/1 {
-    border-left: var(--border-width) solid rgba(var(--col), 0.1);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.1, transparent);
   }
   .mobile\:border__left\/2 {
-    border-left: var(--border-width) solid rgba(var(--col), 0.2);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.2, transparent);
   }
   .mobile\:border__left\/3 {
-    border-left: var(--border-width) solid rgba(var(--col), 0.3);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.3, transparent);
   }
   .mobile\:border__left\/4 {
-    border-left: var(--border-width) solid rgba(var(--col), 0.4);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.4, transparent);
   }
   .mobile\:border__left\/5 {
-    border-left: var(--border-width) solid rgba(var(--col), 0.5);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.5, transparent);
   }
   .mobile\:border__left\/6 {
-    border-left: var(--border-width) solid rgba(var(--col), 0.6);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.6, transparent);
   }
   .mobile\:border__left\/7 {
-    border-left: var(--border-width) solid rgba(var(--col), 0.7);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.7, transparent);
   }
   .mobile\:border__left\/8 {
-    border-left: var(--border-width) solid rgba(var(--col), 0.8);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.8, transparent);
   }
   .mobile\:border__left\/9 {
-    border-left: var(--border-width) solid rgba(var(--col), 0.9);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 0.9, transparent);
   }
   .mobile\:border__left\/10 {
-    border-left: var(--border-width) solid rgba(var(--col), 1);
+    border-left: var(--border-width) solid color-mix(in srgb, var(--col) 1, transparent);
   }
   .mobile\:border__right {
-    border-right: var(--border-width) solid rgba(var(--col), 0.3);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 20%, transparent);
   }
   .mobile\:border__right\/0 {
-    border-right: var(--border-width) solid rgba(var(--col), 0);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0, transparent);
   }
   .mobile\:border__right\/1 {
-    border-right: var(--border-width) solid rgba(var(--col), 0.1);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.1, transparent);
   }
   .mobile\:border__right\/2 {
-    border-right: var(--border-width) solid rgba(var(--col), 0.2);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.2, transparent);
   }
   .mobile\:border__right\/3 {
-    border-right: var(--border-width) solid rgba(var(--col), 0.3);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.3, transparent);
   }
   .mobile\:border__right\/4 {
-    border-right: var(--border-width) solid rgba(var(--col), 0.4);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.4, transparent);
   }
   .mobile\:border__right\/5 {
-    border-right: var(--border-width) solid rgba(var(--col), 0.5);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.5, transparent);
   }
   .mobile\:border__right\/6 {
-    border-right: var(--border-width) solid rgba(var(--col), 0.6);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.6, transparent);
   }
   .mobile\:border__right\/7 {
-    border-right: var(--border-width) solid rgba(var(--col), 0.7);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.7, transparent);
   }
   .mobile\:border__right\/8 {
-    border-right: var(--border-width) solid rgba(var(--col), 0.8);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.8, transparent);
   }
   .mobile\:border__right\/9 {
-    border-right: var(--border-width) solid rgba(var(--col), 0.9);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 0.9, transparent);
   }
   .mobile\:border__right\/10 {
-    border-right: var(--border-width) solid rgba(var(--col), 1);
+    border-right: var(--border-width) solid color-mix(in srgb, var(--col) 1, transparent);
   }
   .mobile\:border__top {
-    border-top: var(--border-width) solid rgba(var(--col), 0.3);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 20%, transparent);
   }
   .mobile\:border__top\/0 {
-    border-top: var(--border-width) solid rgba(var(--col), 0);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0, transparent);
   }
   .mobile\:border__top\/1 {
-    border-top: var(--border-width) solid rgba(var(--col), 0.1);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.1, transparent);
   }
   .mobile\:border__top\/2 {
-    border-top: var(--border-width) solid rgba(var(--col), 0.2);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.2, transparent);
   }
   .mobile\:border__top\/3 {
-    border-top: var(--border-width) solid rgba(var(--col), 0.3);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.3, transparent);
   }
   .mobile\:border__top\/4 {
-    border-top: var(--border-width) solid rgba(var(--col), 0.4);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.4, transparent);
   }
   .mobile\:border__top\/5 {
-    border-top: var(--border-width) solid rgba(var(--col), 0.5);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.5, transparent);
   }
   .mobile\:border__top\/6 {
-    border-top: var(--border-width) solid rgba(var(--col), 0.6);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.6, transparent);
   }
   .mobile\:border__top\/7 {
-    border-top: var(--border-width) solid rgba(var(--col), 0.7);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.7, transparent);
   }
   .mobile\:border__top\/8 {
-    border-top: var(--border-width) solid rgba(var(--col), 0.8);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.8, transparent);
   }
   .mobile\:border__top\/9 {
-    border-top: var(--border-width) solid rgba(var(--col), 0.9);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 0.9, transparent);
   }
   .mobile\:border__top\/10 {
-    border-top: var(--border-width) solid rgba(var(--col), 1);
+    border-top: var(--border-width) solid color-mix(in srgb, var(--col) 1, transparent);
   }
   .mobile\:border__bottom {
-    border-bottom: var(--border-width) solid rgba(var(--col), 0.3);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 20%, transparent);
   }
   .mobile\:border__bottom\/0 {
-    border-bottom: var(--border-width) solid rgba(var(--col), 0);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0, transparent);
   }
   .mobile\:border__bottom\/1 {
-    border-bottom: var(--border-width) solid rgba(var(--col), 0.1);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.1, transparent);
   }
   .mobile\:border__bottom\/2 {
-    border-bottom: var(--border-width) solid rgba(var(--col), 0.2);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.2, transparent);
   }
   .mobile\:border__bottom\/3 {
-    border-bottom: var(--border-width) solid rgba(var(--col), 0.3);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.3, transparent);
   }
   .mobile\:border__bottom\/4 {
-    border-bottom: var(--border-width) solid rgba(var(--col), 0.4);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.4, transparent);
   }
   .mobile\:border__bottom\/5 {
-    border-bottom: var(--border-width) solid rgba(var(--col), 0.5);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.5, transparent);
   }
   .mobile\:border__bottom\/6 {
-    border-bottom: var(--border-width) solid rgba(var(--col), 0.6);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.6, transparent);
   }
   .mobile\:border__bottom\/7 {
-    border-bottom: var(--border-width) solid rgba(var(--col), 0.7);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.7, transparent);
   }
   .mobile\:border__bottom\/8 {
-    border-bottom: var(--border-width) solid rgba(var(--col), 0.8);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.8, transparent);
   }
   .mobile\:border__bottom\/9 {
-    border-bottom: var(--border-width) solid rgba(var(--col), 0.9);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 0.9, transparent);
   }
   .mobile\:border__bottom\/10 {
-    border-bottom: var(--border-width) solid rgba(var(--col), 1);
+    border-bottom: var(--border-width) solid color-mix(in srgb, var(--col) 1, transparent);
   }
 }
 html body hr {
   border: none;
-  borderbottom: var(--border-width) solid rgba(var(--col), 0.3);
+  borderbottom: var(--border-width) solid color-mix(in srgb, var(--col) 20%, transparent);
   margin: 0;
   padding: 0;
   height: 0;

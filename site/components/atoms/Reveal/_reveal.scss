@@ -8,7 +8,7 @@
 :root {
 	--reveal-duration: var(--animation-duration);
   --reveal-stack: var(--animation-stagger);
-  --reveal-delay: var(--animation-delay);
+  --reveal-delay: calc(var(--animation-delay) + 0ms);
 }
 
 
@@ -110,7 +110,7 @@
     & > span {
       display: inline-block;
       transform: translateY(2em) scaleY(0);
-      @include animation((transform, color), var(--reveal-duration), (var(--delay), calc(var(--delay) + 200ms)));
+      @include animation((transform, color), var(--reveal-duration), (var(--delay), calc(var(--delay) + 300ms)));
       
     }
   }

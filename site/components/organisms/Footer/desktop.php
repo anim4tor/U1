@@ -3,7 +3,7 @@
 
 	<div class="grid__4 gap__1 inner-x__1 inner-y__2 inner-b__1">
 		<a class="footer__logo" href="<?= page('home')->url() ?>"><span data-reveal ><?= svg('public/assets/images/fig_logo.svg') ?></span></a>	
-		<nav class="span__3 footer__nav flex wrap align__center gap__02 ff__heading upper font__size__3">
+		<nav class="span__3 footer__nav flex wrap align__center gap__02 ff__heading font__size__3 s">
 			<?php foreach ($pages->listed() as $p): ?>
 				<?php if(!$p->isFirst()) : ?>
 					<span class="light ff__body op__2">/</span>

@@ -17,7 +17,7 @@
 					<?php if ($img = $step->figure()->toFile()) : ?>
 						<div class="item__figure img__radius"><?= snippet('atoms/Image', ['img' => $img, 'parallax' => 2, 'reveal' => false, 'css' => 'vh__8 vw__8']) ?></div>
 					<?php endif ?>
-					<p class="s text__center" data-hover-reveal data-split-ignore data-reveal-text="lines"><?= $step->detail()->inline() ?></p>
+					<p class="s text__center" data-hover-reveal data-split-ignore data-reveal-text="words"><?= $step->detail()->inline() ?></p>
 				</a>
 			<?php endforeach ?>
 			</ul>
