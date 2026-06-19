@@ -6,9 +6,9 @@
     /* ==========================================================================
        TYPOGRAPHY BRANDING FRAMEWORK TOKENS
        ========================================================================== */
-    --ff-heading:              'Inter';
+    --ff-heading:              'ABCArizonaFlare';
     --fw-heading:              500;
-    --tt-heading:              none;
+    --tt-heading:              uppercase;
     --ls-heading:              -0.035em;
     --ff-body:                 'Inter';
     --fw-body:                 500;
@@ -20,7 +20,7 @@
        FLUID RESPONSIVE SCALE ENGINE TOKENS
        ========================================================================== */
     --type-scale:              1.618;
-    --type-start-rem:          1.2rem;
+    --type-start-rem:          1rem;
     --type-start-vw:           1.3vw;
     --base-line-height:        1.1;
     --body-scale:              1.222;

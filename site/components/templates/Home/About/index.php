@@ -20,7 +20,7 @@
 		<div class="span__3 flex justify__space-between">
 			<?php foreach ($page->introFeatures()->toStructure() as $feature) : ?>
 				<div class="flex inner-y__2" data-scroll>
-					<div class="font__size__1 ff__heading l outlined" data-reveal-text><?= $feature->feature() ?></div>
+					<h2 class="font__size__1 l outlined" data-reveal-text><?= $feature->feature() ?></h2>
 					<div class="s label" data-reveal-text="lines"><?= $feature->label() ?></div>
 				</div>
 			<?php endforeach ?>

@@ -13,7 +13,7 @@
 			<?php endif ?>
 		<?php endforeach ?>
 	</div>
-	<div class="z__1 intro__header grid__4 rows__2 mobile:grid__1 h__100v mobile:h__auto inner__1 mobile:inner-t__10 mobile:gap__2 relative color__invert">
+	<div class="z__1 intro__header grid__4 mobile:grid__1 h__100v mobile:h__auto inner__1 mobile:inner-t__10 mobile:gap__2 relative color__invert">
 		<div class="span__4 grid__4 inner-t__3 relative flex justify__space-between align__center" data-scroll data-scroll-ignore>
 			<div class="upper s" data-tab-next>Featured project</div>
 			<div class="span__2 grid__stack" data-pane-container>
