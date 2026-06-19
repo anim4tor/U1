@@ -27474,6 +27474,12 @@ img.no__style {
   -webkit-transform: translateX(20%);
           transform: translateX(20%);
 }
+[data-tab-reveal][data-reveal-cover] figure,
+[data-tab-reveal] [data-reveal-cover] figure {
+  /*transition: --p var(--reveal-duration) var(--animation-timing);
+  		--p: 1;*/
+  --p: 0;
+}
 
 /* 2. HOVER IN STAV (když na něj najedeš) */
 [data-pane][data-active] [data-tab-reveal][data-reveal-text],
@@ -27522,8 +27528,10 @@ img.no__style {
 [data-pane][data-active] [data-tab-reveal] [data-reveal-cover] figure,
 [data-pane][data-active][data-tab-reveal][data-reveal-cover] figure,
 [data-pane][data-active][data-tab-reveal] [data-reveal-cover] figure {
-  transition: --p var(--reveal-duration) cubic-bezier(0.4, 0, 0.2, 1);
-  --p: 1;
+  /*transition: --p var(--reveal-duration) var(--animation-timing);
+  		--p: 1;*/
+  -webkit-animation: cover-in var(--reveal-duration) var(--animation-timing) forwards;
+          animation: cover-in var(--reveal-duration) var(--animation-timing) forwards;
 }
 
 [data-pane].is-closing[data-tab-reveal][data-reveal-image],
@@ -27539,7 +27547,7 @@ img.no__style {
 [data-pane].is-closing[data-tab-reveal] [data-reveal-cover] figure,
 [data-pane].is-closing [data-tab-reveal][data-reveal-cover] figure,
 [data-pane].is-closing [data-tab-reveal] [data-reveal-cover] figure {
-  --p: 1;
+  --p: 1 !important;
 }
 
 @-webkit-keyframes image-in {
@@ -27573,6 +27581,38 @@ img.no__style {
   }
   to {
     clip-path: inset(0% 0% 0% 100%);
+  }
+}
+@-webkit-keyframes cover-in {
+  from {
+    --p: 0;
+  }
+  to {
+    --p: 1;
+  }
+}
+@keyframes cover-in {
+  from {
+    --p: 0;
+  }
+  to {
+    --p: 1;
+  }
+}
+@-webkit-keyframes cover-out {
+  from {
+    --p: 1;
+  }
+  to {
+    --p: 0;
+  }
+}
+@keyframes cover-out {
+  from {
+    --p: 1;
+  }
+  to {
+    --p: 0;
   }
 }
 /*

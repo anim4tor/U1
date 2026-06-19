@@ -85,6 +85,15 @@
 				transform: translateX(20%);
 			}
   }
+
+  &[data-reveal-cover],
+  [data-reveal-cover] {
+  	figure {
+		/*transition: --p var(--reveal-duration) var(--animation-timing);
+  		--p: 1;*/
+  		--p: 0;
+  	}
+  }
 }
 
 /* 2. HOVER IN STAV (když na něj najedeš) */
@@ -113,8 +122,9 @@
   &[data-reveal-cover],
   [data-reveal-cover] {
   	figure {
-		transition: --p var(--reveal-duration) cubic-bezier(0.4, 0, 0.2, 1);
-  		--p: 1;
+		/*transition: --p var(--reveal-duration) var(--animation-timing);
+  		--p: 1;*/
+  		animation: cover-in var(--reveal-duration) var(--animation-timing) forwards;
   	}
   }
 }
@@ -131,7 +141,7 @@
 	&[data-reveal-cover],
 	[data-reveal-cover] {
 		figure {
-			--p: 1;
+			--p: 1 !important;
 		}
 	}
 }
@@ -152,5 +162,23 @@
 	}
 	to {
 		clip-path: inset(0% 0% 0% 100%);
+	}
+}
+
+@keyframes cover-in {
+	from {
+		--p: 0;
+	}
+	to {
+		--p: 1;
+	}
+}
+
+@keyframes cover-out {
+	from {
+		--p: 1;
+	}
+	to {
+		--p: 0;
 	}
 }
