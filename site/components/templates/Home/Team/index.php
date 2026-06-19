@@ -1,7 +1,7 @@
 <section class="team" theme="invert" data-tabs="hoverable">
 	<div class="relative grid gap__2 inner-x__1 inner-y__2">
 		<div class="" data-scroll>
-			<h1 class="xl flex justify__space-between" data-reveal-text><span>Our</span><span>Teams</span></h1>
+			<h2 class="l flex justify__space-between" data-reveal-text><span>Our</span><span>Teams</span></h2>
 		</div>
 	</div>
 	<div class="grid__3 gap__2 relative place__start-start inner-y__2 inner-b__5" data-tabs>
@@ -12,7 +12,7 @@
 						$employees = collection('Employees')->filterBy('team', '*=', $team->name())->count();
 					?>
 					<div data-tab="team-<?= $team->indexOf(collection('Team')) ?>" class="flex gap__02" data-scroll>
-						<h3 class="font__size__1 s no__wrap" data-reveal-text data-split-ignore><?= $team->name() ?></h3>
+						<h3 class="no__wrap" data-reveal-text data-split-ignore><?= $team->name() ?></h3>
 						<div data-reveal-text="" data-split-ignore style="--in-delay: 800ms" class="-wrap-t__03">(<?= $employees ?>)</div>
 					</div>
 				<?php endforeach ?>
@@ -21,7 +21,7 @@
 				<div data-pane-container class="grid__stack">
 					<?php foreach (collection('Team') as $team) : ?>
 					<div data-pane="team-<?= $team->indexOf(collection('Team')) ?>" class="grid ">
-						<p class="s upper" data-reveal-text="lines" data-split-ignore data-tab-reveal><?= $team->details()->inline() ?></p>
+						<p class="s" data-reveal-text="lines" data-split-ignore data-tab-reveal><?= $team->details()->inline() ?></p>
 					</div>
 					<?php endforeach ?>
 				</div>
@@ -34,7 +34,7 @@
 					<div data-pane="team-<?= $team->indexOf(collection('Team')) ?>" class="" data-scroll data-scroll-ignore data-tab-reveal>
 						<div class="grid place__start-end gap__05">
 							<?php if ($photo = $leader->photo()->toFile()) : ?>
-								<div data-reveal-image class="item__figure radius no__overflow "><?= snippet('atoms/Image', ['img' => $photo, 'parallax' => 1, 'css' => 'w__10 aspect__3/4 grid' ]) ?></div>
+								<div data-reveal-image class="item__figure img__radius no__overflow "><?= snippet('atoms/Image', ['img' => $photo, 'parallax' => 1, 'css' => 'w__10 aspect__3/4 grid' ]) ?></div>
 							<?php endif ?>
 
 							<div class="flex gap__05 justify__space-between upper wrap">

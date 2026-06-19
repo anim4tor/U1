@@ -15,6 +15,12 @@ class Tabs {
             }
         };
 
+        // Konfigurace časů na jednom místě
+        this.settings = {
+            animationDuration: 800,  // Jak dlouho trvá, než se úplně schová odcházející panel (ms)
+            debounceDuration: 200   // Jak dlouho musí myš stát na tabu, než se aktivuje panel (ms)
+        };
+
         this.data = {
             active: 0,
             next: 0,
@@ -24,7 +30,7 @@ class Tabs {
         this.is_changing = false;
         this.is_scrolling_via_click = false; 
         this.scroll_timeout = null;
-        this.hover_timeout = null; // Časovač pro ustálení myši
+        this.hover_timeout = null;
         
         this.closing_timeouts = []; 
 
@@ -135,8 +141,6 @@ class Tabs {
         if (this.data.active === this.data.next && this.DOM.widget.classList.contains('--init-done')) return;
         this.DOM.widget.classList.add('--init-done');
 
-        const animationDuration = 800; 
-
         // 1. OKAMŽITÁ ZMĚNA PRO TABY
         this.DOM.tabs.forEach((t, i) => {
             const isActive = i === this.data.next;
@@ -152,7 +156,7 @@ class Tabs {
         const activeTab = this.DOM.tabs[this.data.next];
         const activePaneValue = activeTab ? (activeTab.dataset.tab || activeTab.dataset.asyncTab || String(this.data.next)) : null;
 
-        // 2. PARALELNÍ ZMĚNA PANELŮ
+        // 2. PARALELNÍ ZMĚNA PANELŮ (Využívá settings.animationDuration)
         this.DOM.panes.forEach((p, i) => {
             const isOldPane = p.dataset.pane ? (p.dataset.pane === lastActivePaneValue) : (i === this.data.active);
             const isNewPane = p.dataset.pane ? (p.dataset.pane === activePaneValue) : (i === this.data.next);
@@ -164,7 +168,7 @@ class Tabs {
                 const timeoutId = setTimeout(() => {
                     p.classList.remove('is-closing');
                     this.closing_timeouts = this.closing_timeouts.filter(id => id !== timeoutId);
-                }, animationDuration);
+                }, this.settings.animationDuration);
                 
                 this.closing_timeouts.push(timeoutId);
             }
@@ -271,7 +275,7 @@ class Tabs {
 
             this.scroll_timeout = setTimeout(() => {
                 this.is_scrolling_via_click = false;
-            }, 800);
+            }, this.settings.animationDuration); // Využívá zadanou délku animace i pro scroll timeout
         }
     }
 
@@ -282,7 +286,7 @@ class Tabs {
     }
 
     initEvents() {
-        // --- HOVER LOGIKA (Taby ihned, panely po ustálení) ---
+        // --- HOVER LOGIKA (Využívá settings.debounceDuration) ---
         if (this.is_hoverable) {
             this.DOM.tabs.forEach(tab => {
                 
@@ -291,12 +295,11 @@ class Tabs {
                     return (!value) ? this.DOM.tabs.indexOf(tab) : this.getTabIndexByPaneValue(value);
                 };
 
-                // Funkce, která se stará o postupné kroky hoveru
                 const handleHover = () => {
                     const index = getIndex();
                     if (index === -1) return;
 
-                    // 1. KROK: Okamžitá změna aktivního stavu pro samotné taby
+                    // Okamžité přepnutí aktivního tabu
                     this.DOM.tabs.forEach((t, i) => {
                         const isActive = i === index;
                         t.toggleAttribute('data-active', isActive);
@@ -304,23 +307,22 @@ class Tabs {
                         t.setAttribute('tabindex', isActive ? '0' : '-1');
                     });
 
-                    // 2. KROK: Odložení aktivace panelu, dokud se myš neustálí
+                    // Odložená aktivace panelu na základě constructoru
                     clearTimeout(this.hover_timeout);
                     this.hover_timeout = setTimeout(() => {
                         if (index !== this.data.active) {
                             this.setActive(index);
                         }
-                    }, 200); // 200ms čekání na zastavení myši
+                    }, this.settings.debounceDuration);
                 };
 
                 tab.addEventListener('mouseenter', handleHover);
                 tab.addEventListener('mousemove', handleHover);
 
-                // Při opuštění menu uklidíme časovač pro panely
                 tab.addEventListener('mouseleave', () => {
                     clearTimeout(this.hover_timeout);
                     
-                    // Vrátíme vizuální stav tabů zpět na ten panel, který je reálně aktivní
+                    // Reset tabů na reálně aktivní panel
                     this.DOM.tabs.forEach((t, i) => {
                         const isActive = i === this.data.active;
                         t.toggleAttribute('data-active', isActive);
@@ -331,11 +333,10 @@ class Tabs {
             });
         }
 
-        // --- CLICK LOGIKA (Zůstává stejná, čistí hover timery) ---
+        // --- CLICK LOGIKA ---
         this.DOM.widget.addEventListener("click", e => {
             const clickedLink = e.target.closest('a');
             
-            // 1. Standardní taby
             const tab = e.target.closest('[data-tab]');
             if (tab && this.DOM.widget.contains(tab)) {
                 if (!clickedLink && !tab.hasAttribute('href')) {
@@ -353,7 +354,6 @@ class Tabs {
                 return;
             }
 
-            // 2. Asynchronní taby
             const asyncTab = e.target.closest('[data-async-tab]');
             if (asyncTab && this.DOM.widget.contains(asyncTab)) {
                 if (this.DOM.widget.classList.contains('--loading-async')) return;
@@ -371,7 +371,6 @@ class Tabs {
                 return;
             }
 
-            // 3. Navigační tlačítka
             if (e.target.closest('[data-tab-prev]')) {
                 clearTimeout(this.hover_timeout);
                 const prevIndex = this.data.active > 0 ? this.data.active - 1 : this.DOM.tabs.length - 1;

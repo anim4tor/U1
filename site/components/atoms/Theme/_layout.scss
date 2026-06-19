@@ -48,6 +48,15 @@ $pos: (
 		}
 	}
 }
+@mixin grid_rows {
+	@for $row from 1 through 12 {
+		&__#{$row} {
+			--nrow: #{$row};
+			display: grid;
+			grid-template-rows: repeat(var(--nrow), minmax(0, 1fr));
+		}
+	}
+}
 @mixin grid_span {
 	@for $width from 1 through 12 {
 		&__#{$width} {
@@ -129,6 +138,9 @@ $pos: (
 		@include display;
 		.grid {
 			@include grid_columns;
+		}
+		.rows {
+			@include grid_rows;
 		}
 		.span {
 			@include grid_span;

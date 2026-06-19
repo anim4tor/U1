@@ -4,12 +4,10 @@
 
 */
 input, textarea, select {
-	font-family: var(--font-body);
-	font-size: var(--font-size-lg);
+	font-family: var(--ff-body);
+	font-size: var(--font-size-default);
 	line-height: var(--line-height-default);
-	font-weight: var(--font-weight-body);
-	letter-spacing: 0.035em;
-	padding: calc(var(--spacing)*1) 0;
+	font-weight: var(--fw-body);
 	color: currentColor;
 	position: relative;
 	width: 100%;
@@ -38,6 +36,12 @@ input, textarea, select {
 		bottom: 0;
 		left: 0;
 		width: 100%;
+	}
+}
+
+select {
+	option {
+		color: black;
 	}
 }
 

@@ -13,6 +13,7 @@
 */
 /*defaults*/
 /*$defaultEasing: cubic-bezier(0.16, 1, 0.3, 1);*/
+/*Updated Mixin Mapping to CSS custom properties*/
 @-webkit-keyframes bounce {
   from, 20%, 53%, to {
     -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
@@ -3628,6 +3629,7 @@
 */
 /*defaults*/
 /*$defaultEasing: cubic-bezier(0.16, 1, 0.3, 1);*/
+/*Updated Mixin Mapping to CSS custom properties*/
 @-webkit-keyframes bounce {
   from, 20%, 53%, to {
     -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
@@ -7209,9 +7211,9 @@
 }
 
 :root {
-  --reveal-duration: 800ms;
-  --reveal-stack: 50ms;
-  --reveal-delay: 0ms;
+  --reveal-duration: var(--animation-duration);
+  --reveal-stack: var(--animation-stagger);
+  --reveal-delay: var(--animation-delay);
 }
 
 /*
@@ -7224,12 +7226,12 @@
   transition-property: -webkit-transform;
   transition-property: transform;
   transition-property: transform, -webkit-transform;
-  -webkit-transition-duration: 800ms;
-          transition-duration: 800ms;
-  -webkit-transition-delay: 0ms;
-          transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-transition-duration: var(--animation-duration, 1s);
+          transition-duration: var(--animation-duration, 1s);
+  -webkit-transition-delay: var(--animation-delay, 0ms);
+          transition-delay: var(--animation-delay, 0ms);
+  -webkit-transition-timing-function: var(--animation-timing, ease-in-out);
+          transition-timing-function: var(--animation-timing, ease-in-out);
   will-change: transform;
   visibility: hidden;
   -webkit-transition-delay: var(--delay);
@@ -7272,8 +7274,8 @@
   --delay: calc(var(--in-delay, 0) + 12 * 100ms);
 }
 [data-reveal] {
-  -webkit-transform: rotate(30deg) scale(0);
-          transform: rotate(30deg) scale(0);
+  -webkit-transform: scale(0);
+          transform: scale(0);
 }
 
 [data-reveal=opacity] {
@@ -7300,19 +7302,19 @@
   clip-path: inset(0% 100% 0% 0%);
   -webkit-transition-property: clip-path;
   transition-property: clip-path;
-  -webkit-transition-duration: 800ms;
-          transition-duration: 800ms;
-  -webkit-transition-delay: 0ms;
-          transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-transition-duration: var(--animation-duration, 1s);
+          transition-duration: var(--animation-duration, 1s);
+  -webkit-transition-delay: var(--animation-delay, 0ms);
+          transition-delay: var(--animation-delay, 0ms);
+  -webkit-transition-timing-function: var(--animation-timing, ease-in-out);
+          transition-timing-function: var(--animation-timing, ease-in-out);
   will-change: clip-path;
 }
 
 [data-reveal-cover] figure {
   --items: 1;
   --p: 0;
-  --mask: transparent 0% calc( 5% - (var(--p) * 2 - 0) * 5% ), black calc( 5% - (var(--p) * 2 - 0) * 5% ) 5%, transparent 5% calc( 10% - (var(--p) * 2 - 0.05) * 5% ), black calc( 10% - (var(--p) * 2 - 0.05) * 5% ) 10%, transparent 10% calc( 15% - (var(--p) * 2 - 0.1) * 5% ), black calc( 15% - (var(--p) * 2 - 0.1) * 5% ) 15%, transparent 15% calc( 20% - (var(--p) * 2 - 0.15) * 5% ), black calc( 20% - (var(--p) * 2 - 0.15) * 5% ) 20%, transparent 20% calc( 25% - (var(--p) * 2 - 0.2) * 5% ), black calc( 25% - (var(--p) * 2 - 0.2) * 5% ) 25%, transparent 25% calc( 30% - (var(--p) * 2 - 0.25) * 5% ), black calc( 30% - (var(--p) * 2 - 0.25) * 5% ) 30%, transparent 30% calc( 35% - (var(--p) * 2 - 0.3) * 5% ), black calc( 35% - (var(--p) * 2 - 0.3) * 5% ) 35%, transparent 35% calc( 40% - (var(--p) * 2 - 0.35) * 5% ), black calc( 40% - (var(--p) * 2 - 0.35) * 5% ) 40%, transparent 40% calc( 45% - (var(--p) * 2 - 0.4) * 5% ), black calc( 45% - (var(--p) * 2 - 0.4) * 5% ) 45%, transparent 45% calc( 50% - (var(--p) * 2 - 0.45) * 5% ), black calc( 50% - (var(--p) * 2 - 0.45) * 5% ) 50%, transparent 50% calc( 55% - (var(--p) * 2 - 0.5) * 5% ), black calc( 55% - (var(--p) * 2 - 0.5) * 5% ) 55%, transparent 55% calc( 60% - (var(--p) * 2 - 0.55) * 5% ), black calc( 60% - (var(--p) * 2 - 0.55) * 5% ) 60%, transparent 60% calc( 65% - (var(--p) * 2 - 0.6) * 5% ), black calc( 65% - (var(--p) * 2 - 0.6) * 5% ) 65%, transparent 65% calc( 70% - (var(--p) * 2 - 0.65) * 5% ), black calc( 70% - (var(--p) * 2 - 0.65) * 5% ) 70%, transparent 70% calc( 75% - (var(--p) * 2 - 0.7) * 5% ), black calc( 75% - (var(--p) * 2 - 0.7) * 5% ) 75%, transparent 75% calc( 80% - (var(--p) * 2 - 0.75) * 5% ), black calc( 80% - (var(--p) * 2 - 0.75) * 5% ) 80%, transparent 80% calc( 85% - (var(--p) * 2 - 0.8) * 5% ), black calc( 85% - (var(--p) * 2 - 0.8) * 5% ) 85%, transparent 85% calc( 90% - (var(--p) * 2 - 0.85) * 5% ), black calc( 90% - (var(--p) * 2 - 0.85) * 5% ) 90%, transparent 90% calc( 95% - (var(--p) * 2 - 0.9) * 5% ), black calc( 95% - (var(--p) * 2 - 0.9) * 5% ) 95%, transparent 95% calc( 100% - (var(--p) * 2 - 0.95) * 5% ), black calc( 100% - (var(--p) * 2 - 0.95) * 5% ) 100%;;
+  --mask: transparent 0% calc( 4.1666666667% - (var(--p) * 2 - 0) * 4.1666666667% ), black calc( 4.1666666667% - (var(--p) * 2 - 0) * 4.1666666667% ) 4.1666666667%, transparent 4.1666666667% calc( 8.3333333333% - (var(--p) * 2 - 0.0416666667) * 4.1666666667% ), black calc( 8.3333333333% - (var(--p) * 2 - 0.0416666667) * 4.1666666667% ) 8.3333333333%, transparent 8.3333333333% calc( 12.5% - (var(--p) * 2 - 0.0833333333) * 4.1666666667% ), black calc( 12.5% - (var(--p) * 2 - 0.0833333333) * 4.1666666667% ) 12.5%, transparent 12.5% calc( 16.6666666667% - (var(--p) * 2 - 0.125) * 4.1666666667% ), black calc( 16.6666666667% - (var(--p) * 2 - 0.125) * 4.1666666667% ) 16.6666666667%, transparent 16.6666666667% calc( 20.8333333333% - (var(--p) * 2 - 0.1666666667) * 4.1666666667% ), black calc( 20.8333333333% - (var(--p) * 2 - 0.1666666667) * 4.1666666667% ) 20.8333333333%, transparent 20.8333333333% calc( 25% - (var(--p) * 2 - 0.2083333333) * 4.1666666667% ), black calc( 25% - (var(--p) * 2 - 0.2083333333) * 4.1666666667% ) 25%, transparent 25% calc( 29.1666666667% - (var(--p) * 2 - 0.25) * 4.1666666667% ), black calc( 29.1666666667% - (var(--p) * 2 - 0.25) * 4.1666666667% ) 29.1666666667%, transparent 29.1666666667% calc( 33.3333333333% - (var(--p) * 2 - 0.2916666667) * 4.1666666667% ), black calc( 33.3333333333% - (var(--p) * 2 - 0.2916666667) * 4.1666666667% ) 33.3333333333%, transparent 33.3333333333% calc( 37.5% - (var(--p) * 2 - 0.3333333333) * 4.1666666667% ), black calc( 37.5% - (var(--p) * 2 - 0.3333333333) * 4.1666666667% ) 37.5%, transparent 37.5% calc( 41.6666666667% - (var(--p) * 2 - 0.375) * 4.1666666667% ), black calc( 41.6666666667% - (var(--p) * 2 - 0.375) * 4.1666666667% ) 41.6666666667%, transparent 41.6666666667% calc( 45.8333333333% - (var(--p) * 2 - 0.4166666667) * 4.1666666667% ), black calc( 45.8333333333% - (var(--p) * 2 - 0.4166666667) * 4.1666666667% ) 45.8333333333%, transparent 45.8333333333% calc( 50% - (var(--p) * 2 - 0.4583333333) * 4.1666666667% ), black calc( 50% - (var(--p) * 2 - 0.4583333333) * 4.1666666667% ) 50%, transparent 50% calc( 54.1666666667% - (var(--p) * 2 - 0.5) * 4.1666666667% ), black calc( 54.1666666667% - (var(--p) * 2 - 0.5) * 4.1666666667% ) 54.1666666667%, transparent 54.1666666667% calc( 58.3333333333% - (var(--p) * 2 - 0.5416666667) * 4.1666666667% ), black calc( 58.3333333333% - (var(--p) * 2 - 0.5416666667) * 4.1666666667% ) 58.3333333333%, transparent 58.3333333333% calc( 62.5% - (var(--p) * 2 - 0.5833333333) * 4.1666666667% ), black calc( 62.5% - (var(--p) * 2 - 0.5833333333) * 4.1666666667% ) 62.5%, transparent 62.5% calc( 66.6666666667% - (var(--p) * 2 - 0.625) * 4.1666666667% ), black calc( 66.6666666667% - (var(--p) * 2 - 0.625) * 4.1666666667% ) 66.6666666667%, transparent 66.6666666667% calc( 70.8333333333% - (var(--p) * 2 - 0.6666666667) * 4.1666666667% ), black calc( 70.8333333333% - (var(--p) * 2 - 0.6666666667) * 4.1666666667% ) 70.8333333333%, transparent 70.8333333333% calc( 75% - (var(--p) * 2 - 0.7083333333) * 4.1666666667% ), black calc( 75% - (var(--p) * 2 - 0.7083333333) * 4.1666666667% ) 75%, transparent 75% calc( 79.1666666667% - (var(--p) * 2 - 0.75) * 4.1666666667% ), black calc( 79.1666666667% - (var(--p) * 2 - 0.75) * 4.1666666667% ) 79.1666666667%, transparent 79.1666666667% calc( 83.3333333333% - (var(--p) * 2 - 0.7916666667) * 4.1666666667% ), black calc( 83.3333333333% - (var(--p) * 2 - 0.7916666667) * 4.1666666667% ) 83.3333333333%, transparent 83.3333333333% calc( 87.5% - (var(--p) * 2 - 0.8333333333) * 4.1666666667% ), black calc( 87.5% - (var(--p) * 2 - 0.8333333333) * 4.1666666667% ) 87.5%, transparent 87.5% calc( 91.6666666667% - (var(--p) * 2 - 0.875) * 4.1666666667% ), black calc( 91.6666666667% - (var(--p) * 2 - 0.875) * 4.1666666667% ) 91.6666666667%, transparent 91.6666666667% calc( 95.8333333333% - (var(--p) * 2 - 0.9166666667) * 4.1666666667% ), black calc( 95.8333333333% - (var(--p) * 2 - 0.9166666667) * 4.1666666667% ) 95.8333333333%, transparent 95.8333333333% calc( 100% - (var(--p) * 2 - 0.9583333333) * 4.1666666667% ), black calc( 100% - (var(--p) * 2 - 0.9583333333) * 4.1666666667% ) 100%;;
   -webkit-mask-image: -webkit-gradient(linear, left top, right top, from(var(--mask)));;
   -webkit-mask-image: linear-gradient(90deg, var(--mask));;
           mask-image: -webkit-gradient(linear, left top, right top, from(var(--mask)));;
@@ -7342,12 +7344,12 @@
     /*    transform: scaleX(0);*/
   }
   30% {
-    color: rgba(var(--color-acc), 1);
+    color: var(--color-acc);
   }
   100% {
     -webkit-transform: none;
             transform: none;
-    color: rgba(var(--col), 1);
+    color: var(--col);
   }
 }
 @keyframes reveal-in {
@@ -7357,22 +7359,22 @@
     /*    transform: scaleX(0);*/
   }
   30% {
-    color: rgba(var(--color-acc), 1);
+    color: var(--color-acc);
   }
   100% {
     -webkit-transform: none;
             transform: none;
-    color: rgba(var(--col), 1);
+    color: var(--col);
   }
 }
 @-webkit-keyframes hover-in {
   to {
-    color: rgba(var(--color-acc), 1);
+    color: var(--color-acc);
   }
 }
 @keyframes hover-in {
   to {
-    color: rgba(var(--color-acc), 1);
+    color: var(--color-acc);
   }
 }
 @-webkit-keyframes reveal-out {
@@ -7399,8 +7401,8 @@
 }
 [data-reveal-text]:not([data-hover-reveal]) [data-word] > span {
   display: inline-block;
-  -webkit-transform: translateY(2em);
-          transform: translateY(2em);
+  -webkit-transform: translateY(2em) scaleY(0);
+          transform: translateY(2em) scaleY(0);
   -webkit-transition-property: color, -webkit-transform;
   transition-property: color, -webkit-transform;
   transition-property: transform, color;
@@ -7409,12 +7411,12 @@
           transition-duration: var(--reveal-duration);
   -webkit-transition-delay: var(--delay), calc(var(--delay) + 200ms);
           transition-delay: var(--delay), calc(var(--delay) + 200ms);
-  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-transition-timing-function: var(--animation-timing, ease-in-out);
+          transition-timing-function: var(--animation-timing, ease-in-out);
   will-change: transform, color;
 }
 [data-reveal-text]:not([data-hover-reveal]) [data-word] > span {
-  color: rgba(var(--color-acc), 1);
+  color: var(--color-acc);
   --delay: calc(var(--char-index) * var(--reveal-stack)/((var(--word-total) + 1)/2) + var(--in-delay, var(--reveal-delay, 0ms)));
 }
 
@@ -7430,8 +7432,8 @@
 }
 [data-reveal-text=words]:not([data-hover-reveal]) [data-word] > span {
   display: inline-block;
-  -webkit-transform: translateY(2em);
-          transform: translateY(2em);
+  -webkit-transform: translateY(2em) scaleY(0);
+          transform: translateY(2em) scaleY(0);
   -webkit-transition-property: color, -webkit-transform;
   transition-property: color, -webkit-transform;
   transition-property: transform, color;
@@ -7440,8 +7442,8 @@
           transition-duration: var(--reveal-duration);
   -webkit-transition-delay: var(--delay), calc(var(--delay) + 200ms);
           transition-delay: var(--delay), calc(var(--delay) + 200ms);
-  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-transition-timing-function: var(--animation-timing, ease-in-out);
+          transition-timing-function: var(--animation-timing, ease-in-out);
   will-change: transform, color;
 }
 [data-reveal-text=words]:not([data-hover-reveal]) [data-word] > span {
@@ -7460,8 +7462,8 @@
 }
 [data-reveal-text=lines]:not([data-hover-reveal]) [data-word] > span {
   display: inline-block;
-  -webkit-transform: translateY(2em);
-          transform: translateY(2em);
+  -webkit-transform: translateY(2em) scaleY(0);
+          transform: translateY(2em) scaleY(0);
   -webkit-transition-property: color, -webkit-transform;
   transition-property: color, -webkit-transform;
   transition-property: transform, color;
@@ -7470,8 +7472,8 @@
           transition-duration: var(--reveal-duration);
   -webkit-transition-delay: var(--delay), calc(var(--delay) + 200ms);
           transition-delay: var(--delay), calc(var(--delay) + 200ms);
-  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-transition-timing-function: var(--animation-timing, ease-in-out);
+          transition-timing-function: var(--animation-timing, ease-in-out);
   will-change: transform, color;
 }
 [data-reveal-text=lines]:not([data-hover-reveal]) [data-word] > span {
@@ -7490,7 +7492,7 @@
 [data-scroll]:not([data-scroll-ignore]).is-inview[data-reveal-text] [data-word] > span {
   -webkit-transform: none;
           transform: none;
-  color: rgba(var(--col), 1);
+  color: var(--col);
   /*    animation: reveal-in var(--reveal-duration) $defaultEasing var(--delay) forwards;*/
 }
 
@@ -7537,8 +7539,8 @@
 [data-hover-reveal][data-reveal-text] [data-word] > span,
 [data-hover-reveal] [data-reveal-text] [data-word] > span {
   display: inline-block;
-  -webkit-transform: translateY(2em);
-          transform: translateY(2em);
+  -webkit-transform: translateY(2em) scaleY(0);
+          transform: translateY(2em) scaleY(0);
   -webkit-transition-property: color, -webkit-transform;
   transition-property: color, -webkit-transform;
   transition-property: transform, color;
@@ -7547,8 +7549,8 @@
           transition-duration: var(--reveal-duration);
   -webkit-transition-delay: var(--delay), calc(var(--delay) + 200ms);
           transition-delay: var(--delay), calc(var(--delay) + 200ms);
-  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-transition-timing-function: var(--animation-timing, ease-in-out);
+          transition-timing-function: var(--animation-timing, ease-in-out);
   will-change: transform, color;
 }
 
@@ -7565,7 +7567,7 @@
 [data-hoverable]:hover [data-hover-reveal] [data-reveal-text] [data-word] > span {
   -webkit-transform: none;
           transform: none;
-  color: rgba(var(--col), 1);
+  color: var(--col);
   /*    animation: reveal-in var(--reveal-duration) $defaultEasing var(--delay) forwards;*/
 }
 
@@ -7690,6 +7692,7 @@ icon.large, .icon.large {
 */
 /*defaults*/
 /*$defaultEasing: cubic-bezier(0.16, 1, 0.3, 1);*/
+/*Updated Mixin Mapping to CSS custom properties*/
 @-webkit-keyframes bounce {
   from, 20%, 53%, to {
     -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
@@ -11299,7 +11302,7 @@ ul li {
 */
 :root {
   --border-width: 1.5px;
-  --radius: calc(var(--spacing)*1.5);
+  --radius: 1.5;
 }
 
 .border {
@@ -11923,7 +11926,7 @@ html body hr {
 }
 
 .radius {
-  border-radius: var(--radius);
+  border-radius: calc(var(--radius) * 1em);
   overflow: hidden;
 }
 
@@ -11933,6 +11936,7 @@ html body hr {
 
 /*defaults*/
 /*$defaultEasing: cubic-bezier(0.16, 1, 0.3, 1);*/
+/*Updated Mixin Mapping to CSS custom properties*/
 @-webkit-keyframes bounce {
   from, 20%, 53%, to {
     -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
@@ -15517,6 +15521,7 @@ html body hr {
   --button-size: 40px;
   --button-radius: 2em;
   --button-spacing: 1.0em;
+  --button-family: var(--ff-body);
   --checkbox-radius: 1rem;
 }
 
@@ -15536,8 +15541,8 @@ html body hr {
   gap: 0.15em;
   -ms-flex-negative: 0;
       flex-shrink: 0;
-  font-family: var(--font-family-body);
-  font-size: calc(var(--font-size-default) * 0.8);
+  font-family: var(--button-family);
+  font-size: calc(var(--font-size-default));
   font-weight: 400;
   height: var(--button-size);
   min-width: var(--button-size);
@@ -15610,24 +15615,25 @@ html body hr {
   transition-property: -webkit-transform;
   transition-property: transform;
   transition-property: transform, -webkit-transform;
-  -webkit-transition-duration: 800ms;
-          transition-duration: 800ms;
+  -webkit-transition-duration: var(--animation-duration, 1s);
+          transition-duration: var(--animation-duration, 1s);
+  -webkit-transition-delay: var(--animation-delay, 0ms);
+          transition-delay: var(--animation-delay, 0ms);
+  -webkit-transition-timing-function: var(--animation-timing, ease-in-out);
+          transition-timing-function: var(--animation-timing, ease-in-out);
+  will-change: transform;
   -webkit-transition-delay: 0ms;
           transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  will-change: transform;
-  transition-delay: 0ms;
 }
 .button {
   -webkit-transition-property: all;
   transition-property: all;
-  -webkit-transition-duration: 800ms;
-          transition-duration: 800ms;
-  -webkit-transition-delay: 0ms;
-          transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-transition-duration: var(--animation-duration, 1s);
+          transition-duration: var(--animation-duration, 1s);
+  -webkit-transition-delay: var(--animation-delay, 0ms);
+          transition-delay: var(--animation-delay, 0ms);
+  -webkit-transition-timing-function: var(--animation-timing, ease-in-out);
+          transition-timing-function: var(--animation-timing, ease-in-out);
   will-change: all;
 }
 .button[theme=invert]:hover {
@@ -15660,10 +15666,10 @@ html body hr {
   transition-property: transform, -webkit-transform;
   -webkit-transition-duration: 600ms;
           transition-duration: 600ms;
-  -webkit-transition-delay: 0ms;
-          transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-transition-delay: var(--animation-delay, 0ms);
+          transition-delay: var(--animation-delay, 0ms);
+  -webkit-transition-timing-function: var(--animation-timing, ease-in-out);
+          transition-timing-function: var(--animation-timing, ease-in-out);
   will-change: transform;
 }
 .button > [aria-label]:after {
@@ -15684,6 +15690,7 @@ html body hr {
 */
 /*defaults*/
 /*$defaultEasing: cubic-bezier(0.16, 1, 0.3, 1);*/
+/*Updated Mixin Mapping to CSS custom properties*/
 @-webkit-keyframes bounce {
   from, 20%, 53%, to {
     -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
@@ -19264,61 +19271,88 @@ html body hr {
   animation-name: slideOutUp;
 }
 
-nav .link[href]:before {
-  --size: 0.25em;
-  content: "";
-  display: block;
-  position: absolute;
-  left: calc(-3 * var(--size));
-  top: 50%;
-  width: var(--size);
-  height: var(--size);
-  border-radius: 50%;
-  background: currentColor;
-  -webkit-transition-property: all;
-  transition-property: all;
-  -webkit-transition-duration: 800ms;
-          transition-duration: 800ms;
-  -webkit-transition-delay: 0ms;
-          transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  will-change: all;
-  -webkit-transform: scale(0);
-          transform: scale(0);
-}
-nav .link[href]:hover:before {
-  -webkit-transform: scale(1);
-          transform: scale(1);
-}
-
 p a[href] {
   position: relative;
 }
-p a[href]:before {
+
+/*
+
+	FORM INPUTS
+
+*/
+input, textarea, select {
+  font-family: var(--ff-body);
+  font-size: var(--font-size-default);
+  line-height: var(--line-height-default);
+  font-weight: var(--fw-body);
+  color: currentColor;
+  position: relative;
+  width: 100%;
+  border-bottom: 1px solid rgba(var(--col), 0.2);
+}
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder, select::-webkit-input-placeholder {
+  color: rgba(var(--col), 0.4);
+}
+input::-moz-placeholder, textarea::-moz-placeholder, select::-moz-placeholder {
+  color: rgba(var(--col), 0.4);
+}
+input:-ms-input-placeholder, textarea:-ms-input-placeholder, select:-ms-input-placeholder {
+  color: rgba(var(--col), 0.4);
+}
+input::-ms-input-placeholder, textarea::-ms-input-placeholder, select::-ms-input-placeholder {
+  color: rgba(var(--col), 0.4);
+}
+input::placeholder, textarea::placeholder, select::placeholder {
+  color: rgba(var(--col), 0.4);
+}
+input:focus, input:target, textarea:focus, textarea:target, select:focus, select:target {
+  border-bottom: 1px solid rgba(var(--col), 1);
+}
+input.invalid, textarea.invalid, select.invalid {
+  -webkit-animation: invalid 2s linear;
+          animation: invalid 2s linear;
+  /*		border-color: color(red);*/
+}
+
+.field {
+  position: relative;
+  width: 100%;
+}
+.field:after {
   content: "";
-  display: block;
   position: absolute;
   bottom: 0;
   left: 0;
-  right: 0;
-  height: 1px;
-  background: currentColor;
-  -webkit-transition-property: all;
-  transition-property: all;
-  -webkit-transition-duration: 800ms;
-          transition-duration: 800ms;
-  -webkit-transition-delay: 0ms;
-          transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  will-change: all;
-  -webkit-transform: scale(1);
-          transform: scale(1);
+  width: 100%;
 }
-p a[href]:hover:before {
-  -webkit-transform: scale(1);
-          transform: scale(1);
+
+select option {
+  color: black;
+}
+
+[data-checkbox] {
+  /*	display: inline-flex;*/
+  width: auto;
+}
+[data-checkbox] input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+[data-checkbox] input:checked + div.button {
+  background: rgba(var(--color-invert), 1);
+  color: rgba(var(--color-dark), 1);
+}
+
+.honeypot {
+  position: absolute;
+  left: -9999px;
+}
+
+input[type=file] {
+  font-size: calc(var(--font-size-md) * 1);
 }
 
 /*
@@ -19333,6 +19367,7 @@ p a[href]:hover:before {
 */
 /*defaults*/
 /*$defaultEasing: cubic-bezier(0.16, 1, 0.3, 1);*/
+/*Updated Mixin Mapping to CSS custom properties*/
 @-webkit-keyframes bounce {
   from, 20%, 53%, to {
     -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
@@ -22913,9 +22948,652 @@ p a[href]:hover:before {
   animation-name: slideOutUp;
 }
 
+/* 
+
+  BORDERS 
+
+*/
+/*
+
+    MEDIA
+
+*/
 :root {
-  --img-radius: 1.5em;
-  --img-radius: 0em;
+  --border-width: 1.5px;
+  --radius: 1.5;
+}
+
+.border {
+  border: var(--border-width) solid rgba(var(--col), 0.3);
+}
+
+.border\/0 {
+  border: var(--border-width) solid rgba(var(--col), 0);
+}
+
+.border\/1 {
+  border: var(--border-width) solid rgba(var(--col), 0.1);
+}
+
+.border\/2 {
+  border: var(--border-width) solid rgba(var(--col), 0.2);
+}
+
+.border\/3 {
+  border: var(--border-width) solid rgba(var(--col), 0.3);
+}
+
+.border\/4 {
+  border: var(--border-width) solid rgba(var(--col), 0.4);
+}
+
+.border\/5 {
+  border: var(--border-width) solid rgba(var(--col), 0.5);
+}
+
+.border\/6 {
+  border: var(--border-width) solid rgba(var(--col), 0.6);
+}
+
+.border\/7 {
+  border: var(--border-width) solid rgba(var(--col), 0.7);
+}
+
+.border\/8 {
+  border: var(--border-width) solid rgba(var(--col), 0.8);
+}
+
+.border\/9 {
+  border: var(--border-width) solid rgba(var(--col), 0.9);
+}
+
+.border\/10 {
+  border: var(--border-width) solid rgba(var(--col), 1);
+}
+
+.border__left {
+  border-left: var(--border-width) solid rgba(var(--col), 0.3);
+}
+
+.border__left\/0 {
+  border-left: var(--border-width) solid rgba(var(--col), 0);
+}
+
+.border__left\/1 {
+  border-left: var(--border-width) solid rgba(var(--col), 0.1);
+}
+
+.border__left\/2 {
+  border-left: var(--border-width) solid rgba(var(--col), 0.2);
+}
+
+.border__left\/3 {
+  border-left: var(--border-width) solid rgba(var(--col), 0.3);
+}
+
+.border__left\/4 {
+  border-left: var(--border-width) solid rgba(var(--col), 0.4);
+}
+
+.border__left\/5 {
+  border-left: var(--border-width) solid rgba(var(--col), 0.5);
+}
+
+.border__left\/6 {
+  border-left: var(--border-width) solid rgba(var(--col), 0.6);
+}
+
+.border__left\/7 {
+  border-left: var(--border-width) solid rgba(var(--col), 0.7);
+}
+
+.border__left\/8 {
+  border-left: var(--border-width) solid rgba(var(--col), 0.8);
+}
+
+.border__left\/9 {
+  border-left: var(--border-width) solid rgba(var(--col), 0.9);
+}
+
+.border__left\/10 {
+  border-left: var(--border-width) solid rgba(var(--col), 1);
+}
+
+.border__right {
+  border-right: var(--border-width) solid rgba(var(--col), 0.3);
+}
+
+.border__right\/0 {
+  border-right: var(--border-width) solid rgba(var(--col), 0);
+}
+
+.border__right\/1 {
+  border-right: var(--border-width) solid rgba(var(--col), 0.1);
+}
+
+.border__right\/2 {
+  border-right: var(--border-width) solid rgba(var(--col), 0.2);
+}
+
+.border__right\/3 {
+  border-right: var(--border-width) solid rgba(var(--col), 0.3);
+}
+
+.border__right\/4 {
+  border-right: var(--border-width) solid rgba(var(--col), 0.4);
+}
+
+.border__right\/5 {
+  border-right: var(--border-width) solid rgba(var(--col), 0.5);
+}
+
+.border__right\/6 {
+  border-right: var(--border-width) solid rgba(var(--col), 0.6);
+}
+
+.border__right\/7 {
+  border-right: var(--border-width) solid rgba(var(--col), 0.7);
+}
+
+.border__right\/8 {
+  border-right: var(--border-width) solid rgba(var(--col), 0.8);
+}
+
+.border__right\/9 {
+  border-right: var(--border-width) solid rgba(var(--col), 0.9);
+}
+
+.border__right\/10 {
+  border-right: var(--border-width) solid rgba(var(--col), 1);
+}
+
+.border__top {
+  border-top: var(--border-width) solid rgba(var(--col), 0.3);
+}
+
+.border__top\/0 {
+  border-top: var(--border-width) solid rgba(var(--col), 0);
+}
+
+.border__top\/1 {
+  border-top: var(--border-width) solid rgba(var(--col), 0.1);
+}
+
+.border__top\/2 {
+  border-top: var(--border-width) solid rgba(var(--col), 0.2);
+}
+
+.border__top\/3 {
+  border-top: var(--border-width) solid rgba(var(--col), 0.3);
+}
+
+.border__top\/4 {
+  border-top: var(--border-width) solid rgba(var(--col), 0.4);
+}
+
+.border__top\/5 {
+  border-top: var(--border-width) solid rgba(var(--col), 0.5);
+}
+
+.border__top\/6 {
+  border-top: var(--border-width) solid rgba(var(--col), 0.6);
+}
+
+.border__top\/7 {
+  border-top: var(--border-width) solid rgba(var(--col), 0.7);
+}
+
+.border__top\/8 {
+  border-top: var(--border-width) solid rgba(var(--col), 0.8);
+}
+
+.border__top\/9 {
+  border-top: var(--border-width) solid rgba(var(--col), 0.9);
+}
+
+.border__top\/10 {
+  border-top: var(--border-width) solid rgba(var(--col), 1);
+}
+
+.border__bottom {
+  border-bottom: var(--border-width) solid rgba(var(--col), 0.3);
+}
+
+.border__bottom\/0 {
+  border-bottom: var(--border-width) solid rgba(var(--col), 0);
+}
+
+.border__bottom\/1 {
+  border-bottom: var(--border-width) solid rgba(var(--col), 0.1);
+}
+
+.border__bottom\/2 {
+  border-bottom: var(--border-width) solid rgba(var(--col), 0.2);
+}
+
+.border__bottom\/3 {
+  border-bottom: var(--border-width) solid rgba(var(--col), 0.3);
+}
+
+.border__bottom\/4 {
+  border-bottom: var(--border-width) solid rgba(var(--col), 0.4);
+}
+
+.border__bottom\/5 {
+  border-bottom: var(--border-width) solid rgba(var(--col), 0.5);
+}
+
+.border__bottom\/6 {
+  border-bottom: var(--border-width) solid rgba(var(--col), 0.6);
+}
+
+.border__bottom\/7 {
+  border-bottom: var(--border-width) solid rgba(var(--col), 0.7);
+}
+
+.border__bottom\/8 {
+  border-bottom: var(--border-width) solid rgba(var(--col), 0.8);
+}
+
+.border__bottom\/9 {
+  border-bottom: var(--border-width) solid rgba(var(--col), 0.9);
+}
+
+.border__bottom\/10 {
+  border-bottom: var(--border-width) solid rgba(var(--col), 1);
+}
+
+@media screen and (max-width: 768px) {
+  .tablet\:border {
+    border: var(--border-width) solid rgba(var(--col), 0.3);
+  }
+  .tablet\:border\/0 {
+    border: var(--border-width) solid rgba(var(--col), 0);
+  }
+  .tablet\:border\/1 {
+    border: var(--border-width) solid rgba(var(--col), 0.1);
+  }
+  .tablet\:border\/2 {
+    border: var(--border-width) solid rgba(var(--col), 0.2);
+  }
+  .tablet\:border\/3 {
+    border: var(--border-width) solid rgba(var(--col), 0.3);
+  }
+  .tablet\:border\/4 {
+    border: var(--border-width) solid rgba(var(--col), 0.4);
+  }
+  .tablet\:border\/5 {
+    border: var(--border-width) solid rgba(var(--col), 0.5);
+  }
+  .tablet\:border\/6 {
+    border: var(--border-width) solid rgba(var(--col), 0.6);
+  }
+  .tablet\:border\/7 {
+    border: var(--border-width) solid rgba(var(--col), 0.7);
+  }
+  .tablet\:border\/8 {
+    border: var(--border-width) solid rgba(var(--col), 0.8);
+  }
+  .tablet\:border\/9 {
+    border: var(--border-width) solid rgba(var(--col), 0.9);
+  }
+  .tablet\:border\/10 {
+    border: var(--border-width) solid rgba(var(--col), 1);
+  }
+  .tablet\:border__left {
+    border-left: var(--border-width) solid rgba(var(--col), 0.3);
+  }
+  .tablet\:border__left\/0 {
+    border-left: var(--border-width) solid rgba(var(--col), 0);
+  }
+  .tablet\:border__left\/1 {
+    border-left: var(--border-width) solid rgba(var(--col), 0.1);
+  }
+  .tablet\:border__left\/2 {
+    border-left: var(--border-width) solid rgba(var(--col), 0.2);
+  }
+  .tablet\:border__left\/3 {
+    border-left: var(--border-width) solid rgba(var(--col), 0.3);
+  }
+  .tablet\:border__left\/4 {
+    border-left: var(--border-width) solid rgba(var(--col), 0.4);
+  }
+  .tablet\:border__left\/5 {
+    border-left: var(--border-width) solid rgba(var(--col), 0.5);
+  }
+  .tablet\:border__left\/6 {
+    border-left: var(--border-width) solid rgba(var(--col), 0.6);
+  }
+  .tablet\:border__left\/7 {
+    border-left: var(--border-width) solid rgba(var(--col), 0.7);
+  }
+  .tablet\:border__left\/8 {
+    border-left: var(--border-width) solid rgba(var(--col), 0.8);
+  }
+  .tablet\:border__left\/9 {
+    border-left: var(--border-width) solid rgba(var(--col), 0.9);
+  }
+  .tablet\:border__left\/10 {
+    border-left: var(--border-width) solid rgba(var(--col), 1);
+  }
+  .tablet\:border__right {
+    border-right: var(--border-width) solid rgba(var(--col), 0.3);
+  }
+  .tablet\:border__right\/0 {
+    border-right: var(--border-width) solid rgba(var(--col), 0);
+  }
+  .tablet\:border__right\/1 {
+    border-right: var(--border-width) solid rgba(var(--col), 0.1);
+  }
+  .tablet\:border__right\/2 {
+    border-right: var(--border-width) solid rgba(var(--col), 0.2);
+  }
+  .tablet\:border__right\/3 {
+    border-right: var(--border-width) solid rgba(var(--col), 0.3);
+  }
+  .tablet\:border__right\/4 {
+    border-right: var(--border-width) solid rgba(var(--col), 0.4);
+  }
+  .tablet\:border__right\/5 {
+    border-right: var(--border-width) solid rgba(var(--col), 0.5);
+  }
+  .tablet\:border__right\/6 {
+    border-right: var(--border-width) solid rgba(var(--col), 0.6);
+  }
+  .tablet\:border__right\/7 {
+    border-right: var(--border-width) solid rgba(var(--col), 0.7);
+  }
+  .tablet\:border__right\/8 {
+    border-right: var(--border-width) solid rgba(var(--col), 0.8);
+  }
+  .tablet\:border__right\/9 {
+    border-right: var(--border-width) solid rgba(var(--col), 0.9);
+  }
+  .tablet\:border__right\/10 {
+    border-right: var(--border-width) solid rgba(var(--col), 1);
+  }
+  .tablet\:border__top {
+    border-top: var(--border-width) solid rgba(var(--col), 0.3);
+  }
+  .tablet\:border__top\/0 {
+    border-top: var(--border-width) solid rgba(var(--col), 0);
+  }
+  .tablet\:border__top\/1 {
+    border-top: var(--border-width) solid rgba(var(--col), 0.1);
+  }
+  .tablet\:border__top\/2 {
+    border-top: var(--border-width) solid rgba(var(--col), 0.2);
+  }
+  .tablet\:border__top\/3 {
+    border-top: var(--border-width) solid rgba(var(--col), 0.3);
+  }
+  .tablet\:border__top\/4 {
+    border-top: var(--border-width) solid rgba(var(--col), 0.4);
+  }
+  .tablet\:border__top\/5 {
+    border-top: var(--border-width) solid rgba(var(--col), 0.5);
+  }
+  .tablet\:border__top\/6 {
+    border-top: var(--border-width) solid rgba(var(--col), 0.6);
+  }
+  .tablet\:border__top\/7 {
+    border-top: var(--border-width) solid rgba(var(--col), 0.7);
+  }
+  .tablet\:border__top\/8 {
+    border-top: var(--border-width) solid rgba(var(--col), 0.8);
+  }
+  .tablet\:border__top\/9 {
+    border-top: var(--border-width) solid rgba(var(--col), 0.9);
+  }
+  .tablet\:border__top\/10 {
+    border-top: var(--border-width) solid rgba(var(--col), 1);
+  }
+  .tablet\:border__bottom {
+    border-bottom: var(--border-width) solid rgba(var(--col), 0.3);
+  }
+  .tablet\:border__bottom\/0 {
+    border-bottom: var(--border-width) solid rgba(var(--col), 0);
+  }
+  .tablet\:border__bottom\/1 {
+    border-bottom: var(--border-width) solid rgba(var(--col), 0.1);
+  }
+  .tablet\:border__bottom\/2 {
+    border-bottom: var(--border-width) solid rgba(var(--col), 0.2);
+  }
+  .tablet\:border__bottom\/3 {
+    border-bottom: var(--border-width) solid rgba(var(--col), 0.3);
+  }
+  .tablet\:border__bottom\/4 {
+    border-bottom: var(--border-width) solid rgba(var(--col), 0.4);
+  }
+  .tablet\:border__bottom\/5 {
+    border-bottom: var(--border-width) solid rgba(var(--col), 0.5);
+  }
+  .tablet\:border__bottom\/6 {
+    border-bottom: var(--border-width) solid rgba(var(--col), 0.6);
+  }
+  .tablet\:border__bottom\/7 {
+    border-bottom: var(--border-width) solid rgba(var(--col), 0.7);
+  }
+  .tablet\:border__bottom\/8 {
+    border-bottom: var(--border-width) solid rgba(var(--col), 0.8);
+  }
+  .tablet\:border__bottom\/9 {
+    border-bottom: var(--border-width) solid rgba(var(--col), 0.9);
+  }
+  .tablet\:border__bottom\/10 {
+    border-bottom: var(--border-width) solid rgba(var(--col), 1);
+  }
+}
+@media screen and (max-width: 480px) {
+  .mobile\:border {
+    border: var(--border-width) solid rgba(var(--col), 0.3);
+  }
+  .mobile\:border\/0 {
+    border: var(--border-width) solid rgba(var(--col), 0);
+  }
+  .mobile\:border\/1 {
+    border: var(--border-width) solid rgba(var(--col), 0.1);
+  }
+  .mobile\:border\/2 {
+    border: var(--border-width) solid rgba(var(--col), 0.2);
+  }
+  .mobile\:border\/3 {
+    border: var(--border-width) solid rgba(var(--col), 0.3);
+  }
+  .mobile\:border\/4 {
+    border: var(--border-width) solid rgba(var(--col), 0.4);
+  }
+  .mobile\:border\/5 {
+    border: var(--border-width) solid rgba(var(--col), 0.5);
+  }
+  .mobile\:border\/6 {
+    border: var(--border-width) solid rgba(var(--col), 0.6);
+  }
+  .mobile\:border\/7 {
+    border: var(--border-width) solid rgba(var(--col), 0.7);
+  }
+  .mobile\:border\/8 {
+    border: var(--border-width) solid rgba(var(--col), 0.8);
+  }
+  .mobile\:border\/9 {
+    border: var(--border-width) solid rgba(var(--col), 0.9);
+  }
+  .mobile\:border\/10 {
+    border: var(--border-width) solid rgba(var(--col), 1);
+  }
+  .mobile\:border__left {
+    border-left: var(--border-width) solid rgba(var(--col), 0.3);
+  }
+  .mobile\:border__left\/0 {
+    border-left: var(--border-width) solid rgba(var(--col), 0);
+  }
+  .mobile\:border__left\/1 {
+    border-left: var(--border-width) solid rgba(var(--col), 0.1);
+  }
+  .mobile\:border__left\/2 {
+    border-left: var(--border-width) solid rgba(var(--col), 0.2);
+  }
+  .mobile\:border__left\/3 {
+    border-left: var(--border-width) solid rgba(var(--col), 0.3);
+  }
+  .mobile\:border__left\/4 {
+    border-left: var(--border-width) solid rgba(var(--col), 0.4);
+  }
+  .mobile\:border__left\/5 {
+    border-left: var(--border-width) solid rgba(var(--col), 0.5);
+  }
+  .mobile\:border__left\/6 {
+    border-left: var(--border-width) solid rgba(var(--col), 0.6);
+  }
+  .mobile\:border__left\/7 {
+    border-left: var(--border-width) solid rgba(var(--col), 0.7);
+  }
+  .mobile\:border__left\/8 {
+    border-left: var(--border-width) solid rgba(var(--col), 0.8);
+  }
+  .mobile\:border__left\/9 {
+    border-left: var(--border-width) solid rgba(var(--col), 0.9);
+  }
+  .mobile\:border__left\/10 {
+    border-left: var(--border-width) solid rgba(var(--col), 1);
+  }
+  .mobile\:border__right {
+    border-right: var(--border-width) solid rgba(var(--col), 0.3);
+  }
+  .mobile\:border__right\/0 {
+    border-right: var(--border-width) solid rgba(var(--col), 0);
+  }
+  .mobile\:border__right\/1 {
+    border-right: var(--border-width) solid rgba(var(--col), 0.1);
+  }
+  .mobile\:border__right\/2 {
+    border-right: var(--border-width) solid rgba(var(--col), 0.2);
+  }
+  .mobile\:border__right\/3 {
+    border-right: var(--border-width) solid rgba(var(--col), 0.3);
+  }
+  .mobile\:border__right\/4 {
+    border-right: var(--border-width) solid rgba(var(--col), 0.4);
+  }
+  .mobile\:border__right\/5 {
+    border-right: var(--border-width) solid rgba(var(--col), 0.5);
+  }
+  .mobile\:border__right\/6 {
+    border-right: var(--border-width) solid rgba(var(--col), 0.6);
+  }
+  .mobile\:border__right\/7 {
+    border-right: var(--border-width) solid rgba(var(--col), 0.7);
+  }
+  .mobile\:border__right\/8 {
+    border-right: var(--border-width) solid rgba(var(--col), 0.8);
+  }
+  .mobile\:border__right\/9 {
+    border-right: var(--border-width) solid rgba(var(--col), 0.9);
+  }
+  .mobile\:border__right\/10 {
+    border-right: var(--border-width) solid rgba(var(--col), 1);
+  }
+  .mobile\:border__top {
+    border-top: var(--border-width) solid rgba(var(--col), 0.3);
+  }
+  .mobile\:border__top\/0 {
+    border-top: var(--border-width) solid rgba(var(--col), 0);
+  }
+  .mobile\:border__top\/1 {
+    border-top: var(--border-width) solid rgba(var(--col), 0.1);
+  }
+  .mobile\:border__top\/2 {
+    border-top: var(--border-width) solid rgba(var(--col), 0.2);
+  }
+  .mobile\:border__top\/3 {
+    border-top: var(--border-width) solid rgba(var(--col), 0.3);
+  }
+  .mobile\:border__top\/4 {
+    border-top: var(--border-width) solid rgba(var(--col), 0.4);
+  }
+  .mobile\:border__top\/5 {
+    border-top: var(--border-width) solid rgba(var(--col), 0.5);
+  }
+  .mobile\:border__top\/6 {
+    border-top: var(--border-width) solid rgba(var(--col), 0.6);
+  }
+  .mobile\:border__top\/7 {
+    border-top: var(--border-width) solid rgba(var(--col), 0.7);
+  }
+  .mobile\:border__top\/8 {
+    border-top: var(--border-width) solid rgba(var(--col), 0.8);
+  }
+  .mobile\:border__top\/9 {
+    border-top: var(--border-width) solid rgba(var(--col), 0.9);
+  }
+  .mobile\:border__top\/10 {
+    border-top: var(--border-width) solid rgba(var(--col), 1);
+  }
+  .mobile\:border__bottom {
+    border-bottom: var(--border-width) solid rgba(var(--col), 0.3);
+  }
+  .mobile\:border__bottom\/0 {
+    border-bottom: var(--border-width) solid rgba(var(--col), 0);
+  }
+  .mobile\:border__bottom\/1 {
+    border-bottom: var(--border-width) solid rgba(var(--col), 0.1);
+  }
+  .mobile\:border__bottom\/2 {
+    border-bottom: var(--border-width) solid rgba(var(--col), 0.2);
+  }
+  .mobile\:border__bottom\/3 {
+    border-bottom: var(--border-width) solid rgba(var(--col), 0.3);
+  }
+  .mobile\:border__bottom\/4 {
+    border-bottom: var(--border-width) solid rgba(var(--col), 0.4);
+  }
+  .mobile\:border__bottom\/5 {
+    border-bottom: var(--border-width) solid rgba(var(--col), 0.5);
+  }
+  .mobile\:border__bottom\/6 {
+    border-bottom: var(--border-width) solid rgba(var(--col), 0.6);
+  }
+  .mobile\:border__bottom\/7 {
+    border-bottom: var(--border-width) solid rgba(var(--col), 0.7);
+  }
+  .mobile\:border__bottom\/8 {
+    border-bottom: var(--border-width) solid rgba(var(--col), 0.8);
+  }
+  .mobile\:border__bottom\/9 {
+    border-bottom: var(--border-width) solid rgba(var(--col), 0.9);
+  }
+  .mobile\:border__bottom\/10 {
+    border-bottom: var(--border-width) solid rgba(var(--col), 1);
+  }
+}
+html body hr {
+  border: none;
+  borderbottom: var(--border-width) solid rgba(var(--col), 0.3);
+  margin: 0;
+  padding: 0;
+  height: 0;
+}
+
+.dashed {
+  border-style: dashed;
+}
+
+.dotted {
+  border-style: dotted;
+}
+
+.radius {
+  border-radius: calc(var(--radius) * 1em);
+  overflow: hidden;
+}
+
+.circle {
+  border-radius: 50%;
+}
+
+:root {
+  --img-radius: calc(var(--radius)/2);
 }
 
 figure {
@@ -22931,7 +23609,7 @@ figure img, figure video {
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
-  border-radius: var(--img-radius);
+  border-radius: calc(var(--img-radius) * 1em);
   aspect-ratio: var(--aspect-ratio);
 }
 figure video {
@@ -22988,8 +23666,10 @@ img.no__style {
   overflow: hidden;
 }
 
-.radius {
+.img__radius {
   --radius: var(--img-radius);
+  border-radius: calc(var(--radius) * 1em);
+  overflow: hidden;
 }
 
 /*
@@ -23005,24 +23685,24 @@ img.no__style {
   overflow: hidden;
   -webkit-transition-property: all;
   transition-property: all;
-  -webkit-transition-duration: 800ms;
-          transition-duration: 800ms;
-  -webkit-transition-delay: 0ms;
-          transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-transition-duration: var(--animation-duration, 1s);
+          transition-duration: var(--animation-duration, 1s);
+  -webkit-transition-delay: var(--animation-delay, 0ms);
+          transition-delay: var(--animation-delay, 0ms);
+  -webkit-transition-timing-function: var(--animation-timing, ease-in-out);
+          transition-timing-function: var(--animation-timing, ease-in-out);
   will-change: all;
   clip-path: inset(0% 0% 0% 0%);
 }
 .item [href] .item__figure figure {
   -webkit-transition-property: all;
   transition-property: all;
-  -webkit-transition-duration: 800ms;
-          transition-duration: 800ms;
-  -webkit-transition-delay: 0ms;
-          transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-transition-duration: var(--animation-duration, 1s);
+          transition-duration: var(--animation-duration, 1s);
+  -webkit-transition-delay: var(--animation-delay, 0ms);
+          transition-delay: var(--animation-delay, 0ms);
+  -webkit-transition-timing-function: var(--animation-timing, ease-in-out);
+          transition-timing-function: var(--animation-timing, ease-in-out);
   will-change: all;
   -webkit-transform: scale(1);
           transform: scale(1);
@@ -23030,12 +23710,12 @@ img.no__style {
 .item .item__meta {
   -webkit-transition-property: all;
   transition-property: all;
-  -webkit-transition-duration: 800ms;
-          transition-duration: 800ms;
-  -webkit-transition-delay: 0ms;
-          transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-transition-duration: var(--animation-duration, 1s);
+          transition-duration: var(--animation-duration, 1s);
+  -webkit-transition-delay: var(--animation-delay, 0ms);
+          transition-delay: var(--animation-delay, 0ms);
+  -webkit-transition-timing-function: var(--animation-timing, ease-in-out);
+          transition-timing-function: var(--animation-timing, ease-in-out);
   will-change: all;
   clip-path: inset(0% 0% 100% 0%);
 }
@@ -23071,12 +23751,12 @@ img.no__style {
 .event__figure, .event__body {
   -webkit-transition-property: all;
   transition-property: all;
-  -webkit-transition-duration: 800ms;
-          transition-duration: 800ms;
-  -webkit-transition-delay: 0ms;
-          transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-transition-duration: var(--animation-duration, 1s);
+          transition-duration: var(--animation-duration, 1s);
+  -webkit-transition-delay: var(--animation-delay, 0ms);
+          transition-delay: var(--animation-delay, 0ms);
+  -webkit-transition-timing-function: var(--animation-timing, ease-in-out);
+          transition-timing-function: var(--animation-timing, ease-in-out);
   will-change: all;
 }
 
@@ -23109,6 +23789,7 @@ img.no__style {
 */
 /*defaults*/
 /*$defaultEasing: cubic-bezier(0.16, 1, 0.3, 1);*/
+/*Updated Mixin Mapping to CSS custom properties*/
 @-webkit-keyframes bounce {
   from, 20%, 53%, to {
     -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
@@ -26712,7 +27393,7 @@ img.no__style {
   pointer-events: none;
 }
 [data-pane][data-active] {
-  z-index: 1;
+  /*			z-index: 1;*/
   pointer-events: all;
 }
 
@@ -26754,8 +27435,8 @@ img.no__style {
 [data-tab-reveal][data-reveal-text] [data-word] > span,
 [data-tab-reveal] [data-reveal-text] [data-word] > span {
   display: inline-block;
-  -webkit-transform: translateY(2em);
-          transform: translateY(2em);
+  -webkit-transform: translateY(2em) scaleY(0);
+          transform: translateY(2em) scaleY(0);
   -webkit-transition-property: color, -webkit-transform;
   transition-property: color, -webkit-transform;
   transition-property: transform, color;
@@ -26764,13 +27445,33 @@ img.no__style {
           transition-duration: var(--reveal-duration);
   -webkit-transition-delay: var(--delay), calc(var(--delay) + 200ms);
           transition-delay: var(--delay), calc(var(--delay) + 200ms);
-  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-transition-timing-function: var(--animation-timing, ease-in-out);
+          transition-timing-function: var(--animation-timing, ease-in-out);
   will-change: transform, color;
 }
 [data-tab-reveal][data-reveal-image],
 [data-tab-reveal] [data-reveal-image] {
-  clip-path: inset(0% 100% 0% 0%);
+  /*  	clip-path: inset(0% 100% 0% 0%);*/
+  /*  	transform-origin: right center;*/
+  /*  	@include animation((clip-path));*/
+  /*		@include animation(opacity);*/
+  /*		opacity: 0;*/
+  -webkit-animation: image-out var(--reveal-duration) var(--animation-timing) forwards;
+          animation: image-out var(--reveal-duration) var(--animation-timing) forwards;
+}
+[data-tab-reveal][data-reveal-image] img,
+[data-tab-reveal] [data-reveal-image] img {
+  -webkit-transition-property: all;
+  transition-property: all;
+  -webkit-transition-duration: var(--animation-duration, 1s);
+          transition-duration: var(--animation-duration, 1s);
+  -webkit-transition-delay: var(--animation-delay, 0ms);
+          transition-delay: var(--animation-delay, 0ms);
+  -webkit-transition-timing-function: var(--animation-timing, ease-in-out);
+          transition-timing-function: var(--animation-timing, ease-in-out);
+  will-change: all;
+  -webkit-transform: translateX(20%);
+          transform: translateX(20%);
 }
 
 /* 2. HOVER IN STAV (když na něj najedeš) */
@@ -26793,23 +27494,28 @@ img.no__style {
 [data-pane][data-active][data-tab-reveal] [data-reveal-text] [data-word] > span {
   -webkit-transform: none;
           transform: none;
-  color: rgba(var(--col), 1);
+  color: var(--col);
   /*    animation: reveal-in var(--reveal-duration) $defaultEasing var(--delay) forwards;*/
 }
 [data-pane][data-active] [data-tab-reveal][data-reveal-image],
 [data-pane][data-active] [data-tab-reveal] [data-reveal-image],
 [data-pane][data-active][data-tab-reveal][data-reveal-image],
 [data-pane][data-active][data-tab-reveal] [data-reveal-image] {
-  -webkit-transition-property: clip-path;
-  transition-property: clip-path;
-  -webkit-transition-duration: 800ms;
-          transition-duration: 800ms;
-  -webkit-transition-delay: 0ms;
-          transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  will-change: clip-path;
-  clip-path: inset(0% 0% 0% 0%);
+  /*  	@include animation((clip-path));*/
+  /*transform-origin: left center;
+  clip-path: inset(0% 0% 0% 0%);*/
+  /*		opacity: 1;*/
+  -webkit-animation: image-in var(--reveal-duration) var(--animation-timing) forwards;
+          animation: image-in var(--reveal-duration) var(--animation-timing) forwards;
+}
+[data-pane][data-active] [data-tab-reveal][data-reveal-image] img,
+[data-pane][data-active] [data-tab-reveal] [data-reveal-image] img,
+[data-pane][data-active][data-tab-reveal][data-reveal-image] img,
+[data-pane][data-active][data-tab-reveal] [data-reveal-image] img {
+  -webkit-transition: none;
+  transition: none;
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
 }
 [data-pane][data-active] [data-tab-reveal][data-reveal-cover] figure,
 [data-pane][data-active] [data-tab-reveal] [data-reveal-cover] figure,
@@ -26823,21 +27529,10 @@ img.no__style {
 [data-pane].is-closing[data-tab-reveal] [data-reveal-image],
 [data-pane].is-closing [data-tab-reveal][data-reveal-image],
 [data-pane].is-closing [data-tab-reveal] [data-reveal-image] {
-  -webkit-transition-property: -webkit-transform;
-  transition-property: -webkit-transform;
-  transition-property: transform;
-  transition-property: transform, -webkit-transform;
-  -webkit-transition-duration: 800ms;
-          transition-duration: 800ms;
-  -webkit-transition-delay: 0ms;
-          transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  will-change: transform;
-  -webkit-transform: translateX(20%);
-          transform: translateX(20%);
-  /*		transition-delay: 50ms;*/
+  /*@include animation((transform));
+  transform: translateX(20%);
   clip-path: inset(0% 0% 0% 0%);
+  opacity: 1;*/
 }
 [data-pane].is-closing[data-tab-reveal][data-reveal-cover] figure,
 [data-pane].is-closing[data-tab-reveal] [data-reveal-cover] figure,
@@ -26846,6 +27541,39 @@ img.no__style {
   --p: 1;
 }
 
+@-webkit-keyframes image-in {
+  from {
+    clip-path: inset(0% 100% 0% 0%);
+  }
+  to {
+    clip-path: inset(0% 0% 0% 0%);
+  }
+}
+
+@keyframes image-in {
+  from {
+    clip-path: inset(0% 100% 0% 0%);
+  }
+  to {
+    clip-path: inset(0% 0% 0% 0%);
+  }
+}
+@-webkit-keyframes image-out {
+  from {
+    clip-path: inset(0% 0% 0% 0%);
+  }
+  to {
+    clip-path: inset(0% 0% 0% 100%);
+  }
+}
+@keyframes image-out {
+  from {
+    clip-path: inset(0% 0% 0% 0%);
+  }
+  to {
+    clip-path: inset(0% 0% 0% 100%);
+  }
+}
 /*
 	ORGANISMS
 	--------------------------------------------------
@@ -26885,6 +27613,7 @@ section {
 */
 /*defaults*/
 /*$defaultEasing: cubic-bezier(0.16, 1, 0.3, 1);*/
+/*Updated Mixin Mapping to CSS custom properties*/
 @-webkit-keyframes bounce {
   from, 20%, 53%, to {
     -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
@@ -30491,10 +31220,10 @@ section {
   transition-property: transform, -webkit-transform;
   -webkit-transition-duration: 600ms;
           transition-duration: 600ms;
-  -webkit-transition-delay: 0ms;
-          transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-transition-delay: var(--animation-delay, 0ms);
+          transition-delay: var(--animation-delay, 0ms);
+  -webkit-transition-timing-function: var(--animation-timing, ease-in-out);
+          transition-timing-function: var(--animation-timing, ease-in-out);
   will-change: transform;
   -webkit-transform-origin: center right;
           transform-origin: center right;
@@ -30537,10 +31266,10 @@ section {
   transition-property: opacity;
   -webkit-transition-duration: 600ms;
           transition-duration: 600ms;
-  -webkit-transition-delay: 0ms;
-          transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-transition-delay: var(--animation-delay, 0ms);
+          transition-delay: var(--animation-delay, 0ms);
+  -webkit-transition-timing-function: var(--animation-timing, ease-in-out);
+          transition-timing-function: var(--animation-timing, ease-in-out);
   will-change: opacity;
   /*    transition-duration: 3s;*/
   /*    transform: scale(calc(0.5 + 0.0*var(--progress)));*/
@@ -30567,10 +31296,10 @@ section {
   transition-property: clip-path;
   -webkit-transition-duration: 0.5s;
           transition-duration: 0.5s;
-  -webkit-transition-delay: 0ms;
-          transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-transition-delay: var(--animation-delay, 0ms);
+          transition-delay: var(--animation-delay, 0ms);
+  -webkit-transition-timing-function: var(--animation-timing, ease-in-out);
+          transition-timing-function: var(--animation-timing, ease-in-out);
   will-change: clip-path;
 }
 
@@ -30620,6 +31349,7 @@ html[data-transition-out] [data-loader-bg] {
 */
 /*defaults*/
 /*$defaultEasing: cubic-bezier(0.16, 1, 0.3, 1);*/
+/*Updated Mixin Mapping to CSS custom properties*/
 @-webkit-keyframes bounce {
   from, 20%, 53%, to {
     -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
@@ -34212,7 +34942,7 @@ html[data-transition-out] [data-loader-bg] {
 */
 :root {
   --border-width: 1.5px;
-  --radius: calc(var(--spacing)*1.5);
+  --radius: 1.5;
 }
 
 .border {
@@ -34836,7 +35566,7 @@ html body hr {
 }
 
 .radius {
-  border-radius: var(--radius);
+  border-radius: calc(var(--radius) * 1em);
   overflow: hidden;
 }
 
@@ -34845,17 +35575,20 @@ html body hr {
 }
 
 :root {
-  --header-height: 5em;
+  --header-height: auto;
 }
 
 .header {
   z-index: 998;
   position: fixed;
-  inset: 0 0 auto 0;
+  inset: 0;
   pointer-events: none;
   max-width: 100vw;
   display: -ms-grid;
   display: grid;
+}
+.header__widget {
+  pointer-events: all;
 }
 
 .header, .aside__header {
@@ -34878,12 +35611,12 @@ html body hr {
 .header .logo, .aside__header .logo {
   -webkit-transition-property: all;
   transition-property: all;
-  -webkit-transition-duration: 800ms;
-          transition-duration: 800ms;
-  -webkit-transition-delay: 0ms;
-          transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-transition-duration: var(--animation-duration, 1s);
+          transition-duration: var(--animation-duration, 1s);
+  -webkit-transition-delay: var(--animation-delay, 0ms);
+          transition-delay: var(--animation-delay, 0ms);
+  -webkit-transition-timing-function: var(--animation-timing, ease-in-out);
+          transition-timing-function: var(--animation-timing, ease-in-out);
   will-change: all;
 }
 .header .logo svg, .aside__header .logo svg {
@@ -34891,12 +35624,12 @@ html body hr {
   height: var(--size);
   -webkit-transition-property: all;
   transition-property: all;
-  -webkit-transition-duration: 800ms;
-          transition-duration: 800ms;
-  -webkit-transition-delay: 0ms;
-          transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-transition-duration: var(--animation-duration, 1s);
+          transition-duration: var(--animation-duration, 1s);
+  -webkit-transition-delay: var(--animation-delay, 0ms);
+          transition-delay: var(--animation-delay, 0ms);
+  -webkit-transition-timing-function: var(--animation-timing, ease-in-out);
+          transition-timing-function: var(--animation-timing, ease-in-out);
   will-change: all;
 }
 .header .logo svg path, .aside__header .logo svg path {
@@ -34906,65 +35639,26 @@ html body hr {
 .header .button, .aside__header .button {
   -webkit-transition-property: all;
   transition-property: all;
-  -webkit-transition-duration: 800ms;
-          transition-duration: 800ms;
-  -webkit-transition-delay: 0ms;
-          transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-transition-duration: var(--animation-duration, 1s);
+          transition-duration: var(--animation-duration, 1s);
+  -webkit-transition-delay: var(--animation-delay, 0ms);
+          transition-delay: var(--animation-delay, 0ms);
+  -webkit-transition-timing-function: var(--animation-timing, ease-in-out);
+          transition-timing-function: var(--animation-timing, ease-in-out);
   will-change: all;
 }
 
 [data-header] {
   -webkit-transition-property: all;
   transition-property: all;
-  -webkit-transition-duration: 800ms;
-          transition-duration: 800ms;
-  -webkit-transition-delay: 0ms;
-          transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-transition-duration: var(--animation-duration, 1s);
+          transition-duration: var(--animation-duration, 1s);
+  -webkit-transition-delay: var(--animation-delay, 0ms);
+          transition-delay: var(--animation-delay, 0ms);
+  -webkit-transition-timing-function: var(--animation-timing, ease-in-out);
+          transition-timing-function: var(--animation-timing, ease-in-out);
   will-change: all;
 }
-[data-header][collapsed] {
-  --header-height: 2.8em;
-}
-@media screen and (max-width: 480px) {
-  [data-header][collapsed] {
-    --header-height: 3.5em;
-  }
-}
-[data-header][collapsed] {
-  /*		background: rgb(var(--color-dark));*/
-  /*		color: rgb(var(--color-invert));*/
-  mix-blend-mode: initial;
-}
-[data-header][collapsed] .logo {
-  --size: 1.25em;
-  margin-left: -1em;
-}
-@media screen and (max-width: 480px) {
-  [data-header][collapsed] .logo {
-    margin-left: -0.5em;
-  }
-}
-[data-header][collapsed] .logo svg {
-  fill: rgb(var(--color-invert)) !important;
-}
-[data-header][collapsed] .logo path {
-  fill: rgb(var(--color-invert)) !important;
-  stroke: transparent !important;
-}
-[data-header][collapsed] .button[theme=ghost] {
-  --col: var(--color-invert);
-  margin-right: -1.5em;
-}
-@media screen and (max-width: 480px) {
-  [data-header][collapsed] .button[theme=ghost] {
-    margin-right: -0.5em;
-  }
-}
-
 /*
 
 	FOOTER
@@ -34985,12 +35679,22 @@ footer > *,
 }
 footer .footer__logo,
 .footer .footer__logo {
-  height: 2em;
+  height: 3em;
 }
 footer .footer__logo svg,
 .footer .footer__logo svg {
   width: auto;
   height: 100%;
+}
+footer .footer__nav .link:hover,
+.footer .footer__nav .link:hover {
+  opacity: 1;
+}
+footer .footer__nav .link:hover [data-word] span,
+.footer .footer__nav .link:hover [data-word] span {
+  --reveal-delay: 0ms;
+  --reveal-duration: 600ms;
+  color: rgb(var(--color-acc)) !important;
 }
 
 /*
@@ -35005,6 +35709,7 @@ footer .footer__logo svg,
 */
 /*defaults*/
 /*$defaultEasing: cubic-bezier(0.16, 1, 0.3, 1);*/
+/*Updated Mixin Mapping to CSS custom properties*/
 @-webkit-keyframes bounce {
   from, 20%, 53%, to {
     -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
@@ -38597,7 +39302,7 @@ footer .footer__logo svg,
 */
 :root {
   --border-width: 1.5px;
-  --radius: calc(var(--spacing)*1.5);
+  --radius: 1.5;
 }
 
 .border {
@@ -39221,7 +39926,7 @@ html body hr {
 }
 
 .radius {
-  border-radius: var(--radius);
+  border-radius: calc(var(--radius) * 1em);
   overflow: hidden;
 }
 
@@ -39240,10 +39945,10 @@ aside [data-aside-widget],
   transition-property: clip-path;
   -webkit-transition-duration: 600ms;
           transition-duration: 600ms;
-  -webkit-transition-delay: 0ms;
-          transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-transition-delay: var(--animation-delay, 0ms);
+          transition-delay: var(--animation-delay, 0ms);
+  -webkit-transition-timing-function: var(--animation-timing, ease-in-out);
+          transition-timing-function: var(--animation-timing, ease-in-out);
   will-change: clip-path;
   -webkit-transition-delay: var(--delay);
           transition-delay: var(--delay);
@@ -39255,10 +39960,10 @@ aside [data-aside-widget] [data-pane-container],
   transition-property: height, width;
   -webkit-transition-duration: 600ms;
           transition-duration: 600ms;
-  -webkit-transition-delay: 0ms;
-          transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-transition-delay: var(--animation-delay, 0ms);
+          transition-delay: var(--animation-delay, 0ms);
+  -webkit-transition-timing-function: var(--animation-timing, ease-in-out);
+          transition-timing-function: var(--animation-timing, ease-in-out);
   will-change: height, width;
 }
 
@@ -39271,12 +39976,12 @@ aside [data-aside-widget] [data-pane-container],
   inset: 0;
   -webkit-transition-property: all;
   transition-property: all;
-  -webkit-transition-duration: 800ms;
-          transition-duration: 800ms;
-  -webkit-transition-delay: 0ms;
-          transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-transition-duration: var(--animation-duration, 1s);
+          transition-duration: var(--animation-duration, 1s);
+  -webkit-transition-delay: var(--animation-delay, 0ms);
+          transition-delay: var(--animation-delay, 0ms);
+  -webkit-transition-timing-function: var(--animation-timing, ease-in-out);
+          transition-timing-function: var(--animation-timing, ease-in-out);
   will-change: all;
   -webkit-transition-duration: 600ms;
           transition-duration: 600ms;
@@ -39285,12 +39990,12 @@ aside [data-aside-widget] [data-pane-container],
 [data-aside-reveal] {
   -webkit-transition-property: all;
   transition-property: all;
-  -webkit-transition-duration: 800ms;
-          transition-duration: 800ms;
-  -webkit-transition-delay: 0ms;
-          transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-transition-duration: var(--animation-duration, 1s);
+          transition-duration: var(--animation-duration, 1s);
+  -webkit-transition-delay: var(--animation-delay, 0ms);
+          transition-delay: var(--animation-delay, 0ms);
+  -webkit-transition-timing-function: var(--animation-timing, ease-in-out);
+          transition-timing-function: var(--animation-timing, ease-in-out);
   will-change: all;
   visibility: hidden;
   -webkit-transition-delay: var(--out-delay);
@@ -39342,12 +40047,12 @@ aside [data-aside-widget] [data-pane-container],
   transition-property: clip-path, -webkit-transform;
   transition-property: transform, clip-path;
   transition-property: transform, clip-path, -webkit-transform;
-  -webkit-transition-duration: 800ms;
-          transition-duration: 800ms;
-  -webkit-transition-delay: 0ms;
-          transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-transition-duration: var(--animation-duration, 1s);
+          transition-duration: var(--animation-duration, 1s);
+  -webkit-transition-delay: var(--animation-delay, 0ms);
+          transition-delay: var(--animation-delay, 0ms);
+  -webkit-transition-timing-function: var(--animation-timing, ease-in-out);
+          transition-timing-function: var(--animation-timing, ease-in-out);
   will-change: transform, clip-path;
   -webkit-transition-delay: var(--out-delay);
           transition-delay: var(--out-delay);
@@ -39361,12 +40066,12 @@ aside [data-aside-widget] [data-pane-container],
 [data-aside-hide] {
   -webkit-transition-property: all;
   transition-property: all;
-  -webkit-transition-duration: 800ms;
-          transition-duration: 800ms;
-  -webkit-transition-delay: 0ms;
-          transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-transition-duration: var(--animation-duration, 1s);
+          transition-duration: var(--animation-duration, 1s);
+  -webkit-transition-delay: var(--animation-delay, 0ms);
+          transition-delay: var(--animation-delay, 0ms);
+  -webkit-transition-timing-function: var(--animation-timing, ease-in-out);
+          transition-timing-function: var(--animation-timing, ease-in-out);
   will-change: all;
   -webkit-transition-delay: var(--out-delay);
           transition-delay: var(--out-delay);
@@ -39475,12 +40180,12 @@ carousel {
       flex-shrink: 0;
   -webkit-transition-property: all;
   transition-property: all;
-  -webkit-transition-duration: 800ms;
-          transition-duration: 800ms;
-  -webkit-transition-delay: 0ms;
-          transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-transition-duration: var(--animation-duration, 1s);
+          transition-duration: var(--animation-duration, 1s);
+  -webkit-transition-delay: var(--animation-delay, 0ms);
+          transition-delay: var(--animation-delay, 0ms);
+  -webkit-transition-timing-function: var(--animation-timing, ease-in-out);
+          transition-timing-function: var(--animation-timing, ease-in-out);
   will-change: all;
   /*		opacity: 0;*/
 }
@@ -39536,24 +40241,24 @@ carousel {
   left: calc(var(--pad) * var(--inset) + var(--active) * var(--pad) * var(--gap) + var(--active) * var(--size));
   -webkit-transition-property: all;
   transition-property: all;
-  -webkit-transition-duration: 800ms;
-          transition-duration: 800ms;
-  -webkit-transition-delay: 0ms;
-          transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-transition-duration: var(--animation-duration, 1s);
+          transition-duration: var(--animation-duration, 1s);
+  -webkit-transition-delay: var(--animation-delay, 0ms);
+          transition-delay: var(--animation-delay, 0ms);
+  -webkit-transition-timing-function: var(--animation-timing, ease-in-out);
+          transition-timing-function: var(--animation-timing, ease-in-out);
   will-change: all;
 }
 
 [data-active-reveal] {
   -webkit-transition-property: all;
   transition-property: all;
-  -webkit-transition-duration: 800ms;
-          transition-duration: 800ms;
-  -webkit-transition-delay: 0ms;
-          transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-transition-duration: var(--animation-duration, 1s);
+          transition-duration: var(--animation-duration, 1s);
+  -webkit-transition-delay: var(--animation-delay, 0ms);
+          transition-delay: var(--animation-delay, 0ms);
+  -webkit-transition-timing-function: var(--animation-timing, ease-in-out);
+          transition-timing-function: var(--animation-timing, ease-in-out);
   will-change: all;
 }
 [data-active-reveal]:not([data-reveal-lines]) {
@@ -39571,12 +40276,12 @@ carousel {
   transition-property: -webkit-transform;
   transition-property: transform;
   transition-property: transform, -webkit-transform;
-  -webkit-transition-duration: 800ms;
-          transition-duration: 800ms;
-  -webkit-transition-delay: 0ms;
-          transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-transition-duration: var(--animation-duration, 1s);
+          transition-duration: var(--animation-duration, 1s);
+  -webkit-transition-delay: var(--animation-delay, 0ms);
+          transition-delay: var(--animation-delay, 0ms);
+  -webkit-transition-timing-function: var(--animation-timing, ease-in-out);
+          transition-timing-function: var(--animation-timing, ease-in-out);
   will-change: transform;
   display: inline-block;
   will-change: transform;
@@ -39626,6 +40331,7 @@ carousel {
 */
 /*defaults*/
 /*$defaultEasing: cubic-bezier(0.16, 1, 0.3, 1);*/
+/*Updated Mixin Mapping to CSS custom properties*/
 @-webkit-keyframes bounce {
   from, 20%, 53%, to {
     -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
@@ -43218,7 +43924,7 @@ carousel {
 */
 :root {
   --border-width: 1.5px;
-  --radius: calc(var(--spacing)*1.5);
+  --radius: 1.5;
 }
 
 .border {
@@ -43842,7 +44548,7 @@ html body hr {
 }
 
 .radius {
-  border-radius: var(--radius);
+  border-radius: calc(var(--radius) * 1em);
   overflow: hidden;
 }
 
@@ -43884,16 +44590,16 @@ html body hr {
           justify-content: center;
   -webkit-transition-property: all;
   transition-property: all;
-  -webkit-transition-duration: 800ms;
-          transition-duration: 800ms;
-  -webkit-transition-delay: 0ms;
-          transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-transition-duration: var(--animation-duration, 1s);
+          transition-duration: var(--animation-duration, 1s);
+  -webkit-transition-delay: var(--animation-delay, 0ms);
+          transition-delay: var(--animation-delay, 0ms);
+  -webkit-transition-timing-function: var(--animation-timing, ease-in-out);
+          transition-timing-function: var(--animation-timing, ease-in-out);
   will-change: all;
 }
 [fab] button svg path {
-  fill: rgb(var(--color-invert));
+  fill: var(--color-invert);
 }
 [fab] button:hover {
   /*			clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);*/
@@ -43911,10 +44617,10 @@ booking [data-booking-widget],
   transition-property: clip-path;
   -webkit-transition-duration: 600ms;
           transition-duration: 600ms;
-  -webkit-transition-delay: 0ms;
-          transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-transition-delay: var(--animation-delay, 0ms);
+          transition-delay: var(--animation-delay, 0ms);
+  -webkit-transition-timing-function: var(--animation-timing, ease-in-out);
+          transition-timing-function: var(--animation-timing, ease-in-out);
   will-change: clip-path;
   -webkit-transition-delay: var(--delay);
           transition-delay: var(--delay);
@@ -43926,10 +44632,10 @@ booking [data-booking-widget] [data-pane-container],
   transition-property: height, width;
   -webkit-transition-duration: 600ms;
           transition-duration: 600ms;
-  -webkit-transition-delay: 0ms;
-          transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-transition-delay: var(--animation-delay, 0ms);
+          transition-delay: var(--animation-delay, 0ms);
+  -webkit-transition-timing-function: var(--animation-timing, ease-in-out);
+          transition-timing-function: var(--animation-timing, ease-in-out);
   will-change: height, width;
 }
 booking nav [data-tab] > *, booking nav [href] > *,
@@ -43941,10 +44647,10 @@ booking nav [data-tab] > *, booking nav [href] > *,
   transition-property: transform, -webkit-transform;
   -webkit-transition-duration: 600ms;
           transition-duration: 600ms;
-  -webkit-transition-delay: 0ms;
-          transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-transition-delay: var(--animation-delay, 0ms);
+          transition-delay: var(--animation-delay, 0ms);
+  -webkit-transition-timing-function: var(--animation-timing, ease-in-out);
+          transition-timing-function: var(--animation-timing, ease-in-out);
   will-change: transform;
 }
 booking nav [data-tab]:hover > *, booking nav [href]:hover > *,
@@ -43961,10 +44667,10 @@ booking [data-pane],
   transition-property: transform, opacity, -webkit-transform;
   -webkit-transition-duration: 600ms;
           transition-duration: 600ms;
-  -webkit-transition-delay: 0ms;
-          transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-transition-delay: var(--animation-delay, 0ms);
+          transition-delay: var(--animation-delay, 0ms);
+  -webkit-transition-timing-function: var(--animation-timing, ease-in-out);
+          transition-timing-function: var(--animation-timing, ease-in-out);
   will-change: transform, opacity;
   opacity: 0;
   -webkit-transform: translateY(-1em);
@@ -43993,12 +44699,12 @@ booking [data-pane][data-active],
   inset: 0;
   -webkit-transition-property: all;
   transition-property: all;
-  -webkit-transition-duration: 800ms;
-          transition-duration: 800ms;
-  -webkit-transition-delay: 0ms;
-          transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-transition-duration: var(--animation-duration, 1s);
+          transition-duration: var(--animation-duration, 1s);
+  -webkit-transition-delay: var(--animation-delay, 0ms);
+          transition-delay: var(--animation-delay, 0ms);
+  -webkit-transition-timing-function: var(--animation-timing, ease-in-out);
+          transition-timing-function: var(--animation-timing, ease-in-out);
   will-change: all;
   -webkit-transition-duration: 600ms;
           transition-duration: 600ms;
@@ -44007,12 +44713,12 @@ booking [data-pane][data-active],
 [data-booking-reveal] {
   -webkit-transition-property: all;
   transition-property: all;
-  -webkit-transition-duration: 800ms;
-          transition-duration: 800ms;
-  -webkit-transition-delay: 0ms;
-          transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-transition-duration: var(--animation-duration, 1s);
+          transition-duration: var(--animation-duration, 1s);
+  -webkit-transition-delay: var(--animation-delay, 0ms);
+          transition-delay: var(--animation-delay, 0ms);
+  -webkit-transition-timing-function: var(--animation-timing, ease-in-out);
+          transition-timing-function: var(--animation-timing, ease-in-out);
   will-change: all;
   visibility: hidden;
   -webkit-transition-delay: var(--out-delay);
@@ -44064,12 +44770,12 @@ booking [data-pane][data-active],
   transition-property: clip-path, -webkit-transform;
   transition-property: transform, clip-path;
   transition-property: transform, clip-path, -webkit-transform;
-  -webkit-transition-duration: 800ms;
-          transition-duration: 800ms;
-  -webkit-transition-delay: 0ms;
-          transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-transition-duration: var(--animation-duration, 1s);
+          transition-duration: var(--animation-duration, 1s);
+  -webkit-transition-delay: var(--animation-delay, 0ms);
+          transition-delay: var(--animation-delay, 0ms);
+  -webkit-transition-timing-function: var(--animation-timing, ease-in-out);
+          transition-timing-function: var(--animation-timing, ease-in-out);
   will-change: transform, clip-path;
   -webkit-transition-delay: var(--out-delay);
           transition-delay: var(--out-delay);
@@ -44083,12 +44789,12 @@ booking [data-pane][data-active],
 [data-booking-hide] {
   -webkit-transition-property: all;
   transition-property: all;
-  -webkit-transition-duration: 800ms;
-          transition-duration: 800ms;
-  -webkit-transition-delay: 0ms;
-          transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-transition-duration: var(--animation-duration, 1s);
+          transition-duration: var(--animation-duration, 1s);
+  -webkit-transition-delay: var(--animation-delay, 0ms);
+          transition-delay: var(--animation-delay, 0ms);
+  -webkit-transition-timing-function: var(--animation-timing, ease-in-out);
+          transition-timing-function: var(--animation-timing, ease-in-out);
   will-change: all;
   -webkit-transition-delay: var(--out-delay);
           transition-delay: var(--out-delay);
@@ -44220,6 +44926,7 @@ calendar day:not([current]):hover .event p {
 */
 /*defaults*/
 /*$defaultEasing: cubic-bezier(0.16, 1, 0.3, 1);*/
+/*Updated Mixin Mapping to CSS custom properties*/
 @-webkit-keyframes bounce {
   from, 20%, 53%, to {
     -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
@@ -47840,12 +48547,12 @@ calendar day:not([current]):hover .event p {
   /*			background-color: rgba(var(--color-dark),.4);*/
   -webkit-transition-property: all;
   transition-property: all;
-  -webkit-transition-duration: 800ms;
-          transition-duration: 800ms;
-  -webkit-transition-delay: 0ms;
-          transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-transition-duration: var(--animation-duration, 1s);
+          transition-duration: var(--animation-duration, 1s);
+  -webkit-transition-delay: var(--animation-delay, 0ms);
+          transition-delay: var(--animation-delay, 0ms);
+  -webkit-transition-timing-function: var(--animation-timing, ease-in-out);
+          transition-timing-function: var(--animation-timing, ease-in-out);
   will-change: all;
   opacity: 0;
   /*			backdrop-filter: blur(30px);*/
@@ -47915,12 +48622,12 @@ calendar day:not([current]):hover .event p {
   top: calc(var(--pad) * 0.5);
   -webkit-transition-property: all;
   transition-property: all;
-  -webkit-transition-duration: 800ms;
-          transition-duration: 800ms;
-  -webkit-transition-delay: 0ms;
-          transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-transition-duration: var(--animation-duration, 1s);
+          transition-duration: var(--animation-duration, 1s);
+  -webkit-transition-delay: var(--animation-delay, 0ms);
+          transition-delay: var(--animation-delay, 0ms);
+  -webkit-transition-timing-function: var(--animation-timing, ease-in-out);
+          transition-timing-function: var(--animation-timing, ease-in-out);
   will-change: all;
 }
 .modal__close a {
@@ -47965,12 +48672,12 @@ html .modal__layout {
   transition-property: -webkit-transform;
   transition-property: transform;
   transition-property: transform, -webkit-transform;
-  -webkit-transition-duration: 800ms;
-          transition-duration: 800ms;
-  -webkit-transition-delay: 0ms;
-          transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-transition-duration: var(--animation-duration, 1s);
+          transition-duration: var(--animation-duration, 1s);
+  -webkit-transition-delay: var(--animation-delay, 0ms);
+          transition-delay: var(--animation-delay, 0ms);
+  -webkit-transition-timing-function: var(--animation-timing, ease-in-out);
+          transition-timing-function: var(--animation-timing, ease-in-out);
   will-change: transform;
   /*			visibility: hidden;*/
   pointer-events: none;
@@ -47982,12 +48689,12 @@ html .modal__widget {
   transition-property: -webkit-transform;
   transition-property: transform;
   transition-property: transform, -webkit-transform;
-  -webkit-transition-duration: 800ms;
-          transition-duration: 800ms;
-  -webkit-transition-delay: 0ms;
-          transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-transition-duration: var(--animation-duration, 1s);
+          transition-duration: var(--animation-duration, 1s);
+  -webkit-transition-delay: var(--animation-delay, 0ms);
+          transition-delay: var(--animation-delay, 0ms);
+  -webkit-transition-timing-function: var(--animation-timing, ease-in-out);
+          transition-timing-function: var(--animation-timing, ease-in-out);
   will-change: transform;
   -webkit-transform: translateY(100%);
           transform: translateY(100%);
@@ -48090,12 +48797,12 @@ html.no-scroll body {
   transition-property: -webkit-transform;
   transition-property: transform;
   transition-property: transform, -webkit-transform;
-  -webkit-transition-duration: 800ms;
-          transition-duration: 800ms;
-  -webkit-transition-delay: 0ms;
-          transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-transition-duration: var(--animation-duration, 1s);
+          transition-duration: var(--animation-duration, 1s);
+  -webkit-transition-delay: var(--animation-delay, 0ms);
+          transition-delay: var(--animation-delay, 0ms);
+  -webkit-transition-timing-function: var(--animation-timing, ease-in-out);
+          transition-timing-function: var(--animation-timing, ease-in-out);
   will-change: transform;
 }
 [modal][close-next] {
@@ -48177,6 +48884,7 @@ html.no-scroll body {
 */
 /*defaults*/
 /*$defaultEasing: cubic-bezier(0.16, 1, 0.3, 1);*/
+/*Updated Mixin Mapping to CSS custom properties*/
 @-webkit-keyframes bounce {
   from, 20%, 53%, to {
     -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
@@ -51760,12 +52468,12 @@ html.no-scroll body {
 [data-tabs] [data-tab] {
   -webkit-transition-property: opacity;
   transition-property: opacity;
-  -webkit-transition-duration: 800ms;
-          transition-duration: 800ms;
-  -webkit-transition-delay: 0ms;
-          transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-transition-duration: var(--animation-duration, 1s);
+          transition-duration: var(--animation-duration, 1s);
+  -webkit-transition-delay: var(--animation-delay, 0ms);
+          transition-delay: var(--animation-delay, 0ms);
+  -webkit-transition-timing-function: var(--animation-timing, ease-in-out);
+          transition-timing-function: var(--animation-timing, ease-in-out);
   will-change: opacity;
 }
 [data-tabs] [data-tab]:hover {
@@ -51774,7 +52482,7 @@ html.no-scroll body {
 [data-tabs] [data-tab][data-active] span {
   --reveal-delay: 0ms;
   --reveal-duration: 600ms;
-  color: rgb(var(--color-acc)) !important;
+  color: var(--color-acc) !important;
 }
 
 section.process .item__figure {
@@ -51814,12 +52522,12 @@ section.process .item__figure {
 .octagon {
   -webkit-transition-property: all;
   transition-property: all;
-  -webkit-transition-duration: 800ms;
-          transition-duration: 800ms;
-  -webkit-transition-delay: 0ms;
-          transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-transition-duration: var(--animation-duration, 1s);
+          transition-duration: var(--animation-duration, 1s);
+  -webkit-transition-delay: var(--animation-delay, 0ms);
+          transition-delay: var(--animation-delay, 0ms);
+  -webkit-transition-timing-function: var(--animation-timing, ease-in-out);
+          transition-timing-function: var(--animation-timing, ease-in-out);
   will-change: all;
   -webkit-transition-duration: 3s;
           transition-duration: 3s;

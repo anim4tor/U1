@@ -7,18 +7,21 @@
 @import "../../atoms/Animation/animation";
 @import "../../atoms/Theme/border";
 :root {
-	--header-height: 5em;
+	--header-height: auto;
 
 }
 
 .header {
 	z-index: 998;
 	position: fixed;
-	inset: 0 0 auto 0;
+	inset: 0;
 	pointer-events: none;
 	max-width: 100vw;
 	display: grid;
 
+	&__widget {
+		pointer-events: all;
+	}
 }
 
 .header, .aside__header {
@@ -57,35 +60,7 @@
 [data-header] {
 	@include animation;
 	&[collapsed] {
-		--header-height: 2.8em;
-		@include xs-screen {
-			--header-height: 3.5em;
-		}
-/*		background: rgb(var(--color-dark));*/
-/*		color: rgb(var(--color-invert));*/
-		mix-blend-mode: initial;
 
-		.logo {
-			--size: 1.25em;
-			margin-left: -1em;
-			@include xs-screen {
-				margin-left: -0.5em;
-			}
-			svg {
-				fill: rgb(var(--color-invert)) !important;
-			} 
-			path {
-				fill: rgb(var(--color-invert)) !important;
-				stroke: transparent !important;
-			}
-		}
-		.button[theme="ghost"] {
-			--col: var(--color-invert);
-			margin-right: -1.5em;
-			@include xs-screen {
-				margin-right: -0.5em;
-			}
-		}
 		
 	}	
 }

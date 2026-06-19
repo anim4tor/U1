@@ -14,7 +14,7 @@ Cover: - file://SC5zFBn08awUwikt
 
 ----
 
-Intro: [{"content":{"text":"<p>(OUR STUDIO)</p>","mod":"","face":"body","attr=data-scroll":"false","attr=data-reveal":"","attr=data-reveal-children":"false","attr=data-reveal-words":"false","attr=data-reveal-section":"false","bid":"","attr":"","href":"","node":""},"id":"ce0ab77f-7ee9-4922-960d-81f836a0cbde","isHidden":false,"type":"label"},{"content":{"text":"We create the identity of interiors. As designers and experienced consultants.","level":"h2","mod":"l","attr=data-scroll":"false","attr=data-reveal":"","attr=data-reveal-children":"false","attr=data-reveal-words":"false","attr=data-reveal-section":"false","bid":"","attr":"","href":"","node":""},"id":"7196bce0-bdfc-40d3-99c8-81950bf23875","isHidden":false,"type":"heading"},{"content":{"text":"<p>Design development through aesthetics to functionality in line with the latest technologies, structural aspects of projects - construction, materials, sustainable practices and coordination between teams of engineers and construction workers.</p>","mod":"","face":"","attr=data-scroll":"false","attr=data-reveal":"","attr=data-reveal-children":"false","attr=data-reveal-words":"false","attr=data-reveal-section":"false","bid":"","attr":"","href":"","node":""},"id":"acde31ea-6c4b-4f2b-9c8a-766553205da8","isHidden":false,"type":"text"},{"content":{"label":"Více o nás","style":"dark","hover":"","size":"default","link":"page://yAaVa524crrP12m4","target":"false"},"id":"cdda7ed8-0e05-463c-9ae6-d5637b13a258","isHidden":false,"type":"button"}]
+Intro: [{"content":{"text":"<p>(OUR STUDIO)</p>","mod":"","face":"body","attr=data-scroll":"false","attr=data-reveal":"","attr=data-reveal-children":"false","attr=data-reveal-words":"false","attr=data-reveal-section":"false","bid":"","attr":"","href":"","node":""},"id":"ce0ab77f-7ee9-4922-960d-81f836a0cbde","isHidden":false,"type":"label"},{"content":{"text":"Twenty-five years of refined expertise, distilled into a comprehensive suite of architectural and design solutions creating experiences that amplify the joy felt in shared human moments.","level":"h3","mod":"xs","attr=data-scroll":"false","attr=data-reveal":"","attr=data-reveal-children":"false","attr=data-reveal-words":"false","attr=data-reveal-section":"false","bid":"","attr":"","href":"","node":""},"id":"7196bce0-bdfc-40d3-99c8-81950bf23875","isHidden":false,"type":"heading"},{"content":{"text":"<p>Design development through aesthetics to functionality in line with the latest technologies, structural aspects of projects - construction, materials, sustainable practices and coordination between teams of engineers and construction workers.</p>","mod":"","face":"","attr=data-scroll":"false","attr=data-reveal":"","attr=data-reveal-children":"false","attr=data-reveal-words":"false","attr=data-reveal-section":"false","bid":"","attr":"","href":"","node":""},"id":"acde31ea-6c4b-4f2b-9c8a-766553205da8","isHidden":false,"type":"text"},{"content":{"label":"Více o nás","style":"dark","hover":"","size":"default","link":"page://yAaVa524crrP12m4","target":"false"},"id":"cdda7ed8-0e05-463c-9ae6-d5637b13a258","isHidden":false,"type":"button"}]
 
 ----
 
@@ -47,7 +47,7 @@ Eventsfigure:
 
 ----
 
-Lectures: [{"content":{"text":"Jóga pomáhá – najděte si tu svou. Už víš, jaký styl ti bude nejvíce vyhovovat?","level":"h3","mod":"","attr=data-scroll":"false","attr=data-reveal":"","attr=data-reveal-children":"false","attr=data-reveal-words":"false","attr=data-reveal-section":"false","bid":"","attr":"","href":"","node":""},"id":"c84bde7d-c51c-4cd7-bc7f-0e6de85f7a1d","isHidden":false,"type":"heading"},{"content":{"label":"Zobrazit všechny lekce","style":"invert","hover":"","size":"default","link":"page://2KXhsd8bxkU6MDcP","target":"false"},"id":"be053305-6b13-4367-b7b2-81da8bd8351e","isHidden":false,"type":"button"}]
+Projects: 
 
 ----
 
@@ -92,6 +92,10 @@ Robots-imageindex:
 ----
 
 Robots-snippet: 
+
+----
+
+Lectures: [{"content":{"text":"Jóga pomáhá – najděte si tu svou. Už víš, jaký styl ti bude nejvíce vyhovovat?","level":"h3","mod":"","attr=data-scroll":"false","attr=data-reveal":"","attr=data-reveal-children":"false","attr=data-reveal-words":"false","attr=data-reveal-section":"false","bid":"","attr":"","href":"","node":""},"id":"c84bde7d-c51c-4cd7-bc7f-0e6de85f7a1d","isHidden":false,"type":"heading"},{"content":{"label":"Zobrazit všechny lekce","style":"invert","hover":"","size":"default","link":"page://2KXhsd8bxkU6MDcP","target":"false"},"id":"be053305-6b13-4367-b7b2-81da8bd8351e","isHidden":false,"type":"button"}]
 
 ----
 

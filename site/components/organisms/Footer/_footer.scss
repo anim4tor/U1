@@ -17,10 +17,21 @@ footer,
 	}
 
 	.footer__logo  {
-		height: 2em;
+		height: 3em;
 		svg {
 			width: auto;
 			height: 100%;
+		}
+	}
+
+	.footer__nav .link {
+		&:hover {
+			opacity: 1;
+			& [data-word] span {
+				--reveal-delay: 0ms;
+				--reveal-duration: 600ms;
+				color: rgb(var(--color-acc)) !important;
+			}
 		}
 	}
 }

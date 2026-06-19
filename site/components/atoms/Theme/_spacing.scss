@@ -5,8 +5,7 @@
 */
 @import "../Media/media";
 :root {
-	--vpad: calc(var(--spacing)*var(--scale-vpad));
-	--hpad: calc(var(--spacing)*var(--scale-hpad));
+
 }
 
 $limit: 20;

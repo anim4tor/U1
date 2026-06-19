@@ -7,7 +7,7 @@
 
 :root {
   --border-width: 1.5px;
-  --radius: calc(var(--spacing)*1.5);
+  --radius: 1.5;
 }
 
 $directions : (
@@ -83,7 +83,7 @@ html body hr {
 }
 
 @mixin radius {
-  border-radius: var(--radius);
+  border-radius: calc(var(--radius)*1em);
   overflow: hidden;
 }
 .radius {

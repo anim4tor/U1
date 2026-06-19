@@ -5,63 +5,38 @@
 */
 
 @import "../Media/media";
+
+/* ------------------------------------------------------------
+   THE CALCULATED SYSTEM (Applies globally, evaluates dynamically)
+   ------------------------------------------------------------ */
 :root {
-  --xl: 1.85;
-  --l: 1.5;
-  --m: 1.25;
+    /* Headings */
+    --font-size-5: max(calc(var(--type-start-rem) * var(--scale)), calc(var(--type-start-vw) * var(--scale)));
+    --line-height-5: var(--base-line-height);
 
-  --screen-scale: 1;
-  @include create-mq($screen-mobile, 'max') {
-      --screen-scale: 0.7;
-  }
+    --font-size-4: max(calc(var(--type-start-rem) * var(--type-scale) * var(--scale)), calc(var(--type-start-vw) * var(--type-scale) * var(--scale)));
+    --line-height-4: calc(var(--line-height-5) - (0.04 * var(--type-scale)));
+
+    --font-size-3: max(calc(var(--type-start-rem) * var(--type-scale) * var(--type-scale) * var(--scale)), calc(var(--type-start-vw) * var(--type-scale) * var(--type-scale) * var(--scale)));
+    --line-height-3: calc(var(--line-height-4) - (0.04 * var(--type-scale)));
+
+    --font-size-2: max(calc(var(--type-start-rem) * var(--type-scale) * var(--type-scale) * var(--type-scale) * var(--scale)), calc(var(--type-start-vw) * var(--type-scale) * var(--type-scale) * var(--type-scale) * var(--scale)));
+    --line-height-2: calc(var(--line-height-3) - (0.04 * var(--type-scale)));
+
+    --font-size-1: max(calc(var(--type-start-rem) * var(--type-scale) * var(--type-scale) * var(--type-scale) * var(--type-scale) * var(--scale)), calc(var(--type-start-vw) * var(--type-scale) * var(--type-scale) * var(--type-scale) * var(--type-scale) * var(--scale)));
+    --line-height-1: calc(var(--line-height-2) - (0.04 * var(--type-scale)));
+
+    /* Body */
+    --font-size-small: max(calc(var(--body-start-rem) * var(--scale)), calc(var(--body-start-vw) * var(--scale)));
+    --line-height-small: var(--base-body-line-height);
+
+    --font-size-default: max(calc(var(--body-start-rem) * var(--body-scale) * var(--scale)), calc(var(--body-start-vw) * var(--body-scale) * var(--scale)));
+    --line-height-default: calc(var(--base-body-line-height) - (0.04 * var(--body-scale)));
+
+    --font-size-large: max(calc(var(--body-start-rem) * var(--body-scale) * var(--body-scale) * var(--scale)), calc(var(--body-start-vw) * var(--body-scale) * var(--body-scale) * var(--scale)));
+    --line-height-large: calc(var(--line-height-default) - (0.04 * var(--body-scale)));
 }
 
-/*
-    FONT FACES
-*/
-
-@font-face {
-    font-family: 'Plain';
-    src: url('../fonts/Plain-Light.woff2') format('woff2'),
-        url('../fonts/Plain-Light.woff') format('woff');
-    font-weight: 300;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Plain';
-    src: url('../fonts/Plain-Regular.woff2') format('woff2'),
-        url('../fonts/Plain-Regular.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Plain';
-    src: url('../fonts/Plain-Medium.woff2') format('woff2'),
-        url('../fonts/Plain-Medium.woff') format('woff');
-    font-weight: 500;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'ABCArizonaFlare';
-    src: url('../fonts/ABCArizonaFlare-Regular.woff2') format('woff2'),
-        url('../fonts/ABCArizonaFlare-Regular.woff2') format('woff');
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
-}
-
-
-/*
-	IMPORTS
-*/
-
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 /*
     Levels
@@ -103,8 +78,8 @@ $mods: (
     l: 1.5,
     m: 1.25,
     df: 1,
-    s: 0.85,
-    xs: 0.7
+    s: 0.9,
+    xs: 0.8
 );
 @each $modifier , $breakpoint in $map-grid-props {
     @if($modifier == '') {
@@ -139,10 +114,10 @@ $mods: (
 html {font-size: 100%;} /*16px*/
 body {
   --output-size: var(--font-size-default);
-  font-family: var(--font-family-body);
+  font-family: var(--ff-body);
   font-size: var(--output-size);
   line-height: var(--line-height-default);
-  font-weight: var(--font-weight-body);
+  font-weight: var(--fw-body);
   font-optical-sizing: auto;
 }
 
@@ -152,17 +127,16 @@ body {
 
 h1, h2, h3, h4, h5 {
     font-size: var(--output-size);
-    font-family: var(--font-family-heading);
-    font-weight: var(--font-weight-heading);
+    font-family: var(--ff-heading), sans-serif;
+    font-weight: var(--fw-heading);
+    letter-spacing: var(--ls-heading);
+    text-transform: var(--tt-heading);
     font-optical-sizing: auto;
-    letter-spacing: -0.05em;
-/*    margin-top: -0.2em;*/
-    text-transform: uppercase;
 }
 .ff__heading,
 .ff__heading *
 {
-    font-family: var(--font-family-heading);
+    font-family: var(--ff-heading), sans-serif;
 }
 
 /*
@@ -171,20 +145,24 @@ h1, h2, h3, h4, h5 {
 
 p, a {
     font-size: var(--output-size);
-    font-family: var(--font-family-body);
-    font-weight: var(--font-weight-body);
-    letter-spacing: -0.035em;
+    font-family: var(--ff-body), sans-serif;
+    font-weight: var(--fw-body);
+    letter-spacing: var(--ls-body);
+    text-transform: var(--tt-body);
+    font-optical-sizing: auto;
 }
-p {
-    margin-top: -0.2em;
-}
+
 .ff__body,
 .ff__body *
 {
-    font-family: var(--font-family-body);
-    margin-top: 0;
+    font-family: var(--ff-body), sans-serif;
 }
 
+.ff__mono,
+.ff__mono *
+{
+    font-family: var(--ff-mono), mono;
+}
 
 /*
     Utils
@@ -209,6 +187,9 @@ p {
 .lighter {
     font-weight: lighter;
 }
+.light {
+    font-weight: 100;
+}
 .bolder {
     font-weight: bolder;
 }
@@ -220,24 +201,8 @@ p {
 .upper {
     text-transform: uppercase;
 }
-
-.mono {
-  font-family: var(--font-family-body), sans-serif;
-  font-size: 0.8rem;
-  font-weight: 500;
-  line-height: 1.4em;
-  text-transform: uppercase;
-
-  h1, h2, h3, h4, h5 {
-    text-transform: capitalize;
-  }
-
-  &.xs {
-    @include xs-screen {
-        font-size: 0.6rem;
-        margin-top: 0.5em;
-    }
-  }
+.label {
+    font-weight: 500;
 }
 
 .hyphens {

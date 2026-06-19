@@ -1,28 +1,57 @@
 <footer id="footer" class="color__invert" data-footer data-scroll>
 	<div class="bg radius absolute inset__stretch" theme="dark"></div>
 
-	<div class="grid__3 gap__1 inner-x__1 inner-y__2">
-		<a class="footer__logo flex" data-reveal href="<?= page('home')->url() ?>"><?= svg('public/assets/images/fig_logo.svg') ?></a>	
-		<div class="span__2 flex align__center gap__1 mobile:grid mobile:justify__center">
-			<nav data-reveal-text="words" class="flex align__center gap__1">
-				<!-- <?php foreach ($site->social()->toStructure() as $social): ?>
-					<?= snippet('atoms/Link', ['url' => $social->link()->toUrl(), 'label' => $social->platform(), 'icon' => false]) ?>
-				<?php endforeach ?> -->
-				<?= snippet('atoms/Link', ['url' => page('home')->url(), 'label' => page('home')->title(), 'size' => 'font__size__1 xs', 'icon' => false]) ?>
-				<?= snippet('atoms/Link', ['url' => page('projects')->url(), 'label' => page('projects')->title(), 'size' => 'font__size__1 xs', 'icon' => false]) ?>
-				<?= snippet('atoms/Link', ['url' => page('services')->url(), 'label' => page('services')->title(), 'size' => 'font__size__1 xs', 'icon' => false]) ?>
-				<?= snippet('atoms/Link', ['url' => page('studio')->url(), 'label' => page('studio')->title(), 'size' => 'font__size__1 xs', 'icon' => false]) ?>
-				<?= snippet('atoms/Link', ['url' => page('kontakt')->url(), 'label' => page('kontakt')->title(), 'size' => 'font__size__1 xs', 'icon' => false]) ?>
-				
-			</nav>
+	<div class="grid__4 gap__1 inner-x__1 inner-y__2 inner-b__1">
+		<a class="footer__logo" href="<?= page('home')->url() ?>"><span data-reveal ><?= svg('public/assets/images/fig_logo.svg') ?></span></a>	
+		<nav class="span__3 footer__nav flex wrap align__center gap__02 ff__heading upper font__size__3">
+			<?php foreach ($pages->listed() as $p): ?>
+				<?php if(!$p->isFirst()) : ?>
+					<span class="light ff__body op__2">/</span>
+				<?php endif ?>
+				<?= snippet('atoms/Link', ['url' => $p->url(), 'label' => $p->title(), 'icon' => false, 'css' => !$p->isActive() ? 'op__4' : '', 'node' => 'data-reveal-text data-split-ignore']) ?>
+			<?php endforeach ?>
+			
+		</nav>
+		<div class="relative span__4 grid__4 gap__1 inner-t__6">	
+			
+			<div class="grid place__space-between-start gap__2">
+				<div class="grid gap__02">
+					<div class="label upper xs op__4">(Contact)</div>
+					<p class="">U1 s.r.o. <br>Nejedlého 373/1, Brno-Lesná, 638 00 <br>IČ 26273179</p>
+				</div>
+				<div class=""><a href="">sales@u1.cz</a></div>
+			</div>	
+			<div class="grid place__space-between-start gap__2">
+				<div class="grid gap__02">
+					<div class="label upper xs op__4">(Newsletter)</div>
+					<p class="">subscribe for weekly design inspiration.</p>
+				</div>
+				<div class=" op__4"><a href="">email</a></div>
+			</div>
+			<div></div>
+			<div class="grid place__space-between-start gap__02">
+				<div class="grid gap__02">
+					<div class="label upper xs op__4">(Socials)</div>
+					<nav class="flex gap__02">
+						<?php foreach ($site->social()->toStructure() as $s): ?>
+							<?php if(!$s->isFirst()) : ?>
+								<span class="light ff__body op__2">/</span>
+							<?php endif ?>
+							<?= snippet('atoms/Link', ['url' => $s->link()->url(), 'label' => $s->platform(), 'icon' => false, 'node' => 'data-reveal-text data-split-ignore']) ?>
+						<?php endforeach ?>
+					</nav>
+				</div>
+				<div class="grid">
+					<nav data-reveal-text="words" class="flex justify__space-between gap__05 op__5 font__size__default s">
+						<?= snippet('atoms/Link', ['url' => 'terms', 'label' => 'Terms', 'icon' => false]) ?>
+						<?= snippet('atoms/Link', ['url' => 'privacy', 'label' => 'Privacy', 'icon' => false]) ?>
+						<?= snippet('atoms/Link', ['url' => 'cookies', 'label' => 'Cookies', 'icon' => false]) ?>
+					</nav>
+				</div>
+			</div>	
+			
 		</div>
-		<div class="span__3 inner-t__10">		
-			<nav data-reveal-text="words" class="flex align__center gap__1 op__5 font__size__default">
-				<?= snippet('atoms/Link', ['url' => 'terms', 'label' => 'Terms & Conditions', 'icon' => false]) ?>
-				<?= snippet('atoms/Link', ['url' => 'privacy', 'label' => 'Privacy Statement', 'icon' => false]) ?>
-				<?= snippet('atoms/Link', ['url' => 'cookies', 'label' => 'Cookies', 'icon' => false]) ?>
-			</nav>
-		</div>
+
 	</div>
 </footer>
 

@@ -6,9 +6,9 @@
 @import "../Media/media";
 @import "../../atoms/Animation/animation";
 :root {
-	--reveal-duration: #{$defaultDuration};
-  --reveal-stack: 50ms;
-  --reveal-delay: 0ms;
+	--reveal-duration: var(--animation-duration);
+  --reveal-stack: var(--animation-stagger);
+  --reveal-delay: var(--animation-delay);
 }
 
 
@@ -27,7 +27,7 @@
       --delay: calc(var(--in-delay, 0) + #{$i} * 100ms);
     }
   }
-  transform: rotate(30deg) scale(0);
+  transform: scale(0);
 }
 
 [data-reveal="opacity"] {
@@ -56,7 +56,7 @@
 
 [data-reveal-cover] {
   $mask: '';
-  $steps: 20;
+  $steps: 24;
   $inc: 100% / $steps;
 
   @for $i from 1 through $steps {
@@ -108,7 +108,7 @@
     
     & > span {
       display: inline-block;
-      transform: translateY(2em);
+      transform: translateY(2em) scaleY(0);
       @include animation((transform, color), var(--reveal-duration), (var(--delay), calc(var(--delay) + 200ms)));
       
     }
@@ -130,7 +130,7 @@
 @mixin reveal-text-char {
   @include reveal-text-setup;
   [data-word] > span {
-    color: rgba(var(--color-acc),1);
+    color: var(--color-acc);
     --delay: calc(var(--char-index) * var(--reveal-stack)/((var(--word-total) + 1)/2) + var(--in-delay, var(--reveal-delay, 0ms)));
   }
 }
@@ -141,7 +141,7 @@
   [data-word] > [data-char],
   [data-word] > span {
     transform: none;
-    color: rgba(var(--col),1);
+    color: var(--col);
 /*    animation: reveal-in var(--reveal-duration) $defaultEasing var(--delay) forwards;*/
   }
 }
@@ -151,7 +151,7 @@
   [data-word] > [data-char],
   [data-word] > span {
     transform: none;
-    color: rgba(var(--col),1);
+    color: var(--col);
   }
 }
 @mixin reveal-text-out {
@@ -168,16 +168,16 @@
 /*    transform: scaleX(0);*/
   }
   30% {
-    color: rgba(var(--color-acc),1);
+    color: var(--color-acc);
   }
   100% {
     transform: none;
-    color: rgba(var(--col),1);
+    color: var(--col);
   }
 }
 @keyframes hover-in {
   to {
-    color: rgba(var(--color-acc),1);
+    color: var(--color-acc);
   }
 }
 @keyframes reveal-out {

@@ -18,7 +18,7 @@
 		<div class="grid place__center-center">
 			<div data-pane-container class="grid " data-scroll data-scroll-ignore data-reveal-image>
 
-				<div class="grid__stack inner__1 radius" theme="dark">
+				<div class="grid__stack inner__1 img__radius" theme="dark">
 					<?php foreach (collection('Projects') as $project) : ?>
 						<div data-pane="testimonial-<?= $project->indexOf(collection('Projects')) ?>" class="grid gap__4 place__space-between-start" data-tab-reveal>
 							<div class="grid place__start-start gap__1">
@@ -29,7 +29,7 @@
 										</div>
 									<?php endif ?>
 								</div>
-								<p class="quote ff__heading upper" data-reveal-text="lines" data-split-ignore>"<?= $project->testimonialQuote()->inline() ?>"</p>
+								<p class="quote m ff__heading upper" data-reveal-text="lines" data-split-ignore>"<?= $project->testimonialQuote()->inline() ?>"</p>
 							</div>
 							<div class="flex justify__space-between">
 								<div class="s upper " >(Testimonials)</div>

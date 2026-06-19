@@ -1,7 +1,7 @@
 <section class="projects radius" theme="dark" data-carousel>
 	<div class="grid__3 gap__2 mobile:grid__1 inner-y__2 inner-b__5 mobile:inner-x__1 ">
 		<div data-scroll class="span__2 inner-x__1 ">
-			<h2 class="font__size__1 xl" data-reveal-text>
+			<h2 class="l" data-reveal-text>
 				Selected <br>Works
 			</h2>
 		</div>

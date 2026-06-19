@@ -10,6 +10,7 @@
 	--button-size: 40px;
 	--button-radius: 2em;
 	--button-spacing: 1.0em;
+	--button-family: var(--ff-body);
 	--checkbox-radius: 1rem;
 }
 .button {
@@ -23,8 +24,8 @@
 	gap: 0.15em;
 	flex-shrink: 0;
 
-	font-family: var(--font-family-body);
-	font-size: calc(var(--font-size-default)*0.8);
+	font-family: var(--button-family);
+	font-size: calc(var(--font-size-default));
 	font-weight: 400;
 	height: var(--button-size);
 	min-width: var(--button-size);

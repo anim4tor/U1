@@ -5,7 +5,7 @@
 			<div class="intro__cover absolute inset__stretch grid overlay__bottom"><?= snippet('atoms/Image', ['img' => $cover, 'parallax' => 2]) ?></div>
 		<?php endif ?> -->
 		<div class="intro__title relative span__3 mobile:span__1" data-scroll data-scroll-speed="-0.5">
-			<h1 class="xl" data-reveal-text>The Process</h1>
+			<h2 class="l" data-reveal-text>The Process</h2>
 		</div>
 		<div class="relative flex justify__end align__start"><strong class="s upper" data-reveal-text="lines">(The Process)</strong></div>
 	</div>
@@ -14,7 +14,7 @@
 			<div class="grid place__start-start inner-x__1" >
 				<?php foreach (collection('Process') as $step) : ?>
 					<div data-tab="step-<?= $step->step()?>" class="flex align__start gap__02 inner-y__02" data-scroll >
-						<h3 class="font__size__1" data-reveal-text data-split-ignore><?= $step->label() ?></h3>
+						<h3 class="" data-reveal-text data-split-ignore><?= $step->label() ?></h3>
 						<span data-reveal-text="lines" class="-wrap-t__03">(<?= $step->step() ?>)</span>
 					</div>
 				<?php endforeach ?>

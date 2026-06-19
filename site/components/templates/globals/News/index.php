@@ -3,13 +3,13 @@
 
 	<div class="relative grid__2 gap__2 inner-x__1 inner-y__2">
 		<div class="" data-scroll>
-			<h1 class="xl" data-reveal-text>Studio</h1>
+			<h2 class="l" data-reveal-text>Studio</h2>
 		</div>
 		<div class="flex justify__space-between">
 			<div class="grid gap__02 inner-b__5" data-scroll>
-				<h2 class="font__size__1 s" data-reveal-text>News</h2>
-				<h2 class="font__size__1 s op__4" data-reveal-text>Socials</h2>
-				<h2 class="font__size__1 s op__4" data-reveal-text>Media</h2>
+				<h3 class="" data-reveal-text>News</h3>
+				<h3 class=" op__4" data-reveal-text>Socials</h3>
+				<h3 class=" op__4" data-reveal-text>Media</h3>
 			</div>
 			<div class="flex gap__02 justify__end align__end m">
 				<button data-carousel-prev class="button upper" theme="ghost" ><span class="icon"><?= svg('public/assets/images/ui/ui_arrow-left.svg') ?></span></button>

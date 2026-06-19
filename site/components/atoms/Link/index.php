@@ -4,9 +4,10 @@
 	$label ??= false;
 	$css ??= false;
 	$icon ??= true;
+	$node ??= false;
 ?>
 <?php if ($url) : ?>
-	<a href="<?= $url ?>" class="link <?= $size ?> flex align__center gap__03 <?= $css ?>" aria-label="<?= $label ?>">
+	<a href="<?= $url ?>" class="link <?= $size ?> flex align__center gap__03 <?= $css ?>" aria-label="<?= $label ?>" <?= $node ?>>
 		<span class=""><?= $label ?></span>
 		<?php if ($icon) : ?>
 			<span class="icon --open"><?= svg('public/assets/images/ui/ui_arrow-right.svg') ?></span>

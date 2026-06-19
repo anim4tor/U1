@@ -3,14 +3,19 @@
 $defaultEasing: cubic-bezier(0.4, 0, 0.2, 1);
 $defaultDuration: 800ms;
 
-@mixin animation($property: all, $duration: $defaultDuration, $delay: 0ms, $easing: $defaultEasing) {
+/*Updated Mixin Mapping to CSS custom properties*/
+@mixin animation(
+  $property: all, 
+  $duration: var(--animation-duration, 1s), 
+  $delay: var(--animation-delay, 0ms), 
+  $easing: var(--animation-timing, ease-in-out)
+) {
   transition-property: $property;
   transition-duration: $duration;
   transition-delay: $delay;
   transition-timing-function: $easing;
   will-change: $property;
 }
-
 
 @-webkit-keyframes bounce {
   from,
