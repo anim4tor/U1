@@ -6,7 +6,7 @@ Customtitle: Workspaces That Works
 
 ----
 
-Menutitle: 
+Menutitle: Home
 
 ----
 

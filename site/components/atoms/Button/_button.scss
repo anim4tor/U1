@@ -26,9 +26,6 @@
 	gap: 0.5em;
 	flex-shrink: 0;
 
-	font-family: var(--button-family);
-	font-size: var(--button-font-size);
-	font-weight: 400;
 	height: var(--button-size);
 	min-width: var(--button-size);
 	padding: 0 Var(--button-spacing);
@@ -103,7 +100,7 @@
 	}
 }
 
-.button {
+.button, button {
 	@include animation;
 	&[theme="invert"]:hover {
 		--background: var(--color-dark);

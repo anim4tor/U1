@@ -11,58 +11,6 @@
 
 }
 
-.header {
-	z-index: 998;
-	position: fixed;
-	inset: 0;
-	pointer-events: none;
-	max-width: 100vw;
-	display: grid;
-
-	&__widget {
-		pointer-events: all;
-		border-radius: var(--circle-size);
-	}
-}
-
-.header, .aside__header {
-	height: var(--header-height);
-	color: rgba(var(--col),1);
-	background: transparent;
-
-	& p, & a {
-		pointer-events: all;
-	}
-
-	.logo {
-		--size: 3em;
-		margin-left: -0.6em;
-		@include xs-screen {
-			margin-left: 0;
-		}
-		@include animation;
-		svg {
-			width: var(--size);
-			height: var(--size);
-			@include animation;
-
-			path {
-				stroke: currentColor;
-				stroke-width: 0.6;
-			}
-		}
-	}
-
-	.button {
-		@include animation;
-	}
-}
-
-[navbar-widget] {
-	height: var(--header-height);
-	width: 100%;
-}
-
 [fab] {
 /*	--size: Max(calc(var(--spacing)*2.15), 62px);*/
 	z-index: 1000;
@@ -93,47 +41,157 @@
 }
 
 [data-header] {
+	z-index: 998;
+	position: fixed;
+	inset: 0;
+	pointer-events: none;
+	display: grid;
 	@include animation;
-
-	[navbar], [navbar-widget], [navbar-menu] {
-		@include animation;
-	}
-	[navbar] {
-		width: 60vw;
-	}
-	[navbar-menu] {
-		width: 100%;
-	}
-	[fab] {
-		@include animation;
-/*		transform: translateY(calc(100% + var(--spacing)*1));*/
-	}
-
+	backdrop-filter: blur(0rem) brightness(1);
+	
 	&[hide] {
-
-		[navbar-widget] {
-/*			transform: translateY(calc(-100% - var(--spacing)*1));*/
-		}
-			
-
-		[fab] {
-/*			display: none;*/
-			transform: none;
-		}
 
 	}
 
 	&[collapsed] {
-		[navbar] {
-			width: 30vw;
-		}
-		[navbar-widget] {
-/*			--ncol: 2;*/
-		}
-		[navbar-menu] {
-/*			display: none;*/
-			opacity: 0;
-			width: 0;
+
+	}
+}
+
+
+[data-reveal-on-navbar] {
+	@include reveal-text-char;
+}
+
+html[navbar-open] {
+	[data-reveal-on-navbar] {
+		@include reveal-text-in;
+	}
+}
+
+[navbar] {
+	pointer-events: all;
+	@include animation;
+/*	min-width: $screen-mobile;*/
+/*	height: var(--header-height);*/
+}
+	
+	[navbar-toggle] {
+		cursor: pointer;
+	}
+	[navbar-header] {
+		height: var(--header-height);
+		width: 100%;
+	}
+
+	[navbar-widget] {
+		display: grid;
+		grid-template-rows: 0fr;
+		contain: paint;
+		@include animation(grid-template-rows);
+		transition-duration: calc(var(--animation-duration)*.5);
+
+		& > div {
+			min-height: 0;
+			@include animation;
+			visibility: hidden;
 		}
 	}
+
+html[navbar-open] {
+
+	[navbar] {
+/*		min-width: $screen-tablet;*/
+		--background: var(--color-dark);
+		background: var(--background);
+	}
+	[data-header] {
+		backdrop-filter: blur(1rem) brightness(0.6);
+	}
+	[navbar-widget] {
+		grid-template-rows: 1fr;
+		max-height: calc(100vh - var(--spacing)*1 - var(--header-height));
+
+		& > div {
+			visibility: visible;
+		}
+	}
+}
+
+[navbar-header] {
+  & [data-on-navbar-hover] {
+    & > * {
+      transition: visibility 0s, opacity 0.3s ease, transform 0.3s ease;
+    }
+    & > :not([data-default]) {
+      visibility: hidden;
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    & > [data-default] {
+      visibility: visible;
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  & [data-on-navbar-toggle] {
+    & > * {
+      transition: visibility 0s, opacity 0.3s ease, transform 0.3s ease;
+    }
+    & > :not([data-default]) { 
+      visibility: hidden; 
+      opacity: 0; 
+      transform: translateY(10px);
+    }
+    & > [data-default] { 
+      visibility: visible; 
+      opacity: 1; 
+      transform: translateY(0);
+    }
+  }
+
+  html:not([navbar-open]) &:hover [data-on-navbar-hover] {
+    & > [data-default] {
+      visibility: hidden;
+      opacity: 0;
+      transform: translateY(-10px);
+      transition: visibility 0s 0.3s, opacity 0.3s ease, transform 0.3s ease;
+    }
+    & > :not([data-default]) {
+      visibility: visible;
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  html[navbar-open] & {
+    & [data-on-navbar-hover] {
+      & > [data-default] {
+        visibility: hidden;
+        opacity: 0;
+        transform: translateY(-10px);
+        transition: visibility 0s 0.3s, opacity 0.3s ease, transform 0.3s ease;
+      }
+      & > :not([data-default]) {
+        visibility: visible;
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    & [data-on-navbar-toggle] {
+      & > [data-default] { 
+        visibility: hidden; 
+        opacity: 0; 
+        transform: translateY(-10px);
+        transition: visibility 0s 0.3s, opacity 0.3s ease, transform 0.3s ease;
+      }
+      & > :not([data-default]) { 
+        visibility: visible; 
+        opacity: 1; 
+        transform: translateY(0);
+      }
+    }
+  }
 }

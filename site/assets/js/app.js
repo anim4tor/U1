@@ -44,7 +44,7 @@ const init = async () => {
     const components = [
         initScroll, 
         initReveals,
-        initAside, 
+        initNavbar, 
         initTabs, 
         initCollapsibles, 
         initCarousels
@@ -106,5 +106,5 @@ document.addEventListener('DOMContentLoaded', async () => {
 //@prepros-prepend ../../components/molecules/Collapsible/index.js
 //@prepros-prepend ../../components/molecules/Tabs/index.js
 //@prepros-prepend ../../components/organisms/Loader/index.js
-//@prepros-prepend ../../components/organisms/Aside/index.js
+//@prepros-prepend ../../components/organisms/Header/index.js
 //@prepros-prepend ../../components/organisms/Carousel/index.js

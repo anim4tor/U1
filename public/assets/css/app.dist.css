@@ -15544,9 +15544,6 @@ html body hr {
   gap: 0.5em;
   -ms-flex-negative: 0;
       flex-shrink: 0;
-  font-family: var(--button-family);
-  font-size: var(--button-font-size);
-  font-weight: 400;
   height: var(--button-size);
   min-width: var(--button-size);
   padding: 0 Var(--button-spacing);
@@ -15630,7 +15627,7 @@ html body hr {
   -webkit-transition-delay: 0ms;
           transition-delay: 0ms;
 }
-.button {
+.button, button {
   -webkit-transition-property: all;
   transition-property: all;
   -webkit-transition-duration: var(--animation-duration, 1s);
@@ -15641,24 +15638,24 @@ html body hr {
           transition-timing-function: var(--animation-timing, ease-in-out);
   will-change: all;
 }
-.button[theme=invert]:hover {
+.button[theme=invert]:hover, button[theme=invert]:hover {
   --background: var(--color-dark);
   --col: var(--color-invert);
 }
-.button[theme=dark]:hover {
+.button[theme=dark]:hover, button[theme=dark]:hover {
   --background: var(--color-invert);
   --col: var(--color-dark);
 }
-.button[theme=ghost] {
+.button[theme=ghost], button[theme=ghost] {
   --background: transparent;
   --col: var(--color-text);
   border: var(--border-width) solid color-mix(in srgb, var(--col) 20%, transparent);
 }
-.button[theme=acc] {
+.button[theme=acc], button[theme=acc] {
   --background: var(--color-acc);
   --col: var(--color-invert);
 }
-.button[theme=invert-ghost] {
+.button[theme=invert-ghost], button[theme=invert-ghost] {
   --background: transparent;
   --col: var(--color-invert);
   border: var(--border-width) solid color-mix(in srgb, var(--col) 20%, transparent);
@@ -35627,82 +35624,6 @@ html body hr {
   --header-height: 55px;
 }
 
-.header {
-  z-index: 998;
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  max-width: 100vw;
-  display: -ms-grid;
-  display: grid;
-}
-.header__widget {
-  pointer-events: all;
-  border-radius: var(--circle-size);
-}
-
-.header, .aside__header {
-  height: var(--header-height);
-  color: rgba(var(--col), 1);
-  background: transparent;
-}
-.header p, .header a, .aside__header p, .aside__header a {
-  pointer-events: all;
-}
-.header .logo, .aside__header .logo {
-  --size: 3em;
-  margin-left: -0.6em;
-}
-@media screen and (max-width: 480px) {
-  .header .logo, .aside__header .logo {
-    margin-left: 0;
-  }
-}
-.header .logo, .aside__header .logo {
-  -webkit-transition-property: all;
-  transition-property: all;
-  -webkit-transition-duration: var(--animation-duration, 1s);
-          transition-duration: var(--animation-duration, 1s);
-  -webkit-transition-delay: var(--animation-delay, 0ms);
-          transition-delay: var(--animation-delay, 0ms);
-  -webkit-transition-timing-function: var(--animation-timing, ease-in-out);
-          transition-timing-function: var(--animation-timing, ease-in-out);
-  will-change: all;
-}
-.header .logo svg, .aside__header .logo svg {
-  width: var(--size);
-  height: var(--size);
-  -webkit-transition-property: all;
-  transition-property: all;
-  -webkit-transition-duration: var(--animation-duration, 1s);
-          transition-duration: var(--animation-duration, 1s);
-  -webkit-transition-delay: var(--animation-delay, 0ms);
-          transition-delay: var(--animation-delay, 0ms);
-  -webkit-transition-timing-function: var(--animation-timing, ease-in-out);
-          transition-timing-function: var(--animation-timing, ease-in-out);
-  will-change: all;
-}
-.header .logo svg path, .aside__header .logo svg path {
-  stroke: currentColor;
-  stroke-width: 0.6;
-}
-.header .button, .aside__header .button {
-  -webkit-transition-property: all;
-  transition-property: all;
-  -webkit-transition-duration: var(--animation-duration, 1s);
-          transition-duration: var(--animation-duration, 1s);
-  -webkit-transition-delay: var(--animation-delay, 0ms);
-          transition-delay: var(--animation-delay, 0ms);
-  -webkit-transition-timing-function: var(--animation-timing, ease-in-out);
-          transition-timing-function: var(--animation-timing, ease-in-out);
-  will-change: all;
-}
-
-[navbar-widget] {
-  height: var(--header-height);
-  width: 100%;
-}
-
 [fab] {
   /*	--size: Max(calc(var(--spacing)*2.15), 62px);*/
   z-index: 1000;
@@ -35742,6 +35663,12 @@ html body hr {
 }
 
 [data-header] {
+  z-index: 998;
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  display: -ms-grid;
+  display: grid;
   -webkit-transition-property: all;
   transition-property: all;
   -webkit-transition-duration: var(--animation-duration, 1s);
@@ -35751,54 +35678,209 @@ html body hr {
   -webkit-transition-timing-function: var(--animation-timing, ease-in-out);
           transition-timing-function: var(--animation-timing, ease-in-out);
   will-change: all;
+  backdrop-filter: blur(0rem) brightness(1);
 }
-[data-header] [navbar], [data-header] [navbar-widget], [data-header] [navbar-menu] {
-  -webkit-transition-property: all;
-  transition-property: all;
-  -webkit-transition-duration: var(--animation-duration, 1s);
-          transition-duration: var(--animation-duration, 1s);
-  -webkit-transition-delay: var(--animation-delay, 0ms);
-          transition-delay: var(--animation-delay, 0ms);
+[data-reveal-on-navbar] {
+  visibility: hidden;
+  -webkit-transition: visibility 0s linear var(--reveal-duration);
+  transition: visibility 0s linear var(--reveal-duration);
+}
+[data-reveal-on-navbar] [data-word] {
+  display: inline-block;
+  vertical-align: bottom;
+  clip-path: inset(-0.2em -0.1em -0.2em -0.1em);
+}
+[data-reveal-on-navbar] [data-word] > span {
+  display: inline-block;
+  -webkit-transform: translateY(2em) scaleY(0);
+          transform: translateY(2em) scaleY(0);
+  -webkit-transition-property: color, -webkit-transform;
+  transition-property: color, -webkit-transform;
+  transition-property: transform, color;
+  transition-property: transform, color, -webkit-transform;
+  -webkit-transition-duration: var(--reveal-duration);
+          transition-duration: var(--reveal-duration);
+  -webkit-transition-delay: var(--delay), calc(var(--delay) + 300ms);
+          transition-delay: var(--delay), calc(var(--delay) + 300ms);
   -webkit-transition-timing-function: var(--animation-timing, ease-in-out);
           transition-timing-function: var(--animation-timing, ease-in-out);
-  will-change: all;
+  will-change: transform, color;
 }
-[data-header] [navbar] {
-  width: 60vw;
+[data-reveal-on-navbar] [data-word] > span {
+  color: var(--color-acc);
+  --delay: calc(var(--char-index) * var(--reveal-stack)/((var(--word-total) + 1)/2) + var(--in-delay, var(--reveal-delay, 0ms)));
 }
-[data-header] [navbar-menu] {
-  width: 100%;
+
+html[navbar-open] [data-reveal-on-navbar] {
+  visibility: visible;
+  -webkit-transition: visibility 0s linear 0s;
+  transition: visibility 0s linear 0s;
 }
-[data-header] [fab] {
-  -webkit-transition-property: all;
-  transition-property: all;
-  -webkit-transition-duration: var(--animation-duration, 1s);
-          transition-duration: var(--animation-duration, 1s);
-  -webkit-transition-delay: var(--animation-delay, 0ms);
-          transition-delay: var(--animation-delay, 0ms);
-  -webkit-transition-timing-function: var(--animation-timing, ease-in-out);
-          transition-timing-function: var(--animation-timing, ease-in-out);
-  will-change: all;
-  /*		transform: translateY(calc(100% + var(--spacing)*1));*/
-}
-[data-header][hide] [navbar-widget] {
-  /*			transform: translateY(calc(-100% - var(--spacing)*1));*/
-}
-[data-header][hide] [fab] {
-  /*			display: none;*/
+html[navbar-open] [data-reveal-on-navbar] [data-word] > [data-char],
+html[navbar-open] [data-reveal-on-navbar] [data-word] > span {
   -webkit-transform: none;
           transform: none;
+  color: var(--col);
+  /*    animation: reveal-in var(--reveal-duration) $defaultEasing var(--delay) forwards;*/
 }
-[data-header][collapsed] [navbar] {
-  width: 30vw;
+
+[navbar] {
+  pointer-events: all;
+  -webkit-transition-property: all;
+  transition-property: all;
+  -webkit-transition-duration: var(--animation-duration, 1s);
+          transition-duration: var(--animation-duration, 1s);
+  -webkit-transition-delay: var(--animation-delay, 0ms);
+          transition-delay: var(--animation-delay, 0ms);
+  -webkit-transition-timing-function: var(--animation-timing, ease-in-out);
+          transition-timing-function: var(--animation-timing, ease-in-out);
+  will-change: all;
+  /*	min-width: $screen-mobile;*/
+  /*	height: var(--header-height);*/
 }
-[data-header][collapsed] [navbar-widget] {
-  /*			--ncol: 2;*/
+
+[navbar-toggle] {
+  cursor: pointer;
 }
-[data-header][collapsed] [navbar-menu] {
-  /*			display: none;*/
+
+[navbar-header] {
+  height: var(--header-height);
+  width: 100%;
+}
+
+[navbar-widget] {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 0fr;
+  grid-template-rows: 0fr;
+  contain: paint;
+  -webkit-transition-property: grid-template-rows;
+  transition-property: grid-template-rows;
+  transition-property: grid-template-rows, -ms-grid-rows;
+  -webkit-transition-duration: var(--animation-duration, 1s);
+          transition-duration: var(--animation-duration, 1s);
+  -webkit-transition-delay: var(--animation-delay, 0ms);
+          transition-delay: var(--animation-delay, 0ms);
+  -webkit-transition-timing-function: var(--animation-timing, ease-in-out);
+          transition-timing-function: var(--animation-timing, ease-in-out);
+  will-change: grid-template-rows;
+  -webkit-transition-duration: calc(var(--animation-duration) * 0.5);
+          transition-duration: calc(var(--animation-duration) * 0.5);
+}
+[navbar-widget] > div {
+  min-height: 0;
+  -webkit-transition-property: all;
+  transition-property: all;
+  -webkit-transition-duration: var(--animation-duration, 1s);
+          transition-duration: var(--animation-duration, 1s);
+  -webkit-transition-delay: var(--animation-delay, 0ms);
+          transition-delay: var(--animation-delay, 0ms);
+  -webkit-transition-timing-function: var(--animation-timing, ease-in-out);
+          transition-timing-function: var(--animation-timing, ease-in-out);
+  will-change: all;
+  visibility: hidden;
+}
+
+html[navbar-open] [navbar] {
+  /*		min-width: $screen-tablet;*/
+  --background: var(--color-dark);
+  background: var(--background);
+}
+html[navbar-open] [data-header] {
+  backdrop-filter: blur(1rem) brightness(0.6);
+}
+html[navbar-open] [navbar-widget] {
+  -ms-grid-rows: 1fr;
+  grid-template-rows: 1fr;
+  max-height: calc(100vh - var(--spacing) * 1 - var(--header-height));
+}
+html[navbar-open] [navbar-widget] > div {
+  visibility: visible;
+}
+
+[navbar-header] [data-on-navbar-hover] > * {
+  -webkit-transition: visibility 0s, opacity 0.3s ease, -webkit-transform 0.3s ease;
+  transition: visibility 0s, opacity 0.3s ease, -webkit-transform 0.3s ease;
+  transition: visibility 0s, opacity 0.3s ease, transform 0.3s ease;
+  transition: visibility 0s, opacity 0.3s ease, transform 0.3s ease, -webkit-transform 0.3s ease;
+}
+[navbar-header] [data-on-navbar-hover] > :not([data-default]) {
+  visibility: hidden;
   opacity: 0;
-  width: 0;
+  -webkit-transform: translateY(10px);
+          transform: translateY(10px);
+}
+[navbar-header] [data-on-navbar-hover] > [data-default] {
+  visibility: visible;
+  opacity: 1;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+}
+[navbar-header] [data-on-navbar-toggle] > * {
+  -webkit-transition: visibility 0s, opacity 0.3s ease, -webkit-transform 0.3s ease;
+  transition: visibility 0s, opacity 0.3s ease, -webkit-transform 0.3s ease;
+  transition: visibility 0s, opacity 0.3s ease, transform 0.3s ease;
+  transition: visibility 0s, opacity 0.3s ease, transform 0.3s ease, -webkit-transform 0.3s ease;
+}
+[navbar-header] [data-on-navbar-toggle] > :not([data-default]) {
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transform: translateY(10px);
+          transform: translateY(10px);
+}
+[navbar-header] [data-on-navbar-toggle] > [data-default] {
+  visibility: visible;
+  opacity: 1;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+}
+html:not([navbar-open]) [navbar-header]:hover [data-on-navbar-hover] > [data-default] {
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transform: translateY(-10px);
+          transform: translateY(-10px);
+  -webkit-transition: visibility 0s 0.3s, opacity 0.3s ease, -webkit-transform 0.3s ease;
+  transition: visibility 0s 0.3s, opacity 0.3s ease, -webkit-transform 0.3s ease;
+  transition: visibility 0s 0.3s, opacity 0.3s ease, transform 0.3s ease;
+  transition: visibility 0s 0.3s, opacity 0.3s ease, transform 0.3s ease, -webkit-transform 0.3s ease;
+}
+html:not([navbar-open]) [navbar-header]:hover [data-on-navbar-hover] > :not([data-default]) {
+  visibility: visible;
+  opacity: 1;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+}
+html[navbar-open] [navbar-header] [data-on-navbar-hover] > [data-default] {
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transform: translateY(-10px);
+          transform: translateY(-10px);
+  -webkit-transition: visibility 0s 0.3s, opacity 0.3s ease, -webkit-transform 0.3s ease;
+  transition: visibility 0s 0.3s, opacity 0.3s ease, -webkit-transform 0.3s ease;
+  transition: visibility 0s 0.3s, opacity 0.3s ease, transform 0.3s ease;
+  transition: visibility 0s 0.3s, opacity 0.3s ease, transform 0.3s ease, -webkit-transform 0.3s ease;
+}
+html[navbar-open] [navbar-header] [data-on-navbar-hover] > :not([data-default]) {
+  visibility: visible;
+  opacity: 1;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+}
+html[navbar-open] [navbar-header] [data-on-navbar-toggle] > [data-default] {
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transform: translateY(-10px);
+          transform: translateY(-10px);
+  -webkit-transition: visibility 0s 0.3s, opacity 0.3s ease, -webkit-transform 0.3s ease;
+  transition: visibility 0s 0.3s, opacity 0.3s ease, -webkit-transform 0.3s ease;
+  transition: visibility 0s 0.3s, opacity 0.3s ease, transform 0.3s ease;
+  transition: visibility 0s 0.3s, opacity 0.3s ease, transform 0.3s ease, -webkit-transform 0.3s ease;
+}
+html[navbar-open] [navbar-header] [data-on-navbar-toggle] > :not([data-default]) {
+  visibility: visible;
+  opacity: 1;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
 }
 
 /*
