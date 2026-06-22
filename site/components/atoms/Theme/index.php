@@ -136,7 +136,7 @@
 		</svg>
 	</button>
 
-	<div id="theme-panel-body" class="grid__2 gap__1 inner__05 color__invert bg__black/80 is-hidden" style="max-width: 540px; max-height: 85vh; overflow-y: auto; font-family: sans-serif; padding: 1rem;">
+	<div id="theme-panel-body" class="grid__2 gap__1 inner__05 color__invert bg__black/80 is-hidden" style="max-height: 85vh; overflow-y: auto; font-family: sans-serif; padding: 1rem;">
 		
 		<div class="theme-tab-nav span__2">
 			<button class="theme-tab-btn is-active" data-tab-target="tab-typography">Typography</button>
@@ -144,6 +144,8 @@
 			<button class="theme-tab-btn" data-tab-target="tab-spacing">Spacing</button>
 			<button class="theme-tab-btn" data-tab-target="tab-animations">Animations</button>
 			<button class="theme-tab-btn" data-tab-target="tab-colors">Colors & Canvas</button>
+			<button class="theme-tab-btn" data-tab-target="tab-images">Images</button>
+			<button class="theme-tab-btn" data-tab-target="tab-buttons">Buttons</button>
 		</div>
 
 		<div id="tab-typography" class="theme-tab-content grid__2 gap__1 span__2">
@@ -330,6 +332,32 @@
 			</div>
 		</div>
 
+		<div id="tab-images" class="theme-tab-content grid__2 gap__1 span__2 is-hidden">
+		    <div class="grid">
+		        <label class="ff__body op__4 xs">Image Radius</label>
+		        <input type="number" name="img-radius" step="0.1" min="0" max="10" data-theme-setup>
+		    </div>
+		    <div class="grid">
+		        <label class="ff__body op__4 xs">Global Radius</label>
+		        <input type="number" name="radius" step="0.1" min="0" max="10" data-theme-setup>
+		    </div>
+		</div>
+
+		<div id="tab-buttons" class="theme-tab-content grid__2 gap__1 span__2 is-hidden">
+		    <div class="grid">
+		        <label class="ff__body op__4 xs">Btn Padding</label>
+		        <input type="text" name="btn-padding" placeholder="0.5rem 1rem" data-theme-setup>
+		    </div>
+		    <div class="grid">
+		        <label class="ff__body op__4 xs">Btn Radius</label>
+		        <input type="number" name="btn-radius" step="1" min="0" max="50" data-theme-setup>
+		    </div>
+		    <div class="grid span__2">
+		        <label class="ff__body op__4 xs">Btn Border Width</label>
+		        <input type="number" name="btn-border" step="1" min="0" max="10" data-theme-setup>
+		    </div>
+		</div>
+
 		<div class="flex span__2" style="width: 100%; margin-top: 0.75rem; gap: 0.5rem; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 0.75rem; flex-wrap: wrap;">
 					
 			<form action="<?= $page->url() ?>" method="POST" style="width: 100%; margin: 0; padding: 0;">
@@ -436,16 +464,23 @@
 
 		// --- 2. DYNAMIC CSS VARIABLE EXTRACTION ENGINE ---
 		function getRawThemeDeclarations() {
-			const declarations = {};
-			declarations['spacing'] = 'max(calc(var(--scale-min) * 1rem), calc(var(--scale-fluid) * 1vw * var(--scale)))';
-			declarations['type-start-rem'] = '1.5rem';
-			declarations['type-start-vw'] = '1.5vw';
-			declarations['body-start-rem'] = '0.714rem';
-			declarations['body-start-vw'] = '0.714vw';
-			declarations['animation-duration'] = '800ms';
-			declarations['animation-timing'] = 'cubic-bezier(0.4, 0, 0.2, 1)';
-			declarations['animation-stagger'] = '50ms';
-			declarations['animation-delay'] = '0ms';
+			const declarations = {
+				'spacing' : 'max(calc(var(--scale-min) * 1rem), calc(var(--scale-fluid) * 1vw * var(--scale)))',
+				'type-start-rem' : '1.5rem',
+				'type-start-vw' : '1.5vw',
+				'body-start-rem' : '0.714rem',
+				'body-start-vw' : '0.714vw',
+				'animation-duration' : '800ms',
+				'animation-timing' : 'cubic-bezier(0.4, 0, 0.2, 1)',
+				'animation-stagger' : '50ms',
+				'animation-delay' : '0ms',
+				'img-radius' : '8px',
+		        'radius' : '4px',
+		        'btn-padding' : '0.5rem 1rem',
+		        'btn-radius' : '4px',
+		        'btn-border' : '1px'
+
+			};
 
 			try {
 				Array.from(document.styleSheets).forEach(sheet => {
@@ -637,6 +672,8 @@
 					scale: ['type-scale', 'type-start-rem', 'type-start-vw', 'base-line-height', 'body-scale', 'body-start-rem', 'body-start-vw', 'base-body-line-height'],
 					spacing: ['scale-min', 'scale-fluid', 'scale', 'spacing'],
 					animations: ['animation-duration', 'animation-delay', 'animation-stagger', 'animation-timing'],
+					images: ['img-radius', 'radius'], // Přidáno
+    				buttons: ['btn-padding', 'btn-radius', 'btn-border'], // Přidáno
 					colors: []
 				};
 
@@ -669,6 +706,8 @@
 				appendGroup("Layout Padding & Grid Spacing", groups.spacing);
 				appendGroup("Global Interactive Animations", groups.animations);
 				appendGroup("Active Theme Palette Matrix", groups.colors);
+				appendGroup("Image Styling", groups.images);
+				appendGroup("Button Components", groups.buttons);
 
 				cssOutputString = cssOutputString.trimEnd() + "\n}";
 

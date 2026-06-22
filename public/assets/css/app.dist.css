@@ -23600,7 +23600,7 @@ html body hr {
 }
 
 :root {
-  --img-radius: calc(var(--radius)/2);
+  --img-radius: 0.75;
 }
 
 figure {

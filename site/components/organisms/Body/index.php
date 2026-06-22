@@ -1,4 +1,4 @@
-<body page="<?= $page ?>" theme="light" >
+<body page="<?= $page ?>" theme="invert" >
     
     <?= $site->seobodyscripts() ?>
 

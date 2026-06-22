@@ -9,7 +9,7 @@
 @import "../../atoms/Animation/animation";
 @import "../../atoms/Theme/border";
 :root {
-  --img-radius: calc(var(--radius)/2);
+  --img-radius: 0.75;
 }
 
 
