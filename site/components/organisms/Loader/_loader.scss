@@ -27,9 +27,31 @@
   [data-loader-bg] {
     position: absolute;
     inset: 0;
-    @include animation(transform, 600ms);
-    transform-origin: center right;
-    transform: scaleX(1);
+/*    @include animation(transform, 600ms);*/
+/*    transform-origin: center right;*/
+/*    transform: scaleX(1);*/
+
+    $mask: '';
+    $steps: 24;
+    $inc: 100% / $steps;
+
+    @for $i from 1 through $steps {
+      $mask: $mask + 'transparent #{$inc * ($i - 1)} calc( #{$inc*$i} - (var(--p)*(var(--items)*2) - #{($steps - $i)/$steps}) * #{$inc} )';
+      $mask: $mask + ', ';
+      $mask: $mask + 'black calc( #{$inc*$i} - (var(--p)*(var(--items)*2) - #{($steps - $i)/$steps}) * #{$inc} ) #{$inc*$i}';
+      @if $i < $steps {
+        $mask: $mask + ', ';
+      } @else {
+        $mask: $mask + ';';
+      }
+    } 
+    --items: 1;
+    --mask: #{$mask};
+    mask-image: linear-gradient(90deg, var(--mask));
+
+    --p: 1;
+    transition: --p var(--reveal-duration) cubic-bezier(0.4, 0, 0.2, 1);
+
   }
   [data-loader-logo] {
     z-index: 1;
@@ -97,7 +119,8 @@ html[data-loading] {
 
 html[data-transition] {
   [data-loader-bg] {
-    transform: scaleX(0);
+/*    transform: scaleX(0);*/
+    --p: 0;
   }
   [data-loader-logo] {
     opacity: 0;
@@ -111,6 +134,7 @@ html[data-transition-out] {
   [data-loader-bg] {
     transform-origin: center left;
     transform: scaleX(1);
+    --p: 1;
   }
 }
 

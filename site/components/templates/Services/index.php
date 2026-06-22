@@ -1,5 +1,3 @@
-<?= snippet('molecules/Gradient', [ 'from' => $page->gradientFrom(), 'to' => $page->gradientTo() ]) ?>
-
 <?php snippet('templates/globals/Intro', compact('page'), slots: true) ?>
   <?php slot('subtitle') ?>
   	<div class="intro__subtitle flex align__end gap__05 inner-r__2"><span class="icon"><?= svg('public/assets/images/ui/ui_arrow-bottom-left.svg') ?></span><p class="font__size__3 mobile:xs" data-reveal-text="words"><?= $page->subtitle() ?></p></div>

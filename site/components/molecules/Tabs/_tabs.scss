@@ -65,103 +65,95 @@
 /*    display: none;*/
 }
 
+
+
 [data-tab-reveal] {
-  &[data-reveal-text],
   [data-reveal-text] {
     @include reveal-text-setup;
   }
 
-  &[data-reveal-image],
   [data-reveal-image] {
-/*  	clip-path: inset(0% 100% 0% 0%);*/
-/*  	transform-origin: right center;*/
-/*  	@include animation((clip-path));*/
-
-/*		@include animation(opacity);*/
-/*		opacity: 0;*/
-			animation: image-out var(--reveal-duration) var(--animation-timing) forwards;
+			visibility: hidden;
+/*			@include animation(visibility);*/
+/*			clip-path: inset(0% 100% 0% 0%);*/
+/*			transform: translateX(0%);*/
+/*			animation: image-out var(--reveal-duration) var(--animation-timing) both;*/
 			img {
-				@include animation;
-				transform: translateX(20%);
+/*				transform: translateX(0);*/
 			}
   }
 
-  &[data-reveal-cover],
   [data-reveal-cover] {
-  	figure {
-		/*transition: --p var(--reveal-duration) var(--animation-timing);
-  		--p: 1;*/
-  		--p: 0;
-  	}
+  	
   }
 }
 
 /* 2. HOVER IN STAV (když na něj najedeš) */
-[data-pane][data-active] [data-tab-reveal],
-[data-pane][data-active][data-tab-reveal] {
-  &[data-reveal-text],
+[data-tab-reveal][data-active] {
   [data-reveal-text] {
   	--in-delay: 400ms;
     @include reveal-text-in;
   }
 
-  &[data-reveal-image],
   [data-reveal-image] {
-/*  	@include animation((clip-path));*/
-  	/*transform-origin: left center;
-  	clip-path: inset(0% 0% 0% 0%);*/
-/*		opacity: 1;*/
+  		visibility: visible;
+			@include animation(visibility);
+			--reveal-duration: 400ms;
 			animation: image-in var(--reveal-duration) var(--animation-timing) forwards;
+      animation-play-state: running;
+
 			img {
-				transition: none;
-				transform: translateX(0);
+/*				transition: none;*/
+/*				transform: translateX(0);*/
 			}
 
   }
 
-  &[data-reveal-cover],
   [data-reveal-cover] {
   	figure {
-		/*transition: --p var(--reveal-duration) var(--animation-timing);
-  		--p: 1;*/
   		animation: cover-in var(--reveal-duration) var(--animation-timing) forwards;
   	}
   }
 }
 
-[data-pane].is-closing[data-tab-reveal],
-[data-pane].is-closing [data-tab-reveal] {
-	&[data-reveal-image],
+[data-tab-reveal].is-closing {
 	[data-reveal-image] {
-		/*@include animation((transform));
-		transform: translateX(20%);
-		clip-path: inset(0% 0% 0% 0%);
-		opacity: 1;*/
+  	visibility: visible;
+		animation: image-out var(--reveal-duration) var(--animation-timing) forwards;
+		/*img {
+			@include animation;
+			transform: translateX(20%);
+		}*/
 	}
-	&[data-reveal-cover],
 	[data-reveal-cover] {
 		figure {
-			--p: 1 !important;
+  		--p: 1;
 		}
 	}
 }
 
 @keyframes image-in {
-	from {
+	0% {
 		clip-path: inset(0% 100% 0% 0%);
+		transform: translateX(0%);
 	}
-	to {
+	100% {
 		clip-path: inset(0% 0% 0% 0%);
+		transform: translateX(0%);
 	}
 }
 
 
 @keyframes image-out {
-	from {
-		clip-path: inset(0% 0% 0% 0%);
+	0% {
+			clip-path: inset(0% 0% 0% 0%);
+	    transform: scale(1) translateX(0%);
+/*	    opacity: 1;*/
 	}
-	to {
-		clip-path: inset(0% 0% 0% 100%);
+	100% {
+			clip-path: inset(0% 0% 0% 0%);
+	    transform: scale(1) translateX(20%);
+/*	    opacity: 0;*/
 	}
 }
 

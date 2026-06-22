@@ -7,7 +7,7 @@
 			<div class="flex gap__4 inner-l__4 align__center" navbar-toggle>
 				<div class="grid__stack place__center-center" data-on-navbar-hover>
 					<nav data-default class="grid__stack">
-						<?= snippet('atoms/Link', ['url' => $page->url(), 'label' => $page->menuTitle(), 'icon' => false, 'css' => '', 'node' => 'data-reveal-text  data-split-ignore']) ?>
+						<?= snippet('atoms/Link', ['url' => $page->url(), 'label' => $page->parent() ? $page->parent()->title() : $page->title(), 'icon' => false, 'css' => '', 'node' => 'data-reveal-text  data-split-ignore']) ?>
 					</nav>
 					<div data-on-navbar-toggle class="grid__stack place__center-center upper">
 						<span data-default>Menu</span>
@@ -29,7 +29,7 @@
 						<nav navbar-menu class="grid upper ff__heading font__size__4 no__wrap">
 							<?php foreach ($pages->listed() as $p): ?>
 								<div class="grid place__center-center">
-									<?= snippet('atoms/Link', ['url' => $p->url(), 'label' => $p->title(), 'icon' => false, 'css' => !$p->isActive() ? 'op__4' : '', 'node' => 'data-reveal-text data-reveal-on-navbar data-split-ignore']) ?>
+									<?= snippet('atoms/Link', ['url' => $p->url(), 'label' => $p->title(), 'icon' => false, 'css' => $p->isActive() || $page->parents()->has($p) ? '' : 'op__4', 'node' => 'data-reveal-text data-reveal-on-navbar data-split-ignore']) ?>
 								</div>
 							<?php endforeach ?>
 						</nav>
@@ -70,18 +70,11 @@
 		</div>
 	</div>
 	<div fab data-scroll style="--in-delay: 600ms" class="fixed inset__bottom-right inner__05">
-		<!-- <button class="bg__acc" data-scroll data-booking-toggle >
-			<div class="grid__stack color__invert ">
-				<div data-booking-hide class="grid"><?= svg('public/assets/images/hand.svg') ?></div>
-				<div data-booking-reveal class="grid"><?= svg('public/assets/images/ui/ui_close.svg') ?></div>
-			</div>
-		</button> -->
-		<button class="button bg__acc " theme="acc" data-scroll data-booking-toggle >
+		<button class="button circle --large bg__acc " theme="acc" data-scroll data-booking-toggle >
 			<div icon class="grid__stack color__invert ">
 				<div data-booking-hide class="grid"><?= svg('public/assets/images/hand.svg') ?></div>
-				<div data-booking-reveal class="grid"><?= svg('public/assets/images/ui/ui_close.svg') ?></div>
 			</div>
-			<label class="upper">Start project</label>
+			<!-- <label class="upper">Start project</label> -->
 		</button>
 	</div>
 </header>

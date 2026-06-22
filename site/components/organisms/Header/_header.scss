@@ -60,7 +60,7 @@
 
 
 [data-reveal-on-navbar] {
-	@include reveal-text-char;
+	@include reveal-text-word;
 }
 
 html[navbar-open] {
@@ -95,6 +95,18 @@ html[navbar-open] {
 			min-height: 0;
 			@include animation;
 			visibility: hidden;
+		}
+
+		[navbar-menu] .link {
+			&:hover {
+				opacity: 1;
+				[data-char] {
+					--reveal-delay: 0ms;
+					--color-delay: 0ms;
+					--reveal-duration: 600ms;
+					color: var(--color-acc) !important;
+				}
+			}
 		}
 	}
 

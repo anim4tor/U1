@@ -6,11 +6,15 @@ Cover: - file://GQ11bD7Ux3WfiTJa
 
 ----
 
-Intro: Only sophisticated planning can make full use of the potential of your space without the need for early investment in further alterations.
+Excerpt: <p>Office interiors are not just about aesthetics and first impressions. They combine design, function and technology.</p>
 
 ----
 
-Details: <p>Only sophisticated planning can make full use of the potential of your space without the need for early investment in further alterations.</p>
+Intro: <p>We rely on sustainable systems and products and will guide you through the whole process.</p>
+
+----
+
+Details: <p>We select a&nbsp;suitable space, prepare a&nbsp;cost estimate, handle the technical requirements of the buildings, utilise the potential of the environment and help activate the performance of its users through proper use of space and choosing a&nbsp;strategy that is in line with the company's&nbsp;pace of development.</p>
 
 ----
 

@@ -15,13 +15,14 @@
 
 [data-tabs] {
 	[data-tab] {
-		@include animation(opacity);
+/*		@include animation(opacity);*/
 	}
 	[data-tab]:hover {
 		opacity: 1;
 	}
 	[data-tab][data-active] span {
 		--reveal-delay: 0ms;
+		--color-delay: 0ms;
 		--reveal-duration: 600ms;
 		color: var(--color-acc) !important;
 	}

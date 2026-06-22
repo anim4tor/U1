@@ -25,6 +25,8 @@ tabs:
             size: full
       - width: 1/2
         fields:
+          excerpt:
+            type: writer
           intro:
             type: writer
           details:

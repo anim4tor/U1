@@ -7,8 +7,8 @@
 	<div data-pane-container class="grid__stack absolute inset__stretch" >
 		<?php foreach (collection('Projects') as $project) : ?>
 			<?php if ($cover = $project->cover()->toFile()) : ?>
-			<div data-pane="project-<?= $project->indexOf(collection('Projects')) ?>" >
-				<div class="intro__cover grid " data-tab-reveal data-reveal-cover><?= snippet('atoms/Image', ['img' => $cover, 'parallax' => 2, 'reveal' => false, 'css' => 'overlay__bottom']) ?></div>
+			<div data-tab-reveal data-pane="project-<?= $project->indexOf(collection('Projects')) ?>" >
+				<div class="intro__cover grid " data-reveal-cover><?= snippet('atoms/Image', ['img' => $cover, 'parallax' => 2, 'reveal' => false, 'css' => 'overlay__bottom']) ?></div>
 			</div>
 			<?php endif ?>
 		<?php endforeach ?>
@@ -20,13 +20,13 @@
 				<?php foreach (collection('Projects') as $project) : ?>
 					<?php if ($cover = $project->cover()->toFile()) : ?>
 					<div data-pane="project-<?= $project->indexOf(collection('Projects')) ?>" class="grid__2" data-tab-reveal>
-						<div data-reveal-text="words" data-split-ignore class="upper s"><?= $project->title() ?></div>
+						<a href="<?= $project->url() ?>"><div data-reveal-text="words" data-split-ignore class="upper s"><?= $project->title() ?></div></a>
 						<div data-reveal-text="words" data-split-ignore class="upper s flex justify__end"><?= $project->date()->toDate('Y') ?></div>
 					</div>	
 					<?php endif ?>
 				<?php endforeach ?>
 			</div>
-			<div class="upper s flex justify__end" data-tab-next>Next</div>
+			<div class="upper s flex justify__end" data-tab-next>(Next)</div>
 		</div>
 		<div class="intro__title relative place__end-stretch span__4 mobile:span__1 inner-y__05" data-scroll style="--in-delay: 500ms">
 			<h1 class="s">

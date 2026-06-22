@@ -20,21 +20,21 @@
 			<div class="grid__2" data-scroll data-scroll-ignore>
 				<div data-pane-container class="grid__stack">
 					<?php foreach (collection('Team') as $team) : ?>
-					<div data-pane="team-<?= $team->indexOf(collection('Team')) ?>" class="grid ">
-						<p class="s" data-reveal-text="lines" data-split-ignore data-tab-reveal><?= $team->details()->inline() ?></p>
+					<div data-tab-reveal data-pane="team-<?= $team->indexOf(collection('Team')) ?>" class="grid ">
+						<p class="s" data-reveal-text="lines" data-split-ignore ><?= $team->details()->inline() ?></p>
 					</div>
 					<?php endforeach ?>
 				</div>
 			</div>
 		</div>
 		<div class="grid place__start-end inner-r__1 " data-pane-container>
-			<div class="grid__stack no__overflow">
+			<div class="grid__stack no__overflow img__radius">
 				<?php foreach (collection('Team') as $team) : ?>
 					<?php if ($leader = $team->leader()->toPage()) : ?>
 					<div data-pane="team-<?= $team->indexOf(collection('Team')) ?>" class="" data-scroll data-scroll-ignore data-tab-reveal>
 						<div class="grid place__start-end gap__05">
 							<?php if ($photo = $leader->photo()->toFile()) : ?>
-								<div data-reveal-image class="item__figure img__radius no__overflow "><?= snippet('atoms/Image', ['img' => $photo, 'parallax' => 1, 'css' => 'w__10 aspect__3/4 grid' ]) ?></div>
+								<div data-tab-reveal-image class="item__figure img__radius no__overflow "><?= snippet('atoms/Image', ['img' => $photo, 'parallax' => 1, 'css' => 'w__10 aspect__3/4 grid' ]) ?></div>
 							<?php endif ?>
 
 							<div class="flex gap__05 justify__space-between upper wrap">

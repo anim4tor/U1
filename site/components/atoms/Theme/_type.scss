@@ -185,8 +185,8 @@ p, a, button {
     font-weight: bolder;
 }
 
-.lower {
-    text-transform: capitalize;
+.lower, .lower * {
+    text-transform: none !important;
 }
 
 .upper {

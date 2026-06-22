@@ -5,11 +5,22 @@ const isMobile = window.matchMedia("(max-width: 768px)").matches ||
 
 const isWindow = navigator.platform.toUpperCase().indexOf('WIN') > -1;
 
+window.addEventListener('popstate', () => {
+    // 1. Apply the transition attribute
+    document.documentElement.setAttribute('data-transition-out', 'true');
+
+    // 2. We don't need to manually change window.location 
+    // because popstate is triggered by the browser's own history movement.
+    
+    // Note: If your site has a long "loading" or "transition" time, 
+    // you might want to clear the attribute after a timeout or 
+    // leave it until the next page load.
+});
 document.addEventListener('click', (e) => {
     const link = e.target.closest('a');
     
     // Ignoruj, pokud to není validní interní odkaz
-    if (!link || link.target === '_blank' || link.dataset.asyncTab || link.dataset.tab || link.dataset.tabPrev) return;
+    // if (!link || link.target === '_blank' || link.dataset.asyncTab || link.dataset.tab || link.dataset.tabPrev) return;
 
     const url = new URL(link.href, window.location.origin);
     const isInternal = url.hostname === window.location.hostname;
@@ -25,7 +36,7 @@ document.addEventListener('click', (e) => {
 
         setTimeout(() => {
             window.location.href = link.href;
-        }, 600);
+        }, 800);
     }
 });
 

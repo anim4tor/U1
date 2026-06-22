@@ -1,3 +1,8 @@
+/**
+ * Tabs Component
+ * - Handles tab switching, async content loading, scroll triggers and A11y.
+ * - Layering: Dynamic z-index stacking for smooth overlapping animations.
+ */
 class Tabs {
     constructor(el) {
         if (!el) return;
@@ -15,25 +20,23 @@ class Tabs {
             }
         };
 
-        // Konfigurace časů na jednom místě
         this.settings = {
-            animationDuration: 1000,  // Jak dlouho trvá, než se úplně schová odcházející panel (ms)
-            debounceDuration: 200   // Jak dlouho musí myš stát na tabu, než se aktivuje panel (ms)
+            animationDuration: 1000,
+            debounceDuration: 0
         };
 
         this.data = {
-            active: 0,
+            active: 1,
             next: 0,
-            cache: {} 
+            cache: {}
         };
 
+        this.zIndexCounter = 100;
         this.is_changing = false;
         this.is_scrolling_via_click = false; 
         this.scroll_timeout = null;
         this.hover_timeout = null;
-        
         this.closing_timeouts = []; 
-
         this.scrollTriggers = [];
         this.observer = null;
         
@@ -54,6 +57,8 @@ class Tabs {
         this.setupA11y();
         this.initEvents();
         this.initScrollTriggers(); 
+
+        this.updateZIndices(this.data.active);
         this.setActive(this.data.active);
     }
 
@@ -141,30 +146,19 @@ class Tabs {
         if (this.data.active === this.data.next && this.DOM.widget.classList.contains('--init-done')) return;
         this.DOM.widget.classList.add('--init-done');
 
-        // 1. OKAMŽITÁ ZMĚNA PRO TABY
-        this.DOM.tabs.forEach((t, i) => {
-            const isActive = i === this.data.next;
-            t.toggleAttribute('data-active', isActive);
-            t.setAttribute('aria-selected', isActive);
-            t.setAttribute('tabindex', isActive ? '0' : '-1');
-            if (isActive) t.classList.remove('is-closing');
-        });
-
-        const lastActiveTab = this.DOM.tabs[this.data.active];
-        const lastActivePaneValue = lastActiveTab ? (lastActiveTab.dataset.tab || lastActiveTab.dataset.asyncTab || String(this.data.active)) : null;
-
         const activeTab = this.DOM.tabs[this.data.next];
         const activePaneValue = activeTab ? (activeTab.dataset.tab || activeTab.dataset.asyncTab || String(this.data.next)) : null;
 
-        // 2. PARALELNÍ ZMĚNA PANELŮ (Využívá settings.animationDuration)
-        this.DOM.panes.forEach((p, i) => {
-            const isOldPane = p.dataset.pane ? (p.dataset.pane === lastActivePaneValue) : (i === this.data.active);
-            const isNewPane = p.dataset.pane ? (p.dataset.pane === activePaneValue) : (i === this.data.next);
+        this.updateZIndices(activePaneValue);
 
-            if (isOldPane && this.data.active !== this.data.next) {
+        this.DOM.panes.forEach((p, i) => {
+            const isNewPane = p.dataset.pane ? (p.dataset.pane === activePaneValue) : (i === this.data.next);
+            const isOldPane = p.dataset.pane ? (p.dataset.pane === (this.DOM.tabs[this.data.active]?.dataset.tab)) : (i === this.data.active);
+
+            if (isOldPane && !isNewPane) {
                 p.removeAttribute('data-active');
                 p.classList.add('is-closing');
-
+                
                 const timeoutId = setTimeout(() => {
                     p.classList.remove('is-closing');
                     this.closing_timeouts = this.closing_timeouts.filter(id => id !== timeoutId);
@@ -179,13 +173,17 @@ class Tabs {
             }
         });
 
-        this.DOM.containers.forEach(container => {
-            const activePaneInContainer = container.querySelector(`[data-pane="${activePaneValue}"][data-active]`) 
-                                         || container.querySelector('[data-pane][data-active]');
-        });
-
         this.data.active = this.data.next;
         this.onTabChange();
+    }
+
+    updateZIndices(activePaneValue) {
+        if (!this.is_hoverable) return;
+        this.zIndexCounter++; 
+        this.DOM.panes.forEach(p => {
+            const isNew = (p.dataset.pane === activePaneValue);
+            if (isNew) p.style.zIndex = this.zIndexCounter + 100;
+        });
     }
 
     async loadAsync(index, url) {
@@ -197,17 +195,13 @@ class Tabs {
         }
 
         this.DOM.widget.classList.add('--loading-async');
-        
         try {
             const response = await fetch(url);
             const json = await response.json();
-            
             this.data.cache[url] = json.html; 
             this.injectAsyncContent(index, json.html);
-            
             this.data.next = index;
             this.change();
-
             this.DOM.tabs[index]?.focus();
         } catch (err) {
             console.error("Async Tab Error:", err);
@@ -219,7 +213,6 @@ class Tabs {
     injectAsyncContent(index, html) {
         const tab = this.DOM.tabs[index];
         const paneValue = tab ? (tab.dataset.tab || tab.dataset.asyncTab || index) : index;
-        
         this.DOM.panes.forEach(pane => {
             if (pane.dataset.pane === paneValue) {
                 const loader = pane.querySelector('[data-load]') || pane;
@@ -267,15 +260,11 @@ class Tabs {
         if (trigger) {
             this.is_scrolling_via_click = true;
             clearTimeout(this.scroll_timeout);
-
-            const yOffset = 0; 
-            const y = trigger.getBoundingClientRect().top + window.pageYOffset + yOffset;
-
-            window.SCROLL?.scrollTo(y);
-
+            const y = trigger.getBoundingClientRect().top + window.pageYOffset;
+            if (window.SCROLL) window.SCROLL.scrollTo(y);
             this.scroll_timeout = setTimeout(() => {
                 this.is_scrolling_via_click = false;
-            }, this.settings.animationDuration); // Využívá zadanou délku animace i pro scroll timeout
+            }, this.settings.animationDuration);
         }
     }
 
@@ -286,10 +275,8 @@ class Tabs {
     }
 
     initEvents() {
-        // --- HOVER LOGIKA (Využívá settings.debounceDuration) ---
         if (this.is_hoverable) {
             this.DOM.tabs.forEach(tab => {
-                
                 const getIndex = () => {
                     const value = tab.dataset.tab || tab.dataset.asyncTab;
                     return (!value) ? this.DOM.tabs.indexOf(tab) : this.getTabIndexByPaneValue(value);
@@ -298,31 +285,22 @@ class Tabs {
                 const handleHover = () => {
                     const index = getIndex();
                     if (index === -1) return;
-
-                    // Okamžité přepnutí aktivního tabu
                     this.DOM.tabs.forEach((t, i) => {
                         const isActive = i === index;
                         t.toggleAttribute('data-active', isActive);
                         t.setAttribute('aria-selected', isActive);
                         t.setAttribute('tabindex', isActive ? '0' : '-1');
                     });
-
-                    // Odložená aktivace panelu na základě constructoru
                     clearTimeout(this.hover_timeout);
                     this.hover_timeout = setTimeout(() => {
-                        if (index !== this.data.active) {
-                            this.setActive(index);
-                        }
+                        if (index !== this.data.active) this.setActive(index);
                     }, this.settings.debounceDuration);
                 };
 
                 tab.addEventListener('mouseenter', handleHover);
                 tab.addEventListener('mousemove', handleHover);
-
                 tab.addEventListener('mouseleave', () => {
                     clearTimeout(this.hover_timeout);
-                    
-                    // Reset tabů na reálně aktivní panel
                     this.DOM.tabs.forEach((t, i) => {
                         const isActive = i === this.data.active;
                         t.toggleAttribute('data-active', isActive);
@@ -333,36 +311,18 @@ class Tabs {
             });
         }
 
-        // --- CLICK LOGIKA ---
         this.DOM.widget.addEventListener("click", e => {
+            const tab = e.target.closest('[data-tab], [data-async-tab]');
             const clickedLink = e.target.closest('a');
             
-            const tab = e.target.closest('[data-tab]');
             if (tab && this.DOM.widget.contains(tab)) {
-                if (!clickedLink && !tab.hasAttribute('href')) {
-                    e.preventDefault();
-                }
-                
-                const value = tab.dataset.tab;
-                const index = (!value) ? this.DOM.tabs.indexOf(tab) : this.getTabIndexByPaneValue(value);
-                
-                if (index !== -1) {
-                    clearTimeout(this.hover_timeout);
-                    this.setActive(index);
-                    this.scrollToTrigger(index);
-                }
-                return;
-            }
+                // If it is a real link (not #), allow default navigation
+                const href = clickedLink?.getAttribute('href');
+                if (href && href !== '#' && href !== '') return;
 
-            const asyncTab = e.target.closest('[data-async-tab]');
-            if (asyncTab && this.DOM.widget.contains(asyncTab)) {
-                if (this.DOM.widget.classList.contains('--loading-async')) return;
+                if (!clickedLink && !tab.hasAttribute('href')) e.preventDefault();
                 
-                if (!clickedLink && !asyncTab.hasAttribute('href')) {
-                    e.preventDefault();
-                }
-
-                const index = this.DOM.tabs.indexOf(asyncTab);
+                const index = this.DOM.tabs.indexOf(tab);
                 if (index !== -1) {
                     clearTimeout(this.hover_timeout);
                     this.setActive(index);
@@ -389,18 +349,18 @@ class Tabs {
     }
 
     onTabChange() {
-        window.SCROLL?.resize();
-        window.Locomotion?.update();
+        if (window.SCROLL) window.SCROLL.resize();
+        if (window.Locomotion) window.Locomotion.update();
     }
     
     destroy() {
         this.DOM.widget.removeEventListener('keydown', this._boundHandleKeydown);
         window.removeEventListener("scrollTabEvent", this._boundScrollEvent);
         if (this.observer) this.observer.disconnect();
-        
         clearTimeout(this.scroll_timeout);
         clearTimeout(this.hover_timeout);
         this.closing_timeouts.forEach(id => clearTimeout(id));
+        this.DOM.panes.forEach(p => p.style.zIndex = '');
     }
 }
 

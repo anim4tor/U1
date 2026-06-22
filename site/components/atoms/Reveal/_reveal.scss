@@ -8,7 +8,8 @@
 :root {
 	--reveal-duration: var(--animation-duration);
   --reveal-stack: var(--animation-stagger);
-  --reveal-delay: calc(var(--animation-delay) + 0ms);
+  --reveal-delay: 100ms;
+  --color-delay: 300ms;
 }
 
 
@@ -110,7 +111,7 @@
     & > span {
       display: inline-block;
       transform: translateY(2em) scaleY(0);
-      @include animation((transform, color), var(--reveal-duration), (var(--delay), calc(var(--delay) + 300ms)));
+      @include animation((transform, color), var(--reveal-duration), (var(--delay), calc(var(--delay) + var(--color-delay))));
       
     }
   }
@@ -119,20 +120,20 @@
 @mixin reveal-text-line {
   @include reveal-text-setup;
   [data-word] > span {
-    --delay: calc(var(--line-index) * var(--reveal-stack) + var(--in-delay, var(--reveal-delay, 0ms)));
+    --delay: calc(var(--line-index) * var(--reveal-stack) + var(--in-delay, 0ms) + var(--reveal-delay, 0ms));
   }
 }
 @mixin reveal-text-word {
   @include reveal-text-setup;
   [data-word] > span {
-    --delay: calc(var(--word-index) * var(--reveal-stack) + var(--in-delay, var(--reveal-delay, 0ms))); 
+    --delay: calc(var(--word-index) * var(--reveal-stack) + var(--in-delay, 0ms) + var(--reveal-delay, 0ms)); 
   }
 }
 @mixin reveal-text-char {
   @include reveal-text-setup;
   [data-word] > span {
     color: var(--color-acc);
-    --delay: calc(var(--char-index) * var(--reveal-stack)/((var(--word-total) + 1)/2) + var(--in-delay, var(--reveal-delay, 0ms)));
+    --delay: calc(var(--char-index) * var(--reveal-stack)/((var(--word-total) + 1)/2) + var(--in-delay, 0ms) + var(--reveal-delay, 0ms));
   }
 }
 
