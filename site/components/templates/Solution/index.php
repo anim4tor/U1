@@ -4,7 +4,7 @@
 	<?php endif ?>
 	<div data-scroll class="z__1 intro__header place__end-stretch grid__4 rows__2 mobile:grid__1 h__100v mobile:h__auto inner__1 mobile:inner-t__10 mobile:gap__2 relative color__invert">
 		<div class="span__4 place__start-start grid__2 border__top inner-t__05">
-			<div data-reveal-text="lines" class="upper">(<?= $page->parent() ? $page->parent()->title() : $page->title() ?>)</div>
+			<a href="<?= $page->parent()->url() ?>" data-reveal-text="lines" class="upper">(<?= $page->parent() ? $page->parent()->title() : $page->title() ?>)</a>
 			<div>
 				<div data-reveal-text="lines" class="font__size__large lower m"><?= $page->excerpt()->or($page->intro()) ?></div>
 			</div>

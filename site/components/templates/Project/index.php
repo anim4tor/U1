@@ -5,7 +5,7 @@
 	<div data-scroll class="z__1 intro__header place__stretch-stretch grid__4 rows__2 mobile:grid__1 h__100v mobile:h__auto inner__1 mobile:inner-t__10 mobile:gap__2 relative color__invert">
 		<div class="span__4 border__bottom"></div>
 		<div class="span__4 inner-t__05 grid__4 place__space-between-stretch">
-			<div data-reveal-text="lines" class="upper s">(<?= $page->parent() ? $page->parent()->title() : $page->title() ?>)</div>
+			<a href="<?= $page->parent()->url() ?>" data-reveal-text="lines" class="upper s">(<?= $page->parent() ? $page->parent()->title() : $page->title() ?>)</a>
 			<div data-reveal-text="lines" class="upper s">(<?= $page->industry() ?>)</div>
 			<div class="span__2">
 				<h1 class="xs">

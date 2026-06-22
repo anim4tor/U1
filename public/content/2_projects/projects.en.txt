@@ -1,8 +1,8 @@
-Title: Projects
+Title: Works
 
 ----
 
-Slug: projects
+Slug: works
 
 ----
 

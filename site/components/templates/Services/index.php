@@ -1,90 +1,44 @@
-<?php snippet('templates/globals/Intro', compact('page'), slots: true) ?>
-  <?php slot('subtitle') ?>
-  	<div class="intro__subtitle flex align__end gap__05 inner-r__2"><span class="icon"><?= svg('public/assets/images/ui/ui_arrow-bottom-left.svg') ?></span><p class="font__size__3 mobile:xs" data-reveal-text="words"><?= $page->subtitle() ?></p></div>
-  <?php endslot() ?>
-<?php endsnippet() ?>
-
-<section class="pricelist">
-	<div class="inner-y__5 inner-x__12 mobile:inner-x__1 grid gap__3">
-
-		<?php if ($page->single()->isNotEmpty()) : ?>
-			<div class="grid" data-tabs>
-				<?php 
-					$tabs = [];
-					foreach ($page->single()->toStructure() as $item):
-						$tabs[$item->duration()->value()][] = $item;
-					endforeach;
-				?>
-				<div class="flex mobile:grid__1 gap__1 align__center justify__space-between inner-y__1 border__bottom">
-					<h2 class=""><?= t('pricing-single') ?></h2>
-					<div class="flex gap__02">
-						<?php foreach ($tabs as $duration => $tab): ?>
-							<button data-tab class="button upper --small" theme="ghost" aria-label="<?= $duration ?> minutes"><?= $duration ?> min</button>
-						<?php endforeach ?>
-					</div>
-				</div>
-				<div data-pane-container>
-					<?php foreach ($tabs as $items): ?>
-					<ul class="class__list grid" data-pane>
-						<?php foreach ($items as $item): ?>
-						  <li class="inner-y__03 flex align__center justify__space-between border__bottom"><p class=""><?= $item->label() ?></p><p class="l bolder"><?= $item->price() ?> Kč</p></li>
-						<?php endforeach ?>
-					</ul>
-					<?php endforeach ?>
+<section class="intro radius" theme="invert" style="--in-delay: 500ms">
+	<div data-scroll class="z__1 intro__header inner-t__3 inner-b__3 place__stretch-stretch grid__4 rows__2 mobile:grid__1 mobile:h__auto inner__1 mobile:inner-t__10 mobile:gap__2 relative ">
+		<div class="span__4 border__bottom"></div>
+		<div class="span__4 inner-t__05 grid__4 place__space-between-stretch">
+			<!-- <div data-reveal-text="lines" class="upper s">(<?= $page->title() ?>)</div> -->
+			<div class="span__3">
+				<div class="flex align__start gap__02 inner-y__02 no__wrap" data-scroll>
+					<h1 class="s" data-reveal-text><?= $page->menuTitle() ?></h1>
 				</div>
 			</div>
-		<?php endif ?>
-
-		<div class="grid" data-tabs>
-			<?php if ($page->passes()->isNotEmpty()) : ?>
-				<?php 
-					$tabs = [];
-					foreach ($page->passes()->toStructure() as $item):
-						$tabs[$item->duration()->value()][] = $item;
-					endforeach;
-				?>
-				<div class="flex mobile:grid__1 gap__1 align__center justify__space-between inner-y__1 border__bottom">
-					<h2 class=""><?= t('pricing-passes') ?></h2>
-					<div class="flex gap__02">
-						<?php foreach ($tabs as $duration => $tab): ?>
-							<button data-tab class="button upper --small" theme="ghost" aria-label="<?= $duration ?> minutes"><?= $duration ?> min</button>
-						<?php endforeach ?>
-					</div>
-				</div>
-				<div data-pane-container>
-					<?php foreach ($tabs as $items): ?>
-					<ul class="class__list grid" data-pane>
-						<?php foreach ($items as $item): ?>
-						  <li class="inner-y__03 flex align__center justify__space-between border__bottom"><p class=""><?= $item->label() ?></p><p class="l bolder"><?= $item->price() ?> Kč</p></li>
-						<?php endforeach ?>
-					</ul>
-					<?php endforeach ?>
-				</div>
-				<?php if ($page->credit()->isNotEmpty()) : ?>
-						<div class="grid gap__1 inner-t__2">
-							<?= snippet('molecules/Header', ['header' => $page->credit()]) ?>
-						</div>
-				<?php endif ?>
-			<?php endif ?>
+			<div data-reveal-text="lines" class="upper flex justify__end">(<?= collection('Solutions')->count() ?>)</div>
 		</div>
-
-		<div class="grid">
-			<?php if ($page->membership()->isNotEmpty()) : ?>
-				<div class="flex align__center justify__start inner-y__1 border__bottom">
-					<h2 class=""><?= t('pricing-membership') ?></h2>
-				</div>
-				<ul class="class__list grid">
-					<?php foreach ($page->membership()->toStructure() as $item): ?>
-					  <li class="inner-y__03 flex align__center justify__space-between border__bottom"><p class=""><?= $item->label() ?></p><p class="l bolder"><?= $item->price() ?> Kč</p></li>
-					<?php endforeach ?>
-				</ul>
-			<?php endif ?>
-			<?php if ($page->benefits()->isNotEmpty()) : ?>
-					<div class="grid gap__1 inner-t__2">
-						<?= snippet('molecules/Header', ['header' => $page->benefits()]) ?>
-					</div>
-			<?php endif ?>
-		</div>
-		
 	</div>
 </section>
+
+<section class="solutions" data-tabs="hoverable" theme="invert">
+	<div class="bg radius absolute inset__stretch" ></div>
+	<div class="grid__4  place__end-stretch mobile:grid__1 mobile:inner-t__10 mobile:gap__2 relative inner-b__5" >
+		<ul class="span__3 solutions__list grid inner__1 inner-t__2">
+			<?php foreach (collection('Solutions') as $solution) : ?>
+				<a href="<?= $solution->url() ?>" class="flex align__start gap__05 inner-y__02" data-scroll data-tab="service-<?= $solution->slug() ?>">
+					<h2 class="s" data-reveal-text data-split-ignore><?= $solution->title() ?></h3>
+				</a>
+			<?php endforeach ?>
+		</ul>
+		<div class="sticky bottom__0 inner__1 ">
+			<div class="grid__stack place__end-end no__overflow img__radius" data-pane-container>
+				<?php foreach (collection('Solutions') as $solution) : ?>
+					<div class="no__overflow" data-pane="service-<?= $solution->slug() ?>" data-tab-reveal >
+						<a href="<?= $solution->url() ?>">
+							<?php if ($img = $solution->cover()->toFile()) : ?>
+								<div class="" data-reveal-image><?= snippet('atoms/Image', ['img' => $img, 'reveal' => false, 'css' => 'aspect__6/4 radius grid']) ?></div>
+							<?php endif ?>
+						</a>
+					</div>
+				<?php endforeach ?>
+			</div>
+		</div>
+	</div>
+</section>
+
+<?= snippet('templates/globals/News') ?>
+
+<?= snippet('templates/globals/Cta') ?>
