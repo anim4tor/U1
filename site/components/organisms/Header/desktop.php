@@ -1,5 +1,5 @@
 <header class="header grid place__start-center inner__05" data-header>
-	<div navbar class="grid  bg__dark/40 color__invert bg__blur img__radius">
+	<div navbar class="grid  bg__dark/60 color__invert bg__blur img__radius">
 		<div navbar-header data-scroll class="flex inner-x__02" >
 			<div class="flex justify__start align__center">
 				<a class="button circle flex justify__center align__center" href="<?= page('home')->url() ?>"><div class="flex align__center" data-reveal ><?= svg('public/assets/images/fig_logo.svg') ?> <!-- <span class="upper">Space Design</span> --></div></a>	

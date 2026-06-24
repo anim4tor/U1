@@ -1,0 +1,11 @@
+title: About 
+
+tabs:
+  content:
+    columns:
+      - width: 1/1
+        fields:
+          hero:
+            extends: fields/hero
+
+  meta: tabs/meta/page

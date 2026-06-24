@@ -7213,7 +7213,7 @@
 :root {
   --reveal-duration: var(--animation-duration);
   --reveal-stack: var(--animation-stagger);
-  --reveal-delay: 100ms;
+  --reveal-delay: 0ms;
   --color-delay: 300ms;
 }
 
@@ -7301,12 +7301,13 @@
 */
 [data-reveal-image] {
   clip-path: inset(0% 100% 0% 0%);
+  --delay: calc(var(--in-delay, 0ms) + var(--reveal-delay, 0ms));
   -webkit-transition-property: clip-path;
   transition-property: clip-path;
-  -webkit-transition-duration: var(--animation-duration, 1s);
-          transition-duration: var(--animation-duration, 1s);
-  -webkit-transition-delay: var(--animation-delay, 0ms);
-          transition-delay: var(--animation-delay, 0ms);
+  -webkit-transition-duration: var(--reveal-duration);
+          transition-duration: var(--reveal-duration);
+  -webkit-transition-delay: var(--delay);
+          transition-delay: var(--delay);
   -webkit-transition-timing-function: var(--animation-timing, ease-in-out);
           transition-timing-function: var(--animation-timing, ease-in-out);
   will-change: clip-path;
@@ -52645,6 +52646,7 @@ html.no-scroll body {
 [data-tabs] [data-tab][data-active] span {
   --reveal-delay: 0ms;
   --color-delay: 0ms;
+  --in-delay: 0ms;
   --reveal-duration: 600ms;
   color: var(--color-acc) !important;
 }

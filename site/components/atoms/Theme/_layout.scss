@@ -218,3 +218,7 @@ $pos: (
 		grid-row: 1;
 	}
 }
+
+.intro__rows {
+	grid-template-rows: 0.8fr 1.2fr;
+}

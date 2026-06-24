@@ -13,25 +13,28 @@
 			<?php endif ?>
 		<?php endforeach ?>
 	</div>
-	<div class="z__1 intro__header grid__4 mobile:grid__1 h__100v mobile:h__auto inner__1 mobile:inner-t__10 mobile:gap__2 relative color__invert">
-		<div class="span__4 grid__4 inner-t__3 relative flex justify__space-between align__center" data-scroll data-scroll-ignore>
-			<div class="upper s" data-tab-next>Featured project</div>
-			<div class="span__2 grid__stack" data-pane-container>
-				<?php foreach (collection('Projects') as $project) : ?>
-					<?php if ($cover = $project->cover()->toFile()) : ?>
-					<div data-pane="project-<?= $project->indexOf(collection('Projects')) ?>" class="grid__2" data-tab-reveal>
-						<a href="<?= $project->url() ?>"><div data-reveal-text="words" data-split-ignore class="upper s"><?= $project->title() ?></div></a>
-						<div data-reveal-text="words" data-split-ignore class="upper s flex justify__end"><?= $project->date()->toDate('Y') ?></div>
-					</div>	
-					<?php endif ?>
-				<?php endforeach ?>
+	<div class="z__1 intro__header grid__4 place__stretch-stretch mobile:grid__1 h__100v intro__rows mobile:h__auto inner__1 mobile:inner-t__10 mobile:gap__2 relative color__invert">
+		<div class="h__1"></div>
+		<div class="span__4 grid place__space-between-stretch">
+			<div class="span__4 grid__4 inner-t__05 relative flex justify__space-between align__start border__top" data-scroll data-scroll-ignore>
+				<div class="upper s" data-tab-next>Featured project</div>
+				<div class="span__2 grid__stack" data-pane-container>
+					<?php foreach (collection('Projects') as $project) : ?>
+						<?php if ($cover = $project->cover()->toFile()) : ?>
+						<div data-pane="project-<?= $project->indexOf(collection('Projects')) ?>" class="grid__2" data-tab-reveal>
+							<a href="<?= $project->url() ?>"><div data-reveal-text="words" data-split-ignore class="upper s"><?= $project->title() ?></div></a>
+							<div data-reveal-text="words" data-split-ignore class="upper s flex justify__end"><?= $project->date()->toDate('Y') ?></div>
+						</div>	
+						<?php endif ?>
+					<?php endforeach ?>
+				</div>
+				<div class="upper s flex justify__end" data-tab-next>(Next)</div>
 			</div>
-			<div class="upper s flex justify__end" data-tab-next>(Next)</div>
-		</div>
-		<div class="intro__title relative place__end-stretch span__4 mobile:span__1 inner-y__05" data-scroll style="--in-delay: 500ms">
-			<h1 class="s">
-				<div data-reveal-text="">We deliver <br> workspaces <br>that works</div>
-			</h1>
+			<div class="intro__title relative place__end-stretch span__4 mobile:span__1 inner-y__05" data-scroll style="--in-delay: 500ms">
+				<h1 class="s">
+					<div data-reveal-text="">We deliver <br> workspaces <br>that works</div>
+				</h1>
+			</div>
 		</div>
 	</div>
 </section>

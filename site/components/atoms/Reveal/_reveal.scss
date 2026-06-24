@@ -8,7 +8,7 @@
 :root {
 	--reveal-duration: var(--animation-duration);
   --reveal-stack: var(--animation-stagger);
-  --reveal-delay: 100ms;
+  --reveal-delay: 0ms;
   --color-delay: 300ms;
 }
 
@@ -52,7 +52,8 @@
 
 [data-reveal-image] {
     clip-path: inset(0% 100% 0% 0%);
-    @include animation((clip-path));
+    --delay: calc(var(--in-delay, 0ms) + var(--reveal-delay, 0ms));
+    @include animation((clip-path), var(--reveal-duration), (var(--delay)));
 }
 
 [data-reveal-cover] {
