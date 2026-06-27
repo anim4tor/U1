@@ -2,6 +2,7 @@ type: files
 template: image
 label: Obrázek
 layout: cards
+info: "{{ file.dimensions }}"
 size: large
 uploads:
   template: image

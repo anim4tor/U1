@@ -1,6 +1,26 @@
 title: Career 
 
 tabs:
+  jobs:
+    columns:
+            
+      - width: 2/3
+        sections:
+          listed:
+            extends: sections/jobs
+            headline: Opened positions
+            status: listed
+
+      - width: 1/3
+        sections:
+          drafts:
+            extends: sections/jobs
+            layout: list
+            status: draft
+          unlisted:
+            extends: sections/jobs
+            layout: list
+            status: unlisted
   content:
     columns:
       - width: 1/1

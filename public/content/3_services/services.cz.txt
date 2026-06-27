@@ -1,8 +1,8 @@
-Title: Služby
+Title: Services
 
 ----
 
-Slug: sluzby
+Slug: services
 
 ----
 

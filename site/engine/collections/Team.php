@@ -1,6 +1,6 @@
 <?php
 return function () {
-	return page('studio')->teams()->toStructure();
+	return page('about')->teams()->toStructure();
 };
 
 

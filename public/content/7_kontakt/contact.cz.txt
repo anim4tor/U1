@@ -1,8 +1,8 @@
-Title: Kontakt
+Title: Contact
 
 ----
 
-Slug: kontakt
+Slug: contact
 
 ----
 

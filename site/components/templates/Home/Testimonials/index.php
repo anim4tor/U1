@@ -26,7 +26,7 @@
 									<div class="flex justify__space-between">
 										<div class="no__overflow w__3" >
 											<?php if ($image = $project->testimonialImage()->toFile()) : ?>
-												<div class="item__figure" data-tab-reveal-image>
+												<div class="item__figure" data-reveal-image>
 													<?= snippet('atoms/Image', ['img' => $image, 'parallax' => 2, 'css' => '']) ?>
 												</div>
 											<?php endif ?>

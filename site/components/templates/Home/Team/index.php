@@ -1,20 +1,20 @@
-<section class="team" theme="invert" data-tabs="hoverable">
+<section class="team" theme="invert" >
 	<div class="relative grid gap__2 inner-x__1 inner-y__2">
 		<div class="" data-scroll>
 			<h2 class="l flex justify__space-between" data-reveal-text><span>Our</span><span>Teams</span></h2>
 		</div>
 	</div>
-	<div class="grid__3 gap__2 relative place__start-start inner-y__2 inner-b__5" data-tabs>
+	<div class="grid__3 gap__2 relative place__start-start inner-y__2 inner-b__5" data-tabs="hoverable">
 		<div class="span__2 grid place__start-start gap__2 inner__1" >
 			<div class="grid gap__02 place__start-start" >
 				<?php foreach (collection('Team') as $team) : ?>
 					<?php
 						$employees = collection('Employees')->filterBy('team', '*=', $team->name())->count();
 					?>
-					<div data-tab="team-<?= $team->indexOf(collection('Team')) ?>" class="flex gap__02" data-scroll>
-						<h3 class="no__wrap" data-reveal-text data-split-ignore><?= $team->name() ?></h3>
+					<a href="<?= $pages->find('about')->url() ?>/#<?= $team->name()->slug() ?>" data-tab="team-<?= $team->indexOf(collection('Team')) ?>" class="flex gap__02" data-scroll>
+						<h3 class="m" data-reveal-text data-split-ignore><?= $team->name() ?></h3>
 						<div data-reveal-text="" data-split-ignore style="--in-delay: 800ms" class="-wrap-t__01">(<?= $employees ?>)</div>
-					</div>
+					</a>
 				<?php endforeach ?>
 			</div>
 			<div class="grid__2" data-scroll data-scroll-ignore>

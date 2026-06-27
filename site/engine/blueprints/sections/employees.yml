@@ -1,6 +1,6 @@
 type: pages
 headline: Employee
-parent: site.find("studio")
+parent: site.find("about")
 size: small
 layout: cards
 template: employee

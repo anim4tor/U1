@@ -11,12 +11,19 @@ class Tabs {
 
         this.DOM = {
             widget: el,
-            containers: Array.from(el.querySelectorAll('[data-pane-container]')),
-            tabs: Array.from(el.querySelectorAll('[data-tab], [data-async-tab]')),
-            panes: Array.from(el.querySelectorAll('[data-pane]')),
+            // Collect containers only if this specific widget is their immediate data-tabs parent
+            containers: Array.from(el.querySelectorAll('[data-pane-container]'))
+                .filter(item => item.closest('[data-tabs]') === el),
+            
+            tabs: Array.from(el.querySelectorAll('[data-tab], [data-async-tab]'))
+                .filter(item => item.closest('[data-tabs]') === el),
+            
+            panes: Array.from(el.querySelectorAll('[data-pane]'))
+                .filter(item => item.closest('[data-tabs]') === el),
+                
             nav: {
-                prev: el.querySelectorAll('[data-tab-prev]'),
-                next: el.querySelectorAll('[data-tab-next]')
+                prev: Array.from(el.querySelectorAll('[data-tab-prev]')).filter(item => item.closest('[data-tabs]') === el),
+                next: Array.from(el.querySelectorAll('[data-tab-next]')).filter(item => item.closest('[data-tabs]') === el)
             }
         };
 
@@ -26,7 +33,7 @@ class Tabs {
         };
 
         this.data = {
-            active: 1,
+            active: 0,
             next: 0,
             cache: {}
         };
@@ -52,7 +59,16 @@ class Tabs {
         this.DOM.widget.classList.add('--init');
         
         const datasetTabsValue = this.DOM.widget.dataset.tabs;
-        this.data.active = (datasetTabsValue === 'hoverable') ? 0 : (parseInt(datasetTabsValue) || 0);
+        
+        // Handle parsing correctly if first active tab is designated string value or digit index
+        if (datasetTabsValue === 'hoverable') {
+            this.data.active = 0;
+        } else if (datasetTabsValue && isNaN(datasetTabsValue)) {
+            const parsedIndex = this.getTabIndexByPaneValue(datasetTabsValue);
+            this.data.active = parsedIndex !== -1 ? parsedIndex : 0;
+        } else {
+            this.data.active = parseInt(datasetTabsValue) || 0;
+        }
 
         this.setupA11y();
         this.initEvents();
@@ -80,7 +96,7 @@ class Tabs {
             const paneValue = pane.dataset.pane;
             if (!paneValue) return;
 
-            const tabIndex = this.DOM.tabs.findIndex(t => (t.dataset.tab === paneValue || t.dataset.asyncTab === paneValue));
+            const tabIndex = this.getTabIndexByPaneValue(paneValue);
             const tabId = tabIndex !== -1 ? `tab-${tabIndex}` : '';
 
             pane.setAttribute('role', 'tabpanel');
@@ -115,8 +131,7 @@ class Tabs {
                     const index = this.getTabIndexByPaneValue(paneName);
                     
                     if (index !== -1 && index !== this.data.active) {
-                        this.data.next = index;
-                        this.change();
+                        this.setActive(index);
                     }
                 }
             });
@@ -126,9 +141,10 @@ class Tabs {
     }
 
     setActive(index) {
-        if (index < 0 || index >= this.DOM.tabs.length) return;
+        const liveTabs = Array.from(this.DOM.widget.querySelectorAll('[data-tab], [data-async-tab]'));
+        if (index < 0 || index >= liveTabs.length) return;
         
-        const tab = this.DOM.tabs[index];
+        const tab = liveTabs[index];
         if (tab && tab.hasAttribute('data-async-tab')) {
             const url = tab.getAttribute('href');
             if (url && !this.data.cache[url]) {
@@ -146,14 +162,29 @@ class Tabs {
         if (this.data.active === this.data.next && this.DOM.widget.classList.contains('--init-done')) return;
         this.DOM.widget.classList.add('--init-done');
 
-        const activeTab = this.DOM.tabs[this.data.next];
+        // ONLY grab live tabs that directly belong to THIS component level
+        const liveTabs = Array.from(this.DOM.widget.querySelectorAll('[data-tab], [data-async-tab]'))
+            .filter(tab => tab.closest('[data-tabs]') === this.DOM.widget);
+
+        const activeTab = liveTabs[this.data.next] || this.DOM.tabs[this.data.next];
         const activePaneValue = activeTab ? (activeTab.dataset.tab || activeTab.dataset.asyncTab || String(this.data.next)) : null;
 
         this.updateZIndices(activePaneValue);
 
+        // This updates ONLY the parent level tabs safely
+        liveTabs.forEach((tab) => {
+            const tabValue = tab.dataset.tab || tab.dataset.asyncTab;
+            const isActive = (tabValue === activePaneValue);
+            
+            tab.toggleAttribute('data-active', isActive);
+            tab.setAttribute('aria-selected', isActive ? 'true' : 'false');
+            tab.setAttribute('tabindex', isActive ? '0' : '-1');
+        });
+
+        // Updates ONLY parent level content panes
         this.DOM.panes.forEach((p, i) => {
             const isNewPane = p.dataset.pane ? (p.dataset.pane === activePaneValue) : (i === this.data.next);
-            const isOldPane = p.dataset.pane ? (p.dataset.pane === (this.DOM.tabs[this.data.active]?.dataset.tab)) : (i === this.data.active);
+            const isOldPane = p.dataset.pane ? (p.dataset.pane === (liveTabs[this.data.active]?.dataset.tab)) : (i === this.data.active);
 
             if (isOldPane && !isNewPane) {
                 p.removeAttribute('data-active');
@@ -202,7 +233,9 @@ class Tabs {
             this.injectAsyncContent(index, json.html);
             this.data.next = index;
             this.change();
-            this.DOM.tabs[index]?.focus();
+            
+            const liveTabs = Array.from(this.DOM.widget.querySelectorAll('[data-tab], [data-async-tab]'));
+            liveTabs[index]?.focus();
         } catch (err) {
             console.error("Async Tab Error:", err);
         } finally {
@@ -211,7 +244,8 @@ class Tabs {
     }
 
     injectAsyncContent(index, html) {
-        const tab = this.DOM.tabs[index];
+        const liveTabs = Array.from(this.DOM.widget.querySelectorAll('[data-tab], [data-async-tab]'));
+        const tab = liveTabs[index];
         const paneValue = tab ? (tab.dataset.tab || tab.dataset.asyncTab || index) : index;
         this.DOM.panes.forEach(pane => {
             if (pane.dataset.pane === paneValue) {
@@ -225,8 +259,9 @@ class Tabs {
         const targetTab = e.target.closest('[data-tab], [data-async-tab]');
         if (!targetTab || !this.DOM.widget.contains(targetTab)) return;
 
-        let index = this.DOM.tabs.indexOf(targetTab);
-        const lastIndex = this.DOM.tabs.length - 1;
+        const liveTabs = Array.from(this.DOM.widget.querySelectorAll('[data-tab], [data-async-tab]'));
+        let index = liveTabs.indexOf(targetTab);
+        const lastIndex = liveTabs.length - 1;
 
         switch (e.key) {
             case 'ArrowRight': index = index === lastIndex ? 0 : index + 1; break;
@@ -239,8 +274,8 @@ class Tabs {
         e.preventDefault();
         this.setActive(index);
         
-        if (!this.DOM.tabs[index].hasAttribute('data-async-tab') || this.data.cache[this.DOM.tabs[index].getAttribute('href')]) {
-            this.DOM.tabs[index].focus();
+        if (!liveTabs[index].hasAttribute('data-async-tab') || this.data.cache[liveTabs[index].getAttribute('href')]) {
+            liveTabs[index].focus();
         }
     }
 
@@ -253,7 +288,8 @@ class Tabs {
     }
 
     scrollToTrigger(index) {
-        const tab = this.DOM.tabs[index];
+        const liveTabs = Array.from(this.DOM.widget.querySelectorAll('[data-tab], [data-async-tab]'));
+        const tab = liveTabs[index];
         const paneName = tab ? (tab.dataset.tab || tab.dataset.asyncTab) : null;
         const trigger = this.scrollTriggers.find(t => t.paneName === paneName)?.trigger;
 
@@ -269,46 +305,56 @@ class Tabs {
     }
 
     getTabIndexByPaneValue(paneValue) {
-        return this.DOM.tabs.findIndex(tab => {
+        const liveTabs = Array.from(this.DOM.widget.querySelectorAll('[data-tab], [data-async-tab]'))
+            .filter(tab => tab.closest('[data-tabs]') === this.DOM.widget); // Scopes tightly to this layer
+            
+        return liveTabs.findIndex(tab => {
             return tab.dataset.tab === paneValue || tab.dataset.asyncTab === paneValue;
         });
     }
 
     initEvents() {
         if (this.is_hoverable) {
-            this.DOM.tabs.forEach(tab => {
-                const getIndex = () => {
-                    const value = tab.dataset.tab || tab.dataset.asyncTab;
-                    return (!value) ? this.DOM.tabs.indexOf(tab) : this.getTabIndexByPaneValue(value);
-                };
+            const setupHoverListeners = () => {
+                const liveTabs = Array.from(this.DOM.widget.querySelectorAll('[data-tab], [data-async-tab]'));
+                liveTabs.forEach(tab => {
+                    const getIndex = () => {
+                        const value = tab.dataset.tab || tab.dataset.asyncTab;
+                        return (!value) ? liveTabs.indexOf(tab) : this.getTabIndexByPaneValue(value);
+                    };
 
-                const handleHover = () => {
-                    const index = getIndex();
-                    if (index === -1) return;
-                    this.DOM.tabs.forEach((t, i) => {
-                        const isActive = i === index;
-                        t.toggleAttribute('data-active', isActive);
-                        t.setAttribute('aria-selected', isActive);
-                        t.setAttribute('tabindex', isActive ? '0' : '-1');
-                    });
-                    clearTimeout(this.hover_timeout);
-                    this.hover_timeout = setTimeout(() => {
-                        if (index !== this.data.active) this.setActive(index);
-                    }, this.settings.debounceDuration);
-                };
+                    const handleHover = () => {
+                        const index = getIndex();
+                        if (index === -1) return;
+                        
+                        const currentTabs = Array.from(this.DOM.widget.querySelectorAll('[data-tab], [data-async-tab]'));
+                        currentTabs.forEach((t, i) => {
+                            const isActive = i === index;
+                            t.toggleAttribute('data-active', isActive);
+                            t.setAttribute('aria-selected', isActive ? 'true' : 'false');
+                            t.setAttribute('tabindex', isActive ? '0' : '-1');
+                        });
+                        clearTimeout(this.hover_timeout);
+                        this.hover_timeout = setTimeout(() => {
+                            if (index !== this.data.active) this.setActive(index);
+                        }, this.settings.debounceDuration);
+                    };
 
-                tab.addEventListener('mouseenter', handleHover);
-                tab.addEventListener('mousemove', handleHover);
-                tab.addEventListener('mouseleave', () => {
-                    clearTimeout(this.hover_timeout);
-                    this.DOM.tabs.forEach((t, i) => {
-                        const isActive = i === this.data.active;
-                        t.toggleAttribute('data-active', isActive);
-                        t.setAttribute('aria-selected', isActive);
-                        t.setAttribute('tabindex', isActive ? '0' : '-1');
+                    tab.addEventListener('mouseenter', handleHover);
+                    tab.addEventListener('mousemove', handleHover);
+                    tab.addEventListener('mouseleave', () => {
+                        clearTimeout(this.hover_timeout);
+                        const currentTabs = Array.from(this.DOM.widget.querySelectorAll('[data-tab], [data-async-tab]'));
+                        currentTabs.forEach((t, i) => {
+                            const isActive = i === this.data.active;
+                            t.toggleAttribute('data-active', isActive);
+                            t.setAttribute('aria-selected', isActive ? 'true' : 'false');
+                            t.setAttribute('tabindex', isActive ? '0' : '-1');
+                        });
                     });
                 });
-            });
+            };
+            setupHoverListeners();
         }
 
         this.DOM.widget.addEventListener("click", e => {
@@ -316,13 +362,14 @@ class Tabs {
             const clickedLink = e.target.closest('a');
             
             if (tab && this.DOM.widget.contains(tab)) {
-                // If it is a real link (not #), allow default navigation
                 const href = clickedLink?.getAttribute('href');
                 if (href && href !== '#' && href !== '') return;
 
                 if (!clickedLink && !tab.hasAttribute('href')) e.preventDefault();
                 
-                const index = this.DOM.tabs.indexOf(tab);
+                const tabValue = tab.dataset.tab || tab.dataset.asyncTab;
+                const index = tabValue ? this.getTabIndexByPaneValue(tabValue) : Array.from(this.DOM.widget.querySelectorAll('[data-tab], [data-async-tab]')).indexOf(tab);
+                
                 if (index !== -1) {
                     clearTimeout(this.hover_timeout);
                     this.setActive(index);
@@ -331,14 +378,15 @@ class Tabs {
                 return;
             }
 
+            const liveTabs = Array.from(this.DOM.widget.querySelectorAll('[data-tab], [data-async-tab]'));
             if (e.target.closest('[data-tab-prev]')) {
                 clearTimeout(this.hover_timeout);
-                const prevIndex = this.data.active > 0 ? this.data.active - 1 : this.DOM.tabs.length - 1;
+                const prevIndex = this.data.active > 0 ? this.data.active - 1 : liveTabs.length - 1;
                 this.setActive(prevIndex);
                 this.scrollToTrigger(prevIndex);
             } else if (e.target.closest('[data-tab-next]')) {
                 clearTimeout(this.hover_timeout);
-                const nextIndex = this.data.active < (this.DOM.tabs.length - 1) ? this.data.active + 1 : 0;
+                const nextIndex = this.data.active < (liveTabs.length - 1) ? this.data.active + 1 : 0;
                 this.setActive(nextIndex);
                 this.scrollToTrigger(nextIndex);
             }

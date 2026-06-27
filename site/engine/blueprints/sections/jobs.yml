@@ -1,0 +1,11 @@
+type: pages
+parent: site.find("career")
+size: small
+layout: cards
+template: job
+empty: Add job
+image:
+  query: page.photo.toFile
+  cover: true
+  ratio: 4/5
+#

@@ -27394,15 +27394,17 @@ img.no__style {
 
 [data-pane-container] {
   width: 100%;
-  overflow: hidden;
+  /*	overflow: hidden;*/
 }
 
 [data-pane] {
   pointer-events: none;
+  /*		visibility: hidden;*/
 }
 [data-pane][data-active] {
   z-index: 1;
   pointer-events: all;
+  /*			visibility: visible;*/
 }
 
 [data-tab] {
@@ -27421,11 +27423,6 @@ img.no__style {
 /*[role="tab"]:focus { outline: 2px solid #007bff; }*/
 [role=tab]:focus {
   position: relative;
-}
-
-/* Hide inactive panes but keep them in DOM for SEO/Accessibility */
-[data-pane]:not([data-active]) {
-  /*    display: none;*/
 }
 
 [data-tab-reveal] [data-reveal-text] {
@@ -27466,7 +27463,7 @@ img.no__style {
 }
 /* 2. HOVER IN STAV (když na něj najedeš) */
 [data-tab-reveal][data-active] [data-reveal-text] {
-  --in-delay: 400ms;
+  /*  	--in-delay: 400ms;*/
   visibility: visible;
   -webkit-transition: visibility 0s linear 0s;
   transition: visibility 0s linear 0s;
@@ -27519,55 +27516,51 @@ img.no__style {
 
 @-webkit-keyframes image-in {
   0% {
-    clip-path: inset(0% 100% 0% 0%);
-    -webkit-transform: translateX(0%);
-            transform: translateX(0%);
+    opacity: 0;
+    /*		clip-path: inset(0% 100% 0% 0%);*/
+    /*		transform: translateX(0%);*/
   }
   100% {
-    clip-path: inset(0% 0% 0% 0%);
-    -webkit-transform: translateX(0%);
-            transform: translateX(0%);
+    opacity: 1;
+    /*		clip-path: inset(0% 0% 0% 0%);*/
+    /*		transform: translateX(0%);*/
   }
 }
 
 @keyframes image-in {
   0% {
-    clip-path: inset(0% 100% 0% 0%);
-    -webkit-transform: translateX(0%);
-            transform: translateX(0%);
+    opacity: 0;
+    /*		clip-path: inset(0% 100% 0% 0%);*/
+    /*		transform: translateX(0%);*/
   }
   100% {
-    clip-path: inset(0% 0% 0% 0%);
-    -webkit-transform: translateX(0%);
-            transform: translateX(0%);
+    opacity: 1;
+    /*		clip-path: inset(0% 0% 0% 0%);*/
+    /*		transform: translateX(0%);*/
   }
 }
 @-webkit-keyframes image-out {
   0% {
-    clip-path: inset(0% 0% 0% 0%);
-    -webkit-transform: scale(1) translateX(0%);
-            transform: scale(1) translateX(0%);
-    /*	    opacity: 1;*/
+    /*			clip-path: inset(0% 0% 0% 0%);*/
+    /*	    transform: scale(1) translateX(0%);*/
+    opacity: 1;
   }
   100% {
-    clip-path: inset(0% 0% 0% 0%);
-    -webkit-transform: scale(1) translateX(20%);
-            transform: scale(1) translateX(20%);
-    /*	    opacity: 0;*/
+    /*			clip-path: inset(0% 0% 0% 0%);*/
+    /*	    transform: scale(1) translateX(20%);*/
+    opacity: 0;
   }
 }
 @keyframes image-out {
   0% {
-    clip-path: inset(0% 0% 0% 0%);
-    -webkit-transform: scale(1) translateX(0%);
-            transform: scale(1) translateX(0%);
-    /*	    opacity: 1;*/
+    /*			clip-path: inset(0% 0% 0% 0%);*/
+    /*	    transform: scale(1) translateX(0%);*/
+    opacity: 1;
   }
   100% {
-    clip-path: inset(0% 0% 0% 0%);
-    -webkit-transform: scale(1) translateX(20%);
-            transform: scale(1) translateX(20%);
-    /*	    opacity: 0;*/
+    /*			clip-path: inset(0% 0% 0% 0%);*/
+    /*	    transform: scale(1) translateX(20%);*/
+    opacity: 0;
   }
 }
 @-webkit-keyframes cover-in {

@@ -6,6 +6,46 @@ Slug: about
 
 ----
 
+Teams:
+
+- 
+  name: Leadership
+  details: '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>'
+  figure:
+    - file://HXa9UZqdtbPdhTUQ
+  leader:
+    - page://B16gOIE45vW4gRog
+- 
+  name: Sales management
+  details: '<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>'
+  figure:
+    - file://LIAFLCCTEOYkZ0tC
+  leader:
+    - page://FHQvOe3o8GYV6EL7
+- 
+  name: Design
+  details: '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>'
+  figure:
+    - file://EvzC0b5nfuTdhNrI
+  leader:
+    - page://SGCtsAHVoB3rp6GJ
+- 
+  name: Project Management
+  details: '<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>'
+  figure:
+    - file://Hzplof4PlkodvbqM
+  leader:
+    - page://B16gOIE45vW4gRog
+- 
+  name: Business Support
+  details: '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>'
+  figure:
+    - file://BRZLiXm4VlnbLheE
+  leader:
+    - page://FHQvOe3o8GYV6EL7
+
+----
+
 Cover: - file://EvzC0b5nfuTdhNrI
 
 ----
@@ -14,7 +54,30 @@ Intro: Inspiration is all around us. At U1, we work every day to improve our sur
 
 ----
 
-Claim: 
+About: [{"content":{"text":"<p>Our story</p>","mod":"","face":"","attr=data-scroll":"false","attr=data-reveal":"","attr=data-reveal-children":"false","attr=data-reveal-words":"false","attr=data-reveal-section":"false","bid":"","attr":"","href":"","node":""},"id":"5e0df47c-57f1-406d-9197-2497acc20f90","isHidden":false,"type":"label"},{"content":{"text":"We’re a team of designers working to deepen the human experience.","level":"h2","mod":"s","attr=data-scroll":"false","attr=data-reveal":"","attr=data-reveal-children":"false","attr=data-reveal-words":"false","attr=data-reveal-section":"false","bid":"","attr":"","href":"","node":""},"id":"d215d6bd-e78a-4705-9435-1aa034f0c716","isHidden":false,"type":"heading"},{"content":{"text":"<p>Design development through aesthetics to functionality in line with the latest technologies, structural aspects of projects - construction, materials, sustainable practices and coordination between teams of engineers and construction workers.</p>","mod":"","face":"","attr=data-scroll":"false","attr=data-reveal":"","attr=data-reveal-children":"false","attr=data-reveal-words":"false","attr=data-reveal-section":"false","bid":"","attr":"","href":"","node":""},"id":"74f54930-d64b-4af1-af0b-b854cd5707a0","isHidden":false,"type":"text"},{"content":{"image":["file://gQrBkYsL9KNrFgwt"],"attr=data-parallax+data-scroll-css-progress":"false","attr=data-scroll-speed":0,"attr=data-scroll":"false","attr=data-reveal-image":"","bid":"","attr":"","href":"","node":""},"id":"2ea564a7-c481-4b15-90a8-92326a3e2b4e","isHidden":false,"type":"image"}]
+
+----
+
+Values:
+
+- 
+  step: 1
+  value: Integrity
+  figure:
+    - file://Hzplof4PlkodvbqM
+  detail: '<p>Design development through aesthetics to functionality in line with the latest technologies, structural aspects of projects - construction, materials, sustainable practices and coordination between teams of engineers and construction workers, transforming creative ideas into real products (including market research, customer needs analysis, prototype design and testing, through to final production and market launch.) In other words, the smooth flow of projects from concept to completion.</p>'
+- 
+  step: 2
+  value: Innovation
+  figure:
+    - file://LIAFLCCTEOYkZ0tC
+  detail: '<p>Converting designs and prototypes into final products, all aspects of production - from materials and equipment, to quality control, to planning and logistics. And making ideas and plans a&nbsp;reality - overseeing project progress, managing schedules, budgets and resources.</p>'
+- 
+  step: 3
+  value: Sustainability
+  figure:
+    - file://HXa9UZqdtbPdhTUQ
+  detail: '<p>In addition to its internal focus on improving the sustainability of corporate operations, the department also works with clients, suppliers and other stakeholders to encourage wider adoption of sustainable practices. To not only meet current standards and regulations, but also to be a&nbsp;leader in sustainability and an example to others.</p>'
 
 ----
 
@@ -59,6 +122,10 @@ Robots-imageindex:
 ----
 
 Robots-snippet: 
+
+----
+
+Claim: 
 
 ----
 

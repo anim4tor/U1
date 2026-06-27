@@ -53,6 +53,5 @@
 	</div>
 </section>
 
-<?= snippet('templates/globals/News') ?>
-
+<?= snippet('templates/globals/Feed') ?>
 <?= snippet('templates/globals/Cta') ?>
