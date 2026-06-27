@@ -38,5 +38,6 @@
 	</div>
 </section>
 
+<?= snippet('templates/globals/Testimonials') ?>
 <?= snippet('templates/globals/Feed') ?>
 <?= snippet('templates/globals/Cta') ?>
