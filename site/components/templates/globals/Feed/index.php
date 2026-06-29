@@ -21,7 +21,7 @@
 	</div>
 	<div class="inner-b__5" data-carousel-scroll>
 		<ul class="flex justify__start align__start no__wrap gap__1 inner-x__1 " data-carousel-slides >	
-		<?php foreach (collection('News') as $feed) : ?>
+		<?php foreach (collection('Blog') as $feed) : ?>
 			<div data-slide class="vw__7">	
 				<?= snippet('molecules/Feed', compact('feed')) ?>
 			</div>

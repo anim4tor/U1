@@ -1,21 +1,21 @@
 /*
 
-  BOOKING WIDGET
+  CONTACT WIDGET
   
 */
 
-class Booking {
+class Contact {
     constructor(el) {
         if (!el) return;
 
-        console.log(' ... init Booking widget')
+        console.log(' ... init Contact widget')
         
         this.DOM = {
             html: document.documentElement,
-            dialog: el.querySelector('[data-booking]'),
-            widget: el.querySelector('[data-booking-widget]'),
-            triggers: document.querySelectorAll('[data-booking-toggle]'),
-            closeBtns: el.querySelectorAll('[data-booking-close]')
+            dialog: el.querySelector('[data-contact]'),
+            widget: el.querySelector('[data-contact-widget]'),
+            triggers: document.querySelectorAll('[data-contact-toggle]'),
+            closeBtns: el.querySelectorAll('[data-contact-close]')
         };
 
         this.state = { isOpen: false };
@@ -69,14 +69,14 @@ class Booking {
 
     handleDocumentClick(e) {
         // Close if click is outside the widget
-        if (this.DOM.widget && !this.DOM.widget.contains(e.target) && !e.target.closest('[data-booking-toggle]')) {
+        if (this.DOM.widget && !this.DOM.widget.contains(e.target) && !e.target.closest('[data-contact-toggle]')) {
             this.close();
         }
     }
 }
 
-function initBooking() {
-    document.querySelector('[data-booking]') ? 
-        new Booking(document.documentElement) 
+function initContact() {
+    document.querySelector('[data-contact]') ? 
+        new Contact(document.documentElement) 
     : null
 }

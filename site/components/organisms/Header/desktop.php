@@ -69,12 +69,4 @@
 			</div>
 		</div>
 	</div>
-	<div fab data-scroll style="--in-delay: 600ms" class="fixed inset__bottom-right inner__05">
-		<button class="button circle --large bg__acc " theme="acc" data-scroll data-booking-toggle >
-			<div icon class="grid__stack color__invert ">
-				<div data-booking-hide class="grid"><?= svg('public/assets/images/hand.svg') ?></div>
-			</div>
-			<!-- <label class="upper">Start project</label> -->
-		</button>
-	</div>
 </header>

@@ -202,7 +202,7 @@
 			</div>
 			<div class="flex justify__space-between gap__4 inner-y__1 inner-b__3 border__top">
 				<p class="l lower">Be part of a team creating meaningful places. We are looking for motivated, curious and dedicated talent who want to contribute to our growth while sharing our values.</p>
-				<?= snippet('atoms/Button', [ 'url' => page('Career')->url(), 'label' => 'Open positions', 'theme' => 'invert', 'icon' => 'arrow-right']) ?>
+				<?= snippet('atoms/Button', [ 'url' => page('Career')->url().'#open-positions', 'label' => 'Open positions', 'theme' => 'invert', 'icon' => 'arrow-right']) ?>
 			</div>
 		</div>
 		<div class="grid inner-l__3">

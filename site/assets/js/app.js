@@ -27,7 +27,7 @@ document.addEventListener('click', (e) => {
     const link = e.target.closest('a');
     
     // Ignoruj, pokud to není validní odkaz nebo má specifické odkazové datasety
-    if (!link || link.target === '_blank' || link.dataset.asyncTab || link.dataset.tab || link.dataset.tabPrev) return;
+    if (!link || link.target === '_blank' || link.dataset.asyncTab || link.dataset.tabPrev) return;
 
     const url = new URL(link.href, window.location.origin);
     const isInternal = url.hostname === window.location.hostname;
@@ -120,7 +120,8 @@ const init = async () => {
         initNavbar, 
         initTabs, 
         initCollapsibles, 
-        initCarousels
+        initCarousels,
+        initContact
     ];
     
     // Spustíme komponenty (await počká na ty, které vrací Promise)
@@ -181,3 +182,4 @@ document.addEventListener('DOMContentLoaded', async () => {
 //@prepros-prepend ../../components/organisms/Loader/index.js
 //@prepros-prepend ../../components/organisms/Header/index.js
 //@prepros-prepend ../../components/organisms/Carousel/index.js
+//@prepros-prepend ../../components/organisms/Contact/index.js

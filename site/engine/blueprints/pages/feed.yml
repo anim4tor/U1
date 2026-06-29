@@ -1,7 +1,29 @@
 title: Feed
 
 tabs:
-  news:
+  blog:
+    columns:
+      - width: 2/3
+        sections:
+          listed:
+            extends: sections/news
+            headline: News
+            status: listed
+
+      - width: 1/3
+        sections:
+          drafts:
+            extends: sections/news
+            headline: Drafts
+            layout: list
+            status: draft
+          unlisted:
+            extends: sections/news
+            headline: Archive
+            layout: list
+            status: unlisted
+
+  media:
     columns:
       - width: 2/3
         sections:

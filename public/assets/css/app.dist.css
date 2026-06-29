@@ -15573,12 +15573,19 @@ html body hr {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  padding: 0;
 }
 .button.circle:has(.icon) {
   width: var(--circle-size, var(--button-size));
 }
 .button.circle.--large {
   --circle-size: calc(var(--button-size)*1.5);
+}
+.button.circle.--small {
+  --circle-size: calc(var(--button-size)*1);
+}
+.button.circle.--small icon, .button.circle.--small .icon {
+  --icon-size: 60%;
 }
 .button.--small {
   --button-size: 30px;
@@ -35614,6 +35621,7 @@ html body hr {
   /*	t: var(--spacing);*/
   /*	right: var(--spacing);*/
   display: block;
+  pointer-events: all;
 }
 [fab] button {
   height: var(--header-height);
@@ -44772,7 +44780,7 @@ html body hr {
 }
 
 :root {
-  --booking-width: 40vw;
+  --booking-width: 25vw;
   --booking-wider: 60vw;
 }
 @media screen and (max-width: 480px) {
@@ -44782,17 +44790,16 @@ html body hr {
 }
 
 booking,
-[data-booking] {
+[data-contact] {
+  z-index: 1001;
   backdrop-filter: blur(0rem) brightness(1);
 }
-booking [data-booking-widget],
-[data-booking] [data-booking-widget] {
-  max-height: calc(100vh - var(--spacing) * 4);
-  overflow-y: auto;
+booking [data-contact-widget],
+[data-contact] [data-contact-widget] {
   -webkit-transition-property: clip-path;
   transition-property: clip-path;
-  -webkit-transition-duration: 600ms;
-          transition-duration: 600ms;
+  -webkit-transition-duration: 400ms;
+          transition-duration: 400ms;
   -webkit-transition-delay: var(--animation-delay, 0ms);
           transition-delay: var(--animation-delay, 0ms);
   -webkit-transition-timing-function: var(--animation-timing, ease-in-out);
@@ -44801,9 +44808,10 @@ booking [data-booking-widget],
   -webkit-transition-delay: var(--delay);
           transition-delay: var(--delay);
   clip-path: inset(100% 0% 0% 100%);
+  /*		max-width: var(--booking-width);*/
 }
-booking [data-booking-widget] [data-pane-container],
-[data-booking] [data-booking-widget] [data-pane-container] {
+booking [data-contact-widget] [data-pane-container],
+[data-contact] [data-contact-widget] [data-pane-container] {
   -webkit-transition-property: height, width;
   transition-property: height, width;
   -webkit-transition-duration: 600ms;
@@ -44813,10 +44821,26 @@ booking [data-booking-widget] [data-pane-container],
   -webkit-transition-timing-function: var(--animation-timing, ease-in-out);
           transition-timing-function: var(--animation-timing, ease-in-out);
   will-change: height, width;
+  max-height: calc(100vh - var(--spacing) * 10);
+  overflow-y: auto;
+  /* Hide scrollbar for Chrome, Safari and Opera */
+}
+booking [data-contact-widget] [data-pane-container]::-webkit-scrollbar,
+[data-contact] [data-contact-widget] [data-pane-container]::-webkit-scrollbar {
+  display: none;
+}
+booking [data-contact-widget] [data-pane-container],
+[data-contact] [data-contact-widget] [data-pane-container] {
+  /* Hide scrollbar for IE, Edge and Firefox */
+}
+booking [data-contact-widget] [data-pane-container],
+[data-contact] [data-contact-widget] [data-pane-container] {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
 booking nav [data-tab] > *, booking nav [href] > *,
-[data-booking] nav [data-tab] > *,
-[data-booking] nav [href] > * {
+[data-contact] nav [data-tab] > *,
+[data-contact] nav [href] > * {
   -webkit-transition-property: -webkit-transform;
   transition-property: -webkit-transform;
   transition-property: transform;
@@ -44830,13 +44854,13 @@ booking nav [data-tab] > *, booking nav [href] > *,
   will-change: transform;
 }
 booking nav [data-tab]:hover > *, booking nav [href]:hover > *,
-[data-booking] nav [data-tab]:hover > *,
-[data-booking] nav [href]:hover > * {
+[data-contact] nav [data-tab]:hover > *,
+[data-contact] nav [href]:hover > * {
   -webkit-transform: translateX(0.5em);
           transform: translateX(0.5em);
 }
 booking [data-pane],
-[data-booking] [data-pane] {
+[data-contact] [data-pane] {
   -webkit-transition-property: opacity, -webkit-transform;
   transition-property: opacity, -webkit-transform;
   transition-property: transform, opacity;
@@ -44849,26 +44873,27 @@ booking [data-pane],
           transition-timing-function: var(--animation-timing, ease-in-out);
   will-change: transform, opacity;
   opacity: 0;
+  position: absolute;
   -webkit-transform: translateY(-1em);
           transform: translateY(-1em);
   width: var(--booking-width);
 }
 booking [data-pane].wider,
-[data-booking] [data-pane].wider {
+[data-contact] [data-pane].wider {
   width: var(--booking-wider);
 }
 booking [data-pane][data-active],
-[data-booking] [data-pane][data-active] {
+[data-contact] [data-pane][data-active] {
   opacity: 1;
+  position: relative;
   -webkit-transition-delay: 400ms;
           transition-delay: 400ms;
   -webkit-transform: none;
           transform: none;
 }
 
-[data-booking] {
+[data-contact] {
   --delay: 100ms;
-  z-index: 999;
   visibility: hidden;
   pointer-events: none;
   position: fixed;
@@ -44886,7 +44911,7 @@ booking [data-pane][data-active],
           transition-duration: 600ms;
 }
 
-[data-booking-reveal] {
+[data-contact-reveal] {
   -webkit-transition-property: all;
   transition-property: all;
   -webkit-transition-duration: var(--animation-duration, 1s);
@@ -44901,47 +44926,47 @@ booking [data-pane][data-active],
           transition-delay: var(--out-delay);
   --delay: 0ms;
 }
-[data-booking-reveal]:nth-child(1) {
+[data-contact-reveal]:nth-child(1) {
   --out-delay: calc(var(--delay, 0) + 1 * 100ms);
 }
-[data-booking-reveal]:nth-child(2) {
+[data-contact-reveal]:nth-child(2) {
   --out-delay: calc(var(--delay, 0) + 2 * 100ms);
 }
-[data-booking-reveal]:nth-child(3) {
+[data-contact-reveal]:nth-child(3) {
   --out-delay: calc(var(--delay, 0) + 3 * 100ms);
 }
-[data-booking-reveal]:nth-child(4) {
+[data-contact-reveal]:nth-child(4) {
   --out-delay: calc(var(--delay, 0) + 4 * 100ms);
 }
-[data-booking-reveal]:nth-child(5) {
+[data-contact-reveal]:nth-child(5) {
   --out-delay: calc(var(--delay, 0) + 5 * 100ms);
 }
-[data-booking-reveal]:nth-child(6) {
+[data-contact-reveal]:nth-child(6) {
   --out-delay: calc(var(--delay, 0) + 6 * 100ms);
 }
-[data-booking-reveal]:nth-child(7) {
+[data-contact-reveal]:nth-child(7) {
   --out-delay: calc(var(--delay, 0) + 7 * 100ms);
 }
-[data-booking-reveal]:nth-child(8) {
+[data-contact-reveal]:nth-child(8) {
   --out-delay: calc(var(--delay, 0) + 8 * 100ms);
 }
-[data-booking-reveal]:nth-child(9) {
+[data-contact-reveal]:nth-child(9) {
   --out-delay: calc(var(--delay, 0) + 9 * 100ms);
 }
-[data-booking-reveal]:nth-child(10) {
+[data-contact-reveal]:nth-child(10) {
   --out-delay: calc(var(--delay, 0) + 10 * 100ms);
 }
-[data-booking-reveal]:nth-child(11) {
+[data-contact-reveal]:nth-child(11) {
   --out-delay: calc(var(--delay, 0) + 11 * 100ms);
 }
-[data-booking-reveal]:nth-child(12) {
+[data-contact-reveal]:nth-child(12) {
   --out-delay: calc(var(--delay, 0) + 12 * 100ms);
 }
-[data-booking-reveal] {
+[data-contact-reveal] {
   -webkit-transform: rotate(-30deg) scale(0);
           transform: rotate(-30deg) scale(0);
 }
-[data-booking-reveal] [data-word] {
+[data-contact-reveal] [data-word] {
   -webkit-transition-property: clip-path, -webkit-transform;
   transition-property: clip-path, -webkit-transform;
   transition-property: transform, clip-path;
@@ -44962,7 +44987,7 @@ booking [data-pane][data-active],
   clip-path: inset(-120% -10% 120% -10%);
 }
 
-[data-booking-hide] {
+[data-contact-hide] {
   -webkit-transition-property: all;
   transition-property: all;
   -webkit-transition-duration: var(--animation-duration, 1s);
@@ -44976,79 +45001,79 @@ booking [data-pane][data-active],
           transition-delay: var(--out-delay);
   --delay: 200ms;
 }
-[data-booking-hide]:nth-child(1) {
+[data-contact-hide]:nth-child(1) {
   --out-delay: calc(var(--delay, 0) + 1 * 100ms);
 }
-[data-booking-hide]:nth-child(2) {
+[data-contact-hide]:nth-child(2) {
   --out-delay: calc(var(--delay, 0) + 2 * 100ms);
 }
-[data-booking-hide]:nth-child(3) {
+[data-contact-hide]:nth-child(3) {
   --out-delay: calc(var(--delay, 0) + 3 * 100ms);
 }
-[data-booking-hide]:nth-child(4) {
+[data-contact-hide]:nth-child(4) {
   --out-delay: calc(var(--delay, 0) + 4 * 100ms);
 }
-[data-booking-hide]:nth-child(5) {
+[data-contact-hide]:nth-child(5) {
   --out-delay: calc(var(--delay, 0) + 5 * 100ms);
 }
-[data-booking-hide]:nth-child(6) {
+[data-contact-hide]:nth-child(6) {
   --out-delay: calc(var(--delay, 0) + 6 * 100ms);
 }
-[data-booking-hide]:nth-child(7) {
+[data-contact-hide]:nth-child(7) {
   --out-delay: calc(var(--delay, 0) + 7 * 100ms);
 }
-[data-booking-hide]:nth-child(8) {
+[data-contact-hide]:nth-child(8) {
   --out-delay: calc(var(--delay, 0) + 8 * 100ms);
 }
-[data-booking-hide]:nth-child(9) {
+[data-contact-hide]:nth-child(9) {
   --out-delay: calc(var(--delay, 0) + 9 * 100ms);
 }
-[data-booking-hide]:nth-child(10) {
+[data-contact-hide]:nth-child(10) {
   --out-delay: calc(var(--delay, 0) + 10 * 100ms);
 }
-[data-booking-hide]:nth-child(11) {
+[data-contact-hide]:nth-child(11) {
   --out-delay: calc(var(--delay, 0) + 11 * 100ms);
 }
-[data-booking-hide]:nth-child(12) {
+[data-contact-hide]:nth-child(12) {
   --out-delay: calc(var(--delay, 0) + 12 * 100ms);
 }
-[data-booking-hide] {
+[data-contact-hide] {
   visibility: visible;
   -webkit-transform: rotate(0deg) scale(1);
           transform: rotate(0deg) scale(1);
 }
 
-[booking-open] [data-booking] {
+html[booking-open] [data-contact] {
   visibility: visible;
   pointer-events: all;
-  backdrop-filter: blur(1rem) brightness(0.7);
+  backdrop-filter: blur(1rem) brightness(0.6);
 }
-[booking-open] [data-booking] [data-booking-widget] {
+html[booking-open] [data-contact] [data-contact-widget] {
   -webkit-transition-delay: 0ms;
           transition-delay: 0ms;
   clip-path: inset(0% 0% 0% 0%);
 }
-[booking-open] [data-booking-reveal] {
+html[booking-open] [data-contact-reveal] {
   visibility: visible;
   -webkit-transform: rotate(0deg) scale(1);
           transform: rotate(0deg) scale(1);
   --delay: 200ms;
 }
-[booking-open] [data-booking-reveal] [data-word] {
+html[booking-open] [data-contact-reveal] [data-word] {
   opacity: 1;
   -webkit-transform: none;
           transform: none;
   clip-path: inset(0% 0% 0% 0%);
   visibility: visible;
 }
-[booking-open] [data-booking-hide] {
+html[booking-open] [data-contact-hide] {
   visibility: hidden;
   --delay: 0ms;
   -webkit-transform: rotate(-30deg) scale(0);
           transform: rotate(-30deg) scale(0);
 }
 
-[data-booking-toggle] {
+[data-contact-toggle] {
   cursor: pointer;
 }
 

@@ -17,9 +17,9 @@
 	
 	<div class="inner-t__5" >
 		<ul class="grid inner-x__1 ">	
-			<?php $feed = collection('News')->first(); ?>
+			<?php $feed = collection('Blog')->first(); ?>
 			<?= snippet('molecules/Feed/featured', compact('feed')) ?>
-			<?php foreach (collection('News') as $feed) : ?>
+			<?php foreach (collection('Blog') as $feed) : ?>
 				<?= snippet('molecules/Feed/post', compact('feed')) ?>
 			<?php endforeach ?>
 		</ul>
@@ -101,8 +101,8 @@
 <section class="events" theme="light" >
 	<div class="inner-t__5 inner-b__5" >
 		<ul class="grid inner-x__1 ">	
-			<?php foreach (collection('News') as $feed) : ?>
-				<?= snippet('molecules/Feed/new', compact('feed')) ?>
+			<?php foreach (collection('Blog') as $feed) : ?>
+				<?= snippet('molecules/Feed/post', compact('feed')) ?>
 			<?php endforeach ?>
 		</ul>
 	</div>

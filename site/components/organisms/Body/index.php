@@ -8,7 +8,8 @@
     <!-- The aside --> 
     <?php snippet('organisms/Aside'); ?>
 
-    <!-- The booking widget --> 
+    <!-- The contact widget --> 
+    <?= snippet('organisms/Contact') ?>
     
     <!-- The theme widget --> 
     <?php snippet('atoms/Theme'); ?>

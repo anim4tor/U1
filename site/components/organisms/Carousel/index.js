@@ -283,11 +283,10 @@ class Carousel {
             
             this.DOM.scrollArea.classList.remove('is-dragged');
 
+            // --- FIXED: Keep isDragged active slightly longer to suppress subsequent clicks ---
             setTimeout(() => {
-                if (!this.DOM.scrollArea.classList.contains('is-dragged')) {
-                    this.isDragged = false;
-                }
-            }, 30);
+                this.isDragged = false;
+            }, 100); // 100ms guarantees coverage over the click frame loop
         } else {
             this.isDragged = false;
         }

@@ -46,6 +46,7 @@ tabs:
                   cover: true
               leader:
                 type: pages
+                query: site.find('about')
 
   content:
     columns:

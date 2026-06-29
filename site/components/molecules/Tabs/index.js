@@ -2,6 +2,7 @@
  * Tabs Component
  * - Handles tab switching, async content loading, scroll triggers and A11y.
  * - Layering: Dynamic z-index stacking for smooth overlapping animations.
+ * - Fluid Layout: Dynamically scales pane containers to match active content bounds.
  */
 class Tabs {
     constructor(el) {
@@ -48,6 +49,7 @@ class Tabs {
         this.observer = null;
         
         this.is_hoverable = el.getAttribute('data-tabs') === 'hoverable';
+        this.is_fluid = el.hasAttribute('data-fluid'); // Detect fluid setting toggle
 
         this._boundHandleKeydown = this.handleKeydown.bind(this);
         this._boundScrollEvent = this.handleScrollEvent.bind(this);
@@ -57,6 +59,7 @@ class Tabs {
 
     init() {
         this.DOM.widget.classList.add('--init');
+        if (this.is_fluid) this.DOM.widget.classList.add('--fluid');
         
         const datasetTabsValue = this.DOM.widget.dataset.tabs;
         
@@ -181,6 +184,8 @@ class Tabs {
             tab.setAttribute('tabindex', isActive ? '0' : '-1');
         });
 
+        let targetActivePane = null;
+
         // Updates ONLY parent level content panes
         this.DOM.panes.forEach((p, i) => {
             const isNewPane = p.dataset.pane ? (p.dataset.pane === activePaneValue) : (i === this.data.next);
@@ -201,11 +206,29 @@ class Tabs {
             if (isNewPane) {
                 p.toggleAttribute('data-active', true);
                 p.classList.remove('is-closing');
+                targetActivePane = p; // Track the current layout profile element
             }
         });
 
+        // Fluid Resizer Execution Block
+        if (this.is_fluid && targetActivePane) {
+            this.updateFluidBounds(targetActivePane);
+        }
+
         this.data.active = this.data.next;
         this.onTabChange();
+    }
+
+    updateFluidBounds(activePane) {
+        this.DOM.containers.forEach(container => {
+            // Measure natural target container bounds by letting child layout settle
+            const width = activePane.offsetWidth;
+            const height = activePane.offsetHeight;
+
+            // Apply explicit styles to container node
+            container.style.width = `${width}px`;
+            container.style.height = `${height}px`;
+        });
     }
 
     updateZIndices(activePaneValue) {
@@ -394,6 +417,16 @@ class Tabs {
 
         this.DOM.widget.addEventListener('keydown', this._boundHandleKeydown);
         window.addEventListener("scrollTabEvent", this._boundScrollEvent);
+        
+        // Handle window resizes gracefully if layout drops or text blocks shift
+        if (this.is_fluid) {
+            window.addEventListener('resize', () => {
+                const activeTab = Array.from(this.DOM.widget.querySelectorAll('[data-tab], [data-async-tab]'))[this.data.active];
+                const activePaneValue = activeTab ? (activeTab.dataset.tab || activeTab.dataset.asyncTab) : null;
+                const currentPane = this.DOM.panes.find(p => p.dataset.pane === activePaneValue);
+                if (currentPane) this.updateFluidBounds(currentPane);
+            });
+        }
     }
 
     onTabChange() {

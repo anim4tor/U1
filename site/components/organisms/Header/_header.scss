@@ -18,6 +18,7 @@
 /*	t: var(--spacing);*/
 /*	right: var(--spacing);*/
 	display: block;
+	pointer-events: all;
 
 	button {
 		height: var(--header-height);

@@ -25,7 +25,7 @@ columns:
       #   sync: title
       leader:
         type: pages
-        parent: site.find("studio")
+        query: site.find('about')
         max: 1
        
       photo:

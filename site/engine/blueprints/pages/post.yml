@@ -36,9 +36,9 @@ tabs:
   projects:
     label: Related projects
     fields:
-      leader:
+      related:
         type: pages
-        parent: site.find("projects")
+        query: site.find('projects')
     
 
   meta: tabs/meta/page

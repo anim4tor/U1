@@ -33,3 +33,7 @@
 .bg__blur {
 	backdrop-filter: blur(1em);
 }
+
+.blend__darken {
+	mix-blend-mode: darken;
+}

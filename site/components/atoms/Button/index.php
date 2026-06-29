@@ -8,7 +8,7 @@
 	$target = isset($target) ? $target->toBool() : false;
 ?>
 <?php if ($url) : ?>
-	<a href="<?= $url ?>" <?= $target ? 'target=_blank' : null ?> class="button upper <?= $css ?>" theme="<?= $theme ?>" <?= $node ?>>
+	<a href="<?= $url ?>" <?= $target ? 'target=_blank' : null ?> class="button upper <?= $css ?>" <?= $theme != false ? 'theme='.$theme : null ?> <?= $node ?>>
 		<?php if ($label) : ?>
 			<span aria-label="<?= $label ?>"><?= $label ?></span>
 		<?php endif ?>
@@ -17,7 +17,7 @@
 		<?php endif ?>
 	</a>
 <?php else: ?>
-	<button class="button upper <?= $css ?>" <?= $node ?> theme="<?= $theme ?>" >
+	<button class="button upper <?= $css ?>" <?= $node ?> <?= $theme != false ? 'theme='.$theme : null ?> >
 		<?php if ($label) : ?>
 			<span aria-label="<?= $label ?>"><?= $label ?></span>
 		<?php endif ?>

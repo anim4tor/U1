@@ -43,7 +43,9 @@
 					<div class="grid gap__1 inner-r__10">
 				<?php $start = true ?>
 			<?php else : ?>
-				<?php snippet('blocks/'.$block->type(), ['block' => $block]) ?>
+				<div class="lower">
+					<?php snippet('blocks/'.$block->type(), ['block' => $block]) ?>
+				</div>
 			<?php endif; ?>
 
 			<?= $start && $end ? '</div></div>' : null ?>
@@ -57,12 +59,12 @@
 			<h3 class="l" data-reveal-text>Explore related articles</h3>
 		</div>
 		<div class="flex justify__end align__end">
-			<?= snippet('atoms/Button', [ 'url' => $page->parent(), 'label' => 'See all articles', 'theme' => 'light', 'icon' => 'arrow-right']) ?>
+			<?= snippet('atoms/Button', [ 'url' => $page->parent()->url(), 'label' => 'See all articles', 'theme' => 'light', 'icon' => 'arrow-right']) ?>
 		</div>
 	</div>
 	<div class="inner-b__5" >
 		<ul class="grid__3 justify__start align__start no__wrap gap__1 inner-x__1 ">	
-		<?php foreach (collection('News')->limit(3) as $feed) : ?>
+		<?php foreach (collection('Blog')->limit(3) as $feed) : ?>
 			<?= snippet('molecules/Feed', compact('feed')) ?>
 		<?php endforeach ?>
 		</ul>
