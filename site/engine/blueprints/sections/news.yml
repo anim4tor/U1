@@ -1,6 +1,6 @@
 label: Novinky
 type: pages
-parent: site.find('novinky')
+parent: site.find('feed')
 info: "{{ page.date.toDate('d.m.Y') }}"
 size: tiny
 template: new

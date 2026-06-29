@@ -92,5 +92,6 @@ class Scroll {
 // Initialization
 var SCROLL;
 function initScroll() {
-    SCROLL = new Scroll(document.querySelector('[data-scroll-container]'));
+    window.SCROLL = new Scroll(document.querySelector('[data-scroll-container]'));
+    SCROLL = window.SCROLL; // Keeps your local variable working too
 }

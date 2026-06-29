@@ -1,7 +1,7 @@
 <section class="events" data-carousel>
 	<div class="bg radius absolute inset__stretch" theme="light"></div>
 
-	<div class="relative grid__2 gap__2 inner-x__1 inner-y__2">
+	<div class="relative grid__2 gap__2 inner-x__1 inner-y__1">
 		<div class="" data-scroll>
 			<h2 class="l" data-reveal-text>Studio</h2>
 		</div>
@@ -20,30 +20,10 @@
 		</div>
 	</div>
 	<div class="inner-b__5" data-carousel-scroll>
-		<ul class="flex justify__start align__center no__wrap gap__1 inner-x__1 " data-carousel-slides >	
-		<?php foreach (collection('Projects') as $new) : ?>
-			<div data-slide class="vw__7">	
-				<?= snippet('molecules/New', compact('new')) ?>
-			</div>
-		<?php endforeach ?>
-		<?php foreach (collection('Projects') as $new) : ?>
-			<div data-slide class="vw__7">	
-				<?= snippet('molecules/New', compact('new')) ?>
-			</div>
-		<?php endforeach ?>
-		<?php foreach (collection('Projects') as $new) : ?>
-			<div data-slide class="vw__7">	
-				<?= snippet('molecules/New', compact('new')) ?>
-			</div>
-		<?php endforeach ?>
-		<?php foreach (collection('Projects') as $new) : ?>
-			<div data-slide class="vw__7">	
-				<?= snippet('molecules/New', compact('new')) ?>
-			</div>
-		<?php endforeach ?>
-		<?php foreach (collection('Projects') as $new) : ?>
-			<div data-slide class="vw__7">	
-				<?= snippet('molecules/New', compact('new')) ?>
+		<ul class="flex justify__start align__start no__wrap gap__1 inner-x__1 " data-carousel-slides >	
+		<?php foreach (collection('News') as $feed) : ?>
+			<div data-slide class="">	
+				<?= snippet('molecules/Feed', compact('feed')) ?>
 			</div>
 		<?php endforeach ?>
 		</ul>

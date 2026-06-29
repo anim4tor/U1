@@ -194,19 +194,19 @@
 
 
 <?php if (collection('Jobs')->isNotEmpty()) : ?>
-<section class="careers " >
-	<div class="">
-		<div class="absolute inset__stretch ">
-			<?= snippet('atoms/Image', ['img' => collection('Process')->first()->figure()->toFile(), 'parallax' => 5, 'reveal' => false, 'css' => 'vh__20 radius']) ?>
+<section class="careers" theme="invert">
+	<div class="grid__2 gap__2 place__stretch-stretch inner__1 inner-y__2 inner-b__5">
+		<div class="relative grid gap__5 place__start-stretch">
+			<div class="grid place__space-between-stretch">
+				<h2 class="">Be part of a team creating meaningful places.</h2>
+			</div>
+			<div class="flex justify__space-between gap__4 inner-y__1 inner-b__3 border__top">
+				<p class="l lower">Be part of a team creating meaningful places. We are looking for motivated, curious and dedicated talent who want to contribute to our growth while sharing our values.</p>
+				<?= snippet('atoms/Button', [ 'url' => page('Career')->url(), 'label' => 'Open positions', 'theme' => 'invert', 'icon' => 'arrow-right']) ?>
+			</div>
 		</div>
-		<div class="relative grid__3 inner__1 h__100v color__invert">
-			<div class="span__2 grid place__space-between-stretch">
-				<h2 class="l">Open positions (<?= collection('Jobs')->count() ?>)</h2>
-			</div>
-			<div class="grid place__space-between-end gap__2">
-				<div class="flex justify__end"><span class="upper">(Careers)</span></div>
-				<p class="">Be part of a team creating meaningful places. We are looking for motivated, curious and dedicated talent who want to contribute to our growth while sharing our values.</p>
-			</div>
+		<div class="grid inner-l__3">
+			<?= snippet('atoms/Image', ['img' => collection('Process')->first()->figure()->toFile(), 'parallax' => 5, 'reveal' => false, 'css' => 'radius']) ?>
 		</div>
 
 	</div>

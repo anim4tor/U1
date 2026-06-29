@@ -10,6 +10,14 @@ return function ($page, $kirby, $site) {
 		}
 		go($page->url());
 	}
+	// 1. 🔄 INTERCEPT FORM SUBMIT POST FOR GENERATOR EXECUTION
+	if ($kirby->request()->is('POST') && get('action') === 'save-theme') {
+		$generatorScript = $kirby->root('site') . '/components/atoms/Theme/save-theme.php';
+		if (file_exists($generatorScript)) {
+			include($generatorScript);
+		}
+		go($page->url());
+	}
 
 	// 2. 📁 SCAN FONTS DIRECTORY DIRECTLY FOR DROPDOWN VALUES
 	// Adjust directory levels if necessary to point to your public fonts location

@@ -17,17 +17,63 @@ window.addEventListener('popstate', () => {
     // leave it until the next page load.
 });
 document.addEventListener('click', (e) => {
+    // FIX: If the user clicked inside a dragged component layout area, cancel transitions immediately
+    if (e.target.closest('.is-dragged') || e.target.closest('[data-carousel-scroll]')?.classList.contains('is-dragged')) {
+        e.preventDefault();
+        e.stopImmediatePropagation();
+        return;
+    }
+
     const link = e.target.closest('a');
     
-    // Ignoruj, pokud to není validní interní odkaz
-    // if (!link || link.target === '_blank' || link.dataset.asyncTab || link.dataset.tab || link.dataset.tabPrev) return;
+    // Ignoruj, pokud to není validní odkaz nebo má specifické odkazové datasety
+    if (!link || link.target === '_blank' || link.dataset.asyncTab || link.dataset.tab || link.dataset.tabPrev) return;
 
     const url = new URL(link.href, window.location.origin);
     const isInternal = url.hostname === window.location.hostname;
     const isSpecialClick = e.metaKey || e.ctrlKey || e.shiftKey || e.which === 2; // Middle click
 
+    // --- STRATEGIC FIX: DETECT SAME-PAGE ANCHORS FIRST ---
+    if (isInternal && (link.hasAttribute('data-scroll-to') || link.hash !== '')) {
+        if (url.pathname === window.location.pathname) {
+            
+            // Získej čisté ID cíle (např. "#opened-positions")
+            const targetSelector = link.hash || link.getAttribute('data-scroll-to') || link.getAttribute('href');
+            if (targetSelector && targetSelector.startsWith('#')) {
+                const targetElement = document.querySelector(targetSelector);
+                console.log(targetSelector)
+
+                if (targetElement) {
+                    // STOP EVERYTHING IMMEDIATELY — No transitions allowed for local IDs
+                    e.preventDefault();
+                    e.stopImmediatePropagation();
+
+                    // Aktualizujeme URL hash v adresním řádku bez reloadu
+                    history.pushState(null, null, targetSelector);
+
+                    // Bezpečné vyhledání SCROLL enginu (i kdyby se inicializoval se zpožděním)
+                    const scrollInstance = window.SCROLL || (typeof SCROLL !== 'undefined' ? SCROLL : null);
+
+                    if (scrollInstance && typeof scrollInstance.scrollTo === 'function') {
+                        scrollInstance.scrollTo(targetElement, {
+                            offset: 0,
+                            duration: 1.2
+                        });
+                    } else {
+                        // Fallback, pokud se Lenis ještě nestihl plně načíst do window scope
+                        targetElement.scrollIntoView({ behavior: 'smooth' });
+                    }
+
+                    return; // Zastaví zbytek kódu, data-transition-out se NIKDY nespustí
+                }
+            }
+        }
+    }
+    // ------------------------------------
+
+    // --- PAGE TRANSITIONS FOR DIFFERENT PAGES ---
     if (isInternal && !isSpecialClick) {
-        // Pokud je URL stejná jako aktuální (anchor link), neřeš animaci
+        // Double-check: Pokud je to stejná cesta a má hash, vyskoč (ochrana)
         if (url.pathname === window.location.pathname && url.hash !== '') return;
         
         e.preventDefault();
@@ -38,13 +84,19 @@ document.addEventListener('click', (e) => {
             window.location.href = link.href;
         }, 800);
     }
-});
+}, true); // "true" zachytí kliknutí dříve než jakýkoliv jiný skript na webu
 
 window.addEventListener('pageshow', (event) => {
-    if (event.persisted || performance.getEntriesByType("navigation")[0].type === 'back_forward') {
-        // Okamžitě odstraníme loading stav, aby web nebyl "zamrzlý"
+    if (event.persisted || performance.getEntriesByType("navigation")[0]?.type === 'back_forward') {
+        // Okamžitě odstraníme loading stav a tranzice
         document.documentElement.removeAttribute('data-loading');
         document.documentElement.removeAttribute('data-transition-out');
+        document.documentElement.removeAttribute('data-transition');
+        
+        // Pokud se vracíme zpět, ujistíme se, že scroll engine běží
+        if (window.SCROLL && typeof window.SCROLL.start === 'function') {
+            window.SCROLL.start();
+        }
     }
 });
 

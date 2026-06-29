@@ -4,13 +4,16 @@
 */
 	@import "../../components/atoms/Theme/reset";
 	@import "../../components/atoms/Theme/helpers";
+	@import "../../components/atoms/Theme/fonts";
+	@import "../../components/atoms/Theme/theme";
+	@import "../../components/atoms/Theme/mobile";
+
 
 
 /*
 	THEME 
 	--------------------------------------------------
 */
-	@import "../../components/atoms/Theme/theme";
 	@import "../../components/atoms/Theme/colors";
 	@import "../../components/atoms/Theme/layout";
 	@import "../../components/atoms/Theme/spacing";

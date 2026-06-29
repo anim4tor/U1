@@ -12,7 +12,7 @@
 					<div data-pane="service-<?= $solution->slug() ?>" class="" data-scroll data-scroll-ignore data-tab-reveal>
 						<div class="grid place__start-start gap__05">
 							<?php if ($img = $solution->cover()->toFile()) : ?>
-								<div class="" data-reveal-image><?= snippet('atoms/Image', ['img' => $img, 'reveal' => false, 'css' => 'aspect__6/4 radius grid']) ?></div>
+								<div class="" data-reveal-image><?= snippet('atoms/Image', ['img' => $img, 'reveal' => false, 'css' => 'aspect__6/4 img__radius grid']) ?></div>
 							<?php endif ?>
 
 							<p class="" data-reveal-text="lines" data-split-ignore ><?= $solution->intro()->inline() ?></p>
@@ -32,3 +32,4 @@
 		</ul>
 	</div>
 </section>
+

@@ -22,14 +22,30 @@
         
     }
 
+    
+}
+
+.item.--project {
     .item__meta {
         @include animation;
         clip-path: inset(0% 0% 100% 0%);
 
     }
+    
+    [href]:hover {
+        .item__figure {
+            clip-path: inset(2% 2% 2% 2%);
+            figure {
+                transform: scale(1.05);
+            }
+        }
+        .item__meta {
+            clip-path: inset(0% 0% 0% 0%);
+        }
+    }
 }
 
-.item.--project {
+.item.--job {
     [href]:hover {
         .item__figure {
             clip-path: inset(2% 2% 2% 2%);

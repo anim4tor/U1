@@ -1,14 +1,10 @@
-/* THEME */
-@import "../Media/media";
-@import "../Theme/fonts";
-
 :root {
     /* ==========================================================================
        TYPOGRAPHY BRANDING FRAMEWORK TOKENS
        ========================================================================== */
-    --ff-heading:              'ABCArizonaFlare';
+    --ff-heading:              'Inter';
     --fw-heading:              500;
-    --tt-heading:              uppercase;
+    --tt-heading:              none;
     --ls-heading:              -0.035em;
     --ff-body:                 'Inter';
     --fw-body:                 500;
@@ -55,22 +51,18 @@
     --color-white:             #FFFFFF;
     --color-invert:            #FFFFFF;
     --color-delay:             300ms;
-}
 
-/* ------------------------------------------------------------
-   MOBILE OVERRIDES (Only changing the core multipliers)
-   ------------------------------------------------------------ */
-@media (max-width: 768px) {
-    :root {
-        --type-scale: 1.30;
-        --type-start-rem: 0.8rem;
-        --type-start-vw: 0.8vw;
-        --base-line-height: 1.2;
+    /* ==========================================================================
+       IMAGE STYLING TOKENS
+       ========================================================================== */
+    --img-radius:              0.75;
+    --radius:                  1.5;
 
-        --body-scale: 1.222;
-        --body-start-rem: 0.714rem;
-        --body-start-vw: 0.714vw;
-        --base-body-line-height: 1.5;
-    }
+    /* ==========================================================================
+       BUTTON COMPONENTS TOKENS
+       ========================================================================== */
+    --btn-padding:             0.5rem 1rem;
+    --btn-radius:              4px;
+    --btn-border:              1px;
 }
 

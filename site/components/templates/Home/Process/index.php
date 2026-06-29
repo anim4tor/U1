@@ -1,7 +1,7 @@
 <section class="process" theme="invert" >
 	<div class="relative grid gap__2 inner-x__1 inner-y__2">
 		<div class="" data-scroll>
-			<h2 class="l flex justify__space-between" data-reveal-text><span>The</span><span>Process</span></h2>
+			<h2 class="xl flex justify__space-between" data-reveal-text><span>The</span><span>Process</span></h2>
 		</div>
 	</div>
 	<div >

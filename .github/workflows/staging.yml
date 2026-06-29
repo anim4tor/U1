@@ -21,11 +21,10 @@ jobs:
           server: 185.102.21.205
           username: jiriklusak.cz
           password: 3kNWXaeG
-          server-dir: public_html/projects/yogaid.cz/
+          server-dir: public_html/projects/U1/
           exclude: |
             **/.git*
             **/.git*/**
             **/kirby/**
             **/media/**
-            **/content/**
             **/cache/**

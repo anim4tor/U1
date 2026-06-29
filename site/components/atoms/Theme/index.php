@@ -368,9 +368,19 @@
 				</button>
 			</form>
 
-			<button id="theme-copy-btn" type="button" style="flex: 2; background: rgba(255, 255, 255, 0.15); color: #fff; border: 1px solid rgba(255, 255, 255, 0.25); padding: 0.5rem; border-radius: 4px; cursor: pointer; font-family: sans-serif; font-size: 0.75rem; letter-spacing: 0.05em; text-transform: uppercase; font-weight: bold;">
+			<!-- 2. Traditional Form Submit for Saving Configuration -->
+			<form id="theme-save-form" action="<?= $page->url() ?>" method="POST" style="flex: 2; margin: 0; padding: 0;">
+				<input type="hidden" name="action" value="save-theme">
+				<input type="hidden" id="css-tokens-input" name="css_tokens" value="">
+				
+				<button type="submit" style="width: 100%; background: rgba(40, 167, 69, 0.2); color: #28a745; border: 1px solid rgba(40, 167, 69, 0.4); padding: 0.5rem; border-radius: 4px; cursor: pointer; font-family: sans-serif; font-size: 0.75rem; letter-spacing: 0.05em; text-transform: uppercase; font-weight: bold;">
+					💾 Save Config File
+				</button>
+			</form>
+
+			<!-- <button id="theme-copy-btn" type="button" style="flex: 2; background: rgba(255, 255, 255, 0.15); color: #fff; border: 1px solid rgba(255, 255, 255, 0.25); padding: 0.5rem; border-radius: 4px; cursor: pointer; font-family: sans-serif; font-size: 0.75rem; letter-spacing: 0.05em; text-transform: uppercase; font-weight: bold;">
 				Copy Config CSS
-			</button>
+			</button> -->
 			<button id="theme-reset-btn" type="button" style="flex: 1; background: rgba(237, 19, 89, 0.2); color: #ff5487; border: 1px solid rgba(237, 19, 89, 0.4); padding: 0.5rem; border-radius: 4px; cursor: pointer; font-family: sans-serif; font-size: 0.75rem; letter-spacing: 0.05em; text-transform: uppercase; font-weight: bold;">
 				Reset
 			</button>
@@ -661,9 +671,12 @@
 			});
 		}
 
-		// --- 10. PRETTIFIED AND COMMENTED DESIGN TOKEN ENGINE EXPORTER ---
-		if (copyBtn) {
-			copyBtn.addEventListener('click', () => {
+		// --- 10. SYNCHRONOUS FORM SUBMIT ENGINE ---
+		const saveForm = document.getElementById('theme-save-form');
+		const tokensInput = document.getElementById('css-tokens-input');
+
+		if (saveForm && tokensInput) {
+			saveForm.addEventListener('submit', (event) => {
 				const inlineStyles = document.documentElement.style;
 				const rawDeclarations = getRawThemeDeclarations();
 				
@@ -672,8 +685,8 @@
 					scale: ['type-scale', 'type-start-rem', 'type-start-vw', 'base-line-height', 'body-scale', 'body-start-rem', 'body-start-vw', 'base-body-line-height'],
 					spacing: ['scale-min', 'scale-fluid', 'scale', 'spacing'],
 					animations: ['animation-duration', 'animation-delay', 'animation-stagger', 'animation-timing'],
-					images: ['img-radius', 'radius'], // Přidáno
-    				buttons: ['btn-padding', 'btn-radius', 'btn-border'], // Přidáno
+					images: ['img-radius', 'radius'],
+					buttons: ['btn-padding', 'btn-radius', 'btn-border'],
 					colors: []
 				};
 
@@ -681,7 +694,7 @@
 					if (token.startsWith('color-')) groups.colors.push(token);
 				});
 
-				let cssOutputString = ":root {\n";
+				let cssOutputString = "/**\n * Design Tokens Live Export\n * Saved via Kirby Theme Panel Component\n */\n\n:root {\n";
 
 				function appendGroup(title, tokensList) {
 					let clusterContent = "";
@@ -711,13 +724,67 @@
 
 				cssOutputString = cssOutputString.trimEnd() + "\n}";
 
-				if (navigator.clipboard && window.isSecureContext) {
-					navigator.clipboard.writeText(cssOutputString).then(() => showCopySuccess()).catch(() => fallbackCopyMechanism(cssOutputString));
-				} else {
-					fallbackCopyMechanism(cssOutputString);
-				}
+				// Inject text block cleanly into the form element field for submission
+				tokensInput.value = cssOutputString;
 			});
 		}
+		// // --- 10. PRETTIFIED AND COMMENTED DESIGN TOKEN ENGINE EXPORTER ---
+		// if (copyBtn) {
+		// 	copyBtn.addEventListener('click', () => {
+		// 		const inlineStyles = document.documentElement.style;
+		// 		const rawDeclarations = getRawThemeDeclarations();
+				
+		// 		const groups = {
+		// 			typography: ['ff-heading', 'fw-heading', 'tt-heading', 'ls-heading', 'ff-body', 'fw-body', 'tt-body', 'ls-body', 'ff-mono'],
+		// 			scale: ['type-scale', 'type-start-rem', 'type-start-vw', 'base-line-height', 'body-scale', 'body-start-rem', 'body-start-vw', 'base-body-line-height'],
+		// 			spacing: ['scale-min', 'scale-fluid', 'scale', 'spacing'],
+		// 			animations: ['animation-duration', 'animation-delay', 'animation-stagger', 'animation-timing'],
+		// 			images: ['img-radius', 'radius'], // Přidáno
+    	// 			buttons: ['btn-padding', 'btn-radius', 'btn-border'], // Přidáno
+		// 			colors: []
+		// 		};
+
+		// 		Object.keys(rawDeclarations).forEach(token => {
+		// 			if (token.startsWith('color-')) groups.colors.push(token);
+		// 		});
+
+		// 		let cssOutputString = ":root {\n";
+
+		// 		function appendGroup(title, tokensList) {
+		// 			let clusterContent = "";
+		// 			tokensList.forEach(token => {
+		// 				let finalValue = inlineStyles.getPropertyValue(`--${token}`).trim();
+		// 				if (!finalValue) finalValue = rawDeclarations[token];
+		// 				if (finalValue) {
+		// 					const paddedToken = `--${token}:`.padEnd(26, ' ');
+		// 					clusterContent += `    ${paddedToken} ${finalValue};\n`;
+		// 				}
+		// 			});
+		// 			if (clusterContent) {
+		// 				cssOutputString += `    /* ==========================================================================\n`;
+		// 				cssOutputString += `       ${title.toUpperCase()} TOKENS\n`;
+		// 				cssOutputString += `       ========================================================================== */\n`;
+		// 				cssOutputString += clusterContent + "\n";
+		// 			}
+		// 		}
+
+		// 		appendGroup("Typography Branding Framework", groups.typography);
+		// 		appendGroup("Fluid Responsive Scale Engine", groups.scale);
+		// 		appendGroup("Layout Padding & Grid Spacing", groups.spacing);
+		// 		appendGroup("Global Interactive Animations", groups.animations);
+		// 		appendGroup("Active Theme Palette Matrix", groups.colors);
+		// 		appendGroup("Image Styling", groups.images);
+		// 		appendGroup("Button Components", groups.buttons);
+
+		// 		cssOutputString = cssOutputString.trimEnd() + "\n}";
+
+		// 		if (navigator.clipboard && window.isSecureContext) {
+		// 			navigator.clipboard.writeText(cssOutputString).then(() => showCopySuccess()).catch(() => fallbackCopyMechanism(cssOutputString));
+		// 		} else {
+		// 			fallbackCopyMechanism(cssOutputString);
+		// 		}
+		// 	});
+		// }
 
 		function showCopySuccess() {
 			const originalText = copyBtn.innerText;

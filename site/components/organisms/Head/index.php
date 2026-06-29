@@ -14,6 +14,7 @@
 
 		<?php snippet('meta') ?>
 		<?= css('public/assets/css/theme.dist.css?v='.time()) ?>
+		<?= css('public/assets/css/theme-tokens.css?v='.time()) ?>
 		<?= css('public/assets/css/app.dist.css?v='.time()) ?>
 		<!-- <?= css('public/assets/css/cookieconsent.css') ?> -->
 		

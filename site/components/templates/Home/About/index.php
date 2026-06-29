@@ -8,7 +8,7 @@
 		<div></div>
 		<?php if ($fig = $page->introFigure()->toFile()) : ?>
 			<div class="grid" >
-				<?= snippet('atoms/Image', ['img' => $fig, 'parallax' => 5, 'css' => 'h__20 mobile:h__20 radius']) ?>
+				<?= snippet('atoms/Image', ['img' => $fig, 'parallax' => 5, 'css' => 'h__20 mobile:h__20 img__radius']) ?>
 			</div>
 		<?php endif ?>
 		<div class="grid place__start-end"><?= snippet('molecules/Header', ['header' => $page->intro(), 'type' => ['label']]) ?></div>

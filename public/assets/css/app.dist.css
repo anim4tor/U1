@@ -23715,7 +23715,8 @@ img.no__style {
   -webkit-transform: scale(1);
           transform: scale(1);
 }
-.item .item__meta {
+
+.item.--project .item__meta {
   -webkit-transition-property: all;
   transition-property: all;
   -webkit-transition-duration: var(--animation-duration, 1s);
@@ -23727,7 +23728,6 @@ img.no__style {
   will-change: all;
   clip-path: inset(0% 0% 100% 0%);
 }
-
 .item.--project [href]:hover .item__figure {
   clip-path: inset(2% 2% 2% 2%);
 }
@@ -23736,6 +23736,17 @@ img.no__style {
           transform: scale(1.05);
 }
 .item.--project [href]:hover .item__meta {
+  clip-path: inset(0% 0% 0% 0%);
+}
+
+.item.--job [href]:hover .item__figure {
+  clip-path: inset(2% 2% 2% 2%);
+}
+.item.--job [href]:hover .item__figure figure {
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+}
+.item.--job [href]:hover .item__meta {
   clip-path: inset(0% 0% 0% 0%);
 }
 
