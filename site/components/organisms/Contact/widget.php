@@ -1,19 +1,17 @@
 <div data-tabs="office" class="relative" data-fluid>	
-	
-	<div class="flex gap__1 inner-x__1 w__12 inner-y__1 inner-b__05">
+	<div class="flex gap__1 inner-x__1 w__12 inner-y__1 inner-b__05 inner-r__2">
 		<div class="grid gap__1 place__center-start">
-			<h3 class="font__size__4  wrap ">Get in touch with us directly or leave us your contact details.</h3>
+			<h3 class="font__size__4  wrap "><span class="color__acc">Get in touch</span> with us directly or leave us your contact details.</h3>
 		</div>
-		<div class="-wrap-t__05 -wrap-r__1">
-			<?= snippet('atoms/Button', [ 'url' => '', 'label' => false, 'icon' => 'close', 'theme' => false, 'css' => 'circle --small bg__light/20 color__invert/80', 'node' => 'data-contact-close']) ?>
-		</div>
+		
 	</div>
+	
 	<div class="flex gap__03 justify__space-between inner-x__1 inner-y__05 border__bottom">
-		<div data-tab="office" class="upper s">Office</div>
-		<div data-tab="marketing" class="upper s">Marketing</div>
-		<div data-tab="sales" class="upper s">Sales</div>
-		<div data-tab="design" class="upper s">Design</div>
-		<div data-tab="accounts" class="upper s">Accounts</div>
+		<div data-tab="office" class="upper xs">Office</div>
+		<div data-tab="marketing" class="upper xs">Marketing</div>
+		<div data-tab="sales" class="upper xs">Sales</div>
+		<div data-tab="design" class="upper xs">Design</div>
+		<div data-tab="accounts" class="upper xs">Accounts</div>
 		<!-- <div data-tab="form" class="upper s">Form</div> -->
 	</div>
 	<div data-pane-container class="grid__stack place__start-stretch">
@@ -58,5 +56,7 @@
 		</div>
 		
 	</div>
-	
+	<div class="absolute top__05 right__05 z__1">
+		<?= snippet('atoms/Button', [ 'url' => '', 'label' => false, 'icon' => 'close', 'theme' => false, 'css' => 'circle --small bg__light/20 color__invert/80', 'node' => 'data-contact-close']) ?>
+	</div>
 </div>
