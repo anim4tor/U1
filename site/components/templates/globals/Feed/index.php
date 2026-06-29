@@ -7,7 +7,7 @@
 		</div>
 		<div class="flex justify__space-between">
 			<div class="grid gap__02 inner-b__5" data-scroll>
-				<h3 class="" data-reveal-text>News</h3>
+				<h3 class="" data-reveal-text>Blog</h3>
 				<h3 class=" op__4" data-reveal-text>Socials</h3>
 				<h3 class=" op__4" data-reveal-text>Media</h3>
 			</div>
@@ -22,7 +22,7 @@
 	<div class="inner-b__5" data-carousel-scroll>
 		<ul class="flex justify__start align__start no__wrap gap__1 inner-x__1 " data-carousel-slides >	
 		<?php foreach (collection('News') as $feed) : ?>
-			<div data-slide class="">	
+			<div data-slide class="vw__7">	
 				<?= snippet('molecules/Feed', compact('feed')) ?>
 			</div>
 		<?php endforeach ?>

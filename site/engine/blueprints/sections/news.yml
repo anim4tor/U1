@@ -3,4 +3,4 @@ type: pages
 parent: site.find('feed')
 info: "{{ page.date.toDate('d.m.Y') }}"
 size: tiny
-template: new
+template: post

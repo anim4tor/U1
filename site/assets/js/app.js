@@ -87,16 +87,26 @@ document.addEventListener('click', (e) => {
 }, true); // "true" zachytí kliknutí dříve než jakýkoliv jiný skript na webu
 
 window.addEventListener('pageshow', (event) => {
-    if (event.persisted || performance.getEntriesByType("navigation")[0]?.type === 'back_forward') {
-        // Okamžitě odstraníme loading stav a tranzice
+    // event.persisted triggers if the page was restored from the browser's bfcache (Back-Forward Cache)
+    // The performance check acts as a reliable fallback for classic history steps
+    const isBackForward = event.persisted || 
+                          (window.performance && window.performance.getEntriesByType("navigation")[0]?.type === 'back_forward') ||
+                          (window.performance && window.performance.navigation?.type === 2); // Legacy fallback
+
+    if (isBackForward) {
+        // Force-remove all attributes that hide components or show loaders
         document.documentElement.removeAttribute('data-loading');
         document.documentElement.removeAttribute('data-transition-out');
-        document.documentElement.removeAttribute('data-transition');
         
-        // Pokud se vracíme zpět, ujistíme se, že scroll engine běží
+        // Re-apply the initial entry transition state so the elements can fade back in naturally
+        document.documentElement.setAttribute('data-transition', 'true');
+
+        // Safety check: Restart the Lenis scroll engine if it was stopped when leaving the page
         if (window.SCROLL && typeof window.SCROLL.start === 'function') {
             window.SCROLL.start();
         }
+
+        console.log('Page restored from back/forward history. Loader cleared.');
     }
 });
 
