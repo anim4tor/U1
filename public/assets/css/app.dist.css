@@ -52716,6 +52716,11 @@ section.process .item__figure {
           transform: rotate(calc(0deg - 90deg * var(--progress)));
 }
 
+.grid__post {
+  -ms-grid-columns: 0.8fr 1.2fr;
+  grid-template-columns: 0.8fr 1.2fr;
+}
+
 /*
 	THEMES
 	--------------------------------------------------
