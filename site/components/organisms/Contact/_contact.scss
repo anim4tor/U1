@@ -1,14 +1,16 @@
 /*
 
-	ORGANISM: Booking
+	ORGANISM: Contact
 	
 */
 @import "../../atoms/Media/media";
 @import "../../atoms/Animation/animation";
 @import "../../atoms/Theme/border";
 :root {
-	--booking-width: 25vw;
+	--booking-width: Max(#{$screen-mobile}, 25vw);
+	--booking-height: calc(100vh - calc(var(--spacing)*2.5));
 	--booking-wider: 60vw;
+	--fab-size: Max(65px, calc(var(--spacing)*2));
 
 	@include xs-screen {
 		--booking-width: 100vw;
@@ -17,24 +19,53 @@
 
 
 
-
-booking,
-[data-contact] {
+[fab] {
 	z-index: 1001;
+	display: block;
+	pointer-events: all;
+
+	button {
+		height: var(--fab-size);
+		width: var(--fab-size);
+		border-radius: var(--fab-size);
+		clip-path: circle(45% at 50% 50%);		 
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		@include animation((clip-path, transform), 600ms);
+		
+		svg path {
+			fill: var(--color-invert);
+		}
+
+		&:hover {
+			transition-timing-function: linear(0, 0.011 1.1%, 0.041 2.2%, 0.161 4.6%, 0.323 6.9%, 0.806 13%, 1.028 16.5%, 1.109 18.2%, 1.171 19.9%, 1.214 21.6%, 1.239 23.3%, 1.248 25.8%, 1.228 28.5%, 1.187 31.2%, 1.059 37.7%, 1.005 40.9%, 0.963 44.5%, 0.942 48.1%, 0.943 53.7%, 0.998 65.9%, 1.014 72.6%, 1);
+			clip-path: circle(50% at 50% 50%);;
+		}
+	}
+
+
+}
+
+[data-contact] {
+	z-index: 1000;
 	backdrop-filter: blur(0rem) brightness(1);
+	pointer-events: none;
 	
 	[data-contact-widget] {
-		
+		pointer-events: all;
 		@include animation((clip-path), 400ms);
 		transition-delay: var(--delay);
-		clip-path: inset(100% 0% 0% 100%);
-/*		max-width: var(--booking-width);*/
+		min-width: var(--booking-width);
 		
+		clip-path: inset(100% 0% 0% 100%);
+		&[data-career-widget] {
+			clip-path: inset(100% 100% 0% 0%);
+		}
 
 		[data-pane-container] {
 			@include animation((height, width), 600ms);
-			max-height: calc(100vh - calc(var(--spacing)*10));
-			
+			max-height: var(--booking-height);
 			overflow-y: auto;
 
 			/* Hide scrollbar for Chrome, Safari and Opera */
@@ -50,6 +81,7 @@ booking,
 			
 		}
 	}
+
 		nav [data-tab], nav [href] {
 			& > * {
 				@include animation((transform), 600ms);
@@ -117,7 +149,7 @@ booking,
 	[data-contact-hide] {
 		@include animation;
 		transition-delay: var(--out-delay);
-		--delay: 200ms;
+		--delay: 0ms;
 		@for $i from 1 through 12 {
 			&:nth-child(#{$i}) {
 			  --out-delay: calc(var(--delay, 0) + #{$i} * 100ms);
@@ -127,17 +159,20 @@ booking,
 		transform: rotate(0deg) scale(1);
 	}
 
-html[booking-open] {
+html[contact-open] {
 	
 	[data-contact] {
 		visibility: visible;
-		pointer-events: all;
-		backdrop-filter: blur(1rem) brightness(0.6);
 		
 		[data-contact-widget] {
 			transition-delay: 0ms;
 			clip-path: inset(0% 0% 0% 0%);
 		}
+	}
+
+	&:not([contact-open="pop"]) [data-contact] {
+		pointer-events: all;
+		backdrop-filter: blur(1rem) brightness(0.6);
 	}
 
 	[data-contact-reveal] {

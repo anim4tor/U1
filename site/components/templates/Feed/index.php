@@ -16,13 +16,13 @@
 <section class="events" theme="light" >
 	
 	<div class="inner-t__5" >
-		<ul class="grid inner-x__1 ">	
+		<ol class="grid inner-x__1 ">	
 			<?php $feed = collection('Blog')->first(); ?>
 			<?= snippet('molecules/Feed/featured', compact('feed')) ?>
 			<?php foreach (collection('Blog') as $feed) : ?>
 				<?= snippet('molecules/Feed/post', compact('feed')) ?>
 			<?php endforeach ?>
-		</ul>
+		</ol>
 	</div>
 </section>
 
@@ -53,7 +53,7 @@
 		</div>
 	</div>
 	<div class="inner-y__1 " data-carousel-scroll>
-		<ul class="flex justify__start align__start no__wrap gap__1 inner-x__1 " data-carousel-slides >	
+		<ol class="flex justify__start align__start no__wrap gap__1 inner-x__1 " data-carousel-slides >	
 		<?php foreach (collection('Projects') as $feed) : ?>
 			<div data-slide class="vw__5 aspect__1/1">	
 				<?= snippet('molecules/Feed/social', compact('feed')) ?>
@@ -79,7 +79,7 @@
 				<?= snippet('molecules/Feed/social', compact('feed')) ?>
 			</div>
 		<?php endforeach ?>
-		</ul>
+		</ol>
 	</div>
 </section>
 
@@ -100,11 +100,11 @@
 
 <section class="events" theme="light" >
 	<div class="inner-t__5 inner-b__5" >
-		<ul class="grid inner-x__1 ">	
+		<ol class="grid inner-x__1 ">	
 			<?php foreach (collection('Blog') as $feed) : ?>
 				<?= snippet('molecules/Feed/post', compact('feed')) ?>
 			<?php endforeach ?>
-		</ul>
+		</ol>
 	</div>
 </section>
 

@@ -22,7 +22,7 @@
 </section>
 
 <section class="list" theme="invert">
-	<ul class="grid__2 gap__1 inner__1 inner-b__5">
+	<ol class="grid__2 gap__1 inner__1 inner-b__5">
 		<?php foreach (collection('Projects') as $project) : ?>
 			<div data-slide class="inner-b__3">	
 				<?= snippet('molecules/Project/large', compact('project')) ?>
@@ -48,7 +48,7 @@
 				<?= snippet('molecules/Project/large', compact('project')) ?>
 			</div>
 		<?php endforeach ?>
-	</ul>
+	</ol>
 </section>
 
 <?= snippet('templates/globals/Testimonials') ?>

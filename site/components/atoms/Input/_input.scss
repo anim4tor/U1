@@ -1,24 +1,33 @@
 /*
 
-	FORM INPUTS
+	ATOMS: Inputs
 
 */
+:root {
+	--input-height: 40px;
+	--input-padding: calc(var(--input-height)*0.35);
+}
+
 input, textarea, select {
 	font-family: var(--ff-body);
 	font-size: var(--font-size-default);
-	line-height: var(--line-height-default);
 	font-weight: var(--fw-body);
+	line-height: var(--line-height-default);
+	min-height: var(--input-height);
+	border-radius: calc(var(--input-height)*.5);
+	padding: var(--input-padding);
+	@include border;
+
 	color: currentColor;
 	position: relative;
 	width: 100%;
-	border-bottom: 1px solid rgba(var(--col),.2);
 
 	&::placeholder {
 		color: rgba(var(--col),.4);
 	}
 
 	&:focus, &:target {
-		border-bottom: 1px solid rgba(var(--col),1);
+		@include border('',100%)
 	}
 
 	&.invalid {

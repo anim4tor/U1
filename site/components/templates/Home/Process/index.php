@@ -7,7 +7,7 @@
 	<div >
 		<div class="grid__3 gap__2 inner__1 inner-b__5" >
 			<div></div>
-			<ul class="grid gap__2 place__center-center" >	
+			<ol class="grid gap__2 place__center-center" >	
 			<?php foreach (collection('Process') as $step) : ?>
 				<a href="" class="grid place__center-center gap__05 inner-b__1" data-scroll data-scroll-progress data-scroll-ignore data-hoverable >
 					<div class="flex align__start gap__02 inner-y__02 no__wrap" data-scroll>
@@ -20,7 +20,7 @@
 					<p class="s text__center" data-hover-reveal data-split-ignore data-reveal-text="words"><?= $step->detail()->inline() ?></p>
 				</a>
 			<?php endforeach ?>
-			</ul>
+			</ol>
 			<div></div>
 		</div>
 	

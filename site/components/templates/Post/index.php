@@ -63,11 +63,11 @@
 		</div>
 	</div>
 	<div class="inner-b__5" >
-		<ul class="grid__3 justify__start align__start no__wrap gap__1 inner-x__1 ">	
+		<ol class="grid__3 justify__start align__start no__wrap gap__1 inner-x__1 ">	
 		<?php foreach (collection('Blog')->limit(3) as $feed) : ?>
 			<?= snippet('molecules/Feed', compact('feed')) ?>
 		<?php endforeach ?>
-		</ul>
+		</ol>
 	</div>
 </section>
 

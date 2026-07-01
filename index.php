@@ -1,5 +1,5 @@
 <?php
-define('BASE_PROJECT_PATH', $_SERVER['HTTP_HOST'] !== 'yogaid.cz.test' ? "/projects/yogaid.cz" : "");
+define('BASE_PROJECT_PATH', $_SERVER['HTTP_HOST'] !== 'u1.test' ? "/projects/U1" : "");
 require 'kirby/bootstrap.php';
 function formatNum($num) {
     return str_pad($num, 2, '0', STR_PAD_LEFT);

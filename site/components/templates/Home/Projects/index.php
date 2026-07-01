@@ -14,33 +14,13 @@
 		</div>
 		
 		<div class="span__3" data-carousel-scroll>
-			<ul class="flex justify__start align__center no__wrap gap__1 inner-x__1 " data-carousel-slides >	
+			<ol class="flex justify__start align__center no__wrap gap__1 inner-x__1 " data-carousel-slides >	
 			<?php foreach (collection('Projects') as $project) : ?>
-				<div data-slide class="vw__7">	
+				<li data-slide class="vw__7">	
 					<?= snippet('molecules/Project', compact('project')) ?>
-				</div>
+				</li>
 			<?php endforeach ?>
-			<?php foreach (collection('Projects') as $project) : ?>
-				<div data-slide class="vw__7">	
-					<?= snippet('molecules/Project', compact('project')) ?>
-				</div>
-			<?php endforeach ?>
-			<?php foreach (collection('Projects') as $project) : ?>
-				<div data-slide class="vw__7">	
-					<?= snippet('molecules/Project', compact('project')) ?>
-				</div>
-			<?php endforeach ?>
-			<?php foreach (collection('Projects') as $project) : ?>
-				<div data-slide class="vw__7">	
-					<?= snippet('molecules/Project', compact('project')) ?>
-				</div>
-			<?php endforeach ?>
-			<?php foreach (collection('Projects') as $project) : ?>
-				<div data-slide class="vw__7">	
-					<?= snippet('molecules/Project', compact('project')) ?>
-				</div>
-			<?php endforeach ?>
-			</ul>
+			</ol>
 		</div>
 		
 	</div>

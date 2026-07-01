@@ -5,7 +5,7 @@
 
 @font-face {
     font-family: 'ABCArizonaFlare';
-    src: url('/assets/fonts/ABCArizonaFlare-Regular.woff2') format('woff2');
+    src: url('../fonts/ABCArizonaFlare-Regular.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -13,7 +13,7 @@
 
 @font-face {
     font-family: 'Inter';
-    src: url('/assets/fonts/Inter-VariableFont_opsz,wght.ttf') format('truetype');
+    src: url('../fonts/Inter-VariableFont_opsz,wght.ttf') format('truetype');
     font-weight: 100 900;
     font-style: normal;
     font-display: swap;
@@ -21,8 +21,8 @@
 
 @font-face {
     font-family: 'Plain';
-    src: url('/assets/fonts/Plain-Light.woff') format('woff'),
-         url('/assets/fonts/Plain-Light.woff2') format('woff2');
+    src: url('../fonts/Plain-Light.woff') format('woff'),
+         url('../fonts/Plain-Light.woff2') format('woff2');
     font-weight: 300;
     font-style: normal;
     font-display: swap;
@@ -30,8 +30,8 @@
 
 @font-face {
     font-family: 'Plain';
-    src: url('/assets/fonts/Plain-Medium.woff') format('woff'),
-         url('/assets/fonts/Plain-Medium.woff2') format('woff2');
+    src: url('../fonts/Plain-Medium.woff') format('woff'),
+         url('../fonts/Plain-Medium.woff2') format('woff2');
     font-weight: 500;
     font-style: normal;
     font-display: swap;
@@ -39,8 +39,8 @@
 
 @font-face {
     font-family: 'Plain';
-    src: url('/assets/fonts/Plain-Regular.woff') format('woff'),
-         url('/assets/fonts/Plain-Regular.woff2') format('woff2');
+    src: url('../fonts/Plain-Regular.woff') format('woff'),
+         url('../fonts/Plain-Regular.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
     font-display: swap;

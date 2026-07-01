@@ -5,12 +5,12 @@ error_reporting(E_ALL);
 $currentDir = dirname(__FILE__);
 $fontsDir = realpath($currentDir . '/../../../../public/assets/fonts');
 $outputFile = $currentDir . '/_fonts.scss';
-
+$local = BASE_PROJECT_PATH;
 // 1. Define your Google Fonts Registry
 $googleFonts = [
     'Inter' => 'https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap',
     'Roboto' => 'https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap'
-];
+]; 
 
 $formatMap = ['woff2' => 'woff2', 'woff' => 'woff', 'ttf' => 'truetype', 'otf' => 'opentype'];
 
@@ -30,7 +30,7 @@ if ($fontsDir && is_dir($fontsDir)) {
         $ext = strtolower(pathinfo($file, PATHINFO_EXTENSION));
         if (array_key_exists($ext, $formatMap)) {
             $baseName = pathinfo($file, PATHINFO_FILENAME);
-            $scssOutputVariants[$baseName][] = "url('/assets/fonts/" . $file . "') format('" . $formatMap[$ext] . "')";
+            $scssOutputVariants[$baseName][] = "url('../fonts/" . $file . "') format('" . $formatMap[$ext] . "')";
         }
     }
 

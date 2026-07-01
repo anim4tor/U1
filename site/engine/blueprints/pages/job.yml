@@ -7,8 +7,11 @@ tabs:
       main:
         width: 2/3
         fields:
+          excerpt:
+            label: Excerpt
+            type: writer
           details:
-            label: Info
+            label: Details
             type: writer
           description:
             label: Popis

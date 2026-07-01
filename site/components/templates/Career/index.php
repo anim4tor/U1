@@ -1,3 +1,6 @@
+<!-- The contact widget --> 
+<?= snippet('organisms/Career') ?>
+
 <section class="intro radius" theme="invert" style="--in-delay: 500ms">
 	<div data-scroll class="z__1 intro__header inner-b__2 place__stretch-stretch grid__4 mobile:grid__1 mobile:h__auto inner__1 mobile:inner-t__10 mobile:gap__2 relative ">
 		<div class="span__4 h__8"></div>
@@ -85,7 +88,7 @@
 			</div>
 		</div>
 		<div class="grid__3 gap__2 mobile:grid__1 inner-b__5 mobile:inner-x__1 ">
-			<ul class="span__3 grid" >	
+			<ol class="span__3 grid" >	
 				<?php foreach (collection('Jobs') as $job) : ?>
 					<?= snippet('molecules/Job', compact('job')) ?>
 					<?= snippet('molecules/Job', compact('job')) ?>
@@ -93,7 +96,7 @@
 					<?= snippet('molecules/Job', compact('job')) ?>
 				<?php endforeach ?>
 
-			</ul>
+			</ol>
 		</div>
 	</div>
 </section>

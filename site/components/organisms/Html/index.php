@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="cs" class="no-js" theme="dark" data-loading>
 
@@ -6,7 +7,6 @@
 
 <!-- The body -->
 <?php snippet('organisms/Body', slots: true) ?>
-
   <?php slot('main') ?>
     <?php snippet('templates/'.ucfirst($page->intendedTemplate())) ?>
   <?php endslot() ?>
