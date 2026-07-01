@@ -19321,19 +19321,19 @@ input, textarea, select {
   width: 100%;
 }
 input::-webkit-input-placeholder, textarea::-webkit-input-placeholder, select::-webkit-input-placeholder {
-  color: rgba(var(--col), 0.4);
+  opacity: 0.5;
 }
 input::-moz-placeholder, textarea::-moz-placeholder, select::-moz-placeholder {
-  color: rgba(var(--col), 0.4);
+  opacity: 0.5;
 }
 input:-ms-input-placeholder, textarea:-ms-input-placeholder, select:-ms-input-placeholder {
-  color: rgba(var(--col), 0.4);
+  opacity: 0.5;
 }
 input::-ms-input-placeholder, textarea::-ms-input-placeholder, select::-ms-input-placeholder {
-  color: rgba(var(--col), 0.4);
+  opacity: 0.5;
 }
 input::placeholder, textarea::placeholder, select::placeholder {
-  color: rgba(var(--col), 0.4);
+  opacity: 0.5;
 }
 input:focus, input:target, textarea:focus, textarea:target, select:focus, select:target {
   border: var(--border-width) solid color-mix(in srgb, var(--col) 100%, transparent);
@@ -19358,6 +19358,9 @@ input.invalid, textarea.invalid, select.invalid {
 
 select option {
   color: black;
+}
+select option[disabled][selected] {
+  opacity: 0.5;
 }
 
 [data-checkbox] {

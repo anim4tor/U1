@@ -76,5 +76,3 @@
 		</div>
 	</div>
 </section>
-
-<?= snippet('templates/globals/Cta') ?>

@@ -23,7 +23,7 @@ input, textarea, select {
 	width: 100%;
 
 	&::placeholder {
-		color: rgba(var(--col),.4);
+		opacity: 0.5;
 	}
 
 	&:focus, &:target {
@@ -51,6 +51,9 @@ input, textarea, select {
 select {
 	option {
 		color: black;
+		&[disabled][selected] {
+			opacity: .5;
+		}
 	}
 }
 

@@ -11,7 +11,7 @@
 	</div>
 	<section class="contact fixed" data-scroll data-contact data-lenis-prevent>
 		<div class="grid place__end-end inner__05 h__100v" >
-			<?php $page->intendedTemplate() != 'job' ? snippet('organisms/Contact/widget') : snippet('organisms/Contact/career') ?>
+			<?php !in_array($page->intendedTemplate(), ['job']) ? snippet('organisms/Contact/widget') : snippet('organisms/Contact/career') ?>
 		</div>
 	</section>
 </div>

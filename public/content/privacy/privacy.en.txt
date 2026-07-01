@@ -1,0 +1,73 @@
+Title: Privacy policy
+
+----
+
+Text: <h1>Privacy Policy &amp; Cookies</h1><p>Last updated: February 26, 2025</p><p>Your privacy is important to us. On this page, you will find information on how we process your personal data and how we use cookies on our website.</p><h2>1. Who We Are</h2><p>We are going.international, a marketing agency specializing in SEO and international expansion, particularly in the DACH region. We process personal data in accordance with applicable legislation, especially the GDPR (EU 2016/679).</p><p>Contact information:<br>going.international<br>Prvního Pluku 12a, Prague 8, Czech Republic<br>+420 737 209 029<br>milan@going.international</p><h2>2. What Personal Data Do We Process and Why?</h2><p>We process your personal data only to the extent necessary to provide our services and communicate with you.</p><p><strong>Processed Data:</strong></p><ul><li><p>Identification and contact details – name, email, phone, company name</p></li><li><p>Contact form data – message content, date, and time of submission</p></li><li><p>Analytics data – IP address, cookies, website usage data</p></li><li><p>Business communication data – email correspondence, billing details (if you become a client)</p></li></ul><p><strong>Purposes of Processing:</strong></p><ul><li><p>Responding to contact form inquiries – answering your messages</p></li><li><p>Marketing communication – if you have given us consent</p></li><li><p>Website traffic analysis – through analytics tools (e.g., Google Analytics)</p></li><li><p>Contract fulfillment – if you become our client</p></li></ul><h2>3. How Long Do We Store Your Data?</h2><p>We retain your data only for the necessary period:</p><ul><li><p>Contact form: 6 months from the last communication</p></li><li><p>Marketing communication: Until consent is withdrawn</p></li><li><p>Analytics data: According to cookie settings (more below)</p></li><li><p>Business data: For the duration of the contract and in accordance with legal requirements</p></li></ul><h2>4. Who Has Access to Your Data?</h2><p>We protect your data and never sell it to third parties. Access is granted only to:</p><ul><li><p>Our employees and collaborators who communicate with you</p></li><li><p>Technology partners (e.g., hosting and analytics service providers)</p></li><li><p>Accounting and legal advisors, in case of billing data</p></li></ul><p>We only work with verified partners who meet data protection standards.</p><h2>5. What Are Your Rights?</h2><p>Under GDPR, you have full control over your data and can exercise the following rights:</p><ul><li><p>Right of access – know what data we process about you</p></li><li><p>Right to rectification – correct inaccurate or outdated data</p></li><li><p>Right to erasure ("right to be forgotten") – if data is no longer needed</p></li><li><p>Right to restriction of processing – temporarily pause data processing</p></li><li><p>Right to data portability – obtain your data in a machine-readable format</p></li><li><p>Right to object – for example, against the use of your data for marketing</p></li></ul><p>To exercise any of these rights, please contact us at milan@going.international.</p><h1>Use of Cookies</h1><h2>6. What Are Cookies?</h2><p>Cookies are small files stored on your device when you visit our website. They help us analyze traffic, improve content, and display relevant ads.</p><h2>7. What Types of Cookies Do We Use?</h2><ul><li><p>Essential cookies – Ensure the proper functioning of the website (cannot be disabled).</p></li><li><p>Analytical cookies – Help us understand how users interact with our website (e.g., Google Analytics).</p></li><li><p>Marketing cookies – Used for personalized advertising (e.g., Meta Pixel).</p></li></ul><h2>8. How Can You Manage Cookies?</h2><p>If you do not want certain cookies to be stored, you can manage or disable them in your browser settings:</p><ul><li><p>Google Chrome: <a href="https://support.google.com/chrome/answer/95647">See guide</a></p></li><li><p>Mozilla Firefox: <a href="https://support.mozilla.org/en-US/kb/clear-cookies-and-site-data-firefox" target="_new">See guide</a></p></li><li><p>Microsoft Edge: <a href="https://support.microsoft.com/en-us/help/4027947/microsoft-edge-delete-cookies" target="_new">See guide</a></p></li></ul><p>Most browsers allow you to block or delete cookies in privacy settings. If cookies are disabled, some website functions may not work correctly.</p><h2>9. Changes to the Privacy Policy &amp; Cookies</h2><p>We may update this policy in the future to reflect changes in legislation or our processes. Any updates will be posted on this page.</p><p>Last updated: February 26, 2025</p><h2>Do You Have Any Questions?</h2><p>If you have any questions regarding data protection or the use of cookies, please contact us at milan@going.international.</p>
+
+----
+
+Metatitle: Privacy policy | Going.international
+
+----
+
+Metatemplate: 
+
+----
+
+Usetitletemplate: false
+
+----
+
+Metadescription: 
+
+----
+
+Ogtemplate: 
+
+----
+
+Useogtemplate: true
+
+----
+
+Ogdescription: 
+
+----
+
+Ogimage: []
+
+----
+
+Twittercardtype: 
+
+----
+
+Twitterauthor: 
+
+----
+
+Robotsindex: default
+
+----
+
+Robotsfollow: default
+
+----
+
+Robotsarchive: default
+
+----
+
+Robotsimageindex: default
+
+----
+
+Robotssnippet: default
+
+----
+
+Metainherit: 
+
+----
+
+Uuid: TLV98xdTDgj1haMi

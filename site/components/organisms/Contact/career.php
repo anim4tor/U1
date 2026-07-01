@@ -36,7 +36,7 @@
 				</div>
 			</div>
 
-			<div data-pane="inquiry" >
+			<div data-pane="inquiry" style="--booking-width: 50vw">
 				<?= snippet('organisms/Contact/career_form') ?>
 			</div>
 

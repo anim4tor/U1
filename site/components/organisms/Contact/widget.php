@@ -16,7 +16,7 @@
 			<div data-pane="contact">
 				<?= snippet('organisms/Contact/contact') ?>
 			</div>
-			<div data-pane="inquiry" >
+			<div data-pane="inquiry" style="--booking-width: 50vw">
 				<?= snippet('organisms/Contact/contact_form') ?>
 			</div>
 		</div>
