@@ -13,7 +13,7 @@ tabs:
   # SITEMAP
   # -------------------
   pages:
-    label: Content
+    label: Pages
     icon: sitemap
     columns:
       - width: 2/3
@@ -50,8 +50,8 @@ tabs:
 
   # CTA
   # -------------------
-  cta:
-    label: CTA
+  globals:
+    label: Globals
     icon: bolt
     columns:
       - width: 1/1
