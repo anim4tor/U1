@@ -6,19 +6,22 @@ Slug: works
 
 ----
 
-Cover: 
+Hero: [{"content":{"text":"All work","level":"h1","mod":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"a09bb2ad-e5fe-48e9-996d-051def04a923","isHidden":false,"type":"heading"}]
 
 ----
 
-Intro: 
+Order:
 
-----
-
-Claim: 
-
-----
-
-Specials: [{"content":{"text":"<p>Speciality</p>","mod":"l","face":"","attr=data-scroll":"false","attr=data-reveal":"","attr=data-reveal-children":"false","attr=data-reveal-words":"false","attr=data-reveal-section":"false","bid":"","attr":"","href":"","node":""},"id":"20a95fcf-152e-4091-ab4c-02fc620ec386","isHidden":false,"type":"text"},{"content":{"text":"Chtěli byste vy nebo vaši kolegové začít cvičit přímo v práci, nebo byste svému týmu rádi dopřáli pravidelné protažení?","level":"h3","mod":"","attr=data-scroll":"false","attr=data-reveal":"","attr=data-reveal-children":"false","attr=data-reveal-words":"false","attr=data-reveal-section":"false","bid":"","attr":"","href":"","node":""},"id":"b6949aff-bfe1-4f57-bb5a-021287a7b07a","isHidden":false,"type":"heading"},{"content":{"label":"Firemní asany","style":"invert","hover":"","size":"default","link":"page://9gw1uZEVi5ReN4wb","target":"false"},"id":"0b3cb331-6e20-443a-b9af-9c40bfc5c59f","isHidden":false,"type":"button"},{"content":{"images":[],"caption":"","ratio":"","crop":"false"},"id":"501b81a6-8cd7-45ff-9b5c-771317c0c83d","isHidden":false,"type":"gallery"}]
+- 
+  label: 1_hero
+- 
+  label: 2_list
+- 
+  label: global/Testimonials/index
+- 
+  label: global/Feed/index
+- 
+  label: global/Cta/index
 
 ----
 
@@ -63,6 +66,22 @@ Robots-imageindex:
 ----
 
 Robots-snippet: 
+
+----
+
+Specials: [{"content":{"text":"<p>Speciality</p>","mod":"l","face":"","case":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"20a95fcf-152e-4091-ab4c-02fc620ec386","isHidden":false,"type":"text"},{"content":{"text":"Chtěli byste vy nebo vaši kolegové začít cvičit přímo v práci, nebo byste svému týmu rádi dopřáli pravidelné protažení?","level":"h3","mod":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"b6949aff-bfe1-4f57-bb5a-021287a7b07a","isHidden":false,"type":"heading"},{"content":{"href":"","target":"false","label":"Firemní asany","counter":[],"theme":"","hover":"","size":"default","icon":"","hasreveal":"false","bid":"","attr":"","css":"","node":""},"id":"0b3cb331-6e20-443a-b9af-9c40bfc5c59f","isHidden":false,"type":"button"},{"content":{"images":[],"caption":"","ratio":"","crop":"false"},"id":"501b81a6-8cd7-45ff-9b5c-771317c0c83d","isHidden":false,"type":"gallery"}]
+
+----
+
+Cover: 
+
+----
+
+Intro: 
+
+----
+
+Claim: 
 
 ----
 

@@ -2,15 +2,7 @@ Title: Volareza - Restaurace Evropa
 
 ----
 
-Cover: - file://aLmmfjg8CobVdnq4
-
-----
-
-Intro: Respekt k&nbsp;prostoru, precizní truhlářská výroba a&nbsp;citlivé propojení historického odkazu s&nbsp;moderním provozem. Rekonstrukce hotelu Evropa pod taktovkou U1 ukazuje, že i&nbsp;technicky náročné zadání může vyústit v&nbsp;čistý a&nbsp;harmonický interiér.
-
-----
-
-Claim: 
+Hero: 
 
 ----
 
@@ -50,7 +42,7 @@ Space: Kuchyně, Bar, Lobby
 
 ----
 
-Hash: 
+Hash: Test
 
 ----
 
@@ -137,6 +129,18 @@ Robots-imageindex:
 ----
 
 Robots-snippet: 
+
+----
+
+Cover: - file://aLmmfjg8CobVdnq4
+
+----
+
+Intro: Respekt k&nbsp;prostoru, precizní truhlářská výroba a&nbsp;citlivé propojení historického odkazu s&nbsp;moderním provozem. Rekonstrukce hotelu Evropa pod taktovkou U1 ukazuje, že i&nbsp;technicky náročné zadání může vyústit v&nbsp;čistý a&nbsp;harmonický interiér.
+
+----
+
+Claim: 
 
 ----
 

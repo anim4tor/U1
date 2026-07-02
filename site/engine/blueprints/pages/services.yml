@@ -22,31 +22,46 @@ tabs:
             headline: Archive
             layout: list
             status: unlisted
-  process:
-    fields:
-      process:
-        type: structure
-        fields:
-          step:
-            type: number
-          label:
-            type: text
-          figure:
-            type: files
-            template: image
-            info: "{{ file.dimensions }}"
-            uploads:
-              template: image
-            image:
-              ratio: 5/4
-              cover: true
-          detail:
-            type: writer
+      
   content:
     columns:
-      - width: 1/1
+      - width: 3/4
         fields:
           hero:
             extends: fields/hero
+
+          process:
+            type: structure
+            fields:
+              step:
+                type: number
+              label:
+                type: text
+              figure:
+                type: files
+                template: image
+                info: "{{ file.dimensions }}"
+                uploads:
+                  template: image
+                image:
+                  ratio: 5/4
+                  cover: true
+              detail:
+                type: writer
+
+      - width: 1/4
+        sticky: true
+        fields:
+          order:
+            type: structure 
+            fields:
+              label:
+                label: Choose Section Layout
+                type: select
+                options: query
+                query:
+                  fetch: page.getCurrentAndGlobalSnippets
+                  text: "{{ item.text }}"
+                  value: "{{ item.value }}"
 
   meta: tabs/meta/page

@@ -3,8 +3,8 @@
 	<div class="intro__cover overlay__bottom absolute inset__stretch grid">
 		<?= snippet('molecules/Header', ['header' => $page->hero(), 'type' => ['cover']]) ?>		
 	</div>
-	<div class="z__1 intro__header place__stretch-stretch grid__4 gap__2 intro__rows mobile:grid__1 h__100v mobile:h__auto inner__1 mobile:inner-t__10 mobile:gap__2 relative color__invert">
-		<div class=""></div>
+	<div class="z__1 intro__header place__stretch-stretch grid__4 gap__2  mobile:grid__1 h__100v mobile:h__auto inner__1 mobile:inner-t__10 mobile:gap__2 relative color__invert">
+		<div class="h__6"></div>
 		<div class="span__4 grid place__space-between-stretch">
 			<div class="span__4 place__start-start grid__4 gap__2 border__top inner-t__05">
 				<div class="span__2">

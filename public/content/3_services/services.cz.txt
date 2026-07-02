@@ -6,6 +6,10 @@ Slug: services
 
 ----
 
+Hero: [{"content":{"text":"Services","level":"h1","mod":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"ab06c938-ddbd-4f65-b9e3-f37d6a2ebd68","isHidden":false,"type":"heading"}]
+
+----
+
 Process:
 
 - 
@@ -41,15 +45,18 @@ Process:
 
 ----
 
-Cover: 
+Order:
 
-----
-
-Intro: 
-
-----
-
-Claim: 
+- 
+  label: 1_hero
+- 
+  label: 2_solutions
+- 
+  label: 3_process
+- 
+  label: global/Feed/index
+- 
+  label: global/Cta/index
 
 ----
 
@@ -94,6 +101,18 @@ Robots-imageindex:
 ----
 
 Robots-snippet: 
+
+----
+
+Cover: 
+
+----
+
+Intro: 
+
+----
+
+Claim: 
 
 ----
 

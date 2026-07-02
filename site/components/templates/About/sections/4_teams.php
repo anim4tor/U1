@@ -1,5 +1,4 @@
 <?php if (collection('Team')->isNotEmpty()) : ?>
-
 <section class="teams radius" theme="invert" >
 	<div class="relative grid gap__0 inner-x__1">
 		<div class="flex justify__space-between border__top inner-y__1" data-scroll>
@@ -14,7 +13,7 @@
 						<div data-pane="team-<?= $team->indexOf(collection('Team')) ?>" class="" data-scroll data-scroll-ignore data-tab-reveal>
 							<div class="grid gap__05">
 								<?php if ($img = $team->figure()->toFile()) : ?>
-									<?= snippet('atoms/Image', ['img' => $img, 'parallax' => false, 'reveal' => false, 'css' => 'aspect__4/3', 'node' => 'data-reveal-image']) ?>
+									<?= snippet('atoms/Image', ['img' => $img, 'parallax' => false, 'reveal' => true, 'css' => 'aspect__4/3']) ?>
 								<?php endif ?>
 								<?= snippet('atoms/Text', ['text' => $team->details()->inline(), 'reveal' => true, 'node' => 'data-split-ignore data-scroll-ignore']) ?>
 							</div>

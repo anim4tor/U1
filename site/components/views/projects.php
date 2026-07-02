@@ -1,0 +1,1 @@
+<?= snippet('organisms/Html', compact(['page','tags','filterBy','projects'])) ?>
