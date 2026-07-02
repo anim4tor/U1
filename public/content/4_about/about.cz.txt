@@ -6,6 +6,37 @@ Slug: about
 
 ----
 
+Hero: [{"content":{"text":"About Us","level":"h1","mod":"l","hasreveal":"true","bid":"","attr":"","css":"flex justify__space-between","href":"","target":"false","node":""},"id":"41f626de-5f9f-4f54-b649-90101a671744","isHidden":false,"type":"heading"},{"content":{"image":["file://EvzC0b5nfuTdhNrI"],"hasparallax":"false","parallax":0,"hasreveal":"false","reveal":"","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"75c0a0cb-fb3d-4f88-99c6-f6524f71f498","isHidden":false,"type":"cover"},{"content":{"text":"Inspiration is all around us. At U1, we work every day to improve our surroundings through the power of know-how and design.","mod":"l","face":"","case":"lower","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"e411a841-0a89-452a-a500-7dbad5f6425c","isHidden":false,"type":"text"}]
+
+----
+
+About: [{"content":{"text":"<p>Our story</p>","mod":"","face":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"5e0df47c-57f1-406d-9197-2497acc20f90","isHidden":false,"type":"label"},{"content":{"text":"We’re a team of designers working to deepen the human experience.","level":"h2","mod":"s","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"d215d6bd-e78a-4705-9435-1aa034f0c716","isHidden":false,"type":"heading"},{"content":{"text":"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodoconsequat. Duis aute irure dolor in reprehenderit in voluptate velit essecillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat nonproident, sunt in culpa qui officia deserunt mollit anim id est laborum.","mod":"","face":"","case":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"74f54930-d64b-4af1-af0b-b854cd5707a0","isHidden":false,"type":"text"},{"content":{"image":["file://gQrBkYsL9KNrFgwt"],"hasparallax":"false","parallax":0,"hasreveal":"false","reveal":"","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"c333acbf-6d5b-495e-b0f3-d07d97ce65e0","isHidden":false,"type":"image"}]
+
+----
+
+Values:
+
+- 
+  step: 1
+  value: Integrity
+  figure:
+    - file://Hzplof4PlkodvbqM
+  detail: '<p>Design development through aesthetics to functionality in line with the latest technologies, structural aspects of projects - construction, materials, sustainable practices and coordination between teams of engineers and construction workers, transforming creative ideas into real products (including market research, customer needs analysis, prototype design and testing, through to final production and market launch.) In other words, the smooth flow of projects from concept to completion.</p>'
+- 
+  step: 2
+  value: Innovation
+  figure:
+    - file://LIAFLCCTEOYkZ0tC
+  detail: '<p>Converting designs and prototypes into final products, all aspects of production - from materials and equipment, to quality control, to planning and logistics. And making ideas and plans a&nbsp;reality - overseeing project progress, managing schedules, budgets and resources.</p>'
+- 
+  step: 3
+  value: Sustainability
+  figure:
+    - file://HXa9UZqdtbPdhTUQ
+  detail: '<p>In addition to its internal focus on improving the sustainability of corporate operations, the department also works with clients, suppliers and other stakeholders to encourage wider adoption of sustainable practices. To not only meet current standards and regulations, but also to be a&nbsp;leader in sustainability and an example to others.</p>'
+
+----
+
 Teams:
 
 - 
@@ -46,38 +77,48 @@ Teams:
 
 ----
 
-Hero: [{"content":{"text":"About Us","level":"h1","mod":"l","hasreveal":"true","bid":"","attr":"","css":"flex justify__space-between","href":"","target":"false","node":""},"id":"41f626de-5f9f-4f54-b649-90101a671744","isHidden":false,"type":"heading"},{"content":{"image":["file://EvzC0b5nfuTdhNrI"],"hasparallax":"false","parallax":0,"hasreveal":"false","reveal":"","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"75c0a0cb-fb3d-4f88-99c6-f6524f71f498","isHidden":false,"type":"cover"},{"content":{"text":"Inspiration is all around us. At U1, we work every day to improve our surroundings through the power of know-how and design.","mod":"l","face":"","case":"lower","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"e411a841-0a89-452a-a500-7dbad5f6425c","isHidden":false,"type":"text"}]
+People:
 
-----
-
-About: [{"content":{"text":"<p>Our story</p>","mod":"","face":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"5e0df47c-57f1-406d-9197-2497acc20f90","isHidden":false,"type":"label"},{"content":{"text":"We’re a team of designers working to deepen the human experience.","level":"h2","mod":"s","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"d215d6bd-e78a-4705-9435-1aa034f0c716","isHidden":false,"type":"heading"},{"content":{"text":"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodoconsequat. Duis aute irure dolor in reprehenderit in voluptate velit essecillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat nonproident, sunt in culpa qui officia deserunt mollit anim id est laborum.","mod":"","face":"","case":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"74f54930-d64b-4af1-af0b-b854cd5707a0","isHidden":false,"type":"text"},{"content":{"image":["file://gQrBkYsL9KNrFgwt"],"hasparallax":"false","parallax":0,"hasreveal":"false","reveal":"","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"c333acbf-6d5b-495e-b0f3-d07d97ce65e0","isHidden":false,"type":"image"}]
-
-----
-
-Values:
-
-- 
-  step: 1
-  value: Integrity
-  figure:
-    - file://Hzplof4PlkodvbqM
-  detail: '<p>Design development through aesthetics to functionality in line with the latest technologies, structural aspects of projects - construction, materials, sustainable practices and coordination between teams of engineers and construction workers, transforming creative ideas into real products (including market research, customer needs analysis, prototype design and testing, through to final production and market launch.) In other words, the smooth flow of projects from concept to completion.</p>'
-- 
-  step: 2
-  value: Innovation
-  figure:
-    - file://LIAFLCCTEOYkZ0tC
-  detail: '<p>Converting designs and prototypes into final products, all aspects of production - from materials and equipment, to quality control, to planning and logistics. And making ideas and plans a&nbsp;reality - overseeing project progress, managing schedules, budgets and resources.</p>'
-- 
-  step: 3
-  value: Sustainability
-  figure:
-    - file://HXa9UZqdtbPdhTUQ
-  detail: '<p>In addition to its internal focus on improving the sustainability of corporate operations, the department also works with clients, suppliers and other stakeholders to encourage wider adoption of sustainable practices. To not only meet current standards and regulations, but also to be a&nbsp;leader in sustainability and an example to others.</p>'
+- page://B16gOIE45vW4gRog
+- page://r1mKATKIxPEjnSYA
+- page://FHQvOe3o8GYV6EL7
+- page://P12PzzEaIG3G9veZ
+- page://SGCtsAHVoB3rp6GJ
+- page://rBG5Hy5aHcRklGCK
+- page://sdKfbevBvDI0QQYu
+- page://j7OFgy27MrLYmUYE
+- page://R4Iha5xmNwtS9was
+- page://qzVvrzr9TWqgD8v9
+- page://vCYnLdqNuwFkIW8u
+- page://FHUf0apPGTquxyNz
+- page://lPRN2s4SURhm8kXl
+- page://qa9IrJRRv55DukTL
+- page://pPQBZruv0cF0Y110
 
 ----
 
 Career: [{"content":{"text":"Be part of a team creating meaningful places.","level":"h2","mod":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"ca715af6-ac89-43af-9a8f-eecfe11da498","isHidden":false,"type":"heading"},{"content":{"text":"Be part of a team creating meaningful places. We are looking for motivated, curious and dedicated talent who want to contribute to our growth while sharing our values.","mod":"l","face":"","case":"lower","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"f7cd36bd-697d-44a1-9b79-d9c978dfe267","isHidden":false,"type":"text"},{"content":{"href":"page://9a41hc2Jz9NaZ0SH","target":"false","label":"Open positions","counter":["page://9a41hc2Jz9NaZ0SH"],"theme":"invert","hover":"dark","size":"default","icon":"arrow-right","hasreveal":"true","bid":"","attr":"","css":"","node":""},"id":"a4e52313-dc62-4372-959d-a1b4dcfd66b5","isHidden":false,"type":"button"},{"content":{"image":["file://LIAFLCCTEOYkZ0tC"],"hasparallax":"true","parallax":2,"hasreveal":"true","reveal":"","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"23032cf4-7798-4dae-95cb-183ae2520af8","isHidden":false,"type":"image"}]
+
+----
+
+Order:
+
+- 
+  label: 1_hero
+- 
+  label: 2_about
+- 
+  label: 3_values
+- 
+  label: 4_teams
+- 
+  label: 5_people
+- 
+  label: 6_career
+- 
+  label: global/Feed/index
+- 
+  label: global/Cta/index
 
 ----
 

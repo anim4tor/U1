@@ -14,7 +14,7 @@ Cover: - file://SC5zFBn08awUwikt
 
 ----
 
-Intro: [{"content":{"text":"<p>(OUR STUDIO)</p>","mod":"","face":"body","attr=data-scroll":"false","attr=data-reveal":"","attr=data-reveal-children":"false","attr=data-reveal-words":"false","attr=data-reveal-section":"false","bid":"","attr":"","href":"","node":""},"id":"ce0ab77f-7ee9-4922-960d-81f836a0cbde","isHidden":false,"type":"label"},{"content":{"text":"Twenty-five years of refined expertise, distilled into a comprehensive suite of architectural and design solutions creating experiences that amplify the joy felt in shared human moments.","level":"h3","mod":"xs","attr=data-scroll":"false","attr=data-reveal":"","attr=data-reveal-children":"false","attr=data-reveal-words":"false","attr=data-reveal-section":"false","bid":"","attr":"","href":"","node":""},"id":"7196bce0-bdfc-40d3-99c8-81950bf23875","isHidden":false,"type":"heading"},{"content":{"text":"<p>Design development through aesthetics to functionality in line with the latest technologies, structural aspects of projects - construction, materials, sustainable practices and coordination between teams of engineers and construction workers.</p>","mod":"","face":"","attr=data-scroll":"false","attr=data-reveal":"","attr=data-reveal-children":"false","attr=data-reveal-words":"false","attr=data-reveal-section":"false","bid":"","attr":"","href":"","node":""},"id":"acde31ea-6c4b-4f2b-9c8a-766553205da8","isHidden":false,"type":"text"},{"content":{"label":"Více o nás","style":"dark","hover":"","size":"default","link":"page://yAaVa524crrP12m4","target":"false"},"id":"cdda7ed8-0e05-463c-9ae6-d5637b13a258","isHidden":false,"type":"button"}]
+Intro: [{"content":{"text":"<p>(OUR STUDIO)</p>","mod":"","face":"body","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"ce0ab77f-7ee9-4922-960d-81f836a0cbde","isHidden":false,"type":"label"},{"content":{"text":"Twenty-five years of refined expertise, distilled into a comprehensive suite of architectural and design solutions creating experiences that amplify the joy felt in shared human moments.","level":"h3","mod":"xs","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"7196bce0-bdfc-40d3-99c8-81950bf23875","isHidden":false,"type":"heading"},{"content":{"text":"<p>Design development through aesthetics to functionality in line with the latest technologies, structural aspects of projects - construction, materials, sustainable practices and coordination between teams of engineers and construction workers.</p>","mod":"","face":"","case":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"acde31ea-6c4b-4f2b-9c8a-766553205da8","isHidden":false,"type":"text"},{"content":{"href":"","target":"false","label":"Více o nás","counter":[],"theme":"","hover":"","size":"default","icon":"","hasreveal":"false","bid":"","attr":"","css":"","node":""},"id":"cdda7ed8-0e05-463c-9ae6-d5637b13a258","isHidden":false,"type":"button"}]
 
 ----
 
@@ -36,7 +36,7 @@ Introfeatures:
 
 ----
 
-Events: [{"content":{"text":"Pravidelně pořádáme specializované workshopy, víkendové intenzivky a komunitní akce.","level":"h3","mod":"m","attr=data-scroll":"false","attr=data-reveal":"","attr=data-reveal-children":"false","attr=data-reveal-words":"false","attr=data-reveal-section":"false","bid":"","attr":"","href":"","node":""},"id":"d9fcc57f-cce4-4a1f-9f0b-33d2b9155c19","isHidden":false,"type":"heading"},{"content":{"text":"<p>Sledujte nás pro každodenní inspiraci, tipy na techniku a nejčerstvější novinky ze studia. </p>","mod":"","face":"","attr=data-scroll":"false","attr=data-reveal":"","attr=data-reveal-children":"false","attr=data-reveal-words":"false","attr=data-reveal-section":"false","bid":"","attr":"","href":"","node":""},"id":"06a4e8fe-6b11-4308-a25d-0c4d310f7795","isHidden":false,"type":"text"},{"content":{"label":"Zobrazit akce","style":"invert","hover":"","size":"default","link":"page://kkyHn1VfWYtSbaLP","target":"false"},"id":"23a1d797-01a0-493f-9dc5-c3f668330487","isHidden":false,"type":"button"}]
+Events: [{"content":{"text":"Pravidelně pořádáme specializované workshopy, víkendové intenzivky a komunitní akce.","level":"h3","mod":"m","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"d9fcc57f-cce4-4a1f-9f0b-33d2b9155c19","isHidden":false,"type":"heading"},{"content":{"text":"<p>Sledujte nás pro každodenní inspiraci, tipy na techniku a nejčerstvější novinky ze studia. </p>","mod":"","face":"","case":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"06a4e8fe-6b11-4308-a25d-0c4d310f7795","isHidden":false,"type":"text"},{"content":{"href":"","target":"false","label":"Zobrazit akce","counter":[],"theme":"","hover":"","size":"default","icon":"","hasreveal":"false","bid":"","attr":"","css":"","node":""},"id":"23a1d797-01a0-493f-9dc5-c3f668330487","isHidden":false,"type":"button"}]
 
 ----
 
@@ -48,6 +48,29 @@ Eventsfigure:
 ----
 
 Projects: 
+
+----
+
+Order:
+
+- 
+  label: 1_hero
+- 
+  label: 2_about
+- 
+  label: 3_projects
+- 
+  label: global/Testimonials/index
+- 
+  label: 4_process
+- 
+  label: 5_services
+- 
+  label: 6_teams
+- 
+  label: global/Feed/index
+- 
+  label: global/Cta/index
 
 ----
 

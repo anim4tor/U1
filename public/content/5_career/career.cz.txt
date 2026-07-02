@@ -42,6 +42,23 @@ About: [{"content":{"text":"We create the identity of interiors. As designers an
 
 ----
 
+Order:
+
+- 
+  label: hero
+- 
+  label: culture
+- 
+  label: positions
+- 
+  label: about
+- 
+  label: global/Feed/index
+- 
+  label: global/Cta/index
+
+----
+
 Meta-description: 
 
 ----
@@ -95,3 +112,26 @@ Uuid: 9a41hc2Jz9NaZ0SH
 ----
 
 Intro: We are constantly moving forward
+
+----
+
+Sections:
+
+- 
+  _id: 9c337351-da4c-4b7d-8686-9208fd975eff
+  label: Hero
+- 
+  _id: 1e25e593-0723-46ca-9b8b-5bbeea4f3086
+  label: Culture
+- 
+  _id: 13b83e1e-4c72-4b38-a814-8a1789c61bd1
+  label: Positions
+- 
+  _id: 248872c0-7ca4-4a83-9267-7298fb6541de
+  label: Careers
+- 
+  _id: 261f9aeb-d8fc-475d-afa3-0bd7be6c033f
+  label: global/Feed
+- 
+  _id: 98c6f6cf-e2c6-4833-8594-0aa86b31c61b
+  label: global/Cta

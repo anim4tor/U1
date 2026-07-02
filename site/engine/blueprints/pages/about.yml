@@ -27,16 +27,18 @@ tabs:
 
   content:
     columns:
-      - width: 1/1
+      - width: 3/4
         fields:
           hero:
             extends: fields/hero
 
           about:
             extends: fields/header
+            label: About
 
           values:
             type: structure
+            label: Values
             fields:
               step:
                 type: number
@@ -74,9 +76,30 @@ tabs:
                 type: pages
                 query: site.find('about')
 
+          # people:
+          #   label: People
+          #   type: pages
+          #   query: site.find('about')
+          #   # width: 1/2
+
           career:
             extends: fields/section
             label: Careers
 
+      - width: 1/4
+        sticky: true
+        fields:
+          order:
+            type: structure 
+            wysiwyg: true
+            fields:
+              label:
+                label: Choose Section Layout
+                type: select
+                options: query
+                query:
+                  fetch: page.getCurrentAndGlobalSnippets
+                  text: "{{ item.text }}"
+                  value: "{{ item.value }}"
 
   meta: tabs/meta/page

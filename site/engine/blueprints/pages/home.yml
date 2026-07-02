@@ -2,62 +2,81 @@ title: Home
 
 tabs:
   content:
-    fields:
-      customTitle:
-        label: Custom title
-        width: 1/2
-        type: writer
-        inline: true
-      menuTitle:
-        label: Menu label
-        width: 1/2
-        type: text
-      
-      cover:
-        width: 1/1
-        type: files
-        template: cover
-        info: "{{ file.dimensions }}"
-        uploads:
-          template: cover
-        image:
-          ratio: 5/4
-          cover: true
-        max: 1
-        layout: cards
-        size: full
-
-      intro:
-        width: 1/3
-        extends: fields/header
-        label: Intro
-      introFigure:
-        extends: fields/image
-        width: 1/3
-        size: cover
-        max: 1
-      introFeatures:
-        width: 1/3
-        type: structure
+    columns:
+      - width: 3/4
         fields:
-          feature:
-            label: Number
+          customTitle:
+            label: Custom title
+            width: 1/2
+            type: writer
+            inline: true
+          menuTitle:
+            label: Menu label
+            width: 1/2
             type: text
-          label:
-            label: Label
-            type: text
+          
+          cover:
+            width: 1/1
+            type: files
+            template: cover
+            info: "{{ file.dimensions }}"
+            uploads:
+              template: cover
+            image:
+              ratio: 5/4
+              cover: true
+            max: 1
+            layout: cards
+            size: full
 
-      events:
-        width: 1/2
-        extends: fields/header
-        label: Events
-      eventsFigure:
-        extends: fields/image
-        width: 1/2
-        max: 2
-      projects:
-        width: 1/1
-        extends: fields/header
-        label: Projects
+          intro:
+            width: 1/3
+            extends: fields/header
+            label: Intro
+          introFigure:
+            extends: fields/image
+            width: 1/3
+            size: cover
+            max: 1
+          introFeatures:
+            width: 1/3
+            type: structure
+            fields:
+              feature:
+                label: Number
+                type: text
+              label:
+                label: Label
+                type: text
+
+          events:
+            width: 1/2
+            extends: fields/header
+            label: Events
+          eventsFigure:
+            extends: fields/image
+            width: 1/2
+            max: 2
+          projects:
+            width: 1/1
+            extends: fields/header
+            label: Projects
+
+      - width: 1/4
+        sticky: true
+        fields:
+          order:
+            type: structure 
+            wysiwyg: true
+            fields:
+              label:
+                label: Choose Section Layout
+                type: select
+                options: query
+                query:
+                  fetch: page.getCurrentAndGlobalSnippets
+                  text: "{{ item.text }}"
+                  value: "{{ item.value }}"
+    
 
   meta: tabs/meta/page

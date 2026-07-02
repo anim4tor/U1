@@ -22,7 +22,7 @@ tabs:
             status: unlisted
   content:
     columns:
-      - width: 1/1
+      - width: 3/4
         fields:
           hero:
             extends: fields/hero
@@ -39,18 +39,32 @@ tabs:
 
           positions:
             extends: fields/section
-            label: Opened positions
+            label: Positions
             # width: 1/2
 
-          openPositions:
-            label: false
-            type: pages
-            query: site.find('career')
-            # width: 1/2
+          # openPositions:
+          #   label: false
+          #   type: pages
+          #   query: site.find('career')
+          #   # width: 1/2
 
           about:
             extends: fields/section
             label: About
 
+      - width: 1/4
+        sticky: true
+        fields:
+          order:
+            type: structure 
+            fields:
+              label:
+                label: Choose Section Layout
+                type: select
+                options: query
+                query:
+                  fetch: page.getCurrentAndGlobalSnippets
+                  text: "{{ item.text }}"
+                  value: "{{ item.value }}"
 
   meta: tabs/meta/page

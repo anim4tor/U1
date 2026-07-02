@@ -22,7 +22,7 @@
 #     inline: true
 
 type: blocks
-label: Hero sekce
+label: Hero
 fieldsets:
   - label
   - heading
