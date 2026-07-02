@@ -39,6 +39,7 @@
 	</div>
 </section>
 
+<?= snippet('templates/Home/Process') ?>
 <?= snippet('templates/globals/Testimonials') ?>
 <?= snippet('templates/globals/Feed') ?>
 <?= snippet('templates/globals/Cta') ?>

@@ -10,6 +10,7 @@
 @import "../../atoms/Theme/border";
 :root {
   --img-radius: 0.75;
+  
 }
 
 
@@ -51,15 +52,36 @@ img {
 }
 
 [data-parallax] {
-  overflow: hidden;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     
     img {
-      /* Donutí prohlížeč renderovat obrázek přes GPU */
-/*      will-change: transform;*/
-/*      transform-style: preserve-3d;*/
-/*      backface-visibility: hidden;*/
+        // Safe, static layout base size
+        --buffer: calc(100% + (var(--speed, 0) * 4% * var(--toggle-parallax, 1)));
+        position: absolute;
+        width: 100%;
+        height: var(--buffer);
+        min-height: var(--buffer);
+        object-fit: cover;
+        
+        --parallax-speed: calc(var(--speed, 0));
+        
+        // Pure mathematical vertical boundary compensation offset
+        --height-modifier: calc((var(--progress) - 0.5) * (var(--speed, 0) * -2%));
 
-      transform: translateY(calc(var(--speed, 10)*-10%*(var(--h)/100vh) + var(--speed, 10)*20%*(var(--h)/100vh) * var(--progress))) scale(calc(1.1 - 0.1 * var(--progress)));
+        transform: 
+            translateY(calc(
+                ((var(--parallax-speed, 10) * -10%) + 
+                (var(--parallax-speed, 10) * 20% * var(--progress)) +
+                var(--height-modifier))
+                * var(--toggle-parallax, 1)
+            )) 
+            scale(calc(1.1 - 0.1 * var(--progress) * var(--toggle-parallax, 1)));
+        
+        will-change: transform;
     }
 }
 

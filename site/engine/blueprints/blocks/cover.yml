@@ -1,0 +1,15 @@
+name: Cover
+icon: image
+preview: image
+size: cover
+tabs:
+  file:   
+    fields:
+      image: 
+        extends: fields/cover
+        max: 1
+
+  interactions: settings/interactions/animation-image
+  settings: settings/node
+  
+      

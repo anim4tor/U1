@@ -45,9 +45,9 @@
 	<div class="grid__2 gap__2 inner__1">
 		<?php foreach ($page->gallery()->toFiles() as $image) : ?>
 			<?php if($image->orientation() == "landscape") : ?>
-				<div class="grid span__2" data-scroll ><?= snippet('atoms/Image', ['img' => $image, 'parallax' => 2, 'css' => '']) ?></div>
+				<div class="grid span__2" data-scroll ><?= snippet('atoms/Image', ['img' => $image, 'parallax' => 2, 'css' => 'vh__18']) ?></div>
 			<?php else : ?>
-				<div class="grid" data-scroll ><?= snippet('atoms/Image', ['img' => $image, 'parallax' => 2, 'css' => '']) ?></div>
+				<div class="grid" data-scroll ><?= snippet('atoms/Image', ['img' => $image, 'parallax' => 2, 'css' => 'vh__18']) ?></div>
 			<?php endif; ?>
 		<?php endforeach ?>
 	</div>

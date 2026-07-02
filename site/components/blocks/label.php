@@ -1,1 +1,1 @@
-<div class="<?= $block->mod() ?> grid gap__05" data-scroll data-reveal-text="lines"><?= $block->text(); ?></div>
+<div class="<?= $block->mod() ?> grid gap__05" data-scroll data-reveal-text><?= $block->text(); ?></div>

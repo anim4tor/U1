@@ -24,10 +24,36 @@ tabs:
             headline: Inactive
             layout: list
             status: unlisted
-  teams:
-    columns:     
+
+  content:
+    columns:
       - width: 1/1
         fields:
+          hero:
+            extends: fields/hero
+
+          about:
+            extends: fields/header
+
+          values:
+            type: structure
+            fields:
+              step:
+                type: number
+              value:
+                type: text
+              figure:
+                type: files
+                template: image
+                info: "{{ file.dimensions }}"
+                uploads:
+                  template: image
+                image:
+                  ratio: 5/4
+                  cover: true
+              detail:
+                type: writer
+
           teams:
             type: structure
             fields:
@@ -48,49 +74,9 @@ tabs:
                 type: pages
                 query: site.find('about')
 
-  content:
-    columns:
-      - width: 1/1
-        fields:
-          cover:
-            width: 1/1
-            type: files
-            template: cover
-            info: "{{ file.dimensions }}"
-            uploads:
-              template: cover
-            image:
-              ratio: 5/4
-              cover: true
-            max: 1
-            layout: cards
-            size: full
-          intro:
-            type: writer
-            inline: true
+          career:
+            extends: fields/section
+            label: Careers
 
-          about:
-            extends: fields/header
-
-  values:
-    fields:
-      values:
-        type: structure
-        fields:
-          step:
-            type: number
-          value:
-            type: text
-          figure:
-            type: files
-            template: image
-            info: "{{ file.dimensions }}"
-            uploads:
-              template: image
-            image:
-              ratio: 5/4
-              cover: true
-          detail:
-            type: writer
 
   meta: tabs/meta/page

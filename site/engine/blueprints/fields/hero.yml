@@ -1,22 +1,37 @@
-type: group
-fields:
+# type: group
+# fields:
   
-  cover:
-    width: 1/1
-    type: files
-    template: cover
-    info: "{{ file.dimensions }}"
-    uploads:
-      template: cover
-    image:
-      ratio: 5/4
-      cover: true
-    max: 1
-    layout: cards
-    size: full
-  intro:
-    type: writer
-    inline: true
-  claim:
-    type: writer
-    inline: true
+#   cover:
+#     width: 1/1
+#     type: files
+#     template: cover
+#     info: "{{ file.dimensions }}"
+#     uploads:
+#       template: cover
+#     image:
+#       ratio: 5/4
+#       cover: true
+#     max: 1
+#     layout: cards
+#     size: full
+#   headline:
+#     type: writer
+#     inline: true
+#   subheadline:
+#     type: writer
+#     inline: true
+
+type: blocks
+label: Hero sekce
+fieldsets:
+  - label
+  - heading
+  - text
+  - list
+  - button
+  - cover
+  - gallery
+  - line
+  - video
+  - code
+  - markdown

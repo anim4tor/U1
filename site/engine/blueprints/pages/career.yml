@@ -2,8 +2,7 @@ title: Career
 
 tabs:
   jobs:
-    columns:
-            
+    columns:  
       - width: 2/3
         sections:
           listed:
@@ -27,5 +26,31 @@ tabs:
         fields:
           hero:
             extends: fields/hero
+
+          culture:
+            type: structure
+            fields:
+              label:
+                type: text
+              image:
+                extends: fields/image
+              text:
+                type: writer
+
+          positions:
+            extends: fields/section
+            label: Opened positions
+            # width: 1/2
+
+          openPositions:
+            label: false
+            type: pages
+            query: site.find('career')
+            # width: 1/2
+
+          about:
+            extends: fields/section
+            label: About
+
 
   meta: tabs/meta/page

@@ -6,4 +6,92 @@ Slug: career
 
 ----
 
+Hero: [{"content":{"text":"We are constantly moving forward","level":"h1","mod":"xs","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"b184f43d-31ab-419a-8c6c-0430dbdf4156","isHidden":false,"type":"heading"},{"content":{"href":"#opened-positions","target":"false","label":"Opened positions","counter":["page://9a41hc2Jz9NaZ0SH"],"theme":"invert","hover":"dark","size":"default","icon":"arrow-down","hasreveal":"true","bid":"","attr":"","css":"","node":""},"id":"e74109fd-5569-469b-bc56-18bf9bed5be2","isHidden":false,"type":"button"},{"content":{"image":["file://sZRbZagT6UU9Qxum"],"hasparallax":"true","parallax":2,"hasreveal":"true","reveal":"left","bid":"","attr":"","css":"h__100v w__100v","href":"","target":"false","node":""},"id":"98a2bf05-5a85-467a-9dce-dd9818df420f","isHidden":false,"type":"cover"}]
+
+----
+
+Culture:
+
+- 
+  label: Our culture
+  image:
+    - file://sZRbZagT6UU9Qxum
+  text: "<p>Without the right people, we couldn't function. Do you want to be involved in big projects, take responsibility and work in offices where you feel at home? Let us know about you.</p>"
+- 
+  label: Our culture
+  image:
+    - file://sZRbZagT6UU9Qxum
+  text: "<p>Without the right people, we couldn't function. Do you want to be involved in big projects, take responsibility and work in offices where you feel at home? Let us know about you.</p>"
+- 
+  label: Our culture
+  image:
+    - file://sZRbZagT6UU9Qxum
+  text: "<p>Without the right people, we couldn't function. Do you want to be involved in big projects, take responsibility and work in offices where you feel at home? Let us know about you.</p>"
+
+----
+
+Positions: [{"content":{"text":"Opened positions","level":"h2","mod":"l","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"5358e90d-9029-4bcd-a24f-c159d2af4d52","isHidden":false,"type":"heading"}]
+
+----
+
+Openpositions: - page://o0AFKfxL3P0xmeRN
+
+----
+
+About: [{"content":{"text":"We create the identity of interiors. As designers and experienced consultants.","level":"h2","mod":"s","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"b38aeedd-197e-4b23-a624-b87bbbb4a38e","isHidden":false,"type":"heading"},{"content":{"text":"Twenty-five years of refined expertise, distilled into a comprehensive suite of architectural and design solutions creating experiences that amplify the joy felt in shared human moments.","mod":"l","face":"","case":"lower","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"7ed68db6-be8e-4318-a06b-07b6fd61861c","isHidden":false,"type":"text"},{"content":{"href":"page://YASipJpnQrG05UlL","target":"false","label":"About us","counter":[],"theme":"invert","hover":"dark","size":"default","icon":"arrow-right","hasreveal":"true","bid":"","attr":"","css":"","node":""},"id":"ee9fc54c-0d02-4d65-976f-2ce8da0d854f","isHidden":false,"type":"button"},{"content":{"image":["file://sZRbZagT6UU9Qxum"],"hasparallax":"true","parallax":2,"hasreveal":"true","reveal":"left","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"0192e1d6-7bc5-4dd1-a53e-56cf1127d30d","isHidden":false,"type":"image"}]
+
+----
+
+Meta-description: 
+
+----
+
+Meta-title: 
+
+----
+
+Meta-canonical-url: 
+
+----
+
+Og-title: 
+
+----
+
+Og-description: 
+
+----
+
+Og-image: 
+
+----
+
+Robots-index: 
+
+----
+
+Robots-follow: 
+
+----
+
+Robots-archive: 
+
+----
+
+Robots-imageindex: 
+
+----
+
+Robots-snippet: 
+
+----
+
+Opened: - page://o0AFKfxL3P0xmeRN
+
+----
+
 Uuid: 9a41hc2Jz9NaZ0SH
+
+----
+
+Intro: We are constantly moving forward

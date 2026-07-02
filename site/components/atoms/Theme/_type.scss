@@ -72,6 +72,9 @@ $levels: 'small', 'default', 'large', 5, 4, 3, 2, 1;
 /*
     Modifiers
 */
+/*
+    Modifiers (Pure CSS Specificity and Cascade Fix)
+*/
 $mods: ( 
     xxl: 3,
     xl: 2,
@@ -81,25 +84,34 @@ $mods: (
     s: 0.9,
     xs: 0.8
 );
-@each $modifier , $breakpoint in $map-grid-props {
+
+@each $modifier, $breakpoint in $map-grid-props {
     @if($modifier == '') {
         @each $mod, $scale in $mods {
+            h1.#{$mod}, h2.#{$mod}, h3.#{$mod}, h4.#{$mod}, h5.#{$mod}, h6.#{$mod}, p.#{$mod}, a.#{$mod}, li.#{$mod}, .ff__heading.#{$mod} {
+                font-size: calc(var(--output-size, 1rem) * #{$scale}) !important;
+            }
+
             .#{$mod} {
-                font-size: calc(var(--output-size) * #{$scale});
-                h1, h2, h3, h4, h5, h6,
-                p, a, li {
-                    font-size: calc(var(--output-size) * #{$scale});
+                font-size: calc(var(--output-size, 1rem) * #{$scale}) !important;
+                
+                h1, h2, h3, h4, h5, h6, p, a, li, .ff__heading {
+                    font-size: calc(var(--output-size, 1rem) * #{$scale}) !important;
                 }
             }
         }
     } @else {
         @include create-mq($breakpoint, 'max') {
             @each $mod, $scale in $mods {
+                h1.#{$modifier}\:#{$mod}, h2.#{$modifier}\:#{$mod}, h3.#{$modifier}\:#{$mod}, h4.#{$modifier}\:#{$mod}, h5.#{$modifier}\:#{$mod}, h6.#{$modifier}\:#{$mod}, p.#{$modifier}\:#{$mod}, a.#{$modifier}\:#{$mod}, li.#{$modifier}\:#{$mod}, .ff__heading.#{$modifier}\:#{$mod} {
+                    font-size: calc(var(--output-size, 1rem) * #{$scale}) !important;
+                }
+
                 .#{$modifier}\:#{$mod} {
-                    font-size: calc(var(--output-size) * #{$scale});
-                    h1, h2, h3, h4, h5, h6,
-                    p, a, li {
-                        font-size: calc(var(--output-size) * #{$scale});
+                    font-size: calc(var(--output-size, 1rem) * #{$scale}) !important;
+                    
+                    h1, h2, h3, h4, h5, h6, p, a, li, .ff__heading {
+                        font-size: calc(var(--output-size, 1rem) * #{$scale}) !important;
                     }
                 }
             }
@@ -127,7 +139,6 @@ body {
 .ff__heading,
 .ff__heading *,
 h1, h2, h3, h4, h5 {
-    font-size: var(--output-size);
     font-family: var(--ff-heading), sans-serif;
     font-weight: var(--fw-heading);
     letter-spacing: var(--ls-heading);
@@ -141,7 +152,6 @@ h1, h2, h3, h4, h5 {
 .ff__body,
 .ff__body *,
 p, a, button {
-    font-size: var(--output-size);
     font-family: var(--ff-body), sans-serif;
     font-weight: var(--fw-body);
     letter-spacing: var(--ls-body);

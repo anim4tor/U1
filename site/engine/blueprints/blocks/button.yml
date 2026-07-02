@@ -1,61 +1,89 @@
 name: Button
 type: button
 icon: bolt
-fields:
-  label:
-    label: Label
-    type: text
-    width: 1/2
+tabs: 
+  setup:
+    fields:
 
-  style:
-    type: select
-    empty: false
-    default: 'invert'
-    labels: false
-    width: 1/4
-    options:
-      - value: invert
-        text: Invert
-      - value: dark
-        text: Dark
-      - value: ghost
-        text: Border
-  hover:
-    type: select
-    empty: false
-    default: 'dark'
-    labels: false
-    width: 1/4
-    options:
-      - value: invert
-        text: Invert
-      - value: dark
-        text: Dark
-      - value: ghost
-        text: Border
+      href:
+        label: Url
+        type: link
+        width: 2/3
+      target:
+        label: Target
+        type: toggle
+        text: New window?
+        width: 1/3
 
-  size:
-    type: select
-    empty: false
-    default: 'default'
-    labels: false
-    width: 1/4
+      label:
+        label: Label
+        type: text
+        width: 2/3
+      counter:
+        label: Has counter?
+        type: pages
+        width: 1/3
+      theme:
+        type: select
+        empty: false
+        default: 'invert'
+        labels: false
+        width: 1/2
+        options:
+          - value: invert
+            text: Invert
+          - value: dark
+            text: Dark
+          - value: acc
+            text: Acc
+          - value: ghost
+            text: Ghost
+          - value: invert-ghost
+            text: Inverted Ghost
+      hover:
+        type: select
+        empty: false
+        default: 'dark'
+        labels: false
+        width: 1/2
+        options:
+          - value: invert
+            text: Invert
+          - value: dark
+            text: Dark
+          - value: acc
+            text: Acc
+          - value: ghost
+            text: Ghost
+          - value: invert-ghost
+            text: Inverted Ghost
 
-    options:
-      - value: small
-        text: Small
-      - value: default
-        text: Default
-      - value: large
-        text: Large
-        
-  link:
-    label: Url
-    type: link
-    width: 3/4
+      size:
+        type: select
+        empty: false
+        default: 'default'
+        labels: false
+        width: 1/2
+        options:
+          - value: small
+            text: Small
+          - value: default
+            text: Default
+          - value: large
+            text: Large
 
-  target:
-    label: Target
-    type: toggle
-    text: Open in new window?
-    width: 1/4
+      icon:
+        type: select
+        empty: true
+        default: 'none'
+        labels: false
+        width: 1/2
+        options:
+          - value: arrow-right
+          - value: arrow-down
+          - value: arrow-left
+          - value: arrow-up
+          
+            
+  interactions: settings/interactions/animation
+  node: settings/node

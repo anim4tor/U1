@@ -8,6 +8,7 @@ tabs:
       text:
         label: field.blocks.heading.text
         type: writer
+        inline: true
         placeholder: field.blocks.text.placeholder
 
       mod:
@@ -28,8 +29,10 @@ tabs:
             text: Tiny
       
       face:
-        label: Fontface
-        type: toggles
+        label: Override font
+        empty: true
+        type: select
+        width: 1/2
         options:
           - value: heading
             text: Heading
@@ -37,6 +40,17 @@ tabs:
             text: Body
           - value: button
             text: Button        
+
+      case:
+        label: Override case
+        type: select
+        empty: true
+        width: 1/2
+        options:
+          - value: upper
+            text: Uppercase
+          - value: lower
+            text: Lowercase
 
   interactions: settings/interactions/animation
   node: settings/node

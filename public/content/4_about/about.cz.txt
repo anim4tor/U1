@@ -46,15 +46,11 @@ Teams:
 
 ----
 
-Cover: - file://EvzC0b5nfuTdhNrI
+Hero: [{"content":{"text":"About Us","level":"h1","mod":"l","hasreveal":"true","bid":"","attr":"","css":"flex justify__space-between","href":"","target":"false","node":""},"id":"41f626de-5f9f-4f54-b649-90101a671744","isHidden":false,"type":"heading"},{"content":{"image":["file://EvzC0b5nfuTdhNrI"],"hasparallax":"false","parallax":0,"hasreveal":"false","reveal":"","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"75c0a0cb-fb3d-4f88-99c6-f6524f71f498","isHidden":false,"type":"cover"},{"content":{"text":"Inspiration is all around us. At U1, we work every day to improve our surroundings through the power of know-how and design.","mod":"l","face":"","case":"lower","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"e411a841-0a89-452a-a500-7dbad5f6425c","isHidden":false,"type":"text"}]
 
 ----
 
-Intro: Inspiration is all around us. At U1, we work every day to improve our surroundings through the power of know-how and design.
-
-----
-
-About: [{"content":{"text":"<p>Our story</p>","mod":"","face":"","attr=data-scroll":"false","attr=data-reveal":"","attr=data-reveal-children":"false","attr=data-reveal-words":"false","attr=data-reveal-section":"false","bid":"","attr":"","href":"","node":""},"id":"5e0df47c-57f1-406d-9197-2497acc20f90","isHidden":false,"type":"label"},{"content":{"text":"We’re a team of designers working to deepen the human experience.","level":"h2","mod":"s","attr=data-scroll":"false","attr=data-reveal":"","attr=data-reveal-children":"false","attr=data-reveal-words":"false","attr=data-reveal-section":"false","bid":"","attr":"","href":"","node":""},"id":"d215d6bd-e78a-4705-9435-1aa034f0c716","isHidden":false,"type":"heading"},{"content":{"text":"<p>Design development through aesthetics to functionality in line with the latest technologies, structural aspects of projects - construction, materials, sustainable practices and coordination between teams of engineers and construction workers.</p>","mod":"","face":"","attr=data-scroll":"false","attr=data-reveal":"","attr=data-reveal-children":"false","attr=data-reveal-words":"false","attr=data-reveal-section":"false","bid":"","attr":"","href":"","node":""},"id":"74f54930-d64b-4af1-af0b-b854cd5707a0","isHidden":false,"type":"text"},{"content":{"image":["file://gQrBkYsL9KNrFgwt"],"attr=data-parallax+data-scroll-css-progress":"false","attr=data-scroll-speed":0,"attr=data-scroll":"false","attr=data-reveal-image":"","bid":"","attr":"","href":"","node":""},"id":"2ea564a7-c481-4b15-90a8-92326a3e2b4e","isHidden":false,"type":"image"}]
+About: [{"content":{"text":"<p>Our story</p>","mod":"","face":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"5e0df47c-57f1-406d-9197-2497acc20f90","isHidden":false,"type":"label"},{"content":{"text":"We’re a team of designers working to deepen the human experience.","level":"h2","mod":"s","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"d215d6bd-e78a-4705-9435-1aa034f0c716","isHidden":false,"type":"heading"},{"content":{"text":"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodoconsequat. Duis aute irure dolor in reprehenderit in voluptate velit essecillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat nonproident, sunt in culpa qui officia deserunt mollit anim id est laborum.","mod":"","face":"","case":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"74f54930-d64b-4af1-af0b-b854cd5707a0","isHidden":false,"type":"text"},{"content":{"image":["file://gQrBkYsL9KNrFgwt"],"hasparallax":"false","parallax":0,"hasreveal":"false","reveal":"","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"c333acbf-6d5b-495e-b0f3-d07d97ce65e0","isHidden":false,"type":"image"}]
 
 ----
 
@@ -78,6 +74,10 @@ Values:
   figure:
     - file://HXa9UZqdtbPdhTUQ
   detail: '<p>In addition to its internal focus on improving the sustainability of corporate operations, the department also works with clients, suppliers and other stakeholders to encourage wider adoption of sustainable practices. To not only meet current standards and regulations, but also to be a&nbsp;leader in sustainability and an example to others.</p>'
+
+----
+
+Career: [{"content":{"text":"Be part of a team creating meaningful places.","level":"h2","mod":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"ca715af6-ac89-43af-9a8f-eecfe11da498","isHidden":false,"type":"heading"},{"content":{"text":"Be part of a team creating meaningful places. We are looking for motivated, curious and dedicated talent who want to contribute to our growth while sharing our values.","mod":"l","face":"","case":"lower","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"f7cd36bd-697d-44a1-9b79-d9c978dfe267","isHidden":false,"type":"text"},{"content":{"href":"page://9a41hc2Jz9NaZ0SH","target":"false","label":"Open positions","counter":["page://9a41hc2Jz9NaZ0SH"],"theme":"invert","hover":"dark","size":"default","icon":"arrow-right","hasreveal":"true","bid":"","attr":"","css":"","node":""},"id":"a4e52313-dc62-4372-959d-a1b4dcfd66b5","isHidden":false,"type":"button"},{"content":{"image":["file://LIAFLCCTEOYkZ0tC"],"hasparallax":"true","parallax":2,"hasreveal":"true","reveal":"","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"23032cf4-7798-4dae-95cb-183ae2520af8","isHidden":false,"type":"image"}]
 
 ----
 
@@ -122,6 +122,14 @@ Robots-imageindex:
 ----
 
 Robots-snippet: 
+
+----
+
+Cover: - file://EvzC0b5nfuTdhNrI
+
+----
+
+Intro: Inspiration is all around us. At U1, we work every day to improve our surroundings through the power of know-how and design.
 
 ----
 

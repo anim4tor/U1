@@ -1,140 +1,28 @@
-<style>
-	.is-hidden {
-		display: none !important;
-	}
-	/* Tab navigation layout styling */
-	.theme-tab-nav {
-		display: flex;
-		gap: 0.2rem;
-		width: 100%;
-		border-bottom: 1px solid rgba(255,255,255,0.1);
-		padding-bottom: 0.5rem;
-		margin-bottom: 0.75rem;
-		overflow: hidden; 
-	}
-	.theme-tab-btn {
-		flex: 1;
-		text-align: center;
-		white-space: nowrap;
-		background: transparent;
-		color: rgba(255, 255, 255, 0.4);
-		border: none;
-		padding: 0.35rem 0.6rem;
-		font-family: sans-serif;
-		font-size: 0.7rem;
-		font-weight: bold;
-		text-transform: uppercase;
-		letter-spacing: 0.03em;
-		cursor: pointer;
-		border-radius: 3px;
-		transition: all 0.2s ease;
-	}
-	.theme-tab-btn:hover {
-		color: rgba(255, 255, 255, 0.8);
-		background: rgba(255, 255, 255, 0.05);
-	}
-	.theme-tab-btn.is-active {
-		color: #fff;
-		background: rgba(255, 255, 255, 0.15);
-	}
-	/* Typography Section Separators */
-	.typo-section-header {
-		grid-column: span 2;
-		font-size: 0.65rem;
-		font-weight: bold;
-		text-transform: uppercase;
-		letter-spacing: 0.05em;
-		color: rgba(255, 255, 255, 0.6);
-		border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-		padding-bottom: 0.25rem;
-		margin-top: 0.5rem;
-		margin-bottom: 0.25rem;
-	}
-	.typo-section-header:first-child {
-		margin-top: 0;
-	}
-	/* Clean wrapping for color picker grids */
-	.color-picker-grid {
-		display: grid;
-		grid-template-columns: repeat(3, 1fr);
-		gap: 0.5rem;
-		width: 100%;
-	}
-	.color-item {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		background: rgba(255,255,255,0.03);
-		padding: 0.4rem;
-		border-radius: 4px;
-		border: 1px solid rgba(255,255,255,0.05);
-	}
-	.color-item label {
-		margin-bottom: 0.25rem;
-		text-align: center;
-		width: 100%;
-	}
-	.color-item input[type="color"] {
-		width: 100%;
-		height: 28px;
-		padding: 0;
-		border: 1px solid rgba(255,255,255,0.1);
-		cursor: pointer;
-		background: transparent;
-		border-radius: 2px;
-	}
-	.theme-panel-row {
-		display: flex;
-		gap: 0.5rem;
-		width: 100%;
-	}
-	.theme-panel-row .grid {
-		flex: 1;
-	}
-	/* Action Icon Toggle Button Styles */
-	#theme-toggle-btn {
-		margin-left: auto; 
-		margin-bottom: 0.5rem; 
-		background: rgba(0,0,0,0.6); 
-		color: #fff; 
-		border: 1px solid rgba(255,255,255,0.2); 
-		width: 34px;
-		height: 34px;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		border-radius: 4px; 
-		cursor: pointer; 
-		transition: all 0.2s ease;
-		padding: 0;
-	}
-	#theme-toggle-btn:hover {
-		background: rgba(0,0,0,0.8);
-		border-color: rgba(255,255,255,0.4);
-	}
-	#theme-toggle-btn .icon-close {
-		display: none;
-	}
-	#theme-toggle-btn.is-open .icon-settings {
-		display: none;
-	}
-	#theme-toggle-btn.is-open .icon-close {
-		display: block;
-	}
-</style>
+<?= css('site/components/atoms/Theme/theme.css') ?>
 
-<div data-scroll data-reveal-image class="fixed inset__top-right grid place__start-end z__10" style="--in-delay: 600ms; position: fixed; top: 1rem; right: 1rem; z-index: 1000;">
+<div data-scroll data-reveal-image class="fixed inset__top-right grid place__start-end gap__02 z__10" style="--in-delay: 600ms; position: fixed; top: 1rem; right: 1rem; z-index: 1000;">
 
-	<button id="theme-toggle-btn" aria-label="Toggle Theme Settings">
-		<svg class="icon-settings" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-			<circle cx="12" cy="12" r="3"></circle>
-			<path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
-		</svg>
-		<svg class="icon-close" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-			<line x1="18" y1="6" x2="6" y2="18"></line>
-			<line x1="6" y1="6" x2="18" y2="18"></line>
-		</svg>
-	</button>
+	<div class="flex gap__01">
+		<?php if ($kirby->user()): ?>
+			<a href="<?= $page->panel()->url() ?>" target="_blank" id="panel-link-btn" aria-label="Open in Kirby Panel">
+				<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+					<path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+					<path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+				</svg>
+			</a>
+		<?php endif; ?>
+
+		<button id="theme-toggle-btn" aria-label="Toggle Theme Settings">
+			<svg class="icon-settings" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+				<circle cx="12" cy="12" r="3"></circle>
+				<path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+			</svg>
+			<svg class="icon-close" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+				<line x1="18" y1="6" x2="6" y2="18"></line>
+				<line x1="6" y1="6" x2="18" y2="18"></line>
+			</svg>
+		</button>
+	</div>
 
 	<div id="theme-panel-body" class="grid__2 gap__1 inner__05 color__invert bg__black/80 is-hidden" style="max-height: 85vh; overflow-y: auto; font-family: sans-serif; padding: 1rem;">
 		
@@ -311,6 +199,20 @@
 					<option value="linear">Linear</option>
 				</select>
 			</div>
+			<div class="grid">
+				<label class="ff__body op__4 xs">Parallax Matrix</label>
+				<select name="toggle-parallax" data-theme-setup>
+					<option value="1">Enabled</option>
+					<option value="0">Disabled</option>
+				</select>
+			</div>
+			<div class="grid">
+				<label class="ff__body op__4 xs">Scroll Reveals</label>
+				<select name="toggle-reveals" data-theme-setup>
+					<option value="1">Enabled</option>
+					<option value="0">Disabled</option>
+				</select>
+			</div>
 		</div>
 
 		<div id="tab-colors" class="theme-tab-content grid__2 gap__1 span__2 is-hidden">
@@ -368,7 +270,6 @@
 				</button>
 			</form>
 
-			<!-- 2. Traditional Form Submit for Saving Configuration -->
 			<form id="theme-save-form" action="<?= $page->url() ?>" method="POST" style="flex: 2; margin: 0; padding: 0;">
 				<input type="hidden" name="action" value="save-theme">
 				<input type="hidden" id="css-tokens-input" name="css_tokens" value="">
@@ -378,9 +279,6 @@
 				</button>
 			</form>
 
-			<!-- <button id="theme-copy-btn" type="button" style="flex: 2; background: rgba(255, 255, 255, 0.15); color: #fff; border: 1px solid rgba(255, 255, 255, 0.25); padding: 0.5rem; border-radius: 4px; cursor: pointer; font-family: sans-serif; font-size: 0.75rem; letter-spacing: 0.05em; text-transform: uppercase; font-weight: bold;">
-				Copy Config CSS
-			</button> -->
 			<button id="theme-reset-btn" type="button" style="flex: 1; background: rgba(237, 19, 89, 0.2); color: #ff5487; border: 1px solid rgba(237, 19, 89, 0.4); padding: 0.5rem; border-radius: 4px; cursor: pointer; font-family: sans-serif; font-size: 0.75rem; letter-spacing: 0.05em; text-transform: uppercase; font-weight: bold;">
 				Reset
 			</button>
@@ -484,12 +382,13 @@
 				'animation-timing' : 'cubic-bezier(0.4, 0, 0.2, 1)',
 				'animation-stagger' : '50ms',
 				'animation-delay' : '0ms',
+				'toggle-parallax' : '1', // ADDED DEFAULT FALLBACK
+				'toggle-reveals' : '1',  // ADDED DEFAULT FALLBACK
 				'img-radius' : '8px',
 		        'radius' : '4px',
 		        'btn-padding' : '0.5rem 1rem',
 		        'btn-radius' : '4px',
 		        'btn-border' : '1px'
-
 			};
 
 			try {
@@ -627,6 +526,7 @@
 
 		themeControls.forEach(control => {
 			control.addEventListener('input', handleControlInput);
+			control.addEventListener('change', handleControlInput); // Added to cleanly trap dropdown selections instantly
 		});
 
 		// --- 8. TYPESCALE & BODYSCALE MANAGEMENT ---
@@ -684,7 +584,7 @@
 					typography: ['ff-heading', 'fw-heading', 'tt-heading', 'ls-heading', 'ff-body', 'fw-body', 'tt-body', 'ls-body', 'ff-mono'],
 					scale: ['type-scale', 'type-start-rem', 'type-start-vw', 'base-line-height', 'body-scale', 'body-start-rem', 'body-start-vw', 'base-body-line-height'],
 					spacing: ['scale-min', 'scale-fluid', 'scale', 'spacing'],
-					animations: ['animation-duration', 'animation-delay', 'animation-stagger', 'animation-timing'],
+					animations: ['animation-duration', 'animation-delay', 'animation-stagger', 'animation-timing', 'toggle-parallax', 'toggle-reveals'], // UPDATED GROUP
 					images: ['img-radius', 'radius'],
 					buttons: ['btn-padding', 'btn-radius', 'btn-border'],
 					colors: []
@@ -727,94 +627,6 @@
 				// Inject text block cleanly into the form element field for submission
 				tokensInput.value = cssOutputString;
 			});
-		}
-		// // --- 10. PRETTIFIED AND COMMENTED DESIGN TOKEN ENGINE EXPORTER ---
-		// if (copyBtn) {
-		// 	copyBtn.addEventListener('click', () => {
-		// 		const inlineStyles = document.documentElement.style;
-		// 		const rawDeclarations = getRawThemeDeclarations();
-				
-		// 		const groups = {
-		// 			typography: ['ff-heading', 'fw-heading', 'tt-heading', 'ls-heading', 'ff-body', 'fw-body', 'tt-body', 'ls-body', 'ff-mono'],
-		// 			scale: ['type-scale', 'type-start-rem', 'type-start-vw', 'base-line-height', 'body-scale', 'body-start-rem', 'body-start-vw', 'base-body-line-height'],
-		// 			spacing: ['scale-min', 'scale-fluid', 'scale', 'spacing'],
-		// 			animations: ['animation-duration', 'animation-delay', 'animation-stagger', 'animation-timing'],
-		// 			images: ['img-radius', 'radius'], // Přidáno
-    	// 			buttons: ['btn-padding', 'btn-radius', 'btn-border'], // Přidáno
-		// 			colors: []
-		// 		};
-
-		// 		Object.keys(rawDeclarations).forEach(token => {
-		// 			if (token.startsWith('color-')) groups.colors.push(token);
-		// 		});
-
-		// 		let cssOutputString = ":root {\n";
-
-		// 		function appendGroup(title, tokensList) {
-		// 			let clusterContent = "";
-		// 			tokensList.forEach(token => {
-		// 				let finalValue = inlineStyles.getPropertyValue(`--${token}`).trim();
-		// 				if (!finalValue) finalValue = rawDeclarations[token];
-		// 				if (finalValue) {
-		// 					const paddedToken = `--${token}:`.padEnd(26, ' ');
-		// 					clusterContent += `    ${paddedToken} ${finalValue};\n`;
-		// 				}
-		// 			});
-		// 			if (clusterContent) {
-		// 				cssOutputString += `    /* ==========================================================================\n`;
-		// 				cssOutputString += `       ${title.toUpperCase()} TOKENS\n`;
-		// 				cssOutputString += `       ========================================================================== */\n`;
-		// 				cssOutputString += clusterContent + "\n";
-		// 			}
-		// 		}
-
-		// 		appendGroup("Typography Branding Framework", groups.typography);
-		// 		appendGroup("Fluid Responsive Scale Engine", groups.scale);
-		// 		appendGroup("Layout Padding & Grid Spacing", groups.spacing);
-		// 		appendGroup("Global Interactive Animations", groups.animations);
-		// 		appendGroup("Active Theme Palette Matrix", groups.colors);
-		// 		appendGroup("Image Styling", groups.images);
-		// 		appendGroup("Button Components", groups.buttons);
-
-		// 		cssOutputString = cssOutputString.trimEnd() + "\n}";
-
-		// 		if (navigator.clipboard && window.isSecureContext) {
-		// 			navigator.clipboard.writeText(cssOutputString).then(() => showCopySuccess()).catch(() => fallbackCopyMechanism(cssOutputString));
-		// 		} else {
-		// 			fallbackCopyMechanism(cssOutputString);
-		// 		}
-		// 	});
-		// }
-
-		function showCopySuccess() {
-			const originalText = copyBtn.innerText;
-			copyBtn.innerText = "COPIED!";
-			copyBtn.style.background = "rgba(40, 167, 69, 0.3)";
-			copyBtn.style.color = "#28a745";
-			copyBtn.style.borderColor = "rgba(40, 167, 69, 0.5)";
-			setTimeout(() => {
-				copyBtn.innerText = originalText;
-				copyBtn.style.background = "rgba(255, 255, 255, 0.15)";
-				copyBtn.style.color = "#fff";
-				copyBtn.style.borderColor = "rgba(255, 255, 255, 0.25)";
-			}, 1500);
-		}
-
-		function fallbackCopyMechanism(text) {
-			const textArea = document.createElement("textarea");
-			textArea.value = text;
-			textArea.style.position = "fixed";
-			textArea.style.opacity = "0";
-			document.body.appendChild(textArea);
-			textArea.focus();
-			textArea.select();
-			try {
-				document.execCommand('copy');
-				showCopySuccess();
-			} catch (err) {
-				console.log("%c=== THEME OUTPUT ===", "color: #ff5487; font-weight: bold;", "\n" + text);
-			}
-			document.body.removeChild(textArea);
 		}
 	});
 </script>

@@ -1,7 +1,6 @@
-name: Obrázek
+name: Image
 icon: image
 preview: image
-size: full
 tabs:
   file:   
     fields:

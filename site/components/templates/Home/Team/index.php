@@ -34,7 +34,7 @@
 					<div data-pane="team-<?= $team->indexOf(collection('Team')) ?>" class="" data-scroll data-scroll-ignore data-tab-reveal>
 						<div class="grid place__start-end gap__05">
 							<?php if ($photo = $leader->photo()->toFile()) : ?>
-								<div data-tab-reveal-image class="item__figure img__radius no__overflow "><?= snippet('atoms/Image', ['img' => $photo, 'parallax' => 1, 'css' => 'w__10 aspect__3/4 grid' ]) ?></div>
+								<div data-reveal-image class="item__figure img__radius no__overflow "><?= snippet('atoms/Image', ['img' => $photo, 'parallax' => 1, 'css' => 'w__10 aspect__3/4 grid' ]) ?></div>
 							<?php endif ?>
 
 							<div class="flex gap__05 justify__space-between upper wrap">

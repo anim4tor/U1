@@ -15654,11 +15654,11 @@ html body hr {
           transition-timing-function: var(--animation-timing, ease-in-out);
   will-change: all;
 }
-.button[theme=invert]:hover, button[theme=invert]:hover {
+.button[theme=dark]:hover, button[theme=dark]:hover {
   --background: var(--color-dark);
   --col: var(--color-invert);
 }
-.button[theme=dark]:hover, button[theme=dark]:hover {
+.button[theme=invert]:hover, button[theme=invert]:hover {
   --background: var(--color-invert);
   --col: var(--color-dark);
 }
@@ -15672,6 +15672,29 @@ html body hr {
   --col: var(--color-invert);
 }
 .button[theme=invert-ghost], button[theme=invert-ghost] {
+  --background: transparent;
+  --col: var(--color-invert);
+  border: var(--border-width) solid color-mix(in srgb, var(--col) 20%, transparent);
+}
+
+.button:hover[hover=dark]:hover, button:hover[hover=dark]:hover {
+  --background: var(--color-dark);
+  --col: var(--color-invert);
+}
+.button:hover[hover=invert]:hover, button:hover[hover=invert]:hover {
+  --background: var(--color-invert);
+  --col: var(--color-dark);
+}
+.button:hover[hover=ghost], button:hover[hover=ghost] {
+  --background: transparent;
+  --col: var(--color-text);
+  border: var(--border-width) solid color-mix(in srgb, var(--col) 20%, transparent);
+}
+.button:hover[hover=acc], button:hover[hover=acc] {
+  --background: var(--color-acc);
+  --col: var(--color-invert);
+}
+.button:hover[hover=invert-ghost], button:hover[hover=invert-ghost] {
   --background: transparent;
   --col: var(--color-invert);
   border: var(--border-width) solid color-mix(in srgb, var(--col) 20%, transparent);
@@ -23664,15 +23687,31 @@ img.no__style {
 }
 
 [data-parallax] {
+  position: relative;
   overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 [data-parallax] img {
-  /* Donutí prohlížeč renderovat obrázek přes GPU */
-  /*      will-change: transform;*/
-  /*      transform-style: preserve-3d;*/
-  /*      backface-visibility: hidden;*/
-  -webkit-transform: translateY(calc(var(--speed, 10) * -10% * var(--h) / 100vh + var(--speed, 10) * 20% * var(--h) / 100vh * var(--progress))) scale(calc(1.1 - 0.1 * var(--progress)));
-          transform: translateY(calc(var(--speed, 10) * -10% * var(--h) / 100vh + var(--speed, 10) * 20% * var(--h) / 100vh * var(--progress))) scale(calc(1.1 - 0.1 * var(--progress)));
+  --buffer: calc(100% + (var(--speed, 0) * 4% * var(--toggle-parallax, 1)));
+  position: absolute;
+  width: 100%;
+  height: var(--buffer);
+  min-height: var(--buffer);
+  -o-object-fit: cover;
+     object-fit: cover;
+  --parallax-speed: calc(var(--speed, 0));
+  --height-modifier: calc((var(--progress) - 0.5) * (var(--speed, 0) * -2%));
+  -webkit-transform: translateY(calc((var(--parallax-speed, 10) * -10% + var(--parallax-speed, 10) * 20% * var(--progress) + var(--height-modifier)) * var(--toggle-parallax, 1))) scale(calc(1.1 - 0.1 * var(--progress) * var(--toggle-parallax, 1)));
+          transform: translateY(calc((var(--parallax-speed, 10) * -10% + var(--parallax-speed, 10) * 20% * var(--progress) + var(--height-modifier)) * var(--toggle-parallax, 1))) scale(calc(1.1 - 0.1 * var(--progress) * var(--toggle-parallax, 1)));
+  will-change: transform;
 }
 
 .overlay__bottom:after {

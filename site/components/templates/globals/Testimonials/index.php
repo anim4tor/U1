@@ -27,7 +27,7 @@
 										<div class="no__overflow w__3" >
 											<?php if ($image = $project->testimonialImage()->toFile()) : ?>
 												<div class="item__figure" data-reveal-image>
-													<?= snippet('atoms/Image', ['img' => $image, 'parallax' => 2, 'css' => '']) ?>
+													<?= snippet('atoms/Image', ['img' => $image, 'parallax' => 2, 'css' => 'h__4']) ?>
 												</div>
 											<?php endif ?>
 										</div>

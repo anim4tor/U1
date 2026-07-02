@@ -8,51 +8,29 @@ fields:
   animationl:
     type: line
 
-  attr=data-scroll:
-    label: Reveal text?
+  hasReveal:
+    label: Reveal element?
     type: toggle
     default: false
-    width: 1/6
-
-  reveal:
-    type: group
-    when:
-      attr=data-scroll: true
-    fields:
-      attr=data-reveal:
-        label: Reveal from
-        type: toggles
-        labels: false
-        width: 2/6
-        options:
-          - value: top
-            text: top
-            icon: arrow-down
-          - value: left
-            text: left
-            icon: arrow-right
-          - value: bottom
-            text: bottom
-            icon: arrow-up
-          - value: right
-            text: right
-            icon: arrow-left
-
-      attr=data-reveal-children:
-        label: Animate children
-        help: Reveal animation affects only child elements
-        type: toggle
-        default: false
-        width: 2/6
-
-      attr=data-reveal-words:
-        label: Split words
-        type: toggle
-        default: false
-        width: 1/6
-
-  attr=data-reveal-section:
-    label: Reveal section?
-    type: toggle
-    default: false
-    width: 1/6
+    width: 1/4
+  
+  # reveal:
+  #   when:
+  #     hasReveal: true
+  #   label: Reveal from
+  #   type: toggles
+  #   labels: false
+  #   width: 3/4
+  #   options:
+  #     - value: top
+  #       text: top
+  #       icon: arrow-down
+  #     - value: left
+  #       text: left
+  #       icon: arrow-right
+  #     - value: bottom
+  #       text: bottom
+  #       icon: arrow-up
+  #     - value: right
+  #       text: right
+  #       icon: arrow-left

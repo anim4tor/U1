@@ -15,9 +15,9 @@
 			</div>
 		</div>
 	</div>
-	<div class="inner-x__1">
+	<div class="inner-x__1 grid">
 		<?php if ($cover = $page->cover()->toFile()) : ?>
-		<div class="intro__cover radius grid" data-scroll ><?= snippet('atoms/Image', ['img' => $cover, 'parallax' => 2, 'reveal' => false, 'css' => 'overlay__bottom']) ?></div>
+		<div class="intro__cover h__100v radius grid" data-scroll ><?= snippet('atoms/Image', ['img' => $cover, 'parallax' => 2, 'reveal' => false, 'css' => 'overlay__bottom']) ?></div>
 		<?php endif ?>
 	</div>
 </section>

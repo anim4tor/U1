@@ -109,11 +109,11 @@
 
 .button, button {
 	@include animation;
-	&[theme="invert"]:hover {
+	&[theme="dark"]:hover {
 		--background: var(--color-dark);
 		--col: var(--color-invert);
 	}
-	&[theme="dark"]:hover {
+	&[theme="invert"]:hover {
 		--background: var(--color-invert);
 		--col: var(--color-dark);
 	}
@@ -127,6 +127,30 @@
 	    --col: var(--color-invert);
 	}
 	&[theme="invert-ghost"] {
+	    --background: transparent;
+	    --col: var(--color-invert);
+	    @include border;
+	}
+}
+.button:hover, button:hover {
+	&[hover="dark"]:hover {
+		--background: var(--color-dark);
+		--col: var(--color-invert);
+	}
+	&[hover="invert"]:hover {
+		--background: var(--color-invert);
+		--col: var(--color-dark);
+	}
+	&[hover="ghost"] {
+	    --background: transparent;
+	    --col: var(--color-text);
+	    @include border;
+	}
+	&[hover="acc"] {
+	    --background: var(--color-acc);
+	    --col: var(--color-invert);
+	}
+	&[hover="invert-ghost"] {
 	    --background: transparent;
 	    --col: var(--color-invert);
 	    @include border;
