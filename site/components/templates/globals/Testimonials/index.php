@@ -36,8 +36,8 @@
 											<?php endif ?>
 										</div>
 										<div class="flex gap__02 justify__end align__start">
-											<button data-tab-prev class="button upper" theme="invert-ghost" ><span class="icon"><?= svg('public/assets/images/ui/ui_arrow-left.svg') ?></span></button>
-											<button data-tab-next class="button upper" theme="invert-ghost" ><span class="icon"><?= svg('public/assets/images/ui/ui_arrow-right.svg') ?></span></button>
+											<button data-tab-prev class="button upper" theme="invert-ghost" hover="invert"><span class="icon"><?= svg('public/assets/images/ui/ui_arrow-left.svg') ?></span></button>
+											<button data-tab-next class="button upper" theme="invert-ghost" hover="invert"><span class="icon"><?= svg('public/assets/images/ui/ui_arrow-right.svg') ?></span></button>
 
 											<!-- <?= snippet('atoms/Link', ['url' => 'projects', 'label' => 'All projects']) ?> -->
 										</div>

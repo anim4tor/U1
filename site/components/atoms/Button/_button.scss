@@ -103,17 +103,20 @@
 [href], button, .button {
 	@include animation(transform);
 	transition-delay: 0ms;
+	transition-duration: 300ms;
 	&:hover {
 	}
 }
 
 .button, button {
 	@include animation;
-	&[theme="dark"]:hover {
+	transition-duration: 300ms;
+	
+	&[theme="dark"] {
 		--background: var(--color-dark);
 		--col: var(--color-invert);
 	}
-	&[theme="invert"]:hover {
+	&[theme="invert"] {
 		--background: var(--color-invert);
 		--col: var(--color-dark);
 	}
@@ -133,13 +136,15 @@
 	}
 }
 .button:hover, button:hover {
-	&[hover="dark"]:hover {
+	&[hover="dark"] {
 		--background: var(--color-dark);
 		--col: var(--color-invert);
+		border-color: transparent;
 	}
-	&[hover="invert"]:hover {
+	&[hover="invert"] {
 		--background: var(--color-invert);
 		--col: var(--color-dark);
+		border-color: transparent;
 	}
 	&[hover="ghost"] {
 	    --background: transparent;
@@ -149,6 +154,7 @@
 	&[hover="acc"] {
 	    --background: var(--color-acc);
 	    --col: var(--color-invert);
+	    border-color: transparent;
 	}
 	&[hover="invert-ghost"] {
 	    --background: transparent;

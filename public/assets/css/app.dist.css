@@ -15642,6 +15642,8 @@ html body hr {
   will-change: transform;
   -webkit-transition-delay: 0ms;
           transition-delay: 0ms;
+  -webkit-transition-duration: 300ms;
+          transition-duration: 300ms;
 }
 .button, button {
   -webkit-transition-property: all;
@@ -15653,12 +15655,14 @@ html body hr {
   -webkit-transition-timing-function: var(--animation-timing, ease-in-out);
           transition-timing-function: var(--animation-timing, ease-in-out);
   will-change: all;
+  -webkit-transition-duration: 300ms;
+          transition-duration: 300ms;
 }
-.button[theme=dark]:hover, button[theme=dark]:hover {
+.button[theme=dark], button[theme=dark] {
   --background: var(--color-dark);
   --col: var(--color-invert);
 }
-.button[theme=invert]:hover, button[theme=invert]:hover {
+.button[theme=invert], button[theme=invert] {
   --background: var(--color-invert);
   --col: var(--color-dark);
 }
@@ -15677,13 +15681,15 @@ html body hr {
   border: var(--border-width) solid color-mix(in srgb, var(--col) 20%, transparent);
 }
 
-.button:hover[hover=dark]:hover, button:hover[hover=dark]:hover {
+.button:hover[hover=dark], button:hover[hover=dark] {
   --background: var(--color-dark);
   --col: var(--color-invert);
+  border-color: transparent;
 }
-.button:hover[hover=invert]:hover, button:hover[hover=invert]:hover {
+.button:hover[hover=invert], button:hover[hover=invert] {
   --background: var(--color-invert);
   --col: var(--color-dark);
+  border-color: transparent;
 }
 .button:hover[hover=ghost], button:hover[hover=ghost] {
   --background: transparent;
@@ -15693,6 +15699,7 @@ html body hr {
 .button:hover[hover=acc], button:hover[hover=acc] {
   --background: var(--color-acc);
   --col: var(--color-invert);
+  border-color: transparent;
 }
 .button:hover[hover=invert-ghost], button:hover[hover=invert-ghost] {
   --background: transparent;
@@ -27480,6 +27487,10 @@ img.no__style {
   z-index: 1;
   pointer-events: all;
   /*			visibility: visible;*/
+}
+
+[data-tabs=default] [data-pane]:not([data-active]) {
+  display: none;
 }
 
 [data-tab] {
@@ -52800,6 +52811,23 @@ section.process .item__figure {
 .grid__post {
   -ms-grid-columns: 0.8fr 1.2fr;
   grid-template-columns: 0.8fr 1.2fr;
+}
+
+.cta .bg {
+  width: 100%;
+  height: 100vh;
+  --dist: calc(var(--y) * 50deg);
+  --angle: calc(-1 * var(--x) * 10deg);
+  -webkit-transition-property: all;
+  transition-property: all;
+  -webkit-transition-duration: var(--animation-duration, 1s);
+          transition-duration: var(--animation-duration, 1s);
+  -webkit-transition-delay: var(--animation-delay, 0ms);
+          transition-delay: var(--animation-delay, 0ms);
+  -webkit-transition-timing-function: var(--animation-timing, ease-in-out);
+          transition-timing-function: var(--animation-timing, ease-in-out);
+  will-change: all;
+  background: linear-gradient(110deg, var(--color-dark) 50%, transparent 120%), conic-gradient(from calc(var(--angle) + 130deg) at 40% 0%, var(--color-acc) 0deg, transparent var(--dist)), conic-gradient(from calc(var(--angle) + 110deg) at 50% 0%, var(--color-acc) 0deg, transparent var(--dist)), conic-gradient(from calc(var(--angle) + 90deg) at 60% -5%, var(--color-acc) 0deg, transparent var(--dist)), var(--color-dark);
 }
 
 /*

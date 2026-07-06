@@ -13,7 +13,7 @@
 	</div>
 </section>
 
-<section class="events" theme="light" >
+<section class="blog" theme="light" >
 	
 	<div class="inner-t__5" >
 		<ol class="grid inner-x__1 ">	
