@@ -1,7 +1,8 @@
+<?php if (collection('Team')->isNotEmpty()) : ?>
 <section class="team" theme="invert" >
 	<div class="relative grid gap__2 inner-x__1 inner-y__2">
 		<div class="" data-scroll>
-			<h2 class="l flex justify__space-between" data-reveal-text><span>Our</span><span>Teams</span></h2>
+			<?= snippet('molecules/Header', ['header' => $page->teams(), 'type' => ['heading']]) ?>
 		</div>
 	</div>
 	<div class="grid__3 gap__2 relative place__start-start inner-y__2 inner-b__5" data-tabs="hoverable">
@@ -49,3 +50,4 @@
 		</div>
 	</div>
 </section>
+<?php endif ?>

@@ -4,7 +4,6 @@ tabs:
   content:
     fields:
       error:
-        extends: fields/header
-        width: 1/2
+        extends: fields/section
         
   meta: tabs/meta/page

@@ -1,8 +1,9 @@
+<?php if (collection('Solutions')->isNotEmpty()) : ?>
 <section class="solutions color__invert" data-tabs="hoverable">
 	<div class="bg radius absolute inset__stretch" theme="dark"></div>
 	<div class="grid__4 place__start-stretch mobile:grid__1 mobile:inner-t__10 mobile:gap__2 relative inner-x__1 inner-b__5" >
 		<div class="span__2 inner__1 inner-y__2" data-scroll>
-			<h2 class="l" data-reveal-text><span>Services</span></h2>
+			<?= snippet('molecules/Header', ['header' => $page->services(), 'type' => ['heading']]) ?>
 		</div>
 		<div class="span__2"></div>
 		<div class="sticky top__0 h__100v grid place__start-space-between gap__1 inner-t__2">
@@ -32,4 +33,4 @@
 		</ol>
 	</div>
 </section>
-
+<?php endif ?>

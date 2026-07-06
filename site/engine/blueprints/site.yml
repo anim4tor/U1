@@ -50,18 +50,16 @@ tabs:
 
   # CTA
   # -------------------
-  globals:
-    label: Globals
+  cta:
+    label: CTAs
     icon: bolt
     columns:
       - width: 1/1
         fields:
           ctaContact:
-            extends: fields/header
+            extends: fields/section
             label: Contact Cta
-          ctaMenu:
-            type: pages
-            label: Menu
+          
 
   # CONTACT
   # -------------------

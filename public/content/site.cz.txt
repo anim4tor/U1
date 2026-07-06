@@ -2,16 +2,7 @@ Title: U1 Space Design
 
 ----
 
-Ctacontact: [{"content":{"text":"Jóga je cesta, která pokračuje i mimo podložku.","level":"h2","mod":"s","attr=data-scroll":"false","attr=data-reveal":"","attr=data-reveal-children":"false","attr=data-reveal-words":"false","attr=data-reveal-section":"false","bid":"","attr":"","href":"","node":""},"id":"cca7af1a-8a67-4bac-abb7-4248428c7344","isHidden":false,"type":"heading"},{"content":{"label":"Kontaktujte nás","style":"dark","hover":"","size":"default","link":"page://doRc5nITMHUh4oMq","target":"false"},"id":"c32b7557-d654-4960-b1fc-925674f89043","isHidden":false,"type":"button"}]
-
-----
-
-Ctamenu:
-
-- page://2KXhsd8bxkU6MDcP
-- page://kkyHn1VfWYtSbaLP
-- page://9gw1uZEVi5ReN4wb
-- page://0j5PLDVM3c0BZlmY
+Ctacontact: [{"content":{"image":["file://Z1WbgPrIXW8I50Pd"],"hasparallax":"true","parallax":5,"hasreveal":"true","reveal":"","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"d1f0c0dc-e5c8-4db3-b389-4ff295628473","isHidden":false,"type":"image"},{"content":{"text":"Good design. <br>Good business. <br>Let's talk!","level":"h2","mod":"s","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"cca7af1a-8a67-4bac-abb7-4248428c7344","isHidden":false,"type":"heading"},{"content":{"href":"","target":"false","label":"Tell Us About Your Project","counter":[],"theme":"dark","hover":"invert","size":"default","icon":"arrow-right","hasreveal":"true","bid":"","attr":"data-contact-toggle=\"inquiry\"","css":"","node":""},"id":"c32b7557-d654-4960-b1fc-925674f89043","isHidden":false,"type":"button"}]
 
 ----
 
@@ -136,6 +127,13 @@ Seoheadscripts:
 ----
 
 Seobodyscripts: 
+
+----
+
+Ctamenu:
+
+- page://2KXhsd8bxkU6MDcP
+- page://0j5PLDVM3c0BZlmY
 
 ----
 

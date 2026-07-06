@@ -1,12 +1,8 @@
-Title: Page Not Found
+Title: 404
 
 ----
 
-Error: [{"content":{"text":"<p>Chyba 404 - Nenalezeno</p>","mod":"s","face":"","attr=data-scroll":"false","attr=data-reveal":"","attr=data-reveal-children":"false","attr=data-reveal-words":"false","attr=data-reveal-section":"false","bid":"","attr":"","href":"","node":""},"id":"6665d577-1e81-4ccb-9290-9ff570742a25","isHidden":false,"type":"text"},{"content":{"text":"Jejda!","level":"h1","mod":"l","attr=data-scroll":"false","attr=data-reveal":"","attr=data-reveal-children":"false","attr=data-reveal-words":"false","attr=data-reveal-section":"false","bid":"","attr":"","href":"","node":""},"id":"757bd577-0e58-445f-8165-58f6a771649f","isHidden":false,"type":"heading"},{"content":{"text":"Tuhle stránku jsme nenašli.","level":"h2","mod":"s","attr=data-scroll":"false","attr=data-reveal":"","attr=data-reveal-children":"false","attr=data-reveal-words":"false","attr=data-reveal-section":"false","bid":"","attr":"","href":"","node":""},"id":"4fbcfa7b-baed-42d5-90cb-7756f3affcbd","isHidden":false,"type":"heading"},{"content":{"label":"Zpět na homepage","style":"invert","hover":"","size":"default","link":"page://oHq8CfTYV9UQWLF8","target":"false"},"id":"4cd5eed7-596e-47b3-810d-a358df39c2af","isHidden":false,"type":"button"}]
-
-----
-
-Gradientfrom: #afbec8
+Error: [{"content":{"text":"404","mod":"s","face":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"6665d577-1e81-4ccb-9290-9ff570742a25","isHidden":false,"type":"label"},{"content":{"text":"Page Not Found","level":"h1","mod":"m","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"757bd577-0e58-445f-8165-58f6a771649f","isHidden":false,"type":"heading"},{"content":{"text":"Looks like this page took a wrong turn somewhere. Don't worry though - let's get you back on track and find what you're looking for instead.","mod":"l","face":"body","case":"lower","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"ee62cb89-4156-4229-ac75-02eb18a4e4c0","isHidden":false,"type":"text"},{"content":{"href":"page://gMJ9MlLXvV9J1haq","target":"false","label":"Zpět na homepage","counter":[],"theme":"ghost","hover":"","size":"default","icon":"","hasreveal":"false","bid":"","attr":"","css":"","node":""},"id":"4cd5eed7-596e-47b3-810d-a358df39c2af","isHidden":false,"type":"button"}]
 
 ----
 
@@ -51,6 +47,10 @@ Robots-imageindex:
 ----
 
 Robots-snippet: 
+
+----
+
+Gradientfrom: #afbec8
 
 ----
 

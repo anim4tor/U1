@@ -1,14 +1,18 @@
+<?php
+	$testimonials ??= collection('Projects');
+?>
+<?php if ($testimonials->isNotEmpty()) : ?>
 <section class="testimonials radius" data-tabs theme="dark">
 	<div class="hidden">
-		<?php foreach (collection('Projects') as $project) : ?>
-			<div data-tab="testimonial-<?= $project->indexOf(collection('Projects')) ?>"></div>
+		<?php foreach ($testimonials as $project) : ?>
+			<div data-tab="testimonial-<?= $project->indexOf($testimonials) ?>"></div>
 		<?php endforeach ?>
 	</div>
 	<div class="grid__stack relative">
 		<div data-pane-container class="grid__stack absolute inset__stretch">
-			<?php foreach (collection('Projects') as $project) : ?>
+			<?php foreach ($testimonials as $project) : ?>
 				<?php if ($cover = $project->cover()->toFile()) : ?>
-				<div data-tab-reveal data-pane="testimonial-<?= $project->indexOf(collection('Projects')) ?>" >
+				<div data-tab-reveal data-pane="testimonial-<?= $project->indexOf($testimonials) ?>" >
 					<div class="intro__cover grid " data-reveal-cover><?= snippet('atoms/Image', ['img' => $cover, 'parallax' => 2, 'reveal' => false, 'css' => 'overlay__bottom']) ?></div>
 				</div>
 				<?php endif ?>
@@ -21,7 +25,7 @@
 
 					<div class="grid__stack inner__1 img__radius" theme="dark">
 						<?php foreach (collection('Projects') as $project) : ?>
-							<div data-pane="testimonial-<?= $project->indexOf(collection('Projects')) ?>" class="grid gap__4 place__space-between-start" data-tab-reveal>
+							<div data-pane="testimonial-<?= $project->indexOf($testimonials) ?>" class="grid gap__4 place__space-between-start" data-tab-reveal>
 								<div class="grid place__start-stretch gap__1">
 									<div class="flex justify__space-between">
 										<div class="no__overflow w__3" >
@@ -42,7 +46,7 @@
 								</div>
 								<div class="flex justify__space-between">
 									<div class="s upper " >(Testimonials)</div>
-									<div class="s" ><span data-reveal-text="lines" data-split-ignore><?= $project->indexOf(collection('Projects')) + 1 ?></span><span>/<?= collection('Projects')->count() ?></span></div>
+									<div class="s" ><span data-reveal-text="lines" data-split-ignore><?= $project->indexOf(collection('Projects')) + 1 ?></span><span>/<?= $testimonials->count() ?></span></div>
 								</div>
 								<!-- <div class="flex justify__space-between">
 									<div class="s upper " data-reveal-text="lines">David L.</div>
@@ -57,3 +61,4 @@
 		</div>
 	</div>
 </section>
+<?php endif ?>
