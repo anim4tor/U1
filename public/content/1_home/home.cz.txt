@@ -2,7 +2,7 @@ Title: Home
 
 ----
 
-Hero: [{"content":{"text":"We deliver workspaces that works","level":"h1","mod":"s","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"e934aa95-0675-4342-ad98-7ee3b66d7952","isHidden":false,"type":"heading"}]
+Hero: [{"content":{"text":"We deliver <br>workspaces <br>that works","level":"h1","mod":"s","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"e934aa95-0675-4342-ad98-7ee3b66d7952","isHidden":false,"type":"heading"}]
 
 ----
 

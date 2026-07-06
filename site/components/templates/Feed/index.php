@@ -18,9 +18,13 @@
 	<div class="inner-t__5" >
 		<ol class="grid inner-x__1 ">	
 			<?php $feed = collection('Blog')->first(); ?>
-			<?= snippet('molecules/Feed/featured', compact('feed')) ?>
+			<li class="" data-scroll>
+				<?= snippet('molecules/Feed/featured', compact('feed')) ?>
+			</li>
 			<?php foreach (collection('Blog') as $feed) : ?>
-				<?= snippet('molecules/Feed/post', compact('feed')) ?>
+				<li class="item" data-scroll>
+					<?= snippet('molecules/Feed/post', compact('feed')) ?>
+				</li>
 			<?php endforeach ?>
 		</ol>
 	</div>
@@ -55,27 +59,27 @@
 	<div class="inner-y__1 " data-carousel-scroll>
 		<ol class="flex justify__start align__start no__wrap gap__1 inner-x__1 " data-carousel-slides >	
 		<?php foreach (collection('Projects') as $feed) : ?>
-			<div data-slide class="vw__5 aspect__1/1">	
+			<div data-slide data-scroll class="vw__5 aspect__1/1">	
 				<?= snippet('molecules/Feed/social', compact('feed')) ?>
 			</div>
 		<?php endforeach ?>
 		<?php foreach (collection('Projects') as $feed) : ?>
-			<div data-slide class="vw__5 aspect__1/1">	
+			<div data-slide data-scroll class="vw__5 aspect__1/1">	
 				<?= snippet('molecules/Feed/social', compact('feed')) ?>
 			</div>
 		<?php endforeach ?>
 		<?php foreach (collection('Projects') as $feed) : ?>
-			<div data-slide class="vw__5 aspect__1/1">	
+			<div data-slide data-scroll class="vw__5 aspect__1/1">	
 				<?= snippet('molecules/Feed/social', compact('feed')) ?>
 			</div>
 		<?php endforeach ?>
 		<?php foreach (collection('Projects') as $feed) : ?>
-			<div data-slide class="vw__5 aspect__1/1">	
+			<div data-slide data-scroll class="vw__5 aspect__1/1">	
 				<?= snippet('molecules/Feed/social', compact('feed')) ?>
 			</div>
 		<?php endforeach ?>
 		<?php foreach (collection('Projects') as $feed) : ?>
-			<div data-slide class="vw__5 aspect__1/1">	
+			<div data-slide data-scroll class="vw__5 aspect__1/1">	
 				<?= snippet('molecules/Feed/social', compact('feed')) ?>
 			</div>
 		<?php endforeach ?>
@@ -102,7 +106,9 @@
 	<div class="inner-t__5 inner-b__5" >
 		<ol class="grid inner-x__1 ">	
 			<?php foreach (collection('Blog') as $feed) : ?>
-				<?= snippet('molecules/Feed/post', compact('feed')) ?>
+				<li class="item vw__7" data-scroll>
+					<?= snippet('molecules/Feed/post', compact('feed')) ?>
+				</li>
 			<?php endforeach ?>
 		</ol>
 	</div>

@@ -13,7 +13,7 @@
 						<div data-pane="team-<?= $team->indexOf(collection('Team')) ?>" class="" data-scroll data-scroll-ignore data-tab-reveal>
 							<div class="grid gap__05">
 								<?php if ($img = $team->figure()->toFile()) : ?>
-									<?= snippet('atoms/Image', ['img' => $img, 'parallax' => false, 'reveal' => true, 'css' => 'aspect__4/3']) ?>
+									<?= snippet('atoms/Image', ['img' => $img, 'parallax' => false, 'reveal' => false, 'css' => 'aspect__4/3', 'node' => 'data-reveal-image']) ?>
 								<?php endif ?>
 								<?= snippet('atoms/Text', ['text' => $team->details()->inline(), 'reveal' => true, 'node' => 'data-split-ignore data-scroll-ignore']) ?>
 							</div>

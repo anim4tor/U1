@@ -1,7 +1,7 @@
 <div class="item --project" data-scroll>
 	<a href="<?= $project->url() ?>" class="grid relative">	
 		<?php if ($cover = $project->cover()->toFile()) : ?>
-			<div class="item__figure grid img__radius"><?= snippet('atoms/Image', ['img' => $cover, 'parallax' => 1, 'css' => 'vh__'.rand(12,16) ]) ?></div>
+			<div class="item__figure grid img__radius"><?= snippet('atoms/Image', ['img' => $cover, 'parallax' => 1, 'reveal' => true, 'css' => 'vh__'.rand(12,16), 'node' => 'data-reveal-image']) ?></div>
 		<?php endif ?>
 		<div class="item__meta relative flex justify__space-between align__center gap__2 inner-x__05 ">
 			<div class="flex gap__05 upper ">

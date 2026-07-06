@@ -15,55 +15,55 @@
 	</div>
 	<div data-pane-container >
 		<div class="grid__stack place__start-start">
-			<div data-pane="blog" data-tab-reveal>
+			<div data-pane="blog" data-scroll data-scroll-ignore data-tab-reveal>
 				<div data-carousel class="grid gap__1">
 					<div class="flex inner-x__1 gap__02 w__100v justify__end align__end m">
-						<button data-carousel-prev class="button upper" theme="ghost" hover="invert"><span class="icon"><?= svg('public/assets/images/ui/ui_arrow-left.svg') ?></span></button>
-						<button data-carousel-next class="button upper" theme="ghost" hover="invert"><span class="icon"><?= svg('public/assets/images/ui/ui_arrow-right.svg') ?></span></button>
+						<button data-carousel-prev data-reveal-image class="button upper" theme="ghost" hover="invert"><span class="icon"><?= svg('public/assets/images/ui/ui_arrow-left.svg') ?></span></button>
+						<button data-carousel-next data-reveal-image class="button upper" theme="ghost" hover="invert"><span class="icon"><?= svg('public/assets/images/ui/ui_arrow-right.svg') ?></span></button>
 						<!-- <?= snippet('atoms/Link', ['url' => 'projects', 'label' => 'All projects']) ?> -->
 					</div>
 					<div class="inner-b__5 w__100v" data-carousel-scroll>
 						<ol class="flex justify__start align__start no__wrap gap__1 inner-x__1 " data-carousel-slides >	
 						<?php foreach (collection('Blog') as $feed) : ?>
-							<div data-slide class="vw__7">	
+							<li data-slide class="vw__7">	
 								<?= snippet('molecules/Feed', compact('feed')) ?>
-							</div>
+							</li>
 						<?php endforeach ?>
 						</ol>
 					</div>
 				</div>
 			</div>
-			<div data-pane="socials" data-tab-reveal>
+			<div data-pane="socials" data-scroll data-scroll-ignore data-tab-reveal>
 				<div data-carousel class="grid gap__1">
 					<div class="flex inner-x__1  w__100v gap__02 justify__end align__end m">
-						<button data-carousel-prev class="button upper" theme="ghost" hover="invert"><span class="icon"><?= svg('public/assets/images/ui/ui_arrow-left.svg') ?></span></button>
-						<button data-carousel-next class="button upper" theme="ghost" hover="invert"><span class="icon"><?= svg('public/assets/images/ui/ui_arrow-right.svg') ?></span></button>
+						<button data-carousel-prev data-reveal-image class="button upper" theme="ghost" hover="invert"><span class="icon"><?= svg('public/assets/images/ui/ui_arrow-left.svg') ?></span></button>
+						<button data-carousel-next data-reveal-image class="button upper" theme="ghost" hover="invert"><span class="icon"><?= svg('public/assets/images/ui/ui_arrow-right.svg') ?></span></button>
 						<!-- <?= snippet('atoms/Link', ['url' => 'projects', 'label' => 'All projects']) ?> -->
 					</div>
 					<div class="inner-b__5 w__100v " data-carousel-scroll>
 						<ol class="flex justify__start align__start no__wrap gap__1 inner-x__1 " data-carousel-slides >	
 						<?php foreach (collection('Projects') as $feed) : ?>
-							<div data-slide class="vw__5 aspect__1/1">	
+							<li data-slide class="vw__5 aspect__1/1">	
 								<?= snippet('molecules/Feed/social', compact('feed')) ?>
-							</div>
+							</li>
 						<?php endforeach ?>
 						</ol>
 					</div>
 				</div>
 			</div>
-			<div data-pane="media" data-tab-reveal>
+			<div data-pane="media" data-scroll data-scroll-ignore data-tab-reveal>
 				<div data-carousel class="grid gap__1">
 					<div class="flex w__100v inner-x__1 gap__02 justify__end align__end m">
-						<button data-carousel-prev class="button upper" theme="ghost" hover="invert"><span class="icon"><?= svg('public/assets/images/ui/ui_arrow-left.svg') ?></span></button>
-						<button data-carousel-next class="button upper" theme="ghost" hover="invert"><span class="icon"><?= svg('public/assets/images/ui/ui_arrow-right.svg') ?></span></button>
+						<button data-carousel-prev data-reveal-image class="button upper" theme="ghost" hover="invert"><span class="icon"><?= svg('public/assets/images/ui/ui_arrow-left.svg') ?></span></button>
+						<button data-carousel-next data-reveal-image class="button upper" theme="ghost" hover="invert"><span class="icon"><?= svg('public/assets/images/ui/ui_arrow-right.svg') ?></span></button>
 						<!-- <?= snippet('atoms/Link', ['url' => 'projects', 'label' => 'All projects']) ?> -->
 					</div>
 					<div class="inner-b__5 w__100v" data-carousel-scroll>
 						<ol class="flex justify__start align__start no__wrap gap__1 inner-x__1 " data-carousel-slides >	
 						<?php foreach (collection('Projects') as $feed) : ?>
-							<div data-slide class="vw__5 aspect__1/1">	
-								<?= snippet('molecules/Feed/post', compact('feed')) ?>
-							</div>
+							<li data-slide class="vw__5 aspect__1/1">	
+								<?= snippet('molecules/Feed/media', compact('feed')) ?>
+							</li>
 						<?php endforeach ?>
 						</ol>
 					</div>

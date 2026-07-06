@@ -14,12 +14,6 @@
 				<li data-slide class="vw__7">	
 					<?= snippet('molecules/Project', compact('project')) ?>
 				</li>
-				<li data-slide class="vw__7">	
-					<?= snippet('molecules/Project', compact('project')) ?>
-				</li>
-				<li data-slide class="vw__7">	
-					<?= snippet('molecules/Project', compact('project')) ?>
-				</li>
 			<?php endforeach ?>
 			</ol>
 		</div>
