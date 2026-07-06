@@ -14,5 +14,5 @@
 		<?php endif ?>
 	</a>
 <?php else: ?>
-	<div class="link <?= $size ?> <?= $css ?>" aria-label="<?= $label ?>"><?= $label ?></div>
+	<div class="link <?= $size ?> <?= $css ?>" aria-label="<?= $label ?>"><span class="upper"><?= $label ?></span></div>
 <?php endif ?>

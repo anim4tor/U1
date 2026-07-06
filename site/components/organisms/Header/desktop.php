@@ -7,7 +7,7 @@
 			<div class="flex gap__4 inner-l__4 align__center" navbar-toggle>
 				<div class="grid__stack place__center-center" data-on-navbar-hover>
 					<nav data-default class="grid__stack">
-						<?= snippet('atoms/Link', ['url' => $page->url(), 'label' => $page->parent() ? $page->parent()->title() : $page->title(), 'icon' => false, 'css' => '', 'node' => 'data-reveal-text  data-split-ignore']) ?>
+						<?= snippet('atoms/Link', ['url' => false, 'label' => $page->parent() ? $page->parent()->title() : $page->title(), 'icon' => false, 'css' => '', 'node' => 'data-reveal-text  data-split-ignore']) ?>
 					</nav>
 					<div data-on-navbar-toggle class="grid__stack place__center-center upper">
 						<span data-default>Menu</span>

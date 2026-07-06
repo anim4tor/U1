@@ -31320,7 +31320,7 @@ section {
           mask-image: -webkit-gradient(linear, left top, right top, from(var(--mask)));;
           mask-image: linear-gradient(90deg, var(--mask));
   --p: 1;
-  transition: --p var(--reveal-duration) cubic-bezier(0.4, 0, 0.2, 1);
+  transition: --p var(--reveal-duration) cubic-bezier(0.4, 0, 0.2, 1), background-color var(--reveal-duration) cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 [data-loader-logo] {
@@ -31411,6 +31411,7 @@ html[data-loading] [data-loader] {
 
 html[data-transition] [data-loader-bg] {
   /*    transform: scaleX(0);*/
+  background-color: var(--color-acc);
   --p: 0;
 }
 html[data-transition] [data-loader-logo] {
@@ -31428,6 +31429,7 @@ html[data-transition-out] [data-loader-bg] {
   -webkit-transform: scaleX(1);
           transform: scaleX(1);
   --p: 1;
+  background-color: var(--color-dark);
 }
 
 /*

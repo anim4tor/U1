@@ -2,11 +2,11 @@ Title: U1 Space Design
 
 ----
 
-Ctacontact: [{"content":{"image":["file://Z1WbgPrIXW8I50Pd"],"hasparallax":"true","parallax":5,"hasreveal":"true","reveal":"","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"d1f0c0dc-e5c8-4db3-b389-4ff295628473","isHidden":false,"type":"image"},{"content":{"text":"Good design. <br>Good business. <br>Let's talk!","level":"h2","mod":"s","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"cca7af1a-8a67-4bac-abb7-4248428c7344","isHidden":false,"type":"heading"},{"content":{"href":"","target":"false","label":"Tell Us About Your Project","counter":[],"theme":"dark","hover":"invert","size":"default","icon":"arrow-right","hasreveal":"true","bid":"","attr":"data-contact-toggle=\"inquiry\"","css":"","node":""},"id":"c32b7557-d654-4960-b1fc-925674f89043","isHidden":false,"type":"button"}]
+Ctacontact: [{"content":{"image":["file://Z1WbgPrIXW8I50Pd"],"hasparallax":"true","parallax":5,"hasreveal":"true","reveal":"","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"d1f0c0dc-e5c8-4db3-b389-4ff295628473","isHidden":false,"type":"image"},{"content":{"text":"Good design. <br>Good business. <br>Let's talk!","level":"h2","mod":"m","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"cca7af1a-8a67-4bac-abb7-4248428c7344","isHidden":false,"type":"heading"},{"content":{"href":"","target":"false","label":"Tell Us About Your Project","counter":[],"theme":"invert-ghost","hover":"invert","size":"default","icon":"arrow-right","hasreveal":"true","bid":"","attr":"data-contact-toggle=\"inquiry\"","css":"","node":""},"id":"c32b7557-d654-4960-b1fc-925674f89043","isHidden":false,"type":"button"}]
 
 ----
 
-Contactcompany: YOGA i-D
+Contactcompany: U1 s.r.o.
 
 ----
 
@@ -18,11 +18,11 @@ Contactphone: +420 603 209 789
 
 ----
 
-Contactphonenote: Dle rozvrhu studia
+Contactphonenote: 
 
 ----
 
-Contactaddress: Poštovská 68/3, 602 00 Brno-střed
+Contactaddress: Nejedlého 373/1, Brno-Lesná, 638 00
 
 ----
 
@@ -34,7 +34,7 @@ Contactaddressnote: Budova bývalé pošty, vstup hlavním vchodem, po schodech 
 
 ----
 
-Contactic: 
+Contactic: 26273179
 
 ----
 

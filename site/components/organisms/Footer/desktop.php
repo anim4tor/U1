@@ -1,9 +1,9 @@
-<footer id="footer" class="color__invert" data-footer data-scroll>
-	<div class="bg radius absolute inset__stretch" theme="dark"></div>
+<footer id="footer" class="" theme="invert" data-footer data-scroll>
+	<div class="bg radius absolute inset__stretch"></div>
 
 	<div class="grid__4 gap__1 inner-x__1 inner-y__2 inner-b__1">
-		<a class="footer__logo" href="<?= page('home')->url() ?>"><span data-reveal ><?= svg('public/assets/images/fig_logo.svg') ?></span></a>	
-		<nav class="span__3 footer__nav flex wrap align__center gap__02 ff__heading font__size__3 s">
+		<a class="footer__logo" href="<?= page('home')->url() ?>"><span data-reveal ><?= svg('public/assets/images/fig_logo_invert.svg') ?></span></a>	
+		<nav class="span__3 footer__nav flex wrap align__center gap__02 ff__heading font__size__3 m">
 			<?php foreach ($pages->listed() as $p): ?>
 				<?php if(!$p->isFirst()) : ?>
 					<span class="light ff__body op__2">/</span>
