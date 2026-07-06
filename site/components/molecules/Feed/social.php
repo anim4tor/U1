@@ -5,8 +5,8 @@
 		<?php endif ?>
 		<div class=" flex justify__space-between align__start gap__2 inner-y__05 ">
 			<div class="flex gap__05 upper ">
-				<span class="">(<?= str_pad($feed->indexOf(collection('Projects')) + 1, 2, '0', STR_PAD_LEFT); ?>)</span>
-				<h3 class="font__size__default ff__body"><?= $feed->title() ?></h3>
+				<span class="" >(<?= str_pad($feed->indexOf(collection('Projects')) + 1, 2, '0', STR_PAD_LEFT); ?>)</span>
+				<h3 class="font__size__default ff__body" data-reveal-text="lines"><?= $feed->title() ?></h3>
 			</div>
 			<p class="no__wrap">(<?= $feed->date()->toDate('Y-m-d') ?>)</p>
 		</div>

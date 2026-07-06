@@ -10,7 +10,7 @@
     // Animation Properties Sanitizations (Parallax strictly false by default)
     $parallax        = (!isset($parallax) || $parallax === false || $parallax === 'false' || trim((string)$parallax) === '') ? false : $parallax;
     $reveal          = (isset($reveal) && ($reveal === 'true' || $reveal === true)) ? true : false;
-    $revealDirection = (!isset($revealDirection) || $revealDirection === false || trim($revealDirection) === '') ? false : $revealDirection;
+    $revealDirection = (!isset($revealDirection) || $revealDirection === false || trim($revealDirection) === '') ? 'left' : $revealDirection;
 
     // Extract Alternative Text
     $altText = 'Image';

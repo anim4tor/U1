@@ -15,7 +15,7 @@
 	</div>
 	<div data-pane-container >
 		<div class="grid__stack place__start-start">
-			<div data-pane="blog">
+			<div data-pane="blog" data-tab-reveal>
 				<div data-carousel class="grid gap__1">
 					<div class="flex inner-x__1 gap__02 w__100v justify__end align__end m">
 						<button data-carousel-prev class="button upper" theme="ghost" hover="invert"><span class="icon"><?= svg('public/assets/images/ui/ui_arrow-left.svg') ?></span></button>
@@ -33,7 +33,7 @@
 					</div>
 				</div>
 			</div>
-			<div data-pane="socials">
+			<div data-pane="socials" data-tab-reveal>
 				<div data-carousel class="grid gap__1">
 					<div class="flex inner-x__1  w__100v gap__02 justify__end align__end m">
 						<button data-carousel-prev class="button upper" theme="ghost" hover="invert"><span class="icon"><?= svg('public/assets/images/ui/ui_arrow-left.svg') ?></span></button>
@@ -51,7 +51,7 @@
 					</div>
 				</div>
 			</div>
-			<div data-pane="media">
+			<div data-pane="media" data-tab-reveal>
 				<div data-carousel class="grid gap__1">
 					<div class="flex w__100v inner-x__1 gap__02 justify__end align__end m">
 						<button data-carousel-prev class="button upper" theme="ghost" hover="invert"><span class="icon"><?= svg('public/assets/images/ui/ui_arrow-left.svg') ?></span></button>
