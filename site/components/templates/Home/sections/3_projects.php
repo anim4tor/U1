@@ -11,7 +11,7 @@
 		<div class="span__3" data-carousel-scroll>
 			<ol class="flex justify__start align__center no__wrap gap__1 inner-x__1 " data-carousel-slides >	
 			<?php foreach ($page->featuredProjects()->toPages() as $project) : ?>
-				<li data-slide class="vw__7">	
+				<li data-slide class="vw__5">	
 					<?= snippet('molecules/Project', compact('project')) ?>
 				</li>
 			<?php endforeach ?>

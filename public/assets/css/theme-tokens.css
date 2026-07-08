@@ -7,9 +7,9 @@
     /* ==========================================================================
        TYPOGRAPHY BRANDING FRAMEWORK TOKENS
        ========================================================================== */
-    --ff-heading:              'ABCArizonaFlare';
-    --fw-heading:              500;
-    --tt-heading:              uppercase;
+    --ff-heading:              'Inter';
+    --fw-heading:              600;
+    --tt-heading:              none;
     --ls-heading:              -0.035em;
     --ff-body:                 'Inter';
     --fw-body:                 500;
@@ -22,7 +22,7 @@
        ========================================================================== */
     --type-scale:              1.618;
     --type-start-rem:          1rem;
-    --type-start-vw:           1.3vw;
+    --type-start-vw:           1vw;
     --base-line-height:        1.1;
     --body-scale:              1.222;
     --body-start-rem:          0.7rem;
@@ -33,7 +33,7 @@
        LAYOUT PADDING & GRID SPACING TOKENS
        ========================================================================== */
     --scale-min:               1;
-    --scale-fluid:             2;
+    --scale-fluid:             1.5;
     --scale:                   1;
     --spacing:                 max(calc(var(--scale-min) * 1rem),calc(var(--scale-fluid) * 1vw * var(--scale)));
 

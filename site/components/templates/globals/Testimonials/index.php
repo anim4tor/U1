@@ -42,7 +42,7 @@
 											<!-- <?= snippet('atoms/Link', ['url' => 'projects', 'label' => 'All projects']) ?> -->
 										</div>
 									</div>
-									<p class="quote font__size__5 ff__heading upper" data-reveal-text="lines" data-split-ignore>"<?= $project->testimonialQuote()->inline() ?>"</p>
+									<p class="quote font__size__4 ff__heading upper" data-reveal-text="lines" data-split-ignore>"<?= $project->testimonialQuote()->inline() ?>"</p>
 								</div>
 								<div class="flex justify__space-between">
 									<div class="s upper " >(Testimonials)</div>
