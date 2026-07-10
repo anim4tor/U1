@@ -19,7 +19,7 @@
 						<?= snippet('atoms/Button', [ 'url' => page('Career')->url().'#opened-positions', 'label' => 'Zpět na Volné pozice', 'icon' => false, 'theme' => 'invert-ghost', 'node' => 'data-contact-close']) ?>
 					</div>
 				</div>
-				<div class="relative grid place__center-center -wrap-b__3"><?= snippet('atoms/Image', ['url' => 'contact_hr.jpg', 'css' => '']) ?></div>
+				<div class="relative grid place__center-center -wrap-b__3 inner-x__2"><?= snippet('atoms/Image', ['url' => 'contact_hr.jpg', 'css' => '']) ?></div>
 				<!-- <div class="inner-x__1 inner-y__02"><p class="s op__4">Jitka Burdová</p></div> -->
 				<div class="relative grid gap__05 place__end-stretch inner-x__1 inner-b__1">
 					<div class="grid gap__05">

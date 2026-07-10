@@ -7,7 +7,7 @@
 		</div>
 		<div class="grid__2 gap__2 -wrap-l__5">
 			<div class="grid place__space-between-start gap__3">
-				<h3 class="font__size__4 xs"><?= $feed->title() ?></h3>
+				<h3 class="font__size__4 s"><?= $feed->title() ?></h3>
 				<!-- <p class="">(<?= $feed->excerpt()->or($feed->intro()) ?>)</p> -->
 				<div class="flex justify__start">
 					<!-- <?= snippet('atoms/Button', [ 'label' => 'Read more', 'theme' => 'light', 'icon' => 'arrow-right']) ?> -->

@@ -12,7 +12,7 @@
 			<div class="z__1 flex wrap gap__1 inner-x__1 inner-y__1 inner-b__05">
 				<h3 class="font__size__4"><span class="color__acc">Get in touch</span> with us directly or leave us your contact details.</h3>
 			</div>
-			<div class="grid place__center-center -wrap-b__2"><?= snippet('atoms/Image', ['url' => 'contact_sales.jpg', 'css' => '']) ?></div>
+			<div class="grid place__center-center -wrap-b__2 inner-x__2"><?= snippet('atoms/Image', ['url' => 'contact_sales.jpg', 'css' => '']) ?></div>
 			<div class="relative grid gap__05 place__end-stretch inner-x__1 inner-y__1">
 				<div class="grid gap__05">
 					<p class="lower l">Sales</p>
