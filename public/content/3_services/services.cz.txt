@@ -6,7 +6,7 @@ Slug: services
 
 ----
 
-Hero: [{"content":{"text":"Services","level":"h1","mod":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"ab06c938-ddbd-4f65-b9e3-f37d6a2ebd68","isHidden":false,"type":"heading"}]
+Hero: [{"content":{"text":"Services","level":"h1","mod":"","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"ab06c938-ddbd-4f65-b9e3-f37d6a2ebd68","isHidden":false,"type":"heading"}]
 
 ----
 

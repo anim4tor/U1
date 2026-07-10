@@ -11,6 +11,8 @@ tabs:
       - width: 2/3
 
         fields:
+          cover:
+            extends: fields/cover
           hero:
             extends: fields/hero
           details:
@@ -94,7 +96,7 @@ tabs:
             image:
               ratio: 4/5
               cover: true
-            min: 1
+            max: 1
             layout: cards
             size: small
     

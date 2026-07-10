@@ -21,13 +21,13 @@
        FLUID RESPONSIVE SCALE ENGINE TOKENS
        ========================================================================== */
     --type-scale:              1.618;
-    --type-start-rem:          1rem;
+    --type-start-rem:          0.75rem;
     --type-start-vw:           1vw;
     --base-line-height:        1.1;
     --body-scale:              1.222;
     --body-start-rem:          0.7rem;
     --body-start-vw:           0.65vw;
-    --base-body-line-height:   1.5;
+    --base-body-line-height:   1.3;
 
     /* ==========================================================================
        LAYOUT PADDING & GRID SPACING TOKENS

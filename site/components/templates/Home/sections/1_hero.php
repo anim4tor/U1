@@ -1,5 +1,5 @@
 <?php if ($page->hero()->isNotEmpty()) : ?>
-<section class="intro radius" theme="dark" data-tabs>
+<section class="intro radius" theme="dark" data-tabs="noinit" data-autoplay="10000">
 	<div class="hidden">
 		<?php foreach ($page->heroSlider()->toPages() as $project) : ?>
 			<div data-tab="project-<?= $project->indexOf($page->heroSlider()->toPages()) ?>"></div>
@@ -18,6 +18,7 @@
 		<div class="h__1"></div>
 		<div class="span__4 grid__4 place__space-between-stretch">
 			<div class="span__4 grid__4 inner-t__05 relative flex justify__space-between align__start border__top" data-scroll data-scroll-ignore>
+				<div data-tabs-autoplay-line class="autoplay__line absolute left__0 right__0"></div>
 				<div class="upper s" data-tab-next>Featured project</div>
 				<div class="span__2 grid__stack" data-pane-container>
 					<?php foreach ($page->heroSlider()->toPages() as $project) : ?>
@@ -31,7 +32,7 @@
 				</div>
 				<div class="upper s flex justify__end" data-tab-next>(Next)</div>
 			</div>
-			<div class="intro__title relative place__end-stretch span__3 mobile:span__1 inner-y__05" data-scroll style="--in-delay: 500ms">
+			<div class="intro__title relative place__end-stretch span__3 mobile:span__1 inner-y__05" style="--in-delay: 200ms">
 				<?= snippet('molecules/Header', ['header' => $page->hero(), 'type' => ['heading']]) ?>
 			</div>
 		</div>

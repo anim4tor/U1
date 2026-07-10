@@ -78,8 +78,8 @@ img {
                 (var(--parallax-speed, 10) * 20% * var(--progress)) +
                 var(--height-modifier))
                 * var(--toggle-parallax, 1)
-            )) 
-            scale(calc(1.1 - 0.1 * var(--progress) * var(--toggle-parallax, 1)));
+            ));
+/*            scale(calc(1.1 - 0.1 * var(--progress) * var(--toggle-parallax, 1)));*/
         
         will-change: transform;
     }

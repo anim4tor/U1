@@ -34,15 +34,18 @@ tabs:
             extends: fields/section
             label: Projects
           featuredProjects:
-            width: 1/2
+            width: 1/1
             label: Featured Projects
             type: pages
+            layout: cards
             query: site.find('projects')
-          featuredTestimonials:
-            width: 1/2
-            label: Featured Testimonials
-            type: pages
-            query: site.find('projects')
+            image:
+              cover: true
+          # featuredTestimonials:
+          #   width: 1/2
+          #   label: Featured Testimonials
+          #   type: pages
+          #   query: site.find('projects')
 
           services:
             width: 1/1

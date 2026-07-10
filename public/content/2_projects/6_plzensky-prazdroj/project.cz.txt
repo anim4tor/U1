@@ -1,0 +1,129 @@
+Title: Plzeňský Prazdroj
+
+----
+
+Cover: - file://ZfInp4c6OPdObXKj
+
+----
+
+Hero: 
+
+----
+
+Details: <p>Nové pracovní prostředí skupiny Plzeňský Prazdroj je důkazem, že když se spojí silné značky, odvážná vize a&nbsp;precizní provedení, vznikne prostor, který zanechá stopu. U1 stálo za realizací klíčových interiérových prvků – od atypického nábytku přes akustická řešení až po detaily jako je recepce s&nbsp;rozřezaným kegem nebo podhledy z&nbsp;tisíců plechovek.</p><p>Každá značka – Gambrinus, Radegast, Kozel, Birell, Proud i&nbsp;samotný Pilsner – dostala v&nbsp;interiéru svůj vlastní výraz. Barevná schémata, povrchové úpravy i&nbsp;materiály byly externími architekty zvoleny tak, aby posilovaly jejich identitu a&nbsp;zároveň přirozeně fungovaly v&nbsp;rámci jednoho prostoru.</p><p>Realizace probíhala s&nbsp;maximálním důrazem na detail a&nbsp;v úzké spolupráci s&nbsp;architekty. U1 zajišťovalo nejen výrobu a&nbsp;dodávky na míru, ale i&nbsp;technickou podporu, koordinaci profesí a&nbsp;ladění konstrukčních detailů, které návrh neobsahoval. Výsledkem je prostor, který spojuje kreativitu s&nbsp;precizností – a&nbsp;potvrzuje, že interiér může být silným nositelem značky.</p>
+
+----
+
+Quote: 
+
+----
+
+Footnote: 
+
+----
+
+Client: Plzeňský Prazdroj, a. s.
+
+----
+
+Concept: 
+
+----
+
+Date: 2025-01-01
+
+----
+
+Place: 
+
+----
+
+Industry: 
+
+----
+
+Space: Openspace, Meeting roomy, Recepce
+
+----
+
+Hash: 
+
+----
+
+Gallery:
+
+- file://Pqd1jcyjqZ1nCHGi
+- file://z2jtqJWcbKrZr89C
+- file://creqNO52NWPVhTi3
+- file://Y8Qj4Pq4hU8TRtEO
+- file://ZfInp4c6OPdObXKj
+- file://8PCNbP7K5PNFRvSb
+- file://hpgOya5f3IgpEvw4
+
+----
+
+Author: 
+
+----
+
+Testimonialquote: 
+
+----
+
+Testimonialauthor: 
+
+----
+
+Testimonialposition: 
+
+----
+
+Testimonialimage: 
+
+----
+
+Meta-description: 
+
+----
+
+Meta-title: 
+
+----
+
+Meta-canonical-url: 
+
+----
+
+Og-title: 
+
+----
+
+Og-description: 
+
+----
+
+Og-image: 
+
+----
+
+Robots-index: 
+
+----
+
+Robots-follow: 
+
+----
+
+Robots-archive: 
+
+----
+
+Robots-imageindex: 
+
+----
+
+Robots-snippet: 
+
+----
+
+Uuid: jGv5KOraCDTVOPmA

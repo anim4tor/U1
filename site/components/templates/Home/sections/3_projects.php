@@ -1,6 +1,30 @@
 <?php if ($page->featuredProjects()->isNotEmpty()) : ?>
-<section class="projects radius" theme="dark" data-carousel>
-	<div class="grid__3 gap__2 mobile:grid__1 inner-y__2 inner-b__5 mobile:inner-x__1 ">
+<section class="projects radius" theme="dark" >
+	<div class="logo-ticker-container no__overflow vw__20">
+		<div class="logo-ticker-track">
+			<div class="logo-ticker-group flex gap__2 innex-x__1 inner-y__1">
+				<figure class="grid place__center-center inner-x__2 inner-y__1 op__3"><?= asset('public/assets/images/logo_1.svg') ?></figure>
+				<figure class="grid place__center-center inner-x__2 inner-y__1 op__3"><?= asset('public/assets/images/logo_2.svg') ?></figure>
+				<figure class="grid place__center-center inner-x__2 inner-y__1 op__3"><?= asset('public/assets/images/logo_3.svg') ?></figure>
+				<figure class="grid place__center-center inner-x__2 inner-y__1 op__3"><?= asset('public/assets/images/logo_4.svg') ?></figure>
+				<figure class="grid place__center-center inner-x__2 inner-y__1 op__3"><?= asset('public/assets/images/logo_1.svg') ?></figure>
+				<figure class="grid place__center-center inner-x__2 inner-y__1 op__3"><?= asset('public/assets/images/logo_2.svg') ?></figure>
+				<figure class="grid place__center-center inner-x__2 inner-y__1 op__3"><?= asset('public/assets/images/logo_3.svg') ?></figure>
+				<figure class="grid place__center-center inner-x__2 inner-y__1 op__3"><?= asset('public/assets/images/logo_4.svg') ?></figure>
+			</div>
+			<div class="logo-ticker-group flex gap__2 innex-x__1 inner-y__1" aria-hidden="true">
+				<figure class="grid place__center-center inner-x__2 inner-y__1 op__3"><?= asset('public/assets/images/logo_1.svg') ?></figure>
+				<figure class="grid place__center-center inner-x__2 inner-y__1 op__3"><?= asset('public/assets/images/logo_2.svg') ?></figure>
+				<figure class="grid place__center-center inner-x__2 inner-y__1 op__3"><?= asset('public/assets/images/logo_3.svg') ?></figure>
+				<figure class="grid place__center-center inner-x__2 inner-y__1 op__3"><?= asset('public/assets/images/logo_4.svg') ?></figure>
+				<figure class="grid place__center-center inner-x__2 inner-y__1 op__3"><?= asset('public/assets/images/logo_1.svg') ?></figure>
+				<figure class="grid place__center-center inner-x__2 inner-y__1 op__3"><?= asset('public/assets/images/logo_2.svg') ?></figure>
+				<figure class="grid place__center-center inner-x__2 inner-y__1 op__3"><?= asset('public/assets/images/logo_3.svg') ?></figure>
+				<figure class="grid place__center-center inner-x__2 inner-y__1 op__3"><?= asset('public/assets/images/logo_4.svg') ?></figure>
+			</div>
+		</div>
+	</div>
+	<div class="grid__3 gap__2 mobile:grid__1 inner-y__2 inner-b__5 mobile:inner-x__1 " data-carousel>
 		<div data-scroll class="span__2 inner-x__1 ">
 			<?= snippet('molecules/Header', ['header' => $page->projects(), 'type' => ['heading']]) ?>
 		</div>
@@ -11,15 +35,18 @@
 		<div class="span__3" data-carousel-scroll>
 			<ol class="flex justify__start align__center no__wrap gap__1 inner-x__1 " data-carousel-slides >	
 			<?php foreach ($page->featuredProjects()->toPages() as $project) : ?>
-				<li data-slide class="vw__5">	
+				<li data-slide class="vw__8">	
 					<?= snippet('molecules/Project', compact('project')) ?>
 				</li>
 			<?php endforeach ?>
+				<li data-slide class="vw__6 flex justify__end">	
+					<div class="span__3 flex justify__center">
+						<?= snippet('molecules/Header', ['header' => $page->projects(), 'type' => ['button']]) ?>
+					</div>
+				</li>
 			</ol>
 		</div>
-		<div class="span__3 flex justify__center">
-			<?= snippet('molecules/Header', ['header' => $page->projects(), 'type' => ['button']]) ?>
-		</div>
+		
 	</div>
 </section>
 <?php endif ?>

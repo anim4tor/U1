@@ -34,11 +34,7 @@ Positions: [{"content":{"text":"Opened positions","level":"h2","mod":"l","hasrev
 
 ----
 
-Openpositions: - page://o0AFKfxL3P0xmeRN
-
-----
-
-About: [{"content":{"text":"We create the identity of interiors. As designers and experienced consultants.","level":"h2","mod":"s","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"b38aeedd-197e-4b23-a624-b87bbbb4a38e","isHidden":false,"type":"heading"},{"content":{"text":"Twenty-five years of refined expertise, distilled into a comprehensive suite of architectural and design solutions creating experiences that amplify the joy felt in shared human moments.","mod":"l","face":"","case":"lower","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"7ed68db6-be8e-4318-a06b-07b6fd61861c","isHidden":false,"type":"text"},{"content":{"href":"page://YASipJpnQrG05UlL","target":"false","label":"About us","counter":[],"theme":"invert","hover":"dark","size":"default","icon":"arrow-right","hasreveal":"true","bid":"","attr":"","css":"","node":""},"id":"ee9fc54c-0d02-4d65-976f-2ce8da0d854f","isHidden":false,"type":"button"},{"content":{"image":["file://sZRbZagT6UU9Qxum"],"hasparallax":"true","parallax":2,"hasreveal":"true","reveal":"left","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"0192e1d6-7bc5-4dd1-a53e-56cf1127d30d","isHidden":false,"type":"image"}]
+About: [{"content":{"text":"We create the identity of interiors. As designers and experienced consultants.","level":"h2","mod":"s","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"b38aeedd-197e-4b23-a624-b87bbbb4a38e","isHidden":false,"type":"heading"},{"content":{"text":"Twenty-five years of refined expertise, distilled into a comprehensive suite of architectural and design solutions creating experiences that amplify the joy felt in shared human moments.","mod":"m","face":"","case":"lower","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"7ed68db6-be8e-4318-a06b-07b6fd61861c","isHidden":false,"type":"text"},{"content":{"href":"page://YASipJpnQrG05UlL","target":"false","label":"About us","counter":[],"theme":"invert","hover":"dark","size":"default","icon":"arrow-right","hasreveal":"true","bid":"","attr":"","css":"","node":""},"id":"ee9fc54c-0d02-4d65-976f-2ce8da0d854f","isHidden":false,"type":"button"},{"content":{"image":["file://sZRbZagT6UU9Qxum"],"hasparallax":"true","parallax":2,"hasreveal":"true","reveal":"left","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"0192e1d6-7bc5-4dd1-a53e-56cf1127d30d","isHidden":false,"type":"image"}]
 
 ----
 
@@ -100,6 +96,10 @@ Robots-imageindex:
 ----
 
 Robots-snippet: 
+
+----
+
+Openpositions: - page://o0AFKfxL3P0xmeRN
 
 ----
 

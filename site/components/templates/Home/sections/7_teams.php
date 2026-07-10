@@ -22,14 +22,14 @@
 				<div data-pane-container class="grid__stack">
 					<?php foreach (collection('Team') as $team) : ?>
 					<div data-tab-reveal data-pane="team-<?= $team->indexOf(collection('Team')) ?>" class="grid ">
-						<p class="s" data-reveal-text="lines" data-split-ignore ><?= $team->details()->inline() ?></p>
+						<p class="" data-reveal-text="lines" data-split-ignore ><?= $team->details()->inline() ?></p>
 					</div>
 					<?php endforeach ?>
 				</div>
 			</div>
 		</div>
 		<div class="grid place__start-end inner-r__1 " data-pane-container>
-			<div class="grid__stack no__overflow img__radius">
+			<div class="grid__stack no__overflow img__radius" data-scroll data-reveal-image >
 				<?php foreach (collection('Team') as $team) : ?>
 					<?php if ($leader = $team->leader()->toPage()) : ?>
 					<div data-pane="team-<?= $team->indexOf(collection('Team')) ?>" class="" data-scroll data-scroll-ignore data-tab-reveal>

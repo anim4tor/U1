@@ -49,16 +49,24 @@ class Tabs {
         this.observer = null;
         
         this.is_hoverable = el.getAttribute('data-tabs') === 'hoverable';
+        this.is_scrollable = el.getAttribute('data-tabs') === 'scrollable';
+        this.is_noinit = el.getAttribute('data-tabs') === 'noinit';
         this.is_fluid = el.hasAttribute('data-fluid'); // Detect fluid setting toggle
 
         this._boundHandleKeydown = this.handleKeydown.bind(this);
         this._boundScrollEvent = this.handleScrollEvent.bind(this);
 
+        this.autoplayInterval = parseInt(el.getAttribute('data-autoplay')) || 0;
+        this.autoplayTimer = null;
+
+        // Add this at the end of the constructor
+        if (this.autoplayInterval > 0) this.startAutoplay();
+
         this.init();
     }
 
     init() {
-        this.DOM.widget.classList.add('--init');
+        
         if (this.is_fluid) this.DOM.widget.classList.add('--fluid');
         
         const datasetTabsValue = this.DOM.widget.dataset.tabs;
@@ -78,7 +86,8 @@ class Tabs {
         this.initScrollTriggers(); 
 
         this.updateZIndices(this.data.active);
-        this.setActive(this.data.active);
+        if (!this.is_noinit) this.setActive(this.data.active);
+
     }
 
     setupA11y() {
@@ -162,8 +171,14 @@ class Tabs {
     }
 
     change() {
-        if (this.data.active === this.data.next && this.DOM.widget.classList.contains('--init-done')) return;
-        this.DOM.widget.classList.add('--init-done');
+        // Detekujeme, zda jde o úplně první spuštění (inicializaci)
+        const isFirstInit = !this.DOM.widget.hasAttribute('data-init');
+        
+        // Pokud už init proběhl a klikáme/najíždíme na stejný tab, nic nedělej
+        if (this.data.active === this.data.next && !isFirstInit) return;
+        
+        // Nastavíme příznak inicializace
+        this.DOM.widget.setAttribute('data-init', 'true');
 
         // ONLY grab live tabs that directly belong to THIS component level
         const liveTabs = Array.from(this.DOM.widget.querySelectorAll('[data-tab], [data-async-tab]'))
@@ -191,22 +206,24 @@ class Tabs {
             const isNewPane = p.dataset.pane ? (p.dataset.pane === activePaneValue) : (i === this.data.next);
             const isOldPane = p.dataset.pane ? (p.dataset.pane === (liveTabs[this.data.active]?.dataset.tab)) : (i === this.data.active);
 
+            // Třídu is-closing a animaci spouštíme pouze, pokud nejde o první init
             if (isOldPane && !isNewPane) {
                 p.removeAttribute('data-active');
-                p.classList.add('is-closing');
                 
-                const timeoutId = setTimeout(() => {
-                    p.classList.remove('is-closing');
-                    this.closing_timeouts = this.closing_timeouts.filter(id => id !== timeoutId);
-                }, this.settings.animationDuration);
-                
-                this.closing_timeouts.push(timeoutId);
+                if (!isFirstInit) {
+                    p.classList.add('is-closing');
+                    const timeoutId = setTimeout(() => {
+                        p.classList.remove('is-closing');
+                        this.closing_timeouts = this.closing_timeouts.filter(id => id !== timeoutId);
+                    }, this.settings.animationDuration);
+                    this.closing_timeouts.push(timeoutId);
+                }
             }
 
             if (isNewPane) {
                 p.toggleAttribute('data-active', true);
                 p.classList.remove('is-closing');
-                targetActivePane = p; // Track the current layout profile element
+                targetActivePane = p; 
             }
         });
 
@@ -336,6 +353,27 @@ class Tabs {
         });
     }
 
+    startAutoplay() {
+        console.log('Start autoplay ...')
+        this.autoplayTimer = setInterval(() => {
+            // Logic to go to next tab
+            const nextIndex = this.data.active < (this.DOM.tabs.length - 1) ? this.data.active + 1 : 0;
+            this.setActive(nextIndex);
+        }, this.autoplayInterval);
+    }
+
+    resetAutoplay() {
+        if (this.autoplayTimer) {
+            clearInterval(this.autoplayTimer);
+            this.startAutoplay();
+        }
+    }
+
+    destroy() {
+        // ... existing destroy code
+        if (this.autoplayTimer) clearInterval(this.autoplayTimer);
+    }
+
     initEvents() {
         if (this.is_hoverable) {
             const setupHoverListeners = () => {
@@ -413,6 +451,21 @@ class Tabs {
                 this.setActive(nextIndex);
                 this.scrollToTrigger(nextIndex);
             }
+
+            // Add resetAutoplay() after user interaction
+            if (tab && this.DOM.widget.contains(tab)) {
+                // ... (existing tab clicking logic)
+                this.resetAutoplay(); 
+                return;
+            }
+
+            if (e.target.closest('[data-tab-prev]')) {
+                // ...
+                this.resetAutoplay();
+            } else if (e.target.closest('[data-tab-next]')) {
+                // ...
+                this.resetAutoplay();
+            }
         });
 
         this.DOM.widget.addEventListener('keydown', this._boundHandleKeydown);
@@ -431,7 +484,13 @@ class Tabs {
 
     onTabChange() {
         if (window.SCROLL) window.SCROLL.resize();
-        if (window.Locomotion) window.Locomotion.update();
+        const line = this.DOM.widget.querySelector('[data-tabs-autoplay-line]');
+        if (line) {
+            line.style.animation = 'none';
+            void line.offsetWidth; // Trigger reflow
+            line.style.animation = null; // Revert to CSS default
+        }
+        // if (window.Locomotion) window.Locomotion.update();
     }
     
     destroy() {

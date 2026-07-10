@@ -1,6 +1,6 @@
 <a href="<?= $feed->url() ?>" class="grid wrap">	
 	<?php if ($cover = $feed->cover()->toFile()) : ?>
-		<div class="item__figure grid img__radius no__overflow "><?= snippet('atoms/Image', ['img' => $cover, 'parallax' => 1, 'reveal' => false, 'node' => 'data-reveal-image', 'css' => 'h__12 grid' ]) ?></div>
+		<div class="item__figure grid img__radius no__overflow h__12 "><?= snippet('atoms/Image', ['img' => $cover, 'reveal' => false, 'node' => 'data-reveal-image', 'css' => 'grid' ]) ?></div>
 	<?php endif ?>
 	<div class=" flex justify__space-between align__start gap__2 inner-y__05 ">
 		<div class="flex gap__05 upper ">

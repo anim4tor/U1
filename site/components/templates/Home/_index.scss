@@ -29,6 +29,86 @@
 	}
 }
 
+/* Container pro celé číslo */
+.carousel-counter {
+	display: inline-flex;
+	overflow: hidden;
+	/* Výška musí odpovídat výšce jednoho řádku vašeho fontu */
+	line-height: 1em; 
+	height: 1em; 
+
+	color: var(--color-acc);
+	transition: color 2s cubic-bezier(0.16, 1, 0.3, 1) 0.5s;
+}
+	.is-inview {
+		.carousel-counter {
+			color: var(--color-dark);
+		}
+	}
+
+/* Vertikální pás pro jednu číslici (0-9) */
+.counter-ribbon {
+	display: inline-flex;
+	flex-direction: column;
+	height: 10em; /* Obsahuje 10 číslic pod sebou */
+	transition: transform 2s cubic-bezier(0.16, 1, 0.3, 1); /* Plynulý a prémiový dojezd */
+}
+
+
+/* Jednotlivá číslice v pásu */
+.counter-digit {
+	height: 1em;
+	line-height: 1em;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+/* Hlavní ořezový kontejner */
+.logo-ticker-container {
+    overflow: hidden;
+    position: relative;
+    display: flex;
+}
+
+/* Pruh, který se bude hýbat */
+.logo-ticker-track {
+    display: flex;
+    width: max-content;
+    animation: tickerLoop 25s linear infinite; /* 25s určuje rychlost posunu */
+}
+
+/* Skupina log (jedna sada) */
+.logo-ticker-group {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    /* Zajistí, že loga budou mít dostatek prostoru a nesrazí se */
+    min-width: 100%; 
+}
+
+/* Zajištění fixní nebo flexibilní šířky pro samotná loga uvnitř flexu */
+.logo-ticker-group figure {
+    flex-shrink: 0;
+    /* Můžete definovat šířku, pokud SVGs nemají vlastní rozměry, např: width: 160px; */
+}
+
+/* Volitelné: Zastavení animace, pokud na loga uživatel najede myší */
+.logo-ticker-container:hover .logo-ticker-track {
+/*    animation-play-state: paused;*/
+}
+
+/* Definice nekonečné smyčky */
+@keyframes tickerLoop {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+    100% {
+        /* Posun přesně o polovinu délky tracku (o celou jednu sadu) */
+        transform: translate3d(-50%, 0, 0); 
+    }
+}
+
 section.process {
 	.item__figure {
 		transform: scale(calc(0.3 + (var(--progress)*1.4) - (Max(0,(var(--progress) - 0.5))*2.8) ));

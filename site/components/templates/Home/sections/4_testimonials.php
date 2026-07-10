@@ -1,1 +1,1 @@
-<?= snippet('templates/globals/Testimonials', [ 'testimonials' => $page->featuredTestimonials()->toPages() ]) ?>
+

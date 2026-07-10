@@ -1,21 +1,23 @@
 <?php if ($site->ctaContact()->isNotEmpty()) : ?>
 <section class="cta radius" theme="dark" data-scroll>
-	<div class="bg radius absolute inset__stretch" >
-		<!-- <?= asset('public/assets/images/cta_bg.png') ?> -->
-	</div>
-	<div class="relative grid__4 gap__1 mobile:grid__1 inner__1 inner-y__2">
-		<div class="span__4 grid gap__6 color__invert">
-			<?= snippet('molecules/Header', ['header' => $site->ctaContact(), 'type' => ['heading']]) ?>
-			<div class="flex justify__end">
-				<?= snippet('molecules/Header', ['header' => $site->ctaContact(), 'type' => ['button']]) ?>
+	<div data-contact-toggle="inquiry">
+		<div class="bg radius absolute inset__stretch" >
+			<!-- <?= asset('public/assets/images/cta_bg.png') ?> -->
+		</div>
+		<div class="relative grid__4 gap__1 mobile:grid__1 inner__1 inner-y__2">
+			<div class="span__4 grid gap__6 color__invert">
+				<?= snippet('molecules/Header', ['header' => $site->ctaContact(), 'type' => ['heading']]) ?>
+				<div class="flex justify__end">
+					<?= snippet('molecules/Header', ['header' => $site->ctaContact(), 'type' => ['button']]) ?>
+				</div>
 			</div>
 		</div>
 	</div>
 </section>
 
 <script type="text/javascript">
-	let targetX = 0, targetY = 0;
-	let currentX = 0, currentY = 0;
+	let targetX = 1, targetY = 1;
+	let currentX = 1, currentY = 1;
 	const ease = 0.05; // Lower is slower/smoother, higher is snappier
 
 	const element = document.querySelector('.cta');

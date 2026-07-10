@@ -30,22 +30,56 @@
 /*	overflow: hidden;*/
 }
 
-	[data-pane] {
-		pointer-events: none;
-/*		visibility: hidden;*/
+	[data-tabs][data-init] {
+		[data-pane] {
+			pointer-events: none;
 
-		&[data-active] {
-			z-index: 1;
-			pointer-events: all;
-/*			visibility: visible;*/
+			&[data-active] {
+				z-index: 1;
+				pointer-events: all;
+			}
+			&:not([data-active]) {
+				z-index: 0;
+			}
 		}
 	}
 
-[data-tabs="default"] {
-		[data-pane]:not([data-active]) {
-/*			display: none;*/
+	[data-tabs] {
+		[data-pane] [data-reveal-text] {
+			opacity: 0;
 		}
-}
+		[data-pane][data-active] [data-reveal-text] {
+			opacity: 1;
+		}
+	}
+	[data-tabs="default"] {
+		[data-pane] {
+			opacity: 0;
+		}
+		[data-pane][data-active] {
+			opacity: 1;
+		}
+	}
+	[data-tabs]:not([data-init]) {
+		[data-pane]:first-child [data-reveal-text] {
+			opacity: 1;
+		}
+	}
+	[data-tabs="scrollable"] {
+		[data-pane] {
+			opacity: 0;
+			&[data-active] {
+				opacity: 1;
+			}
+		}
+	}
+
+	[data-tabs]:not([data-init]) {
+		[data-pane]:not(:first-child) {
+			pointer-events: none;
+		}
+	}
+
 
 [data-tab] {
 	cursor: pointer;
@@ -66,13 +100,18 @@
 	
 }
 
-[data-tab-reveal] {
+[data-tabs] [data-tab-reveal]:first-child {
+	  [data-reveal-cover] figure {
+	  	--p: 1;
+	  }
+}
+[data-tabs][data-init] [data-tab-reveal] {
   [data-reveal-text] {
     @include reveal-text-setup;
   }
 
   [data-reveal-image] {
-			visibility: hidden;
+/*			visibility: hidden;*/
 /*			@include animation(visibility);*/
 /*			clip-path: inset(0% 100% 0% 0%);*/
 /*			transform: translateX(0%);*/
@@ -82,13 +121,24 @@
 			}
   }
 
-  [data-reveal-cover] {
-  	
+  [data-reveal-cover] figure {
+/*  	--p: 1;*/
   }
 }
 
 /* 2. HOVER IN STAV (když na něj najedeš) */
-[data-tab-reveal][data-active] {
+[data-tabs]:not([data-init]) [data-pane][data-tab-reveal]:first-child {
+  [data-reveal-text] {
+    @include reveal-text-in;
+  }
+	[data-reveal-cover] {
+		figure {
+/*			animation: cover-in var(--reveal-duration) var(--animation-timing) forwards;*/
+/*			--p: 1;*/
+		}
+	}
+}
+[data-tabs][data-init] [data-tab-reveal][data-active] {
   [data-reveal-text] {
 /*  	--in-delay: 400ms;*/
     @include reveal-text-in;
@@ -129,6 +179,34 @@
   		--p: 1;
 		}
 	}
+}
+
+[data-tabs-autoplay-line] {
+
+}
+[data-tabs-autoplay-line] {
+	--duration: 10s;
+	opacity: 0.8;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  top: -1px;
+  height: 1px;
+  background-color: var(--col);
+  transform-origin: left;
+  /* Use 'forwards' to stay at end, 'linear' for constant speed */
+  animation: autoplay-progress var(--duration) linear infinite;
+  z-index: 10;
+}
+
+@keyframes autoplay-progress {
+  from { transform: scaleX(0); width: 100%; }
+  to   { transform: scaleX(1); width: 100%; }
+}
+
+/* Pause animation on hover */
+[data-tabs]:hover [data-tabs-autoplay-line] {
+/*  animation-play-state: paused;*/
 }
 
 @keyframes image-in {

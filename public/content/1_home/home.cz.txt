@@ -8,8 +8,13 @@ Hero: [{"content":{"text":"We deliver <br>workspaces <br>that works","level":"h1
 
 Heroslider:
 
+- page://NVWahod5DcLtOlh5
+- page://jGv5KOraCDTVOPmA
+- page://iw5wpXmSaoxIdHjj
+- page://9HLrFqw7JW1oq44n
 - page://4YelEyMbDu0MnevU
 - page://DFrA65LRGEbhv2uf
+- page://X5ZaG3cFKtoi7WTz
 
 ----
 
@@ -26,7 +31,7 @@ Aboutfigures:
   feature: "90"
   label: (+PEOPLE)
 - 
-  feature: "10"
+  feature: "12"
   label: (+YEARS)
 
 ----
@@ -38,14 +43,12 @@ Projects: [{"content":{"text":"Selected Works","level":"h2","mod":"l","hasreveal
 Featuredprojects:
 
 - page://4YelEyMbDu0MnevU
+- page://NVWahod5DcLtOlh5
 - page://DFrA65LRGEbhv2uf
-
-----
-
-Featuredtestimonials:
-
-- page://4YelEyMbDu0MnevU
-- page://DFrA65LRGEbhv2uf
+- page://9HLrFqw7JW1oq44n
+- page://iw5wpXmSaoxIdHjj
+- page://jGv5KOraCDTVOPmA
+- page://X5ZaG3cFKtoi7WTz
 
 ----
 
@@ -121,6 +124,13 @@ Robots-imageindex:
 ----
 
 Robots-snippet: 
+
+----
+
+Featuredtestimonials:
+
+- page://4YelEyMbDu0MnevU
+- page://DFrA65LRGEbhv2uf
 
 ----
 

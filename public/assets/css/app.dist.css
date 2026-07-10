@@ -7215,6 +7215,8 @@
   --reveal-stack: var(--animation-stagger);
   --reveal-delay: 0ms;
   --color-delay: 300ms;
+  --reveal-ty: 0.2em;
+  --reveal-op: 0;
 }
 
 /*
@@ -7300,17 +7302,18 @@
 
 */
 [data-reveal-image] {
-  clip-path: inset(0% 100% 0% 0%);
-  --delay: calc(var(--in-delay, 0ms) + var(--reveal-delay, 0ms));
-  -webkit-transition-property: clip-path;
-  transition-property: clip-path;
-  -webkit-transition-duration: var(--reveal-duration);
-          transition-duration: var(--reveal-duration);
+  /*    clip-path: inset(100% 0% 0% 0%);*/
+  opacity: 0;
+  --delay: calc(var(--in-delay, 0ms) + var(--reveal-delay, 0ms) + 200ms);
+  -webkit-transition-property: opacity, clip-path;
+  transition-property: opacity, clip-path;
+  -webkit-transition-duration: calc(var(--reveal-duration) * 1);
+          transition-duration: calc(var(--reveal-duration) * 1);
   -webkit-transition-delay: var(--delay);
           transition-delay: var(--delay);
   -webkit-transition-timing-function: var(--animation-timing, ease-in-out);
           transition-timing-function: var(--animation-timing, ease-in-out);
-  will-change: clip-path;
+  will-change: opacity, clip-path;
 }
 
 [data-reveal-cover] figure {
@@ -7327,6 +7330,7 @@
 .is-inview[data-reveal-image],
 .is-inview [data-reveal-image] {
   clip-path: inset(0% 0% 0% 0%);
+  opacity: 1;
 }
 
 [data-scroll].is-inview[data-reveal-cover] figure,
@@ -7404,19 +7408,20 @@
 }
 [data-reveal-text]:not([data-hover-reveal]) [data-word] > span {
   display: inline-block;
-  -webkit-transform: translateY(2em) scaleY(0);
-          transform: translateY(2em) scaleY(0);
-  -webkit-transition-property: color, -webkit-transform;
-  transition-property: color, -webkit-transform;
-  transition-property: transform, color;
-  transition-property: transform, color, -webkit-transform;
+  opacity: var(--reveal-op);
+  -webkit-transform: translateY(var(--reveal-ty));
+          transform: translateY(var(--reveal-ty));
+  -webkit-transition-property: opacity, color, -webkit-transform;
+  transition-property: opacity, color, -webkit-transform;
+  transition-property: opacity, transform, color;
+  transition-property: opacity, transform, color, -webkit-transform;
   -webkit-transition-duration: var(--reveal-duration);
           transition-duration: var(--reveal-duration);
-  -webkit-transition-delay: var(--delay), calc(var(--delay) + var(--color-delay));
-          transition-delay: var(--delay), calc(var(--delay) + var(--color-delay));
+  -webkit-transition-delay: var(--delay), var(--delay), calc(var(--delay) + var(--color-delay));
+          transition-delay: var(--delay), var(--delay), calc(var(--delay) + var(--color-delay));
   -webkit-transition-timing-function: var(--animation-timing, ease-in-out);
           transition-timing-function: var(--animation-timing, ease-in-out);
-  will-change: transform, color;
+  will-change: opacity, transform, color;
 }
 [data-reveal-text]:not([data-hover-reveal]) [data-word] > span {
   color: var(--color-acc);
@@ -7435,21 +7440,23 @@
 }
 [data-reveal-text=words]:not([data-hover-reveal]) [data-word] > span {
   display: inline-block;
-  -webkit-transform: translateY(2em) scaleY(0);
-          transform: translateY(2em) scaleY(0);
-  -webkit-transition-property: color, -webkit-transform;
-  transition-property: color, -webkit-transform;
-  transition-property: transform, color;
-  transition-property: transform, color, -webkit-transform;
+  opacity: var(--reveal-op);
+  -webkit-transform: translateY(var(--reveal-ty));
+          transform: translateY(var(--reveal-ty));
+  -webkit-transition-property: opacity, color, -webkit-transform;
+  transition-property: opacity, color, -webkit-transform;
+  transition-property: opacity, transform, color;
+  transition-property: opacity, transform, color, -webkit-transform;
   -webkit-transition-duration: var(--reveal-duration);
           transition-duration: var(--reveal-duration);
-  -webkit-transition-delay: var(--delay), calc(var(--delay) + var(--color-delay));
-          transition-delay: var(--delay), calc(var(--delay) + var(--color-delay));
+  -webkit-transition-delay: var(--delay), var(--delay), calc(var(--delay) + var(--color-delay));
+          transition-delay: var(--delay), var(--delay), calc(var(--delay) + var(--color-delay));
   -webkit-transition-timing-function: var(--animation-timing, ease-in-out);
           transition-timing-function: var(--animation-timing, ease-in-out);
-  will-change: transform, color;
+  will-change: opacity, transform, color;
 }
 [data-reveal-text=words]:not([data-hover-reveal]) [data-word] > span {
+  color: var(--color-acc);
   --delay: calc(var(--word-index) * var(--reveal-stack) + var(--in-delay, 0ms) + var(--reveal-delay, 0ms));
 }
 
@@ -7465,21 +7472,23 @@
 }
 [data-reveal-text=lines]:not([data-hover-reveal]) [data-word] > span {
   display: inline-block;
-  -webkit-transform: translateY(2em) scaleY(0);
-          transform: translateY(2em) scaleY(0);
-  -webkit-transition-property: color, -webkit-transform;
-  transition-property: color, -webkit-transform;
-  transition-property: transform, color;
-  transition-property: transform, color, -webkit-transform;
+  opacity: var(--reveal-op);
+  -webkit-transform: translateY(var(--reveal-ty));
+          transform: translateY(var(--reveal-ty));
+  -webkit-transition-property: opacity, color, -webkit-transform;
+  transition-property: opacity, color, -webkit-transform;
+  transition-property: opacity, transform, color;
+  transition-property: opacity, transform, color, -webkit-transform;
   -webkit-transition-duration: var(--reveal-duration);
           transition-duration: var(--reveal-duration);
-  -webkit-transition-delay: var(--delay), calc(var(--delay) + var(--color-delay));
-          transition-delay: var(--delay), calc(var(--delay) + var(--color-delay));
+  -webkit-transition-delay: var(--delay), var(--delay), calc(var(--delay) + var(--color-delay));
+          transition-delay: var(--delay), var(--delay), calc(var(--delay) + var(--color-delay));
   -webkit-transition-timing-function: var(--animation-timing, ease-in-out);
           transition-timing-function: var(--animation-timing, ease-in-out);
-  will-change: transform, color;
+  will-change: opacity, transform, color;
 }
 [data-reveal-text=lines]:not([data-hover-reveal]) [data-word] > span {
+  color: var(--color-acc);
   --delay: calc(var(--line-index) * var(--reveal-stack) + var(--in-delay, 0ms) + var(--reveal-delay, 0ms));
 }
 
@@ -7496,7 +7505,7 @@
   -webkit-transform: none;
           transform: none;
   color: var(--col);
-  /*    animation: reveal-in var(--reveal-duration) $defaultEasing var(--delay) forwards;*/
+  opacity: 1;
 }
 
 [data-reveal-text-out] {
@@ -7542,19 +7551,20 @@
 [data-hover-reveal][data-reveal-text] [data-word] > span,
 [data-hover-reveal] [data-reveal-text] [data-word] > span {
   display: inline-block;
-  -webkit-transform: translateY(2em) scaleY(0);
-          transform: translateY(2em) scaleY(0);
-  -webkit-transition-property: color, -webkit-transform;
-  transition-property: color, -webkit-transform;
-  transition-property: transform, color;
-  transition-property: transform, color, -webkit-transform;
+  opacity: var(--reveal-op);
+  -webkit-transform: translateY(var(--reveal-ty));
+          transform: translateY(var(--reveal-ty));
+  -webkit-transition-property: opacity, color, -webkit-transform;
+  transition-property: opacity, color, -webkit-transform;
+  transition-property: opacity, transform, color;
+  transition-property: opacity, transform, color, -webkit-transform;
   -webkit-transition-duration: var(--reveal-duration);
           transition-duration: var(--reveal-duration);
-  -webkit-transition-delay: var(--delay), calc(var(--delay) + var(--color-delay));
-          transition-delay: var(--delay), calc(var(--delay) + var(--color-delay));
+  -webkit-transition-delay: var(--delay), var(--delay), calc(var(--delay) + var(--color-delay));
+          transition-delay: var(--delay), var(--delay), calc(var(--delay) + var(--color-delay));
   -webkit-transition-timing-function: var(--animation-timing, ease-in-out);
           transition-timing-function: var(--animation-timing, ease-in-out);
-  will-change: transform, color;
+  will-change: opacity, transform, color;
 }
 
 /* 2. HOVER IN STAV (když na něj najedeš) */
@@ -7571,7 +7581,7 @@
   -webkit-transform: none;
           transform: none;
   color: var(--col);
-  /*    animation: reveal-in var(--reveal-duration) $defaultEasing var(--delay) forwards;*/
+  opacity: 1;
 }
 
 /*
@@ -23716,8 +23726,9 @@ img.no__style {
      object-fit: cover;
   --parallax-speed: calc(var(--speed, 0));
   --height-modifier: calc((var(--progress) - 0.5) * (var(--speed, 0) * -2%));
-  -webkit-transform: translateY(calc((var(--parallax-speed, 10) * -10% + var(--parallax-speed, 10) * 20% * var(--progress) + var(--height-modifier)) * var(--toggle-parallax, 1))) scale(calc(1.1 - 0.1 * var(--progress) * var(--toggle-parallax, 1)));
-          transform: translateY(calc((var(--parallax-speed, 10) * -10% + var(--parallax-speed, 10) * 20% * var(--progress) + var(--height-modifier)) * var(--toggle-parallax, 1))) scale(calc(1.1 - 0.1 * var(--progress) * var(--toggle-parallax, 1)));
+  -webkit-transform: translateY(calc((var(--parallax-speed, 10) * -10% + var(--parallax-speed, 10) * 20% * var(--progress) + var(--height-modifier)) * var(--toggle-parallax, 1)));
+          transform: translateY(calc((var(--parallax-speed, 10) * -10% + var(--parallax-speed, 10) * 20% * var(--progress) + var(--height-modifier)) * var(--toggle-parallax, 1)));
+  /*            scale(calc(1.1 - 0.1 * var(--progress) * var(--toggle-parallax, 1)));*/
   will-change: transform;
 }
 
@@ -23799,15 +23810,111 @@ img.no__style {
   will-change: all;
   clip-path: inset(0% 0% 100% 0%);
 }
-.item.--project [href]:hover .item__figure {
-  clip-path: inset(2% 2% 2% 2%);
+.item.--project .item__hover {
+  -webkit-transition-property: clip-path;
+  transition-property: clip-path;
+  -webkit-transition-duration: 600ms;
+          transition-duration: 600ms;
+  -webkit-transition-delay: var(--animation-delay, 0ms);
+          transition-delay: var(--animation-delay, 0ms);
+  -webkit-transition-timing-function: var(--animation-timing, ease-in-out);
+          transition-timing-function: var(--animation-timing, ease-in-out);
+  will-change: clip-path;
+  /*        pointer-events: none;*/
+  clip-path: inset(100% 0% 0% 100%);
 }
-.item.--project [href]:hover .item__figure figure {
+.item.--project .item__hover [data-reveal-text] {
+  visibility: hidden;
+  -webkit-transition: visibility 0s linear var(--reveal-duration);
+  transition: visibility 0s linear var(--reveal-duration);
+}
+.item.--project .item__hover [data-reveal-text] [data-word] {
+  display: inline-block;
+  vertical-align: bottom;
+  clip-path: inset(-0.2em -0.1em -0.2em -0.1em);
+}
+.item.--project .item__hover [data-reveal-text] [data-word] > span {
+  display: inline-block;
+  opacity: var(--reveal-op);
+  -webkit-transform: translateY(var(--reveal-ty));
+          transform: translateY(var(--reveal-ty));
+  -webkit-transition-property: opacity, color, -webkit-transform;
+  transition-property: opacity, color, -webkit-transform;
+  transition-property: opacity, transform, color;
+  transition-property: opacity, transform, color, -webkit-transform;
+  -webkit-transition-duration: var(--reveal-duration);
+          transition-duration: var(--reveal-duration);
+  -webkit-transition-delay: var(--delay), var(--delay), calc(var(--delay) + var(--color-delay));
+          transition-delay: var(--delay), var(--delay), calc(var(--delay) + var(--color-delay));
+  -webkit-transition-timing-function: var(--animation-timing, ease-in-out);
+          transition-timing-function: var(--animation-timing, ease-in-out);
+  will-change: opacity, transform, color;
+}
+.item.--project .item__hover [data-reveal-text] [data-word] > span {
+  color: var(--color-acc);
+  --delay: calc(var(--line-index) * var(--reveal-stack) + var(--in-delay, 0ms) + var(--reveal-delay, 0ms));
+}
+.item.--project .item__hover [data-reveal-text] {
+  --in-delay: 500ms;
+}
+.item.--project .item__figure {
+  -webkit-transition-property: clip-path;
+  transition-property: clip-path;
+  -webkit-transition-duration: 600ms;
+          transition-duration: 600ms;
+  -webkit-transition-delay: var(--animation-delay, 0ms);
+          transition-delay: var(--animation-delay, 0ms);
+  -webkit-transition-timing-function: var(--animation-timing, ease-in-out);
+          transition-timing-function: var(--animation-timing, ease-in-out);
+  will-change: clip-path;
+  clip-path: inset(0% 0% 0% 0%);
+  clip-path: inset(12.5% 12.5% 12.5% 12.5%);
+}
+.item.--project .item__figure > figure {
+  -webkit-transition-property: -webkit-filter, -webkit-transform;
+  transition-property: -webkit-filter, -webkit-transform;
+  transition-property: filter, transform;
+  transition-property: filter, transform, -webkit-filter, -webkit-transform;
+  -webkit-transition-duration: 600ms;
+          transition-duration: 600ms;
+  -webkit-transition-delay: var(--animation-delay, 0ms);
+          transition-delay: var(--animation-delay, 0ms);
+  -webkit-transition-timing-function: var(--animation-timing, ease-in-out);
+          transition-timing-function: var(--animation-timing, ease-in-out);
+  will-change: filter, transform;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  -webkit-filter: blur(0) brightness(0.8);
+          filter: blur(0) brightness(0.8);
+}
+.item.--project [href]:hover .item__figure {
+  clip-path: inset(0% 0% 0% 0%);
+}
+.item.--project [href]:hover .item__figure > figure {
   -webkit-transform: scale(1.05);
           transform: scale(1.05);
+  -webkit-filter: blur(0) brightness(1);
+          filter: blur(0) brightness(1);
 }
 .item.--project [href]:hover .item__meta {
   clip-path: inset(0% 0% 0% 0%);
+}
+.item.--project:hover .item__hover {
+  -webkit-transition-delay: 400ms;
+          transition-delay: 400ms;
+  clip-path: inset(0% 0% 0% 0%);
+}
+.item.--project:hover .item__hover [data-reveal-text] {
+  visibility: visible;
+  -webkit-transition: visibility 0s linear 0s;
+  transition: visibility 0s linear 0s;
+}
+.item.--project:hover .item__hover [data-reveal-text] [data-word] > [data-char],
+.item.--project:hover .item__hover [data-reveal-text] [data-word] > span {
+  -webkit-transform: none;
+          transform: none;
+  color: var(--col);
+  opacity: 1;
 }
 
 .item.--job [href]:hover .item__figure {
@@ -23828,9 +23935,14 @@ img.no__style {
 [data-carousel-scroll].is-dragged [data-slide] .item.--project .item__figure figure {
   -webkit-transform: scale(0.9);
           transform: scale(0.9);
+  -webkit-filter: blur(0) brightness(1);
+          filter: blur(0) brightness(1);
 }
 [data-carousel-scroll].is-dragged [data-slide] .item.--project .item__meta {
   clip-path: inset(0% 0% 100% 0%);
+}
+[data-carousel-scroll].is-dragged [data-slide] .item.--project .item__hover {
+  clip-path: inset(100% 0% 0% 100%);
 }
 
 /*  
@@ -27479,18 +27591,44 @@ img.no__style {
   /*	overflow: hidden;*/
 }
 
-[data-pane] {
+[data-tabs][data-init] [data-pane] {
   pointer-events: none;
-  /*		visibility: hidden;*/
 }
-[data-pane][data-active] {
+[data-tabs][data-init] [data-pane][data-active] {
   z-index: 1;
   pointer-events: all;
-  /*			visibility: visible;*/
+}
+[data-tabs][data-init] [data-pane]:not([data-active]) {
+  z-index: 0;
 }
 
-[data-tabs=default] [data-pane]:not([data-active]) {
-  /*			display: none;*/
+[data-tabs] [data-pane] [data-reveal-text] {
+  opacity: 0;
+}
+[data-tabs] [data-pane][data-active] [data-reveal-text] {
+  opacity: 1;
+}
+
+[data-tabs=default] [data-pane] {
+  opacity: 0;
+}
+[data-tabs=default] [data-pane][data-active] {
+  opacity: 1;
+}
+
+[data-tabs]:not([data-init]) [data-pane]:first-child [data-reveal-text] {
+  opacity: 1;
+}
+
+[data-tabs=scrollable] [data-pane] {
+  opacity: 0;
+}
+[data-tabs=scrollable] [data-pane][data-active] {
+  opacity: 1;
+}
+
+[data-tabs]:not([data-init]) [data-pane]:not(:first-child) {
+  pointer-events: none;
 }
 
 [data-tab] {
@@ -27511,57 +27649,83 @@ img.no__style {
   position: relative;
 }
 
-[data-tab-reveal] [data-reveal-text] {
+[data-tabs] [data-tab-reveal]:first-child [data-reveal-cover] figure {
+  --p: 1;
+}
+
+[data-tabs][data-init] [data-tab-reveal] [data-reveal-text] {
   visibility: hidden;
   -webkit-transition: visibility 0s linear var(--reveal-duration);
   transition: visibility 0s linear var(--reveal-duration);
 }
-[data-tab-reveal] [data-reveal-text] [data-word] {
+[data-tabs][data-init] [data-tab-reveal] [data-reveal-text] [data-word] {
   display: inline-block;
   vertical-align: bottom;
   clip-path: inset(-0.2em -0.1em -0.2em -0.1em);
 }
-[data-tab-reveal] [data-reveal-text] [data-word] > span {
+[data-tabs][data-init] [data-tab-reveal] [data-reveal-text] [data-word] > span {
   display: inline-block;
-  -webkit-transform: translateY(2em) scaleY(0);
-          transform: translateY(2em) scaleY(0);
-  -webkit-transition-property: color, -webkit-transform;
-  transition-property: color, -webkit-transform;
-  transition-property: transform, color;
-  transition-property: transform, color, -webkit-transform;
+  opacity: var(--reveal-op);
+  -webkit-transform: translateY(var(--reveal-ty));
+          transform: translateY(var(--reveal-ty));
+  -webkit-transition-property: opacity, color, -webkit-transform;
+  transition-property: opacity, color, -webkit-transform;
+  transition-property: opacity, transform, color;
+  transition-property: opacity, transform, color, -webkit-transform;
   -webkit-transition-duration: var(--reveal-duration);
           transition-duration: var(--reveal-duration);
-  -webkit-transition-delay: var(--delay), calc(var(--delay) + var(--color-delay));
-          transition-delay: var(--delay), calc(var(--delay) + var(--color-delay));
+  -webkit-transition-delay: var(--delay), var(--delay), calc(var(--delay) + var(--color-delay));
+          transition-delay: var(--delay), var(--delay), calc(var(--delay) + var(--color-delay));
   -webkit-transition-timing-function: var(--animation-timing, ease-in-out);
           transition-timing-function: var(--animation-timing, ease-in-out);
-  will-change: transform, color;
+  will-change: opacity, transform, color;
 }
-[data-tab-reveal] [data-reveal-image] {
-  visibility: hidden;
+[data-tabs][data-init] [data-tab-reveal] [data-reveal-image] {
+  /*			visibility: hidden;*/
   /*			@include animation(visibility);*/
   /*			clip-path: inset(0% 100% 0% 0%);*/
   /*			transform: translateX(0%);*/
   /*			animation: image-out var(--reveal-duration) var(--animation-timing) both;*/
 }
-[data-tab-reveal] [data-reveal-image] img {
+[data-tabs][data-init] [data-tab-reveal] [data-reveal-image] img {
   /*				transform: translateX(0);*/
 }
+[data-tabs][data-init] [data-tab-reveal] [data-reveal-cover] figure {
+  /*  	--p: 1;*/
+}
+
 /* 2. HOVER IN STAV (když na něj najedeš) */
-[data-tab-reveal][data-active] [data-reveal-text] {
+[data-tabs]:not([data-init]) [data-pane][data-tab-reveal]:first-child [data-reveal-text] {
+  visibility: visible;
+  -webkit-transition: visibility 0s linear 0s;
+  transition: visibility 0s linear 0s;
+}
+[data-tabs]:not([data-init]) [data-pane][data-tab-reveal]:first-child [data-reveal-text] [data-word] > [data-char],
+[data-tabs]:not([data-init]) [data-pane][data-tab-reveal]:first-child [data-reveal-text] [data-word] > span {
+  -webkit-transform: none;
+          transform: none;
+  color: var(--col);
+  opacity: 1;
+}
+[data-tabs]:not([data-init]) [data-pane][data-tab-reveal]:first-child [data-reveal-cover] figure {
+  /*			animation: cover-in var(--reveal-duration) var(--animation-timing) forwards;*/
+  /*			--p: 1;*/
+}
+
+[data-tabs][data-init] [data-tab-reveal][data-active] [data-reveal-text] {
   /*  	--in-delay: 400ms;*/
   visibility: visible;
   -webkit-transition: visibility 0s linear 0s;
   transition: visibility 0s linear 0s;
 }
-[data-tab-reveal][data-active] [data-reveal-text] [data-word] > [data-char],
-[data-tab-reveal][data-active] [data-reveal-text] [data-word] > span {
+[data-tabs][data-init] [data-tab-reveal][data-active] [data-reveal-text] [data-word] > [data-char],
+[data-tabs][data-init] [data-tab-reveal][data-active] [data-reveal-text] [data-word] > span {
   -webkit-transform: none;
           transform: none;
   color: var(--col);
-  /*    animation: reveal-in var(--reveal-duration) $defaultEasing var(--delay) forwards;*/
+  opacity: 1;
 }
-[data-tab-reveal][data-active] [data-reveal-image] {
+[data-tabs][data-init] [data-tab-reveal][data-active] [data-reveal-image] {
   visibility: visible;
   -webkit-transition-property: visibility;
   transition-property: visibility;
@@ -27578,11 +27742,11 @@ img.no__style {
   -webkit-animation-play-state: running;
           animation-play-state: running;
 }
-[data-tab-reveal][data-active] [data-reveal-image] img {
+[data-tabs][data-init] [data-tab-reveal][data-active] [data-reveal-image] img {
   /*				transition: none;*/
   /*				transform: translateX(0);*/
 }
-[data-tab-reveal][data-active] [data-reveal-cover] figure {
+[data-tabs][data-init] [data-tab-reveal][data-active] [data-reveal-cover] figure {
   -webkit-animation: cover-in var(--reveal-duration) var(--animation-timing) forwards;
           animation: cover-in var(--reveal-duration) var(--animation-timing) forwards;
 }
@@ -27598,6 +27762,53 @@ img.no__style {
 }
 [data-tab-reveal].is-closing [data-reveal-cover] figure {
   --p: 1;
+}
+
+[data-tabs-autoplay-line] {
+  --duration: 10s;
+  opacity: 0.8;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  top: -1px;
+  height: 1px;
+  background-color: var(--col);
+  -webkit-transform-origin: left;
+          transform-origin: left;
+  /* Use 'forwards' to stay at end, 'linear' for constant speed */
+  -webkit-animation: autoplay-progress var(--duration) linear infinite;
+          animation: autoplay-progress var(--duration) linear infinite;
+  z-index: 10;
+}
+
+@-webkit-keyframes autoplay-progress {
+  from {
+    -webkit-transform: scaleX(0);
+            transform: scaleX(0);
+    width: 100%;
+  }
+  to {
+    -webkit-transform: scaleX(1);
+            transform: scaleX(1);
+    width: 100%;
+  }
+}
+
+@keyframes autoplay-progress {
+  from {
+    -webkit-transform: scaleX(0);
+            transform: scaleX(0);
+    width: 100%;
+  }
+  to {
+    -webkit-transform: scaleX(1);
+            transform: scaleX(1);
+    width: 100%;
+  }
+}
+/* Pause animation on hover */
+[data-tabs]:hover [data-tabs-autoplay-line] {
+  /*  animation-play-state: paused;*/
 }
 
 @-webkit-keyframes image-in {
@@ -31321,17 +31532,40 @@ section {
 [data-loader-bg] {
   position: absolute;
   inset: 0;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[24];
+  grid-template-columns: repeat(24, 1fr);
   /*    @include animation(transform, 600ms);*/
   /*    transform-origin: center right;*/
   /*    transform: scaleX(1);*/
+}
+[data-loader-bg] div {
+  -webkit-transition-property: background-color, -webkit-transform;
+  transition-property: background-color, -webkit-transform;
+  transition-property: transform, background-color;
+  transition-property: transform, background-color, -webkit-transform;
+  -webkit-transition-duration: 600ms;
+          transition-duration: 600ms;
+  -webkit-transition-delay: var(--animation-delay, 0ms);
+          transition-delay: var(--animation-delay, 0ms);
+  -webkit-transition-timing-function: var(--animation-timing, ease-in-out);
+          transition-timing-function: var(--animation-timing, ease-in-out);
+  will-change: transform, background-color;
+  background-color: var(--color-dark);
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
+  -webkit-transform-origin: top left;
+          transform-origin: top left;
+  -webkit-transition-delay: calc(var(--index) * 10ms);
+          transition-delay: calc(var(--index) * 10ms);
+}
+[data-loader-bg] {
   --items: 1;
   --mask: transparent 0% calc( 4.1666666667% - (var(--p)*(var(--items)*2) - 0.9583333333) * 4.1666666667% ), black calc( 4.1666666667% - (var(--p)*(var(--items)*2) - 0.9583333333) * 4.1666666667% ) 4.1666666667%, transparent 4.1666666667% calc( 8.3333333333% - (var(--p)*(var(--items)*2) - 0.9166666667) * 4.1666666667% ), black calc( 8.3333333333% - (var(--p)*(var(--items)*2) - 0.9166666667) * 4.1666666667% ) 8.3333333333%, transparent 8.3333333333% calc( 12.5% - (var(--p)*(var(--items)*2) - 0.875) * 4.1666666667% ), black calc( 12.5% - (var(--p)*(var(--items)*2) - 0.875) * 4.1666666667% ) 12.5%, transparent 12.5% calc( 16.6666666667% - (var(--p)*(var(--items)*2) - 0.8333333333) * 4.1666666667% ), black calc( 16.6666666667% - (var(--p)*(var(--items)*2) - 0.8333333333) * 4.1666666667% ) 16.6666666667%, transparent 16.6666666667% calc( 20.8333333333% - (var(--p)*(var(--items)*2) - 0.7916666667) * 4.1666666667% ), black calc( 20.8333333333% - (var(--p)*(var(--items)*2) - 0.7916666667) * 4.1666666667% ) 20.8333333333%, transparent 20.8333333333% calc( 25% - (var(--p)*(var(--items)*2) - 0.75) * 4.1666666667% ), black calc( 25% - (var(--p)*(var(--items)*2) - 0.75) * 4.1666666667% ) 25%, transparent 25% calc( 29.1666666667% - (var(--p)*(var(--items)*2) - 0.7083333333) * 4.1666666667% ), black calc( 29.1666666667% - (var(--p)*(var(--items)*2) - 0.7083333333) * 4.1666666667% ) 29.1666666667%, transparent 29.1666666667% calc( 33.3333333333% - (var(--p)*(var(--items)*2) - 0.6666666667) * 4.1666666667% ), black calc( 33.3333333333% - (var(--p)*(var(--items)*2) - 0.6666666667) * 4.1666666667% ) 33.3333333333%, transparent 33.3333333333% calc( 37.5% - (var(--p)*(var(--items)*2) - 0.625) * 4.1666666667% ), black calc( 37.5% - (var(--p)*(var(--items)*2) - 0.625) * 4.1666666667% ) 37.5%, transparent 37.5% calc( 41.6666666667% - (var(--p)*(var(--items)*2) - 0.5833333333) * 4.1666666667% ), black calc( 41.6666666667% - (var(--p)*(var(--items)*2) - 0.5833333333) * 4.1666666667% ) 41.6666666667%, transparent 41.6666666667% calc( 45.8333333333% - (var(--p)*(var(--items)*2) - 0.5416666667) * 4.1666666667% ), black calc( 45.8333333333% - (var(--p)*(var(--items)*2) - 0.5416666667) * 4.1666666667% ) 45.8333333333%, transparent 45.8333333333% calc( 50% - (var(--p)*(var(--items)*2) - 0.5) * 4.1666666667% ), black calc( 50% - (var(--p)*(var(--items)*2) - 0.5) * 4.1666666667% ) 50%, transparent 50% calc( 54.1666666667% - (var(--p)*(var(--items)*2) - 0.4583333333) * 4.1666666667% ), black calc( 54.1666666667% - (var(--p)*(var(--items)*2) - 0.4583333333) * 4.1666666667% ) 54.1666666667%, transparent 54.1666666667% calc( 58.3333333333% - (var(--p)*(var(--items)*2) - 0.4166666667) * 4.1666666667% ), black calc( 58.3333333333% - (var(--p)*(var(--items)*2) - 0.4166666667) * 4.1666666667% ) 58.3333333333%, transparent 58.3333333333% calc( 62.5% - (var(--p)*(var(--items)*2) - 0.375) * 4.1666666667% ), black calc( 62.5% - (var(--p)*(var(--items)*2) - 0.375) * 4.1666666667% ) 62.5%, transparent 62.5% calc( 66.6666666667% - (var(--p)*(var(--items)*2) - 0.3333333333) * 4.1666666667% ), black calc( 66.6666666667% - (var(--p)*(var(--items)*2) - 0.3333333333) * 4.1666666667% ) 66.6666666667%, transparent 66.6666666667% calc( 70.8333333333% - (var(--p)*(var(--items)*2) - 0.2916666667) * 4.1666666667% ), black calc( 70.8333333333% - (var(--p)*(var(--items)*2) - 0.2916666667) * 4.1666666667% ) 70.8333333333%, transparent 70.8333333333% calc( 75% - (var(--p)*(var(--items)*2) - 0.25) * 4.1666666667% ), black calc( 75% - (var(--p)*(var(--items)*2) - 0.25) * 4.1666666667% ) 75%, transparent 75% calc( 79.1666666667% - (var(--p)*(var(--items)*2) - 0.2083333333) * 4.1666666667% ), black calc( 79.1666666667% - (var(--p)*(var(--items)*2) - 0.2083333333) * 4.1666666667% ) 79.1666666667%, transparent 79.1666666667% calc( 83.3333333333% - (var(--p)*(var(--items)*2) - 0.1666666667) * 4.1666666667% ), black calc( 83.3333333333% - (var(--p)*(var(--items)*2) - 0.1666666667) * 4.1666666667% ) 83.3333333333%, transparent 83.3333333333% calc( 87.5% - (var(--p)*(var(--items)*2) - 0.125) * 4.1666666667% ), black calc( 87.5% - (var(--p)*(var(--items)*2) - 0.125) * 4.1666666667% ) 87.5%, transparent 87.5% calc( 91.6666666667% - (var(--p)*(var(--items)*2) - 0.0833333333) * 4.1666666667% ), black calc( 91.6666666667% - (var(--p)*(var(--items)*2) - 0.0833333333) * 4.1666666667% ) 91.6666666667%, transparent 91.6666666667% calc( 95.8333333333% - (var(--p)*(var(--items)*2) - 0.0416666667) * 4.1666666667% ), black calc( 95.8333333333% - (var(--p)*(var(--items)*2) - 0.0416666667) * 4.1666666667% ) 95.8333333333%, transparent 95.8333333333% calc( 100% - (var(--p)*(var(--items)*2) - 0) * 4.1666666667% ), black calc( 100% - (var(--p)*(var(--items)*2) - 0) * 4.1666666667% ) 100%;;
-  -webkit-mask-image: -webkit-gradient(linear, left top, right top, from(var(--mask)));;
-  -webkit-mask-image: linear-gradient(90deg, var(--mask));;
-          mask-image: -webkit-gradient(linear, left top, right top, from(var(--mask)));;
-          mask-image: linear-gradient(90deg, var(--mask));
-  --p: 1;
-  transition: --p var(--reveal-duration) cubic-bezier(0.4, 0, 0.2, 1), background-color var(--reveal-duration) cubic-bezier(0.4, 0, 0.2, 1);
+  /*    mask-image: linear-gradient(90deg, var(--mask));*/
+  /*    --p: 1;*/
+  /*    transition: --p var(--reveal-duration) cubic-bezier(0.4, 0, 0.2, 1), background-color var(--reveal-duration) cubic-bezier(0.4, 0, 0.2, 1);*/
 }
 
 [data-loader-logo] {
@@ -31422,8 +31656,15 @@ html[data-loading] [data-loader] {
 
 html[data-transition] [data-loader-bg] {
   /*    transform: scaleX(0);*/
+  /*    background-color: var(--color-acc);*/
+  /*    --p: 0;*/
+}
+html[data-transition] [data-loader-bg] div {
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
   background-color: var(--color-acc);
-  --p: 0;
+  -webkit-transform-origin: top right;
+          transform-origin: top right;
 }
 html[data-transition] [data-loader-logo] {
   opacity: 0;
@@ -31435,11 +31676,14 @@ html[data-transition] [data-counter] {
 }
 
 html[data-transition-out] [data-loader-bg] {
-  -webkit-transform-origin: center left;
-          transform-origin: center left;
+  /*    transform-origin: center left;*/
+  /*    transform: scaleX(1);*/
+  /*    --p: 1;*/
+  /*    background-color: var(--color-dark);*/
+}
+html[data-transition-out] [data-loader-bg] div {
   -webkit-transform: scaleX(1);
           transform: scaleX(1);
-  --p: 1;
   background-color: var(--color-dark);
 }
 
@@ -35682,10 +35926,11 @@ html body hr {
 
 :root {
   --header-height: 55px;
+  --header-width: calc(50vw + 480px*1.25/2);
 }
 
 [data-header] {
-  z-index: 998;
+  z-index: 1001;
   position: fixed;
   inset: 0;
   pointer-events: none;
@@ -35702,6 +35947,10 @@ html body hr {
   will-change: all;
   backdrop-filter: blur(0rem) brightness(1);
 }
+[data-header] .header__wrapper {
+  width: var(--header-width);
+}
+
 [data-reveal-on-navbar] {
   visibility: hidden;
   -webkit-transition: visibility 0s linear var(--reveal-duration);
@@ -35714,21 +35963,23 @@ html body hr {
 }
 [data-reveal-on-navbar] [data-word] > span {
   display: inline-block;
-  -webkit-transform: translateY(2em) scaleY(0);
-          transform: translateY(2em) scaleY(0);
-  -webkit-transition-property: color, -webkit-transform;
-  transition-property: color, -webkit-transform;
-  transition-property: transform, color;
-  transition-property: transform, color, -webkit-transform;
+  opacity: var(--reveal-op);
+  -webkit-transform: translateY(var(--reveal-ty));
+          transform: translateY(var(--reveal-ty));
+  -webkit-transition-property: opacity, color, -webkit-transform;
+  transition-property: opacity, color, -webkit-transform;
+  transition-property: opacity, transform, color;
+  transition-property: opacity, transform, color, -webkit-transform;
   -webkit-transition-duration: var(--reveal-duration);
           transition-duration: var(--reveal-duration);
-  -webkit-transition-delay: var(--delay), calc(var(--delay) + var(--color-delay));
-          transition-delay: var(--delay), calc(var(--delay) + var(--color-delay));
+  -webkit-transition-delay: var(--delay), var(--delay), calc(var(--delay) + var(--color-delay));
+          transition-delay: var(--delay), var(--delay), calc(var(--delay) + var(--color-delay));
   -webkit-transition-timing-function: var(--animation-timing, ease-in-out);
           transition-timing-function: var(--animation-timing, ease-in-out);
-  will-change: transform, color;
+  will-change: opacity, transform, color;
 }
 [data-reveal-on-navbar] [data-word] > span {
+  color: var(--color-acc);
   --delay: calc(var(--word-index) * var(--reveal-stack) + var(--in-delay, 0ms) + var(--reveal-delay, 0ms));
 }
 
@@ -35742,10 +35993,11 @@ html[navbar-open] [data-reveal-on-navbar] [data-word] > span {
   -webkit-transform: none;
           transform: none;
   color: var(--col);
-  /*    animation: reveal-in var(--reveal-duration) $defaultEasing var(--delay) forwards;*/
+  opacity: 1;
 }
 
 [navbar] {
+  position: relative;
   pointer-events: all;
   -webkit-transition-property: all;
   transition-property: all;
@@ -35756,7 +36008,8 @@ html[navbar-open] [data-reveal-on-navbar] [data-word] > span {
   -webkit-transition-timing-function: var(--animation-timing, ease-in-out);
           transition-timing-function: var(--animation-timing, ease-in-out);
   will-change: all;
-  /*	min-width: $screen-mobile;*/
+  width: calc(480px * 1.25);
+  min-height: var(--header-height);
   /*	height: var(--header-height);*/
 }
 
@@ -35765,8 +36018,8 @@ html[navbar-open] [data-reveal-on-navbar] [data-word] > span {
 }
 
 [navbar-header] {
+  z-index: 1;
   height: var(--header-height);
-  width: 100%;
 }
 
 [navbar-widget] {
@@ -35775,6 +36028,7 @@ html[navbar-open] [data-reveal-on-navbar] [data-word] > span {
   -ms-grid-rows: 0fr;
   grid-template-rows: 0fr;
   contain: paint;
+  pointer-events: none;
   -webkit-transition-property: grid-template-rows;
   transition-property: grid-template-rows;
   transition-property: grid-template-rows, -ms-grid-rows;
@@ -35801,6 +36055,9 @@ html[navbar-open] [data-reveal-on-navbar] [data-word] > span {
   will-change: all;
   visibility: hidden;
 }
+[navbar-widget] [navbar-content] {
+  height: calc(100vh - var(--spacing) * 1);
+}
 [navbar-widget] [navbar-menu] .link:hover {
   opacity: 1;
 }
@@ -35812,7 +36069,8 @@ html[navbar-open] [data-reveal-on-navbar] [data-word] > span {
 }
 
 html[navbar-open] [navbar] {
-  /*		min-width: $screen-tablet;*/
+  width: 50vw;
+  margin-left: calc(var(--header-width) - 50vw);
   --background: var(--color-dark);
   background: var(--background);
 }
@@ -35820,9 +36078,10 @@ html[navbar-open] [data-header] {
   backdrop-filter: blur(1rem) brightness(0.6);
 }
 html[navbar-open] [navbar-widget] {
+  pointer-events: all;
   -ms-grid-rows: 1fr;
   grid-template-rows: 1fr;
-  max-height: calc(100vh - var(--spacing) * 1 - var(--header-height));
+  /*		max-height: calc(100vh - var(--spacing)*1);*/
 }
 html[navbar-open] [navbar-widget] > div {
   visibility: visible;
@@ -52747,6 +53006,125 @@ html.no-scroll body {
   color: var(--color-acc) !important;
 }
 
+/* Container pro celé číslo */
+.carousel-counter {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  overflow: hidden;
+  /* Výška musí odpovídat výšce jednoho řádku vašeho fontu */
+  line-height: 1em;
+  height: 1em;
+  color: var(--color-acc);
+  -webkit-transition: color 2s cubic-bezier(0.16, 1, 0.3, 1) 0.5s;
+  transition: color 2s cubic-bezier(0.16, 1, 0.3, 1) 0.5s;
+}
+
+.is-inview .carousel-counter {
+  color: var(--color-dark);
+}
+
+/* Vertikální pás pro jednu číslici (0-9) */
+.counter-ribbon {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 10em; /* Obsahuje 10 číslic pod sebou */
+  -webkit-transition: -webkit-transform 2s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: -webkit-transform 2s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 2s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 2s cubic-bezier(0.16, 1, 0.3, 1), -webkit-transform 2s cubic-bezier(0.16, 1, 0.3, 1); /* Plynulý a prémiový dojezd */
+}
+
+/* Jednotlivá číslice v pásu */
+.counter-digit {
+  height: 1em;
+  line-height: 1em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+/* Hlavní ořezový kontejner */
+.logo-ticker-container {
+  overflow: hidden;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+/* Pruh, který se bude hýbat */
+.logo-ticker-track {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  -webkit-animation: tickerLoop 25s linear infinite;
+          animation: tickerLoop 25s linear infinite; /* 25s určuje rychlost posunu */
+}
+
+/* Skupina log (jedna sada) */
+.logo-ticker-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  /* Zajistí, že loga budou mít dostatek prostoru a nesrazí se */
+  min-width: 100%;
+}
+
+/* Zajištění fixní nebo flexibilní šířky pro samotná loga uvnitř flexu */
+.logo-ticker-group figure {
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  /* Můžete definovat šířku, pokud SVGs nemají vlastní rozměry, např: width: 160px; */
+}
+
+/* Volitelné: Zastavení animace, pokud na loga uživatel najede myší */
+.logo-ticker-container:hover .logo-ticker-track {
+  /*    animation-play-state: paused;*/
+}
+
+/* Definice nekonečné smyčky */
+@-webkit-keyframes tickerLoop {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+  }
+  100% {
+    /* Posun přesně o polovinu délky tracku (o celou jednu sadu) */
+    -webkit-transform: translate3d(-50%, 0, 0);
+            transform: translate3d(-50%, 0, 0);
+  }
+}
+@keyframes tickerLoop {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+  }
+  100% {
+    /* Posun přesně o polovinu délky tracku (o celou jednu sadu) */
+    -webkit-transform: translate3d(-50%, 0, 0);
+            transform: translate3d(-50%, 0, 0);
+  }
+}
 section.process .item__figure {
   -webkit-transform: scale(calc(0.3 + var(--progress) * 1.4 - max(0, var(--progress) - 0.5) * 2.8));
           transform: scale(calc(0.3 + var(--progress) * 1.4 - max(0, var(--progress) - 0.5) * 2.8));
@@ -52816,8 +53194,8 @@ section.process .item__figure {
 .cta .bg {
   width: 100%;
   height: 100vh;
-  --dist: calc(var(--y) * 50deg);
-  --angle: calc(-1 * var(--x) * 10deg);
+  --dist: calc(var(--y, 0) * 50deg);
+  --angle: calc(-1 * var(--x, 0) * 10deg);
   -webkit-transition-property: all;
   transition-property: all;
   -webkit-transition-duration: var(--animation-duration, 1s);

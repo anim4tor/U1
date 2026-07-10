@@ -10,6 +10,9 @@
   --reveal-stack: var(--animation-stagger);
   --reveal-delay: 0ms;
   --color-delay: 300ms;
+
+  --reveal-ty: 0.2em;
+  --reveal-op: 0;
 }
 
 
@@ -51,9 +54,10 @@
 */
 
 [data-reveal-image] {
-    clip-path: inset(0% 100% 0% 0%);
-    --delay: calc(var(--in-delay, 0ms) + var(--reveal-delay, 0ms));
-    @include animation((clip-path), var(--reveal-duration), (var(--delay)));
+/*    clip-path: inset(100% 0% 0% 0%);*/
+    opacity: 0;
+    --delay: calc(var(--in-delay, 0ms) + var(--reveal-delay, 0ms) + 200ms);
+    @include animation((opacity, clip-path), calc(var(--reveal-duration)*1), (var(--delay)));
 }
 
 [data-reveal-cover] {
@@ -85,6 +89,7 @@
 .is-inview[data-reveal-image], 
 .is-inview [data-reveal-image] {
     clip-path: inset(0% 0% 0% 0%);
+    opacity: 1;
 }
 
 [data-scroll].is-inview[data-reveal-cover] figure, 
@@ -108,11 +113,11 @@
     display: inline-block;
     vertical-align: bottom;
     clip-path: inset(-0.2em -0.1em -0.2em -0.1em);
-    
     & > span {
       display: inline-block;
-      transform: translateY(2em) scaleY(0);
-      @include animation((transform, color), var(--reveal-duration), (var(--delay), calc(var(--delay) + var(--color-delay))));
+      opacity: var(--reveal-op);
+      transform: translateY(var(--reveal-ty));
+      @include animation((opacity, transform, color), var(--reveal-duration), (var(--delay), var(--delay), calc(var(--delay) + var(--color-delay))));
       
     }
   }
@@ -121,12 +126,14 @@
 @mixin reveal-text-line {
   @include reveal-text-setup;
   [data-word] > span {
+    color: var(--color-acc);
     --delay: calc(var(--line-index) * var(--reveal-stack) + var(--in-delay, 0ms) + var(--reveal-delay, 0ms));
   }
 }
 @mixin reveal-text-word {
   @include reveal-text-setup;
   [data-word] > span {
+    color: var(--color-acc);
     --delay: calc(var(--word-index) * var(--reveal-stack) + var(--in-delay, 0ms) + var(--reveal-delay, 0ms)); 
   }
 }
@@ -145,18 +152,10 @@
   [data-word] > span {
     transform: none;
     color: var(--col);
-/*    animation: reveal-in var(--reveal-duration) $defaultEasing var(--delay) forwards;*/
+    opacity: 1;
   }
 }
 
-@mixin text-in {
-  visibility: visible;
-  [data-word] > [data-char],
-  [data-word] > span {
-    transform: none;
-    color: var(--col);
-  }
-}
 @mixin reveal-text-out {
   visibility: hidden;
   [data-word] > [data-char],

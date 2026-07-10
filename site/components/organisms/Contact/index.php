@@ -3,7 +3,7 @@
 		<div style="--in-delay: 1000ms" data-reveal>
 			<button class="button bg__acc " theme="acc" data-contact-toggle >
 				<div icon class="grid__stack color__invert ">
-					<div class="grid"><?= svg('public/assets/images/hand.svg') ?></div>
+					<div class="grid -wrap-l__01"><?= svg('public/assets/images/ui/ui_contact.svg') ?></div>
 				</div>
 				<!-- <label class="upper">Start project</label> -->
 			</button>

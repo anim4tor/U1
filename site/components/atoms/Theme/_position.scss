@@ -30,8 +30,9 @@ $inset: (
   center-right: auto 0% auto auto,
   bottom-stretch: auto 0% 0%,
   bottom-center: auto auto 0% auto,
-  top-stretch: 0% 0% auto,
-  stretch: 0%
+  top-stretch: 0% 0% auto 0%,
+  stretch: 0%,
+  center: auto auto auto auto
 );
 $dirs: ( 
   '': '',

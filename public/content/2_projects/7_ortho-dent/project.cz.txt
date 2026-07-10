@@ -1,0 +1,132 @@
+Title: Ortho Dent
+
+----
+
+Cover: - file://LlqN8H5tVOzIDONC
+
+----
+
+Hero: 
+
+----
+
+Details: <p>Návrh interiéru ortodontické kliniky v&nbsp;Brně čerpá inspiraci z&nbsp;bohaté historie areálu Vlněna, který byl po více než jedno století symbolem brněnského textilního průmyslu. Přestože původní tovární haly ustoupily moderní výstavbě, genius loci tohoto místa nadále přetrvává.</p><p>Interiér kliniky propojuje industriální minulost lokality s&nbsp;precizností a&nbsp;jemností lékařského prostředí. Prvky odkazující na původní tovární architekturu – surové materiály, kovové detaily či barevné akcenty a&nbsp;lehkost inspirované textilem – se prolínají s&nbsp;oblými tvary příček a&nbsp;propracovaným osvětlením, které navozuje pocit klidu a&nbsp;komfortu. Důraz byl kladen na harmonické propojení funkčnosti a&nbsp;estetiky, aby prostor nejen odpovídal vysokým požadavkům zdravotnického provozu, ale zároveň byl příjemný pro pacienty i&nbsp;personál.</p><p>Jedním z&nbsp;dominantních prvků interiéru jsou světla inspirované chomáčky bavlny, odkazující na hlavní materiál zpracovávaný v&nbsp;někdejší továrně. Tento motiv jemně propojuje historický odkaz textilní výroby s&nbsp;požadavkem na vzdušnost a&nbsp;pohodu moderní kliniky. Osvětlení nejen esteticky dotváří prostor, ale zároveň vytváří příjemnou atmosféru, která pomáhá pacientům cítit se uvolněně a&nbsp;bezpečně. Zkrátka jako v&nbsp;bavlnce.</p><p>Interiér vznikl ve spolupráci s&nbsp;HUA HUA Architects.</p>
+
+----
+
+Quote: 
+
+----
+
+Footnote: 
+
+----
+
+Client: Ortho Dent s.r.o.
+
+----
+
+Concept: 
+
+----
+
+Date: 2025-01-01
+
+----
+
+Place: 
+
+----
+
+Industry: Zdravotnictví
+
+----
+
+Space: Recepce, Ordinace
+
+----
+
+Hash: 
+
+----
+
+Gallery:
+
+- file://GpWprqrJlmifB6Rq
+- file://zsZKjCl6FV8ZueTn
+- file://ByUDxx2PibfdFTio
+- file://vuHvMeuekfB12chs
+- file://PTXNImt6iyc3scHI
+- file://04lns7Y5zUp5cAqm
+- file://mdgc64qriIVhiDkT
+- file://PbkGIyKignXxS6Pf
+- file://3u2FuwVbPaDxq5tn
+- file://XjKHQSqwYQUrFYtY
+
+----
+
+Author: 
+
+----
+
+Testimonialquote: <p>Working with this team has been a game-changer for our business. Their attention to detail and ability to deliver high-quality results on schedule is unmatched. I highly recommend them to anyone looking for reliable and professional expertise.</p>
+
+----
+
+Testimonialauthor: 
+
+----
+
+Testimonialposition: 
+
+----
+
+Testimonialimage: - file://UaSLdnGjzm8VdcOF
+
+----
+
+Meta-description: 
+
+----
+
+Meta-title: 
+
+----
+
+Meta-canonical-url: 
+
+----
+
+Og-title: 
+
+----
+
+Og-description: 
+
+----
+
+Og-image: 
+
+----
+
+Robots-index: 
+
+----
+
+Robots-follow: 
+
+----
+
+Robots-archive: 
+
+----
+
+Robots-imageindex: 
+
+----
+
+Robots-snippet: 
+
+----
+
+Uuid: NVWahod5DcLtOlh5

@@ -1,5 +1,9 @@
 <div class="loader grid" data-loader data-scroll>
-	<div data-loader-bg theme="dark"></div>
+	<div data-loader-bg class="">
+		<?php for ($i=0; $i < 24; $i++) : ?>
+			<div style="--index: <?= $i ?>"></div>
+		<?php endfor; ?>
+	</div>
 	<div class="grid place__end-end color__text inner__1 ">
 		<div data-loader-logo class="grid__stack wrap__05">
 			<?= svg('public/assets/images/loader_rhombus.svg') ?>

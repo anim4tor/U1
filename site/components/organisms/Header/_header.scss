@@ -8,12 +8,13 @@
 @import "../../atoms/Theme/border";
 :root {
 	--header-height: 55px;
+	--header-width: calc(50vw + #{$screen-mobile}*1.25/2);
 
 }
 
 
 [data-header] {
-	z-index: 998;
+	z-index: 1001;
 	position: fixed;
 	inset: 0;
 	pointer-events: none;
@@ -27,6 +28,10 @@
 
 	&[collapsed] {
 
+	}
+
+	.header__wrapper {
+		width: var(--header-width);
 	}
 }
 
@@ -42,9 +47,12 @@ html[navbar-open] {
 }
 
 [navbar] {
+	position: relative;
 	pointer-events: all;
 	@include animation;
-/*	min-width: $screen-mobile;*/
+	width: calc(#{$screen-mobile}*1.25);
+	min-height: var(--header-height);
+	
 /*	height: var(--header-height);*/
 }
 	
@@ -52,14 +60,15 @@ html[navbar-open] {
 		cursor: pointer;
 	}
 	[navbar-header] {
+		z-index: 1;
 		height: var(--header-height);
-		width: 100%;
 	}
 
 	[navbar-widget] {
 		display: grid;
 		grid-template-rows: 0fr;
 		contain: paint;
+		pointer-events: none;
 		@include animation(grid-template-rows);
 		transition-duration: calc(var(--animation-duration)*.5);
 
@@ -67,6 +76,10 @@ html[navbar-open] {
 			min-height: 0;
 			@include animation;
 			visibility: hidden;
+		}
+
+		[navbar-content] {
+			height: calc(100vh - var(--spacing)*1);
 		}
 
 		[navbar-menu] .link {
@@ -85,7 +98,8 @@ html[navbar-open] {
 html[navbar-open] {
 
 	[navbar] {
-/*		min-width: $screen-tablet;*/
+		width: 50vw;
+		margin-left: calc(var(--header-width) - 50vw);
 		--background: var(--color-dark);
 		background: var(--background);
 	}
@@ -93,12 +107,14 @@ html[navbar-open] {
 		backdrop-filter: blur(1rem) brightness(0.6);
 	}
 	[navbar-widget] {
+		pointer-events: all;
 		grid-template-rows: 1fr;
-		max-height: calc(100vh - var(--spacing)*1 - var(--header-height));
+/*		max-height: calc(100vh - var(--spacing)*1);*/
 
 		& > div {
 			visibility: visible;
 		}
+
 	}
 }
 
