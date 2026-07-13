@@ -46,6 +46,29 @@
   opacity: 1;
 }
 
+[data-reveal="simple"] {
+  @include animation(transform, opacity, color);
+  visibility: hidden;
+  transition-delay: var(--delay);
+  @for $i from 1 through 12 {
+    &:nth-child(#{$i}) {
+      --delay: calc(var(--in-delay, 0) + #{$i} * 100ms);
+    }
+  }
+  transform: translateY(var(--reveal-ty));
+  opacity: 0;
+  color: var(--color-acc);
+}
+[data-scroll]:not([data-scroll-ignore]).is-inview [data-reveal],
+[data-scroll]:not([data-scroll-ignore]).is-inview[data-reveal],
+[data-scroll][data-scroll-ignore].is-inview [data-tab-reveal][data-active] [data-reveal] {
+  visibility: visible;
+  transform: none;
+  opacity: 1;
+  color: var(--col);
+}
+
+
 
 /*
 
@@ -157,11 +180,13 @@
 }
 
 @mixin reveal-text-out {
-  visibility: hidden;
+  visibility: visible;
+  transition: visibility 0s linear 0s;
   [data-word] > [data-char],
   [data-word] > span {
-    --init-delay : var(--out-delay, 600ms);
-    animation: reveal-out var(--reveal-duration) $defaultEasing calc(var(--delay) + var(--out-delay)) forwards;
+    color: var(--color-acc);
+    opacity: var(--reveal-op);
+    transform: translateY(var(--reveal-ty));
   }
 }
 @keyframes reveal-in {

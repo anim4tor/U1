@@ -53,6 +53,7 @@ class Scroll {
     onScroll(e) {
         // e.direction can be: 1 (down), -1 (up), or 0 (stopped)
         const header = document.querySelector('[data-header]');
+        const fab = document.querySelector('[fab]');
         
         if (!header) return;
 
@@ -63,10 +64,12 @@ class Scroll {
             // Collapse at 100px
             if (e.scroll > 100) {
                 header.setAttribute('collapsed', 'true');
+                fab.setAttribute('collapsed', 'true');
             }
             // Hide at 200px
             if (e.scroll > 200) {
                 header.setAttribute('hide', 'true');
+                fab.setAttribute('hide', 'true');
             }
             
         // 2. Only update when actively moving UP
@@ -75,10 +78,12 @@ class Scroll {
             
             // Reveal header immediately when scrolling up
             header.removeAttribute('hide');
+            fab.removeAttribute('hide');
             
             // Expand header back to normal only when close to the top (under 100px)
             if (e.scroll < 100) {
                 header.removeAttribute('collapsed');
+                fab.removeAttribute('collapsed');
             }
         }
         // If e.direction is 0 (stopped), it safely does nothing, preserving the header's state.

@@ -1,6 +1,6 @@
 <header class="header grid place__start-end inner__05" data-header>
 	<div class="header__wrapper grid place__start-start">
-		<div navbar class="grid  bg__dark/60 color__invert bg__blur img__radius">
+		<div navbar class="grid  bg__dark/60 color__invert bg__blur radius">
 			<div navbar-header data-scroll class="absolute inset__top-stretch grid__3 justify__stretch inner-x__02" >
 				<div class="flex align__center justify__start">
 					

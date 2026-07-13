@@ -1,24 +1,25 @@
 <?php if (collection('Team')->isNotEmpty()) : ?>
 <section class="team" theme="invert" >
-	<div class="relative grid gap__2 inner-x__1 inner-y__2">
+	<div class="relative grid gap__2 inner-x__1 inner-y__1">
 		<div class="" data-scroll>
 			<?= snippet('molecules/Header', ['header' => $page->teams(), 'type' => ['heading']]) ?>
 		</div>
 	</div>
-	<div class="grid__3 gap__2 relative place__start-start inner-y__2 inner-b__5" data-tabs="hoverable">
-		<div class="span__2 grid place__start-start gap__2 inner__1" >
+	<div class="grid__3 gap__2 relative place__start-start inner-b__2" data-tabs="hoverable">
+		<div></div>
+		<div class=" grid place__start-start gap__1 inner__1" >
 			<div class="grid gap__02 place__start-start" >
 				<?php foreach (collection('Team') as $team) : ?>
 					<?php
 						$employees = collection('Employees')->filterBy('team', '*=', $team->name())->count();
 					?>
-					<a href="<?= $pages->find('about')->url() ?>/#<?= $team->name()->slug() ?>" data-tab="team-<?= $team->indexOf(collection('Team')) ?>" class="flex gap__02" data-scroll>
+					<a href="<?= $pages->find('about')->url() ?>/#<?= $team->name()->slug() ?>" data-tab="team-<?= $team->indexOf(collection('Team')) ?>" class="flex gap__02 no__wrap" data-scroll>
 						<h3 class="m" data-reveal-text data-split-ignore><?= $team->name() ?></h3>
 						<div data-reveal-text="" data-split-ignore style="--in-delay: 800ms" class="-wrap-t__01">(<?= $employees ?>)</div>
 					</a>
 				<?php endforeach ?>
 			</div>
-			<div class="grid__2" data-scroll data-scroll-ignore>
+			<div class="grid" data-scroll data-scroll-ignore>
 				<div data-pane-container class="grid__stack">
 					<?php foreach (collection('Team') as $team) : ?>
 					<div data-tab-reveal data-pane="team-<?= $team->indexOf(collection('Team')) ?>" class="grid ">

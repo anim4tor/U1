@@ -25,6 +25,9 @@
     
 }
 
+.project__wrapper:hover {
+    z-index: 1;
+}
 .item.--project {
     .item__meta {
         @include animation;
@@ -41,13 +44,14 @@
         }
     }
     .item__figure {
-        @include animation(clip-path, 600ms);
+        @include animation((transform,clip-path), 600ms);
         clip-path: inset(0% 0% 0% 0%);
-        clip-path: inset(12.5% 12.5% 12.5% 12.5%);
+/*        clip-path: inset(5.0% 5.0% 5.0% 5.0%);*/
+        transform: scale(0.9);
 
         & > figure {
             @include animation((filter,transform), 600ms);
-            transform: scale(1);
+            transform: scale(1.1);
             filter: blur(0) brightness(0.8);
         }
     }
@@ -55,8 +59,9 @@
     [href]:hover {
         .item__figure {
             clip-path: inset(0% 0% 0% 0%);
+            transform: none;
             & > figure {
-                transform: scale(1.05);
+                transform: scale(1);
                 filter: blur(0) brightness(1.0);
             }
         }

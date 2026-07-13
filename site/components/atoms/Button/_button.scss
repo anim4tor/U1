@@ -100,7 +100,7 @@
 	padding: 0.4em 0.75em 0.25em;
 }
 
-[href], button, .button {
+button, .button {
 	@include animation(transform);
 	transition-delay: 0ms;
 	transition-duration: 300ms;
@@ -140,6 +140,9 @@
 		--background: var(--color-dark);
 		--col: var(--color-invert);
 		border-color: transparent;
+		svg path {
+            fill: var(--color-acc);
+        }
 	}
 	&[hover="invert"] {
 		--background: var(--color-invert);

@@ -12,6 +12,7 @@ class Reveal {
             entries.forEach(entry => {
                 const el = entry.target;
                 const shouldRepeat = el.hasAttribute('data-scroll-repeat');
+                const ignore = el.hasAttribute('data-scroll-ignore');
                 const isProgress = el.hasAttribute('data-scroll-progress');
                 const hasText = el.matches('[data-reveal-text]') || el.querySelector('[data-reveal-text]');
 
@@ -20,7 +21,7 @@ class Reveal {
                     if (hasText && !el.classList.contains('is-split')) {
                         this._splitText(el);
                     } else {
-                        el.classList.add('is-inview');
+                        !ignore ? el.classList.add('is-inview') : null;
                     }
 
                     if (isProgress && !this.progressElements.includes(el)) {

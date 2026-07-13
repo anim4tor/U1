@@ -82,3 +82,7 @@ select {
 input[type="file"] {
 	font-size: calc(var(--font-size-md)*1);
 }
+
+label {
+	cursor: inherit;
+}

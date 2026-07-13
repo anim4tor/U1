@@ -74,7 +74,9 @@ Order:
 - 
   label: 6_services
 - 
-  label: 7_teams
+  label: 7_recognition
+- 
+  label: 8_teams
 - 
   label: global/Feed/index
 - 

@@ -72,10 +72,10 @@ $dirs: (
 			@include spacing_scale( ( padding ), spacing, 0, 20 );
 		}
 		.-wrap {
-			@include spacing_scale( ( margin ), spacing, -10, -1 );
+			@include spacing_scale( ( margin ), spacing, -20, -1 );
 		}
 		.-inner {
-			@include spacing_scale( ( padding ), spacing, -10, -1 );
+			@include spacing_scale( ( padding ), spacing, -20, -1 );
 		}
 	} @else {
 		@include create-mq($breakpoint, 'max') {
@@ -86,10 +86,10 @@ $dirs: (
 				@include spacing_scale( ( padding ), spacing, 0, 20 );
 			}
 			.#{$modifier}\:-wrap {
-				@include spacing_scale( ( margin ), spacing, -10, -1 );
+				@include spacing_scale( ( margin ), spacing, -20, -1 );
 			}
 			.#{$modifier}\:-inner {
-				@include spacing_scale( ( padding ), spacing, -10, -1 );
+				@include spacing_scale( ( padding ), spacing, -20, -1 );
 			}
 		}
 	}

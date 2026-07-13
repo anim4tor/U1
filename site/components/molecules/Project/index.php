@@ -2,10 +2,10 @@
 	<a href="<?= $project->url() ?>" class="grid gap__05 relative">	
 		<div class="relative">
 			<?php if ($cover = $project->cover()->toFile()) : ?>
-				<div class="item__figure grid img__radius"><?= snippet('atoms/Image', ['img' => $cover, 'reveal' => true, 'css' => 'vh__'.rand(12,15), 'node' => 'data-reveal-image']) ?></div>
+				<div class="item__figure grid img__radius"><?= snippet('atoms/Image', ['img' => $cover, 'reveal' => true, 'css' => 'vh__'.rand(10,13), 'node' => 'data-reveal-image']) ?></div>
 			<?php endif ?>
 			<?php if ($project->testimonialQuote()->isNotEmpty()) : ?>
-				<div class="absolute item__hover bottom__05 left__8 right__05">
+				<div class="absolute item__hover bottom__05 left__5 right__05">
 					<?= snippet('molecules/Testimonial', compact('project')) ?>
 				</div>
 			<?php endif ?>

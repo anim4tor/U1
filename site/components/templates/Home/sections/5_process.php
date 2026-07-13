@@ -1,1 +1,1 @@
-<?= snippet('templates/globals/Process/alt') ?>
+<?= snippet('templates/globals/Process/cards') ?>

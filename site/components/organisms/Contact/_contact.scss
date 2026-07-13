@@ -10,7 +10,7 @@
 	--booking-width: Max(#{$screen-mobile}, 25vw);
 	--booking-height: calc(100vh - calc(var(--spacing)*2.5));
 	--booking-wider: 60vw;
-	--fab-size: Max(65px, calc(var(--spacing)*2));
+	--fab-size: Max(54px, calc(var(--spacing)*1.75));
 
 	@include xs-screen {
 		--booking-width: 100vw;
@@ -20,30 +20,67 @@
 
 
 [fab] {
-	z-index: 1001;
+	z-index: 1000;
 	display: block;
 	pointer-events: all;
+	cursor: pointer !important;
 
 	button {
 		height: var(--fab-size);
-		width: var(--fab-size);
 		border-radius: var(--fab-size);
-		clip-path: circle(45% at 50% 50%);		 
+		padding: 0;
+		gap: 0;
+/*		clip-path: circle(45% at 50% 50%);		 */
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		@include animation((clip-path, transform), 600ms);
+		@include animation((clip-path, transform, width), 600ms);
 		
 		svg path {
 			fill: var(--color-invert);
 		}
 
+		[icon] {
+			height: var(--fab-size);
+			width: var(--fab-size);
+
+			svg {
+				height: 80%;
+			}
+		}
+
+		label {
+			display: grid;
+			grid-template-columns: 0fr;
+			contain: paint;
+			@include animation(grid-template-columns, 600ms);
+
+			& > div {
+				min-width: 0;
+				opacity: 0;
+				@include animation;
+				transition-timing-function: cubic-bezier(0.190, 1.000, 0.220, 1.000);;
+				visibility: hidden;
+			}
+		}
 		&:hover {
 			transition-timing-function: linear(0, 0.011 1.1%, 0.041 2.2%, 0.161 4.6%, 0.323 6.9%, 0.806 13%, 1.028 16.5%, 1.109 18.2%, 1.171 19.9%, 1.214 21.6%, 1.239 23.3%, 1.248 25.8%, 1.228 28.5%, 1.187 31.2%, 1.059 37.7%, 1.005 40.9%, 0.963 44.5%, 0.942 48.1%, 0.943 53.7%, 0.998 65.9%, 1.014 72.6%, 1);
-			clip-path: circle(50% at 50% 50%);;
+/*			clip-path: circle(50% at 50% 50%);;*/
 		}
 	}
 
+	&:not(&[collapsed]),
+	&:hover {
+		button {
+			label {
+				grid-template-columns: 1fr;
+				& > div {
+					visibility: visible;
+					opacity: 1;
+				}
+			}
+		}
+	}
 
 }
 
@@ -132,7 +169,7 @@
 	    	  --out-delay: calc(var(--delay, 0) + #{$i} * 100ms);
 	    	}
 	    }
-		transform: rotate(-30deg) scale(0);
+		transform: rotate(0deg) scale(0);
 
 		[data-word] {
 		    @include animation((transform, clip-path));
@@ -191,7 +228,7 @@ html[contact-open] {
 	[data-contact-hide] {
 		visibility: hidden;
 		--delay: 0ms;
-		transform: rotate(-30deg) scale(0);
+		transform: rotate(0deg) scale(0);
 	}
 }
 

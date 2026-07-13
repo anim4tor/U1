@@ -6,7 +6,7 @@
 			<h2 class="l" data-reveal-text>Studio</h2>
 		</div>
 		<div class="flex justify__space-between">
-			<div class="grid gap__02 inner-b__3" data-scroll>
+			<div class="grid gap__02 inner-b__1" data-scroll>
 				<h3 data-tab="blog" class="" data-reveal-text>Blog</h3>
 				<h3 data-tab="socials" class="" data-reveal-text>Socials</h3>
 				<h3 data-tab="media" class="" data-reveal-text>Media</h3>
@@ -14,7 +14,7 @@
 		</div>
 	</div>
 	<div data-pane-container >
-		<div class="grid__stack place__start-start">
+		<div class="grid__stack place__start-start inner-b__2">
 			<div data-pane="blog" data-scroll data-scroll-ignore data-tab-reveal>
 				<div data-carousel class="grid gap__1">
 					<div class="flex inner-x__1 gap__02 w__100v justify__end align__end m">
@@ -22,7 +22,7 @@
 						<button data-carousel-next data-reveal-image class="button upper" theme="ghost" hover="invert"><span class="icon"><?= svg('public/assets/images/ui/ui_arrow-right.svg') ?></span></button>
 						<!-- <?= snippet('atoms/Link', ['url' => 'projects', 'label' => 'All projects']) ?> -->
 					</div>
-					<div class="inner-b__5 w__100v" data-carousel-scroll>
+					<div class="w__100v" data-carousel-scroll>
 						<ol class="flex justify__start align__start no__wrap gap__1 inner-x__1 " data-carousel-slides >	
 						<?php foreach (collection('Blog') as $feed) : ?>
 							<li data-slide class="vw__7">	
@@ -40,7 +40,7 @@
 						<button data-carousel-next data-reveal-image class="button upper" theme="ghost" hover="invert"><span class="icon"><?= svg('public/assets/images/ui/ui_arrow-right.svg') ?></span></button>
 						<!-- <?= snippet('atoms/Link', ['url' => 'projects', 'label' => 'All projects']) ?> -->
 					</div>
-					<div class="inner-b__5 w__100v " data-carousel-scroll>
+					<div class="w__100v " data-carousel-scroll>
 						<ol class="flex justify__start align__start no__wrap gap__1 inner-x__1 " data-carousel-slides >	
 						<?php foreach (collection('Projects') as $feed) : ?>
 							<li data-slide class="vw__5 aspect__1/1">	
@@ -58,7 +58,7 @@
 						<button data-carousel-next data-reveal-image class="button upper" theme="ghost" hover="invert"><span class="icon"><?= svg('public/assets/images/ui/ui_arrow-right.svg') ?></span></button>
 						<!-- <?= snippet('atoms/Link', ['url' => 'projects', 'label' => 'All projects']) ?> -->
 					</div>
-					<div class="inner-b__5 w__100v" data-carousel-scroll>
+					<div class="w__100v" data-carousel-scroll>
 						<ol class="flex justify__start align__start no__wrap gap__1 inner-x__1 " data-carousel-slides >	
 						<?php foreach (collection('Projects') as $feed) : ?>
 							<li data-slide class="vw__5 aspect__1/1">	

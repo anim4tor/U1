@@ -2,7 +2,7 @@
 	<div class="grid gap__1">
 		<div class="grid gap__4 place__space-between-start">
 			<div class="grid place__start-stretch gap__1">
-				<p class="quote font__size__5 m ff__heading wrap" data-reveal-text="lines" data-split-ignore>"<?= $project->testimonialQuote()->inline() ?>"</p>
+				<p class="quote font__size__5 ff__heading wrap" data-reveal-text="lines" data-split-ignore>"<?= $project->testimonialQuote()->inline() ?>"</p>
 			</div>
 			<!-- <div class="flex justify__space-between">
 				<div class="s upper " data-reveal-text="lines">David L.</div>
