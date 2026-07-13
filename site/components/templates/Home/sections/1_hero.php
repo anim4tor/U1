@@ -14,7 +14,7 @@
 			<?php endif ?>
 		<?php endforeach ?>
 	</div>
-	<div class="z__1 intro__header grid__4 place__stretch-stretch mobile:grid__1 h__100v intro__rows mobile:h__auto inner__1 mobile:inner-t__10 mobile:gap__2 relative color__invert">
+	<div class="z__1 intro__header grid__4 place__stretch-stretch mobile:grid__1 h__100v intro__rows mobile:h__auto inner__1  mobile:inner-t__10 mobile:gap__2 relative color__invert">
 		<div class="h__1"></div>
 		<div class="span__4 grid__4 place__space-between-stretch">
 			<div class="span__4 grid__4 inner-t__05 relative flex justify__space-between align__start border__top" data-scroll data-scroll-ignore>
@@ -32,7 +32,7 @@
 				</div>
 				<div class="upper s flex justify__end" data-tab-next>(Next)</div>
 			</div>
-			<div class="intro__title relative place__end-stretch span__3 mobile:span__1 inner-y__05" style="--in-delay: 200ms">
+			<div class="intro__title relative place__end-stretch span__3 mobile:span__1 inner-y__05 " style="--in-delay: 200ms">
 				<?= snippet('molecules/Header', ['header' => $page->hero(), 'type' => ['heading']]) ?>
 			</div>
 		</div>

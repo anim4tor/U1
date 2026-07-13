@@ -1,10 +1,10 @@
 <?php if (collection('Team')->isNotEmpty()) : ?>
 <section class="recognition radius" theme="light" >
-	<div class="flex align__center gap__2">
-		<div class="inner-x__1 no__wrap">
+	<div class="flex align__center inner-x__5 gap__2">
+		<div class="no__wrap">
 			<div class="upper op__6">Featured in</div>
 		</div>
-		<div class="logo-ticker-container no__overflow vw__20">
+		<div class="logo-ticker-container">
 			<div class="logo-ticker-track">
 				<div class="logo-ticker-group flex gap__1 innex-x__1 inner-y__1">
 					<figure class="grid place__center-center inner-y__1 op__3"><?= asset('public/assets/images/logo_featured_1.png') ?></figure>

@@ -6,7 +6,7 @@
 <section class="process" <?= $theme ? 'theme="'.$theme.'"' : null ?> >
 	<div class="grid place__end-stretch inner-b__0 relative" >
 		
-		<div class="sticky top__1 grid place__center-stretch gap__2 inner-x__1 inner-y__2">
+		<div class="sticky top__1 grid place__center-stretch gap__2 inner-x__5 inner-y__2">
 			<div class="" data-scroll>
 				<h2 class="font__size__1 flex justify__space-between" data-reveal-text><span>The</span><span>Process</span></h2>
 			</div>

@@ -30,7 +30,7 @@
     --scale-min:               1;
     --scale-fluid:             2;
     --scale:                   1;
-    --spacing:                 max(calc(var(--scale-min) * 1rem),calc(var(--scale-fluid) * 1vw * var(--scale)));
+    --spacing:                 calc(var(--amount, 1) * var(--scale-fluid) * 1vw * var(--scale));
 
     /* ==========================================================================
        GLOBAL INTERACTIVE ANIMATIONS TOKENS

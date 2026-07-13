@@ -69,6 +69,26 @@
     overflow: hidden;
     position: relative;
     display: flex;
+    flex-grow: 1;
+
+    &:before, &:after {
+    	content: '';
+    	display: block;
+    	z-index: 1;
+    	width: 5vw;
+    	position: absolute;
+    	top: 0;
+    	bottom: 0;
+    }
+    &:before {
+    	left: 0;
+    	background: linear-gradient(to right, var(--background), transparent);
+    }
+    &:after {
+    	right: 0;
+    	background: linear-gradient(to left, var(--background), transparent);
+
+    }
 }
 
 /* Pruh, který se bude hýbat */
@@ -125,4 +145,13 @@ section.process {
 		opacity: 1;
 		transform: scale(1);
 	}
+}
+
+section {
+	max-width: 2200px;
+	margin: 0 auto;
+}
+
+.container {
+	
 }

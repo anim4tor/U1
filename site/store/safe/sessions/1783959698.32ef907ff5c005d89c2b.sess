@@ -1,2 +1,2 @@
-6fb59c5e6df87ddfbeb6f1c0d91b0c7f1496dec901e82b3cb5f1314b9bd35be4
-a:7:{s:9:"startTime";i:1783930714;s:10:"expiryTime";i:1783959698;s:8:"duration";i:7200;s:7:"timeout";i:1800;s:12:"lastActivity";i:1783954364;s:9:"renewable";b:1;s:4:"data";a:3:{s:10:"kirby.csrf";s:64:"8857f2cc1ebecc2cd92c89ddcb4ef0a919e1f3408c02be8861e3a74e93d3eabf";s:12:"kirby.userId";s:8:"OEsEPH4K";s:20:"kirby.loginTimestamp";i:1783931614;}}
+c232863b2d8fcff12573029c2a7917206d76504c9a27e58603bc29aa87476154
+a:4:{s:9:"startTime";i:1783930714;s:10:"expiryTime";i:1783956188;s:10:"newSession";s:31:"1783963358.23f9b4e60b8daea80859";s:13:"newSessionKey";s:237:"{"mode":"secretbox","data":"ZuIF673JxBx14KWm0uBCpsSiGJwyUILlTFz2bdOMD3s4N3FRF81AaaMBdDx7UG2QKZkTywzpwRNgOhMEFtG6iMd7KrmfF/rcyo7DNHnZHs4=","nonce":"eoNdrvxRVe+88T1w8x/Pm1y13NCWE5OV","salt":"78w7v3AqpkdkarlUUJ3j2A==","limits":[2,67108864]}";}

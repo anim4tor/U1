@@ -22,17 +22,17 @@
        ========================================================================== */
     --type-scale:              1.618;
     --type-start-rem:          0.75rem;
-    --type-start-vw:           1vw;
+    --type-start-vw:           0.85vw;
     --base-line-height:        1.1;
     --body-scale:              1.222;
-    --body-start-rem:          0.7rem;
-    --body-start-vw:           0.65vw;
+    --body-start-rem:          0.6rem;
+    --body-start-vw:           0.7vw;
     --base-body-line-height:   1.3;
 
     /* ==========================================================================
        LAYOUT PADDING & GRID SPACING TOKENS
        ========================================================================== */
-    --scale-min:               1;
+    --scale-min:               0.95;
     --scale-fluid:             1.5;
     --scale:                   1;
     --spacing:                 max(calc(var(--scale-min) * 1rem),calc(var(--scale-fluid) * 1vw * var(--scale)));

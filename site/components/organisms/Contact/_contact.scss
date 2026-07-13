@@ -7,10 +7,10 @@
 @import "../../atoms/Animation/animation";
 @import "../../atoms/Theme/border";
 :root {
-	--booking-width: Max(#{$screen-mobile}, 25vw);
+	--booking-width: Max(#{$screen-mobile*0.75}, 20vw);
 	--booking-height: calc(100vh - calc(var(--spacing)*2.5));
-	--booking-wider: 60vw;
-	--fab-size: Max(54px, calc(var(--spacing)*1.75));
+	--booking-wider: 40vw;
+	--fab-size: Max(var(--header-height), calc(var(--spacing)*1.75));
 
 	@include xs-screen {
 		--booking-width: 100vw;

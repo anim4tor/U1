@@ -1,6 +1,6 @@
 <div class="flex gap__1 inner-x__1 inner-y__1 ">
 	<div class="grid gap__1 place__center-start">
-		<h3 class="font__size__4  wrap ">You didn't find a suitable position? <span class="color__acc">Send us your CV.</span></h3>
+		<h3 class="s wrap ">You didn't find a suitable position? <span class="color__acc">Send us your CV.</span></h3>
 	</div>
 </div>
 <form class="grid__2 gap__05 inner-x__1 inner__1 border__top">
