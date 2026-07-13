@@ -4,9 +4,9 @@
 		<div class="bg radius absolute inset__stretch" >
 			<!-- <?= asset('public/assets/images/cta_bg.png') ?> -->
 		</div>
-		<div class="relative grid__4 gap__1 mobile:grid__1 inner-x__5 inner-y__1">
+		<div class="relative grid__4 gap__1 mobile:grid__1 inner-x__5 inner-y__2 inner-t__5">
 			<div class="span__4 flex justify__space-between align__end gap__3 color__invert">
-				<div class="inner-b__3">
+				<div class="inner-b__0">
 					<?= snippet('molecules/Header', ['header' => $site->ctaContact(), 'type' => ['heading']]) ?>
 				</div>
 				<div class="flex justify__end">

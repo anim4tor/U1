@@ -13,7 +13,7 @@
     --ls-heading:              -0.035em;
     --ff-body:                 'Inter';
     --fw-body:                 500;
-    --tt-body:                 uppercase;
+    --tt-body:                 none;
     --ls-body:                 -0.035em;
     --ff-mono:                 'Inter';
 
@@ -25,7 +25,7 @@
     --type-start-vw:           0.85vw;
     --base-line-height:        1.1;
     --body-scale:              1.222;
-    --body-start-rem:          0.6rem;
+    --body-start-rem:          0.7rem;
     --body-start-vw:           0.7vw;
     --base-body-line-height:   1.3;
 
