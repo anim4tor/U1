@@ -1,7 +1,7 @@
 <?php if (collection('Solutions')->isNotEmpty()) : ?>
 <section class="solutions color__invert" data-tabs="hoverable">
 	<div class="bg radius absolute inset__stretch" theme="dark"></div>
-	<div class="grid__3  mobile:grid__1 mobile:inner-t__10 mobile:gap__2 relative inner-x__5 inner-b__3" >
+	<div class="grid__3  mobile:grid__1 mobile:inner-t__10 mobile:gap__2 relative inner-x__1 inner-b__3" >
 		<div class="span__2 inner-y__2" data-scroll>
 			<?= snippet('molecules/Header', ['header' => $page->services(), 'type' => ['heading']]) ?>
 		</div>

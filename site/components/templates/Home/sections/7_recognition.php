@@ -1,6 +1,6 @@
 <?php if (collection('Team')->isNotEmpty()) : ?>
 <section class="recognition radius" theme="light" >
-	<div class="flex align__center inner-x__5 gap__2">
+	<div class="flex align__center inner-x__1 gap__2">
 		<div class="no__wrap">
 			<div class="upper op__6">Featured in</div>
 		</div>

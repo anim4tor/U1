@@ -1,11 +1,11 @@
 <?php if (collection('Team')->isNotEmpty()) : ?>
 <section class="team" theme="invert" >
-	<div class="relative grid gap__2 inner-x__5 inner-y__1">
+	<div class="relative grid gap__2 inner-x__1 inner-y__1">
 		<div class="" data-scroll>
 			<?= snippet('molecules/Header', ['header' => $page->teams(), 'type' => ['heading']]) ?>
 		</div>
 	</div>
-	<div class="grid__3 gap__2 relative place__start-start inner-b__2 inner-x__5" data-tabs="hoverable">
+	<div class="grid__3 gap__2 relative place__start-start inner-b__2 inner-x__1" data-tabs="hoverable">
 		<!-- <div></div> -->
 		<div class="span__2 grid place__start-start gap__1 inner-y__1" >
 			<div class="grid gap__02 place__start-start" >

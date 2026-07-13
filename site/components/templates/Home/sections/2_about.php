@@ -1,6 +1,6 @@
 <?php if ($page->about()->isNotEmpty()) : ?>
 <section class="about" theme="invert">
-	<div class="grid__3 gap__2 mobile:grid__1 inner__1 inner-x__5 mobile:inner-x__1 inner-y__2">
+	<div class="grid__3 gap__2 mobile:grid__1 inner__1 inner-x__1 mobile:inner-x__1 inner-y__2">
 		<div class="span__2 grid place__start-start gap__3 mobile:inner-x__0 s">
 			<?= snippet('molecules/Header', ['header' => $page->about(), 'type' => ['heading']]) ?>
 		</div>
