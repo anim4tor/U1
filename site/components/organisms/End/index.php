@@ -9,4 +9,4 @@
 <!-- <script src="/public/assets/js/app.dist.js"></script> -->
 
 <!-- Local js -->
-<?= js('site/components/templates/'.ucwords($page).'/index.js'); ?>
+<?= js('site/components/templates/'.ucwords($page->intendedTemplate()).'/index.js'); ?>
