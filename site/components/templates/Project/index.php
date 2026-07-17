@@ -1,6 +1,13 @@
+<?php
+	$usedImages = [];
+?>
+
 <section class="intro radius" theme="acc" style="--in-delay: 500ms">
 	<?php if ($cover = $page->cover()->toFile()) : ?>
-	<div class="intro__cover absolute inset__stretch grid" data-scroll ><?= snippet('atoms/Image', ['img' => $cover, 'parallax' => 2, 'reveal' => false, 'css' => 'overlay__bottom']) ?></div>
+		<div class="intro__cover absolute inset__stretch grid" data-scroll >
+			<?= snippet('atoms/Image', ['img' => $cover, 'parallax' => 2, 'reveal' => false, 'css' => 'overlay__bottom']) ?>
+			<?php $usedImages[] = $cover?->id(); ?>
+		</div>
 	<?php endif ?>
 	<div data-scroll class="z__1 intro__header place__stretch-stretch grid__4 mobile:grid__1 h__100v intro__rows mobile:h__auto inner__1 mobile:inner-t__10 mobile:gap__2 relative color__invert">
 		<div class="h__1"></div>
@@ -18,8 +25,6 @@
 						</h1>
 					</div>
 					<div class="span__2 grid__2 gap__2 relative place__end-stretch mobile:span__1 inner-y__05" style="--in-delay: 500ms">
-						<!-- <div data-reveal-text="lines" class="upper s"><?= $page->client() ?></div> -->
-						<!-- <div data-reveal-text="lines" class="upper s"><?= $page->space() ?></div> -->
 						<div data-reveal-text="lines" class="upper s"><?= $page->date()->toDate('Y') ?></div>
 						<div data-reveal-text="lines" class="upper s"><?= $page->place() ?></div>
 					</div>
@@ -44,6 +49,7 @@
 				'place' => 'Locality',
 				'industry' => 'Industry',
 				'space' => 'Space',
+				'production' => 'Production',
 				'size' => 'Size',
 				'team' => 'Realizace',
 				'collabs' => 'Collaborations',
@@ -65,22 +71,24 @@
 	</div>
 </section>
 
-
 <?php if ($page->before()->isNotEmpty() && $page->after()->isNotEmpty()): ?>
+<?php
+	$before = $page->before()->toFile();
+	$after = $page->after()->toFile(); 
+?>
 <section>
 	<div class="grid inner-x__1" data-scroll>
 		<div class="before-after-container vh__20 img__radius" style="--position: 41.75%;">
-		  <!-- "Before" image gets clipped based on the slider position -->
 		  <div class="image-container before-image">
-		  	<?= snippet('atoms/Image', ['img' => $page->before()->toFile(), 'parallax' => 2, 'reveal' => false, 'css' => 'vh__20']) ?>
+		  	<?= snippet('atoms/Image', ['img' => $before, 'parallax' => 2, 'reveal' => false, 'css' => 'vh__20']) ?>
+		  	<?php $usedImages[] = $before?->id(); ?>
 		  </div>
 
-		  <!-- "After" image sits comfortably in the background -->
 		  <div class="image-container after-image">
-		  	<?= snippet('atoms/Image', ['img' => $page->after()->toFile(), 'parallax' => 2, 'reveal' => false, 'css' => 'vh__20']) ?>
+		  	<?= snippet('atoms/Image', ['img' => $after, 'parallax' => 2, 'reveal' => false, 'css' => 'vh__20']) ?>
+		  	<?php $usedImages[] = $after?->id(); ?>
 		  </div>
 
-		  <!-- Real-time HTML range slider overlay -->
 		  <input 
 		    type="range" 
 		    min="0" 
@@ -89,13 +97,11 @@
 		    class="slider-input" 
 		    aria-label="Before/after percentage slider"
 		  >
-		  <!-- Visual slider line/bar separating both images -->
 		  <div class="slider-line" aria-hidden="true"></div>
 		</div>
 		<script type="text/javascript">
 			document.querySelectorAll('.before-after-container').forEach(container => {
 			  const slider = container.querySelector('.slider-input');
-			  
 			  slider.addEventListener('input', (e) => {
 			    container.style.setProperty('--position', `${e.target.value}%`);
 			  });
@@ -108,15 +114,34 @@
 <section class="details" theme="invert">
 	<div data-scroll class="place__stretch-stretch grid gap__2 inner-x__1 inner-t__2 inner-b__2">
 		<?= snippet('molecules/Blocks', [ 'blocks' => $page->details()->toBlocks() ])?>
+		<?php foreach ($page->details()->toBlocks() as $block) {
+		    if ($block->type() === 'image' && $blockImg = $block->image()->toFile()) {
+		        $usedImages[] = $blockImg?->id();
+		    }
+		    if ($block->type() === 'gallery') {
+		        foreach ($block->images()->toFiles() as $galleryImg) {
+		        	$usedImages[] = $galleryImg?->id();
+		        }
+		    }
+		} ?>
 	</div>
 </section>
 
 <?php if($page->password()->isNotEmpty()) : ?>
-<!-- 1. If unlocked, securely show the extra content -->
 <?php if ($extras === true): ?>
   <section class="unlocked-container">
   	<div data-scroll class="place__stretch-stretch grid gap__2 inner-x__1 inner-t__2 inner-b__5">
 		<?= snippet('molecules/Blocks', [ 'blocks' => $page->extras()->toBlocks() ])?>
+		<?php foreach ($page->extras()->toBlocks() as $block) {
+		    if ($block->type() === 'image' && $blockImg = $block->image()->toFile()) {
+		        $usedImages[] = $blockImg?->id();
+		    }
+		    if ($block->type() === 'gallery') {
+		        foreach ($block->images()->toFiles() as $galleryImg) {
+		        	$usedImages[] = $galleryImg?->id();
+		        }
+		    }
+		} ?>
 	</div>
   </section>
 <?php endif; ?>
@@ -130,12 +155,18 @@
     <script>alert("<?= esc($unlockError) ?>");</script>
   <?php endif; ?>
 <?php endif; ?>
-
 <?php endif; ?>
 
 <section class="gallery" theme="invert">
 	<div class="grid__2 gap__1 inner__1 inner-b__3">
-		<?php foreach ($page->gallery()->toFiles() as $image) : ?>
+		<?php
+			// Safely filter out already used images by converting the flat string array
+			// var_dump($usedImages);
+			$usedImages = array_values(array_filter(array_unique($usedImages)));
+			$gallery = $page->gallery()->toFiles()->not($usedImages);
+			// var_dump($gallery);
+		?>
+		<?php foreach ($gallery as $image) : ?>
 			<?php if($image->orientation() == "landscape") : ?>
 				<div class="grid span__2 inner__0" data-scroll ><?= snippet('atoms/Image', ['img' => $image, 'parallax' => 2, 'css' => 'aspect__16/9']) ?></div>
 			<?php else : ?>
@@ -149,7 +180,7 @@
 <section class="projects radius" theme="light" >
 	<div class="grid__3 gap__1 mobile:grid__1 inner-b__3 mobile:inner-x__1 " data-carousel>
 		<div data-scroll class="span__2 inner-x__1 inner-t__2 inner-b__">
-			<h2 class="l">Similar projects</h2>
+			<h2 class="">Similar projects</h2>
 		</div>
 		<div class="flex gap__02 justify__end align__end inner-x__1 m">
 			<button data-carousel-prev class="button upper" theme="ghost" hover="dark"><span class="icon"><?= svg('public/assets/images/ui/ui_arrow-left.svg') ?></span></button>
@@ -174,7 +205,6 @@
 <?php endif ?>
 
 <?php $next = $page->nextListed() ?? collection('Projects')->first(); ?>
-
 <?php if ($next) : ?>
 <section class="intro radius" theme="invert" >
 	<div data-scroll class="z__1 intro__header place__stretch-stretch grid__4 mobile:grid__1 h__100v intro__rows mobile:h__auto inner__1 mobile:inner-t__10 mobile:gap__2 relative ">

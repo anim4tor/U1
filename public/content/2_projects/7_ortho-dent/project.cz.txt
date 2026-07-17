@@ -6,11 +6,19 @@ Cover: - file://LlqN8H5tVOzIDONC
 
 ----
 
-Hero: 
+Intro: <p>Návrh interiéru ortodontické kliniky v&nbsp;Brně čerpá inspiraci z&nbsp;bohaté historie areálu Vlněna, který byl po více než jedno století symbolem brněnského textilního průmyslu. Přestože původní tovární haly ustoupily moderní výstavbě, genius loci tohoto místa nadále přetrvává.</p>
 
 ----
 
-Details: <p>Návrh interiéru ortodontické kliniky v&nbsp;Brně čerpá inspiraci z&nbsp;bohaté historie areálu Vlněna, který byl po více než jedno století symbolem brněnského textilního průmyslu. Přestože původní tovární haly ustoupily moderní výstavbě, genius loci tohoto místa nadále přetrvává.</p><p>Interiér kliniky propojuje industriální minulost lokality s&nbsp;precizností a&nbsp;jemností lékařského prostředí. Prvky odkazující na původní tovární architekturu – surové materiály, kovové detaily či barevné akcenty a&nbsp;lehkost inspirované textilem – se prolínají s&nbsp;oblými tvary příček a&nbsp;propracovaným osvětlením, které navozuje pocit klidu a&nbsp;komfortu. Důraz byl kladen na harmonické propojení funkčnosti a&nbsp;estetiky, aby prostor nejen odpovídal vysokým požadavkům zdravotnického provozu, ale zároveň byl příjemný pro pacienty i&nbsp;personál.</p><p>Jedním z&nbsp;dominantních prvků interiéru jsou světla inspirované chomáčky bavlny, odkazující na hlavní materiál zpracovávaný v&nbsp;někdejší továrně. Tento motiv jemně propojuje historický odkaz textilní výroby s&nbsp;požadavkem na vzdušnost a&nbsp;pohodu moderní kliniky. Osvětlení nejen esteticky dotváří prostor, ale zároveň vytváří příjemnou atmosféru, která pomáhá pacientům cítit se uvolněně a&nbsp;bezpečně. Zkrátka jako v&nbsp;bavlnce.</p><p>Interiér vznikl ve spolupráci s&nbsp;HUA HUA Architects.</p>
+Details: [{"content":{"text":"Interiér kliniky propojuje industriální minulost lokality s&nbsp;precizností a&nbsp;jemností lékařského prostředí.","level":"h2","mod":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"2e7c6e6c-44ce-4283-bce3-73cff8477407","isHidden":false,"type":"heading"},{"content":{"text":"Prvky odkazující na původní tovární architekturu – surové materiály, kovové detaily či barevné akcenty a&nbsp;lehkost inspirované textilem – se prolínají s&nbsp;oblými tvary příček a&nbsp;propracovaným osvětlením, které navozuje pocit klidu a&nbsp;komfortu.","mod":"","face":"","case":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"cd688638-9092-4c75-b0c6-9a267b061794","isHidden":false,"type":"text"},{"content":{"images":["file://zsZKjCl6FV8ZueTn","file://ByUDxx2PibfdFTio"],"caption":"","ratio":"","crop":"false"},"id":"e5a90c64-fdfe-4e67-873f-63294515f04f","isHidden":false,"type":"gallery"},{"content":{"text":"Harmonické propojení funkčnosti a&nbsp;estetiky.","level":"h2","mod":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"428b6cdc-d1e9-41d2-991a-017bfcb578a1","isHidden":false,"type":"heading"},{"content":{"text":"Důraz byl kladen na harmonické propojení funkčnosti a&nbsp;estetiky, aby prostor nejen odpovídal vysokým požadavkům zdravotnického provozu, ale zároveň byl příjemný pro pacienty i&nbsp;personál.Jedním z&nbsp;dominantních prvků interiéru jsou světla inspirované chomáčky bavlny, odkazující na hlavní materiál zpracovávaný v&nbsp;někdejší továrně. Tento motiv jemně propojuje historický odkaz textilní výroby s&nbsp;požadavkem na vzdušnost a&nbsp;pohodu moderní kliniky. Osvětlení nejen esteticky dotváří prostor, ale zároveň vytváří příjemnou atmosféru, která pomáhá pacientům cítit se uvolněně a&nbsp;bezpečně. Zkrátka jako v&nbsp;bavlnce.Interiér vznikl ve spolupráci s&nbsp;HUA HUA Architects.","mod":"","face":"","case":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"0567c02c-e4b0-4dce-8dd6-cabb1b4bf9fb","isHidden":false,"type":"text"}]
+
+----
+
+Before: - file://PbkGIyKignXxS6Pf
+
+----
+
+After: - file://04lns7Y5zUp5cAqm
 
 ----
 
@@ -18,15 +26,7 @@ Quote:
 
 ----
 
-Footnote: 
-
-----
-
 Client: Ortho Dent s.r.o.
-
-----
-
-Concept: 
 
 ----
 
@@ -46,7 +46,27 @@ Space: Recepce, Ordinace
 
 ----
 
+Size: 
+
+----
+
 Hash: 
+
+----
+
+Team: 
+
+----
+
+Concept: 
+
+----
+
+Photo: 
+
+----
+
+Collabs: HUA HUA Architects
 
 ----
 
@@ -65,10 +85,6 @@ Gallery:
 
 ----
 
-Author: 
-
-----
-
 Testimonialquote: <p>Working with this team has been a game-changer for our business. Their attention to detail and ability to deliver high-quality results on schedule is unmatched. I highly recommend them to anyone looking for reliable and professional expertise.</p>
 
 ----
@@ -82,6 +98,14 @@ Testimonialposition:
 ----
 
 Testimonialimage: - file://UaSLdnGjzm8VdcOF
+
+----
+
+Extras: 
+
+----
+
+Password: 
 
 ----
 
@@ -126,6 +150,18 @@ Robots-imageindex:
 ----
 
 Robots-snippet: 
+
+----
+
+Hero: 
+
+----
+
+Footnote: 
+
+----
+
+Author: 
 
 ----
 

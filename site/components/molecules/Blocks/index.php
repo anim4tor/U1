@@ -3,11 +3,12 @@ $inGroup = false;
 foreach ($blocks as $block): 
     $isLast = $block->isLast();
     $isImage = ($block->type() == 'image');
-    $isNewHeading = ($block->type() == 'heading' && in_array($block->level(), ['h2', 'h3']));
+    $isGallery = ($block->type() == 'gallery');
+    $isNewHeading = ($block->type() == 'line' || $block->type() == 'heading' && in_array($block->level(), ['h2']));
 
     // --- STEP 1: MANAGE WRAPPERS ---
     // If we hit an image OR a new heading, close any active open group first
-    if ($inGroup && ($isImage || $isNewHeading)):
+    if ($inGroup && ($isGallery || $isImage || $isNewHeading)):
         echo '</div></div></div>'; // Your preferred closing tags
         $inGroup = false;
     endif;
@@ -35,13 +36,24 @@ foreach ($blocks as $block):
             endif;
         endif;
 
+    elseif ($isGallery):
+		// 1. Safely retrieve the file object from the block
+		if ($images = $block->images()->toFiles()): ?>
+		  <div class="grid__<?= $images->count() ?> gap__1 span__2 inner-y__1">
+		    <?php foreach ($images as $image): ?>
+		     	<?= snippet('atoms/Image', ['img' => $image, 'parallax' => 2, 'css' => 'aspect__3/4']) ?>
+		    <?php endforeach; ?>
+		  </div>
+		<?php endif;
+
     elseif ($isNewHeading):
+
         // Start a fresh, clean grid section wrapper
         $inGroup = true;
         ?>
-        <div id="<?= Str::slug($block->text()->inline()) ?>" class="span__2 grid inner-y__1 gap__2 border__top" data-scroll>	
+        <div class="span__2 grid inner-y__1 gap__2 border__top" data-scroll>	
             <div class="grid__2">
-                <h3 class="font__size__2 " data-reveal-text><?= $block->text() ?></h3>
+                <?= $block ?> 
             </div>
             <div class="grid grid__post gap__2 ">
             	<div></div>
@@ -57,7 +69,7 @@ foreach ($blocks as $block):
         endif;
         ?>
         <div class="upper" data-reveal-text="lines">
-            <?php snippet('blocks/' . $block->type(), ['block' => $block]) ?>
+            <?= $block ?> 
         </div>
         <?php 
     endif;

@@ -2,15 +2,23 @@ Title: FCC
 
 ----
 
-Cover: - file://r7lGz0QoQejuxEQ1
+Cover: - file://JcPzVnMDGrai9HJJ
 
 ----
 
-Hero: 
+Intro: <p>Dokončili jsme realizaci kancelářských prostor pro FCC provozovnu v&nbsp;Brně. Cílem bylo vytvořit interiér, který odpovídá každodennímu provozu společnosti působící v&nbsp;oblasti odpadového hospodářství, a&nbsp;zároveň posouvá kvalitu pracovního prostředí.   </p>
 
 ----
 
-Details: <p><strong>Dokončili jsme realizaci kancelářských prostor pro FCC provozovnu v&nbsp;Brně.</strong></p><p>Cílem bylo vytvořit interiér, který odpovídá každodennímu provozu společnosti působící v&nbsp;oblasti odpadového hospodářství, a&nbsp;zároveň posouvá kvalitu pracovního prostředí. Recepce, zasedací místnosti, kanceláře i&nbsp;zázemí (toalety a&nbsp;kuchyňka) dohromady tvoří jeden kompaktní a&nbsp;srozumitelný celek.</p><p><strong>Realizaci jsme postavili na dvou rovinách</strong></p><p>Provozní hledisko</p><p>Recepce vytváří první kontakt s&nbsp;návštěvníky, zasedací místnosti zvládají běžné porady i&nbsp;větší jednání. Posuvné příčky od Likos International umožňují prostor podle potřeby rozdělit nebo propojit. Materiály jsou vybrané s&nbsp;ohledem na dlouhodobou zátěž a&nbsp;každodenní používání.</p><p>Prostředí</p><p>Nové kanceláře nabízejí zaměstnancům lepší zázemí pro každodenní práci. Důraz je kladený na přirozenou orientaci v&nbsp;prostoru, klidnou atmosféru a&nbsp;čistý detail, který drží kvalitu i&nbsp;po měsících provozu.</p><p><strong>Výsledek</strong></p><p>Výsledkem jsou kancelářské prostory FCC v&nbsp;Brně, které spojují funkční řešení, kvalitní zázemí pro tým a&nbsp;klidný architektonický výraz.</p><p><strong>Tým U1</strong></p><ul><li><p><strong>Andrea Kališová</strong> – obchodní vedení projektu</p></li><li><p><strong>Eva Trs</strong> – business support</p></li><li><p><strong>Veronika Muzikářová</strong> – návrh designu</p></li><li><p><strong>Martin Čuhel</strong> – vedení realizace</p></li></ul><p>Klient: FCC Česká republika, provozovna Brno<br>Realizace interiéru a&nbsp;technický design: U1 space design</p>
+Details: [{"content":{"text":"<p><strong>Dokončili jsme realizaci kancelářských prostor pro FCC provozovnu v&nbsp;Brně.</strong></p> <p>Cílem bylo vytvořit interiér, který odpovídá každodennímu provozu společnosti působící v&nbsp;oblasti odpadového hospodářství, a&nbsp;zároveň posouvá kvalitu pracovního prostředí. Recepce, zasedací místnosti, kanceláře i&nbsp;zázemí (toalety a&nbsp;kuchyňka) dohromady tvoří jeden kompaktní a&nbsp;srozumitelný celek.</p> <p><strong>Realizaci jsme postavili na dvou rovinách</strong></p> <p>Provozní hledisko</p> <p>Recepce vytváří první kontakt s&nbsp;návštěvníky, zasedací místnosti zvládají běžné porady i&nbsp;větší jednání. Posuvné příčky od Likos International umožňují prostor podle potřeby rozdělit nebo propojit. Materiály jsou vybrané s&nbsp;ohledem na dlouhodobou zátěž a&nbsp;každodenní používání.</p> <p>Prostředí</p> <p>Nové kanceláře nabízejí zaměstnancům lepší zázemí pro každodenní práci. Důraz je kladený na přirozenou orientaci v&nbsp;prostoru, klidnou atmosféru a&nbsp;čistý detail, který drží kvalitu i&nbsp;po měsících provozu.</p> <p><strong>Výsledek</strong></p> <p>Výsledkem jsou kancelářské prostory FCC v&nbsp;Brně, které spojují funkční řešení, kvalitní zázemí pro tým a&nbsp;klidný architektonický výraz.</p> <p><strong>Tým U1</strong></p>","mod":"","face":"","case":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"57c47c08-5ff6-47c8-96f4-9b84d492d170","isHidden":false,"type":"text"},{"content":{"text":"<ul><li><p><strong>Andrea Kali&scaron;ov&aacute;</strong> &ndash; obchodn&iacute; veden&iacute; projektu</p></li><li><p><strong>Eva Trs</strong> &ndash; business support</p></li><li><p><strong>Veronika Muzik&aacute;řov&aacute;</strong> &ndash; n&aacute;vrh designu</p></li><li><p><strong>Martin Čuhel</strong> &ndash; veden&iacute; realizace</p></li></ul>","mod":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"9acf7663-f44d-42c8-ac99-9bf54709ecdf","isHidden":false,"type":"list"},{"content":{"text":"<p>Klient: FCC Česká republika, provozovna Brno<br>Realizace interiéru a&nbsp;technický design: U1 space design</p>","mod":"","face":"","case":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"03fcddef-585d-4a96-8eda-60bb1425aa88","isHidden":false,"type":"text"}]
+
+----
+
+Before: - file://uk61KYDq1B84GMmV
+
+----
+
+After: - file://eCTsJk4ansqSoB9j
 
 ----
 
@@ -18,15 +26,7 @@ Quote:
 
 ----
 
-Footnote: 
-
-----
-
 Client: FCC
-
-----
-
-Concept: 
 
 ----
 
@@ -46,25 +46,41 @@ Space: Kanceláře, Recepce, Meeting roomy
 
 ----
 
+Size: 
+
+----
+
 Hash: 
+
+----
+
+Team: 
+
+----
+
+Concept: 
+
+----
+
+Photo: 
+
+----
+
+Collabs: 
 
 ----
 
 Gallery:
 
-- file://B5FfuMZU6yxmQTyk
-- file://ryaaqj4KE6usJnzx
-- file://Jub4RXhuvZcSd8ia
-- file://uGbsjpBqL4qazih8
-- file://jgGbr2zdod7wXV1K
-- file://R3MQb0nxc9aErha6
-- file://bJWOB3AEfZjyK6Xf
-- file://93JwXDa0Q7XHanC6
-- file://r7lGz0QoQejuxEQ1
-
-----
-
-Author: Ing. arch. Martina Pitáková
+- file://JcPzVnMDGrai9HJJ
+- file://eCTsJk4ansqSoB9j
+- file://X7AqOIFJvT7tIPie
+- file://YdzYOUppk1k8dW4F
+- file://DFL87iamMHa1giTl
+- file://uk61KYDq1B84GMmV
+- file://vgtgwz2FJG8qXj0Z
+- file://05nRW7HPl3ppbqyS
+- file://7GzWZMxXnbgNxo9m
 
 ----
 
@@ -80,7 +96,15 @@ Testimonialposition:
 
 ----
 
-Testimonialimage: - file://jgGbr2zdod7wXV1K
+Testimonialimage: - file://DFL87iamMHa1giTl
+
+----
+
+Extras: 
+
+----
+
+Password: 
 
 ----
 
@@ -125,6 +149,18 @@ Robots-imageindex:
 ----
 
 Robots-snippet: 
+
+----
+
+Hero: 
+
+----
+
+Footnote: 
+
+----
+
+Author: Ing. arch. Martina Pitáková
 
 ----
 

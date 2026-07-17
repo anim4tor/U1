@@ -15,7 +15,7 @@
 						<nav data-default class="flex align__center gap__2 no__wrap">
 							<?php foreach ($pages->find('projects', 'career', 'feed') as $p): ?>
 								<div class="grid place__start-start">
-									<?= snippet('atoms/Link', ['url' => $p->url(), 'label' => $p->title(), 'icon' => false, 'css' => '', 'node' => 'data-reveal-text  data-split-ignore']) ?>
+									<?= snippet('atoms/Link', ['url' => $p->url(), 'label' => $p->title(), 'icon' => false, 'css' => 'upper', 'node' => 'data-reveal-text  data-split-ignore']) ?>
 
 								</div>
 							<?php endforeach ?>

@@ -6,27 +6,27 @@ Cover: - file://jxie6EGazwKUElXv
 
 ----
 
-Hero: 
+Intro: <p>Sjednocení, funkčnost a&nbsp;atmosféra, která odráží firemní kulturu. Nové brněnské sídlo Direct pojišťovny ukazuje, že moderní kancelář nemusí být sterilní, když je navržena s&nbsp;respektem k&nbsp;lidem, kteří ji užívají.</p>
 
 ----
 
-Details: <p>Sjednocení, funkčnost a&nbsp;atmosféra, která odráží firemní kulturu. Nové brněnské sídlo Direct pojišťovny ukazuje, že moderní kancelář nemusí být sterilní, když je navržena s&nbsp;respektem k&nbsp;lidem, kteří ji užívají.</p><ul><li><p><strong>Celková plocha:</strong> cca 2 700 m² (propojení rekonstrukce a&nbsp;novostavby)</p></li><li><p><strong>Kapacita:</strong> 275 stálých pracovních míst + 35 hot desků</p></li><li><p><strong>Zázemí:</strong> 1 multifunkční místnost, 24 zasedacích a&nbsp;focus místností, 4 kuchyňky</p></li></ul><p><strong>Koncept a&nbsp;design: Naslouchání jako základ návrhu</strong></p><p>Výsledný interiér balancuje tradiční korporátní zelenou barvu Directu se zemitými tóny terakoty, dřevem a&nbsp;množstvím živých rostlin. Cílem bylo vytvořit hřejivé, neformální prostředí, které není vizuálně únavné. Design je postaven na funkčnosti – od výškově stavitelných stolů přes variabilní zasedací místnosti až po akustická řešení, která výrazně snížila hluk v&nbsp;open space.</p><p><strong>Dominantní recepce:</strong> Unikátní plechová recepce v&nbsp;kombinaci s&nbsp;terakotovým obkladem tvoří sebevědomé srdce vstupu.</p><p><strong>Variabilita zón:</strong> Prostor nabízí pestrou škálu míst pro práci – od klasických stolů přes barové sezení v&nbsp;kuchyňkách až po uzavřené "focus roomy" pro klidné telefonáty.</p><p><strong>Princip druhé šance:</strong> V&nbsp;rámci efektivity rozpočtu a&nbsp;udržitelnosti jsme repasovali a&nbsp;začlenili některé původní prvky, například akustické podhledy.</p><p><strong>Výsledek: Prostor, který spojuje</strong></p><p>Spojením rekonstruované části a&nbsp;novostavby vznikl velkorysý a&nbsp;logicky uspořádaný celek. Zkrátily se komunikační vzdálenosti mezi odděleními a&nbsp;spontánní schůzky u&nbsp;kávovaru nyní přirozeně propojují týmy, které dříve seděly odděleně. Nové kanceláře vyřešily problémy s&nbsp;hlukem i&nbsp;nedostatkem místa a&nbsp;staly se prostředím, kam se zaměstnanci rádi vracejí.</p><p><em>"Naše prostory dnes fungují jako živý organismus. Mění se s&nbsp;námi a&nbsp;odráží to, jací jsme."</em></p><p>— <strong>Michal Řezníček</strong>, CEO Direct pojišťovny</p><p>Za novým brněnským zázemím Directu stojí <strong>Tým U1</strong>&nbsp;</p><ul><li><p><strong>Andrea Kališová</strong> měla na starosti obchodní stránku projektu a&nbsp;byla klíčovým partnerem Directu po celou dobu spolupráce. Řídila komunikaci, držela směr a&nbsp;dokázala hladce řešit klíčové momenty realizace.&nbsp;</p></li><li><p><strong>František Novák</strong>&nbsp;dal prostoru jeho tvář – navrhl celkový design, tón a&nbsp;materiály.&nbsp;</p></li><li><p><strong>Ladislav Chládek</strong>&nbsp;vedl technickou a&nbsp;projekční koordinaci.&nbsp;</p></li><li><p><strong>Romana Kočková</strong> měla na starosti kalkulace a&nbsp;finanční rámec projektu.</p></li></ul><p>Fotografie: Ing. arch. Martina Pitáková</p>
+Details: [{"content":{"text":"Koncept a&nbsp;design: Naslouchání jako základ návrhu","level":"h2","mod":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"c8f4a511-2e42-471b-9734-4a7a7cb77953","isHidden":false,"type":"heading"},{"content":{"text":"Výsledný interiér balancuje tradiční korporátní zelenou barvu Directu se zemitými tóny terakoty, dřevem a&nbsp;množstvím živých rostlin. Cílem bylo vytvořit hřejivé, neformální prostředí, které není vizuálně únavné. Design je postaven na funkčnosti – od výškově stavitelných stolů přes variabilní zasedací místnosti až po akustická řešení, která výrazně snížila hluk v&nbsp;open space.","mod":"","face":"","case":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"4ad28a37-c38b-494e-97dd-c5ef26096a0e","isHidden":false,"type":"text"},{"content":{"text":"<ul><li><p><strong>Celkov&aacute; plocha:</strong> cca 2 700 m&sup2; (propojen&iacute; rekonstrukce a&nbsp;novostavby)</p></li><li><p><strong>Kapacita:</strong> 275 st&aacute;l&yacute;ch pracovn&iacute;ch m&iacute;st + 35 hot desků</p></li><li><p><strong>Z&aacute;zem&iacute;:</strong> 1 multifunkčn&iacute; m&iacute;stnost, 24 zasedac&iacute;ch a&nbsp;focus m&iacute;stnost&iacute;, 4 kuchyňky</p></li></ul>","mod":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"0099b63b-1651-4a54-867e-b67ea7749d59","isHidden":false,"type":"list"},{"content":{"images":["file://jxie6EGazwKUElXv","file://wapFWiJmEwY5WdG9"],"caption":"","ratio":"","crop":"false"},"id":"0c727443-d3a5-4100-bdd4-8959e0ea42cc","isHidden":false,"type":"gallery"},{"content":{"text":"Dominantní recepce.","level":"h2","mod":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"b3069d2d-476d-49cc-ac3b-51c51b6a24a3","isHidden":false,"type":"heading"},{"content":{"text":"Unikátní plechová recepce v&nbsp;kombinaci s&nbsp;terakotovým obkladem tvoří sebevědomé srdce vstupu.","mod":"","face":"","case":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"91c2a6e0-6dcf-4137-b794-0bafa5ed7218","isHidden":false,"type":"text"},{"content":{"images":["file://SBeYBihGax48aB9b","file://nTZLY9vr4ZJcXyPW"],"caption":"","ratio":"","crop":"false"},"id":"618a308c-54d9-43dc-a92b-d68d12e7b7fb","isHidden":false,"type":"gallery"},{"content":{"text":"Variabilita zón","level":"h2","mod":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"b1e545d7-e4f8-4413-ae71-ef8209628761","isHidden":false,"type":"heading"},{"content":{"text":"Prostor nabízí pestrou škálu míst pro práci – od klasických stolů přes barové sezení v&nbsp;kuchyňkách až po uzavřené \"focus roomy\" pro klidné telefonáty. <strong>Princip druhé šance:</strong> V&nbsp;rámci efektivity rozpočtu a&nbsp;udržitelnosti jsme repasovali a&nbsp;začlenili některé původní prvky, například akustické podhledy.","mod":"","face":"","case":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"7d02f222-c923-425d-b9ff-c5c421945d3e","isHidden":false,"type":"text"},{"content":{"image":["file://sxCzhcwCFUpUZmFZ"],"hasparallax":"false","parallax":0,"hasreveal":"false","reveal":"","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"9873b16d-2519-42da-a5be-2e4736d5c241","isHidden":false,"type":"image"},{"content":{"text":"Výsledek: Prostor, který spojuje","level":"h2","mod":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"8e82d8df-e846-40be-a480-5d5fb28b0755","isHidden":false,"type":"heading"},{"content":{"text":"Spojením rekonstruované části a&nbsp;novostavby vznikl velkorysý a&nbsp;logicky uspořádaný celek. Zkrátily se komunikační vzdálenosti mezi odděleními a&nbsp;spontánní schůzky u&nbsp;kávovaru nyní přirozeně propojují týmy, které dříve seděly odděleně. Nové kanceláře vyřešily problémy s&nbsp;hlukem i&nbsp;nedostatkem místa a&nbsp;staly se prostředím, kam se zaměstnanci rádi vracejí.","mod":"","face":"","case":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"1760de13-0472-4bee-ba77-295b3eb69705","isHidden":false,"type":"text"},{"content":{"text":"<ul><li><p><strong>Andrea Kali&scaron;ov&aacute;</strong> měla na starosti obchodn&iacute; str&aacute;nku projektu a&nbsp;byla kl&iacute;čov&yacute;m partnerem Directu po celou dobu spolupr&aacute;ce. Ř&iacute;dila komunikaci, držela směr a&nbsp;dok&aacute;zala hladce ře&scaron;it kl&iacute;čov&eacute; momenty realizace.&nbsp;</p></li><li><p><strong>Franti&scaron;ek Nov&aacute;k</strong>&nbsp;dal prostoru jeho tv&aacute;ř &ndash; navrhl celkov&yacute; design, t&oacute;n a&nbsp;materi&aacute;ly.&nbsp;</p></li><li><p><strong>Ladislav Chl&aacute;dek</strong>&nbsp;vedl technickou a&nbsp;projekčn&iacute; koordinaci.&nbsp;</p></li><li><p><strong>Romana Kočkov&aacute;</strong> měla na starosti kalkulace a&nbsp;finančn&iacute; r&aacute;mec projektu.</p></li></ul>","mod":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"037aaa49-9e00-43e9-83e9-7af970a0a7b9","isHidden":false,"type":"list"}]
 
 ----
 
-Quote: 
+Before: - file://SBeYBihGax48aB9b
 
 ----
 
-Footnote: 
+After: - file://r2ZOXBS6YwUKB1Bb
+
+----
+
+Quote: [{"content":{"text":"<em>\"Naše prostory dnes fungují jako živý organismus. Mění se s&nbsp;námi a&nbsp;odráží to, jací jsme.\"</em> — <strong>Michal Řezníček</strong>, CEO Direct pojišťovny","mod":"","face":"","case":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"17992b3d-7cc7-40c7-a277-75d774a7fb9e","isHidden":false,"type":"text"}]
 
 ----
 
 Client: Direct pojišťovna, a. s.
-
-----
-
-Concept: 
 
 ----
 
@@ -46,7 +46,27 @@ Space: Openspace, Lobby, Kuchyně
 
 ----
 
+Size: 2 700 m²
+
+----
+
 Hash: 
+
+----
+
+Team: 
+
+----
+
+Concept: 
+
+----
+
+Photo: Ing. arch. Martina Pitáková
+
+----
+
+Collabs: 
 
 ----
 
@@ -73,10 +93,6 @@ Gallery:
 
 ----
 
-Author: 
-
-----
-
 Testimonialquote: 
 
 ----
@@ -90,6 +106,14 @@ Testimonialposition:
 ----
 
 Testimonialimage: 
+
+----
+
+Extras: 
+
+----
+
+Password: 
 
 ----
 
@@ -134,6 +158,18 @@ Robots-imageindex:
 ----
 
 Robots-snippet: 
+
+----
+
+Hero: 
+
+----
+
+Footnote: 
+
+----
+
+Author: 
 
 ----
 

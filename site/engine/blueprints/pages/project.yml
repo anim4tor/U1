@@ -13,8 +13,11 @@ tabs:
         fields:
           cover:
             extends: fields/cover
+          intro:
+            type: writer
           details:
             extends: fields/section
+            label: Details
           before:
             extends: fields/cover
             width: 1/2
@@ -23,6 +26,7 @@ tabs:
             width: 1/2
           quote:
             extends: fields/section
+            label: Quote
   info:
     fields:
 
@@ -46,6 +50,10 @@ tabs:
         width: 1/2
         type: tags
         label: Typ prostoru
+      production:
+        width: 1/2
+        type: tags
+        label: Výroba
       size:
         width: 1/3
         type: text
@@ -81,10 +89,10 @@ tabs:
           gallery:
             width: 1/1
             type: files
-            template: image
+            template: cover
             info: "{{ file.dimensions }}"
             uploads:
-              template: image
+              template: cover
             image:
               ratio: 5/4
               cover: true

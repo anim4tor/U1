@@ -6,11 +6,19 @@ Cover: - file://ZfInp4c6OPdObXKj
 
 ----
 
-Hero: 
+Intro: <p>Nové pracovní prostředí skupiny Plzeňský Prazdroj je důkazem, že když se spojí silné značky, odvážná vize a&nbsp;precizní provedení, vznikne prostor, který zanechá stopu. U1 stálo za realizací klíčových interiérových prvků – od atypického nábytku přes akustická řešení až po detaily jako je recepce s&nbsp;rozřezaným kegem nebo podhledy z&nbsp;tisíců plechovek.</p>
 
 ----
 
-Details: <p>Nové pracovní prostředí skupiny Plzeňský Prazdroj je důkazem, že když se spojí silné značky, odvážná vize a&nbsp;precizní provedení, vznikne prostor, který zanechá stopu. U1 stálo za realizací klíčových interiérových prvků – od atypického nábytku přes akustická řešení až po detaily jako je recepce s&nbsp;rozřezaným kegem nebo podhledy z&nbsp;tisíců plechovek.</p><p>Každá značka – Gambrinus, Radegast, Kozel, Birell, Proud i&nbsp;samotný Pilsner – dostala v&nbsp;interiéru svůj vlastní výraz. Barevná schémata, povrchové úpravy i&nbsp;materiály byly externími architekty zvoleny tak, aby posilovaly jejich identitu a&nbsp;zároveň přirozeně fungovaly v&nbsp;rámci jednoho prostoru.</p><p>Realizace probíhala s&nbsp;maximálním důrazem na detail a&nbsp;v úzké spolupráci s&nbsp;architekty. U1 zajišťovalo nejen výrobu a&nbsp;dodávky na míru, ale i&nbsp;technickou podporu, koordinaci profesí a&nbsp;ladění konstrukčních detailů, které návrh neobsahoval. Výsledkem je prostor, který spojuje kreativitu s&nbsp;precizností – a&nbsp;potvrzuje, že interiér může být silným nositelem značky.</p>
+Details: [{"content":{"text":"Každá značka dostala v&nbsp;interiéru svůj vlastní výraz.","level":"h2","mod":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"891f9fb0-28a3-4259-a2ff-2b4511195bc6","isHidden":false,"type":"heading"},{"content":{"text":"Každá značka – Gambrinus, Radegast, Kozel, Birell, Proud i&nbsp;samotný Pilsner – dostala v&nbsp;interiéru svůj vlastní výraz. Barevná schémata, povrchové úpravy i&nbsp;materiály byly externími architekty zvoleny tak, aby posilovaly jejich identitu a&nbsp;zároveň přirozeně fungovaly v&nbsp;rámci jednoho prostoru.","mod":"","face":"","case":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"a9615317-3f9c-41f3-ac00-7ccef2f1535e","isHidden":false,"type":"text"},{"content":{"images":["file://creqNO52NWPVhTi3","file://z2jtqJWcbKrZr89C"],"caption":"","ratio":"","crop":"false"},"id":"756fc99d-17a6-4a0d-8ed4-c6a08cb58651","isHidden":false,"type":"gallery"},{"content":{"text":"Výsledkem je prostor, který spojuje kreativitu s&nbsp;precizností","level":"h2","mod":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"fe1b34cb-47fe-43fd-8a5e-83673dbf8cd2","isHidden":false,"type":"heading"},{"content":{"text":"Realizace probíhala s&nbsp;maximálním důrazem na detail a&nbsp;v úzké spolupráci s&nbsp;architekty. U1 zajišťovalo nejen výrobu a&nbsp;dodávky na míru, ale i&nbsp;technickou podporu, koordinaci profesí a&nbsp;ladění konstrukčních detailů, které návrh neobsahoval. Výsledkem je prostor, který spojuje kreativitu s&nbsp;precizností – a&nbsp;potvrzuje, že interiér může být silným nositelem značky.","mod":"","face":"","case":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"db606496-43a8-4ac2-8adb-0a03bf8b28a8","isHidden":false,"type":"text"},{"content":{"images":["file://8PCNbP7K5PNFRvSb","file://hpgOya5f3IgpEvw4"],"caption":"","ratio":"","crop":"false"},"id":"14d7a1d7-f19c-4819-8846-bc5747d870d7","isHidden":false,"type":"gallery"}]
+
+----
+
+Before: - file://Pqd1jcyjqZ1nCHGi
+
+----
+
+After: - file://8PCNbP7K5PNFRvSb
 
 ----
 
@@ -18,15 +26,7 @@ Quote:
 
 ----
 
-Footnote: 
-
-----
-
 Client: Plzeňský Prazdroj, a. s.
-
-----
-
-Concept: 
 
 ----
 
@@ -46,7 +46,27 @@ Space: Openspace, Meeting roomy, Recepce
 
 ----
 
+Size: 
+
+----
+
 Hash: 
+
+----
+
+Team: 
+
+----
+
+Concept: 
+
+----
+
+Photo: 
+
+----
+
+Collabs: 
 
 ----
 
@@ -59,10 +79,6 @@ Gallery:
 - file://ZfInp4c6OPdObXKj
 - file://8PCNbP7K5PNFRvSb
 - file://hpgOya5f3IgpEvw4
-
-----
-
-Author: 
 
 ----
 
@@ -79,6 +95,14 @@ Testimonialposition:
 ----
 
 Testimonialimage: 
+
+----
+
+Extras: 
+
+----
+
+Password: 
 
 ----
 
@@ -123,6 +147,18 @@ Robots-imageindex:
 ----
 
 Robots-snippet: 
+
+----
+
+Hero: 
+
+----
+
+Footnote: 
+
+----
+
+Author: 
 
 ----
 

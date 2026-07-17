@@ -2,8 +2,8 @@ Caption:
 
 ----
 
-Uuid: r7lGz0QoQejuxEQ1
+Uuid: 7GzWZMxXnbgNxo9m
 
 ----
 
-Template: image
+Template: cover
