@@ -1,4 +1,4 @@
-<nav class="carousel__hoverable grid grid-cols-4 absolute inset-0">
+<nav class="carousel__hoverable grid__4 grid__absolute">
 	<a href="" class="has-border" data-link="<?php echo t('hover-previous') ?>" data-carousel-prev></a>
 	<span></span>
 	<span></span>

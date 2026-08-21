@@ -1,13 +1,13 @@
-<article class="instagram__card grid gap-05">
+<article class="instagram__card grid gap__05">
 	<!-- Image & Permalink -->
     <a href="<?= $post->social_url() ?>" target="_blank" rel="noopener noreferrer" class="instagram-image-link">
-      <figure class="rounded-img overlay__bottom relative text-white">
+      <figure class="img__radius overlay__bottom relative color__invert">
 	      <img 
 	        src="<?= $post->media_url() ?>" 
 	        alt="<?= $post->title()->html() ?>" 
 	        loading="lazy"
 	      >
-	      <div class="badge absolute bottom-1 right-1 z-10">
+	      <div class="badge absolute bottom__1 right__1 z__1">
 	      	<?= svg('public/assets/images/instagram.svg') ?>
 	      </div>
 	      <?php if ($post->media_type()->value() === 'VIDEO'): ?>
@@ -16,10 +16,10 @@
       </figure>
     </a>
 	<!-- Post Content Details -->
-	<div class="item__meta relative flex justify-between items-center gap-2">
+	<div class="item__meta relative flex justify__space-between align__center gap__2">
 		<?php if ($post->title()->isNotEmpty()): ?>
-		<div class="flex gap-05 uppercase">
-			<h3 class="font-size-5 text-m flex-wrap"><?= $post->title()->excerpt(200) ?></h3>
+		<div class="flex gap__05 upper ">
+			<h3 class="font__size__5 text-m wrap"><?= $post->title()->excerpt(200) ?></h3>
 		</div>
 		<?php endif ?>
 		<!-- <?php if ($post->hashtags()->isNotEmpty()): ?>

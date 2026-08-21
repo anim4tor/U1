@@ -10,7 +10,7 @@
 					<a href="<?= $page->parent()->url() ?>" data-reveal-text="lines" class="upper">(<?= $page->parent() ? $page->parent()->title() : $page->title() ?>)</a>
 				</div>
 				<div>
-					<p data-reveal-text="lines" class="font__size__4 text-s lower"><?= $page->excerpt()->or($page->intro())->inline() ?></p>
+					<p data-reveal-text="lines" class="font__size__4 s lower"><?= $page->excerpt()->or($page->intro())->inline() ?></p>
 				</div>
 			</div>
 			<div class="intro__title relative place__end-stretch span__4 mobile:span__1 inner-y__05" style="--in-delay: 500ms">
@@ -43,33 +43,33 @@
 	<div class="grid__4 gap__2 gap-y__4 inner__1 inner-x__3 inner-b__5">
 		<?php foreach ($page->gallery()->toFiles() as $image) : ?>
 			<?php if($image->orientation() == "landscape") : ?>
-				<div class="grid place__center-center span__2 inner__0" data-scroll ><?= snippet('atoms/Image', ['img' => $image, 'parallax' => 2, 'css' => 'w-['.rand(25,45).'vw] h-['.rand(50,70).'vh] aspect-square']) ?></div>
+				<div class="grid place__center-center span__2 inner__0" data-scroll ><?= snippet('atoms/Image', ['img' => $image, 'parallax' => 2, 'css' => 'vw__'.rand(5,9) . ' vh__'.rand(10,14) . ' aspect__1/1']) ?></div>
 			<?php else : ?>
-				<div class="grid place__center-center inner__0" data-scroll ><?= snippet('atoms/Image', ['img' => $image, 'parallax' => 2, 'css' => 'w-['.rand(25,45).'vw] h-['.rand(50,70).'vh] aspect-square']) ?></div>
+				<div class="grid place__center-center inner__0" data-scroll ><?= snippet('atoms/Image', ['img' => $image, 'parallax' => 2, 'css' => 'vw__'.rand(5,9) . ' vh__'.rand(10,14) . ' aspect__1/1']) ?></div>
 			<?php endif; ?>
 		<?php endforeach ?>
 	</div>
 </section>
 
 <?php if ($page->relatedProjects()->isNotEmpty()) : ?>
-<section class="projects rounded-radius" theme="dark" >
-	<div class="grid grid-cols-1 md:grid-cols-3 gap-1 pb-3 md:px-1" data-carousel>
-		<div data-scroll class="col-span-1 md:col-span-2 px-1 pt-2">
+<section class="projects radius" theme="dark" >
+	<div class="grid__3 gap__1 mobile:grid__1 inner-b__3 mobile:inner-x__1 " data-carousel>
+		<div data-scroll class="span__2 inner-x__1 inner-t__2 inner-b__">
 			<h2 class="">Related projects</h2>
 		</div>
-		<div class="flex gap-02 justify-end items-end px-1 text-m">
-			<button data-carousel-prev class="button uppercase" theme="invert-ghost" hover="invert"><span class="icon"><?= svg('public/assets/images/ui/ui_arrow-left.svg') ?></span></button>
-			<button data-carousel-next class="button uppercase" theme="invert-ghost" hover="invert"><span class="icon"><?= svg('public/assets/images/ui/ui_arrow-right.svg') ?></span></button>
+		<div class="flex gap__02 justify__end align__end inner-x__1 m">
+			<button data-carousel-prev class="button upper" theme="invert-ghost" hover="invert"><span class="icon"><?= svg('public/assets/images/ui/ui_arrow-left.svg') ?></span></button>
+			<button data-carousel-next class="button upper" theme="invert-ghost" hover="invert"><span class="icon"><?= svg('public/assets/images/ui/ui_arrow-right.svg') ?></span></button>
 		</div>
-		<div class="col-span-1 md:col-span-3" data-carousel-scroll>
-			<ol class="flex justify-start items-center flex-nowrap gap-1 px-1" data-carousel-slides >	
+		<div class="span__3" data-carousel-scroll>
+			<ol class="flex justify__start align__center no__wrap gap__1 inner-x__1 " data-carousel-slides >	
 			<?php foreach ($page->relatedProjects()->toPages() as $project) : ?>
-				<li data-slide class="project__wrapper w-[25vw]">	
+				<li data-slide class="project__wrapper vw__5">	
 					<?= snippet('molecules/Project', compact('project')) ?>
 				</li>
 			<?php endforeach ?>
-				<li data-slide class="w-[30vw] flex justify-end">	
-					<div class="col-span-1 md:col-span-3 flex justify-center">
+				<li data-slide class="vw__6 flex justify__end">	
+					<div class="span__3 flex justify__center">
 						<?= snippet('molecules/Header', ['header' => $page->projects(), 'type' => ['button']]) ?>
 					</div>
 				</li>

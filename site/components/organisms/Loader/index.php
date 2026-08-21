@@ -4,14 +4,14 @@
 			<div style="--index: <?= $i ?>"></div>
 		<?php endfor; ?>
 	</div>
-	<div class="grid place-items-center text-text p-1">
-		<div data-loader-logo class="grid p-05">
+	<div class="grid place__center-center color__text inner__1 ">
+		<div data-loader-logo class="grid__stack wrap__05">
 			<?= svg('public/assets/images/fig_logo.svg') ?>
 		</div>
-		<!-- <p class="uppercase text-invert opacity-5 overflow-hidden"><span data-counter>0%</span></p> -->
+		<!-- <p class="upper color__invert op__5 no__overflow"><span data-counter>0%</span></p> -->
 	</div>
-	<!-- <div class="loader__bar grid items-end gap-05 absolute bottom-0 inset-x-0 p-1">
-		<div class="font-size-2 flex justify-end items-center font-heading"><span data-counter>0%</span></div>
-		<div class="bar border-b" data-progress></div>
+	<!-- <div class="loader__bar grid align__end gap__05 absolute inset__bottom-stretch inner__1">
+		<div class="font__size__2 flex justify__end align__center ff__heading"><span data-counter>0%</span></div>
+		<div class="bar border__bottom" data-progress></div>
 	</div> -->
 </div>

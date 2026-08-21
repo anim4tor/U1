@@ -1,30 +1,30 @@
-<div class="grid gap-3 rounded-img p-1 border" theme="dark">
-	<div class="grid gap-1">
-		<div class="grid gap-4 content-between justify-start">
-			<div class="grid content-start items-stretch gap-1">
+<div class="grid gap__3 img__radius inner__1 border" theme="dark">
+	<div class="grid gap__1">
+		<div class="grid gap__4 place__space-between-start">
+			<div class="grid place__start-stretch gap__1">
 				<!-- Quote is already formatted as inline string -->
-				<p class="quote text-m font-heading flex-wrap" data-reveal-text="lines" data-split-ignore>"<?= $testimonial->testimonialQuote()->inline() ?>"</p>
+				<p class="quote m ff__heading wrap" data-reveal-text="lines" data-split-ignore>"<?= $testimonial->testimonialQuote()->inline() ?>"</p>
 			</div>
 		</div>
 	</div>
-	<div class="flex justify-between gap-05 items-end">
+	<div class="flex justify__space-between gap__05 align__end">
 		<?php 
 		// Retrieve image file object from the structure's parent page
 		$image = $testimonial->testimonialImage()->toFile() ?? $testimonial->parent()->file($testimonial->testimonialImage()->value()); 
 		?>
 		<?php if ($image) : ?>
-			<div class="flex justify-between">
-				<div class="overflow-hidden">
+			<div class="flex justify__space-between">
+				<div class="no__overflow">
 					<div class="figure" data-reveal-image>
-						<?= snippet('atoms/Image', ['img' => $image, 'parallax' => false, 'css' => 'max-w-[4rem] max-h-[6rem]']) ?>
+						<?= snippet('atoms/Image', ['img' => $image, 'parallax' => false, 'css' => 'max-w__4 max-h__5']) ?>
 					</div>
 				</div>
 			</div>
 		<?php endif ?>
-		<div class="grid gap-01">
-			<div class="text-s uppercase opacity-4" data-reveal-text="lines"><?= $testimonial->testimonialAuthor()->or($testimonial->parent()->client()) ?></div>
+		<div class="grid gap__01">
+			<div class="s upper op__4" data-reveal-text="lines"><?= $testimonial->testimonialAuthor()->or($testimonial->parent()->client()) ?></div>
 			<?php if ($testimonial->testimonialPosition()->isNotEmpty()) : ?>
-				<div class="text-s uppercase opacity-4" data-reveal-text="lines">(<?= $testimonial->testimonialPosition() ?>)</div>
+				<div class="s upper op__4" data-reveal-text="lines">(<?= $testimonial->testimonialPosition() ?>)</div>
 			<?php endif ?>
 		</div>
 	</div>

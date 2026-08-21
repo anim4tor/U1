@@ -1,8 +1,8 @@
 <?= css('site/components/atoms/Theme/theme.css') ?>
 
-<div data-scroll data-reveal-image class="fixed top-1 right-1 flex flex-col items-end gap-1.5 z-50">
+<div data-scroll data-reveal-image class="fixed inset__top-right grid place__start-end gap__02 z__10" style="--in-delay: 600ms; position: fixed; top: 1rem; right: 1rem; z-index: 1000;">
 
-	<div class="flex gap-01 justify-end">
+	<div class="flex gap__01">
 		<?php if ($kirby->user()): ?>
 			<a href="<?= $page->panel()->url() ?>" target="_blank" id="panel-link-btn" aria-label="Open in Kirby Panel">
 				<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -10,24 +10,23 @@
 					<path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
 				</svg>
 			</a>
-		<?php endif; ?>
 
-		<button id="theme-toggle-btn" aria-label="Toggle Theme Settings">
-			<svg class="icon-settings" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-				<circle cx="12" cy="12" r="3"></circle>
-				<path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
-			</svg>
-			<svg class="icon-close" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-				<line x1="18" y1="6" x2="6" y2="18"></line>
-				<line x1="6" y1="6" x2="18" y2="18"></line>
-			</svg>
-		</button>
+			<button id="theme-toggle-btn" aria-label="Toggle Theme Settings">
+				<svg class="icon-settings" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+					<circle cx="12" cy="12" r="3"></circle>
+					<path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+				</svg>
+				<svg class="icon-close" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+					<line x1="18" y1="6" x2="6" y2="18"></line>
+					<line x1="6" y1="6" x2="18" y2="18"></line>
+				</svg>
+			</button>
+		<?php endif; ?>
 	</div>
 
-	<div id="theme-panel-body" class="flex flex-col text-white bg-[#111111]/95 backdrop-blur-md rounded-md border border-white/15 shadow-2xl is-hidden" style="max-height: calc(100vh - 4.5rem); width: min(520px, 95vw); overflow: hidden; font-family: sans-serif;">
+	<div id="theme-panel-body" class="grid__2 gap__1 inner__05 color__invert bg__black/80 is-hidden" style="max-height: 85vh; overflow-y: auto; font-family: sans-serif; padding: 1rem;">
 		
-		<!-- Sticky Tab Navigation Bar -->
-		<div class="theme-tab-nav">
+		<div class="theme-tab-nav span__2">
 			<button class="theme-tab-btn is-active" data-tab-target="tab-typography">Typography</button>
 			<button class="theme-tab-btn" data-tab-target="tab-scale">Scale Engine</button>
 			<button class="theme-tab-btn" data-tab-target="tab-spacing">Spacing</button>
@@ -37,239 +36,236 @@
 			<button class="theme-tab-btn" data-tab-target="tab-buttons">Buttons</button>
 		</div>
 
-		<!-- Scrollable Tab Content Viewport -->
-		<div class="theme-panel-content-scroll">
-			<div id="tab-typography" class="theme-tab-content grid grid-cols-2 gap-1">
-				<div class="typo-section-header">Heading Elements</div>
-				<div class="grid col-span-2">
-					<label class="font-body opacity-4 text-xs">Heading Family</label>
-					<select name="ff-heading" data-theme-setup data-font-select>
-						</select>
-				</div>
-				<div class="theme-panel-row col-span-2" style="margin-bottom: 0.5rem;">
-					<div class="grid">
-						<label class="font-body opacity-4 text-xs">Weight</label>
-						<input type="number" name="fw-heading" step="100" min="100" max="900" data-theme-setup>
-					</div>
-					<div class="grid">
-						<label class="font-body opacity-4 text-xs">Transform</label>
-						<select name="tt-heading" data-theme-setup>
-							<option value="none">None</option>
-							<option value="uppercase">Uppercase</option>
-							<option value="lowercase">Lowercase</option>
-						</select>
-					</div>
-					<div class="grid">
-						<label class="font-body opacity-4 text-xs">Tracking</label>
-						<input type="text" name="ls-heading" data-theme-setup>
-					</div>
-				</div>
-
-				<div class="typo-section-header">Body Copy Elements</div>
-				<div class="grid col-span-2">
-					<label class="font-body opacity-4 text-xs">Body Family</label>
-					<select name="ff-body" data-theme-setup data-font-select>
-						</select>
-				</div>
-				<div class="theme-panel-row col-span-2" style="margin-bottom: 0.5rem;">
-					<div class="grid">
-						<label class="font-body opacity-4 text-xs">Weight</label>
-						<input type="number" name="fw-body" step="100" min="100" max="900" data-theme-setup>
-					</div>
-					<div class="grid">
-						<label class="font-body opacity-4 text-xs">Transform</label>
-						<select name="tt-body" data-theme-setup>
-							<option value="none">None</option>
-							<option value="uppercase">Uppercase</option>
-							<option value="lowercase">Lowercase</option>
-						</select>
-					</div>
-					<div class="grid">
-						<label class="font-body opacity-4 text-xs">Tracking</label>
-						<input type="text" name="ls-body" data-theme-setup>
-					</div>
-				</div>
-
-				<div class="typo-section-header">Monospace / Code Elements</div>
-				<div class="grid col-span-2">
-					<label class="font-body opacity-4 text-xs">Mono Family</label>
-					<select name="ff-mono" data-theme-setup data-font-select>
-						</select>
-				</div>
+		<div id="tab-typography" class="theme-tab-content grid__2 gap__1 span__2">
+			<div class="typo-section-header">Heading Elements</div>
+			<div class="grid span__2">
+				<label class="ff__body op__4 xs">Heading Family</label>
+				<select name="ff-heading" data-theme-setup data-font-select>
+					</select>
 			</div>
-
-			<div id="tab-scale" class="theme-tab-content grid grid-cols-2 gap-1 is-hidden">
-				<div class="grid col-span-2" style="border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 0.25rem;"><span class="text-xs opacity-6 uppercase font-bold">Heading Hierarchy</span></div>
-				
-				<div class="grid col-span-2">
-					<label class="font-body opacity-4 text-xs">H-Typescale</label>
-					<div class="flex" style="align-items: center; gap: 0.25rem; width: 100%;">
-						<select id="ts-select" name="type-scale" data-theme-setup style="flex: 1;">
-							<option value="1.618">1.618 – Golden</option>
-							<option value="1.414">1.414 – Aug 4th</option>
-							<option value="1.333">1.333 – Perf 4th</option>
-							<option value="1.250">1.250 – Maj 3rd</option>
-							<option value="1.200">1.200 – Min 3rd</option>
-							<option value="custom">Custom...</option>
-						</select>
-						<input type="number" id="ts-input" step="0.001" min="1" max="4" style="width: 80px;" placeholder="1.618">
-					</div>
-				</div>
-
-				<div class="theme-panel-row col-span-2">
-					<div class="grid">
-						<label class="font-body opacity-4 text-xs">H-Start Baseline (Rem)</label>
-						<input type="number" name="type-start-rem" step="0.05" min="0.5" max="4" data-theme-setup data-unit="rem">
-					</div>
-					<div class="grid">
-						<label class="font-body opacity-4 text-xs">H-Start Fluid (Vw)</label>
-						<input type="number" name="type-start-vw" step="0.05" min="0.5" max="4" data-theme-setup data-unit="vw">
-					</div>
-				</div>
-
-				<div class="grid col-span-2">
-					<label class="font-body opacity-4 text-xs">H-Line Height</label>
-					<input type="number" name="base-line-height" step="0.05" min="0.8" max="2" data-theme-setup>
-				</div>
-
-				<div class="grid col-span-2" style="border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 0.25rem; margin-top: 0.5rem;"><span class="text-xs opacity-6 uppercase font-bold">Body Copy Hierarchy</span></div>
-				
-				<div class="grid col-span-2">
-					<label class="font-body opacity-4 text-xs">Body Scale</label>
-					<div class="flex" style="align-items: center; gap: 0.25rem; width: 100%;">
-						<select id="bs-select" name="body-scale" data-theme-setup style="flex: 1;">
-							<option value="1.400">1.400 – Default</option>
-							<option value="1.222">1.222 – Compact</option>
-							<option value="1.125">1.125 – Tight</option>
-							<option value="custom">Custom...</option>
-						</select>
-						<input type="number" id="bs-input" step="0.001" min="1" max="3" style="width: 80px;" placeholder="1.400">
-					</div>
-				</div>
-
-				<div class="theme-panel-row col-span-2">
-					<div class="grid">
-						<label class="font-body opacity-4 text-xs">B-Start Baseline (Rem)</label>
-						<input type="number" name="body-start-rem" step="0.001" min="0.1" max="3" data-theme-setup data-unit="rem">
-					</div>
-					<div class="grid">
-						<label class="font-body opacity-4 text-xs">B-Start Fluid (Vw)</label>
-						<input type="number" name="body-start-vw" step="0.001" min="0.1" max="3" data-theme-setup data-unit="vw">
-					</div>
-				</div>
-
-				<div class="grid col-span-2">
-					<label class="font-body opacity-4 text-xs">B-Line Height</label>
-					<input type="number" name="base-body-line-height" step="0.05" min="1.0" max="2.5" data-theme-setup>
-				</div>
-			</div>
-
-			<div id="tab-spacing" class="theme-tab-content grid grid-cols-2 gap-1 is-hidden">
+			<div class="theme-panel-row span__2" style="margin-bottom: 0.5rem;">
 				<div class="grid">
-					<label class="font-body opacity-4 text-xs">Min Scale</label>
-					<input type="number" name="scale-min" step="0.05" min="0.2" max="3" data-theme-setup>
+					<label class="ff__body op__4 xs">Weight</label>
+					<input type="number" name="fw-heading" step="100" min="100" max="900" data-theme-setup>
 				</div>
 				<div class="grid">
-					<label class="font-body opacity-4 text-xs">Fluid Scale</label>
-					<input type="number" name="scale-fluid" step="0.1" min="0" max="10" data-theme-setup>
-				</div>
-				<div class="grid col-span-2">
-					<label class="font-body opacity-4 text-xs">Global Scale Modifier</label>
-					<input type="number" name="scale" step="0.05" min="0.2" max="3" data-theme-setup>
-				</div>
-			</div>
-
-			<div id="tab-animations" class="theme-tab-content grid grid-cols-2 gap-1 is-hidden">
-				<div class="grid">
-					<label class="font-body opacity-4 text-xs">Duration</label>
-					<input type="text" name="animation-duration" placeholder="800ms" data-theme-setup>
-				</div>
-				<div class="grid">
-					<label class="font-body opacity-4 text-xs">Delay</label>
-					<input type="text" name="animation-delay" placeholder="0ms" data-theme-setup>
-				</div>
-				<div class="grid col-span-2">
-					<label class="font-body opacity-4 text-xs">Stagger Interval</label>
-					<input type="text" name="animation-stagger" placeholder="50ms" data-theme-setup>
-				</div>
-				<div class="grid col-span-2">
-					<label class="font-body opacity-4 text-xs">Timing Curve</label>
-					<select name="animation-timing" data-theme-setup>
-						<option value="cubic-bezier(0.4, 0, 0.2, 1)">Material Standard (0.4, 0, 0.2, 1)</option>
-						<option value="cubic-bezier(0.25, 1, 0.5, 1)">Cubic Out (Smooth)</option>
-						<option value="cubic-bezier(0.16, 1, 0.3, 1)">Expo Out (Snappy)</option>
-						<option value="ease">Ease</option>
-						<option value="linear">Linear</option>
+					<label class="ff__body op__4 xs">Transform</label>
+					<select name="tt-heading" data-theme-setup>
+						<option value="none">None</option>
+						<option value="uppercase">Uppercase</option>
+						<option value="lowercase">Lowercase</option>
 					</select>
 				</div>
 				<div class="grid">
-					<label class="font-body opacity-4 text-xs">Parallax Matrix</label>
-					<select name="toggle-parallax" data-theme-setup>
-						<option value="1">Enabled</option>
-						<option value="0">Disabled</option>
-					</select>
-				</div>
-				<div class="grid">
-					<label class="font-body opacity-4 text-xs">Scroll Reveals</label>
-					<select name="toggle-reveals" data-theme-setup>
-						<option value="1">Enabled</option>
-						<option value="0">Disabled</option>
-					</select>
+					<label class="ff__body op__4 xs">Tracking</label>
+					<input type="text" name="ls-heading" data-theme-setup>
 				</div>
 			</div>
 
-			<div id="tab-colors" class="theme-tab-content grid grid-cols-2 gap-1 is-hidden">
-				<div class="grid col-span-2" style="width: 100%;">
-					<label class="font-body opacity-4 text-xs">Theme Canvas Mode</label>
-					<select id="canvas-theme-selector">
-						<option value="default">Default Root</option>
-						<option value="light">Light Mode</option>
-						<option value="dark">Dark Mode</option>
-						<option value="invert">Inverted Mode</option>
-						<option value="acc">Accent Mode</option>
+			<div class="typo-section-header">Body Copy Elements</div>
+			<div class="grid span__2">
+				<label class="ff__body op__4 xs">Body Family</label>
+				<select name="ff-body" data-theme-setup data-font-select>
+					</select>
+			</div>
+			<div class="theme-panel-row span__2" style="margin-bottom: 0.5rem;">
+				<div class="grid">
+					<label class="ff__body op__4 xs">Weight</label>
+					<input type="number" name="fw-body" step="100" min="100" max="900" data-theme-setup>
+				</div>
+				<div class="grid">
+					<label class="ff__body op__4 xs">Transform</label>
+					<select name="tt-body" data-theme-setup>
+						<option value="none">None</option>
+						<option value="uppercase">Uppercase</option>
+						<option value="lowercase">Lowercase</option>
 					</select>
 				</div>
-
-				<div class="grid col-span-2" style="width: 100%; margin-top: 0.25rem;">
-					<label class="font-body opacity-4 text-xs" style="margin-bottom: 0.35rem;">System Colors Palette</label>
-					<div id="dynamic-color-grid" class="color-picker-grid">
-						</div>
+				<div class="grid">
+					<label class="ff__body op__4 xs">Tracking</label>
+					<input type="text" name="ls-body" data-theme-setup>
 				</div>
 			</div>
 
-			<div id="tab-images" class="theme-tab-content grid grid-cols-2 gap-1 is-hidden">
-				<div class="grid">
-					<label class="font-body opacity-4 text-xs">Image Radius</label>
-					<input type="number" name="img-radius" step="0.1" min="0" max="10" data-theme-setup>
-				</div>
-				<div class="grid">
-					<label class="font-body opacity-4 text-xs">Global Radius</label>
-					<input type="number" name="radius" step="0.1" min="0" max="10" data-theme-setup>
-				</div>
-			</div>
-
-			<div id="tab-buttons" class="theme-tab-content grid grid-cols-2 gap-1 is-hidden">
-				<div class="grid">
-					<label class="font-body opacity-4 text-xs">Btn Padding</label>
-					<input type="text" name="btn-padding" placeholder="0.5rem 1rem" data-theme-setup>
-				</div>
-				<div class="grid">
-					<label class="font-body opacity-4 text-xs">Btn Radius</label>
-					<input type="number" name="btn-radius" step="1" min="0" max="50" data-theme-setup>
-				</div>
-				<div class="grid col-span-2">
-					<label class="font-body opacity-4 text-xs">Btn Border Width</label>
-					<input type="number" name="btn-border" step="1" min="0" max="10" data-theme-setup>
-				</div>
+			<div class="typo-section-header">Monospace / Code Elements</div>
+			<div class="grid span__2">
+				<label class="ff__body op__4 xs">Mono Family</label>
+				<select name="ff-mono" data-theme-setup data-font-select>
+					</select>
 			</div>
 		</div>
 
-		<!-- Fixed Footer Actions -->
-		<div class="flex col-span-2 p-2 border-t border-white/10 bg-[#111111] gap-1.5 flex-wrap flex-shrink-0">
+		<div id="tab-scale" class="theme-tab-content grid__2 gap__1 span__2 is-hidden">
+			<div class="grid span__2" style="border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 0.25rem;"><span class="xs op__6 uppercase font-weight:bold;">Heading Hierarchy</span></div>
+			
+			<div class="grid span__2">
+				<label class="ff__body op__4 xs">H-Typescale</label>
+				<div class="flex" style="align-items: center; gap: 0.25rem; width: 100%;">
+					<select id="ts-select" name="type-scale" data-theme-setup style="flex: 1;">
+						<option value="1.618">1.618 – Golden</option>
+						<option value="1.414">1.414 – Aug 4th</option>
+						<option value="1.333">1.333 – Perf 4th</option>
+						<option value="1.250">1.250 – Maj 3rd</option>
+						<option value="1.200">1.200 – Min 3rd</option>
+						<option value="custom">Custom...</option>
+					</select>
+					<input type="number" id="ts-input" step="0.001" min="1" max="4" style="width: 80px;" placeholder="1.618">
+				</div>
+			</div>
+
+			<div class="theme-panel-row span__2">
+				<div class="grid">
+					<label class="ff__body op__4 xs">H-Start Baseline (Rem)</label>
+					<input type="number" name="type-start-rem" step="0.05" min="0.5" max="4" data-theme-setup data-unit="rem">
+				</div>
+				<div class="grid">
+					<label class="ff__body op__4 xs">H-Start Fluid (Vw)</label>
+					<input type="number" name="type-start-vw" step="0.05" min="0.5" max="4" data-theme-setup data-unit="vw">
+				</div>
+			</div>
+
+			<div class="grid span__2">
+				<label class="ff__body op__4 xs">H-Line Height</label>
+				<input type="number" name="base-line-height" step="0.05" min="0.8" max="2" data-theme-setup>
+			</div>
+
+			<div class="grid span__2" style="border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 0.25rem; margin-top: 0.5rem;"><span class="xs op__6 uppercase font-weight:bold;">Body Copy Hierarchy</span></div>
+			
+			<div class="grid span__2">
+				<label class="ff__body op__4 xs">Body Scale</label>
+				<div class="flex" style="align-items: center; gap: 0.25rem; width: 100%;">
+					<select id="bs-select" name="body-scale" data-theme-setup style="flex: 1;">
+						<option value="1.400">1.400 – Default</option>
+						<option value="1.222">1.222 – Compact</option>
+						<option value="1.125">1.125 – Tight</option>
+						<option value="custom">Custom...</option>
+					</select>
+					<input type="number" id="bs-input" step="0.001" min="1" max="3" style="width: 80px;" placeholder="1.400">
+				</div>
+			</div>
+
+			<div class="theme-panel-row span__2">
+				<div class="grid">
+					<label class="ff__body op__4 xs">B-Start Baseline (Rem)</label>
+					<input type="number" name="body-start-rem" step="0.001" min="0.1" max="3" data-theme-setup data-unit="rem">
+				</div>
+				<div class="grid">
+					<label class="ff__body op__4 xs">B-Start Fluid (Vw)</label>
+					<input type="number" name="body-start-vw" step="0.001" min="0.1" max="3" data-theme-setup data-unit="vw">
+				</div>
+			</div>
+
+			<div class="grid span__2">
+				<label class="ff__body op__4 xs">B-Line Height</label>
+				<input type="number" name="base-body-line-height" step="0.05" min="1.0" max="2.5" data-theme-setup>
+			</div>
+		</div>
+
+		<div id="tab-spacing" class="theme-tab-content grid__2 gap__1 span__2 is-hidden">
+			<div class="grid">
+				<label class="ff__body op__4 xs">Min Scale</label>
+				<input type="number" name="scale-min" step="0.05" min="0.2" max="3" data-theme-setup>
+			</div>
+			<div class="grid">
+				<label class="ff__body op__4 xs">Fluid Scale</label>
+				<input type="number" name="scale-fluid" step="0.1" min="0" max="10" data-theme-setup>
+			</div>
+			<div class="grid span__2">
+				<label class="ff__body op__4 xs">Global Scale Modifier</label>
+				<input type="number" name="scale" step="0.05" min="0.2" max="3" data-theme-setup>
+			</div>
+		</div>
+
+		<div id="tab-animations" class="theme-tab-content grid__2 gap__1 span__2 is-hidden">
+			<div class="grid">
+				<label class="ff__body op__4 xs">Duration</label>
+				<input type="text" name="animation-duration" placeholder="800ms" data-theme-setup>
+			</div>
+			<div class="grid">
+				<label class="ff__body op__4 xs">Delay</label>
+				<input type="text" name="animation-delay" placeholder="0ms" data-theme-setup>
+			</div>
+			<div class="grid span__2">
+				<label class="ff__body op__4 xs">Stagger Interval</label>
+				<input type="text" name="animation-stagger" placeholder="50ms" data-theme-setup>
+			</div>
+			<div class="grid span__2">
+				<label class="ff__body op__4 xs">Timing Curve</label>
+				<select name="animation-timing" data-theme-setup>
+					<option value="cubic-bezier(0.4, 0, 0.2, 1)">Material Standard (0.4, 0, 0.2, 1)</option>
+					<option value="cubic-bezier(0.25, 1, 0.5, 1)">Cubic Out (Smooth)</option>
+					<option value="cubic-bezier(0.16, 1, 0.3, 1)">Expo Out (Snappy)</option>
+					<option value="ease">Ease</option>
+					<option value="linear">Linear</option>
+				</select>
+			</div>
+			<div class="grid">
+				<label class="ff__body op__4 xs">Parallax Matrix</label>
+				<select name="toggle-parallax" data-theme-setup>
+					<option value="1">Enabled</option>
+					<option value="0">Disabled</option>
+				</select>
+			</div>
+			<div class="grid">
+				<label class="ff__body op__4 xs">Scroll Reveals</label>
+				<select name="toggle-reveals" data-theme-setup>
+					<option value="1">Enabled</option>
+					<option value="0">Disabled</option>
+				</select>
+			</div>
+		</div>
+
+		<div id="tab-colors" class="theme-tab-content grid__2 gap__1 span__2 is-hidden">
+			<div class="grid span__2" style="width: 100%;">
+				<label class="ff__body op__4 xs">Theme Canvas Mode</label>
+				<select id="canvas-theme-selector">
+					<option value="default">Default Root</option>
+					<option value="light">Light Mode</option>
+					<option value="dark">Dark Mode</option>
+					<option value="invert">Inverted Mode</option>
+					<option value="acc">Accent Mode</option>
+				</select>
+			</div>
+
+			<div class="grid span__2" style="width: 100%; margin-top: 0.25rem;">
+				<label class="ff__body op__4 xs" style="margin-bottom: 0.35rem;">System Colors Palette</label>
+				<div id="dynamic-color-grid" class="color-picker-grid">
+					</div>
+			</div>
+		</div>
+
+		<div id="tab-images" class="theme-tab-content grid__2 gap__1 span__2 is-hidden">
+		    <div class="grid">
+		        <label class="ff__body op__4 xs">Image Radius</label>
+		        <input type="number" name="img-radius" step="0.1" min="0" max="10" data-theme-setup>
+		    </div>
+		    <div class="grid">
+		        <label class="ff__body op__4 xs">Global Radius</label>
+		        <input type="number" name="radius" step="0.1" min="0" max="10" data-theme-setup>
+		    </div>
+		</div>
+
+		<div id="tab-buttons" class="theme-tab-content grid__2 gap__1 span__2 is-hidden">
+		    <div class="grid">
+		        <label class="ff__body op__4 xs">Btn Padding</label>
+		        <input type="text" name="btn-padding" placeholder="0.5rem 1rem" data-theme-setup>
+		    </div>
+		    <div class="grid">
+		        <label class="ff__body op__4 xs">Btn Radius</label>
+		        <input type="number" name="btn-radius" step="1" min="0" max="50" data-theme-setup>
+		    </div>
+		    <div class="grid span__2">
+		        <label class="ff__body op__4 xs">Btn Border Width</label>
+		        <input type="number" name="btn-border" step="1" min="0" max="10" data-theme-setup>
+		    </div>
+		</div>
+
+		<div class="flex span__2" style="width: 100%; margin-top: 0.75rem; gap: 0.5rem; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 0.75rem; flex-wrap: wrap;">
+					
 			<form action="<?= $page->url() ?>" method="POST" style="width: 100%; margin: 0; padding: 0;">
 				<input type="hidden" name="action" value="sync_theme_fonts">
 				
-				<button type="submit" style="width: 100%; background: rgba(0, 123, 255, 0.2); color: #007bff; border: 1px solid rgba(0, 123, 255, 0.4); padding: 0.35rem 0.5rem; border-radius: 3px; cursor: pointer; font-family: sans-serif; font-size: 0.7rem; letter-spacing: 0.04em; text-transform: uppercase; font-weight: bold; margin-bottom: 0.15rem; transition: all 0.2s;">
+				<button type="submit" style="width: 100%; background: rgba(0, 123, 255, 0.2); color: #007bff; border: 1px solid rgba(0, 123, 255, 0.4); padding: 0.5rem; border-radius: 4px; cursor: pointer; font-family: sans-serif; font-size: 0.75rem; letter-spacing: 0.05em; text-transform: uppercase; font-weight: bold; margin-bottom: 0.25rem; transition: all 0.2s;">
 					🔄 Sync Fonts
 				</button>
 			</form>
@@ -278,12 +274,12 @@
 				<input type="hidden" name="action" value="save-theme">
 				<input type="hidden" id="css-tokens-input" name="css_tokens" value="">
 				
-				<button type="submit" style="width: 100%; background: rgba(40, 167, 69, 0.2); color: #28a745; border: 1px solid rgba(40, 167, 69, 0.4); padding: 0.35rem 0.5rem; border-radius: 3px; cursor: pointer; font-family: sans-serif; font-size: 0.7rem; letter-spacing: 0.04em; text-transform: uppercase; font-weight: bold;">
+				<button type="submit" style="width: 100%; background: rgba(40, 167, 69, 0.2); color: #28a745; border: 1px solid rgba(40, 167, 69, 0.4); padding: 0.5rem; border-radius: 4px; cursor: pointer; font-family: sans-serif; font-size: 0.75rem; letter-spacing: 0.05em; text-transform: uppercase; font-weight: bold;">
 					💾 Save Config File
 				</button>
 			</form>
 
-			<button id="theme-reset-btn" type="button" style="flex: 1; background: rgba(237, 19, 89, 0.2); color: #ff5487; border: 1px solid rgba(237, 19, 89, 0.4); padding: 0.35rem 0.5rem; border-radius: 3px; cursor: pointer; font-family: sans-serif; font-size: 0.7rem; letter-spacing: 0.04em; text-transform: uppercase; font-weight: bold;">
+			<button id="theme-reset-btn" type="button" style="flex: 1; background: rgba(237, 19, 89, 0.2); color: #ff5487; border: 1px solid rgba(237, 19, 89, 0.4); padding: 0.5rem; border-radius: 4px; cursor: pointer; font-family: sans-serif; font-size: 0.75rem; letter-spacing: 0.05em; text-transform: uppercase; font-weight: bold;">
 				Reset
 			</button>
 		</div>
@@ -404,12 +400,10 @@
 								const matches = cssText.match(/--[\w-]+:\s*[^;]+;/g);
 								if (matches) {
 									matches.forEach(match => {
-										const firstColon = match.indexOf(':');
-										if (firstColon !== -1) {
-											const propName = match.substring(0, firstColon).trim().replace('--', '');
-											const propValue = match.substring(firstColon + 1).replace(';', '').trim();
-											declarations[propName] = propValue;
-										}
+										const parts = match.split(':');
+										const propName = parts[0].trim().replace('--', '');
+										const propValue = parts[1].replace(';', '').trim();
+										declarations[propName] = propValue;
 									});
 								}
 							}
@@ -430,7 +424,7 @@
 				const itemMarkup = document.createElement('div');
 				itemMarkup.className = 'color-item';
 				itemMarkup.innerHTML = `
-					<label class="text-xs opacity-4">${stylizedLabel}</label>
+					<label class="xs op__4">${stylizedLabel}</label>
 					<input type="color" name="${token}" data-theme-setup data-is-color>
 				`;
 				colorGridContainer.appendChild(itemMarkup);

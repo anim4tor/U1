@@ -1,91 +1,41 @@
 .is-hidden {
 	display: none !important;
 }
-
-/* Theme panel container */
-#theme-panel-body {
-	width: min(520px, 95vw);
-	max-height: calc(100vh - 4.5rem);
-	box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
-}
-
-/* Tab navigation layout styling - STICKY / FIXED AT TOP */
+/* Tab navigation layout styling */
 .theme-tab-nav {
 	display: flex;
-	gap: 2px;
+	gap: 0.2rem;
 	width: 100%;
-	border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-	background: #111111;
-	padding: 0.4rem 0.4rem 0.3rem 0.4rem;
-	overflow-x: auto;
-	flex-shrink: 0;
+	border-bottom: 1px solid rgba(255,255,255,0.1);
+	padding-bottom: 0.5rem;
+	margin-bottom: 0.75rem;
+	overflow: hidden; 
 }
-
-.theme-tab-nav::-webkit-scrollbar {
-	height: 3px;
-}
-.theme-tab-nav::-webkit-scrollbar-thumb {
-	background: rgba(255, 255, 255, 0.2);
-	border-radius: 3px;
-}
-
 .theme-tab-btn {
 	flex: 1;
 	text-align: center;
 	white-space: nowrap;
 	background: transparent;
-	color: rgba(255, 255, 255, 0.5);
+	color: rgba(255, 255, 255, 0.4);
 	border: none;
-	padding: 0.25rem 0.35rem;
+	padding: 0.35rem 0.6rem;
 	font-family: sans-serif;
-	font-size: 0.65rem;
-	font-weight: 600;
+	font-size: 0.7rem;
+	font-weight: bold;
 	text-transform: uppercase;
-	letter-spacing: 0.02em;
+	letter-spacing: 0.03em;
 	cursor: pointer;
 	border-radius: 3px;
-	transition: all 0.15s ease;
+	transition: all 0.2s ease;
 }
 .theme-tab-btn:hover {
-	color: rgba(255, 255, 255, 0.9);
-	background: rgba(255, 255, 255, 0.08);
+	color: rgba(255, 255, 255, 0.8);
+	background: rgba(255, 255, 255, 0.05);
 }
 .theme-tab-btn.is-active {
 	color: #fff;
-	background: rgba(255, 255, 255, 0.18);
+	background: rgba(255, 255, 255, 0.15);
 }
-
-/* Scrollable Content Container */
-.theme-panel-content-scroll {
-	flex: 1 1 auto;
-	overflow-y: auto;
-	padding: 0.75rem;
-}
-
-/* Inputs & selects inside theme panel */
-#theme-panel-body input[type="text"],
-#theme-panel-body input[type="number"],
-#theme-panel-body select {
-	background: rgba(255, 255, 255, 0.08);
-	color: #ffffff;
-	border: 1px solid rgba(255, 255, 255, 0.15);
-	border-radius: 4px;
-	padding: 0.35rem 0.5rem;
-	font-size: 0.75rem;
-	width: 100%;
-	box-sizing: border-box;
-}
-
-#theme-panel-body select option {
-	background: #1e1e1e;
-	color: #ffffff;
-}
-
-#theme-panel-body label {
-	display: block;
-	margin-bottom: 0.25rem;
-}
-
 /* Typography Section Separators */
 .typo-section-header {
 	grid-column: span 2;
@@ -102,7 +52,6 @@
 .typo-section-header:first-child {
 	margin-top: 0;
 }
-
 /* Clean wrapping for color picker grids */
 .color-picker-grid {
 	display: grid;
@@ -114,10 +63,10 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	background: rgba(255, 255, 255, 0.04);
+	background: rgba(255,255,255,0.03);
 	padding: 0.4rem;
 	border-radius: 4px;
-	border: 1px solid rgba(255, 255, 255, 0.08);
+	border: 1px solid rgba(255,255,255,0.05);
 }
 .color-item label {
 	margin-bottom: 0.25rem;
@@ -128,12 +77,11 @@
 	width: 100%;
 	height: 28px;
 	padding: 0;
-	border: 1px solid rgba(255, 255, 255, 0.15);
+	border: 1px solid rgba(255,255,255,0.1);
 	cursor: pointer;
 	background: transparent;
 	border-radius: 2px;
 }
-
 .theme-panel-row {
 	display: flex;
 	gap: 0.5rem;
@@ -142,7 +90,6 @@
 .theme-panel-row .grid {
 	flex: 1;
 }
-
 /* Action Icon Toggle Button Styles */
 #theme-toggle-btn .icon-close {
 	display: none;
@@ -153,30 +100,28 @@
 #theme-toggle-btn.is-open .icon-close {
 	display: block;
 }
-
-/* Top Right Buttons */
+/* Update your CSS selector to target both unique buttons */
 #theme-toggle-btn,
 #panel-link-btn {
-	margin-bottom: 0;
-	background: rgba(0, 0, 0, 0.7); 
+	margin-bottom: 0; /* Clears the bottom margin inside the flex container */
+	background: rgba(0,0,0,0.6); 
 	color: #fff; 
-	border: 1px solid rgba(255, 255, 255, 0.25); 
-	width: 36px;
-	height: 36px;
+	border: 1px solid rgba(255,255,255,0.2); 
+	width: 34px;
+	height: 34px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	border-radius: 6px; 
+	border-radius: 4px; 
 	cursor: pointer; 
 	transition: all 0.2s ease;
 	padding: 0;
 	text-decoration: none;
 	box-sizing: border-box;
-	flex-shrink: 0;
 }
 
 #theme-toggle-btn:hover,
 #panel-link-btn:hover {
-	background: rgba(0, 0, 0, 0.9);
-	border-color: rgba(255, 255, 255, 0.5);
+	background: rgba(0,0,0,0.8);
+	border-color: rgba(255,255,255,0.4);
 }

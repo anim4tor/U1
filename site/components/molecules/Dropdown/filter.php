@@ -13,7 +13,7 @@
         <?= snippet('atoms/Button', [ 
           'url'     => $page . '?filter=' . $tag['slug'], 
           'label'   => $tag['text'], 
-          'css' => 'justify-start',
+          'css' => 'justify__start',
           'reveal'  => true
         ]) ?>
       <?php endforeach ?>

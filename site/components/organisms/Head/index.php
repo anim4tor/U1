@@ -17,8 +17,9 @@
 	?>
 
 	<?php snippet('meta') ?>
-	<?= css($assetVersion('public/assets/css/app.min.css')) ?>
+	<?= css($assetVersion('public/assets/css/theme.dist.css')) ?>
 	<?= css($assetVersion('public/assets/css/theme-tokens.css')) ?>
+	<?= css($assetVersion('public/assets/css/app.dist.css')) ?>
 	<!-- <?= css('public/assets/css/cookieconsent.css') ?> -->
 	
 	<?= snippet('atoms/favicon') ?>

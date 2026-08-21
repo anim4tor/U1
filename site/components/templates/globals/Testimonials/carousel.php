@@ -6,21 +6,21 @@
 ?>	
 
 <div class="testimonials" theme="<?= $theme ?>">
-	<div class="testimonials__carousel px-1 py-2">
-		<div class="carsousel__track flex items-center gap-1">
-			<div class="carousel__group flex items-center gap-1">
+	<div class="testimonials__carousel innex-x__1 inner-y__2">
+		<div class="carsousel__track flex align__center gap__1">
+			<div class="carousel__group flex align__center gap__1">
 				<?php foreach ($testimonials as $testimonial) : ?>
 					<?php if($testimonial->testimonialQuote()->isNotEmpty()) : ?>
-					<div data-scroll class="carousel__item w-[30vw] shrink-0">
+					<div data-scroll class="carousel__item vw__<?= $width ?>">
 						<?= snippet('molecules/Testimonial/' . $template, compact('testimonial')) ?>
 					</div>
 					<?php endif; ?>
 				<?php endforeach ?>
 			</div>
-			<div class="carousel__group flex items-center gap-1" aria-hidden="true">
+			<div class="carousel__group flex align__center gap__1" aria-hidden="true">
 				<?php foreach ($testimonials as $testimonial) : ?>
 					<?php if($testimonial->testimonialQuote()->isNotEmpty()) : ?>
-					<div data-scroll class="carousel__item w-[30vw] shrink-0">
+					<div data-scroll class="carousel__item vw__<?= $width ?>">
 						<?= snippet('molecules/Testimonial/' . $template, compact('testimonial')) ?>
 					</div>
 					<?php endif; ?>

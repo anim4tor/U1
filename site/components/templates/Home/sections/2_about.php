@@ -1,10 +1,22 @@
 <?php if ($page->about()->isNotEmpty()) : ?>
 <section class="about" theme="invert">
-	<div class="grid grid-cols-1 md:grid-cols-3 gap-2 p-1 px-1 py-2">
-		<div class="col-span-1 md:col-span-2 grid content-start justify-start gap-3 text-s">
+	<div class="grid__3 gap__2 mobile:grid__1 inner__1 inner-x__1 mobile:inner-x__1 inner-y__2">
+		<div class="span__2 grid place__start-start gap__3 mobile:inner-x__0 s">
 			<?= snippet('molecules/Header', ['header' => $page->about(), 'type' => ['heading']]) ?>
 		</div>
 		<div></div>
+		<!-- <div></div>
+		<?php if ($fig = $page->introFigure()->toFile()) : ?>
+			<div class="grid h__20" >
+				<?= snippet('molecules/Header', ['header' => $page->about(), 'type' => ['image']]) ?>
+			</div>
+		<?php endif ?>
+		<div class="grid place__start-end"><?= snippet('molecules/Header', ['header' => $page->about(), 'type' => ['label']]) ?></div>
+		<div></div>
+		<div class="grid place__center-start gap__3">
+			<?= snippet('molecules/Header', ['header' => $page->about(), 'type' => ['text']]) ?>
+		</div>
+		<div></div> -->
 		<div></div>
 		
 		<?= snippet('templates/globals/Figures') ?>

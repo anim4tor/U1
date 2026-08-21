@@ -1,14 +1,14 @@
-<div class="col-span-1 md:col-span-2 flex justify-between">
+<div class="span__2 flex justify__space-between">
 	<?php foreach (page('home')->aboutFigures()->toStructure() as $figure) : ?>
 		<!-- Odstraníme případné nečíselné znaky z hodnoty -->
 		<?php $targetNumber = preg_replace('/[^0-9]/', '', $figure->feature()); ?>
-		<div class="flex" data-scroll>
-			<h2 class="font-size-1 text-l font-light outlined carousel-counter" 
+		<div class="flex " data-scroll>
+			<h2 class="font__size__1 m outlined lighter carousel-counter" 
 			     
 			    data-target="<?= $targetNumber ?>">
 				<!-- JS sem vygeneruje rotující pásy pro každou číslici -->
 			</h2>
-			<div class="text-s label" data-reveal-text><?= $figure->label() ?></div>
+			<div class="s label" data-reveal-text><?= $figure->label() ?></div>
 		</div>
 	<?php endforeach ?>
 </div>
@@ -29,7 +29,7 @@
 	            // Vygenerujeme číslice 0 až 9 uvnitř pásu
 	            for (let i = 0; i < 10; i++) {
 	                const digit = document.createElement('div');
-	                digit.classList.add('counter-digit', 'text-l');
+	                digit.classList.add('counter-digit');
 	                digit.textContent = i;
 	                ribbon.appendChild(digit);
 	            }

@@ -1,36 +1,54 @@
 <?php if (collection('Team')->isNotEmpty()) : ?>
 <section class="team" theme="invert" >
-	<div class="relative grid gap-2 px-1 py-1">
+	<div class="relative grid gap__2 inner-x__1 inner-y__1">
 		<div class="" data-scroll>
 			<?= snippet('molecules/Header', ['header' => $page->teams(), 'type' => ['heading']]) ?>
 		</div>
 	</div>
-	<div class="grid grid-cols-1 md:grid-cols-3 gap-2 relative content-start justify-start pb-2 px-1" data-tabs="hoverable">
-		<div class="col-span-1 md:col-span-2 grid content-start justify-start gap-1 py-1" >
-			<div class="grid gap-02 content-start justify-start" >
+	<div class="grid__3 gap__2 relative place__start-start inner-b__2 inner-x__1" data-tabs="hoverable">
+		<!-- <div></div> -->
+		<div class="span__2 grid place__start-start gap__1 inner-y__1" >
+			<div class="grid gap__02 place__start-start" >
 				<?php foreach (collection('Team') as $team) : ?>
 					<?php
 						$employees = collection('Employees')->filterBy('team', '*=', $team->name())->count();
 					?>
-					<a href="<?= $pages->find('about')->url() ?>/#<?= $team->name()->slug() ?>" data-tab="team-<?= $team->indexOf(collection('Team')) ?>" class="flex gap-02 flex-nowrap" data-scroll>
-						<h3 class="" data-reveal-text data-split-ignore><?= $team->name() ?></h3>
-						<div data-reveal-text="" data-split-ignore style="--in-delay: 800ms" class="-mt-01">(<?= $employees ?>)</div>
+					<a href="<?= $pages->find('about')->url() ?>/#<?= $team->name()->slug() ?>" data-tab="team-<?= $team->indexOf(collection('Team')) ?>" class="flex gap__02 no__wrap" data-scroll>
+						<h3 class="m" data-reveal-text data-split-ignore><?= $team->name() ?></h3>
+						<div data-reveal-text="" data-split-ignore style="--in-delay: 800ms" class="-wrap-t__01">(<?= $employees ?>)</div>
 					</a>
 				<?php endforeach ?>
 			</div>
+			<!-- <div class="grid__2" data-scroll data-scroll-ignore>
+				<div data-pane-container class="grid__stack">
+					<?php foreach (collection('Team') as $team) : ?>
+					<div data-tab-reveal data-pane="team-<?= $team->indexOf(collection('Team')) ?>" class="grid ">
+						<p class="" data-reveal-text="lines" data-split-ignore ><?= $team->details()->inline() ?></p>
+					</div>
+					<?php endforeach ?>
+				</div>
+			</div> -->
 		</div>
-		<div class="grid content-start justify-end" data-pane-container>
-			<div class="grid [grid-template-areas:'stack'] [&>*]:[grid-area:stack] overflow-hidden rounded-img" data-scroll data-reveal-image >
+		<div class="grid place__start-end" data-pane-container>
+			<div class="grid__stack no__overflow img__radius" data-scroll data-reveal-image >
 				<?php foreach (collection('Team') as $team) : ?>
 					<?php if ($leader = $team->leader()->toPage()) : ?>
 					<div data-pane="team-<?= $team->indexOf(collection('Team')) ?>" class="" data-scroll data-scroll-ignore data-tab-reveal>
-						<div class="grid content-start justify-end gap-05">
-							<div class="grid gap-05">
+						<div class="grid place__start-end gap__05">
+							<div class="grid gap__05">
 								<?php if ($img = $team->figure()->toFile()) : ?>
-									<?= snippet('atoms/Image', ['img' => $img, 'parallax' => false, 'reveal' => false, 'css' => 'aspect-[6/4]', 'node' => 'data-reveal-image']) ?>
+									<?= snippet('atoms/Image', ['img' => $img, 'parallax' => false, 'reveal' => false, 'css' => 'aspect__6/4', 'node' => 'data-reveal-image']) ?>
 								<?php endif ?>
 								<?= snippet('atoms/Text', ['text' => $team->details()->inline(), 'reveal' => true, 'node' => 'data-split-ignore data-scroll-ignore']) ?>
 							</div>
+							<!-- <?php if ($photo = $leader->photo()->toFile()) : ?>
+								<div data-reveal-image class="item__figure img__radius no__overflow "><?= snippet('atoms/Image', ['img' => $photo, 'parallax' => 1, 'css' => 'w__10 aspect__3/4 grid' ]) ?></div>
+							<?php endif ?>
+
+							<div class="flex gap__05 justify__space-between upper wrap">
+								<span class="font__size__default s ff__body" data-split-ignore data-reveal-text="lines" ><?= $leader->title() ?></span>
+								<h3 class="font__size__default s ff__body" data-split-ignore data-reveal-text="lines" >(<?= $leader->role() ?>)</h3>
+							</div> -->
 						</div>
 					</div>
 					<?php endif ?>

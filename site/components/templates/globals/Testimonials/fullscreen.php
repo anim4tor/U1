@@ -4,14 +4,14 @@
     : new Kirby\Cms\Pages();
 ?>
 <?php if ($testimonials->isNotEmpty()) : ?>
-<section class="testimonials rounded-radius" data-tabs="noinit" theme="dark">
+<section class="testimonials radius" data-tabs="noinit" theme="dark">
 	<div class="hidden">
 		<?php foreach ($testimonials as $project) : ?>
 			<div data-tab="testimonial-<?= $project->indexOf($testimonials) ?>"></div>
 		<?php endforeach ?>
 	</div>
-	<div class="grid [grid-template-areas:'stack'] [&>*]:[grid-area:stack] relative">
-		<div data-pane-container class="grid [grid-template-areas:'stack'] [&>*]:[grid-area:stack] absolute inset-0">
+	<div class="grid__stack relative">
+		<div data-pane-container class="grid__stack absolute inset__stretch">
 			<?php foreach ($testimonials as $project) : ?>
 				<?php if ($cover = $project->cover()->toFile()) : ?>
 				<div data-tab-reveal data-pane="testimonial-<?= $project->indexOf($testimonials) ?>" >
@@ -20,11 +20,11 @@
 				<?php endif ?>
 			<?php endforeach ?>
 		</div>
-		<div class="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-2 h-screen p-1 md:px-1 py-2" >
+		<div class="relative z__10 grid__3 gap__2 h__100v mobile:grid__1 inner__1 mobile:inner-x__1 inner-y__2" >
 			<div data-tab-prev></div>
-			<div class="grid place-items-center">
+			<div class="grid place__center-center">
 				<div data-pane-container class="grid " data-scroll data-scroll-ignore data-reveal-image>
-					<div class="grid [grid-template-areas:'stack'] [&>*]:[grid-area:stack] p-1 rounded-img" theme="dark">
+					<div class="grid__stack inner__1 img__radius" theme="dark">
 						<?php foreach ($testimonials as $project) : ?>
 							<div data-pane="testimonial-<?= $project->indexOf($testimonials) ?>" class="grid" data-tab-reveal>
 								<?= snippet('molecules/Testimonial/featured', compact('project','testimonials')) ?>
