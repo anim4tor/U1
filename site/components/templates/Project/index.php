@@ -10,7 +10,7 @@
 		</div>
 	<?php endif ?>
 	
-	<div data-scroll class="z-10 intro__header content-end items-stretch grid grid-cols-1 md:grid-cols-4 h-screen md:h-auto p-1 pt-10 md:pt-1 gap-2 relative text-invert">
+	<div data-scroll class="z-10 intro__header content-end items-stretch grid grid-cols-1 md:grid-cols-4 h-screen p-1 pt-10 gap-2 relative text-invert">
 		<div class="col-span-1 md:col-span-4 grid gap-1 items-stretch">
 			<h1 class=" secret-door ">
 				<div data-reveal-text=""><?= $page->title() ?></div>
@@ -50,9 +50,9 @@
 			<?php foreach ($specs as $field => $label): ?>
 				<?php $val = $page->$field(); ?>
 				<?php if ($val->isNotEmpty()): ?>
-					<div class="grid grid-cols-2 gap-2 border-t border-white/20 py-05">
+					<div class="grid grid-cols-2 gap-2 border-t border-dark/20 py-05">
 						<div class="uppercase text-xs opacity-6">(<?= $label ?>)</div>
-						<p class="text-large"><?= $field != 'date' ? $val : $val->toDate('Y') ?></p>
+						<p class="text-l"><?= $field != 'date' ? $val : $val->toDate('Y') ?></p>
 					</div>
 				<?php endif; ?>
 			<?php endforeach; ?>
@@ -68,14 +68,14 @@
 ?>
 <section>
 	<div class="grid px-1" data-scroll>
-		<div class="before-after-container rounded-img" style="--position: 41.75%;">
-		  <div class="image-container before-image">
-		  	<?= snippet('atoms/Image', ['img' => $before, 'parallax' => 2, 'reveal' => false, 'css' => '']) ?>
+		<div class="before-after-container h-screen rounded-img" style="--position: 41.75%;">
+		  <div class="image-container h-screen before-image">
+		  	<?= snippet('atoms/Image', ['img' => $before, 'parallax' => 2, 'reveal' => false, 'css' => 'h-screen']) ?>
 		  	<?php $usedImages[] = $before?->id(); ?>
 		  </div>
 
-		  <div class="image-container after-image">
-		  	<?= snippet('atoms/Image', ['img' => $after, 'parallax' => 2, 'reveal' => false, 'css' => '']) ?>
+		  <div class="image-container h-screen after-image">
+		  	<?= snippet('atoms/Image', ['img' => $after, 'parallax' => 2, 'reveal' => false, 'css' => 'h-screen']) ?>
 		  	<?php $usedImages[] = $after?->id(); ?>
 		  </div>
 
