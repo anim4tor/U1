@@ -1,100 +1,13 @@
 <?php if ($page->about()->isNotEmpty()) : ?>
 <section class="about" theme="invert">
-	<div class="grid__3 gap__2 mobile:grid__1 inner__1 inner-x__1 mobile:inner-x__1 inner-y__2">
-		<div class="span__2 grid place__start-start gap__3 mobile:inner-x__0 s">
+	<div class="grid grid-cols-1 md:grid-cols-3 gap-2 p-1 px-1 py-2">
+		<div class="col-span-1 md:col-span-2 grid content-start justify-start gap-3 text-s">
 			<?= snippet('molecules/Header', ['header' => $page->about(), 'type' => ['heading']]) ?>
 		</div>
 		<div></div>
-		<!-- <div></div>
-		<?php if ($fig = $page->introFigure()->toFile()) : ?>
-			<div class="grid h__20" >
-				<?= snippet('molecules/Header', ['header' => $page->about(), 'type' => ['image']]) ?>
-			</div>
-		<?php endif ?>
-		<div class="grid place__start-end"><?= snippet('molecules/Header', ['header' => $page->about(), 'type' => ['label']]) ?></div>
 		<div></div>
-		<div class="grid place__center-start gap__3">
-			<?= snippet('molecules/Header', ['header' => $page->about(), 'type' => ['text']]) ?>
-		</div>
-		<div></div> -->
-		<div></div>
-		<div class="span__2 flex justify__space-between">
-			<?php foreach ($page->aboutFigures()->toStructure() as $figure) : ?>
-				<!-- Odstraníme případné nečíselné znaky z hodnoty -->
-				<?php $targetNumber = preg_replace('/[^0-9]/', '', $figure->feature()); ?>
-				
-				<div class="flex " data-scroll>
-					<h2 class="font__size__1 m outlined lighter carousel-counter" 
-					     
-					    data-target="<?= $targetNumber ?>">
-						<!-- JS sem vygeneruje rotující pásy pro každou číslici -->
-					</h2>
-					<div class="s label" data-reveal-text><?= $figure->label() ?></div>
-				</div>
-			<?php endforeach ?>
-		</div>
-		<script type="text/javascript">
-			document.addEventListener("DOMContentLoaded", () => {
-			    const counters = document.querySelectorAll('.carousel-counter');
-
-			    // Inicializace struktury (pásů) hned po načtení, aby se zabránilo skákání obsahu
-			    counters.forEach(counter => {
-			        const targetStr = counter.getAttribute('data-target');
-			        counter.innerHTML = ''; // Vyčištění původního obsahu
-
-			        // Pro každou číslici v cílovém řetězci vytvoříme pás
-			        [...targetStr].forEach(() => {
-			            const ribbon = document.createElement('div');
-			            ribbon.classList.add('counter-ribbon');
-
-			            // Vygenerujeme číslice 0 až 9 uvnitř pásu
-			            for (let i = 0; i < 10; i++) {
-			                const digit = document.createElement('div');
-			                digit.classList.add('counter-digit');
-			                digit.textContent = i;
-			                ribbon.appendChild(digit);
-			            }
-
-			            counter.appendChild(ribbon);
-			        });
-			    });
-
-			    // Funkce, která spustí rotaci na cílové hodnoty
-			    const animateCarousel = (counter) => {
-			        const targetStr = counter.getAttribute('data-target');
-			        const ribbons = counter.querySelectorAll('.counter-ribbon');
-
-			        ribbons.forEach((ribbon, index) => {
-			            const targetDigit = parseInt(targetStr[index], 10);
-			            
-			            // Posuneme pás vertikálně nahoru na základě cílové číslice
-			            // Každá číslice zabírá přesně 10% výšky pásu (nebo -1em na číslici)
-			            setTimeout(() => {
-			                ribbon.style.transform = `translateY(-${targetDigit * 10}%)`;
-			            }, index * 50); // Mírné zpoždění (stagger efekt) pro ještě lepší vizuální dojem
-			        });
-			    };
-
-			    // Nastavení Intersection Observeru
-			    const observerOptions = {
-			        root: null,
-			        threshold: 0.2
-			    };
-
-			    const observer = new IntersectionObserver((entries, observer) => {
-			        entries.forEach(entry => {
-			            if (entry.isIntersecting) {
-			                const counter = entry.target;
-			                animateCarousel(counter);
-			                observer.unobserve(counter); // Animaci pustíme pouze jednou
-			            }
-			        });
-			    }, observerOptions);
-
-			    counters.forEach(counter => observer.observe(counter));
-			});
-
-		</script>
+		
+		<?= snippet('templates/globals/Figures') ?>
 	</div>
 </section>
 <?php endif ?>

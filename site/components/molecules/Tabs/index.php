@@ -1,5 +1,5 @@
-<tabs data-tabs class="grid gap__1">
-	<nav class="flex flex__start gap__05">
+<tabs data-tabs class="grid gap-1">
+	<nav class="flex justify-start gap-05">
 		<?php foreach ($tabs as $tab) : ?>
 			<a data-tab href="#<?= $tab->label() ?>" class="button has-border" data-label="<?= $tab->label() ?>"><span><?= $tab->label() ?></span></a>
 		<?php endforeach ?>

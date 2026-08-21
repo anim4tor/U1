@@ -222,3 +222,11 @@ $pos: (
 .intro__rows {
 	grid-template-rows: 0.8fr 1.2fr;
 }
+
+.rows__auto-1 {
+	grid-template-rows: auto 1fr;
+}
+
+.grid__auto {
+	
+}

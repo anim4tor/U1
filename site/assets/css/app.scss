@@ -1,58 +1,72 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/*
+	THEME BASE & TOKENS
+	--------------------------------------------------
+*/
+@import "../../components/atoms/Theme/reset";
+@import "../../components/atoms/Theme/fonts";
+@import "../../components/atoms/Theme/colors";
+@import "../../components/atoms/Theme/type";
+@import "../../components/atoms/Theme/border";
+@import "../../components/atoms/Theme/effects";
+
 /*
 	UTILS
 	--------------------------------------------------
 */
-	@import "../../components/atoms/Media/media";
-	@import "../../components/atoms/Animation/animation";
-	@import "../../components/atoms/Reveal/reveal";
-	@import "../../components/atoms/Scroll/scroll";
+@import "../../components/atoms/Media/media";
+@import "../../components/atoms/Animation/animation";
+@import "../../components/atoms/Reveal/reveal";
+@import "../../components/atoms/Scroll/scroll";
 
 /*
 	ATOMS 
 	--------------------------------------------------
 */
-	@import "../../components/atoms/Icon/icon";
-	@import "../../components/atoms/List/list";
-	@import "../../components/atoms/Button/button";
-	@import "../../components/atoms/Link/link";
-	@import "../../components/atoms/Input/input";
-	@import "../../components/atoms/Image/image";
+@import "../../components/atoms/Icon/icon";
+@import "../../components/atoms/List/list";
+@import "../../components/atoms/Button/button";
+@import "../../components/atoms/Link/link";
+@import "../../components/atoms/Input/input";
+@import "../../components/atoms/Image/image";
 
 /*
 	MOLECULES
 	--------------------------------------------------
 */
-	@import "../../components/molecules/Project/project";
-	@import "../../components/molecules/Feed/feed";
-	@import "../../components/molecules/Tabs/tabs";
-	
-	
+@import "../../components/molecules/Project/project";
+@import "../../components/molecules/Testimonial/testimonial";
+@import "../../components/molecules/Feed/feed";
+@import "../../components/molecules/Tabs/tabs";
+@import "../../components/molecules/Dropdown/dropdown";
 	
 /*
 	ORGANISMS
 	--------------------------------------------------
 */
-	@import "../../components/organisms/Body/body";
-	@import "../../components/organisms/Loader/loader";
-	@import "../../components/organisms/Header/header";
-	@import "../../components/organisms/Footer/footer";
-	@import "../../components/organisms/Aside/aside";
-	@import "../../components/organisms/Carousel/carousel";
-	@import "../../components/organisms/Contact/contact";
-	@import "../../components/organisms/Modal/modal";
-
+@import "../../components/organisms/Body/body";
+@import "../../components/organisms/Loader/loader";
+@import "../../components/organisms/Header/header";
+@import "../../components/organisms/Footer/footer";
+@import "../../components/organisms/Aside/aside";
+@import "../../components/organisms/Carousel/carousel";
+@import "../../components/organisms/Contact/contact";
+@import "../../components/organisms/Modal/modal";
 
 /*
 	TEMPLATES
 	--------------------------------------------------
 */	
-	@import "../../components/templates/Home/index";
-	@import "../../components/templates/Project/project";
-	@import "../../components/templates/Post/post";
-	@import "../../components/templates/globals/Cta/cta";
+@import "../../components/templates/Home/index";
+@import "../../components/templates/Project/project";
+@import "../../components/templates/Post/post";
+@import "../../components/templates/globals/Cta/cta";
+@import "../../components/templates/globals/Testimonials/testimonials";
+
+/*
+	TAILWIND UTILITIES
+	--------------------------------------------------
+*/
+@tailwind utilities;
 
 
 /*

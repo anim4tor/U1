@@ -1,0 +1,53 @@
+/*  
+
+    MOLECULES: Testimonial
+
+*/
+:root {
+    
+}
+
+.testimonial {
+    .testimonial__hover {
+        @include animation(clip-path, 600ms);
+/*        pointer-events: none;*/
+        clip-path: inset(100% 0% 0% 100%);
+
+        [data-reveal-text] {
+          @include reveal-text-line;
+          --in-delay: 500ms;
+        }
+    }
+    .testimonial__figure {
+        @include animation((transform,clip-path), 600ms);
+        clip-path: inset(0% 0% 0% 0%);
+        pointer-events: none;
+/*        clip-path: inset(5.0% 5.0% 5.0% 5.0%);*/
+/*        transform: scale(0.9);*/
+
+        & > figure {
+            @include animation((filter,transform), 600ms);
+            transform: scale(1.1);
+            filter: blur(0) brightness(0.8);
+        }
+    }
+
+    &:hover {
+        .testimonial__figure {
+            clip-path: inset(0% 0% 0% 0%);
+            transform: none;
+            & > figure {
+                transform: scale(1);
+                filter: blur(0) brightness(1.0);
+            }
+        }
+        .testimonial__hover {
+            transition-delay: 400ms;
+            clip-path: inset(0% 0% 0% 0%);
+
+            [data-reveal-text] {
+              @include reveal-text-in;
+            }
+        }
+    }
+}

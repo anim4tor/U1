@@ -1,6 +1,6 @@
 /*  
 
-    MOLECULES: Class
+    MOLECULES: Project
 
 */
 :root {
@@ -31,7 +31,7 @@
 .item.--project {
     .item__meta {
         @include animation;
-        clip-path: inset(0% 0% 100% 0%);
+/*        clip-path: inset(0% 0% 100% 0%);*/
     }
     .item__hover {
         @include animation(clip-path, 600ms);
@@ -47,7 +47,7 @@
         @include animation((transform,clip-path), 600ms);
         clip-path: inset(0% 0% 0% 0%);
 /*        clip-path: inset(5.0% 5.0% 5.0% 5.0%);*/
-        transform: scale(0.9);
+/*        transform: scale(0.9);*/
 
         & > figure {
             @include animation((filter,transform), 600ms);

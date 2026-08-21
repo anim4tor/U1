@@ -1,0 +1,13 @@
+﻿{
+  "name": "u1-website",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build:css": "sass site/assets/css/app.scss public/assets/css/app.dist.css --no-source-map && tailwindcss -i public/assets/css/app.dist.css -o public/assets/css/app.dist.css --minify",
+    "watch:css": "tailwindcss -i site/assets/css/app.scss -o public/assets/css/app.dist.css --watch"
+  },
+  "devDependencies": {
+    "sass": "^1.83.4",
+    "tailwindcss": "^3.4.17"
+  }
+}

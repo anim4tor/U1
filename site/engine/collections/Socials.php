@@ -1,0 +1,143 @@
+<?php
+
+use Kirby\Cms\Collection;
+use Kirby\Cms\Page;
+use Kirby\Http\Remote;
+
+return function ($kirby) {
+    $cache = $kirby->cache('social');
+    $virtualPages = [];
+
+    // ----------------------------------------------------
+    // 1. FETCH & PROCESS LINKEDIN POSTS
+    // ----------------------------------------------------
+    $cachedLinkedin = $cache->get('social.linkedin.posts');
+
+    if ($cachedLinkedin === null) {
+        $orgId = (string) option('linkedin.org_id');
+        $token = trim((string) option('linkedin.token'));
+        if (!empty($orgId) && !empty($token)) {
+            if (!str_starts_with($orgId, 'urn:li:organization:')) {
+                $orgId = 'urn:li:organization:' . $orgId;
+            }
+
+            $endpoint = "https://api.linkedin.com/rest/posts?author=" . urlencode($orgId) . "&q=author&count=10";
+
+            try {
+                $response = Remote::get($endpoint, [
+                    'timeout' => 3,
+                    'headers' => [
+                        'Authorization'             => 'Bearer ' . $token,
+                        'LinkedIn-Version'          => '202601',
+                        'X-Restli-Protocol-Version'  => '2.0.0'
+                    ]
+                ]);
+
+                if ($response->code() === 200) {
+                    $cachedLinkedin = $response->json()['elements'] ?? [];
+                    $cache->set('social.linkedin.posts', $cachedLinkedin, 43200); // 12 hours
+                }
+            } catch (\Throwable $e) {
+                // Ignore network errors
+            }
+        }
+
+        if ($cachedLinkedin === null) {
+            $cachedLinkedin = [];
+            $cache->set('social.linkedin.posts', [], 300); // 5 min cooldown
+        }
+    }
+
+    foreach ($cachedLinkedin as $post) {
+        $postId     = $post['id'] ?? '';
+        $commentary = $post['commentary'] ?? '';
+        $mediaUrl   = $post['content']['media']['image'] ?? '';
+        // Convert timestamp (ms) or date string to Unix timestamp
+        $timestamp  = isset($post['createdAt']) ? (int)($post['createdAt'] / 1000) : time();
+
+        $virtualPages[] = new Page([
+            'slug'     => 'linkedin-' . md5($postId),
+            'template' => 'social-item',
+            'content'  => [
+                'title'        => $commentary,
+                'social_url'   => 'https://www.linkedin.com/feed/update/' . $postId,
+                'media_url'    => $mediaUrl,
+                'platform'     => 'linkedin',
+                'date'         => date('Y-m-d H:i:s', $timestamp),
+                'timestamp'    => $timestamp,
+                'hashtags'     => ''
+            ]
+        ]);
+    }
+
+    // ----------------------------------------------------
+    // 2. FETCH & PROCESS INSTAGRAM POSTS
+    // ----------------------------------------------------
+    $requiredHashtag = 'web';
+    $cachedInstagram = $cache->get('social.instagram.posts');
+
+    if ($cachedInstagram === null) {
+        $token = option('instagram.token');
+        if ($token) {
+            $endpoint = "https://graph.instagram.com/me/media?fields=id,caption,media_type,media_url,permalink,timestamp,thumbnail_url&limit=50&access_token={$token}";
+
+            try {
+                $response = Remote::get($endpoint, ['timeout' => 3]);
+                if ($response->code() === 200) {
+                    $cachedInstagram = $response->json()['data'] ?? [];
+                    $cache->set('social.instagram.posts', $cachedInstagram, 43200); // 12 hours
+                }
+            } catch (\Throwable $e) {
+                // Ignore network errors
+            }
+        }
+
+        if ($cachedInstagram === null) {
+            $cachedInstagram = [];
+            $cache->set('social.instagram.posts', [], 300); // 5 min cooldown
+        }
+    }
+
+    foreach ($cachedInstagram as $post) {
+        $caption = $post['caption'] ?? '';
+
+        // Extract hashtags
+        preg_match_all('/#(\w+)/u', $caption, $matches);
+        $hashtags = $matches[1] ?? [];
+
+        // Filter by required hashtag (case-insensitive)
+        $hasTag = in_array(strtolower($requiredHashtag), array_map('strtolower', $hashtags));
+        if (!$hasTag) {
+            continue;
+        }
+
+        $imageUrl = ($post['media_type'] === 'VIDEO' && isset($post['thumbnail_url']))
+            ? $post['thumbnail_url']
+            : ($post['media_url'] ?? '');
+
+        $cleanTitle = trim(preg_replace('/#\w+/u', '', $caption));
+        $timestamp  = isset($post['timestamp']) ? strtotime($post['timestamp']) : time();
+
+        $virtualPages[] = new Page([
+            'slug'     => 'instagram-' . $post['id'],
+            'template' => 'social-item',
+            'content'  => [
+                'title'      => $cleanTitle,
+                'media_url'  => $imageUrl,
+                'social_url' => $post['permalink'] ?? '',
+                'media_type' => $post['media_type'] ?? 'IMAGE',
+                'platform'   => 'instagram',
+                'date'       => date('Y-m-d H:i:s', $timestamp),
+                'timestamp'  => $timestamp,
+                'hashtags'   => implode(', ', $hashtags)
+            ]
+        ]);
+    }
+
+    // ----------------------------------------------------
+    // 3. SORT UNIFIED COLLECTION BY DATE (DESCENDING)
+    // ----------------------------------------------------
+    $collection = new Collection($virtualPages);
+    
+    return $collection->sortBy('timestamp', 'desc');
+};

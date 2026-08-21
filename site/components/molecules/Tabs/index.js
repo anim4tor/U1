@@ -128,6 +128,7 @@ class Tabs {
 
         if (this.scrollTriggers.length === 0) return;
 
+        // Existing Intersection Observer setup...
         const observerOptions = {
             root: null, 
             rootMargin: '-20% 0px -79% 0px',
@@ -150,6 +151,39 @@ class Tabs {
         }, observerOptions);
 
         this.scrollTriggers.forEach(item => this.observer.observe(item.trigger));
+
+        // --- NEW: Scroll Progress Calculation ---
+        this._boundUpdateProgress = this.updateScrollProgress.bind(this);
+        window.addEventListener('scroll', this._boundUpdateProgress, { passive: true });
+        this.updateScrollProgress(); // Initial check
+    }
+
+    updateScrollProgress() {
+        if (this.scrollTriggers.length === 0) return;
+
+        const firstTrigger = this.scrollTriggers[0].trigger;
+        const lastTrigger = this.scrollTriggers[this.scrollTriggers.length - 1].trigger;
+
+        // Get bounding rectangles relative to the viewport
+        const firstRect = firstTrigger.getBoundingClientRect();
+        const lastRect = lastTrigger.getBoundingClientRect();
+
+        // Total distance from the top of the first trigger to the top of the last trigger
+        const totalDistance = lastRect.top - firstRect.top + lastRect.height;
+
+        if (totalDistance <= 0) {
+            this.DOM.widget.style.setProperty('--progress', '0');
+            return;
+        }
+
+        // Current distance scrolled from the first trigger's initial position
+        // We track how far the top of the first trigger has moved above the viewport top (or a custom offset)
+        const currentScroll = -firstRect.top;
+
+        let progress = currentScroll / totalDistance;
+        progress = Math.max(0, Math.min(1, progress)); // Clamp between 0 and 1
+
+        this.DOM.widget.style.setProperty('--progress', progress.toFixed(3));
     }
 
     setActive(index) {
@@ -370,8 +404,20 @@ class Tabs {
     }
 
     destroy() {
-        // ... existing destroy code
-        if (this.autoplayTimer) clearInterval(this.autoplayTimer);
+        this.DOM.widget.removeEventListener('keydown', this._boundHandleKeydown);
+        window.removeEventListener("scrollTabEvent", this._boundScrollEvent);
+        
+        // --- NEW: Remove progress listener ---
+        if (this._boundUpdateProgress) {
+            window.removeEventListener('scroll', this._boundUpdateProgress);
+        }
+
+        if (this.observer) this.observer.disconnect();
+        clearTimeout(this.scroll_timeout);
+        clearTimeout(this.hover_timeout);
+        this.closing_timeouts.forEach(id => clearTimeout(id));
+        this.DOM.panes.forEach(p => p.style.zIndex = '');
+        this.DOM.widget.removeAttribute('data-scroll-progress');
     }
 
     initEvents() {
@@ -496,11 +542,19 @@ class Tabs {
     destroy() {
         this.DOM.widget.removeEventListener('keydown', this._boundHandleKeydown);
         window.removeEventListener("scrollTabEvent", this._boundScrollEvent);
+        
+        if (this._boundUpdateProgress) {
+            window.removeEventListener('scroll', this._boundUpdateProgress);
+        }
+
         if (this.observer) this.observer.disconnect();
         clearTimeout(this.scroll_timeout);
         clearTimeout(this.hover_timeout);
         this.closing_timeouts.forEach(id => clearTimeout(id));
         this.DOM.panes.forEach(p => p.style.zIndex = '');
+        
+        // Remove the custom property
+        this.DOM.widget.style.removeProperty('--progress');
     }
 }
 

@@ -3,7 +3,7 @@
 		<div class="relative" data-scroll>
 			<?php if ($cover = $project->cover()->toFile()): ?>
 			<div data-panel-reveal>
-				<figure class="grid vh__10 " role="img" aria-labelledby="" data-reveal-image>
+				<figure class="grid h-[50vh] " role="img" aria-labelledby="" data-reveal-image>
 					<img class="absolute inset__0 " src="<?= $cover->url() ?>" alt="<?= $cover->alt()->esc() ?>" data-panel-img>
 			    </figure>
 			</div>
@@ -11,7 +11,7 @@
 		</div>
 		<figcaption class="grid gap__3 inner-x__1" data-scroll data-scroll-repeat>
 			<div class="-wrap-t__3">
-				<h1 data-panel-reveal class="font__size__1 s">PR.<?= formatNum($project->indexOf($portfolio) + 1) ?><br>/<?= formatNum($portfolio->count()) ?></h1>
+				<h1 data-panel-reveal class="font__size__1 text-s">PR.<?= formatNum($project->indexOf($portfolio) + 1) ?><br>/<?= formatNum($portfolio->count()) ?></h1>
 			</div>
 			<div class="mobile:grid__2 place__start-stretch gap__1 ">
 				<div class="grid gap__0">

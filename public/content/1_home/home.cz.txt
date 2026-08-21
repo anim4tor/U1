@@ -13,8 +13,6 @@ Heroslider:
 - page://iw5wpXmSaoxIdHjj
 - page://9HLrFqw7JW1oq44n
 - page://4YelEyMbDu0MnevU
-- page://DFrA65LRGEbhv2uf
-- page://X5ZaG3cFKtoi7WTz
 
 ----
 
@@ -44,11 +42,19 @@ Featuredprojects:
 
 - page://4YelEyMbDu0MnevU
 - page://NVWahod5DcLtOlh5
-- page://DFrA65LRGEbhv2uf
 - page://9HLrFqw7JW1oq44n
 - page://iw5wpXmSaoxIdHjj
 - page://jGv5KOraCDTVOPmA
-- page://X5ZaG3cFKtoi7WTz
+
+----
+
+Featuredtestimonials:
+
+- page://4YelEyMbDu0MnevU
+- page://DFrA65LRGEbhv2uf
+- page://iw5wpXmSaoxIdHjj
+- page://jGv5KOraCDTVOPmA
+- page://NVWahod5DcLtOlh5
 
 ----
 
@@ -71,7 +77,7 @@ Order:
 - 
   label: 4_testimonials
 - 
-  label: 5_process
+  label: global/Process/index
 - 
   label: 6_services
 - 
@@ -126,13 +132,6 @@ Robots-imageindex:
 ----
 
 Robots-snippet: 
-
-----
-
-Featuredtestimonials:
-
-- page://4YelEyMbDu0MnevU
-- page://DFrA65LRGEbhv2uf
 
 ----
 

@@ -1,19 +1,19 @@
 <?php if ($page->hero()->isNotEmpty()) : ?>
-<section class="intro radius" theme="invert" style="--in-delay: 500ms">
-	<div class="z__1 intro__header inner-b__2 place__stretch-stretch grid__4 gap__2 mobile:grid__1 mobile:h__auto inner__1 mobile:inner-t__10 mobile:gap__2 relative ">
-		<div class="span__4 h__6"></div>
-		<div class="span__4 inner-t__05 border__top grid__4 place__space-between-stretch">
-			<div class="span__2">
-				<div class="flex align__start gap__02 inner-y__02">
+<section class="intro rounded-radius" theme="invert" style="--in-delay: 500ms">
+	<div class="z-10 intro__header pb-2 items-stretch justify-stretch grid grid-cols-1 md:grid-cols-4 gap-2 p-1 pt-10 md:pt-1 gap-2 md:gap-2 relative ">
+		<div class="col-span-1 md:col-span-4 h-6"></div>
+		<div class="col-span-1 md:col-span-4 pt-05 border-t border-white/20 grid grid-cols-1 md:grid-cols-4 justify-between items-stretch">
+			<div class="col-span-1 md:col-span-2">
+				<div class="flex items-start gap-02 py-02">
 					<?= snippet('molecules/Header', ['header' => $page->hero(), 'type' => ['heading']]) ?>
 				</div>
 			</div>
 			<div></div>
-			<div class="grid gap__1 place__start-end">
+			<div class="grid gap-1 content-start justify-end">
 				<?= snippet('molecules/Header', ['header' => $page->hero(), 'type' => ['button']]) ?>
 			</div>
 		</div>
-		<div class="span__4 grid h__100v radius">
+		<div class="col-span-1 md:col-span-4 grid h-screen rounded-radius">
 			<?= snippet('molecules/Header', ['header' => $page->hero(), 'type' => ['cover']]) ?>
 		</div>
 	</div>

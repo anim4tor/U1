@@ -179,6 +179,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 //@prepros-prepend ../../components/atoms/Reveal/index.js
 //@prepros-prepend ../../components/molecules/Collapsible/index.js
 //@prepros-prepend ../../components/molecules/Tabs/index.js
+//@prepros-prepend ../../components/molecules/Dropdown/index.js
 //@prepros-prepend ../../components/organisms/Loader/index.js
 //@prepros-prepend ../../components/organisms/Header/index.js
 //@prepros-prepend ../../components/organisms/Carousel/index.js

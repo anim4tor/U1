@@ -1,15 +1,15 @@
 <?php if ($site->ctaContact()->isNotEmpty()) : ?>
-<section class="cta radius" theme="dark" data-scroll>
+<section class="cta rounded-radius" theme="dark" data-scroll>
 	<div class="" data-contact-toggle="inquiry">
-		<div class="bg radius absolute inset__stretch" >
+		<div class="bg rounded-radius absolute inset-0" >
 			<!-- <?= asset('public/assets/images/cta_bg.png') ?> -->
 		</div>
-		<div class="relative grid__4 gap__1 mobile:grid__1 inner-x__1 inner-y__2 inner-t__5">
-			<div class="span__4 flex justify__space-between align__end gap__3 color__invert">
-				<div class="inner-b__0">
+		<div class="relative grid grid-cols-1 md:grid-cols-4 gap-1 px-1 py-2 pt-5">
+			<div class="col-span-1 md:col-span-4 flex justify-between items-end gap-3 text-invert">
+				<div class="pb-0">
 					<?= snippet('molecules/Header', ['header' => $site->ctaContact(), 'type' => ['heading']]) ?>
 				</div>
-				<div class="flex justify__end">
+				<div class="flex justify-end">
 					<?= snippet('molecules/Header', ['header' => $site->ctaContact(), 'type' => ['button']]) ?>
 				</div>
 			</div>

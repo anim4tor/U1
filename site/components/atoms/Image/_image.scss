@@ -70,12 +70,12 @@ img {
         --parallax-speed: calc(var(--speed, 0));
         
         // Pure mathematical vertical boundary compensation offset
-        --height-modifier: calc((var(--progress) - 0.5) * (var(--speed, 0) * -2%));
+        --height-modifier: calc((var(--progress, 0.5) - 0.5) * (var(--speed, 0) * -2%));
 
         transform: 
             translateY(calc(
                 ((var(--parallax-speed, 10) * -10%) + 
-                (var(--parallax-speed, 10) * 20% * var(--progress)) +
+                (var(--parallax-speed, 10) * 20% * var(--progress, 0.5)) +
                 var(--height-modifier))
                 * var(--toggle-parallax, 1)
             ));
@@ -89,8 +89,15 @@ img {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, black 0%, rgba(black, .25) 100%);
+  background: linear-gradient(to top, black 0%, rgba(black, .25) 50%);
   opacity: .75;
+}
+.overlay__harder:after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, black 0%, rgba(black, .25) 100%);
+  opacity: .8;
 }
 /*
 [href] {

@@ -1,9 +1,9 @@
 class Reveal {
     constructor(selector = '[data-scroll]') {
         this.selector = selector;
-        this.progressElements = [];
+        this.progressEntries = [];
         this.observer = null;
-    	this.preCalculate()
+        this.vh = window.innerHeight;
         this.init();
     }
 
@@ -17,83 +17,81 @@ class Reveal {
                 const hasText = el.matches('[data-reveal-text]') || el.querySelector('[data-reveal-text]');
 
                 if (entry.isIntersecting) {
-
                     if (hasText && !el.classList.contains('is-split')) {
                         this._splitText(el);
-                    } else {
-                        !ignore ? el.classList.add('is-inview') : null;
-                    }
-
-                    if (isProgress && !this.progressElements.includes(el)) {
-                        this.progressElements.push(el);
-                        this._calculateElementProgress(el);
+                    } else if (!ignore) {
+                        el.classList.add('is-inview');
                     }
 
                     if (!shouldRepeat && !isProgress && !hasText) {
                         this.observer.unobserve(el);
                     }
                 } else {
-				    // Pokud prvek NENÍ nastaven jako "repeat", revertujeme text při odchodu
-				    if (!shouldRepeat) {
-				        if (hasText) {
-				            this._revertText(el);
-				        }
-				        // Poznámka: is-inview NEMAŽEME, protože jsi chtěl, aby tam zůstala
-				    } else {
-				        // Pokud má data-scroll-repeat, uklidíme úplně všechno včetně is-inview
-				        el.classList.remove('is-inview');
-				        // if (hasText) {
-				        //     this._revertText(el);
-				        // }
-				    }
-				    
-				    // Progress čistíme vždy
-				    if (isProgress) {
-				        this.progressElements = this.progressElements.filter(item => item !== el);
-				    }
-				}
+                    if (shouldRepeat) {
+                        el.classList.remove('is-inview');
+                    }
+                }
             });
-        }, { rootMargin: '99% 0% 0% 0%', threshold: [0,1] });
+        }, { 
+            rootMargin: '0px 0px -50px 0px', 
+            threshold: 0.05 
+        });
 
-        window.addEventListener('scroll', () => {
-            if (this.progressElements.length > 0) {
-                window.requestAnimationFrame(() => this._updateProgress());
-            }
+        // Cache coordinates of progress elements
+        this.measureProgressElements();
+
+        window.addEventListener('resize', () => {
+            this.vh = window.innerHeight;
+            this.measureProgressElements();
+            this.updateProgress(window.SCROLL?.engine?.scroll ?? window.scrollY);
         }, { passive: true });
+
+        // Connect synchronously to Lenis scroll
+        if (window.SCROLL && window.SCROLL.engine) {
+            window.SCROLL.engine.on('scroll', (e) => {
+                this.updateProgress(e.scroll);
+            });
+        } else {
+            window.addEventListener('scroll', () => {
+                this.updateProgress(window.scrollY);
+            }, { passive: true });
+        }
     }
 
-    preCalculate() {
-	    document.querySelectorAll(this.selector).forEach(el => {
-	        // 1. Logika pro Progress (stávající)
-	        if (el.hasAttribute('data-scroll-progress')) {
-	            // this._calculateElementProgress(el);
-	        }
+    measureProgressElements() {
+        const scrollY = window.SCROLL?.engine?.scroll ?? window.scrollY ?? 0;
+        this.progressEntries = Array.from(document.querySelectorAll('[data-scroll-progress]')).map(el => {
+            const rect = el.getBoundingClientRect();
+            return {
+                el,
+                top: rect.top + scrollY,
+                height: rect.height
+            };
+        });
+    }
 
-	        // 2. Logika POUZE pro obrázky s reveal animací
-	        const imageTargets = el.matches('[data-reveal-image]') 
-	            ? [el, ...el.querySelectorAll('[data-reveal-image]')] 
-	            : el.querySelectorAll('[data-reveal-image]');
+    // Direct synchronous calculation: ZERO DOM READS during scroll!
+    updateProgress(scrollY) {
+        if (!this.progressEntries || this.progressEntries.length === 0) return;
+        const vh = this.vh;
 
-	        if (imageTargets.length > 0) {
-	            imageTargets.forEach(img => {
-	                const rect = img.getBoundingClientRect();
-	                const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+        for (let i = 0; i < this.progressEntries.length; i++) {
+            const entry = this.progressEntries[i];
+            const currentTop = entry.top - scrollY;
 
-	                if (isVisible) {
-	                    // Je ve viewportu při načtení -> rovnou inview, bez animace
-	                    img.classList.add('is-inview');
-	                } else {
-	                    // Není vidět -> přidáme třídu pro aktivaci animace při scrollu
-	                    img.classList.add('is-animated');
-	                }
-	            });
-	        }
-	    });
-	}
+            // Only update elements that are visible or entering the viewport buffer
+            if (currentTop < vh + 150 && currentTop > -entry.height - 150) {
+                const progress = Math.max(0, Math.min(1, (vh - currentTop) / (vh + entry.height)));
+                entry.el.style.setProperty('--progress', progress.toFixed(3));
+            }
+        }
+    }
 
     enable() {
-    	document.documentElement.classList.add('reveal-enabled');
+        document.documentElement.classList.add('reveal-enabled');
         this.refresh();
+        this.measureProgressElements();
+        this.updateProgress(window.SCROLL?.engine?.scroll ?? window.scrollY ?? 0);
     }
 
     _splitText(parentEl) {
@@ -102,56 +100,22 @@ class Reveal {
             : parentEl.querySelectorAll('[data-reveal-text]');
 
         targets.forEach(target => {
-            if (!target.dataset.originalText) target.dataset.originalText = target.innerHTML;
-            
+            if (target.classList.contains('is-split')) return;
+
             const splitType = target.getAttribute('data-reveal-text') || 'chars';
-            Splitting({ target: target, by: splitType });
-            
-            target.querySelectorAll('[data-reveal-text]:not(.chars) [data-word]').forEach(item => {
-                item.innerHTML = `<span class="inner-wrap">${item.textContent}</span>`;
-            });
+            if (typeof Splitting === 'function') {
+                Splitting({ target: target, by: splitType });
+                
+                target.querySelectorAll('[data-reveal-text]:not(.chars) [data-word]').forEach(item => {
+                    item.innerHTML = `<span class="inner-wrap">${item.textContent}</span>`;
+                });
+            }
             target.classList.add('is-split');
         });
 
         requestAnimationFrame(() => {
             parentEl.classList.add('is-inview');
         });
-    }
-
-    _revertText(parentEl) {
-	    // Najdi všechny prvky k revertování (včetně parenta samotného)
-	    const targets = parentEl.matches('[data-reveal-text]') 
-	        ? [parentEl, ...parentEl.querySelectorAll('[data-reveal-text]')] 
-	        : Array.from(parentEl.querySelectorAll('[data-reveal-text]'));
-
-	    targets.forEach(target => {
-
-	    	if (target.hasAttribute('data-split-ignore')) {
-	            return;
-	        }
-
-	        // Vrať původní obsah
-	        if (target.dataset.originalText) {
-	            target.innerHTML = target.dataset.originalText;
-	        }
-	        
-	        // Odstraň třídu split, aby CSS animace přestaly běžet
-	        target.classList.remove('is-split');
-	    });
-
-	    // parentEl.classList.remove('is-split');
-	}
-
-    // --- Progress Engine ---
-
-    _calculateElementProgress(el) {
-        const rect = el.getBoundingClientRect();
-        const progress = Math.max(0, Math.min(1, (window.innerHeight - rect.top) / (window.innerHeight + rect.height)));
-        el.style.setProperty('--progress', progress.toFixed(3));
-    }
-
-    _updateProgress() {
-        this.progressElements.forEach(el => this._calculateElementProgress(el));
     }
 
     refresh() {
@@ -161,14 +125,8 @@ class Reveal {
 
 var REVEAL;
 function initReveals() {
-	console.log(' ... init Reveal animations')
-	REVEAL = new Reveal();
-
-	// document.querySelectorAll('[data-reveal-text],.button').forEach(el => {
-	//   var split = Splitting({ target: el, by: el.getAttribute('data-reveal-text') });
-	// })
-	// document.querySelectorAll('[data-reveal-text]:not(.chars) [data-word]').forEach(word => {
-	//     word.innerHTML = `<span>${word.textContent}</span>`;
-	// });
+    console.log(' ... init Reveal animations');
+    REVEAL = new Reveal();
 }
+
 

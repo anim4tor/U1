@@ -1,0 +1,80 @@
+/*
+
+  MOLECULES: Dropdown
+
+*/
+
+
+@import "../../atoms/Media/media";
+@import "../../atoms/Animation/animation";
+:root {
+
+}
+
+.custom-dropdown {
+/*  position: relative;*/
+/*  max-width: 300px;*/
+}
+
+.dropdown-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+/*.dropdown-toggle:hover,
+.dropdown-toggle:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.15);
+}*/
+
+.dropdown-arrow {
+  font-size: 0.75rem;
+  transition: transform 0.2s;
+}
+
+.dropdown-toggle[aria-expanded="true"] .dropdown-arrow {
+  transform: rotate(180deg);
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: calc(100% + 4px);
+  right: 0;
+  min-width: var(--button-size);
+  max-height: 300px;
+  overflow-y: scroll;
+  padding: Var(--button-spacing) 0;
+  border-radius: var(--button-radius);
+  list-style: none;
+  display: none;
+  z-index: 1000;
+}
+
+.dropdown-menu.is-open {
+  display: block;
+}
+
+.dropdown-menu li {
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  transition: background-color 0.15s;
+}
+
+.dropdown-menu li:first-child {
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+}
+
+.dropdown-menu li:last-child {
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+
+.dropdown-menu li:hover {
+  background-color: #f1f3f5;
+  color: #007bff;
+}

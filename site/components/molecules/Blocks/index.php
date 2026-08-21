@@ -20,16 +20,16 @@ foreach ($blocks as $block):
             // 2. Render based on orientation
             if ($image->orientation() == "landscape"): 
                 ?>
-                <div class="grid span__2 inner__0" data-scroll>
-                    <?= snippet('atoms/Image', ['img' => $image, 'parallax' => 2, 'css' => 'aspect__16/9']) ?>
+                <div class="grid col-span-2 p-0" data-scroll>
+                    <?= snippet('atoms/Image', ['img' => $image, 'parallax' => 2, 'css' => 'aspect-[16/9]']) ?>
                 </div>
                 <?php 
             else: 
                 ?>
-                <div class="span__2 grid grid__post gap__2" data-scroll>
+                <div class="col-span-2 grid grid-cols-1 md:grid-cols-2 gap-2" data-scroll>
                 	<div></div>
-                	<div class="grid inner-r__10">
-                    	<?= snippet('atoms/Image', ['img' => $image, 'parallax' => 2, 'css' => 'aspect__3/4']) ?>
+                	<div class="grid pr-10">
+                    	<?= snippet('atoms/Image', ['img' => $image, 'parallax' => 2, 'css' => 'aspect-[3/4]']) ?>
                 	</div>
                 </div>
                 <?php 
@@ -39,9 +39,9 @@ foreach ($blocks as $block):
     elseif ($isGallery):
 		// 1. Safely retrieve the file object from the block
 		if ($images = $block->images()->toFiles()): ?>
-		  <div class="grid__<?= $images->count() ?> gap__1 span__2 inner-y__1">
+		  <div class="grid grid-cols-<?= $images->count() ?> gap-1 col-span-2 py-1">
 		    <?php foreach ($images as $image): ?>
-		     	<?= snippet('atoms/Image', ['img' => $image, 'parallax' => 2, 'css' => 'aspect__3/4']) ?>
+		     	<?= snippet('atoms/Image', ['img' => $image, 'parallax' => 2, 'css' => 'aspect-[3/4]']) ?>
 		    <?php endforeach; ?>
 		  </div>
 		<?php endif;
@@ -51,24 +51,24 @@ foreach ($blocks as $block):
         // Start a fresh, clean grid section wrapper
         $inGroup = true;
         ?>
-        <div class="span__2 grid inner-y__1 gap__2 border__top" data-scroll>	
-            <div class="grid__2">
+        <div class="col-span-2 grid py-1 gap-2 border-t border-white/20" data-scroll>	
+            <div class="grid grid-cols-2">
                 <?= $block ?> 
             </div>
-            <div class="grid grid__post gap__2 ">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
             	<div></div>
 	            <!-- Content column wrapper for text, buttons, etc. -->
-	            <div class="grid gap__1 inner-r__10">
+	            <div class="grid gap-1 pr-10">
         <?php 
 
     else:
         // Fallback: If content appears before any heading, start a group automatically
         if (!$inGroup):
-            echo '<div class="grid gap__1 inner-r__10">';
+            echo '<div class="grid gap-1 pr-10">';
             $inGroup = true;
         endif;
         ?>
-        <div class="upper" data-reveal-text="lines">
+        <div class="uppercase" data-reveal-text="lines">
             <?= $block ?> 
         </div>
         <?php 

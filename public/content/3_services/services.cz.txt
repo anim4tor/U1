@@ -17,30 +17,30 @@ Process:
   label: Dialogue
   figure:
     - file://zFyM7mkR8tJn9ji8
-  detail: '<p>Dialogue is a platform for in-depth analysis and the creation of a strategy and a proposal. A face-to-face conversation gives us the chance of getting to know your company and performing specification of the project assignment. This leads towards an interior that will let you operate more effectively.</p>'
+  detail: '<p>Dialogue is a platform for in-depth analysis and the creation of a strategy and a proposal. A face-to-face conversation gives us the chance of getting to know your company and performing specification of the project assignment. This leads towards an interior that will let you operate more effectively. </p>'
 - 
   step: 2
   label: Study
   figure:
-    - file://fasksxUBw3yoj1KI
+    - file://j3hFwcIS8Jjjr2Hj
   detail: '<p>We will dress your building from the inside. We use the word “fit-out” for the realisation of our interiors, including structural alterations. We keep a sharp eye on suppliers, craftsmen, deadlines and, most importantly, the price. We will take care of everything.</p>'
 - 
   step: 3
   label: Construction
   figure:
-    - file://53P5FBsqz5I7vHKT
+    - file://Ya6rkpReR0jAZkEn
   detail: '<p>We will dress your building from the inside. We use the word “fit-out” for the realisation of our interiors, including structural alterations. We keep a sharp eye on suppliers, craftsmen, deadlines and, most importantly, the price. We will take care of everything.</p>'
 - 
   step: 4
   label: Furnishing
   figure:
-    - file://hFn5ayNg1V6j0uK1
+    - file://HlaVcAy9a1rVT91c
   detail: '<p>The furniture and other features we use in your interior will make your work simpler. We can select them and arrange them in functional assemblies to satisfy any workforce from ten to thousands of employees.</p>'
 - 
   step: 5
   label: Research
   figure:
-    - file://a2cFqWkrgoEevamW
+    - file://RvRLiFTVFPUCkOzq
   detail: '<p>Our work begins with research, but it certainly doesn’t end with the realisation of your interior. We perform long-term measurement and analysis of the quality of the working environment with the clear aim of its improvement.</p>'
 
 ----

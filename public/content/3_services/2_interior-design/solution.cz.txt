@@ -6,6 +6,30 @@ Cover: - file://B3qzowr055hl3ljC
 
 ----
 
+Relatedprojects:
+
+- page://DFrA65LRGEbhv2uf
+- page://4YelEyMbDu0MnevU
+- page://iw5wpXmSaoxIdHjj
+
+----
+
+Gallery:
+
+- file://qLrHqs7h7YPEnP0w
+- file://OTD9tnjm28JW5sgk
+- file://uFRpz9F2ba5jQIlv
+- file://lr5TdRmQ6sXHPsZh
+- file://gM1HxzqIWkYhmC5q
+- file://2LsQX5fPPZpouSwR
+- file://Hu8UQZ9wZEGk7uGh
+
+----
+
+Excerpt: 
+
+----
+
 Intro: <p>Only sophisticated planning can make full use of the potential of your space without the need for early investment in further alterations.</p>
 
 ----
@@ -55,6 +79,14 @@ Robots-imageindex:
 ----
 
 Robots-snippet: 
+
+----
+
+Frelatedprojects:
+
+- page://X5ZaG3cFKtoi7WTz
+- page://DFrA65LRGEbhv2uf
+- page://iw5wpXmSaoxIdHjj
 
 ----
 

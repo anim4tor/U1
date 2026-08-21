@@ -85,7 +85,7 @@
 
 [data-reveal-cover] {
   $mask: '';
-  $steps: 24;
+  $steps: 1;
   $inc: 100% / $steps;
 
   @for $i from 1 through $steps {

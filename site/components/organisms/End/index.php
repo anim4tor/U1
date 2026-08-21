@@ -4,9 +4,17 @@
 <!-- <script type="module" src="/assets/js/cookieconsent-config.js"></script> -->
 
 <!-- Global js -->
-<!-- <script src="/site/components/organisms/Aside/index.js"></script> -->
-<?= js('public/assets/js/app.dist.js'); ?>
-<!-- <script src="/public/assets/js/app.dist.js"></script> -->
+<?php 
+$assetVersion = function($path) {
+	$fullPath = kirby()->root('index') . '/' . ltrim($path, '/');
+	return file_exists($fullPath) ? $path . '?v=' . filemtime($fullPath) : $path;
+};
+?>
+<?= js($assetVersion('public/assets/js/app.dist.js')); ?>
 
 <!-- Local js -->
-<?= js('site/components/templates/'.ucwords($page->intendedTemplate()).'/index.js'); ?>
+<?php 
+$templateJs = 'site/components/templates/' . ucwords($page->intendedTemplate()) . '/index.js';
+if (file_exists(kirby()->root('index') . '/' . $templateJs)) : ?>
+	<?= js($assetVersion($templateJs)) ?>
+<?php endif ?>

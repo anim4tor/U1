@@ -22,11 +22,14 @@
   
 [data-loader] {
   pointer-events: none;
+  @include animation((clip-path), 600ms);
+  clip-path: inset(100% 0% 0% 0%);
+
 }
   
   [data-loader-bg] {
     $mask: '';
-    $steps: 24;
+    $steps: 1;
     $inc: 100% / $steps;
 
     position: absolute;
@@ -40,9 +43,6 @@
     div {
       @include animation((transform, background-color), 600ms);
       background-color: var(--color-dark);
-      transform: scaleX(1);
-      transform-origin: top left;
-      transition-delay: calc(var(--index) * 10ms);
     }
 
 
@@ -67,33 +67,12 @@
   [data-loader-logo] {
     z-index: 1;
     position: relative;
-    perspective: 400;
-    transform-style: preserve-3d;
-
-    svg path {
-      stroke: white;
-      stroke-width: 10px;
-    }
-    svg {
-      width: 2.5em;
-      height: 2.5em;
-      transform-style: preserve-3d;
-
-      &:nth-child(1) {
-          opacity: 1;
-/*          transform: rotateY(-90deg);*/
-          animation: loading 2s linear infinite;
-      }
-      &:nth-child(2) {
-          opacity: 1;
-/*          transform: rotate(0deg);*/
-          animation: loading 3s linear infinite;
-      }
-    }
     @include animation(opacity, 600ms);
-/*    transition-duration: 3s;*/
-/*    transform: scale(calc(0.5 + 0.0*var(--progress)));*/
-/*    opacity: calc(1 - 1*(var(--progress) - 0.5));*/
+
+    svg {
+      width: 4vw;
+      height: 4vw;
+    }
   }
 
 @keyframes loading {
@@ -123,21 +102,20 @@ html[data-loading] {
 
   [data-loader] {
     visibility: visible;
-    opacity: 1;
     pointer-events: all;
+    clip-path: inset(0% 0% 0% 0%);
   }
 }
 
 html[data-transition] {
+  [data-loader] {
+    visibility: visible;
+    pointer-events: all;
+    clip-path: inset(100% 0% 0% 0%);
+  }
   [data-loader-bg] {
-/*    transform: scaleX(0);*/
-/*    background-color: var(--color-acc);*/
-/*    --p: 0;*/
     div {
-      transform: scaleX(0);
       background-color: var(--color-acc);
-      transform-origin: top right;
-
     } 
   }
   [data-loader-logo] {
@@ -149,6 +127,9 @@ html[data-transition] {
   }
 }
 html[data-transition-out] {
+  [data-loader] {
+    clip-path: inset(0% 0% 0% 0%);
+  }
   [data-loader-bg] {
 /*    transform-origin: center left;*/
 /*    transform: scaleX(1);*/
@@ -156,7 +137,8 @@ html[data-transition-out] {
 /*    background-color: var(--color-dark);*/
 
     div {
-      transform: scaleX(1);
+/*      transform: scaleY(1);*/
+      transform-origin: top center;
       background-color: var(--color-dark);
     }
   }

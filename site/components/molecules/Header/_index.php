@@ -1,6 +1,6 @@
-<div class="grid gap__1 " data-scroll>
+<div class="grid gap-1" data-scroll>
 	<?php if ($header->label()->isNotEmpty()): ?>
-		<p class="op__6" data-reveal-text="words"><?= $header->label()->inline() ?></p>
+		<p class="opacity-6" data-reveal-text="words"><?= $header->label()->inline() ?></p>
 	<?php endif ?>
 	<?php if ($imgs = $header->image()->toFiles()): ?>
 		<?php foreach ($imgs as $img) : ?>
@@ -16,10 +16,10 @@
 	<?php if ($header->text()->isNotEmpty()): ?>
 		<p data-reveal-text="words"><?= $header->text()->inline() ?></p>
 	<?php endif ?>
-	<div class="flex gap__02">
+	<div class="flex gap-02">
 		<?php if ($header->link()->isNotEmpty()): ?>
 			<?php $button = $header->link()->toObject(); ?>
-			<div href="<?= $button->link()->toUrl() ?>" data-reveal class="button circle bg__light" data-label="<?= $button->label() ?>"><span class="icon color__red z__1"><?= svg('public/assets/images/ui/ui_arrow_right.svg') ?></span></div>
+			<div href="<?= $button->link()->toUrl() ?>" data-reveal class="button circle bg-light" data-label="<?= $button->label() ?>"><span class="icon text-red z-10"><?= svg('public/assets/images/ui/ui_arrow_right.svg') ?></span></div>
 		<?php endif ?>
 	</div>
 </div>

@@ -48,7 +48,9 @@ $levels: 'small', 'default', 'large', 5, 4, 3, 2, 1;
     @if($modifier == '') {
         @each $level in $levels {
             h#{$level},
-            .font__size__#{$level} {
+            .font__size__#{$level},
+            .font-size-#{$level},
+            .text-#{$level} {
                 --output-size: calc(var(--font-size-#{$level}));
                 font-size: var(--output-size);
                 line-height: var(--line-height-#{$level});
@@ -57,7 +59,9 @@ $levels: 'small', 'default', 'large', 5, 4, 3, 2, 1;
     } @else {
         @each $level in $levels {
             @include create-mq($breakpoint, 'max') {
-                .#{$modifier}\:font__size__#{$level} {
+                .#{$modifier}\:font__size__#{$level},
+                .#{$modifier}\:font-size-#{$level},
+                .#{$modifier}\:text-#{$level} {
                     --output-size: calc(var(--font-size-#{$level}));
                     font-size: var(--output-size);
                     line-height: var(--line-height-#{$level});
@@ -75,7 +79,26 @@ $levels: 'small', 'default', 'large', 5, 4, 3, 2, 1;
 /*
     Modifiers (Pure CSS Specificity and Cascade Fix)
 */
-$mods: ( 
+$text-mods: ( 
+    xxl: 3,
+    '2xl': 3,
+    '3xl': 3,
+    xl: 2,
+    l: 1.5,
+    lg: 1.5,
+    large: 1.5,
+    m: 1.25,
+    md: 1.25,
+    df: 1,
+    base: 1,
+    default: 1,
+    s: 0.9,
+    sm: 0.9,
+    small: 0.9,
+    xs: 0.8
+);
+
+$legacy-mods: (
     xxl: 3,
     xl: 2,
     l: 1.5,
@@ -87,7 +110,20 @@ $mods: (
 
 @each $modifier, $breakpoint in $map-grid-props {
     @if($modifier == '') {
-        @each $mod, $scale in $mods {
+        @each $mod, $scale in $text-mods {
+            h1.text-#{$mod}, h2.text-#{$mod}, h3.text-#{$mod}, h4.text-#{$mod}, h5.text-#{$mod}, h6.text-#{$mod}, p.text-#{$mod}, a.text-#{$mod}, li.text-#{$mod}, .ff__heading.text-#{$mod} {
+                font-size: calc(var(--output-size, 1rem) * #{$scale}) !important;
+            }
+
+            .text-#{$mod} {
+                font-size: calc(var(--output-size, 1rem) * #{$scale}) !important;
+                
+                h1, h2, h3, h4, h5, h6, p, a, li, .ff__heading {
+                    font-size: calc(var(--output-size, 1rem) * #{$scale}) !important;
+                }
+            }
+        }
+        @each $mod, $scale in $legacy-mods {
             h1.#{$mod}, h2.#{$mod}, h3.#{$mod}, h4.#{$mod}, h5.#{$mod}, h6.#{$mod}, p.#{$mod}, a.#{$mod}, li.#{$mod}, .ff__heading.#{$mod} {
                 font-size: calc(var(--output-size, 1rem) * #{$scale}) !important;
             }
@@ -102,7 +138,20 @@ $mods: (
         }
     } @else {
         @include create-mq($breakpoint, 'max') {
-            @each $mod, $scale in $mods {
+            @each $mod, $scale in $text-mods {
+                h1.#{$modifier}\:text-#{$mod}, h2.#{$modifier}\:text-#{$mod}, h3.#{$modifier}\:text-#{$mod}, h4.#{$modifier}\:text-#{$mod}, h5.#{$modifier}\:text-#{$mod}, h6.#{$modifier}\:text-#{$mod}, p.#{$modifier}\:text-#{$mod}, a.#{$modifier}\:text-#{$mod}, li.#{$modifier}\:text-#{$mod}, .ff__heading.#{$modifier}\:text-#{$mod} {
+                    font-size: calc(var(--output-size, 1rem) * #{$scale}) !important;
+                }
+
+                .#{$modifier}\:text-#{$mod} {
+                    font-size: calc(var(--output-size, 1rem) * #{$scale}) !important;
+                    
+                    h1, h2, h3, h4, h5, h6, p, a, li, .ff__heading {
+                        font-size: calc(var(--output-size, 1rem) * #{$scale}) !important;
+                    }
+                }
+            }
+            @each $mod, $scale in $legacy-mods {
                 h1.#{$modifier}\:#{$mod}, h2.#{$modifier}\:#{$mod}, h3.#{$modifier}\:#{$mod}, h4.#{$modifier}\:#{$mod}, h5.#{$modifier}\:#{$mod}, h6.#{$modifier}\:#{$mod}, p.#{$modifier}\:#{$mod}, a.#{$modifier}\:#{$mod}, li.#{$modifier}\:#{$mod}, .ff__heading.#{$modifier}\:#{$mod} {
                     font-size: calc(var(--output-size, 1rem) * #{$scale}) !important;
                 }

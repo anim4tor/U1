@@ -1,7 +1,7 @@
 <section id="faq" theme="light" class="home__altruism__features relative" >
 	<div class="flex align__start justify__space-between inner-x__5 mobile:inner-x__1 inner-t__5" data-scroll>
 		<div class="grid__2 mobile:grid__1 justify__space-between gap__1" >
-			<h2 class="font__size__2 m mobile:font__size__3" data-reveal-text="words"><?= $site->page('Home')->faqHeading()->inline() ?></h2>
+			<h2 class="font__size__2 text-m mobile:font__size__3" data-reveal-text="words"><?= $site->page('Home')->faqHeading()->inline() ?></h2>
 		</div>
 		<a href="#faqs" data-scroll-to data-reveal style="--delay: 200ms" class="button circle color__acc"><span class="icon"><?= svg('public/assets/images/ui/ui_arrow_down.svg') ?></span></a>
 	</div>

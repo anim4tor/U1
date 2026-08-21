@@ -55,12 +55,14 @@ $opacity : (
 
 @mixin bg-color {
   @each $label in $colors {
-		&__#{$label} {
+		&__#{$label},
+		-#{$label} {
 		  --background: var(--color-#{$label});
       background-color: var(--background);
 		}
 		@each $aLabel, $alpha in $alphas {
-		 	  &__#{$label}\/#{$aLabel} {
+		 	  &__#{$label}\/#{$aLabel},
+		 	  -#{$label}\/#{$aLabel} {
 		  		background-color: color-mix(in srgb, var(--color-#{$label}) #{$alpha}, transparent);
 		 	  }
 		}
@@ -69,13 +71,16 @@ $opacity : (
 
 @mixin text-color {
   @each $label in $colors {
-		&__#{$label} {
+		&__#{$label},
+		-#{$label} {
 		  --col: var(--color-#{$label});
       color: var(--col);
 		}
 		@each $aLabel, $alpha in $alphas {
-		 	  &__#{$label}\/#{$aLabel} {
- 	    	  color: color-mix(in srgb, var(--color-#{$label}) #{$alpha}, transparent);
+		 	  &__#{$label}\/#{$aLabel},
+		 	  -#{$label}\/#{$aLabel} {
+		 	    --col: color-mix(in srgb, var(--color-#{$label}) #{$alpha}, transparent);
+ 	    	  color: var(--col);
 		 	  }
 		}
   } 
@@ -83,12 +88,14 @@ $opacity : (
 
 @mixin fill-color {
   @each $label in $colors {
-		&__#{$label} {
+		&__#{$label},
+		-#{$label} {
 		  --fill: var(--color-#{$label});
 			fill: var(--fill);
 		}
 		@each $aLabel, $alpha in $alphas {
-		 	  &__#{$label}\/#{$aLabel} {
+		 	  &__#{$label}\/#{$aLabel},
+		 	  -#{$label}\/#{$aLabel} {
  	    	  fill: color-mix(in srgb, var(--color-#{$label}) #{$alpha}, transparent);
 		 	  }
 		}
@@ -101,7 +108,8 @@ $opacity : (
 		.bg {
 			@include bg-color;
 		}
-		.color {
+		.color,
+		.text {
 			@include text-color;
 		}
 		.fill {
@@ -113,7 +121,8 @@ $opacity : (
 			.#{$modifier}\:bg {
 				@include bg-color;
 			}
-			.#{$modifier}\:color {
+			.#{$modifier}\:color,
+			.#{$modifier}\:text {
 				@include text-color;
 			}
 			.#{$modifier}\:fill {

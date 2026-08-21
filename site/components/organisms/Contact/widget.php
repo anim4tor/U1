@@ -1,18 +1,14 @@
-<div class="grid place__start-stretch radius " theme="dark" data-contact-widget>
-	<div data-tabs="contact" class="relative grid place__end-stretch " data-fluid>	
-		<div class="flex sticky top__0 gap__03 inner-x__1 inner-y__06 border__bottom z__10" theme="dark">
-			<div class="absolute top__03 right__03 z__1">
-				<?= snippet('atoms/Button', [ 'url' => '', 'label' => false, 'icon' => 'close', 'theme' => false, 'css' => 'circle --small bg__light/20 color__invert/80', 'node' => 'data-contact-close']) ?>
+<div class="grid content-start items-stretch rounded-radius" theme="dark" data-contact-widget>
+	<div data-tabs="contact" class="relative grid content-end items-stretch" data-fluid>	
+		<div class="flex sticky top-0 gap-03 px-1 py-06 border-b border-white/20 z-10" theme="dark">
+			<div class="absolute top-03 right-03 z-10">
+				<?= snippet('atoms/Button', [ 'url' => '', 'label' => false, 'icon' => 'close', 'theme' => false, 'css' => 'circle --small bg-light/20 text-invert/80', 'node' => 'data-contact-close']) ?>
 			</div>
-			<div data-tab="contact" class="upper xs">contact</div>
-			<div data-tab="inquiry" class="upper xs">Inquiry</div>
-			<!-- <div data-tab="sales" class="upper xs">Sales</div>
-			<div data-tab="design" class="upper xs">Design</div>
-			<div data-tab="accounts" class="upper xs">Accounts</div> -->
-			<!-- <div data-tab="form" class="upper s">Form</div> -->
+			<div data-tab="contact" class="uppercase text-xs">contact</div>
+			<div data-tab="inquiry" class="uppercase text-xs">Inquiry</div>
 		</div>
 		
-		<div data-pane-container class="grid__stack place__start-stretch no__overflow">
+		<div data-pane-container class="grid [grid-template-areas:'stack'] [&>*]:[grid-area:stack] content-start items-stretch overflow-hidden">
 			<div data-pane="contact">
 				<?= snippet('organisms/Contact/contact') ?>
 			</div>

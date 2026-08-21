@@ -5,6 +5,9 @@ return [
     'panel.install' => true,
     'home' => 'home',
     'languages' => true,
+    'cache' => [
+        'social' => true
+    ],
     'colors' => [
         '#f4ee32' => 'neon',
         '#ddf432' => 'lime',
@@ -37,5 +40,13 @@ return [
        
       ];
     },
+    'instagram.token.test' => 'IGAARfnJ3rbYlBZAFpJYTEtWTBxUEJvME0tU3lTazhqQU1SZA2xNU0dTeUlkWFF6RS1YeGI5ZAzZACZAFd5VW9jU2FKRGtMTTBwOEdXTzkxTXF2MTNJYW05eDNfNUE1cDRWd2xiblhrMWNnLVdQbi1hSWpISWtfaW5nTS1mc0lPUDNnTQZDZD',
+    'instagram.token' => 'IGAARfnJ3rbYlBZAFpvSVZAGSGFLTVFMXzFRUm9kdmlQQzZArS2x6dkFQOUVkWDRDbGJSaWVDOEpXbDFQTldfSWoySkJJd29JNEpWREVweWd5RldwQU9HUV94eTdGeVUtRzJ0TDExVnVzZA2NmdnM2S19uMVlEY21kS2NKQVNZAU1VHSQZDZD',
+
+    'linkedin.org_id' => 'urn:li:organization:18790224',
+    'linkedin.token' => 'AQXc40XujSnxksulm1icLv1Sx81FOROFq9Id6NnEOuwYHozxRDdBPyPNjz7ogFt3GckHMTueH4wMdw_JPyQYDPdVMr3T-okjrFy7OX5W8skS7W74G-b4J9jJ7bv2460WQJqnCmERIPny_JKoWMGLnl-F9OF53pOtRZDw42vZ73oWnAYzfz47jVJ3ybFlAGJTXagDO1go_I5IuWaXf9uzSN_7oXYIfM3EMsz_n5HgGEWeVk7H-FJSu9rDpbE4zsyBtipGcPgewVNl1exAytVA_IeAMy1uZMsGLKq0GHFC-T9Z_-l2cOoXPe9CFf8EE5mcvEZJdR2oIPnaCXCd_BV7EKVJBTs1-Q'
+
+
+    
 ];
 

@@ -20,7 +20,7 @@
 	[data-tab]:hover {
 		opacity: 1;
 	}
-	[data-tab][data-active] span {
+	[data-tab][data-active] [data-reveal-text]:not([data-reveal-text="lines"]) span {
 		--reveal-delay: 0ms;
 		--color-delay: 0ms;
 		--in-delay: 0ms;
@@ -149,11 +149,34 @@ section.process {
 	}
 }
 
-section {
+/*section {
 	max-width: 2200px;
 	margin: 0 auto;
-}
+}*/
 
 .container {
 	
 }
+
+.process__grid {
+  display: grid;
+  /* 
+    We define 5 equal columns by default using 1fr each. 
+    Total relative tracks = 6fr (1 + 2 + 1 + 1 + 1).
+  */
+  grid-template-columns: repeat(5, 1fr);
+  @include animation;
+  transition-duration: 400ms;
+}
+
+
+/* 
+  When a specific column has data-active, we dynamically shift 
+  the 5-column track definition so that the active column takes 2fr 
+  and the rest remain 1fr.
+*/
+.process__grid:has([data-tab]:nth-child(1)[data-active]) { grid-template-columns: 2.5fr 1fr 1fr 1fr 1fr; }
+.process__grid:has([data-tab]:nth-child(2)[data-active]) { grid-template-columns: 1fr 2.5fr 1fr 1fr 1fr; }
+.process__grid:has([data-tab]:nth-child(3)[data-active]) { grid-template-columns: 1fr 1fr 2.5fr 1fr 1fr; }
+.process__grid:has([data-tab]:nth-child(4)[data-active]) { grid-template-columns: 1fr 1fr 1fr 2.5fr 1fr; }
+.process__grid:has([data-tab]:nth-child(5)[data-active]) { grid-template-columns: 1fr 1fr 1fr 1fr 2.5fr; }
