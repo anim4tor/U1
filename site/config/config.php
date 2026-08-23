@@ -38,21 +38,31 @@ return [
               }
           ],
           [
-              'pattern' => ['api-contact', '(:any)/api-contact', 'contact.json', '(:any)/contact.json'],
+              'pattern' => ['contact.json', 'contact', 'api-contact', 'api/contact', '(:any)/contact.json', '(:any)/contact', '(:all)/contact.json', '(:all)/contact'],
               'method'  => 'OPTIONS',
               'action'  => function () {
                   header('Access-Control-Allow-Origin: *');
-                  header('Access-Control-Allow-Methods: POST, OPTIONS');
+                  header('Access-Control-Allow-Methods: POST, GET, OPTIONS');
                   header('Access-Control-Allow-Headers: Content-Type, X-Requested-With, Origin, Accept');
                   return '';
               }
           ],
           [
-              'pattern' => ['api-contact', '(:any)/api-contact', 'contact.json', '(:any)/contact.json'],
+              'pattern' => ['contact.json', 'contact', 'api-contact', 'api/contact', '(:any)/contact.json', '(:any)/contact', '(:all)/contact.json', '(:all)/contact'],
+              'method'  => 'GET',
+              'action'  => function () {
+                  return \Kirby\Http\Response::json([
+                      'status'  => 'ready',
+                      'message' => 'Contact API endpoint is online and accepting POST requests.'
+                  ]);
+              }
+          ],
+          [
+              'pattern' => ['contact.json', 'contact', 'api-contact', 'api/contact', '(:any)/contact.json', '(:any)/contact', '(:all)/contact.json', '(:all)/contact'],
               'method'  => 'POST',
               'action'  => function () {
                   header('Access-Control-Allow-Origin: *');
-                  header('Access-Control-Allow-Methods: POST, OPTIONS');
+                  header('Access-Control-Allow-Methods: POST, GET, OPTIONS');
                   header('Access-Control-Allow-Headers: Content-Type, X-Requested-With, Origin, Accept');
 
                   $kirby = kirby();
