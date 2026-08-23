@@ -69,10 +69,28 @@ class Contact {
     }
 
     initForms() {
-        const forms = document.querySelectorAll('form[data-form="contact"], #contact-form');
+        const forms = document.querySelectorAll('form[data-form="contact"], #contact-form, #career-form');
         forms.forEach(form => {
             if (form._hasContactListener) return;
             form._hasContactListener = true;
+
+            const formInputs = form.querySelectorAll('input, select, textarea');
+            formInputs.forEach(input => {
+                input.addEventListener('input', () => {
+                    if (input.classList.contains('invalid')) {
+                        input.classList.remove('invalid');
+                        const errorBox = form.querySelector('[data-form-error]');
+                        if (errorBox && !form.querySelector('.invalid')) {
+                            errorBox.innerHTML = '';
+                        }
+                    }
+                });
+                input.addEventListener('change', () => {
+                    if (input.classList.contains('invalid')) {
+                        input.classList.remove('invalid');
+                    }
+                });
+            });
 
             form.addEventListener('submit', async (e) => {
                 e.preventDefault();
@@ -107,6 +125,8 @@ class Contact {
 
                 if (hasClientError) {
                     if (errorBox) errorBox.innerHTML = 'Prosím vyplňte všechna povinná pole.';
+                    const firstInvalid = form.querySelector('.invalid');
+                    if (firstInvalid) firstInvalid.focus();
                     return;
                 }
 
@@ -157,6 +177,8 @@ class Contact {
                                 const input = form.querySelector(`[name="${fieldName}"]`);
                                 if (input) input.classList.add('invalid');
                             }
+                            const firstInvalid = form.querySelector('.invalid');
+                            if (firstInvalid) firstInvalid.focus();
                         }
                         if (errorBox) errorBox.innerHTML = data.message || 'Chyba při odesílání formuláře.';
                     }

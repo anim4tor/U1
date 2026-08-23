@@ -21,19 +21,30 @@ input, textarea, select {
 	color: currentColor;
 	position: relative;
 	width: 100%;
+	transition: border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
 
 	&::placeholder {
 		opacity: 0.5;
 	}
 
 	&:focus, &:target {
-		@include border('',100%)
+		@include border('',100%);
+		outline: none;
 	}
 
 	&.invalid {
-		animation: invalid 2s linear;
-/*		border-color: color(red);*/
+		border-color: var(--color-acc) !important;
+		background-color: color-mix(in srgb, var(--color-acc) 8%, transparent) !important;
+		box-shadow: 0 0 0 1px var(--color-acc) !important;
+		animation: input-shake 0.35s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
 	}
+}
+
+@keyframes input-shake {
+	10%, 90% { transform: translate3d(-2px, 0, 0); }
+	20%, 80% { transform: translate3d(3px, 0, 0); }
+	30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
+	40%, 60% { transform: translate3d(4px, 0, 0); }
 }
 
 .field {
