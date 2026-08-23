@@ -8,7 +8,7 @@ $classes = [];
 
 $modVal = $block->mod()->value();
 if ($modVal && $modVal !== 'default') {
-    $classes[] = $modVal;
+    $classes[] = 'text-' . $modVal;
 }
 
 // Support for optional block blueprint custom CSS class injections

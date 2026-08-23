@@ -11,7 +11,7 @@
 		</div>
 		<figcaption class="grid gap__3 inner-x__1" data-scroll data-scroll-repeat>
 			<div class="-wrap-t__3">
-				<h1 data-panel-reveal class="font__size__1 s">PR.<?= formatNum($project->indexOf($portfolio) + 1) ?><br>/<?= formatNum($portfolio->count()) ?></h1>
+				<h1 data-panel-reveal class="font__size__1 text-s">PR.<?= formatNum($project->indexOf($portfolio) + 1) ?><br>/<?= formatNum($portfolio->count()) ?></h1>
 			</div>
 			<div class="mobile:grid__2 place__start-stretch gap__1 ">
 				<div class="grid gap__0">

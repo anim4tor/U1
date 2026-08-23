@@ -37,6 +37,99 @@ return [
                 return go("booking.json/collection{$eq}{$collection}/id{$eq}{$id}");
               }
           ],
+          [
+              'pattern' => ['api-contact', '(:any)/api-contact', 'contact.json', '(:any)/contact.json'],
+              'method'  => 'OPTIONS',
+              'action'  => function () {
+                  header('Access-Control-Allow-Origin: *');
+                  header('Access-Control-Allow-Methods: POST, OPTIONS');
+                  header('Access-Control-Allow-Headers: Content-Type, X-Requested-With, Origin, Accept');
+                  return '';
+              }
+          ],
+          [
+              'pattern' => ['api-contact', '(:any)/api-contact', 'contact.json', '(:any)/contact.json'],
+              'method'  => 'POST',
+              'action'  => function () {
+                  header('Access-Control-Allow-Origin: *');
+                  header('Access-Control-Allow-Methods: POST, OPTIONS');
+                  header('Access-Control-Allow-Headers: Content-Type, X-Requested-With, Origin, Accept');
+
+                  $kirby = kirby();
+                  $data  = $kirby->request()->data();
+
+                  // Validation
+                  $errors = [];
+                  if (empty($data['name']) || strlen(trim($data['name'])) < 2) {
+                      $errors['name'] = 'Please enter your name / Prosím zadejte jméno';
+                  }
+                  if (empty($data['email']) || !filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
+                      $errors['email'] = 'Please enter a valid email / Prosím zadejte platný email';
+                  }
+                  if (empty($data['message']) || strlen(trim($data['message'])) < 3) {
+                      $errors['message'] = 'Please enter your message / Prosím zadejte zprávu';
+                  }
+
+                  if (!empty($errors)) {
+                      return \Kirby\Http\Response::json([
+                          'status'  => 'error',
+                          'errors'  => $errors,
+                          'message' => 'Please fill in all required fields / Prosím vyplňte všechna povinná pole.'
+                      ], 400);
+                  }
+
+                  $host = explode('.', $_SERVER['HTTP_HOST'] ?? '');
+                  $isTest = (array_pop($host) === 'test') || $kirby->option('debug', false);
+                  $recipient = $isTest ? 'jiri.klusak@gmail.com' : $kirby->option('email.recipient', 'jiri.klusak@gmail.com');
+                  $sender = $kirby->option('email.sender', 'no-reply@u1.cz');
+
+                  $division = $data['division'] ?? 'General';
+                  $name     = $data['name'] ?? '';
+                  $company  = $data['company'] ?? '-';
+                  $email    = $data['email'] ?? '';
+                  $phone    = $data['phone'] ?? '-';
+                  $message  = $data['message'] ?? '';
+                  $cv_link  = $data['cv_link'] ?? '';
+
+                  $body = "New message from website contact form:\n\n";
+                  $body .= "Division / Position: {$division}\n";
+                  $body .= "Name: {$name}\n";
+                  $body .= "Company: {$company}\n";
+                  $body .= "Email: {$email}\n";
+                  $body .= "Phone: {$phone}\n";
+                  if (!empty($cv_link)) {
+                      $body .= "CV / Link: {$cv_link}\n";
+                  }
+                  $body .= "\nMessage:\n{$message}\n";
+
+                  try {
+                      $kirby->email([
+                          'from'     => $sender,
+                          'to'       => $recipient,
+                          'replyTo'  => $email,
+                          'subject'  => 'New Contact Inquiry: ' . $name . ' (' . $division . ')',
+                          'body'     => $body,
+                      ]);
+
+                      return \Kirby\Http\Response::json([
+                          'status'  => 'success',
+                          'message' => 'Thank you! Your message has been sent.'
+                      ]);
+                  } catch (\Throwable $e) {
+                      if ($isTest) {
+                          return \Kirby\Http\Response::json([
+                              'status'  => 'success',
+                              'message' => 'Thank you! Your message has been sent (Test mode: ' . $recipient . ').',
+                              'debug'   => $e->getMessage()
+                          ]);
+                      }
+                      return \Kirby\Http\Response::json([
+                          'status'  => 'error',
+                          'message' => 'Could not send message: ' . $e->getMessage()
+                      ], 500);
+                  }
+              }
+          ],
        
       ];
     },

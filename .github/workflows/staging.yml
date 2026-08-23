@@ -1,30 +1,52 @@
 name: 🔨 Staging Deployment
+
 on:
   push:
+    branches:
+      - main
+      - master
     tags:
       - '*'
+
 jobs:
-  build:
-    name: 🔨 Staging
+  build-and-deploy:
+    name: 🔨 Build & Deploy
     runs-on: ubuntu-latest
     defaults:
       run:
         shell: bash
+
     steps:
       - name: 🚚 Get latest code
         uses: actions/checkout@v4
         with:
           fetch-depth: 2
-      - name: 📂 Sync files
+
+      - name: ⚙️ Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: 📦 Install dependencies
+        run: npm ci
+
+      - name: 🏗️ Build production CSS and JS
+        run: npm run build
+
+      - name: 📂 Sync files via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: 185.102.21.205
           username: jiriklusak.cz
-          password: 3kNWXaeG
+          password: ${{ secrets.FTP_PASSWORD || '3kNWXaeG' }}
           server-dir: public_html/projects/U1/
           exclude: |
             **/.git*
             **/.git*/**
+            **/node_modules/**
+            **/scripts/**
+            **/bs-config.js
             **/kirby/**
             **/media/**
             **/cache/**

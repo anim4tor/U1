@@ -14,7 +14,7 @@
 						$employees = collection('Employees')->filterBy('team', '*=', $team->name())->count();
 					?>
 					<a href="<?= $pages->find('about')->url() ?>/#<?= $team->name()->slug() ?>" data-tab="team-<?= $team->indexOf(collection('Team')) ?>" class="flex gap__02 no__wrap" data-scroll>
-						<h3 class="m" data-reveal-text data-split-ignore><?= $team->name() ?></h3>
+						<h3 class="text-m" data-reveal-text data-split-ignore><?= $team->name() ?></h3>
 						<div data-reveal-text="" data-split-ignore style="--in-delay: 800ms" class="-wrap-t__01">(<?= $employees ?>)</div>
 					</a>
 				<?php endforeach ?>
@@ -46,8 +46,8 @@
 							<?php endif ?>
 
 							<div class="flex gap__05 justify__space-between upper wrap">
-								<span class="font__size__default s ff__body" data-split-ignore data-reveal-text="lines" ><?= $leader->title() ?></span>
-								<h3 class="font__size__default s ff__body" data-split-ignore data-reveal-text="lines" >(<?= $leader->role() ?>)</h3>
+								<span class="font__size__default text-s ff__body" data-split-ignore data-reveal-text="lines" ><?= $leader->title() ?></span>
+								<h3 class="font__size__default text-s ff__body" data-split-ignore data-reveal-text="lines" >(<?= $leader->role() ?>)</h3>
 							</div> -->
 						</div>
 					</div>

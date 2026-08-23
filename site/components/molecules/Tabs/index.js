@@ -15,13 +15,13 @@ class Tabs {
             // Collect containers only if this specific widget is their immediate data-tabs parent
             containers: Array.from(el.querySelectorAll('[data-pane-container]'))
                 .filter(item => item.closest('[data-tabs]') === el),
-            
+
             tabs: Array.from(el.querySelectorAll('[data-tab], [data-async-tab]'))
                 .filter(item => item.closest('[data-tabs]') === el),
-            
+
             panes: Array.from(el.querySelectorAll('[data-pane]'))
                 .filter(item => item.closest('[data-tabs]') === el),
-                
+
             nav: {
                 prev: Array.from(el.querySelectorAll('[data-tab-prev]')).filter(item => item.closest('[data-tabs]') === el),
                 next: Array.from(el.querySelectorAll('[data-tab-next]')).filter(item => item.closest('[data-tabs]') === el)
@@ -41,13 +41,13 @@ class Tabs {
 
         this.zIndexCounter = 100;
         this.is_changing = false;
-        this.is_scrolling_via_click = false; 
+        this.is_scrolling_via_click = false;
         this.scroll_timeout = null;
         this.hover_timeout = null;
-        this.closing_timeouts = []; 
+        this.closing_timeouts = [];
         this.scrollTriggers = [];
         this.observer = null;
-        
+
         this.is_hoverable = el.getAttribute('data-tabs') === 'hoverable';
         this.is_scrollable = el.getAttribute('data-tabs') === 'scrollable';
         this.is_noinit = el.getAttribute('data-tabs') === 'noinit';
@@ -66,11 +66,11 @@ class Tabs {
     }
 
     init() {
-        
+
         if (this.is_fluid) this.DOM.widget.classList.add('--fluid');
-        
+
         const datasetTabsValue = this.DOM.widget.dataset.tabs;
-        
+
         // Handle parsing correctly if first active tab is designated string value or digit index
         if (datasetTabsValue === 'hoverable') {
             this.data.active = 0;
@@ -83,7 +83,7 @@ class Tabs {
 
         this.setupA11y();
         this.initEvents();
-        this.initScrollTriggers(); 
+        this.initScrollTriggers();
 
         this.updateZIndices(this.data.active);
         if (!this.is_noinit) this.setActive(this.data.active);
@@ -97,7 +97,7 @@ class Tabs {
         this.DOM.tabs.forEach((tab, i) => {
             const paneValue = tab.dataset.tab || tab.dataset.asyncTab || i;
             const tabId = `tab-${i}`;
-            
+
             tab.setAttribute('role', 'tab');
             tab.setAttribute('id', tabId);
             tab.setAttribute('aria-controls', `pane-group-${paneValue}`);
@@ -130,7 +130,7 @@ class Tabs {
 
         // Existing Intersection Observer setup...
         const observerOptions = {
-            root: null, 
+            root: null,
             rootMargin: '-20% 0px -79% 0px',
             threshold: 0
         };
@@ -142,7 +142,7 @@ class Tabs {
                 if (entry.isIntersecting) {
                     const paneName = entry.target.dataset.paneTrigger;
                     const index = this.getTabIndexByPaneValue(paneName);
-                    
+
                     if (index !== -1 && index !== this.data.active) {
                         this.setActive(index);
                     }
@@ -186,10 +186,10 @@ class Tabs {
         this.DOM.widget.style.setProperty('--progress', progress.toFixed(3));
     }
 
-    setActive(index) {
+    setActive(index, force = false) {
         const liveTabs = Array.from(this.DOM.widget.querySelectorAll('[data-tab], [data-async-tab]'));
         if (index < 0 || index >= liveTabs.length) return;
-        
+
         const tab = liveTabs[index];
         if (tab && tab.hasAttribute('data-async-tab')) {
             const url = tab.getAttribute('href');
@@ -201,16 +201,55 @@ class Tabs {
         }
 
         this.data.next = index;
-        this.change();
+        this.change(force);
     }
 
-    change() {
+    setActivePane(paneName) {
+        if (!paneName) return;
+
+        const panes = Array.from(this.DOM.widget.querySelectorAll('[data-pane]'))
+            .filter(item => item.closest('[data-tabs]') === this.DOM.widget);
+
+        const targetPane = panes.find(p => p.dataset.pane === paneName);
+        if (!targetPane) return;
+
+        this.activeCustomPane = paneName;
+
+        const liveTabs = Array.from(this.DOM.widget.querySelectorAll('[data-tab], [data-async-tab]'))
+            .filter(tab => tab.closest('[data-tabs]') === this.DOM.widget);
+
+        liveTabs.forEach((tab) => {
+            const tabValue = tab.dataset.tab || tab.dataset.asyncTab;
+            const isActive = (tabValue === paneName);
+            tab.toggleAttribute('data-active', isActive);
+            tab.setAttribute('aria-selected', isActive ? 'true' : 'false');
+            tab.setAttribute('tabindex', isActive ? '0' : '-1');
+        });
+
+        panes.forEach((p) => {
+            const isNewPane = (p === targetPane);
+            if (isNewPane) {
+                p.setAttribute('data-active', 'true');
+                p.classList.remove('is-closing');
+            } else {
+                p.removeAttribute('data-active');
+            }
+        });
+
+        if (this.is_fluid) {
+            this.updateFluidBounds(targetPane);
+        }
+    }
+
+    change(force = false) {
         // Detekujeme, zda jde o úplně první spuštění (inicializaci)
         const isFirstInit = !this.DOM.widget.hasAttribute('data-init');
-        
-        // Pokud už init proběhl a klikáme/najíždíme na stejný tab, nic nedělej
-        if (this.data.active === this.data.next && !isFirstInit) return;
-        
+
+        // Pokud už init proběhl a klikáme/najíždíme na stejný tab a není aktivní custom pane ani force, nic nedělej
+        if (this.data.active === this.data.next && !isFirstInit && !this.activeCustomPane && !force) return;
+
+        this.activeCustomPane = null;
+
         // Nastavíme příznak inicializace
         this.DOM.widget.setAttribute('data-init', 'true');
 
@@ -227,7 +266,7 @@ class Tabs {
         liveTabs.forEach((tab) => {
             const tabValue = tab.dataset.tab || tab.dataset.asyncTab;
             const isActive = (tabValue === activePaneValue);
-            
+
             tab.toggleAttribute('data-active', isActive);
             tab.setAttribute('aria-selected', isActive ? 'true' : 'false');
             tab.setAttribute('tabindex', isActive ? '0' : '-1');
@@ -238,26 +277,13 @@ class Tabs {
         // Updates ONLY parent level content panes
         this.DOM.panes.forEach((p, i) => {
             const isNewPane = p.dataset.pane ? (p.dataset.pane === activePaneValue) : (i === this.data.next);
-            const isOldPane = p.dataset.pane ? (p.dataset.pane === (liveTabs[this.data.active]?.dataset.tab)) : (i === this.data.active);
-
-            // Třídu is-closing a animaci spouštíme pouze, pokud nejde o první init
-            if (isOldPane && !isNewPane) {
-                p.removeAttribute('data-active');
-                
-                if (!isFirstInit) {
-                    p.classList.add('is-closing');
-                    const timeoutId = setTimeout(() => {
-                        p.classList.remove('is-closing');
-                        this.closing_timeouts = this.closing_timeouts.filter(id => id !== timeoutId);
-                    }, this.settings.animationDuration);
-                    this.closing_timeouts.push(timeoutId);
-                }
-            }
 
             if (isNewPane) {
-                p.toggleAttribute('data-active', true);
+                p.setAttribute('data-active', 'true');
                 p.classList.remove('is-closing');
-                targetActivePane = p; 
+                targetActivePane = p;
+            } else {
+                p.removeAttribute('data-active');
             }
         });
 
@@ -284,7 +310,7 @@ class Tabs {
 
     updateZIndices(activePaneValue) {
         if (!this.is_hoverable) return;
-        this.zIndexCounter++; 
+        this.zIndexCounter++;
         this.DOM.panes.forEach(p => {
             const isNew = (p.dataset.pane === activePaneValue);
             if (isNew) p.style.zIndex = this.zIndexCounter + 100;
@@ -303,11 +329,11 @@ class Tabs {
         try {
             const response = await fetch(url);
             const json = await response.json();
-            this.data.cache[url] = json.html; 
+            this.data.cache[url] = json.html;
             this.injectAsyncContent(index, json.html);
             this.data.next = index;
             this.change();
-            
+
             const liveTabs = Array.from(this.DOM.widget.querySelectorAll('[data-tab], [data-async-tab]'));
             liveTabs[index]?.focus();
         } catch (err) {
@@ -347,7 +373,7 @@ class Tabs {
 
         e.preventDefault();
         this.setActive(index);
-        
+
         if (!liveTabs[index].hasAttribute('data-async-tab') || this.data.cache[liveTabs[index].getAttribute('href')]) {
             liveTabs[index].focus();
         }
@@ -381,7 +407,7 @@ class Tabs {
     getTabIndexByPaneValue(paneValue) {
         const liveTabs = Array.from(this.DOM.widget.querySelectorAll('[data-tab], [data-async-tab]'))
             .filter(tab => tab.closest('[data-tabs]') === this.DOM.widget); // Scopes tightly to this layer
-            
+
         return liveTabs.findIndex(tab => {
             return tab.dataset.tab === paneValue || tab.dataset.asyncTab === paneValue;
         });
@@ -406,7 +432,7 @@ class Tabs {
     destroy() {
         this.DOM.widget.removeEventListener('keydown', this._boundHandleKeydown);
         window.removeEventListener("scrollTabEvent", this._boundScrollEvent);
-        
+
         // --- NEW: Remove progress listener ---
         if (this._boundUpdateProgress) {
             window.removeEventListener('scroll', this._boundUpdateProgress);
@@ -418,6 +444,7 @@ class Tabs {
         this.closing_timeouts.forEach(id => clearTimeout(id));
         this.DOM.panes.forEach(p => p.style.zIndex = '');
         this.DOM.widget.removeAttribute('data-scroll-progress');
+        this.DOM.widget.style.removeProperty('--progress');
     }
 
     initEvents() {
@@ -433,7 +460,7 @@ class Tabs {
                     const handleHover = () => {
                         const index = getIndex();
                         if (index === -1) return;
-                        
+
                         const currentTabs = Array.from(this.DOM.widget.querySelectorAll('[data-tab], [data-async-tab]'));
                         currentTabs.forEach((t, i) => {
                             const isActive = i === index;
@@ -467,16 +494,16 @@ class Tabs {
         this.DOM.widget.addEventListener("click", e => {
             const tab = e.target.closest('[data-tab], [data-async-tab]');
             const clickedLink = e.target.closest('a');
-            
+
             if (tab && this.DOM.widget.contains(tab)) {
                 const href = clickedLink?.getAttribute('href');
                 if (href && href !== '#' && href !== '') return;
 
                 if (!clickedLink && !tab.hasAttribute('href')) e.preventDefault();
-                
+
                 const tabValue = tab.dataset.tab || tab.dataset.asyncTab;
                 const index = tabValue ? this.getTabIndexByPaneValue(tabValue) : Array.from(this.DOM.widget.querySelectorAll('[data-tab], [data-async-tab]')).indexOf(tab);
-                
+
                 if (index !== -1) {
                     clearTimeout(this.hover_timeout);
                     this.setActive(index);
@@ -501,7 +528,7 @@ class Tabs {
             // Add resetAutoplay() after user interaction
             if (tab && this.DOM.widget.contains(tab)) {
                 // ... (existing tab clicking logic)
-                this.resetAutoplay(); 
+                this.resetAutoplay();
                 return;
             }
 
@@ -516,7 +543,7 @@ class Tabs {
 
         this.DOM.widget.addEventListener('keydown', this._boundHandleKeydown);
         window.addEventListener("scrollTabEvent", this._boundScrollEvent);
-        
+
         // Handle window resizes gracefully if layout drops or text blocks shift
         if (this.is_fluid) {
             window.addEventListener('resize', () => {
@@ -537,24 +564,6 @@ class Tabs {
             line.style.animation = null; // Revert to CSS default
         }
         // if (window.Locomotion) window.Locomotion.update();
-    }
-    
-    destroy() {
-        this.DOM.widget.removeEventListener('keydown', this._boundHandleKeydown);
-        window.removeEventListener("scrollTabEvent", this._boundScrollEvent);
-        
-        if (this._boundUpdateProgress) {
-            window.removeEventListener('scroll', this._boundUpdateProgress);
-        }
-
-        if (this.observer) this.observer.disconnect();
-        clearTimeout(this.scroll_timeout);
-        clearTimeout(this.hover_timeout);
-        this.closing_timeouts.forEach(id => clearTimeout(id));
-        this.DOM.panes.forEach(p => p.style.zIndex = '');
-        
-        // Remove the custom property
-        this.DOM.widget.style.removeProperty('--progress');
     }
 }
 

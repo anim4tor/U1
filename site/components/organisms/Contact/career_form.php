@@ -3,44 +3,49 @@
 		<h3 class="text-s wrap ">You didn't find a suitable position? <span class="color__acc">Send us your CV.</span></h3>
 	</div>
 </div>
-<form class="grid__2 gap__05 inner-x__1 inner__1 border__top">
+<form id="career-form" action="/contact.json" method="POST" data-form="contact" class="grid__2 gap__05 inner-x__1 inner__1 border__top">
 	<div class="span__2 grid gap__01">
 		<label class="op__4 text-xs">Position</label>
 		<select name="division" data-contact-input>
 			<?php foreach (collection('Jobs') as $job) : ?>
-				<option <?= $job === $page ? 'selected' : null ?> value="<?= $job->title() . ' - ' . $job->location() ?>"><?= $job->title() . ' - ' . $job->location() ?></option>
+				<option <?= ($job->id() === $page->id()) ? 'selected' : null ?> value="<?= $job->title() . ' - ' . $job->location() ?>"><?= $job->title() . ' - ' . $job->location() ?></option>
 			<?php endforeach ?>
 		</select>
 	</div>
 	<div class="grid gap__01">
-		<label class="op__4 text-xs">Name</label>
-		<input type="text" name="name" data-contact-input>
+		<label class="op__4 text-xs">Name *</label>
+		<input type="text" name="name" required placeholder="Your name" data-contact-input>
 	</div>
 	<div class="grid gap__01">
 		<label class="op__4 text-xs">Company</label>
-		<input type="text" name="company" data-contact-input>
+		<input type="text" name="company" placeholder="Current company / school" data-contact-input>
 	</div>
 	<div class="grid gap__01">
-		<label class="op__4 text-xs">Email</label>
-		<input type="text" name="email" data-contact-input>
+		<label class="op__4 text-xs">Email *</label>
+		<input type="email" name="email" required placeholder="name@domain.com" data-contact-input>
 	</div>
 	<div class="grid gap__01">
 		<label class="op__4 text-xs">Phone</label>
-		<input type="text" name="phone" data-contact-input>
+		<input type="text" name="phone" placeholder="+420 ..." data-contact-input>
 	</div>
 	<div class="span__2 grid gap__01">
-		<label class="op__4 text-xs">CV</label>
-		<input placeholder="Link your CV (LinkedIn profile, personal website, etc.)" name="cv_link" id="cv_link" type="text" maxlength="255">
+		<label class="op__4 text-xs">CV / LinkedIn</label>
+		<input placeholder="Link your CV (LinkedIn profile, portfolio, etc.)" name="cv_link" id="cv_link" type="text" maxlength="255" data-contact-input>
 	</div>
 	<div class="span__2 grid gap__01">
-		<label class="op__4 text-xs">Message</label>
-		<textarea name="message" data-contact-input></textarea>
+		<label class="op__4 text-xs">Message *</label>
+		<textarea name="message" required placeholder="Tell us about yourself..." data-contact-input></textarea>
 	</div>
-	<div class="span__2 gap__2 grid__2">
-		<?= snippet('atoms/Button', [ 'label' => 'Send', 'icon' => false, 'theme' => 'invert' ]) ?>
+
+	<div class="span__2" data-form-feedback>
+		<div data-form-error class="color__acc text-s"></div>
+	</div>
+
+	<div class="span__2 gap__1 grid__2">
+		<div class="flex justify__start">
+			<?= snippet('atoms/Button', [ 'label' => 'Send', 'icon' => false, 'theme' => 'invert', 'node' => 'type="submit" data-form-submit' ]) ?>
+		</div>
 		<p class="lower text-s op__4">By sending, you automatically agree to the data processing and the terms <a class="link" href="<?= page('privacy')->url() ?>">principles of personal protection data.</a></p>
 	</div>
 
 </form>
-
-                    

@@ -4,7 +4,7 @@
 		<div data-scroll class="span__2 inner-x__1 inner-t__2 inner-b__">
 			<h2 class="">Related articles</h2>
 		</div>
-		<div class="flex gap__02 justify__end align__end inner-x__1 m">
+		<div class="flex gap__02 justify__end align__end inner-x__1 text-m">
 			<button data-carousel-prev class="button upper" theme="ghost" hover="dark"><span class="icon"><?= svg('public/assets/images/ui/ui_arrow-left.svg') ?></span></button>
 			<button data-carousel-next class="button upper" theme="ghost" hover="dark"><span class="icon"><?= svg('public/assets/images/ui/ui_arrow-right.svg') ?></span></button>
 		</div>

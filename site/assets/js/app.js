@@ -1,3 +1,19 @@
+// Vendor libraries
+import './vendor/lenis.min.js';
+import './vendor/splitting.min.js';
+import './vendor/gsap.min.js';
+
+// Component scripts
+import '../../components/atoms/Scroll/index.js';
+import '../../components/atoms/Reveal/index.js';
+import '../../components/molecules/Collapsible/index.js';
+import '../../components/molecules/Tabs/index.js';
+import '../../components/molecules/Dropdown/index.js';
+import '../../components/organisms/Loader/index.js';
+import '../../components/organisms/Header/index.js';
+import '../../components/organisms/Carousel/index.js';
+import '../../components/organisms/Contact/index.js';
+
 // Reliable & Modern Device Detection
 const isMobile = window.matchMedia("(max-width: 768px)").matches || 
                  ('ontouchstart' in window) || 
@@ -171,17 +187,3 @@ const startApp = async () => {
 document.addEventListener('DOMContentLoaded', async () => {
   startApp();
 });
-
-//@prepros-prepend vendor/lenis.min.js
-//@prepros-prepend vendor/splitting.min.js
-//@prepros-prepend vendor/gsap.min.js
-//@prepros-prepend ../../components/atoms/Scroll/index.js
-//@prepros-prepend ../../components/atoms/Reveal/index.js
-//@prepros-prepend ../../components/molecules/Collapsible/index.js
-//@prepros-prepend ../../components/molecules/Tabs/index.js
-//@prepros-prepend ../../components/molecules/Dropdown/index.js
-//@prepros-prepend ../../components/organisms/Loader/index.js
-//@prepros-prepend ../../components/organisms/Header/index.js
-//@prepros-prepend ../../components/organisms/Carousel/index.js
-//@prepros-prepend ../../components/organisms/Contact/index.js
-

@@ -4,11 +4,11 @@
 	<?php endif ?>
 	<div class="flex justify__space-between align__start gap__5 inner-y__05 ">
 		<div class="flex gap__2 upper ">
-			<h4 class="font__size__4 xs" data-reveal-text="lines"><?= $feed->title() ?></h4>
+			<h4 class="font__size__4 text-xs" data-reveal-text="lines"><?= $feed->title() ?></h4>
 		</div>
 		<p class="no__wrap op__5" data-reveal-text="lines">(<?= $feed->date()->toDate('Y-m-d') ?>)</p>
 	</div>
 	<!-- <div class="grid ">
-		<p class="xs upper"><?= $feed->intro()->inline() ?></p>
+		<p class="text-xs upper"><?= $feed->intro()->inline() ?></p>
 	</div> -->
 </a>

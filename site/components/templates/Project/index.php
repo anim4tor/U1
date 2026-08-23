@@ -16,8 +16,8 @@
 				<div data-reveal-text=""><?= $page->title() ?></div>
 			</h1>
 			<div class="grid__4 border__top inner-y__1">
-				<a href="<?= $page->parent()->url() ?>" data-reveal-text="lines" class="upper s">(<?= $page->parent() ? $page->parent()->title() : $page->title() ?>)</a>
-				<div data-reveal-text="lines" class="upper s">(<?= $page->date()->toDate('Y') ?>)</div>
+				<a href="<?= $page->parent()->url() ?>" data-reveal-text="lines" class="upper text-s">(<?= $page->parent() ? $page->parent()->title() : $page->title() ?>)</a>
+				<div data-reveal-text="lines" class="upper text-s">(<?= $page->date()->toDate('Y') ?>)</div>
 			</div>
 		</div>
 	</div>
@@ -28,7 +28,7 @@
 	<div data-scroll class="grid grid__post gap__2 mobile:grid__1 inner__1 mobile:inner-x__1 inner-y__2">
 		<div></div>
 		<div class="span__1 grid place__start-start gap__3 mobile:inner-x__0">
-			<h2 data-reveal-text="lines" class="font__size__3 xs"><?= $page->intro()->inline() ?></h2>
+			<h2 data-reveal-text="lines" class="font__size__3 text-xs"><?= $page->intro()->inline() ?></h2>
 		</div>
 		<div></div>
 		<div data-scroll class="grid mobile:grid__1 inner-y__2">
@@ -51,7 +51,7 @@
 				<?php $val = $page->$field(); ?>
 				<?php if ($val->isNotEmpty()): ?>
 					<div class="grid__2 gap__2 border__top inner-y__05">
-						<div class="upper xs op__6">(<?= $label ?>)</div>
+						<div class="upper text-xs op__6">(<?= $label ?>)</div>
 						<p class="font__size__large"><?= $field != 'date' ? $val : $val->toDate('Y') ?></p>
 					</div>
 				<?php endif; ?>
@@ -172,7 +172,7 @@
 		<div data-scroll class="span__2 inner-x__1 inner-t__2 inner-b__">
 			<h2 class="">Similar projects</h2>
 		</div>
-		<div class="flex gap__02 justify__end align__end inner-x__1 m">
+		<div class="flex gap__02 justify__end align__end inner-x__1 text-m">
 			<button data-carousel-prev class="button upper" theme="ghost" hover="dark"><span class="icon"><?= svg('public/assets/images/ui/ui_arrow-left.svg') ?></span></button>
 			<button data-carousel-next class="button upper" theme="ghost" hover="dark"><span class="icon"><?= svg('public/assets/images/ui/ui_arrow-right.svg') ?></span></button>
 		</div>
@@ -203,11 +203,11 @@
 			<div class="span__4 border__top inner-t__05 grid grid__post gap__2">
 
 				<div class="grid__2">
-					<span class="upper s">(Next)</span>
+					<span class="upper text-s">(Next)</span>
 				</div>
 				<div class="grid gap__2 place__space-between-stretch">
 					<div class="">
-						<h2 class="font__size__1 xs">
+						<h2 class="font__size__1 text-xs">
 							<div data-reveal-text=""><?= $next->title() ?></div>
 						</h2>
 					</div>

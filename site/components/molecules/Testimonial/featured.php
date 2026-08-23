@@ -18,11 +18,11 @@
 		<p class="quote font__size__4 ff__heading upper" data-reveal-text="lines" data-split-ignore>"<?= $project->testimonialQuote()->inline() ?>"</p>
 	</div>
 	<div class="flex justify__space-between">
-		<div class="s upper " >(Testimonials)</div>
-		<div class="s" ><span data-reveal-text="lines" data-split-ignore><?= $project->indexOf(collection('Projects')) + 1 ?></span><span>/<?= $testimonials->count() ?></span></div>
+		<div class="text-s upper " >(Testimonials)</div>
+		<div class="text-s" ><span data-reveal-text="lines" data-split-ignore><?= $project->indexOf(collection('Projects')) + 1 ?></span><span>/<?= $testimonials->count() ?></span></div>
 	</div>
 	<!-- <div class="flex justify__space-between">
-		<div class="s upper " data-reveal-text="lines">David L.</div>
-		<div class="s upper" data-reveal-text="lines">(Operations Manager)</div>
+		<div class="text-s upper " data-reveal-text="lines">David L.</div>
+		<div class="text-s upper" data-reveal-text="lines">(Operations Manager)</div>
 	</div> -->
 </div>

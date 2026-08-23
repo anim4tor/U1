@@ -10,7 +10,7 @@
 					<a href="<?= $page->parent()->url() ?>" data-reveal-text="lines" class="upper">(<?= $page->parent() ? $page->parent()->title() : $page->title() ?>)</a>
 				</div>
 				<div>
-					<p data-reveal-text="lines" class="font__size__4 s lower"><?= $page->excerpt()->or($page->intro())->inline() ?></p>
+					<p data-reveal-text="lines" class="font__size__4 text-s lower"><?= $page->excerpt()->or($page->intro())->inline() ?></p>
 				</div>
 			</div>
 			<div class="intro__title relative place__end-stretch span__4 mobile:span__1 inner-y__05" style="--in-delay: 500ms">
@@ -57,7 +57,7 @@
 		<div data-scroll class="span__2 inner-x__1 inner-t__2 inner-b__">
 			<h2 class="">Related projects</h2>
 		</div>
-		<div class="flex gap__02 justify__end align__end inner-x__1 m">
+		<div class="flex gap__02 justify__end align__end inner-x__1 text-m">
 			<button data-carousel-prev class="button upper" theme="invert-ghost" hover="invert"><span class="icon"><?= svg('public/assets/images/ui/ui_arrow-left.svg') ?></span></button>
 			<button data-carousel-next class="button upper" theme="invert-ghost" hover="invert"><span class="icon"><?= svg('public/assets/images/ui/ui_arrow-right.svg') ?></span></button>
 		</div>

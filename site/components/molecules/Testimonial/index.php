@@ -3,7 +3,7 @@
 		<div class="grid gap__4 place__space-between-start">
 			<div class="grid place__start-stretch gap__1">
 				<!-- Quote is already formatted as inline string -->
-				<p class="quote m ff__heading wrap" data-reveal-text="lines" data-split-ignore>"<?= $testimonial->testimonialQuote()->inline() ?>"</p>
+				<p class="quote text-m ff__heading wrap" data-reveal-text="lines" data-split-ignore>"<?= $testimonial->testimonialQuote()->inline() ?>"</p>
 			</div>
 		</div>
 	</div>
@@ -22,9 +22,9 @@
 			</div>
 		<?php endif ?>
 		<div class="grid gap__01">
-			<div class="s upper op__4" data-reveal-text="lines"><?= $testimonial->testimonialAuthor()->or($testimonial->parent()->client()) ?></div>
+			<div class="text-s upper op__4" data-reveal-text="lines"><?= $testimonial->testimonialAuthor()->or($testimonial->parent()->client()) ?></div>
 			<?php if ($testimonial->testimonialPosition()->isNotEmpty()) : ?>
-				<div class="s upper op__4" data-reveal-text="lines">(<?= $testimonial->testimonialPosition() ?>)</div>
+				<div class="text-s upper op__4" data-reveal-text="lines">(<?= $testimonial->testimonialPosition() ?>)</div>
 			<?php endif ?>
 		</div>
 	</div>

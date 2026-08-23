@@ -7,7 +7,7 @@ $classes = [];
 
 $modVal = $block->mod()->value();
 if ($modVal && $modVal !== 'default') {
-    $classes[] = $modVal;
+    $classes[] = 'text-' . $modVal;
 }
 
 $faceVal = $block->face()->value();

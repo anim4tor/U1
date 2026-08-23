@@ -9,8 +9,8 @@
 				<div class="grid inner-x__1" data-scroll>
 					<?php foreach (collection('Values') as $step) : ?>
 						<div data-tab="step-<?= $step->step()?>" class="flex align__start gap__02" >
-							<?= snippet('atoms/Heading', [ 'level' => 'h3', 'text' => $step->value(), 'reveal' => true, 'css' => 'l', 'node' => 'data-split-ignore' ]) ?>
-							<div data-reveal-text="" class="wrap-t__03 m" data-split-ignore style="--in-delay: 800ms">(<?= $step->indexOf(collection('Values')) + 1 ?>)</div>
+							<?= snippet('atoms/Heading', [ 'level' => 'h3', 'text' => $step->value(), 'reveal' => true, 'css' => 'text-l', 'node' => 'data-split-ignore' ]) ?>
+							<div data-reveal-text="" class="wrap-t__03 text-m" data-split-ignore style="--in-delay: 800ms">(<?= $step->indexOf(collection('Values')) + 1 ?>)</div>
 
 						</div>
 						
