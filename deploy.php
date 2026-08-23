@@ -7,26 +7,57 @@
  */
 
 header('Content-Type: application/json; charset=utf-8');
-ini_set('max_execution_time', 120);
-ini_set('memory_limit', '256M');
+ini_set('max_execution_time', 300);
+ini_set('memory_limit', '512M');
+ignore_user_abort(true);
 
 // ==============================================================================
 // 1. CONFIGURATION
 // ==============================================================================
-$secret       = 'maiden37';              // Your secret key
-$repo         = 'anim4tor/U1';           // GitHub username/repository
-$targetBranch = 'staging';               // Branch to deploy
-$githubToken  = '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';                      // Optional GitHub Personal Access Token (if repo is private)
-$projectDir   = __DIR__;                 // Destination directory
+$secret       = 'maiden37';
+$repo         = 'anim4tor/U1';
+$targetBranch = 'staging';
+$githubToken  = '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';
+$projectDir   = __DIR__;
+$logFile      = __DIR__ . '/deploy-log.json';
 
-// Exclude these paths from being overwritten during extraction
+// Exclude these existing server paths from being overwritten
 $preservePaths = [
     'public/media',
     'site/cache',
     'site/accounts',
     '.env',
-    'deploy.php'
+    'deploy.php',
+    'deploy-log.json'
 ];
+
+// Completely skip extracting these development / build files:
+$ignorePatterns = [
+    'node_modules',
+    'scripts',
+    '.github',
+    '.git',
+    '.gitignore',
+    '.gitattributes',
+    '.vscode',
+    '.idea',
+    'bs-config.js',
+    'package.json',
+    'package-lock.json',
+    'prepros.config',
+    '*.sublime-*',
+    '*.code-workspace'
+];
+
+// If requesting log view: ?secret=maiden37&log=1
+if (isset($_GET['log']) && isset($_GET['secret']) && hash_equals($secret, $_GET['secret'])) {
+    if (file_exists($logFile)) {
+        echo file_get_contents($logFile);
+    } else {
+        echo json_encode(['status' => 'no_log_yet']);
+    }
+    exit;
+}
 
 // ==============================================================================
 // 2. AUTHENTICATION & SECURITY
@@ -70,16 +101,39 @@ if ($payload && isset($payload['ref'])) {
     }
 }
 
+// If sent via GitHub Webhook POST, acknowledge 200 OK immediately so GitHub doesn't timeout!
+$isAsyncWebhook = (!empty($rawPayload) && !empty($signatureHeader));
+
+if ($isAsyncWebhook) {
+    if (function_exists('fastcgi_finish_request')) {
+        echo json_encode([
+            'status'  => 'processing',
+            'message' => 'Deployment queued and executing in background.'
+        ]);
+        fastcgi_finish_request();
+    } else {
+        ob_start();
+        echo json_encode([
+            'status'  => 'processing',
+            'message' => 'Deployment queued and executing in background.'
+        ]);
+        $responseSize = ob_get_length();
+        header("Content-Length: {$responseSize}");
+        header("Connection: close");
+        ob_end_flush();
+        @ob_flush();
+        flush();
+    }
+}
+
 // ==============================================================================
-// 3. DOWNLOAD REPOSITORY ZIP
+// 3. EXECUTE DOWNLOAD & EXTRACTION
 // ==============================================================================
 $startTime = microtime(true);
 
 if (!empty($githubToken)) {
-    // Private repo API endpoint
     $zipUrl = "https://api.github.com/repos/{$repo}/zipball/{$targetBranch}";
 } else {
-    // Public repo direct zip endpoint
     $zipUrl = "https://github.com/{$repo}/archive/refs/heads/{$targetBranch}.zip";
 }
 
@@ -97,7 +151,7 @@ $ch = curl_init($zipUrl);
 $fp = fopen($tempZip, 'w+');
 
 curl_setopt_array($ch, [
-    CURLOPT_TIMEOUT        => 60,
+    CURLOPT_TIMEOUT        => 120,
     CURLOPT_FILE           => $fp,
     CURLOPT_FOLLOWLOCATION => true,
     CURLOPT_MAXREDIRS      => 5,
@@ -111,46 +165,54 @@ $error = curl_error($ch);
 curl_close($ch);
 fclose($fp);
 
+$logData = [
+    'timestamp' => date('Y-m-d H:i:s'),
+    'branch'    => $targetBranch
+];
+
 if (!$success || $httpCode >= 400 || filesize($tempZip) === 0) {
     @unlink($tempZip);
-    http_response_code(500);
-    echo json_encode([
-        'status'    => 'error',
-        'message'   => "Failed to download zip from GitHub (HTTP {$httpCode})." . ($error ? " Error: {$error}" : ''),
-        'zip_url'   => $zipUrl,
-        'hint'      => empty($githubToken) ? 'If your repo is private, please set $githubToken in deploy.php.' : ''
-    ], JSON_PRETTY_PRINT);
+    $logData['status']  = 'error';
+    $logData['message'] = "Failed to download zip from GitHub (HTTP {$httpCode})." . ($error ? " Error: {$error}" : '');
+    file_put_contents($logFile, json_encode($logData, JSON_PRETTY_PRINT));
+    
+    if (!$isAsyncWebhook) {
+        http_response_code(500);
+        echo json_encode($logData, JSON_PRETTY_PRINT);
+    }
     exit;
 }
 
-// ==============================================================================
-// 4. EXTRACT ZIP ARCHIVE WITH ZIPARCHIVE
-// ==============================================================================
 if (!class_exists('ZipArchive')) {
     @unlink($tempZip);
-    http_response_code(500);
-    echo json_encode([
-        'status'  => 'error',
-        'message' => 'ZipArchive PHP extension is not enabled on this server.'
-    ], JSON_PRETTY_PRINT);
+    $logData['status']  = 'error';
+    $logData['message'] = 'ZipArchive extension not enabled in PHP.';
+    file_put_contents($logFile, json_encode($logData, JSON_PRETTY_PRINT));
+    
+    if (!$isAsyncWebhook) {
+        http_response_code(500);
+        echo json_encode($logData, JSON_PRETTY_PRINT);
+    }
     exit;
 }
 
 $zip = new ZipArchive();
 if ($zip->open($tempZip) !== true) {
     @unlink($tempZip);
-    http_response_code(500);
-    echo json_encode([
-        'status'  => 'error',
-        'message' => 'Failed to open downloaded zip archive.'
-    ], JSON_PRETTY_PRINT);
+    $logData['status']  = 'error';
+    $logData['message'] = 'Failed to open downloaded zip archive.';
+    file_put_contents($logFile, json_encode($logData, JSON_PRETTY_PRINT));
+    
+    if (!$isAsyncWebhook) {
+        http_response_code(500);
+        echo json_encode($logData, JSON_PRETTY_PRINT);
+    }
     exit;
 }
 
 $extractedCount = 0;
 $skippedCount = 0;
 
-// GitHub archives contain a top-level directory (e.g. "U1-staging/" or "anim4tor-U1-1a2b3c/")
 $firstEntry = $zip->getNameIndex(0);
 $rootFolder = explode('/', $firstEntry)[0] . '/';
 
@@ -158,7 +220,7 @@ for ($i = 0; $i < $zip->numFiles; $i++) {
     $stat = $zip->statIndex($i);
     $entryName = $stat['name'];
 
-    // Strip top-level root directory
+    // Strip root folder
     if (str_starts_with($entryName, $rootFolder)) {
         $relativePath = substr($entryName, strlen($rootFolder));
     } else {
@@ -167,7 +229,25 @@ for ($i = 0; $i < $zip->numFiles; $i++) {
 
     if (empty($relativePath)) continue;
 
-    // Check if path is in preserved paths list
+    // Check if path is ignored (node_modules, dev configs, scripts, etc.)
+    $isIgnored = false;
+    foreach ($ignorePatterns as $pattern) {
+        if ($relativePath === $pattern || str_starts_with($relativePath, $pattern . '/')) {
+            $isIgnored = true;
+            break;
+        }
+        if (fnmatch($pattern, $relativePath)) {
+            $isIgnored = true;
+            break;
+        }
+    }
+
+    if ($isIgnored) {
+        $skippedCount++;
+        continue;
+    }
+
+    // Check preserved paths
     $isPreserved = false;
     foreach ($preservePaths as $preserve) {
         if ($relativePath === $preserve || str_starts_with($relativePath, $preserve . '/')) {
@@ -183,24 +263,21 @@ for ($i = 0; $i < $zip->numFiles; $i++) {
 
     $destPath = $projectDir . '/' . $relativePath;
 
-    // Create directories
     if (str_ends_with($entryName, '/')) {
         if (!is_dir($destPath)) {
-            mkdir($destPath, 0755, true);
+            @mkdir($destPath, 0755, true);
         }
         continue;
     }
 
-    // Ensure parent directory exists
     $parentDir = dirname($destPath);
     if (!is_dir($parentDir)) {
-        mkdir($parentDir, 0755, true);
+        @mkdir($parentDir, 0755, true);
     }
 
-    // Extract file
     $fileContent = $zip->getFromIndex($i);
     if ($fileContent !== false) {
-        file_put_contents($destPath, $fileContent);
+        @file_put_contents($destPath, $fileContent);
         $extractedCount++;
     }
 }
@@ -210,15 +287,14 @@ $zip->close();
 
 $duration = round((microtime(true) - $startTime) * 1000, 2);
 
-// ==============================================================================
-// 5. SUCCESS RESPONSE
-// ==============================================================================
-echo json_encode([
-    'status'          => 'success',
-    'message'         => 'Deployment completed successfully via PHP ZipArchive.',
-    'timestamp'       => date('Y-m-d H:i:s'),
-    'branch'          => $targetBranch,
-    'files_extracted' => $extractedCount,
-    'files_preserved' => $skippedCount,
-    'execution_time'  => "{$duration}ms"
-], JSON_PRETTY_PRINT);
+$logData['status']          = 'success';
+$logData['message']         = 'Deployment completed successfully via PHP ZipArchive.';
+$logData['files_extracted'] = $extractedCount;
+$logData['files_preserved'] = $skippedCount;
+$logData['execution_time']  = "{$duration}ms";
+
+file_put_contents($logFile, json_encode($logData, JSON_PRETTY_PRINT));
+
+if (!$isAsyncWebhook) {
+    echo json_encode($logData, JSON_PRETTY_PRINT);
+}

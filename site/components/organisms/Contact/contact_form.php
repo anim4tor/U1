@@ -1,6 +1,6 @@
 <div class="flex gap__1 inner-x__1 inner-y__1 ">
 	<div class="grid gap__1 place__center-start">
-		<h3 class="text-s wrap ">TEST Fill out the following form and we will be happy to <span class="color__acc">get back to you.</span></h3>
+		<h3 class="text-s wrap ">Fill out the following form and we will be happy to <span class="color__acc">get back to you.</span></h3>
 	</div>
 </div>
 <form id="contact-form" action="<?= url('contact.json') ?>" method="POST" data-form="contact" class="grid__2 gap__05 inner-x__1 inner__1 border__top">
