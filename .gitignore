@@ -8,6 +8,9 @@ yarn-error.log*
 public/media/*
 !public/media/index.html
 site/cache/*
+site/store/cache/*
+site/store/safe/sessions/*
+site/store/logs/*
 
 # Operating System files
 .DS_Store
