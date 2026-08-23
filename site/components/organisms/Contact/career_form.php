@@ -3,7 +3,7 @@
 		<h3 class="text-s wrap ">You didn't find a suitable position? <span class="color__acc">Send us your CV.</span></h3>
 	</div>
 </div>
-<form id="career-form" action="/contact.json" method="POST" data-form="contact" class="grid__2 gap__05 inner-x__1 inner__1 border__top">
+<form id="career-form" action="<?= url('contact.json') ?>" method="POST" data-form="contact" class="grid__2 gap__05 inner-x__1 inner__1 border__top">
 	<div class="span__2 grid gap__01">
 		<label class="op__4 text-xs">Position</label>
 		<select name="division" data-contact-input>

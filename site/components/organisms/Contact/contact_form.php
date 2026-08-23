@@ -3,7 +3,7 @@
 		<h3 class="text-s wrap ">Fill out the following form and we will be happy to <span class="color__acc">get back to you.</span></h3>
 	</div>
 </div>
-<form id="contact-form" action="/contact.json" method="POST" data-form="contact" class="grid__2 gap__05 inner-x__1 inner__1 border__top">
+<form id="contact-form" action="<?= url('contact.json') ?>" method="POST" data-form="contact" class="grid__2 gap__05 inner-x__1 inner__1 border__top">
 	<div class="span__2 grid gap__01">
 		<label class="op__4 text-xs">Division</label>
 		<select name="division" data-contact-input>
