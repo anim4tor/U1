@@ -4,35 +4,23 @@ on:
   push:
     branches:
       - main
-      - master
+      - staging
     tags:
       - '*'
 
 jobs:
-  build-and-deploy:
-    name: 🔨 Build & Deploy
+  deploy:
+    name: 🚀 Fast Deploy
     runs-on: ubuntu-latest
     defaults:
       run:
         shell: bash
 
     steps:
-      - name: 🚚 Get latest code
+      - name: 🚚 Checkout code
         uses: actions/checkout@v4
         with:
           fetch-depth: 2
-
-      - name: ⚙️ Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: 'npm'
-
-      - name: 📦 Install dependencies
-        run: npm ci
-
-      - name: 🏗️ Build production CSS and JS
-        run: npm run build
 
       - name: 📂 Sync files via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
