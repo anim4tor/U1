@@ -18,6 +18,7 @@ figure {
   position: relative;
   overflow: hidden;
   aspect-ratio: var(--aspect-ratio);
+  background-color: rgba(var(--color-invert), 0.03);
 
   &:not(.no__radius) {
 /*    border-radius: var(--img-radius);*/
@@ -29,6 +30,17 @@ figure {
     object-fit: cover;
     border-radius: calc(var(--img-radius)*1em);
     aspect-ratio: var(--aspect-ratio);
+  }
+
+  img {
+    opacity: 0;
+    transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+
+    &.is-loaded,
+    &[loading="eager"],
+    &.no__style {
+      opacity: 1;
+    }
   }
 
   video {

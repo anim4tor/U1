@@ -11,18 +11,14 @@
     [href] {
         .item__figure {
             overflow: hidden;
-            @include animation;
+            @include animation((transform, clip-path, opacity), 600ms);
             clip-path: inset(0% 0% 0% 0%);
-
         }
         .item__figure figure {
-            @include animation;
+            @include animation((opacity, clip-path, filter, transform), 600ms);
             transform: scale(1);
         }
-        
     }
-
-    
 }
 
 .project__wrapper:hover {
@@ -44,13 +40,11 @@
         }
     }
     .item__figure {
-        @include animation((transform,clip-path), 600ms);
+        @include animation((transform, clip-path, opacity), 600ms);
         clip-path: inset(0% 0% 0% 0%);
-/*        clip-path: inset(5.0% 5.0% 5.0% 5.0%);*/
-/*        transform: scale(0.9);*/
 
         & > figure {
-            @include animation((filter,transform), 600ms);
+            @include animation((opacity, clip-path, filter, transform), 600ms);
             transform: scale(1.1);
             filter: blur(0) brightness(0.8);
         }

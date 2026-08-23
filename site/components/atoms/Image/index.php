@@ -40,16 +40,16 @@
 <?php endif ?>
 
 	<figure 
-		<?= $reveal || $parallax !== false ? 'data-scroll' : '' ?>
+		<?= ($reveal || $parallax !== false || str_contains((string)$node, 'data-reveal-image')) ? 'data-scroll' : '' ?>
 		<?= $revealDirection !== false ? 'data-reveal-image="' . esc($revealDirection) . '"' : '' ?>
 		<?= $parallax !== false ? 'data-scroll-progress data-parallax style="--speed: ' . esc($parallax) . '"' : '' ?>
 		class="img__radius <?= esc($css) ?>"
 		<?= esc($node) ?>
 	>
 		<?php if ($img && is_object($img)) : ?>
-			<img loading="<?= esc($loading) ?>" <?= $fetchpriority ? 'fetchpriority="' . esc($fetchpriority) . '" ' : '' ?>decoding="<?= esc($decoding) ?>" src="<?= $img->url() ?>" alt="<?= $altText ?>"<?= $widthAttr ?><?= $heightAttr ?>>
+			<img class="<?= $priority ? 'is-loaded' : '' ?>" loading="<?= esc($loading) ?>" <?= $fetchpriority ? 'fetchpriority="' . esc($fetchpriority) . '" ' : '' ?>decoding="<?= esc($decoding) ?>" onload="this.classList.add('is-loaded')" src="<?= $img->url() ?>" alt="<?= $altText ?>"<?= $widthAttr ?><?= $heightAttr ?>>
 		<?php elseif ($url): ?>
-			<img loading="<?= esc($loading) ?>" <?= $fetchpriority ? 'fetchpriority="' . esc($fetchpriority) . '" ' : '' ?>decoding="<?= esc($decoding) ?>" src="<?= asset('public/assets/images/' . $url)->url() ?>" alt="<?= $altText ?>">
+			<img class="<?= $priority ? 'is-loaded' : '' ?>" loading="<?= esc($loading) ?>" <?= $fetchpriority ? 'fetchpriority="' . esc($fetchpriority) . '" ' : '' ?>decoding="<?= esc($decoding) ?>" onload="this.classList.add('is-loaded')" src="<?= asset('public/assets/images/' . $url)->url() ?>" alt="<?= $altText ?>">
 		<?php endif ?>
 	</figure>
 

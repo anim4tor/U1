@@ -118,7 +118,20 @@ class Reveal {
         });
     }
 
+    initImages() {
+        const checkImage = (img) => {
+            if (img.complete && img.naturalWidth > 0) {
+                img.classList.add('is-loaded');
+            } else {
+                img.addEventListener('load', () => img.classList.add('is-loaded'), { once: true });
+                img.addEventListener('error', () => img.classList.add('is-loaded'), { once: true });
+            }
+        };
+        document.querySelectorAll('figure img, img[loading]').forEach(checkImage);
+    }
+
     refresh() {
+        this.initImages();
         document.querySelectorAll(this.selector).forEach(el => this.observer.observe(el));
     }
 }
@@ -127,6 +140,7 @@ var REVEAL;
 function initReveals() {
     console.log(' ... init Reveal animations');
     REVEAL = new Reveal();
+    REVEAL.initImages();
 }
 
 
