@@ -43,7 +43,7 @@
 					</div>
 					<div class="w__100v " data-carousel-scroll theme="light">
 						<ol class="flex justify__start align__start no__wrap gap__1 inner-x__1 " data-carousel-slides >	
-						<?php foreach (collection('Instagram') as $post) : ?>
+						<?php foreach (collection('Socials') as $post) : ?>
 							<li data-slide class="vw__5 aspect__1/1">	
 								<?= snippet('molecules/Feed/social', compact('post')) ?>
 							</li>

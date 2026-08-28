@@ -3,10 +3,43 @@
 use Kirby\Cms\Collection;
 use Kirby\Cms\Page;
 use Kirby\Http\Remote;
+use Kirby\Filesystem\F;
+use Kirby\Filesystem\Dir;
 
 return function ($kirby) {
     // 1. Define the hashtag you want to filter by (without '#')
     $requiredHashtag = 'web';
+
+    $mediaCacheDir = $kirby->root('public') . '/media/social';
+    Dir::make($mediaCacheDir);
+
+    $getLocalMediaUrl = function ($remoteUrl, $filenamePrefix) use ($mediaCacheDir) {
+        if (empty($remoteUrl)) {
+            return '';
+        }
+
+        $filename = $filenamePrefix . '.jpg';
+        $filePath = $mediaCacheDir . '/' . $filename;
+        $localUrl = url('public/media/social/' . $filename);
+
+        // If already downloaded and valid, return local URL
+        if (file_exists($filePath) && filesize($filePath) > 0) {
+            return $localUrl;
+        }
+
+        // Otherwise download and save locally
+        try {
+            $response = Remote::get($remoteUrl, ['timeout' => 8]);
+            if ($response->code() === 200 && !empty($response->content())) {
+                F::write($filePath, $response->content());
+                return $localUrl;
+            }
+        } catch (\Throwable $e) {
+            // Fallback to remote URL on download error
+        }
+
+        return $remoteUrl;
+    };
 
     $cache = $kirby->cache('social');
     $cachedPosts = $cache->get('instagram.posts.filtered');
@@ -46,9 +79,11 @@ return function ($kirby) {
             continue;
         }
 
-        $imageUrl = ($post['media_type'] === 'VIDEO' && isset($post['thumbnail_url']))
+        $rawImageUrl = ($post['media_type'] === 'VIDEO' && isset($post['thumbnail_url']))
             ? $post['thumbnail_url']
             : ($post['media_url'] ?? '');
+
+        $imageUrl = $getLocalMediaUrl($rawImageUrl, 'instagram-' . $post['id']);
 
         $cleanTitle = trim(preg_replace('/#\w+/u', '', $caption));
 

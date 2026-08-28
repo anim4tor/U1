@@ -3,10 +3,44 @@
 use Kirby\Cms\Collection;
 use Kirby\Cms\Page;
 use Kirby\Http\Remote;
+use Kirby\Filesystem\F;
+use Kirby\Filesystem\Dir;
 
 return function ($kirby) {
     $cache = $kirby->cache('social');
     $virtualPages = [];
+
+    // Helper to download and cache social media images locally
+    $mediaCacheDir = $kirby->root('public') . '/media/social';
+    Dir::make($mediaCacheDir);
+
+    $getLocalMediaUrl = function ($remoteUrl, $filenamePrefix) use ($mediaCacheDir) {
+        if (empty($remoteUrl)) {
+            return '';
+        }
+
+        $filename = $filenamePrefix . '.jpg';
+        $filePath = $mediaCacheDir . '/' . $filename;
+        $localUrl = url('public/media/social/' . $filename);
+
+        // If already downloaded and valid, return local URL
+        if (file_exists($filePath) && filesize($filePath) > 0) {
+            return $localUrl;
+        }
+
+        // Otherwise download and save locally
+        try {
+            $response = Remote::get($remoteUrl, ['timeout' => 8]);
+            if ($response->code() === 200 && !empty($response->content())) {
+                F::write($filePath, $response->content());
+                return $localUrl;
+            }
+        } catch (\Throwable $e) {
+            // Fallback to remote URL on download error
+        }
+
+        return $remoteUrl;
+    };
 
     // ----------------------------------------------------
     // 1. FETCH & PROCESS LINKEDIN POSTS
@@ -51,7 +85,8 @@ return function ($kirby) {
     foreach ($cachedLinkedin as $post) {
         $postId     = $post['id'] ?? '';
         $commentary = $post['commentary'] ?? '';
-        $mediaUrl   = $post['content']['media']['image'] ?? '';
+        $rawMediaUrl = $post['content']['media']['image'] ?? '';
+        $mediaUrl   = !empty($rawMediaUrl) ? $getLocalMediaUrl($rawMediaUrl, 'linkedin-' . md5($postId)) : '';
         // Convert timestamp (ms) or date string to Unix timestamp
         $timestamp  = isset($post['createdAt']) ? (int)($post['createdAt'] / 1000) : time();
 
@@ -111,9 +146,11 @@ return function ($kirby) {
             continue;
         }
 
-        $imageUrl = ($post['media_type'] === 'VIDEO' && isset($post['thumbnail_url']))
+        $rawImageUrl = ($post['media_type'] === 'VIDEO' && isset($post['thumbnail_url']))
             ? $post['thumbnail_url']
             : ($post['media_url'] ?? '');
+
+        $imageUrl = $getLocalMediaUrl($rawImageUrl, 'instagram-' . $post['id']);
 
         $cleanTitle = trim(preg_replace('/#\w+/u', '', $caption));
         $timestamp  = isset($post['timestamp']) ? strtotime($post['timestamp']) : time();
