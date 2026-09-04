@@ -1,0 +1,33 @@
+Title: Contact
+
+----
+
+Intro: Get in touch with us directly or leave us your contact details. We'll get back to you.
+
+----
+
+Meta-description: U1 space design – architectural studio and interior fitout. Brno, Prague. Contacts for divisions, showrooms, and contact form.
+
+----
+
+Meta-title: Contact | U1 Interiors
+
+----
+
+Og-title: Contact | U1 Interiors
+
+----
+
+Og-description: Get in touch with us directly or leave us your contact details. U1 Interiors – Brno and Prague.
+
+----
+
+Robots-index: true
+
+----
+
+Robots-follow: true
+
+----
+
+Uuid: OnxNo5NPXHwFBup4

@@ -30,7 +30,7 @@
 							$employees = collection('Employees')->filterBy('team', '*=', $team->name())->count();
 						?>
 						<div data-tab="team-<?= $team->indexOf(collection('Team')) ?>" class="flex gap__02" data-scroll>
-							<?= snippet('atoms/Heading', [ 'level' => 'h3', 'text' => $team->name(), 'reveal' => true, 'css' => 'text-m', 'node' => 'data-split-ignore' ]) ?>
+							<?= snippet('atoms/Heading', [ 'level' => 'h3', 'text' => $team->name(), 'reveal' => true, 'node' => 'data-split-ignore' ]) ?>
 						</div>
 					<?php endforeach ?>
 				</div>

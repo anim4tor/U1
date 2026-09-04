@@ -34,8 +34,8 @@
 				<div class="grid ">
 					<div navbar-content class="grid place__space-between-stretch gap__1 inner__05">
 						<div class="grid gap__05 ">
-							<!-- <div class="label upper text-xs op__4">(Menu)</div> -->
-							<nav navbar-menu class="grid upper ff__heading font__size__3 text-m no__wrap">
+							<!-- <div class="label upper font__size__small op__4">(Menu)</div> -->
+							<nav navbar-menu class="grid upper ff__heading font__size__3 no__wrap">
 								<?php foreach ($pages->find('home', 'projects', 'services') as $p): ?>
 									<div class="grid place__start-start">
 										<?= snippet('atoms/Link', ['url' => $p->url(), 'label' => $p->title(), 'icon' => false, 'css' => $p->isActive() || $page->parents()->has($p) ? '' : 'op__4', 'node' => 'data-reveal-text data-reveal-on-navbar data-split-ignore']) ?>
@@ -43,8 +43,8 @@
 								<?php endforeach ?>
 							</nav>
 							<div class="grid gap__02">
-								<!-- <div class="label upper text-xs op__4">(Socials)</div> -->
-								<nav class="flex justify__center gap__02 op__4 text-s">
+								<!-- <div class="label upper font__size__small op__4">(Socials)</div> -->
+								<nav class="flex justify__center gap__02 op__4 font__size__small">
 									<?php foreach ($site->social()->toStructure() as $s): ?>
 										<?php if(!$s->isFirst()) : ?>
 											<span class="light ff__body op__2">/</span>
@@ -85,7 +85,7 @@
 								</nav>
 							</div>
 							<div class="grid gap__02 inner-t__1">
-								<!-- <div class="label upper text-xs op__4">(Contact)</div> -->
+								<div class="label upper font__size__small op__4">(Contact)</div>
 								<div class="grid__2 gap__02">
 									<button class="img__radius flex inner__05 gap__02 justify__center align__center" theme="invert-ghost" data-scroll data-booking-toggle >
 										<!-- <div icon class="grid__stack ">

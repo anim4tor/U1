@@ -10,6 +10,6 @@
 		<p class="" data-reveal-text="lines">(<?= $feed->date()->toDate('Y') ?>)</p>
 	</div>
 	<!-- <div class="grid ">
-		<p class="text-xs upper"><?= $feed->intro()->inline() ?></p>
+		<p class="font__size__small upper"><?= $feed->intro()->inline() ?></p>
 	</div> -->
 </a>

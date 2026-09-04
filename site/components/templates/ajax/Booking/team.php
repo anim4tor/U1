@@ -19,11 +19,11 @@
 <nav class="inner-b__1">
 	<?php foreach ($terms = array_fill(0, 10, null) as $term) : ?>
 		<a href class="grid__4 inner-x__2 place__center-stretch inner-y__05 border__top">
-			<p class="span__2 flex gap__02 align__center upper text-xs bolder">March 30, 2026 <span class="icon --circle"></span> Ashtanga</p>
+			<p class="span__2 flex gap__02 align__center upper font__size__small bolder">March 30, 2026 <span class="icon --circle"></span> Ashtanga</p>
 			<div class="grid">
-				<p class="flex gap__02 align__center text-xs">
+				<p class="flex gap__02 align__center font__size__small">
 					<span>5 places left</span>
-					<span class="text-xs">•</span> 
+					<span class="font__size__small">•</span> 
 					<span>120,- Kč</span>
 				</p>
 			</div>

@@ -1,3 +1,2 @@
 
-<?php 
-	go('Error');
+<?= snippet('organisms/Main') ?>

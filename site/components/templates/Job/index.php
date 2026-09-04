@@ -4,11 +4,11 @@
 		<div class="span__4 grid place__stretch-stretch">
 			<div class="span__4 border__top inner-t__05 grid grid__post gap__2 ">
 				<div class="grid__2 gap__2">	
-					<a href="<?= $page->parent()->url() ?>" data-reveal-text="lines" class="upper text-s">(Open positions)</a>
-					<span data-reveal-text="lines" class="upper text-s"><?= $page->location() ?></span>
+					<a href="<?= $page->parent()->url() ?>" data-reveal-text="lines" class="upper font__size__small">(Open positions)</a>
+					<span data-reveal-text="lines" class="upper font__size__small"><?= $page->location() ?></span>
 				</div>
 				<div class="">
-					<h1 class="font__size__2 text-xs">
+					<h1 class="font__size__2">
 						<div data-reveal-text=""><?= $page->title() ?></div>
 					</h1>
 				</div>
@@ -27,7 +27,7 @@
 	<div data-scroll class="place__stretch-stretch grid gap__2 inner-x__1 inner-t__2 inner-b__2">
 		<div class="grid span__2 gap__2 grid__post">
 			<div class=""></div>
-			<h2 data-reveal-text="lines" class="font__size__4 text-m"><?= $page->excerpt()->inline() ?></h2>
+			<h2 data-reveal-text="lines" class="font__size__4"><?= $page->excerpt()->inline() ?></h2>
 		</div>
 		<div class="span__2 grid grid__post gap__2 inner-y__1 border__top">	
 			<div class="-wrap-r__5 inner-r__10">
@@ -70,7 +70,7 @@
 		<div class="grid span__2 gap__2 inner-y__1 grid__post border__top">
 			<div class=""></div>
 			<div class="grid place__start-start gap__1 inner-r__10">
-				<h2 data-reveal-text="lines" class="font__size__4 text-m">Ready to get started? Just say it!</h2>
+				<h2 data-reveal-text="lines" class="font__size__4">Ready to get started? Just say it!</h2>
 				<?= snippet('atoms/Button', [ 'label' => 'Apply for job', 'theme' => 'dark', 'icon' => 'arrow-right', 'node' => 'data-contact-toggle="inquiry"']) ?>
 			</div>
 		</div>

@@ -8,7 +8,7 @@
 					<span class="op__4"><?= $page->date()->toDate('Y-m-d') ?></span>
 				</p>
 				<div class="">
-					<h1 class="font__size__2 text-xs">
+					<h1 class="font__size__2">
 						<div data-reveal-text=""><?= $page->title() ?></div>
 					</h1>
 				</div>
@@ -27,7 +27,7 @@
 	<div data-scroll class="place__stretch-stretch grid gap__2 inner-x__1 inner-t__2 inner-b__5">
 		<div class="grid span__2 gap__2 grid__post">
 			<div class=""></div>
-			<h2 data-reveal-text="lines" class="font__size__4 text-m"><?= $page->excerpt()->inline() ?></h2>
+			<h2 data-reveal-text="lines" class="font__size__4"><?= $page->excerpt()->inline() ?></h2>
 		</div>
 		<?php $start = false; ?>
 		<?php $end = false; ?>
@@ -56,7 +56,7 @@
 <section class="others" theme="light">
 	<div class="relative grid__2 gap__2 inner-x__1 inner-y__1 inner-t__5">
 		<div class="" data-scroll>
-			<h3 class="text-l" data-reveal-text>Explore related articles</h3>
+			<h3 data-reveal-text>Explore related articles</h3>
 		</div>
 		<div class="flex justify__end align__end">
 			<?= snippet('atoms/Button', [ 'url' => $page->parent()->url(), 'label' => 'See all articles', 'theme' => 'light', 'icon' => 'arrow-right']) ?>

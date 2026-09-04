@@ -10,23 +10,6 @@ tabs:
         type: writer
         placeholder: field.blocks.text.placeholder
 
-      mod:
-        label: Modify size
-        type: toggles
-        options:
-          - value: xl
-            text: Extra
-          - value: l
-            text: Large
-          - value: m
-            text: Medium
-          - value: default
-            text: Default
-          - value: s
-            text: Small
-          - value: xs
-            text: Tiny
-      
       face:
         label: Fontface
         type: toggles

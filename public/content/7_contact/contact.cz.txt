@@ -1,60 +1,32 @@
-Title: Contact
+Title: Kontakt
 
 ----
 
-Cover: 
+Intro: Spojte se s námi přímo nebo nám na vás zanechte kontakt. Ozveme se.
 
 ----
 
-Intro: 
+Meta-description: U1 s.r.o. – architektonické studio a realizace interiérů. Brno, Praha. Kontakty na jednotlivá oddělení, showroomy a formulář.
 
 ----
 
-Claim: 
+Meta-title: Kontakt | U1 Interiors
 
 ----
 
-Meta-description: 
+Og-title: Kontakt | U1 Interiors
 
 ----
 
-Meta-title: 
+Og-description: Spojte se s námi přímo nebo nám na vás zanechte kontakt. U1 Interiors – Brno a Praha.
 
 ----
 
-Meta-canonical-url: 
+Robots-index: true
 
 ----
 
-Og-title: 
-
-----
-
-Og-description: 
-
-----
-
-Og-image: 
-
-----
-
-Robots-index: 
-
-----
-
-Robots-follow: 
-
-----
-
-Robots-archive: 
-
-----
-
-Robots-imageindex: 
-
-----
-
-Robots-snippet: 
+Robots-follow: true
 
 ----
 

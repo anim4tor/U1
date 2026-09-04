@@ -15,6 +15,6 @@
 	</a>
 	<?php endif ?>
 	<!-- <div class="grid ">
-		<p class="text-xs upper"><?= $feed->intro()->inline() ?></p>
+		<p class="font__size__small upper"><?= $feed->intro()->inline() ?></p>
 	</div> -->
 </div>

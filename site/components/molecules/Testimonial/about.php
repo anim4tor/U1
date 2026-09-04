@@ -11,15 +11,15 @@
 						<div class="grid gap__4 place__space-between-start">
 							<div class="grid place__start-stretch gap__1">
 								<!-- Quote is already formatted as inline string -->
-								<p class="quote text-m ff__heading wrap" data-reveal-text="lines" data-split-ignore>"<?= $testimonial->testimonialQuote()->inline() ?>"</p>
+								<p class="quote ff__heading wrap" data-reveal-text="lines" data-split-ignore>"<?= $testimonial->testimonialQuote()->inline() ?>"</p>
 							</div>
 						</div>
 					</div>
 					<div class="flex justify__space-between gap__05 align__end">
 						<div class="grid gap__01">
-							<div class="text-s upper op__4" data-reveal-text="lines"><?= $testimonial->testimonialAuthor()->or($testimonial->parent()->client()) ?></div>
+							<div class="upper op__4 font__size__small" data-reveal-text="lines"><?= $testimonial->testimonialAuthor()->or($testimonial->parent()->client()) ?></div>
 							<?php if ($testimonial->testimonialPosition()->isNotEmpty()) : ?>
-								<div class="text-s upper op__4" data-reveal-text="lines">(<?= $testimonial->testimonialPosition() ?>)</div>
+								<div class="upper op__4 font__size__small" data-reveal-text="lines">(<?= $testimonial->testimonialPosition() ?>)</div>
 							<?php endif ?>
 						</div>
 					</div>

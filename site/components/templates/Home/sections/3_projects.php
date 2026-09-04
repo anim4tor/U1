@@ -4,7 +4,7 @@
 		<div data-scroll class="span__2 inner-x__1 inner-t__2">
 			<?= snippet('molecules/Header', ['header' => $page->projects(), 'type' => ['heading']]) ?>
 		</div>
-		<div class="flex gap__02 justify__end align__end inner-x__1 text-m">
+		<div class="flex gap__02 justify__end align__end inner-x__1">
 			<button data-carousel-prev class="button upper" theme="invert-ghost" hover="invert"><span class="icon"><?= svg('public/assets/images/ui/ui_arrow-left.svg') ?></span></button>
 			<button data-carousel-next class="button upper" theme="invert-ghost" hover="invert"><span class="icon"><?= svg('public/assets/images/ui/ui_arrow-right.svg') ?></span></button>
 		</div>

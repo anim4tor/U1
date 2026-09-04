@@ -27,7 +27,7 @@
 		<ol class="span__1 solutions__list grid inner-x__1" data-scroll >
 			<?php foreach (collection('Solutions') as $solution) : ?>
 				<a href="<?= $solution->url() ?>" class="flex align__start gap__05 inner-y__02" data-tab="service-<?= $solution->slug() ?>">
-					<h3 class="text-m" data-reveal-text data-split-ignore><?= $solution->title() ?></h3>
+					<h3 data-reveal-text data-split-ignore><?= $solution->title() ?></h3>
 				</a>
 			<?php endforeach ?>
 		</ol>

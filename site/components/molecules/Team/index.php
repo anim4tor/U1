@@ -14,7 +14,7 @@
 						<div class="item__figure grid radius no__overflow "><?= snippet('atoms/Image', ['img' => $cover, 'parallax' => 1, 'css' => 'vh__6 grid' ]) ?></div>
 					<?php endif ?>
 					<div class="grid ">
-						<p class="text-s upper text__center"><?= $team->bio()->inline() ?></p>
+						<p class="upper font__size__small text__center"><?= $team->bio()->inline() ?></p>
 					</div>
 				</div>
 			</div>

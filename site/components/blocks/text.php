@@ -5,11 +5,6 @@ $text = $block->text()->isNotEmpty() ? $block->text()->value() : '';
 // Compile CSS typography modification classes dynamically
 $classes = [];
 
-$modVal = $block->mod()->value();
-if ($modVal && $modVal !== 'default') {
-    $classes[] = 'text-' . $modVal;
-}
-
 $faceVal = $block->face()->value();
 if ($faceVal) {
     $classes[] = 'ff__' . $faceVal; // e.g., font__family__heading

@@ -39,17 +39,17 @@
 		<div id="tab-typography" class="theme-tab-content grid__2 gap__1 span__2">
 			<div class="typo-section-header">Heading Elements</div>
 			<div class="grid span__2">
-				<label class="ff__body op__4 text-xs">Heading Family</label>
+				<label class="ff__body op__4 font__size__small">Heading Family</label>
 				<select name="ff-heading" data-theme-setup data-font-select>
 					</select>
 			</div>
 			<div class="theme-panel-row span__2" style="margin-bottom: 0.5rem;">
 				<div class="grid">
-					<label class="ff__body op__4 text-xs">Weight</label>
+					<label class="ff__body op__4 font__size__small">Weight</label>
 					<input type="number" name="fw-heading" step="100" min="100" max="900" data-theme-setup>
 				</div>
 				<div class="grid">
-					<label class="ff__body op__4 text-xs">Transform</label>
+					<label class="ff__body op__4 font__size__small">Transform</label>
 					<select name="tt-heading" data-theme-setup>
 						<option value="none">None</option>
 						<option value="uppercase">Uppercase</option>
@@ -57,24 +57,24 @@
 					</select>
 				</div>
 				<div class="grid">
-					<label class="ff__body op__4 text-xs">Tracking</label>
+					<label class="ff__body op__4 font__size__small">Tracking</label>
 					<input type="text" name="ls-heading" data-theme-setup>
 				</div>
 			</div>
 
 			<div class="typo-section-header">Body Copy Elements</div>
 			<div class="grid span__2">
-				<label class="ff__body op__4 text-xs">Body Family</label>
+				<label class="ff__body op__4 font__size__small">Body Family</label>
 				<select name="ff-body" data-theme-setup data-font-select>
 					</select>
 			</div>
 			<div class="theme-panel-row span__2" style="margin-bottom: 0.5rem;">
 				<div class="grid">
-					<label class="ff__body op__4 text-xs">Weight</label>
+					<label class="ff__body op__4 font__size__small">Weight</label>
 					<input type="number" name="fw-body" step="100" min="100" max="900" data-theme-setup>
 				</div>
 				<div class="grid">
-					<label class="ff__body op__4 text-xs">Transform</label>
+					<label class="ff__body op__4 font__size__small">Transform</label>
 					<select name="tt-body" data-theme-setup>
 						<option value="none">None</option>
 						<option value="uppercase">Uppercase</option>
@@ -82,24 +82,24 @@
 					</select>
 				</div>
 				<div class="grid">
-					<label class="ff__body op__4 text-xs">Tracking</label>
+					<label class="ff__body op__4 font__size__small">Tracking</label>
 					<input type="text" name="ls-body" data-theme-setup>
 				</div>
 			</div>
 
 			<div class="typo-section-header">Monospace / Code Elements</div>
 			<div class="grid span__2">
-				<label class="ff__body op__4 text-xs">Mono Family</label>
+				<label class="ff__body op__4 font__size__small">Mono Family</label>
 				<select name="ff-mono" data-theme-setup data-font-select>
 					</select>
 			</div>
 		</div>
 
 		<div id="tab-scale" class="theme-tab-content grid__2 gap__1 span__2 is-hidden">
-			<div class="grid span__2" style="border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 0.25rem;"><span class="text-xs op__6 uppercase font-weight:bold;">Heading Hierarchy</span></div>
+			<div class="grid span__2" style="border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 0.25rem;"><span class="font__size__small op__6 uppercase font-weight:bold;">Heading Hierarchy</span></div>
 			
 			<div class="grid span__2">
-				<label class="ff__body op__4 text-xs">H-Typescale</label>
+				<label class="ff__body op__4 font__size__small">H-Typescale</label>
 				<div class="flex" style="align-items: center; gap: 0.25rem; width: 100%;">
 					<select id="ts-select" name="type-scale" data-theme-setup style="flex: 1;">
 						<option value="1.618">1.618 – Golden</option>
@@ -115,24 +115,24 @@
 
 			<div class="theme-panel-row span__2">
 				<div class="grid">
-					<label class="ff__body op__4 text-xs">H-Start Baseline (Rem)</label>
+					<label class="ff__body op__4 font__size__small">H-Start Baseline (Rem)</label>
 					<input type="number" name="type-start-rem" step="0.05" min="0.5" max="4" data-theme-setup data-unit="rem">
 				</div>
 				<div class="grid">
-					<label class="ff__body op__4 text-xs">H-Start Fluid (Vw)</label>
+					<label class="ff__body op__4 font__size__small">H-Start Fluid (Vw)</label>
 					<input type="number" name="type-start-vw" step="0.05" min="0.5" max="4" data-theme-setup data-unit="vw">
 				</div>
 			</div>
 
 			<div class="grid span__2">
-				<label class="ff__body op__4 text-xs">H-Line Height</label>
+				<label class="ff__body op__4 font__size__small">H-Line Height</label>
 				<input type="number" name="base-line-height" step="0.05" min="0.8" max="2" data-theme-setup>
 			</div>
 
-			<div class="grid span__2" style="border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 0.25rem; margin-top: 0.5rem;"><span class="text-xs op__6 uppercase font-weight:bold;">Body Copy Hierarchy</span></div>
+			<div class="grid span__2" style="border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 0.25rem; margin-top: 0.5rem;"><span class="font__size__small op__6 uppercase font-weight:bold;">Body Copy Hierarchy</span></div>
 			
 			<div class="grid span__2">
-				<label class="ff__body op__4 text-xs">Body Scale</label>
+				<label class="ff__body op__4 font__size__small">Body Scale</label>
 				<div class="flex" style="align-items: center; gap: 0.25rem; width: 100%;">
 					<select id="bs-select" name="body-scale" data-theme-setup style="flex: 1;">
 						<option value="1.400">1.400 – Default</option>
@@ -146,51 +146,51 @@
 
 			<div class="theme-panel-row span__2">
 				<div class="grid">
-					<label class="ff__body op__4 text-xs">B-Start Baseline (Rem)</label>
+					<label class="ff__body op__4 font__size__small">B-Start Baseline (Rem)</label>
 					<input type="number" name="body-start-rem" step="0.001" min="0.1" max="3" data-theme-setup data-unit="rem">
 				</div>
 				<div class="grid">
-					<label class="ff__body op__4 text-xs">B-Start Fluid (Vw)</label>
+					<label class="ff__body op__4 font__size__small">B-Start Fluid (Vw)</label>
 					<input type="number" name="body-start-vw" step="0.001" min="0.1" max="3" data-theme-setup data-unit="vw">
 				</div>
 			</div>
 
 			<div class="grid span__2">
-				<label class="ff__body op__4 text-xs">B-Line Height</label>
+				<label class="ff__body op__4 font__size__small">B-Line Height</label>
 				<input type="number" name="base-body-line-height" step="0.05" min="1.0" max="2.5" data-theme-setup>
 			</div>
 		</div>
 
 		<div id="tab-spacing" class="theme-tab-content grid__2 gap__1 span__2 is-hidden">
 			<div class="grid">
-				<label class="ff__body op__4 text-xs">Min Scale</label>
+				<label class="ff__body op__4 font__size__small">Min Scale</label>
 				<input type="number" name="scale-min" step="0.05" min="0.2" max="3" data-theme-setup>
 			</div>
 			<div class="grid">
-				<label class="ff__body op__4 text-xs">Fluid Scale</label>
+				<label class="ff__body op__4 font__size__small">Fluid Scale</label>
 				<input type="number" name="scale-fluid" step="0.1" min="0" max="10" data-theme-setup>
 			</div>
 			<div class="grid span__2">
-				<label class="ff__body op__4 text-xs">Global Scale Modifier</label>
+				<label class="ff__body op__4 font__size__small">Global Scale Modifier</label>
 				<input type="number" name="scale" step="0.05" min="0.2" max="3" data-theme-setup>
 			</div>
 		</div>
 
 		<div id="tab-animations" class="theme-tab-content grid__2 gap__1 span__2 is-hidden">
 			<div class="grid">
-				<label class="ff__body op__4 text-xs">Duration</label>
+				<label class="ff__body op__4 font__size__small">Duration</label>
 				<input type="text" name="animation-duration" placeholder="800ms" data-theme-setup>
 			</div>
 			<div class="grid">
-				<label class="ff__body op__4 text-xs">Delay</label>
+				<label class="ff__body op__4 font__size__small">Delay</label>
 				<input type="text" name="animation-delay" placeholder="0ms" data-theme-setup>
 			</div>
 			<div class="grid span__2">
-				<label class="ff__body op__4 text-xs">Stagger Interval</label>
+				<label class="ff__body op__4 font__size__small">Stagger Interval</label>
 				<input type="text" name="animation-stagger" placeholder="50ms" data-theme-setup>
 			</div>
 			<div class="grid span__2">
-				<label class="ff__body op__4 text-xs">Timing Curve</label>
+				<label class="ff__body op__4 font__size__small">Timing Curve</label>
 				<select name="animation-timing" data-theme-setup>
 					<option value="cubic-bezier(0.4, 0, 0.2, 1)">Material Standard (0.4, 0, 0.2, 1)</option>
 					<option value="cubic-bezier(0.25, 1, 0.5, 1)">Cubic Out (Smooth)</option>
@@ -200,14 +200,14 @@
 				</select>
 			</div>
 			<div class="grid">
-				<label class="ff__body op__4 text-xs">Parallax Matrix</label>
+				<label class="ff__body op__4 font__size__small">Parallax Matrix</label>
 				<select name="toggle-parallax" data-theme-setup>
 					<option value="1">Enabled</option>
 					<option value="0">Disabled</option>
 				</select>
 			</div>
 			<div class="grid">
-				<label class="ff__body op__4 text-xs">Scroll Reveals</label>
+				<label class="ff__body op__4 font__size__small">Scroll Reveals</label>
 				<select name="toggle-reveals" data-theme-setup>
 					<option value="1">Enabled</option>
 					<option value="0">Disabled</option>
@@ -217,7 +217,7 @@
 
 		<div id="tab-colors" class="theme-tab-content grid__2 gap__1 span__2 is-hidden">
 			<div class="grid span__2" style="width: 100%;">
-				<label class="ff__body op__4 text-xs">Theme Canvas Mode</label>
+				<label class="ff__body op__4 font__size__small">Theme Canvas Mode</label>
 				<select id="canvas-theme-selector">
 					<option value="default">Default Root</option>
 					<option value="light">Light Mode</option>
@@ -228,7 +228,7 @@
 			</div>
 
 			<div class="grid span__2" style="width: 100%; margin-top: 0.25rem;">
-				<label class="ff__body op__4 text-xs" style="margin-bottom: 0.35rem;">System Colors Palette</label>
+				<label class="ff__body op__4 font__size__small" style="margin-bottom: 0.35rem;">System Colors Palette</label>
 				<div id="dynamic-color-grid" class="color-picker-grid">
 					</div>
 			</div>
@@ -236,26 +236,26 @@
 
 		<div id="tab-images" class="theme-tab-content grid__2 gap__1 span__2 is-hidden">
 		    <div class="grid">
-		        <label class="ff__body op__4 text-xs">Image Radius</label>
+		        <label class="ff__body op__4 font__size__small">Image Radius</label>
 		        <input type="number" name="img-radius" step="0.1" min="0" max="10" data-theme-setup>
 		    </div>
 		    <div class="grid">
-		        <label class="ff__body op__4 text-xs">Global Radius</label>
+		        <label class="ff__body op__4 font__size__small">Global Radius</label>
 		        <input type="number" name="radius" step="0.1" min="0" max="10" data-theme-setup>
 		    </div>
 		</div>
 
 		<div id="tab-buttons" class="theme-tab-content grid__2 gap__1 span__2 is-hidden">
 		    <div class="grid">
-		        <label class="ff__body op__4 text-xs">Btn Padding</label>
+		        <label class="ff__body op__4 font__size__small">Btn Padding</label>
 		        <input type="text" name="btn-padding" placeholder="0.5rem 1rem" data-theme-setup>
 		    </div>
 		    <div class="grid">
-		        <label class="ff__body op__4 text-xs">Btn Radius</label>
+		        <label class="ff__body op__4 font__size__small">Btn Radius</label>
 		        <input type="number" name="btn-radius" step="1" min="0" max="50" data-theme-setup>
 		    </div>
 		    <div class="grid span__2">
-		        <label class="ff__body op__4 text-xs">Btn Border Width</label>
+		        <label class="ff__body op__4 font__size__small">Btn Border Width</label>
 		        <input type="number" name="btn-border" step="1" min="0" max="10" data-theme-setup>
 		    </div>
 		</div>
@@ -424,7 +424,7 @@
 				const itemMarkup = document.createElement('div');
 				itemMarkup.className = 'color-item';
 				itemMarkup.innerHTML = `
-					<label class="text-xs op__4">${stylizedLabel}</label>
+					<label class="font__size__small op__4">${stylizedLabel}</label>
 					<input type="color" name="${token}" data-theme-setup data-is-color>
 				`;
 				colorGridContainer.appendChild(itemMarkup);

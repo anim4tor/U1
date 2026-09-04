@@ -4,12 +4,8 @@
 			<div class="absolute top__03 right__03 z__1">
 				<?= snippet('atoms/Button', [ 'url' => '', 'label' => false, 'icon' => 'close', 'theme' => false, 'css' => 'circle --small bg__light/20 color__invert/80', 'node' => 'data-contact-close']) ?>
 			</div>
-			<div data-tab="contact" class="upper text-xs">contact</div>
-			<div data-tab="inquiry" class="upper text-xs">Inquiry</div>
-			<!-- <div data-tab="sales" class="upper text-xs">Sales</div>
-			<div data-tab="design" class="upper text-xs">Design</div>
-			<div data-tab="accounts" class="upper text-xs">Accounts</div> -->
-			<!-- <div data-tab="form" class="upper text-s">Form</div> -->
+			<div data-tab="contact" class="upper font__size__small">contact</div>
+			<div data-tab="inquiry" class="upper font__size__small">Inquiry</div>
 		</nav>
 		
 		<div data-pane-container class="grid__stack place__start-stretch no__overflow">

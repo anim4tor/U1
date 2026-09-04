@@ -8,7 +8,7 @@
 				<?= snippet('atoms/Button', ['label' => '✕', 'theme' => 'invert-ghost']) ?>
 			</a>
 		</div>
-		<nav data-reveal-text="words" class="grid align__center gap__1 font__size__1 text-m" >
+		<nav data-reveal-text="words" class="grid align__center gap__1 font__size__1" >
 			<?php foreach ($pages->listed()->not('home') as $item): ?>
 				<?= snippet('atoms/Link', ['url' => $item->url(), 'label' => $item->title(), 'icon' => false]) ?>
 			<?php endforeach ?>

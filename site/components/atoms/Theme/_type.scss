@@ -75,39 +75,6 @@ $levels: 'small', 'default', 'large', 5, 4, 3, 2, 1;
 
 
 
-/*
-    Modifiers
-*/
-$mods: (
-    xxl: 3,
-    xl: 2,
-    l: 1.5,
-    m: 1.25,
-    df: 1,
-    default: 1,
-    s: 0.9,
-    xs: 0.8
-);
-
-@each $modifier, $breakpoint in $map-grid-props {
-    @if($modifier =='') {
-        @each $mod, $scale in $mods {
-            .text-#{$mod} {
-                font-size: calc(var(--output-size, var(--font-size-default)) * #{$scale}) !important;
-            }
-        }
-    }
-
-    @else {
-        @include create-mq($breakpoint, 'max') {
-            @each $mod, $scale in $mods {
-                .#{$modifier}\:text-#{$mod} {
-                    font-size: calc(var(--output-size, var(--font-size-default)) * #{$scale}) !important;
-                }
-            }
-        }
-    }
-}
 
 /*
     Body

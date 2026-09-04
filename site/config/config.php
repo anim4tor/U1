@@ -24,7 +24,7 @@ return [
               }
           ],
           [
-              'pattern' => ['contact.json', 'contact', 'api-contact', 'api/contact', '(:any)/contact.json', '(:any)/contact', '(:all)/contact.json', '(:all)/contact'],
+              'pattern' => ['contact.json', 'api/contact', 'api-contact', '(:any)/contact.json'],
               'method'  => 'OPTIONS',
               'action'  => function () {
                   header('Access-Control-Allow-Origin: *');
@@ -34,7 +34,7 @@ return [
               }
           ],
           [
-              'pattern' => ['contact.json', 'contact', 'api-contact', 'api/contact', '(:any)/contact.json', '(:any)/contact', '(:all)/contact.json', '(:all)/contact'],
+              'pattern' => ['contact.json', 'api/contact', 'api-contact', '(:any)/contact.json'],
               'method'  => 'GET',
               'action'  => function () {
                   return \Kirby\Http\Response::json([
@@ -44,7 +44,7 @@ return [
               }
           ],
           [
-              'pattern' => ['contact.json', 'contact', 'api-contact', 'api/contact', '(:any)/contact.json', '(:any)/contact', '(:all)/contact.json', '(:all)/contact'],
+              'pattern' => ['contact.json', 'api/contact', 'api-contact', '(:any)/contact.json'],
               'method'  => 'POST',
               'action'  => function () {
                   header('Access-Control-Allow-Origin: *');

@@ -22,7 +22,7 @@
 			</div> -->
 			<div class="relative z__1 grid gap__2 inner-x__1 color__invert">
 				<div class="" data-scroll>
-					<h2 class="text-l flex justify__space-between" data-reveal-text><span>The</span><span>Process</span></h2>
+					<h2 class="flex justify__space-between" data-reveal-text><span>The</span><span>Process</span></h2>
 				</div>
 			</div>
 			<!-- <div class="relative flex inner-x__1 z__1 color__invert">
@@ -35,7 +35,7 @@
 							<div data-tab="step-<?= $step->step()?>" class="relative grid place__space-between-stretch inner__1 gap__1" >
 								<div class="flex no__wrap align__start gap__02  relative z__1">
 									<?= snippet('atoms/Heading', [ 'level' => 'h3', 'text' => $step->label(), 'reveal' => true, 'css' => '', 'node' => 'data-split-ignore' ]) ?>
-									<div data-reveal-text="" class="text-m" data-split-ignore style="--in-delay: 800ms">(<?= $step->step() ?>)</div>
+									<div data-reveal-text="" class="" data-split-ignore style="--in-delay: 800ms">(<?= $step->step() ?>)</div>
 								</div>
 								<div class="gap__1 absolute bottom__1 left__1" data-tab-reveal data-pane="step-<?= $step->step() ?>" id="trigger-<?= $step->step() ?>">
 									<p class="w__10" data-reveal-text="lines" data-split-ignore ><?= $step->detail()->inline() ?></p>

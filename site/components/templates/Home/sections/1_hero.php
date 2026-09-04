@@ -26,18 +26,18 @@
 		<div class="span__4 grid__4 place__space-between-stretch">
 			<div class="span__4 grid__4 inner-t__05 relative flex justify__space-between align__start border__top" data-scroll data-scroll-ignore>
 				<div data-tabs-autoplay-line class="autoplay__line absolute left__0 right__0"></div>
-				<div class="upper text-s" data-tab-next>Featured project</div>
+				<div class="upper font__size__small" data-tab-next>Featured project</div>
 				<div class="span__2 grid__stack" data-pane-container>
 					<?php foreach ($page->heroSlider()->toPages() as $project) : ?>
 						<?php if ($cover = $project->cover()->toFile()) : ?>
 						<div data-pane="project-<?= $project->indexOf($page->heroSlider()->toPages()) ?>" class="grid__2" data-tab-reveal>
-							<a href="<?= $project->url() ?>"><div data-reveal-text="words" data-split-ignore class="upper text-s"><?= $project->title() ?></div></a>
-							<div data-reveal-text="words" data-split-ignore class="upper text-s flex justify__end"><?= $project->date()->toDate('Y') ?></div>
+							<a href="<?= $project->url() ?>"><div data-reveal-text="words" data-split-ignore class="upper font__size__small"><?= $project->title() ?></div></a>
+							<div data-reveal-text="words" data-split-ignore class="upper font__size__small flex justify__end"><?= $project->date()->toDate('Y') ?></div>
 						</div>	
 						<?php endif ?>
 					<?php endforeach ?>
 				</div>
-				<div class="upper text-s flex justify__end" data-tab-next>(Next)</div>
+				<div class="upper font__size__small flex justify__end" data-tab-next>(Next)</div>
 			</div>
 			<div class="intro__title relative place__end-stretch span__3 mobile:span__1 inner-y__05 " style="--in-delay: 0ms">
 				<?= snippet('molecules/Header', ['header' => $page->hero(), 'type' => ['heading']]) ?>

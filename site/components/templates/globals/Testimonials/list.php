@@ -6,7 +6,7 @@
 				<div data-scroll class="span__2 ">
 					<span class="upper" data-reveal-text="lines">(Testimonials)</span>
 				</div>
-				<div class="flex gap__02 justify__end align__end text-m">
+				<div class="flex gap__02 justify__end align__end">
 					<button data-carousel-prev class="button upper" theme="invert-ghost" hover="invert"><span class="icon"><?= svg('public/assets/images/ui/ui_arrow-left.svg') ?></span></button>
 					<button data-carousel-next class="button upper" theme="invert-ghost" hover="invert"><span class="icon"><?= svg('public/assets/images/ui/ui_arrow-right.svg') ?></span></button>
 				</div>

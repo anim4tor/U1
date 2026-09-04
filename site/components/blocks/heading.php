@@ -6,11 +6,6 @@ $level = $block->level()->isNotEmpty() ? $block->level()->value() : 'h2';
 // Compile CSS typography modification classes dynamically
 $classes = [];
 
-$modVal = $block->mod()->value();
-if ($modVal && $modVal !== 'default') {
-    $classes[] = 'text-' . $modVal;
-}
-
 // Support for optional block blueprint custom CSS class injections
 $cssVal = $block->css()->isNotEmpty() ? $block->css()->value() : '';
 if ($cssVal) {

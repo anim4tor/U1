@@ -2,7 +2,7 @@
 <section class="people " theme="invert" >
 	<div class="relative grid gap__5 inner-x__1 ">
 		<div class="border__top inner-y__1" data-scroll>
-			<h2 class="text-xl flex justify__space-between" data-reveal-text>
+			<h2 class="flex justify__space-between" data-reveal-text>
 				<span class="">The</span>
 				<span class="">People</span>
 			</h2>
