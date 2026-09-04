@@ -24,11 +24,5 @@ section {
 	z-index: 1;
 	position: relative;
 	max-width: 100vw;
-	padding-inline: calc(5 * var(--spacing));
-
-	&.intro,
-	&.fullscreen,
-	&.no-padding-x {
-		padding-inline: 0;
-	}
+	padding-inline: calc(4 * var(--spacing));
 }
