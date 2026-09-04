@@ -11,32 +11,21 @@ carousel {
 	overflow: hidden;
 	position: relative;
 	width: 100%;
+	min-width: 0;
+	max-width: 100%;
 }
 
 [data-carousel-slides] {
 	width: 100%;
+	min-width: 0;
 }
 
 [data-carousel-scroll] {
-	/*position: relative;
-	&:before, &:after {
-		content: '';
-		display: block;
-		z-index: 1;
-		width: 5vw;
-		position: absolute;
-		top: 0;
-		bottom: 0;
-	}
-	&:before {
-		left: 0;
-		background: linear-gradient(to right, var(--background), transparent);
-	}
-	&:after {
-		right: 0;
-		background: linear-gradient(to left, var(--background), transparent);
-
-	}*/
+	overflow: hidden;
+	position: relative;
+	width: 100%;
+	min-width: 0;
+	max-width: 100%;
 }
 
 	[data-slide] {
