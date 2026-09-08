@@ -148,7 +148,7 @@ function u1GitExec(string $args): array {
 }
 
 function u1GetBranchData(): array {
-    $hidden = ['main'];
+    $hidden = ['main', 'master', 'head'];
 
     if (u1HasGit()) {
         $res = u1GitExec('branch --list');
@@ -164,12 +164,16 @@ function u1GetBranchData(): array {
                 if ($isActive) {
                     $current = $bName;
                 }
-                if (in_array($bName, $hidden, true)) continue;
+                if (in_array(strtolower($bName), $hidden, true)) continue;
                 $branches[] = [
                     'name'   => $bName,
                     'active' => $isActive
                 ];
             }
+        }
+
+        if (in_array(strtolower($current), $hidden, true)) {
+            $current = 'v2';
         }
 
         return [
@@ -183,7 +187,7 @@ function u1GetBranchData(): array {
 }
 
 function u1GetServerBranches(): array {
-    $hidden = ['main'];
+    $hidden = ['main', 'master', 'head'];
     $repoDir = kirby()->root('index');
     $currentFile = $repoDir . '/.current-branch';
     $logFile = $repoDir . '/deploy-log.json';
@@ -195,6 +199,10 @@ function u1GetServerBranches(): array {
     } elseif (file_exists($logFile)) {
         $log = json_decode((string)@file_get_contents($logFile), true);
         if (!empty($log['branch'])) $current = $log['branch'];
+    }
+
+    if (in_array(strtolower($current), $hidden, true)) {
+        $current = 'v2';
     }
 
     // Cache branches for 30s in temp file
@@ -233,7 +241,7 @@ function u1GetServerBranches(): array {
     if (is_array($branchesRaw)) {
         foreach ($branchesRaw as $b) {
             $name = $b['name'] ?? '';
-            if (empty($name) || in_array($name, $hidden, true)) continue;
+            if (empty($name) || in_array(strtolower($name), $hidden, true)) continue;
             $branches[] = [
                 'name'   => $name,
                 'active' => ($name === $current)
@@ -244,6 +252,7 @@ function u1GetServerBranches(): array {
     // Fallback if GitHub API is unreachable
     if (empty($branches)) {
         foreach (['v1', 'v2', 'v3', 'design'] as $name) {
+            if (in_array(strtolower($name), $hidden, true)) continue;
             $branches[] = [
                 'name'   => $name,
                 'active' => ($name === $current)
