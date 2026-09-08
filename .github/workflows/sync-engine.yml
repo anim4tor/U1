@@ -16,6 +16,10 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: sync-kirby-engine
+  cancel-in-progress: false
+
 jobs:
   sync-engine:
     name: 🔄 Sync Engine & Blueprints
@@ -81,6 +85,7 @@ jobs:
               echo "Changes detected for $BRANCH, committing and pushing..."
               git add site/engine site/config
               git commit -m "chore(engine): auto-sync kirby engine from ${SOURCE_BRANCH} [skip ci]"
+              git pull --rebase origin "$BRANCH" 2>/dev/null || true
               git push origin "$BRANCH"
               echo "✅ Pushed updated engine to $BRANCH."
             else
