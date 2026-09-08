@@ -326,13 +326,21 @@ function u1DeployServerBranch(string $target): array {
     }
 
     $preservePaths = [
+        'public/content',
         'public/media',
         'site/cache',
         'site/store/cache',
+        'site/store/logs',
+        'site/store/safe',
+        'site/store/safe/sessions',
+        'site/store/safe/accounts',
+        'site/sessions',
         'site/accounts',
         '.env',
         'deploy.php',
         'deploy-log.json',
+        'sync-content.php',
+        'sync-content-log.json',
         '.current-branch'
     ];
 
