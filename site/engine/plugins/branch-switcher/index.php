@@ -148,7 +148,7 @@ function u1GitExec(string $args): array {
 }
 
 function u1GetBranchData(): array {
-    $hidden = ['main', 'master', 'head', 'staging'];
+    $hidden = ['main', 'master', 'head', 'staging', 'content', 'engine'];
 
     if (u1HasGit()) {
         $res = u1GitExec('branch --list');
@@ -187,7 +187,7 @@ function u1GetBranchData(): array {
 }
 
 function u1GetServerBranches(): array {
-    $hidden = ['main', 'master', 'head', 'staging'];
+    $hidden = ['main', 'master', 'head', 'staging', 'content', 'engine'];
     $repoDir = kirby()->root('index');
     $currentFile = $repoDir . '/.current-branch';
     $logFile = $repoDir . '/deploy-log.json';
@@ -326,13 +326,21 @@ function u1DeployServerBranch(string $target): array {
     }
 
     $preservePaths = [
+        'public/content',
         'public/media',
         'site/cache',
         'site/store/cache',
+        'site/store/logs',
+        'site/store/safe',
+        'site/store/safe/sessions',
+        'site/store/safe/accounts',
+        'site/sessions',
         'site/accounts',
         '.env',
         'deploy.php',
         'deploy-log.json',
+        'sync-content.php',
+        'sync-content-log.json',
         '.current-branch'
     ];
 

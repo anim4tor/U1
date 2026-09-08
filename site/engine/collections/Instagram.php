@@ -91,6 +91,7 @@ return function ($kirby) {
             'slug'     => 'instagram-' . $post['id'],
             'template' => 'instagram-item',
             'content'  => [
+                'uuid'       => 'social-ig-' . $post['id'],
                 'title'      => $cleanTitle,
                 'media_url'  => $imageUrl,
                 'social_url'  => $post['permalink'] ?? '',
