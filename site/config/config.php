@@ -12,6 +12,20 @@ return [
     'panel' => [
         'css' => 'public/assets/css/panel.custom.css'
     ],
+    'instagram.token' => 'IGAARfnJ3rbYlBZAFpvSVZAGSGFLTVFMXzFRUm9kdmlQQzZArS2x6dkFQOUVkWDRDbGJSaWVDOEpXbDFQTldfSWoySkJJd29JNEpWREVweWd5RldwQU9HUV94eTdGeVUtRzJ0TDExVnVzZA2NmdnM2S19uMVlEY21kS2NKQVNZAU1VHSQZDZD',
+    'linkedin.org_id' => 'urn:li:organization:18790224',
+    'linkedin.token' => 'AQXc40XujSnxksulm1icLv1Sx81FOROFq9Id6NnEOuwYHozxRDdBPyPNjz7ogFt3GckHMTueH4wMdw_JPyQYDPdVMr3T-okjrFy7OX5W8skS7W74G-b4J9jJ7bv2460WQJqnCmERIPny_JKoWMGLnl-F9OF53pOtRZDw42vZ73oWnAYzfz47jVJ3ybFlAGJTXagDO1go_I5IuWaXf9uzSN_7oXYIfM3EMsz_n5HgGEWeVk7H-FJSu9rDpbE4zsyBtipGcPgewVNl1exAytVA_IeAMy1uZMsGLKq0GHFC-T9Z_-l2cOoXPe9CFf8EE5mcvEZJdR2oIPnaCXCd_BV7EKVJBTs1-Q',
+    'u1.git-content' => [
+        'enabled'  => true,
+        'repo'     => 'anim4tor/U1',
+        'token'    => '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',
+        'branches' => ['content', 'design', 'v2', 'v3', 'main'],
+        'secret'   => 'maiden37',
+        'author'   => [
+            'name'  => 'Kirby Panel (Server)',
+            'email' => 'panel@u1.cz'
+        ]
+    ],
     'routes' => function ($kirby) {
       return [
           [
