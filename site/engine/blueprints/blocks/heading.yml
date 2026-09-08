@@ -37,6 +37,23 @@ tabs:
             icon: h6
             text: H6
 
+      mod:
+        label: Modify size
+        type: toggles
+        options:
+          - value: xl
+            text: Extra
+          - value: l
+            text: Large
+          - value: m
+            text: Medium
+          - value: default
+            text: Default
+          - value: s
+            text: Small
+          - value: xs
+            text: Tiny
+
   interactions: settings/interactions/animation
   node: settings/node
   

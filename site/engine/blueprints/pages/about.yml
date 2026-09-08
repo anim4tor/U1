@@ -39,6 +39,7 @@ tabs:
             query: site.find('projects')
             image:
               cover: true
+
           about:
             extends: fields/header
             label: About
