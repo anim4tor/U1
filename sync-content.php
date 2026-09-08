@@ -137,6 +137,11 @@ if (isset($_GET['sync_all'])) {
         if ($file->isFile()) {
             $filename = $file->getFilename();
             // Only sync text files and skip locks / hidden
+            $pathNorm = str_replace('\\', '/', $file->getPathname());
+            if (str_contains($pathNorm, '/instagram-') || str_contains($pathNorm, '/linkedin-')) {
+                continue;
+            }
+
             if (
                 str_ends_with($filename, '.txt') &&
                 !str_starts_with($filename, '.') &&

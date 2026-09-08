@@ -82,6 +82,12 @@ class GitContentService
         if (str_starts_with($normPath, $normContent)) {
             $sub = substr($normPath, strlen($normContent));
             $relative = 'public/content/' . ltrim($sub, '/');
+
+            // Ignore virtual social items
+            if (str_contains($relative, 'instagram-') || str_contains($relative, 'linkedin-')) {
+                return;
+            }
+
             self::$queue['push'][$relative] = $fullPath;
             self::registerShutdown();
         }
@@ -96,6 +102,10 @@ class GitContentService
         $clean = str_replace('\\', '/', $relativePath);
         $filename = basename($clean);
         if (str_ends_with($filename, '.lock') || str_starts_with($filename, '.')) {
+            return;
+        }
+
+        if (str_contains($clean, 'instagram-') || str_contains($clean, 'linkedin-')) {
             return;
         }
 
