@@ -33,7 +33,7 @@ return [
         'enabled'  => true,
         'repo'     => 'anim4tor/U1',
         'token'    => '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',
-        'branches' => ['content', 'design', 'v2', 'v3', 'main'],
+        'branches' => ['content', 'design', 'v1', 'v2', 'v3', 'main'],
         'secret'   => 'maiden37',
         'author'   => [
             'name'  => 'Kirby Panel (Server)',
