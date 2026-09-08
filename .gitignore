@@ -20,5 +20,6 @@ Thumbs.db
 # Legacy / Editor files
 prepros.config
 *.sublime-workspace
+*.code-workspace
 *.lock
 .lock
