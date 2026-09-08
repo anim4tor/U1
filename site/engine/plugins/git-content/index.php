@@ -9,6 +9,7 @@
  *
  * Implements non-blocking background synchronization with fastcgi_finish_request()
  * and session_write_close() to keep Panel saves fast and prevent session lockouts.
+ * Compatible with Kirby 4 and 5 multilingual content structures.
  */
 
 namespace U1\GitContent;
@@ -55,15 +56,20 @@ class GitContentService
             return;
         }
 
-        $contentRoot = realpath(kirby()->root('content'));
-        $realPath    = realpath($fullPath);
-
-        if (!$realPath || !file_exists($realPath) || is_dir($realPath)) {
+        $contentRoot = kirby()->root('content');
+        if (!$contentRoot) {
             return;
         }
 
-        $filename = basename($realPath);
-        // Skip lock files and hidden OS files
+        $normContent = rtrim(str_replace('\\', '/', realpath($contentRoot) ?: $contentRoot), '/');
+        $normPath    = str_replace('\\', '/', realpath($fullPath) ?: $fullPath);
+
+        if (!file_exists($fullPath) || is_dir($fullPath)) {
+            return;
+        }
+
+        $filename = basename($normPath);
+        // Skip lock files, hidden files, and temporary OS artifacts
         if (
             str_ends_with($filename, '.lock') ||
             str_starts_with($filename, '.') ||
@@ -73,9 +79,10 @@ class GitContentService
             return;
         }
 
-        if ($contentRoot && str_starts_with($realPath, $contentRoot)) {
-            $relative = 'public/content/' . ltrim(str_replace('\\', '/', substr($realPath, strlen($contentRoot))), '/');
-            self::$queue['push'][$relative] = $realPath;
+        if (str_starts_with($normPath, $normContent)) {
+            $sub = substr($normPath, strlen($normContent));
+            $relative = 'public/content/' . ltrim($sub, '/');
+            self::$queue['push'][$relative] = $fullPath;
             self::registerShutdown();
         }
     }
@@ -100,6 +107,125 @@ class GitContentService
         self::registerShutdown();
     }
 
+    /**
+     * Enqueue all content files (*.txt) for a given Kirby page (all languages).
+     */
+    public static function enqueuePage($page): void
+    {
+        if (!$page) {
+            return;
+        }
+
+        // 1. Check storage()->contentFiles() (Kirby 4/5 content storage)
+        if (method_exists($page, 'storage')) {
+            try {
+                $storage = $page->storage();
+                if (method_exists($storage, 'contentFiles')) {
+                    foreach ($storage->contentFiles() as $file) {
+                        if (is_string($file)) {
+                            self::enqueuePush($file);
+                        }
+                    }
+                }
+            } catch (\Throwable $e) {}
+        }
+
+        // 2. Check contentFiles()
+        if (method_exists($page, 'contentFiles')) {
+            try {
+                foreach ($page->contentFiles() as $file) {
+                    if (is_string($file)) {
+                        self::enqueuePush($file);
+                    }
+                }
+            } catch (\Throwable $e) {}
+        }
+
+        // 3. Check contentFile()
+        if (method_exists($page, 'contentFile')) {
+            try {
+                $cf = $page->contentFile();
+                if (is_string($cf)) {
+                    self::enqueuePush($cf);
+                }
+            } catch (\Throwable $e) {}
+        }
+
+        // 4. Reliable scan: scan page directory directly for all *.txt files
+        if (method_exists($page, 'root')) {
+            $dir = $page->root();
+            if ($dir && is_dir($dir)) {
+                $files = glob($dir . '/*.txt') ?: [];
+                foreach ($files as $f) {
+                    self::enqueuePush($f);
+                }
+            }
+        }
+    }
+
+    /**
+     * Enqueue all global site content files (site.*.txt).
+     */
+    public static function enqueueSite($site): void
+    {
+        if (!$site) {
+            return;
+        }
+
+        if (method_exists($site, 'storage')) {
+            try {
+                $storage = $site->storage();
+                if (method_exists($storage, 'contentFiles')) {
+                    foreach ($storage->contentFiles() as $file) {
+                        if (is_string($file)) {
+                            self::enqueuePush($file);
+                        }
+                    }
+                }
+            } catch (\Throwable $e) {}
+        }
+
+        if (method_exists($site, 'contentFiles')) {
+            try {
+                foreach ($site->contentFiles() as $file) {
+                    if (is_string($file)) {
+                        self::enqueuePush($file);
+                    }
+                }
+            } catch (\Throwable $e) {}
+        }
+
+        $contentRoot = kirby()->root('content');
+        if ($contentRoot && is_dir($contentRoot)) {
+            $files = glob($contentRoot . '/*.txt') ?: [];
+            foreach ($files as $f) {
+                self::enqueuePush($f);
+            }
+        }
+    }
+
+    /**
+     * Enqueue a file asset and any corresponding metadata *.txt files.
+     */
+    public static function enqueueFile($file): void
+    {
+        if (!$file) {
+            return;
+        }
+
+        if (method_exists($file, 'root')) {
+            $root = $file->root();
+            self::enqueuePush($root);
+
+            $dir  = dirname($root);
+            $name = $file->filename();
+            $metaFiles = glob($dir . '/' . $name . '*.txt') ?: [];
+            foreach ($metaFiles as $mf) {
+                self::enqueuePush($mf);
+            }
+        }
+    }
+
     public static function registerShutdown(): void
     {
         if (self::$shutdownRegistered) {
@@ -108,6 +234,11 @@ class GitContentService
         self::$shutdownRegistered = true;
 
         register_shutdown_function(function () {
+            @ignore_user_abort(true);
+            if (function_exists('set_time_limit')) {
+                @set_time_limit(180);
+            }
+
             // 1. Release PHP session lock immediately so subsequent Panel AJAX requests are never blocked
             if (session_status() === PHP_SESSION_ACTIVE) {
                 @session_write_close();
@@ -342,54 +473,50 @@ class GitContentService
 KirbyApp::plugin('u1/git-content', [
     'hooks' => [
         'page.create:after' => function ($page) {
+            GitContentService::enqueuePage($page);
             foreach ($page->files() as $file) {
-                GitContentService::enqueuePush($file->root());
-            }
-            if ($textfile = $page->textfile()) {
-                GitContentService::enqueuePush($textfile);
+                GitContentService::enqueueFile($file);
             }
         },
         'page.update:after' => function ($newPage, $oldPage) {
-            if ($textfile = $newPage->textfile()) {
-                GitContentService::enqueuePush($textfile);
-            }
+            GitContentService::enqueuePage($newPage);
         },
         'page.changeTitle:after' => function ($newPage, $oldPage) {
-            if ($textfile = $newPage->textfile()) {
-                GitContentService::enqueuePush($textfile);
-            }
+            GitContentService::enqueuePage($newPage);
         },
         'page.changeStatus:after' => function ($newPage, $oldPage) {
-            if ($textfile = $newPage->textfile()) {
-                GitContentService::enqueuePush($textfile);
-            }
+            GitContentService::enqueuePage($newPage);
         },
         'page.changeSlug:after' => function ($newPage, $oldPage) {
-            // Push new textfile and delete old reference
-            if ($textfile = $newPage->textfile()) {
-                GitContentService::enqueuePush($textfile);
+            GitContentService::enqueuePage($newPage);
+            if ($oldPage && method_exists($oldPage, 'root') && method_exists($newPage, 'root') && $oldPage->root() !== $newPage->root()) {
+                $contentRoot = kirby()->root('content');
+                $rel = 'public/content/' . ltrim(substr($oldPage->root(), strlen($contentRoot)), '/\\');
+                GitContentService::enqueueDelete($rel);
             }
         },
         'page.delete:after' => function ($status, $page) {
-            $contentRoot = kirby()->root('content');
-            $relativeDir = 'public/content/' . ltrim(substr($page->root(), strlen($contentRoot)), '/\\');
-            GitContentService::enqueueDelete($relativeDir);
-        },
-        'site.update:after' => function ($newSite, $oldSite) {
-            if ($textfile = $newSite->textfile()) {
-                GitContentService::enqueuePush($textfile);
+            if ($page && method_exists($page, 'root')) {
+                $contentRoot = kirby()->root('content');
+                $relativeDir = 'public/content/' . ltrim(substr($page->root(), strlen($contentRoot)), '/\\');
+                GitContentService::enqueueDelete($relativeDir);
             }
         },
+        'site.update:after' => function ($newSite, $oldSite) {
+            GitContentService::enqueueSite($newSite);
+        },
         'file.create:after' => function ($file) {
-            GitContentService::enqueuePush($file->root());
+            GitContentService::enqueueFile($file);
         },
         'file.replace:after' => function ($newFile, $oldFile) {
-            GitContentService::enqueuePush($newFile->root());
+            GitContentService::enqueueFile($newFile);
         },
         'file.delete:after' => function ($status, $file) {
-            $contentRoot = kirby()->root('content');
-            $rel = 'public/content/' . ltrim(substr($file->root(), strlen($contentRoot)), '/\\');
-            GitContentService::enqueueDelete($rel);
+            if ($file && method_exists($file, 'root')) {
+                $contentRoot = kirby()->root('content');
+                $rel = 'public/content/' . ltrim(substr($file->root(), strlen($contentRoot)), '/\\');
+                GitContentService::enqueueDelete($rel);
+            }
         }
     ],
     'routes' => [
@@ -413,6 +540,19 @@ KirbyApp::plugin('u1/git-content', [
                         'branches'     => $config['branches'],
                         'permissions'  => $test['data']['permissions'] ?? null
                     ]);
+                }
+
+                // If testing push of a specific page or all content
+                if (get('sync_now')) {
+                    $contentRoot = kirby()->root('content');
+                    $iterator = new \RecursiveIteratorIterator(
+                        new \RecursiveDirectoryIterator($contentRoot, \RecursiveDirectoryIterator::SKIP_DOTS)
+                    );
+                    foreach ($iterator as $f) {
+                        if ($f->isFile() && str_ends_with($f->getFilename(), '.txt') && !str_starts_with($f->getFilename(), '.')) {
+                            GitContentService::enqueuePush($f->getPathname());
+                        }
+                    }
                 }
 
                 $res = GitContentService::processQueue();
