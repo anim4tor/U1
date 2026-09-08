@@ -1,4 +1,10 @@
-<?php if ($page->featuredProjects()->isNotEmpty()) : ?>
+<?php 
+$projectsList = $page->featuredProjects()->toPages();
+if ($projectsList->count() <= 1) {
+    $projectsList = collection('Projects');
+}
+?>
+<?php if ($projectsList->isNotEmpty()) : ?>
 <section class="projects radius" theme="dark" data-carousel>
 	<div class="grid__3 gap__2 mobile:grid__1 inner-y__2 inner-b__5 mobile:inner-x__1 ">
 		<div data-scroll class="span__2 inner-x__1 ">
@@ -10,7 +16,7 @@
 		</div>
 		<div class="span__3" data-carousel-scroll>
 			<ol class="flex justify__start align__center no__wrap gap__1 inner-x__1 " data-carousel-slides >	
-			<?php foreach ($page->featuredProjects()->toPages() as $project) : ?>
+			<?php foreach ($projectsList as $project) : ?>
 				<li data-slide class="vw__7">	
 					<?= snippet('molecules/Project', compact('project')) ?>
 				</li>

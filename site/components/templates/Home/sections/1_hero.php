@@ -1,14 +1,20 @@
 <?php if ($page->hero()->isNotEmpty()) : ?>
+<?php 
+$heroProjects = $page->heroSlider()->toPages();
+if ($heroProjects->count() <= 1) {
+    $heroProjects = collection('Projects');
+}
+?>
 <section class="intro radius" theme="dark" data-tabs>
 	<div class="hidden">
-		<?php foreach ($page->heroSlider()->toPages() as $project) : ?>
-			<div data-tab="project-<?= $project->indexOf($page->heroSlider()->toPages()) ?>"></div>
+		<?php foreach ($heroProjects as $project) : ?>
+			<div data-tab="project-<?= $project->indexOf($heroProjects) ?>"></div>
 		<?php endforeach ?>
 	</div>
 	<div data-pane-container class="grid__stack absolute inset__stretch" >
-		<?php foreach ($page->heroSlider()->toPages() as $project) : ?>
+		<?php foreach ($heroProjects as $project) : ?>
 			<?php if ($cover = $project->cover()->toFile()) : ?>
-			<div data-tab-reveal data-pane="project-<?= $project->indexOf($page->heroSlider()->toPages()) ?>" >
+			<div data-tab-reveal data-pane="project-<?= $project->indexOf($heroProjects) ?>" >
 				<div class="intro__cover grid " data-reveal-cover><?= snippet('atoms/Image', ['img' => $cover, 'parallax' => 2, 'reveal' => false, 'css' => 'overlay__bottom']) ?></div>
 			</div>
 			<?php endif ?>
@@ -20,9 +26,9 @@
 			<div class="span__4 grid__4 inner-t__05 relative flex justify__space-between align__start border__top" data-scroll data-scroll-ignore>
 				<div class="upper s" data-tab-next>Featured project</div>
 				<div class="span__2 grid__stack" data-pane-container>
-					<?php foreach ($page->heroSlider()->toPages() as $project) : ?>
+					<?php foreach ($heroProjects as $project) : ?>
 						<?php if ($cover = $project->cover()->toFile()) : ?>
-						<div data-pane="project-<?= $project->indexOf($page->heroSlider()->toPages()) ?>" class="grid__2" data-tab-reveal>
+						<div data-pane="project-<?= $project->indexOf($heroProjects) ?>" class="grid__2" data-tab-reveal>
 							<a href="<?= $project->url() ?>"><div data-reveal-text="words" data-split-ignore class="upper s"><?= $project->title() ?></div></a>
 							<div data-reveal-text="words" data-split-ignore class="upper s flex justify__end"><?= $project->date()->toDate('Y') ?></div>
 						</div>	

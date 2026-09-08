@@ -1,15 +1,41 @@
-<a href="<?= $feed->url() ?>" class="grid wrap">	
-	<?php if ($cover = $feed->cover()->toFile()) : ?>
-		<div class="item__figure grid img__radius no__overflow "><?= snippet('atoms/Image', ['img' => $cover, 'parallax' => 1, 'reveal' => false, 'node' => 'data-reveal-image', 'css' => 'h__12 grid' ]) ?></div>
-	<?php endif ?>
-	<div class=" flex justify__space-between align__start gap__2 inner-y__05 ">
-		<div class="flex gap__05 upper ">
-			<span class="" data-reveal-text="lines">(<?= str_pad($feed->indexOf(collection('Projects')) + 1, 2, '0', STR_PAD_LEFT); ?>)</span>
-			<h3 class="font__size__default ff__body" data-reveal-text="lines"><?= $feed->title() ?></h3>
-		</div>
-		<p class="no__wrap" data-reveal-text="lines">(<?= $feed->date()->toDate('Y-m-d') ?>)</p>
+<article class="social__card social__card--<?= $post->platform() ?> grid gap__05">
+	<!-- Image & Link -->
+	<a href="<?= $post->social_url() ?>" target="_blank" rel="noopener noreferrer" class="social-image-link grid">
+		<figure class="img__radius overlay__bottom relative color__invert aspect__1/1">
+			<?php if ($post->media_url()->isNotEmpty()): ?>
+				<img 
+					src="<?= $post->media_url() ?>" 
+					alt="<?= $post->title()->html() ?>" 
+					loading="lazy"
+				>
+			<?php endif ?>
+
+			<!-- Platform SVG Badge -->
+			<div class="badge absolute bottom__1 right__1 z__1">
+				<?= svg('public/assets/images/' . $post->platform() . '.svg') ?>
+			</div>
+
+			<!-- Video Badge (Instagram only) -->
+			<?php if ($post->media_type()->value() === 'VIDEO'): ?>
+				<span class="video-badge absolute top__1 right__1 z__1">▶ Video</span>
+			<?php endif ?>
+		</figure>
+	</a>
+
+	<!-- Post Content Details -->
+	<div class="item__meta relative flex justify__space-between align__center gap__2">
+		<?php if ($post->title()->isNotEmpty()): ?>
+			<div class="flex gap__05 upper">
+				<h3 class="font__size__5 wrap"><?= $post->title()->excerpt(200) ?></h3>
+			</div>
+		<?php endif ?>
+
+		<!-- <?php if ($post->hashtags()->isNotEmpty()): ?>
+			<p class="hashtags">
+				<?php foreach ($post->hashtags()->split() as $tag): ?>
+					<span class="hashtag">#<?= $tag ?></span>
+				<?php endforeach ?>
+			</p>
+		<?php endif ?> -->
 	</div>
-	<!-- <div class="grid ">
-		<p class="xs upper"><?= $feed->intro()->inline() ?></p>
-	</div> -->
-</a>
+</article>
