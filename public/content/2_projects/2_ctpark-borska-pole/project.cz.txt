@@ -10,11 +10,15 @@ Intro: Hala bez fasády. Podlaha beton. Strop beton. Uvnitř se ale už začína
 
 ----
 
-Claim: <strong>Kde jste naposledy viděli, že se interiér a&nbsp;fasáda jedné budovy stavěly současně?</strong>
+Details: [{"content":{"text":"Od holého betonu až po hotové kanceláře.","level":"h2","mod":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"5723493d-a702-4dd7-b112-f7fd07bb3ba7","isHidden":false,"type":"heading"},{"content":{"text":"U1 space design zastřešil celou realizaci interiéru od koordinace stavby přes příčky, akustiku, toalety a&nbsp;technické návaznosti až po typový i&nbsp;atypický nábytek na míru. Součástí realizace byly také dodávky od našich partnerů. Skleněné příčky dodal LIKO-S, koberce Shaw Contract a&nbsp;svítidla i&nbsp;řešení osvětlení zajistil tým U1 Lighting. Celek jsme ale jako U1 space design drželi v&nbsp;jedné koordinaci, jednom harmonogramu a&nbsp;jednom výsledku. Architekturu celého projektu měla na starosti Ing. arch. Kateřina Šauerová, architektka ve společnosti Cushman &amp; Wakefield.","mod":"","face":"","case":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"4e01a912-3553-4078-a3bb-82d73d8bb034","isHidden":false,"type":"text"},{"content":{"images":["file://G6DnxMRCgPjSlDZ5","file://5eSjpL6Nzuo15JZ0"],"caption":"","ratio":"","crop":"false"},"id":"c5fea1a9-0124-46e9-a8db-6bb605a4855a","isHidden":false,"type":"gallery"},{"content":{"text":"Koncept, dispozice, materiály, atmosféra.","level":"h2","mod":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"96f42abd-2759-491c-8f3b-7885438a645f","isHidden":false,"type":"heading"},{"content":{"text":"Všechno, co z&nbsp;realizace interiéru dělá skutečný pracovní prostor, nejen půdorys. Dostali jsme návrh, který fungoval na papíře i&nbsp;na stavbě. A&nbsp;to je poznat hned. Když architekt ví, co realizace obnáší, projekt se nestaví proti výkresům, ale s&nbsp;nimi. Zajímavý byl i&nbsp;samotný průběh. Zatímco jsme uvnitř montovali příčky meeting roomů, vedle nás se ještě dokončovala fasáda celé budovy.","mod":"","face":"","case":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"3f466e11-b76f-470f-bab6-3724db4c1939","isHidden":false,"type":"text"},{"content":{"image":["file://TTMJJQ3acdqa3BUL"],"hasparallax":"false","parallax":0,"hasreveal":"false","reveal":"","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"97773366-7284-43e8-9229-eb1fea85032b","isHidden":false,"type":"image"},{"content":{"text":"Dva projekty na jedné stavbě, dvě party, jeden termín.","level":"h2","mod":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"00f280ab-2c69-48d7-8600-94054758c793","isHidden":false,"type":"heading"},{"content":{"text":"Koordinace, kterou si stavbyvedoucí zapamatuje. Od května do října. Pět měsíců od betonu k&nbsp;hotovým kancelářím v&nbsp;Plzni pro klienta s&nbsp;centrálou v&nbsp;Japonsku.Náš klient vyrábí spojení v&nbsp;autech. My jsme tentokrát stavěli spojení mezi jejich lidmi a&nbsp;prostorem, ve kterém pracují.","mod":"","face":"","case":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"16dd150c-7282-449d-b2ff-6141bc3ceb7b","isHidden":false,"type":"text"}]
 
 ----
 
-Details: <p>Od holého betonu až po hotové kanceláře. U1 space design zastřešil celou realizaci interiéru od koordinace stavby přes příčky, akustiku, toalety a&nbsp;technické návaznosti až po typový i&nbsp;atypický nábytek na míru.</p><p>Součástí realizace byly také dodávky od našich partnerů. Skleněné příčky dodal LIKO-S, koberce Shaw Contract a&nbsp;svítidla i&nbsp;řešení osvětlení zajistil tým U1 Lighting. Celek jsme ale jako U1 space design drželi v&nbsp;jedné koordinaci, jednom harmonogramu a&nbsp;jednom výsledku.</p><p>Architekturu celého projektu měla na starosti Ing. arch. Kateřina Šauerová, architektka ve společnosti Cushman &amp; Wakefield. Koncept, dispozice, materiály, atmosféra. Všechno, co z&nbsp;realizace interiéru dělá skutečný pracovní prostor, nejen půdorys.</p><p>Dostali jsme návrh, který fungoval na papíře i&nbsp;na stavbě. A&nbsp;to je poznat hned. Když architekt ví, co realizace obnáší, projekt se nestaví proti výkresům, ale s&nbsp;nimi.</p><p>Zajímavý byl i&nbsp;samotný průběh. Zatímco jsme uvnitř montovali příčky meeting roomů, vedle nás se ještě dokončovala fasáda celé budovy. Dva projekty na jedné stavbě, dvě party, jeden termín. Koordinace, kterou si stavbyvedoucí zapamatuje.</p><p>Od května do října. Pět měsíců od betonu k&nbsp;hotovým kancelářím v&nbsp;Plzni pro klienta s&nbsp;centrálou v&nbsp;Japonsku.</p><p>Náš klient vyrábí spojení v&nbsp;autech. My jsme tentokrát stavěli spojení mezi jejich lidmi a&nbsp;prostorem, ve kterém pracují.</p>
+Before: - file://TTMJJQ3acdqa3BUL
+
+----
+
+After: - file://0LfJrUDHuBDFqpmw
 
 ----
 
@@ -22,15 +26,7 @@ Quote:
 
 ----
 
-Footnote: <p>Děkujeme klientovi za důvěru, Ing. arch. Kateřině Šauerové za skvělý architektonický návrh a&nbsp;všem partnerům za spolupráci.</p>
-
-----
-
 Client: Mezinárodní klient
-
-----
-
-Concept: 
 
 ----
 
@@ -50,7 +46,27 @@ Space: fokus zóny, kanceláře
 
 ----
 
+Size: 
+
+----
+
 Hash: #u1spacedesign, #realizaceinterieru, #officedesign
+
+----
+
+Team: 
+
+----
+
+Concept: 
+
+----
+
+Photo: 
+
+----
+
+Collabs: 
 
 ----
 
@@ -63,10 +79,6 @@ Gallery:
 - file://TTMJJQ3acdqa3BUL
 - file://5inyjVYibO2hQALc
 - file://VequhDnKi43Ocv1Q
-
-----
-
-Author: 
 
 ----
 
@@ -83,6 +95,14 @@ Testimonialposition: Operations Manager
 ----
 
 Testimonialimage: - file://PRdD7coQC5pznXGK
+
+----
+
+Extras: 
+
+----
+
+Password: 
 
 ----
 
@@ -127,6 +147,18 @@ Robots-imageindex:
 ----
 
 Robots-snippet: 
+
+----
+
+Claim: <strong>Kde jste naposledy viděli, že se interiér a&nbsp;fasáda jedné budovy stavěly současně?</strong>
+
+----
+
+Footnote: <p>Děkujeme klientovi za důvěru, Ing. arch. Kateřině Šauerové za skvělý architektonický návrh a&nbsp;všem partnerům za spolupráci.</p>
+
+----
+
+Author: 
 
 ----
 
