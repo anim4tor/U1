@@ -46,6 +46,13 @@ tabs:
         width: 1/2
         type: tags
         label: Obor podnikání
+      solutions:
+        type: multiselect
+        label: Služby
+        options:
+          type: query
+          query: site.index.filterBy("intendedTemplate", "in", ["solution"])
+          text: "{{ page.title }}"
       space:
         width: 1/2
         type: tags

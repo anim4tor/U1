@@ -15,7 +15,7 @@ Culture:
 - 
   label: Our culture
   image:
-    - file://sZRbZagT6UU9Qxum
+    - file://aN871a0rLQgKvwR6
   text: "<p>Without the right people, we couldn't function. Do you want to be involved in big projects, take responsibility and work in offices where you feel at home? Let us know about you.</p>"
 - 
   label: Our culture

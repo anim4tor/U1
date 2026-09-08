@@ -2,7 +2,7 @@ Title: Home
 
 ----
 
-Hero: [{"content":{"text":"We deliver <br>workspaces <br>that works","level":"h1","mod":"s","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"e934aa95-0675-4342-ad98-7ee3b66d7952","isHidden":false,"type":"heading"}]
+Hero: [{"content":{"text":"We deliver<br>workspaces <br>that works","level":"h1","mod":"","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"e934aa95-0675-4342-ad98-7ee3b66d7952","isHidden":false,"type":"heading"}]
 
 ----
 
@@ -13,12 +13,10 @@ Heroslider:
 - page://iw5wpXmSaoxIdHjj
 - page://9HLrFqw7JW1oq44n
 - page://4YelEyMbDu0MnevU
-- page://DFrA65LRGEbhv2uf
-- page://X5ZaG3cFKtoi7WTz
 
 ----
 
-About: [{"content":{"text":"<p>(OUR STUDIO)</p>","mod":"","face":"body","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"595ea5ae-f026-4f67-a65f-10e823539288","isHidden":false,"type":"label"},{"content":{"image":["file://NegEtcgy19EZlvSd"],"hasparallax":"true","parallax":5,"hasreveal":"true","reveal":"","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"bf89ec61-5138-476c-9328-cb0c50407afa","isHidden":false,"type":"image"},{"content":{"text":"Twenty-five years of refined expertise, distilled into a comprehensive suite of architectural and design solutions creating experiences that amplify the joy felt in shared human moments.","level":"h3","mod":"xs","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"bf0ad5f1-f487-47bc-a74c-281a83e90837","isHidden":false,"type":"heading"},{"content":{"text":"<p>Design development through aesthetics to functionality in line with the latest technologies, structural aspects of projects - construction, materials, sustainable practices and coordination between teams of engineers and construction workers.</p>","mod":"","face":"","case":"","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"7433cb6a-a9e1-4f8c-b5de-1f3f1d06416a","isHidden":false,"type":"text"},{"content":{"href":"","target":"false","label":"Více o nás","counter":[],"theme":"","hover":"","size":"default","icon":"","hasreveal":"false","bid":"","attr":"","css":"","node":""},"id":"01792c5c-a305-4450-8264-ed916e31e91e","isHidden":false,"type":"button"}]
+About: [{"content":{"text":"<p>(OUR STUDIO)</p>","mod":"","face":"body","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"595ea5ae-f026-4f67-a65f-10e823539288","isHidden":false,"type":"label"},{"content":{"image":["file://NegEtcgy19EZlvSd"],"hasparallax":"true","parallax":5,"hasreveal":"true","reveal":"","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"bf89ec61-5138-476c-9328-cb0c50407afa","isHidden":false,"type":"image"},{"content":{"text":"Twenty-five years of refined expertise, distilled into a comprehensive suite of architectural and design solutions creating experiences that amplify the joy felt in shared human moments.","level":"h3","mod":"","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"bf0ad5f1-f487-47bc-a74c-281a83e90837","isHidden":false,"type":"heading"},{"content":{"text":"<p>Design development through aesthetics to functionality in line with the latest technologies, structural aspects of projects - construction, materials, sustainable practices and coordination between teams of engineers and construction workers.</p>","mod":"","face":"","case":"","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"7433cb6a-a9e1-4f8c-b5de-1f3f1d06416a","isHidden":false,"type":"text"},{"content":{"href":"","target":"false","label":"Více o nás","counter":[],"theme":"","hover":"","size":"default","icon":"","hasreveal":"false","bid":"","attr":"","css":"","node":""},"id":"01792c5c-a305-4450-8264-ed916e31e91e","isHidden":false,"type":"button"}]
 
 ----
 
@@ -36,7 +34,7 @@ Aboutfigures:
 
 ----
 
-Projects: [{"content":{"text":"Selected Works","level":"h2","mod":"l","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"db8e3663-cc26-4bb0-83bb-51fdc202c0e6","isHidden":false,"type":"heading"},{"content":{"href":"page://2KXhsd8bxkU6MDcP","target":"false","label":"All projects","counter":[],"theme":"invert-ghost","hover":"invert","size":"default","icon":"arrow-right","hasreveal":"false","bid":"","attr":"","css":"","node":""},"id":"47fd900f-ba4b-446f-9401-7f190c44af79","isHidden":false,"type":"button"}]
+Projects: [{"content":{"text":"Selected Works","level":"h2","mod":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"db8e3663-cc26-4bb0-83bb-51fdc202c0e6","isHidden":false,"type":"heading"},{"content":{"href":"page://2KXhsd8bxkU6MDcP","target":"false","label":"All projects","counter":[],"theme":"invert-ghost","hover":"invert","size":"default","icon":"arrow-right","hasreveal":"false","bid":"","attr":"","css":"","node":""},"id":"47fd900f-ba4b-446f-9401-7f190c44af79","isHidden":false,"type":"button"}]
 
 ----
 
@@ -44,19 +42,27 @@ Featuredprojects:
 
 - page://4YelEyMbDu0MnevU
 - page://NVWahod5DcLtOlh5
-- page://DFrA65LRGEbhv2uf
 - page://9HLrFqw7JW1oq44n
 - page://iw5wpXmSaoxIdHjj
 - page://jGv5KOraCDTVOPmA
-- page://X5ZaG3cFKtoi7WTz
 
 ----
 
-Services: [{"content":{"text":"Solutions","level":"h2","mod":"l","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"9aca17ea-deba-43ba-acfb-02217445476f","isHidden":false,"type":"heading"}]
+Featuredtestimonials:
+
+- page://4YelEyMbDu0MnevU
+- page://DFrA65LRGEbhv2uf
+- page://iw5wpXmSaoxIdHjj
+- page://jGv5KOraCDTVOPmA
+- page://NVWahod5DcLtOlh5
 
 ----
 
-Teams: [{"content":{"text":"Our Teams","level":"h2","mod":"l","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"6c933fdb-011d-4082-897c-b1e1a91ac4fa","isHidden":false,"type":"heading"}]
+Services: [{"content":{"text":"Solutions","level":"h2","mod":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"9aca17ea-deba-43ba-acfb-02217445476f","isHidden":false,"type":"heading"}]
+
+----
+
+Teams: [{"content":{"text":"Our Teams","level":"h2","mod":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"6c933fdb-011d-4082-897c-b1e1a91ac4fa","isHidden":false,"type":"heading"}]
 
 ----
 
@@ -71,7 +77,7 @@ Order:
 - 
   label: 4_testimonials
 - 
-  label: 5_process
+  label: global/Process/index
 - 
   label: 6_services
 - 
@@ -126,13 +132,6 @@ Robots-imageindex:
 ----
 
 Robots-snippet: 
-
-----
-
-Featuredtestimonials:
-
-- page://4YelEyMbDu0MnevU
-- page://DFrA65LRGEbhv2uf
 
 ----
 
