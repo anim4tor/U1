@@ -94,6 +94,7 @@ return function ($kirby) {
             'slug'     => 'linkedin-' . md5($postId),
             'template' => 'social-item',
             'content'  => [
+                'uuid'         => 'social-li-' . md5($postId),
                 'title'        => $commentary,
                 'social_url'   => 'https://www.linkedin.com/feed/update/' . $postId,
                 'media_url'    => $mediaUrl,
@@ -123,13 +124,12 @@ return function ($kirby) {
                     $cache->set('social.instagram.posts', $cachedInstagram, 43200); // 12 hours
                 }
             } catch (\Throwable $e) {
-                // Ignore network errors
+                // Ignore network errors, fall back to empty array
+                $cachedInstagram = [];
+                $cache->set('social.instagram.posts', [], 300); // 5 min cooldown
             }
-        }
-
-        if ($cachedInstagram === null) {
+        } else {
             $cachedInstagram = [];
-            $cache->set('social.instagram.posts', [], 300); // 5 min cooldown
         }
     }
 
@@ -140,7 +140,7 @@ return function ($kirby) {
         preg_match_all('/#(\w+)/u', $caption, $matches);
         $hashtags = $matches[1] ?? [];
 
-        // Filter by required hashtag (case-insensitive)
+        // FILTER: Skip post if it doesn't contain the required hashtag (case-insensitive)
         $hasTag = in_array(strtolower($requiredHashtag), array_map('strtolower', $hashtags));
         if (!$hasTag) {
             continue;
@@ -159,6 +159,7 @@ return function ($kirby) {
             'slug'     => 'instagram-' . $post['id'],
             'template' => 'social-item',
             'content'  => [
+                'uuid'       => 'social-ig-' . $post['id'],
                 'title'      => $cleanTitle,
                 'media_url'  => $imageUrl,
                 'social_url' => $post['permalink'] ?? '',
