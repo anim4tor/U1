@@ -20,6 +20,9 @@ return [
         '#7fc2db' => 'marine',
         '#11b5bb' => 'cyan',
     ],
+    'cache' => [
+        'social' => true
+    ],
     'panel' => [
         'css' => 'public/assets/css/panel.custom.css'
     ],
