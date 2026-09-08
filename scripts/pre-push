@@ -9,7 +9,7 @@ if [ "$CURRENT_BRANCH" != "content" ] && [ "$CURRENT_BRANCH" != "engine" ]; then
         echo "[Kirby Engine] Detekovana zmena v backendu (engine/config)!"
         echo "[Kirby Engine] Automaticky odesilam zmeny do vetve origin/engine..."
         echo "=========================================================="
-        git push origin HEAD:refs/heads/engine --quiet 2>/dev/null
+        git push --no-verify origin HEAD:refs/heads/engine --quiet 2>/dev/null
         echo "[Kirby Engine] Vetev origin/engine byla uspesne zaktualizovana."
         echo "=========================================================="
         echo ""
