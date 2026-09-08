@@ -29,7 +29,7 @@ Aboutfigures:
   feature: "90"
   label: (+PEOPLE)
 - 
-  feature: "10"
+  feature: "12"
   label: (+YEARS)
 
 ----
@@ -77,11 +77,13 @@ Order:
 - 
   label: 4_testimonials
 - 
-  label: 5_process
+  label: global/Process/index
 - 
   label: 6_services
 - 
-  label: 7_teams
+  label: 7_recognition
+- 
+  label: 8_teams
 - 
   label: global/Feed/index
 - 
