@@ -2,27 +2,27 @@ Title: Volareza - Restaurace Evropa
 
 ----
 
-Hero: 
+Cover: - file://aLmmfjg8CobVdnq4
 
 ----
 
-Details: <p><strong>Preciznost bez kompromisů</strong></p><p>Zadání od investora bylo jasné – nešlo jen o&nbsp;dodávku nábytku, ale o&nbsp;kompletní vytvoření reprezentativního prostředí, kde se nespoléhá na improvizaci. Naším úkolem bylo navázat na koncepci ateliéru Dimense, technicky ji do detailu vyřešit a&nbsp;dohlédnout na to, aby prostor fungoval dlouhodobě i&nbsp;v náročném denním provozu. Klíčem k&nbsp;úspěchu byla koordinace profesí a&nbsp;důraz na řemeslný detail.</p><p>&nbsp;<strong>Dialog starého s&nbsp;novým</strong></p><p>Interiér je postaven na dialogu mezi historickou pompézností a&nbsp;současnými materiály. Designérka Tereza Matyášková hledala cestu, jak do interiéru přivést novou vrstvu, která by přirozeně zapadla do historického rámce.</p><p><strong>Replika vstupních dveří:</strong> Pravděpodobně nejnáročnější částí zakázky byla výroba vstupních dveří. Pod dohledem památkové péče vznikla věrná replika původních dveří, která do puntíku zachovává profilaci, kování i&nbsp;odstín lazury.</p><p><strong>Kazetový strop:</strong> Dominantou hlavního sálu je nový kazetový podhled. Ten nejenže dává prostoru rytmus a&nbsp;noblesu, ale chytře řeší akustiku a&nbsp;technické rozvody osvětlení.</p><p><strong>Materiálové kontrasty:</strong> V&nbsp;prostoru se potkává klasické dřevo s&nbsp;netradičním obkladem baru z&nbsp;trapézového plechu. Historickou atmosféru doplňují skládací skleněné příčky s&nbsp;potiskem dobových rytin, které umožňují variabilně oddělit klidnější zóny.</p><p><strong>Výsledek: Prostor, který má atmosféru</strong></p><p>Díky precizní práci projektového manažera Martina Čuhela přímo na místě se podařilo zkoordinovat návaznosti profesí v&nbsp;krátkých termínech. Světlo, struktura materiálů a&nbsp;logické uspořádání se spojily v&nbsp;jeden funkční celek, který působí mimořádně klidně a&nbsp;sjednoceně.</p><p><em>"Jsem upřímně pyšná na kvalitu, ve které se podařilo interiér realizovat. V&nbsp;prostoru, kde se každá nepřesnost opticky násobí, je preciznost výroby zásadní – a&nbsp;povedlo se to. Ten pocit, když se spojí světlo, materiály a&nbsp;struktura do jednoho celku, je přesně to, co si z&nbsp;Evropy odnáším."</em></p><p>— <strong>Tereza Matyášková</strong>, Designérka U1</p>
+Details: [{"content":{"text":"Preciznost bez kompromisů","level":"h2","mod":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"2964279d-c819-4a15-9cf3-837f065eaf95","isHidden":false,"type":"heading"},{"content":{"text":"<p>Zadání od investora bylo jasné – nešlo jen o&nbsp;dodávku nábytku, ale o&nbsp;kompletní vytvoření reprezentativního prostředí, kde se nespoléhá na improvizaci. Naším úkolem bylo navázat na koncepci ateliéru Dimense, technicky ji do detailu vyřešit a&nbsp;dohlédnout na to, aby prostor fungoval dlouhodobě i&nbsp;v náročném denním provozu. Klíčem k&nbsp;úspěchu byla koordinace profesí a&nbsp;důraz na řemeslný detail.</p>","mod":"","face":"","case":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"4c5f9e49-5bbf-4954-a6a5-2c1bd603cafc","isHidden":false,"type":"text"},{"content":{"image":["file://cMcdvrZecq78ACU6"],"hasparallax":"false","parallax":0,"hasreveal":"false","reveal":"","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"651af0a0-409e-4f7d-874c-975785827440","isHidden":false,"type":"image"},{"content":{"text":"Dialog starého s&nbsp;novým","level":"h2","mod":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"325145dc-bc4b-42a2-8fe6-494f01e43f9d","isHidden":false,"type":"heading"},{"content":{"text":"Interiér je postaven na dialogu mezi historickou pompézností a&nbsp;současnými materiály. Designérka Tereza Matyášková hledala cestu, jak do interiéru přivést novou vrstvu, která by přirozeně zapadla do historického rámce.","mod":"","face":"","case":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"18f440b7-359c-456f-aa00-be18221e2901","isHidden":false,"type":"text"},{"content":{"text":"<strong>Replika vstupních dveří:</strong> Pravděpodobně nejnáročnější částí zakázky byla výroba vstupních dveří. Pod dohledem památkové péče vznikla věrná replika původních dveří, která do puntíku zachovává profilaci, kování i&nbsp;odstín lazury.","mod":"","face":"","case":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"72260b4b-3763-4487-897a-23934540558b","isHidden":false,"type":"text"},{"content":{"text":"<strong>Kazetový strop:</strong> Dominantou hlavního sálu je nový kazetový podhled. Ten nejenže dává prostoru rytmus a&nbsp;noblesu, ale chytře řeší akustiku a&nbsp;technické rozvody osvětlení.","mod":"","face":"","case":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"65ca9ff2-aa19-4ccb-a90b-454619cc31a8","isHidden":false,"type":"text"},{"content":{"text":"<strong>Materiálové kontrasty:</strong> V&nbsp;prostoru se potkává klasické dřevo s&nbsp;netradičním obkladem baru z&nbsp;trapézového plechu. Historickou atmosféru doplňují skládací skleněné příčky s&nbsp;potiskem dobových rytin, které umožňují variabilně oddělit klidnější zóny.","mod":"","face":"","case":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"1563259b-795d-4b66-986a-7d4a66326a1a","isHidden":false,"type":"text"},{"content":{"image":["file://aLmmfjg8CobVdnq4"],"hasparallax":"false","parallax":0,"hasreveal":"false","reveal":"","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"5fc0b2f5-d103-4f7a-8382-c1c9e7f6b560","isHidden":false,"type":"image"},{"content":{"text":"Výsledek: Prostor, který má atmosféru","level":"h2","mod":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"3df6e458-720b-4b04-aadd-83078724734e","isHidden":false,"type":"heading"},{"content":{"text":"Díky precizní práci projektového manažera Martina Čuhela přímo na místě se podařilo zkoordinovat návaznosti profesí v&nbsp;krátkých termínech. Světlo, struktura materiálů a&nbsp;logické uspořádání se spojily v&nbsp;jeden funkční celek, který působí mimořádně klidně a&nbsp;sjednoceně.","mod":"","face":"","case":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"a1670db7-fc2a-4a42-acd1-9abf65cc92ce","isHidden":false,"type":"text"}]
 
 ----
 
-Quote: 
+Before: - file://cMcdvrZecq78ACU6
 
 ----
 
-Footnote: 
+After: - file://GKJNgBT3m7lbX5dp
+
+----
+
+Quote: [{"content":{"text":"\"Jsem upřímně pyšná na kvalitu, ve které se podařilo interiér realizovat. V prostoru, kde se každá nepřesnost opticky násobí, je preciznost výroby zásadní – a povedlo se to. Ten pocit, když se spojí světlo, materiály a struktura do jednoho celku, je přesně to, co si z Evropy odnáším.\""},"id":"b324739b-8674-422e-a444-273c6f1680df","isHidden":false,"type":"markdown"},{"content":{"text":"<strong>Tereza Matyášková</strong>, Designérka U1","mod":"","face":"","case":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"8d776f01-1d35-46b4-aaa4-fe0bcc11c751","isHidden":false,"type":"text"}]
 
 ----
 
 Client: Vojenská lázeňská a rekreační zařízení, příspěvková organizace
-
-----
-
-Concept: Atelier Dimense
 
 ----
 
@@ -42,7 +42,27 @@ Space: Kuchyně, Bar, Lobby
 
 ----
 
+Size: 500m2
+
+----
+
 Hash: Test
+
+----
+
+Team: Michal Gróf, Nick Tan, Jana Benešová
+
+----
+
+Concept: Atelier Dimense
+
+----
+
+Photo: 
+
+----
+
+Collabs: 
 
 ----
 
@@ -68,10 +88,6 @@ Gallery:
 
 ----
 
-Author: Tomáš Lumpe
-
-----
-
 Testimonialquote: <p>City results on schedule is unmatched. I highly recommend them to anyone looking for reliable and professional expertise.</p>
 
 ----
@@ -85,6 +101,14 @@ Testimonialposition: Senior Designer
 ----
 
 Testimonialimage: - file://jzdn8mBddVUtQz0M
+
+----
+
+Extras: [{"content":{"text":"Test skryteho obsahu","level":"h2","mod":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"4da69f0e-1014-4d31-8ff9-c54ca241fd8b","isHidden":false,"type":"heading"},{"content":{"image":["file://8qAHqPprc1ddYcUR"],"hasparallax":"false","parallax":0,"hasreveal":"false","reveal":"","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"29b36d9a-d623-4942-8c03-6400ea241f1f","isHidden":false,"type":"image"}]
+
+----
+
+Password: test
 
 ----
 
@@ -132,7 +156,15 @@ Robots-snippet:
 
 ----
 
-Cover: - file://aLmmfjg8CobVdnq4
+Footnote: 
+
+----
+
+Hero: 
+
+----
+
+Author: Tomáš Lumpe
 
 ----
 
