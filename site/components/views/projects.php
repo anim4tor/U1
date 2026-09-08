@@ -1,1 +1,1 @@
-<?= snippet('organisms/Html', compact(['page','tags','filterBy','projects'])) ?>
+<?= snippet('organisms/Html', compact(['page','industries','spaces','filterBy','projects'])) ?>

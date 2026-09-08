@@ -1,6 +1,6 @@
 /*  
 
-    MOLECULES: Class
+    MOLECULES: Project
 
 */
 :root {
@@ -11,36 +11,68 @@
     [href] {
         .item__figure {
             overflow: hidden;
-            @include animation;
+            @include animation((transform, clip-path, opacity), 600ms);
             clip-path: inset(0% 0% 0% 0%);
-
         }
         .item__figure figure {
-            @include animation;
+            @include animation((opacity, clip-path, filter, transform), 600ms);
             transform: scale(1);
         }
-        
     }
-
-    
 }
 
+.project__wrapper:hover {
+    z-index: 1;
+}
 .item.--project {
     .item__meta {
         @include animation;
-        clip-path: inset(0% 0% 100% 0%);
+/*        clip-path: inset(0% 0% 100% 0%);*/
+    }
+    .item__hover {
+        @include animation(clip-path, 600ms);
+/*        pointer-events: none;*/
+        clip-path: inset(100% 0% 0% 100%);
 
+        [data-reveal-text] {
+          @include reveal-text-line;
+          --in-delay: 500ms;
+        }
+    }
+    .item__figure {
+        @include animation((transform, clip-path, opacity), 600ms);
+        clip-path: inset(0% 0% 0% 0%);
+
+        & > figure {
+            @include animation((opacity, clip-path, filter, transform), 600ms);
+            transform: scale(1.1);
+            filter: blur(0) brightness(0.8);
+        }
     }
     
     [href]:hover {
         .item__figure {
-            clip-path: inset(2% 2% 2% 2%);
-            figure {
-                transform: scale(1.05);
+            clip-path: inset(0% 0% 0% 0%);
+            transform: none;
+            & > figure {
+                transform: scale(1);
+                filter: blur(0) brightness(1.0);
             }
         }
         .item__meta {
             clip-path: inset(0% 0% 0% 0%);
+        }
+
+    }
+
+    &:hover {
+        .item__hover {
+            transition-delay: 400ms;
+            clip-path: inset(0% 0% 0% 0%);
+
+            [data-reveal-text] {
+              @include reveal-text-in;
+            }
         }
     }
 }
@@ -65,9 +97,13 @@
         clip-path: inset(10% 10% 10% 10%);
         figure {
             transform: scale(0.9);
+            filter: blur(0) brightness(1.0);
         }
     }
     .item__meta {
         clip-path: inset(0% 0% 100% 0%);
+    }
+    .item__hover {
+        clip-path: inset(100% 0% 0% 100%);
     }
 }

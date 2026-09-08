@@ -32,13 +32,22 @@
 
 	[data-pane] {
 		pointer-events: none;
-/*		visibility: hidden;*/
+		visibility: hidden;
+		opacity: 0;
+		transition: opacity 0.3s ease, visibility 0.3s ease;
 
 		&[data-active] {
 			z-index: 1;
 			pointer-events: all;
-/*			visibility: visible;*/
+			visibility: visible;
+			opacity: 1;
 		}
+	}
+
+	[data-tabs]:not([class*="--init"]) [data-pane]:first-child {
+		visibility: visible;
+		opacity: 1;
+		pointer-events: all;
 	}
 
 [data-tabs="default"] {

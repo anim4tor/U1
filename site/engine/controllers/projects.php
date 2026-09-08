@@ -6,21 +6,28 @@ return function ($page, $kirby, $site) {
     $filterBy = get('filter'); // Receives slug values (e.g., 'real-estate')
     $projects = collection('Projects');
     
-    // 1. Fetch unique raw text values from your fields
-    $industries = $projects->pluck('industry', ',', true);
-    $spaces     = $projects->pluck('space', ',', true);
+    // 1. Fetch unique raw text values for industries and spaces separately
+    $rawIndustries = $projects->pluck('industry', ',', true);
+    $rawSpaces     = $projects->pluck('space', ',', true);
 
-    // 2. Merge and remove duplicates
-    $rawTags = array_unique(array_merge($industries, $spaces));
-    sort($rawTags);
+    sort($rawIndustries);
+    sort($rawSpaces);
 
-    // 3. Transform the tags into an array containing BOTH the display text and the URL slug
-    $tags = array_map(function($tag) {
+    // 2. Transform industries into an array containing display text and URL slug
+    $industries = array_map(function($tag) {
         return [
             'text' => $tag,
             'slug' => Str::slug($tag)
         ];
-    }, $rawTags);
+    }, $rawIndustries);
+
+    // 3. Transform spaces into an array containing display text and URL slug
+    $spaces = array_map(function($tag) {
+        return [
+            'text' => $tag,
+            'slug' => Str::slug($tag)
+        ];
+    }, $rawSpaces);
 
     // 4. Filter projects by comparing the URL slug against the project data slugs
     if (empty($filterBy) === false) {
@@ -30,14 +37,16 @@ return function ($page, $kirby, $site) {
             $projectSpaces     = array_map([Str::class, 'slug'], $project->space()->split(','));
             
             // Match if the requested URL slug exists in either field
+            // (Uses OR logic; if you need strict matching per category, adjust accordingly)
             return in_array($filterBy, $projectIndustries) || 
                    in_array($filterBy, $projectSpaces);
         });
     }
 
     return [
-        'tags'     => $tags, 
-        'filterBy' => $filterBy,
-        'projects' => $projects->paginate(12),
+        'industries' => $industries, 
+        'spaces'     => $spaces, 
+        'filterBy'   => $filterBy,
+        'projects'   => $projects->paginate(12),
     ];
 };

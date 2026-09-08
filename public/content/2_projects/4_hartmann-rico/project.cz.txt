@@ -1,0 +1,171 @@
+Title: Hartmann Rico
+
+----
+
+Cover: - file://zcAJYfbGdhR84qT1
+
+----
+
+Intro: <p>Od vstupní haly až po firemní stravování. Modernizace prostor pro společnost Hartmann Rico proměnila stávající zázemí ve funkční a&nbsp;esteticky sjednocené prostředí, které odpovídá významu této mezinárodní zdravotnické skupiny.  </p>
+
+----
+
+Details: [{"content":{"text":"Výzva: Sladit tradici s&nbsp;moderními nároky","level":"h2","mod":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"7b38a75f-3a58-4740-9751-dfa77f5264ec","isHidden":false,"type":"heading"},{"content":{"text":"Společnost Hartmann Rico, jejíž historie sahá až do 19. století, se dynamicky rozvíjí. Původní kancelářské prostory však již neodpovídaly současným provozním nárokům ani vizuálnímu standardu, který se od významného výrobce zdravotnických prostředků očekává. Cílem spolupráce s&nbsp;U1 bylo oživit místa každodenního setkávání a&nbsp;transformovat je tak, aby plnila svou funkci nejen prakticky, ale i&nbsp;reprezentativně.","mod":"","face":"","case":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"81322c39-0c38-4e9b-9b22-d1268a5efccc","isHidden":false,"type":"text"},{"content":{"images":["file://tRdyjlV5thqp4XXF","file://TsiKESu1QsILexCl"],"caption":"","ratio":"","crop":"false"},"id":"9778bf3e-8855-4a56-8db0-3c4e944d3b55","isHidden":false,"type":"gallery"},{"content":{"text":"Realizace: Proměna ve dvou etapách","level":"h2","mod":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"4a6436b6-4ec3-468f-a03a-613c5398e0a5","isHidden":false,"type":"heading"},{"content":{"text":"I. etapa:","level":"h3","mod":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"2e399c2a-85c5-4957-b1db-7baa7c94a454","isHidden":false,"type":"heading"},{"content":{"text":"Reprezentace a&nbsp;první dojem První část rekonstrukce se zaměřila na prostory, které tvoří vizitku společnosti.","mod":"","face":"","case":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"0fa49fa6-a6bc-44e7-9041-0d9ddfc17f3a","isHidden":false,"type":"text"},{"content":{"text":"Vstupní prostor a&nbsp;recepce","level":"h4","mod":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"8c5d2b21-45d8-49b1-9cbd-a9e7222f0b8a","isHidden":false,"type":"heading"},{"content":{"text":"Cílem bylo vytvořit prostředí, které působí profesionálně a&nbsp;otevřeně. Nové dispoziční řešení, moderní materiály a&nbsp;světlá barevnost nyní korespondují s&nbsp;hodnotami společnosti a&nbsp;zajišťují důstojné přivítání pro návštěvníky i&nbsp;partnery.","mod":"","face":"","case":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"a4a74435-de2d-468b-b90c-346c442815d7","isHidden":false,"type":"text"},{"content":{"text":"Hlavní zasedací místnost.","level":"h4","mod":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"aa3fa292-3177-4c5e-b461-ca56f9f1830d","isHidden":false,"type":"heading"},{"content":{"text":"Kompletní přestavba proměnila zasedací místnost v&nbsp;multifunkční prostor vybavený moderní audiovizuální technikou. Důraz byl kladen na akustiku a&nbsp;ergonomii, aby prostor vyhovoval náročným firemním jednáním.","mod":"","face":"","case":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"a06cd4de-8e19-4728-9f30-1a1eff873d4d","isHidden":false,"type":"text"},{"content":{"images":["file://zcAJYfbGdhR84qT1","file://xA4f3ime3dnwkGmG"],"caption":"","ratio":"","crop":"false"},"id":"31aa6881-4495-4ad0-a488-73f1ca2d834e","isHidden":false,"type":"gallery"},{"content":[],"id":"16efaf73-03bb-489d-963e-c82d658f94c6","isHidden":false,"type":"line"},{"content":{"text":"II. etapa","level":"h3","mod":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"b2afef51-5fff-4b00-8607-0337c6bce51f","isHidden":false,"type":"heading"},{"content":{"text":"Komfort pro zaměstnance Druhá fáze projektu cílila na zvýšení kvality zázemí pro zaměstnance, konkrétně na revitalizaci stravovacích prostor.","mod":"","face":"","case":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"1855d0b1-c10a-4af1-8811-c70162d6cf01","isHidden":false,"type":"text"},{"content":{"text":"Kapacita a&nbsp;odolnost","level":"h4","mod":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"33d651d4-7c7a-4fd8-b52b-19b72e637822","isHidden":false,"type":"heading"},{"content":{"text":"Původní jídelna již nestačila provozním potřebám. Prioritou bylo navýšení počtu míst a&nbsp;výběr odolných materiálů, které zvládnou vysokou zátěž.","mod":"","face":"","case":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"d2897dbe-3b19-414c-bb61-198fd6ac7b5e","isHidden":false,"type":"text"},{"content":{"text":"Vizuální sjednocení.","level":"h4","mod":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"032f7542-5fe4-4050-a3e0-b744c6656e6c","isHidden":false,"type":"heading"},{"content":{"text":"Nový design propojil jídelnu s&nbsp;identitou firmy, čímž vzniklo příjemné místo pro odpočinek a&nbsp;neformální setkávání.","mod":"","face":"","case":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"f86aed14-f556-47a6-a055-7d759d7fec7c","isHidden":false,"type":"text"},{"content":{"images":["file://HZ1CIOcsVYDdyXTF","file://xo8oswDyI1uiUCR8"],"caption":"","ratio":"","crop":"false"},"id":"bcced866-e234-41b7-b0f9-9ad406b94e20","isHidden":false,"type":"gallery"},{"content":{"text":"Výsledek: Prostředí, které podporuje chod firmy","level":"h2","mod":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"6a15cfbe-857c-4164-b7c9-f29547a57e92","isHidden":false,"type":"heading"},{"content":{"text":"Výsledkem spolupráce je komplexní modernizace klíčových zón. Hartmann Rico získal reprezentativní vstupní prostory pro své obchodní partnery a&nbsp;zároveň komfortní, kapacitně vyhovující zázemí pro své zaměstnance. Interiér nyní odráží stabilitu a&nbsp;inovativní přístup, na kterém si značka zakládá. <strong>Tým U1</strong>","mod":"","face":"","case":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"deae0d61-453a-4130-896e-b9b38cd888c1","isHidden":false,"type":"text"},{"content":{"text":"<ul><li><p><strong>Andrea Kali&scaron;ov&aacute;</strong> &ndash; měla na starosti obchodn&iacute; str&aacute;nku projektu a&nbsp;byla kl&iacute;čov&yacute;m partnerem Directu po celou dobu spolupr&aacute;ce</p></li><li><p><strong>Franti&scaron;ek Nov&aacute;k</strong> &ndash; &nbsp;dal prostoru jeho tv&aacute;ř a&nbsp;navrhl celkov&yacute; design, t&oacute;n a&nbsp;materi&aacute;ly.</p></li><li><p><strong>Ladislav Chl&aacute;dek</strong> &ndash; vedl technickou a&nbsp;projekčn&iacute; koordinaci.</p></li><li><p><strong>Romana Kočkov&aacute;</strong> &ndash; měla na starosti kalkulace a&nbsp;finančn&iacute; r&aacute;mec projektu.</p></li></ul>","mod":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"57666b08-68a0-4921-95e3-cfa6c8bc485d","isHidden":false,"type":"list"}]
+
+----
+
+Before: - file://Psf3gmGYvVmA0vnM
+
+----
+
+After: - file://s5pvpqI9vDmTX5Yo
+
+----
+
+Quote: 
+
+----
+
+Client: Hartmann Rico
+
+----
+
+Date: 2025-01-01
+
+----
+
+Place: 
+
+----
+
+Industry: 
+
+----
+
+Space: Recepce, meeting room, gastro/kantýna, Vstupní lobby, recepce, hlavní zasedací místnost, zaměstnanecká jídelna
+
+----
+
+Size: 
+
+----
+
+Hash: 
+
+----
+
+Team: 
+
+----
+
+Concept: 
+
+----
+
+Photo: 
+
+----
+
+Collabs: 
+
+----
+
+Gallery:
+
+- file://HZ1CIOcsVYDdyXTF
+- file://Ru4GCZ74wu7qhj7w
+- file://xo8oswDyI1uiUCR8
+- file://N1ZG1IT80dEwbwaT
+- file://WTiZky82FnV5xuUl
+- file://WYmhyzivXfi5WHPW
+- file://ma1fSWI4zQw5Lbmj
+- file://s5pvpqI9vDmTX5Yo
+- file://FCoAI6DPNgHBRDJZ
+- file://xA4f3ime3dnwkGmG
+- file://tRdyjlV5thqp4XXF
+- file://TsiKESu1QsILexCl
+- file://Psf3gmGYvVmA0vnM
+
+----
+
+Testimonialquote: <p>Working with this team has been a game-changer for our business. Their attention to detail and ability to deliver high-quality results on schedule is unmatched. I highly recommend them to anyone looking for reliable and professional expertise.</p>
+
+----
+
+Testimonialauthor: 
+
+----
+
+Testimonialposition: 
+
+----
+
+Testimonialimage: - file://HJCOAmAoFcf1UY3t
+
+----
+
+Extras: 
+
+----
+
+Password: 
+
+----
+
+Meta-description: 
+
+----
+
+Meta-title: 
+
+----
+
+Meta-canonical-url: 
+
+----
+
+Og-title: 
+
+----
+
+Og-description: 
+
+----
+
+Og-image: 
+
+----
+
+Robots-index: 
+
+----
+
+Robots-follow: 
+
+----
+
+Robots-archive: 
+
+----
+
+Robots-imageindex: 
+
+----
+
+Robots-snippet: 
+
+----
+
+Hero: 
+
+----
+
+Footnote: 
+
+----
+
+Author: 
+
+----
+
+Uuid: 9HLrFqw7JW1oq44n

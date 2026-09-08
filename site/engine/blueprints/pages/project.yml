@@ -8,42 +8,86 @@ status:
 tabs:
   content:
     columns:
-      - width: 2/3
+      - width: 1/1
 
         fields:
-          hero:
-            extends: fields/hero
+          cover:
+            extends: fields/cover
+          intro:
+            type: writer
           details:
-            type: writer
+            extends: fields/section
+            label: Details
+          before:
+            extends: fields/cover
+            width: 1/2
+          after:
+            extends: fields/cover
+            width: 1/2
           quote:
-            type: writer
-          footnote:
-            type: writer
-          
+            extends: fields/section
+            label: Quote
+  info:
+    fields:
 
-      - width: 1/3
-        fields:
-          client:
-            label: Client
-            type: text
-          concept:
-            label: Koncept
-            type: text
-          date:
-            type: date
-            label: Rok realizace
-          place:
-            type: text
-            label: Lokalita
-          industry:
-            type: tags
-            label: Obor podnikání
-          space:
-            type: tags
-            label: Typ prostoru
-          hash:
-            type: tags
-            label: Hashtags
+      client:
+        width: 1/3
+        label: Client
+        type: text
+      date:
+        width: 1/3
+        type: date
+        label: Rok realizace
+      place:
+        width: 1/3
+        type: text
+        label: Lokalita
+      industry:
+        width: 1/2
+        type: tags
+        label: Obor podnikání
+      solutions:
+        type: multiselect
+        label: Služby
+        options:
+          type: query
+          query: site.index.filterBy("intendedTemplate", "in", ["solution"])
+          text: "{{ page.title }}"
+      space:
+        width: 1/2
+        type: tags
+        label: Typ prostoru
+      production:
+        width: 1/2
+        type: tags
+        label: Výroba
+      size:
+        width: 1/3
+        type: text
+        label: Velikost
+      hash:
+        width: 2/3
+        type: tags
+        label: Hashtags
+      team:
+        width: 1/1
+        type: multiselect
+        options:
+          type: query
+          query: site.index.filterBy("intendedTemplate", "in", ["employee"])
+          text: "{{ page.title }}"
+          value: "{{ page.title }}"
+
+      concept:
+        width: 1/3
+        label: Koncept
+        type: text
+      photo:
+        width: 1/3
+        type: text
+      collabs:
+        width: 1/3
+        type: text
 
   gallery:
     columns:
@@ -52,10 +96,10 @@ tabs:
           gallery:
             width: 1/1
             type: files
-            template: image
+            template: cover
             info: "{{ file.dimensions }}"
             uploads:
-              template: image
+              template: cover
             image:
               ratio: 5/4
               cover: true
@@ -64,8 +108,7 @@ tabs:
             empty: No images yet
       - width: 1/3
         fields:
-          author:
-            type: text
+          
 
   testimonial:
     columns:
@@ -94,9 +137,20 @@ tabs:
             image:
               ratio: 4/5
               cover: true
-            min: 1
+            max: 1
             layout: cards
             size: small
-    
+  
+  extras:
+    columns:
+      - width: 2/3
+        fields:
+          extras:
+            extends: fields/section
+
+      - width: 1/3
+        fields:
+          password:
+            type: text
 
   meta: tabs/meta/page
