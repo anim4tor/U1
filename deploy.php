@@ -16,7 +16,7 @@ ignore_user_abort(true);
 // ==============================================================================
 $secret       = 'maiden37';
 $repo         = 'anim4tor/U1';
-$targetBranch = 'staging';
+$targetBranch = $_REQUEST['branch'] ?? 'v2';
 $githubToken  = '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';
 $projectDir   = __DIR__;
 $logFile      = __DIR__ . '/deploy-log.json';
@@ -28,7 +28,8 @@ $preservePaths = [
     'site/accounts',
     '.env',
     'deploy.php',
-    'deploy-log.json'
+    'deploy-log.json',
+    '.current-branch'
 ];
 
 // Completely skip extracting these development / build files:
