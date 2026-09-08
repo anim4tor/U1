@@ -32,6 +32,13 @@ tabs:
           category:
             type: tags
             label: Kategorie
+          solutions:
+            type: multiselect
+            label: Služby
+            options:
+              type: query
+              query: site.index.filterBy("intendedTemplate", "in", ["solution"])
+              text: "{{ page.title }}"
 
   projects:
     label: Related projects

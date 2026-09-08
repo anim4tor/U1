@@ -30,6 +30,14 @@ columns:
       meta:
         type: fields
         fields:
+          industry:
+            width: 1/1
+            type: tags
+            label: Obor podnikání
+          space:
+            width: 1/1
+            type: tags
+            label: Typ prostoru
           alt:
             label: Alternative Text
             type: text

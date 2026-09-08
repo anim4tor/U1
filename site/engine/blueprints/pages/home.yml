@@ -37,7 +37,10 @@ tabs:
             width: 1/2
             label: Featured Projects
             type: pages
+            layout: list
             query: site.find('projects')
+            image:
+              cover: true
           featuredTestimonials:
             width: 1/2
             label: Featured Testimonials

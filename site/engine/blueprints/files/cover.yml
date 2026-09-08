@@ -1,5 +1,5 @@
 # Each file blueprint must have a title, the title may be different from the file name
-title: Image
+title: Cover image
 
 # Like page blueprints, file blueprints can define a layout with tabs, columns, sections and fields
 # File blueprints define what sort of information should get stored in a file's meta data file
@@ -9,7 +9,7 @@ title: Image
 
 accept: 
   type: image
-  maxsize: 5000000 # size in byte = 3 MB
+  maxsize: 10000000 # size in byte = 10 MB
 
 create:
   width: 1920

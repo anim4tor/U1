@@ -22,6 +22,10 @@ columns:
       bio:
         label: Bio
         type: writer
+
+      testimonial:
+        type: writer
+        label: Testimonial
       
   sidebar:
     width: 1/3

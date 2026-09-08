@@ -1,0 +1,59 @@
+title: Solution
+
+status:
+  draft: true
+  unlisted: true
+  listed: true
+
+tabs:
+  content:
+    columns:
+      - width: 1/2
+        fields:
+          cover:
+            width: 1/1
+            type: files
+            template: cover
+            info: "{{ file.dimensions }}"
+            uploads:
+              template: cover
+            image:
+              ratio: 5/4
+              cover: true
+            max: 1
+            layout: cards
+            size: full
+
+          relatedProjects:
+            width: 1/1
+            label: Related Projects
+            type: pages
+            layout: cards
+            size: small
+            query: site.find('projects')
+            image:
+              cover: true
+
+          gallery:
+            width: 1/1
+            type: files
+            template: cover
+            info: "{{ file.dimensions }}"
+            uploads:
+              template: cover
+            image:
+              ratio: 5/4
+              cover: true
+            layout: cards
+            size: large
+            empty: No images yet
+
+      - width: 1/2
+        fields:
+          excerpt:
+            type: writer
+          intro:
+            type: writer
+          details:
+            type: writer
+  meta: tabs/meta/page

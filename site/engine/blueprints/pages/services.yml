@@ -41,6 +41,7 @@ tabs:
                 type: files
                 template: image
                 info: "{{ file.dimensions }}"
+                max: 1
                 uploads:
                   template: image
                 image:
