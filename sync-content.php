@@ -37,6 +37,25 @@ if (isset($_GET['log'])) {
     exit;
 }
 
+// 1b. Clean orphaned social folders from content
+if (isset($_GET['clean_social'])) {
+    $dirs = glob($contentDir . '/instagram-*') ?: [];
+    $dirs = array_merge($dirs, glob($contentDir . '/linkedin-*') ?: []);
+    $removed = [];
+    foreach ($dirs as $dir) {
+        if (is_dir($dir)) {
+            $files = glob($dir . '/*') ?: [];
+            foreach ($files as $f) {
+                if (is_file($f)) @unlink($f);
+            }
+            @rmdir($dir);
+            $removed[] = basename($dir);
+        }
+    }
+    echo json_encode(['status' => 'cleaned', 'count' => count($removed), 'removed' => $removed]);
+    exit;
+}
+
 // Helper: GitHub API request
 function u1GithubApi(string $method, string $url, string $token, ?array $payload = null): array {
     $ch = curl_init($url);
