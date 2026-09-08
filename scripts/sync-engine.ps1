@@ -8,7 +8,10 @@ param (
     [switch]$NoPropagate = $false
 )
 
-$ErrorActionPreference = "Stop"
+$ErrorActionPreference = "Continue"
+if (Test-Path Variable:\PSNativeCommandUseErrorActionPreference) {
+    $PSNativeCommandUseErrorActionPreference = $false
+}
 $RepoRoot = Resolve-Path (Join-Path $PSScriptRoot "..")
 Set-Location $RepoRoot
 
@@ -46,8 +49,8 @@ if ($Action -eq "push" -or $Action -eq "all") {
     Write-Host "`n1. Kontrola lokálních změn v site/engine a site/config..." -ForegroundColor Cyan
 
     # Stage engine files in current branch
-    git add site/engine site/config
-    $hasEngineDiff = (git status --porcelain site/engine site/config)
+    git add site/engine site/config scripts sync-engine-push.bat sync-engine-pull.bat
+    $hasEngineDiff = (git status --porcelain site/engine site/config scripts sync-engine-push.bat sync-engine-pull.bat)
 
     if ($hasEngineDiff) {
         $commitMsg = Read-Host "Zadejte popis změn v enginu (stiskněte Enter pro výchozí)"
@@ -74,25 +77,18 @@ if ($Action -eq "push" -or $Action -eq "all") {
             if ($b -eq $currentBranch) { continue }
             Write-Host " -> Aktualizuji větev $b..." -ForegroundColor Yellow
 
-            try {
-                git checkout $b 2>$null
-                git checkout $currentBranch -- site/engine site/config scripts sync-engine-push.bat sync-engine-pull.bat
-                $diff = (git status --porcelain site/engine site/config scripts sync-engine-push.bat sync-engine-pull.bat)
-                if ($diff) {
-                    git add site/engine site/config scripts sync-engine-push.bat sync-engine-pull.bat
-                    git commit -m "chore(engine): sync backend and tooling from $currentBranch"
-                    git push origin $b
-                    Write-Host "    [OK] Větev $b aktualizována a odeslána na GitHub." -ForegroundColor Green
-                } else {
-                    Write-Host "    [SKIP] Větev $b již má shodný engine." -ForegroundColor Gray
-                }
-            } catch {
-                Write-Host "    [CHYBA] Nepodařilo se aktualizovat větev $b : $($_.ToString())" -ForegroundColor Red
+            cmd /c "git checkout --quiet $b && git checkout $currentBranch -- site/engine site/config scripts sync-engine-push.bat sync-engine-pull.bat"
+            $diff = (git status --porcelain site/engine site/config scripts sync-engine-push.bat sync-engine-pull.bat)
+            if ($diff) {
+                cmd /c "git add site/engine site/config scripts sync-engine-push.bat sync-engine-pull.bat && git commit --quiet -m ""chore(engine): sync backend and tooling from $currentBranch"" && git push origin $b --quiet"
+                Write-Host "    [OK] Větev $b aktualizována a odeslána na GitHub." -ForegroundColor Green
+            } else {
+                Write-Host "    [SKIP] Větev $b již má shodný engine." -ForegroundColor Gray
             }
         }
 
         # Return to original branch
-        git checkout $currentBranch 2>$null
+        cmd /c "git checkout --quiet $currentBranch"
     }
 
     Write-Host "`n================================================" -ForegroundColor Green
