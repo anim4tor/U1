@@ -395,7 +395,7 @@ KirbyApp::plugin('u1/git-content', [
     'routes' => [
         [
             'pattern' => ['api-git-content-sync', 'git-content-sync.json'],
-            'method'  => ['GET', 'POST'],
+            'method'  => 'GET|POST',
             'action'  => function () {
                 $config = GitContentService::getConfig();
                 $secret = get('secret') ?? (kirby()->request()->data()['secret'] ?? '');
