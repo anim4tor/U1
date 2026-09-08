@@ -4,7 +4,7 @@
 			<div navbar-header data-scroll class="absolute inset__top-stretch grid__3 justify__stretch inner-x__02" >
 				<div class="flex align__center justify__start">
 					
-					<div class="grid__stack place__center-center" data-on-navbar-toggle>
+					<div class="grid__stack place__center-start" data-on-navbar-toggle>
 						<a data-default class="button circle flex justify__center align__center" href="<?= page('home')->url() ?>"><div class="flex align__center" data-reveal ><?= svg('public/assets/images/fig_logo.svg') ?> <!-- <span class="upper">Space Design</span> --></div></a>	
 						<span class="upper inner-x__05"> </span>
 					</div>
