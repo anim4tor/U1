@@ -1,7 +1,7 @@
 <?php
 $branchData = u1GetBranchData();
 $current = !empty($branchData['current']) ? $branchData['current'] : 'v2';
-$hiddenBranches = ['main', 'master', 'head'];
+$hiddenBranches = ['main', 'master', 'head', 'staging'];
 if (in_array(strtolower($current), $hiddenBranches, true)) {
     $current = 'v2';
 }
@@ -370,7 +370,7 @@ $safeCurrent = htmlspecialchars($current, ENT_QUOTES, 'UTF-8');
     });
 
     const baseUrl = '<?= rtrim(kirby()->url(), "/") ?>';
-    const hiddenBranches = ['main', 'master', 'head'];
+    const hiddenBranches = ['main', 'master', 'head', 'staging'];
 
     async function fetchBranches() {
         try {
