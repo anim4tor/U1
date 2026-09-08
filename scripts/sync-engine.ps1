@@ -76,18 +76,18 @@ if ($Action -eq "push" -or $Action -eq "all") {
 
             try {
                 git checkout $b 2>$null
-                git checkout $currentBranch -- site/engine site/config
-                $diff = (git status --porcelain site/engine site/config)
+                git checkout $currentBranch -- site/engine site/config scripts sync-engine-push.bat sync-engine-pull.bat
+                $diff = (git status --porcelain site/engine site/config scripts sync-engine-push.bat sync-engine-pull.bat)
                 if ($diff) {
-                    git add site/engine site/config
-                    git commit -m "chore(engine): sync backend from $currentBranch"
+                    git add site/engine site/config scripts sync-engine-push.bat sync-engine-pull.bat
+                    git commit -m "chore(engine): sync backend and tooling from $currentBranch"
                     git push origin $b
                     Write-Host "    [OK] Větev $b aktualizována a odeslána na GitHub." -ForegroundColor Green
                 } else {
                     Write-Host "    [SKIP] Větev $b již má shodný engine." -ForegroundColor Gray
                 }
             } catch {
-                Write-Host "    [CHYBA] Nepodařilo se aktualizovat větev $b: $_" -ForegroundColor Red
+                Write-Host "    [CHYBA] Nepodařilo se aktualizovat větev $b : $($_.ToString())" -ForegroundColor Red
             }
         }
 
