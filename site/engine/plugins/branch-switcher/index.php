@@ -160,7 +160,7 @@ function u1GetBranchData(): array {
                 $trimmed = trim($line);
                 if (empty($trimmed)) continue;
                 $isActive = str_starts_with($trimmed, '* ');
-                $bName = trim(ltrim($trimmed, '* '));
+                $bName = trim(preg_replace('/^[\*\+\s]+/', '', $trimmed));
                 if ($isActive) {
                     $current = $bName;
                 }
