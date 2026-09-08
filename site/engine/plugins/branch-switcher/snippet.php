@@ -1,7 +1,14 @@
 <?php
 $branchData = u1GetBranchData();
 $current = !empty($branchData['current']) ? $branchData['current'] : 'v2';
+$hiddenBranches = ['main', 'master', 'head'];
+if (in_array(strtolower($current), $hiddenBranches, true)) {
+    $current = 'v2';
+}
 $branches = $branchData['branches'] ?? [];
+$branches = array_filter($branches, function ($b) use ($hiddenBranches) {
+    return !in_array(strtolower($b['name'] ?? ''), $hiddenBranches, true);
+});
 $safeCurrent = htmlspecialchars($current, ENT_QUOTES, 'UTF-8');
 ?>
 <!-- U1 Branch Switcher Widget -->
@@ -362,9 +369,12 @@ $safeCurrent = htmlspecialchars($current, ENT_QUOTES, 'UTF-8');
         }
     });
 
+    const baseUrl = '<?= rtrim(kirby()->url(), "/") ?>';
+    const hiddenBranches = ['main', 'master', 'head'];
+
     async function fetchBranches() {
         try {
-            const res = await fetch('/git-branches.json', { cache: 'no-store' });
+            const res = await fetch(baseUrl + '/git-branches.json', { cache: 'no-store' });
             if (!res.ok) return;
             const data = await res.json();
             if (data.status === 'success' && Array.isArray(data.branches)) {
@@ -376,10 +386,17 @@ $safeCurrent = htmlspecialchars($current, ENT_QUOTES, 'UTF-8');
     }
 
     function renderBranches(branches, current) {
+        if (hiddenBranches.includes((current || '').toLowerCase())) {
+            current = 'v2';
+        }
         document.getElementById('u1-bs-current-label').textContent = current;
         root.dataset.currentBranch = current;
 
-        listEl.innerHTML = branches.map(function(b) {
+        const filtered = branches.filter(function(b) {
+            return !hiddenBranches.includes((b.name || '').toLowerCase());
+        });
+
+        listEl.innerHTML = filtered.map(function(b) {
             const isActive = b.name === current;
             const iconSvg = isActive 
                 ? '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>'
@@ -419,7 +436,7 @@ $safeCurrent = htmlspecialchars($current, ENT_QUOTES, 'UTF-8');
             const formData = new FormData();
             formData.append('branch', targetBranch);
 
-            const res = await fetch('/git-switch.json', {
+            const res = await fetch(baseUrl + '/git-switch.json', {
                 method: 'POST',
                 body: formData
             });
