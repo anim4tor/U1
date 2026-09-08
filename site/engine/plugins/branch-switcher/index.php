@@ -213,7 +213,7 @@ function u1GetServerBranches(): array {
     }
 
     if (!is_array($branchesRaw)) {
-        $token = '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';
+        $token = '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';
         $ch = curl_init('https://api.github.com/repos/anim4tor/U1/branches');
         curl_setopt_array($ch, [
             CURLOPT_RETURNTRANSFER => true,
