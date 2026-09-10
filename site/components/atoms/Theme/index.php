@@ -109,21 +109,21 @@
 			<div class="theme-panel-row span__2">
 				<div class="grid">
 					<label class="ff__body op__4 font__size__small">Size</label>
-					<input type="text" name="type-h1-size" data-theme-setup data-override data-override-prop="h1-size">
+					<input type="text" name="font-size-1" data-theme-setup data-override>
 				</div>
 				<div class="grid">
 					<label class="ff__body op__4 font__size__small">Weight</label>
-					<input type="number" name="type-h1-weight" step="100" min="100" max="900" data-theme-setup data-override data-override-prop="h1-weight">
+					<input type="number" name="font-weight-1" step="100" min="100" max="900" data-theme-setup data-override>
 				</div>
 			</div>
 			<div class="theme-panel-row span__2" style="margin-bottom: 0.25rem;">
 				<div class="grid">
 					<label class="ff__body op__4 font__size__small">Line Height</label>
-					<input type="number" name="type-h1-lh" step="0.01" min="0.5" max="2.5" data-theme-setup data-override data-override-prop="h1-lh">
+					<input type="number" name="line-height-1" step="0.01" min="0.5" max="2.5" data-theme-setup data-override>
 				</div>
 				<div class="grid">
 					<label class="ff__body op__4 font__size__small">Letter Spacing</label>
-					<input type="text" name="type-h1-ls" data-theme-setup data-override data-override-prop="h1-ls">
+					<input type="text" name="letter-spacing-1" data-theme-setup data-override>
 				</div>
 			</div>
 
@@ -132,21 +132,21 @@
 			<div class="theme-panel-row span__2">
 				<div class="grid">
 					<label class="ff__body op__4 font__size__small">Size</label>
-					<input type="text" name="type-h2-size" data-theme-setup data-override data-override-prop="h2-size">
+					<input type="text" name="font-size-2" data-theme-setup data-override>
 				</div>
 				<div class="grid">
 					<label class="ff__body op__4 font__size__small">Weight</label>
-					<input type="number" name="type-h2-weight" step="100" min="100" max="900" data-theme-setup data-override data-override-prop="h2-weight">
+					<input type="number" name="font-weight-2" step="100" min="100" max="900" data-theme-setup data-override>
 				</div>
 			</div>
 			<div class="theme-panel-row span__2" style="margin-bottom: 0.25rem;">
 				<div class="grid">
 					<label class="ff__body op__4 font__size__small">Line Height</label>
-					<input type="number" name="type-h2-lh" step="0.01" min="0.5" max="2.5" data-theme-setup data-override data-override-prop="h2-lh">
+					<input type="number" name="line-height-2" step="0.01" min="0.5" max="2.5" data-theme-setup data-override>
 				</div>
 				<div class="grid">
 					<label class="ff__body op__4 font__size__small">Letter Spacing</label>
-					<input type="text" name="type-h2-ls" data-theme-setup data-override data-override-prop="h2-ls">
+					<input type="text" name="letter-spacing-2" data-theme-setup data-override>
 				</div>
 			</div>
 
@@ -155,21 +155,21 @@
 			<div class="theme-panel-row span__2">
 				<div class="grid">
 					<label class="ff__body op__4 font__size__small">Size</label>
-					<input type="text" name="type-h3-size" data-theme-setup data-override data-override-prop="h3-size">
+					<input type="text" name="font-size-3" data-theme-setup data-override>
 				</div>
 				<div class="grid">
 					<label class="ff__body op__4 font__size__small">Weight</label>
-					<input type="number" name="type-h3-weight" step="100" min="100" max="900" data-theme-setup data-override data-override-prop="h3-weight">
+					<input type="number" name="font-weight-3" step="100" min="100" max="900" data-theme-setup data-override>
 				</div>
 			</div>
 			<div class="theme-panel-row span__2" style="margin-bottom: 0.25rem;">
 				<div class="grid">
 					<label class="ff__body op__4 font__size__small">Line Height</label>
-					<input type="number" name="type-h3-lh" step="0.01" min="0.5" max="2.5" data-theme-setup data-override data-override-prop="h3-lh">
+					<input type="number" name="line-height-3" step="0.01" min="0.5" max="2.5" data-theme-setup data-override>
 				</div>
 				<div class="grid">
 					<label class="ff__body op__4 font__size__small">Letter Spacing</label>
-					<input type="text" name="type-h3-ls" data-theme-setup data-override data-override-prop="h3-ls">
+					<input type="text" name="letter-spacing-3" data-theme-setup data-override>
 				</div>
 			</div>
 
@@ -178,21 +178,21 @@
 			<div class="theme-panel-row span__2">
 				<div class="grid">
 					<label class="ff__body op__4 font__size__small">Size</label>
-					<input type="text" name="type-h4-size" data-theme-setup data-override data-override-prop="h4-size">
+					<input type="text" name="font-size-4" data-theme-setup data-override>
 				</div>
 				<div class="grid">
 					<label class="ff__body op__4 font__size__small">Weight</label>
-					<input type="number" name="type-h4-weight" step="100" min="100" max="900" data-theme-setup data-override data-override-prop="h4-weight">
+					<input type="number" name="font-weight-4" step="100" min="100" max="900" data-theme-setup data-override>
 				</div>
 			</div>
 			<div class="theme-panel-row span__2" style="margin-bottom: 0.25rem;">
 				<div class="grid">
 					<label class="ff__body op__4 font__size__small">Line Height</label>
-					<input type="number" name="type-h4-lh" step="0.01" min="0.5" max="2.5" data-theme-setup data-override data-override-prop="h4-lh">
+					<input type="number" name="line-height-4" step="0.01" min="0.5" max="2.5" data-theme-setup data-override>
 				</div>
 				<div class="grid">
 					<label class="ff__body op__4 font__size__small">Letter Spacing</label>
-					<input type="text" name="type-h4-ls" data-theme-setup data-override data-override-prop="h4-ls">
+					<input type="text" name="letter-spacing-4" data-theme-setup data-override>
 				</div>
 			</div>
 
@@ -201,21 +201,21 @@
 			<div class="theme-panel-row span__2">
 				<div class="grid">
 					<label class="ff__body op__4 font__size__small">Size</label>
-					<input type="text" name="type-h5-size" data-theme-setup data-override data-override-prop="h5-size">
+					<input type="text" name="font-size-5" data-theme-setup data-override>
 				</div>
 				<div class="grid">
 					<label class="ff__body op__4 font__size__small">Weight</label>
-					<input type="number" name="type-h5-weight" step="100" min="100" max="900" data-theme-setup data-override data-override-prop="h5-weight">
+					<input type="number" name="font-weight-5" step="100" min="100" max="900" data-theme-setup data-override>
 				</div>
 			</div>
 			<div class="theme-panel-row span__2" style="margin-bottom: 0.25rem;">
 				<div class="grid">
 					<label class="ff__body op__4 font__size__small">Line Height</label>
-					<input type="number" name="type-h5-lh" step="0.01" min="0.5" max="2.5" data-theme-setup data-override data-override-prop="h5-lh">
+					<input type="number" name="line-height-5" step="0.01" min="0.5" max="2.5" data-theme-setup data-override>
 				</div>
 				<div class="grid">
 					<label class="ff__body op__4 font__size__small">Letter Spacing</label>
-					<input type="text" name="type-h5-ls" data-theme-setup data-override data-override-prop="h5-ls">
+					<input type="text" name="letter-spacing-5" data-theme-setup data-override>
 				</div>
 			</div>
 		</div>
@@ -296,21 +296,21 @@
 			<div class="theme-panel-row span__2">
 				<div class="grid">
 					<label class="ff__body op__4 font__size__small">Size</label>
-					<input type="text" name="type-perex-size" data-theme-setup data-override data-override-prop="perex-size">
+					<input type="text" name="font-size-large" data-theme-setup data-override>
 				</div>
 				<div class="grid">
 					<label class="ff__body op__4 font__size__small">Weight</label>
-					<input type="number" name="type-perex-weight" step="100" min="100" max="900" data-theme-setup data-override data-override-prop="perex-weight">
+					<input type="number" name="font-weight-large" step="100" min="100" max="900" data-theme-setup data-override>
 				</div>
 			</div>
 			<div class="theme-panel-row span__2" style="margin-bottom: 0.25rem;">
 				<div class="grid">
 					<label class="ff__body op__4 font__size__small">Line Height</label>
-					<input type="number" name="type-perex-lh" step="0.01" min="0.5" max="2.5" data-theme-setup data-override data-override-prop="perex-lh">
+					<input type="number" name="line-height-large" step="0.01" min="0.5" max="2.5" data-theme-setup data-override>
 				</div>
 				<div class="grid">
 					<label class="ff__body op__4 font__size__small">Opacity</label>
-					<input type="number" name="type-perex-opacity" step="0.05" min="0.1" max="1" placeholder="1" data-theme-setup data-override data-override-prop="perex-opacity">
+					<input type="number" name="opacity-large" step="0.05" min="0.1" max="1" placeholder="1" data-theme-setup data-override>
 				</div>
 			</div>
 
@@ -319,21 +319,21 @@
 			<div class="theme-panel-row span__2">
 				<div class="grid">
 					<label class="ff__body op__4 font__size__small">Size</label>
-					<input type="text" name="type-body-size" data-theme-setup data-override data-override-prop="body-size">
+					<input type="text" name="font-size-default" data-theme-setup data-override>
 				</div>
 				<div class="grid">
 					<label class="ff__body op__4 font__size__small">Weight</label>
-					<input type="number" name="type-body-weight" step="100" min="100" max="900" data-theme-setup data-override data-override-prop="body-weight">
+					<input type="number" name="font-weight-default" step="100" min="100" max="900" data-theme-setup data-override>
 				</div>
 			</div>
 			<div class="theme-panel-row span__2" style="margin-bottom: 0.25rem;">
 				<div class="grid">
 					<label class="ff__body op__4 font__size__small">Line Height</label>
-					<input type="number" name="type-body-lh" step="0.01" min="0.5" max="2.5" data-theme-setup data-override data-override-prop="body-lh">
+					<input type="number" name="line-height-default" step="0.01" min="0.5" max="2.5" data-theme-setup data-override>
 				</div>
 				<div class="grid">
 					<label class="ff__body op__4 font__size__small">Letter Spacing</label>
-					<input type="text" name="type-body-ls" data-theme-setup data-override data-override-prop="body-ls">
+					<input type="text" name="letter-spacing-default" data-theme-setup data-override>
 				</div>
 			</div>
 
@@ -342,27 +342,27 @@
 			<div class="theme-panel-row span__2">
 				<div class="grid">
 					<label class="ff__body op__4 font__size__small">Size</label>
-					<input type="text" name="type-caption-size" data-theme-setup data-override data-override-prop="caption-size">
+					<input type="text" name="font-size-small" data-theme-setup data-override>
 				</div>
 				<div class="grid">
 					<label class="ff__body op__4 font__size__small">Weight</label>
-					<input type="number" name="type-caption-weight" step="100" min="100" max="900" data-theme-setup data-override data-override-prop="caption-weight">
+					<input type="number" name="font-weight-small" step="100" min="100" max="900" data-theme-setup data-override>
 				</div>
 			</div>
 			<div class="theme-panel-row span__2" style="margin-bottom: 0.25rem;">
 				<div class="grid">
 					<label class="ff__body op__4 font__size__small">Line Height</label>
-					<input type="number" name="type-caption-lh" step="0.01" min="0.5" max="2.5" data-theme-setup data-override data-override-prop="caption-lh">
+					<input type="number" name="line-height-small" step="0.01" min="0.5" max="2.5" data-theme-setup data-override>
 				</div>
 				<div class="grid">
 					<label class="ff__body op__4 font__size__small">Tracking (LS)</label>
-					<input type="text" name="type-caption-ls" data-theme-setup data-override data-override-prop="caption-ls">
+					<input type="text" name="letter-spacing-small" data-theme-setup data-override>
 				</div>
 			</div>
 			<div class="theme-panel-row span__2" style="margin-bottom: 0.25rem;">
 				<div class="grid">
 					<label class="ff__body op__4 font__size__small">Transform</label>
-					<select name="type-caption-transform" data-theme-setup data-override data-override-prop="caption-transform">
+					<select name="text-transform-small" data-theme-setup data-override>
 						<option value="">Auto (none)</option>
 						<option value="uppercase">Verzálky (Uppercase)</option>
 						<option value="none">None</option>
@@ -371,7 +371,7 @@
 				</div>
 				<div class="grid">
 					<label class="ff__body op__4 font__size__small">Opacity</label>
-					<input type="number" name="type-caption-opacity" step="0.05" min="0.1" max="1" placeholder="1" data-theme-setup data-override data-override-prop="caption-opacity">
+					<input type="number" name="opacity-small" step="0.05" min="0.1" max="1" placeholder="1" data-theme-setup data-override>
 				</div>
 			</div>
 		</div>
@@ -514,7 +514,6 @@
 		
 		const toggleBtn = document.getElementById('theme-toggle-btn');
 		const resetBtn = document.getElementById('theme-reset-btn');
-		const copyBtn = document.getElementById('theme-copy-btn');
 		const panelBody = document.getElementById('theme-panel-body');
 		const canvasSelector = document.getElementById('canvas-theme-selector');
 
@@ -589,16 +588,20 @@
 		function getRawThemeDeclarations() {
 			const declarations = {
 				'spacing' : 'max(calc(var(--scale-min) * 1rem), calc(var(--scale-fluid) * 1vw * var(--scale)))',
+				'type-scale' : '1.618',
 				'type-start-rem' : '1.5rem',
 				'type-start-vw' : '1.5vw',
+				'base-line-height' : '1.2',
+				'body-scale' : '1.400',
 				'body-start-rem' : '0.714rem',
 				'body-start-vw' : '0.714vw',
+				'base-body-line-height' : '1.6',
 				'animation-duration' : '800ms',
 				'animation-timing' : 'cubic-bezier(0.4, 0, 0.2, 1)',
 				'animation-stagger' : '50ms',
 				'animation-delay' : '0ms',
-				'toggle-parallax' : '1', // ADDED DEFAULT FALLBACK
-				'toggle-reveals' : '1',  // ADDED DEFAULT FALLBACK
+				'toggle-parallax' : '1',
+				'toggle-reveals' : '1',
 				'img-radius' : '8px',
 		        'radius' : '4px',
 		        'btn-padding' : '0.5rem 1rem',
@@ -663,9 +666,136 @@
 			}
 		});
 
-		// --- 6. RENDER SYSTEM VALUES UNTO PANEL ---
+		// --- 6. FLUID CALCULATOR DICTIONARY ---
+		function calculateFluidMap() {
+			const inlineStyles = document.documentElement.style;
+			const computed = getComputedStyle(document.documentElement);
+
+			const hScale = parseFloat(inlineStyles.getPropertyValue('--type-scale') || computed.getPropertyValue('--type-scale')) || 1.618;
+			const hStartRem = parseFloat((inlineStyles.getPropertyValue('--type-start-rem') || computed.getPropertyValue('--type-start-rem') || '1.5').replace('rem', '')) || 1.5;
+			const hStartVw = parseFloat((inlineStyles.getPropertyValue('--type-start-vw') || computed.getPropertyValue('--type-start-vw') || '1.5').replace('vw', '')) || 1.5;
+			const baseLh = parseFloat(inlineStyles.getPropertyValue('--base-line-height') || computed.getPropertyValue('--base-line-height')) || 1.2;
+			const fwHeading = (inlineStyles.getPropertyValue('--fw-heading') || computed.getPropertyValue('--fw-heading') || '700').trim();
+			const lsHeading = (inlineStyles.getPropertyValue('--ls-heading') || computed.getPropertyValue('--ls-heading') || 'normal').trim();
+			const ttHeading = (inlineStyles.getPropertyValue('--tt-heading') || computed.getPropertyValue('--tt-heading') || 'none').trim();
+
+			const bScale = parseFloat(inlineStyles.getPropertyValue('--body-scale') || computed.getPropertyValue('--body-scale')) || 1.4;
+			const bStartRem = parseFloat((inlineStyles.getPropertyValue('--body-start-rem') || computed.getPropertyValue('--body-start-rem') || '0.714').replace('rem', '')) || 0.714;
+			const bStartVw = parseFloat((inlineStyles.getPropertyValue('--body-start-vw') || computed.getPropertyValue('--body-start-vw') || '0.714').replace('vw', '')) || 0.714;
+			const baseBodyLh = parseFloat(inlineStyles.getPropertyValue('--base-body-line-height') || computed.getPropertyValue('--base-body-line-height')) || 1.6;
+			const fwBody = (inlineStyles.getPropertyValue('--fw-body') || computed.getPropertyValue('--fw-body') || '400').trim();
+			const lsBody = (inlineStyles.getPropertyValue('--ls-body') || computed.getPropertyValue('--ls-body') || 'normal').trim();
+			const ttBody = (inlineStyles.getPropertyValue('--tt-body') || computed.getPropertyValue('--tt-body') || 'none').trim();
+
+			const formatSize = (rem, vw) => `max(${rem.toFixed(2)}rem, ${vw.toFixed(2)}vw)`;
+			const formatLh = (val) => val.toFixed(2);
+
+			const h5Rem = hStartRem;
+			const h5Vw = hStartVw;
+			const h5Lh = baseLh;
+
+			const h4Rem = hStartRem * hScale;
+			const h4Vw = hStartVw * hScale;
+			const h4Lh = h5Lh - (0.04 * hScale);
+
+			const h3Rem = hStartRem * Math.pow(hScale, 2);
+			const h3Vw = hStartVw * Math.pow(hScale, 2);
+			const h3Lh = h4Lh - (0.04 * hScale);
+
+			const h2Rem = hStartRem * Math.pow(hScale, 3);
+			const h2Vw = hStartVw * Math.pow(hScale, 3);
+			const h2Lh = h3Lh - (0.04 * hScale);
+
+			const h1Rem = hStartRem * Math.pow(hScale, 4);
+			const h1Vw = hStartVw * Math.pow(hScale, 4);
+			const h1Lh = h2Lh - (0.04 * hScale);
+
+			const capRem = bStartRem;
+			const capVw = bStartVw;
+			const capLh = baseBodyLh;
+
+			const bodyRem = bStartRem * bScale;
+			const bodyVw = bStartVw * bScale;
+			const bodyLh = baseBodyLh - (0.04 * bScale);
+
+			const perexRem = bStartRem * Math.pow(bScale, 2);
+			const perexVw = bStartVw * Math.pow(bScale, 2);
+			const perexLh = bodyLh - (0.04 * bScale);
+
+			return {
+				'font-size-1': formatSize(h1Rem, h1Vw),
+				'font-weight-1': fwHeading || '700',
+				'line-height-1': formatLh(h1Lh),
+				'letter-spacing-1': lsHeading || 'normal',
+				'text-transform-1': ttHeading || 'none',
+
+				'font-size-2': formatSize(h2Rem, h2Vw),
+				'font-weight-2': fwHeading || '700',
+				'line-height-2': formatLh(h2Lh),
+				'letter-spacing-2': lsHeading || 'normal',
+				'text-transform-2': ttHeading || 'none',
+
+				'font-size-3': formatSize(h3Rem, h3Vw),
+				'font-weight-3': '600',
+				'line-height-3': formatLh(h3Lh),
+				'letter-spacing-3': lsHeading || 'normal',
+				'text-transform-3': ttHeading || 'none',
+
+				'font-size-4': formatSize(h4Rem, h4Vw),
+				'font-weight-4': '500',
+				'line-height-4': formatLh(h4Lh),
+				'letter-spacing-4': lsHeading || 'normal',
+				'text-transform-4': ttHeading || 'none',
+
+				'font-size-5': formatSize(h5Rem, h5Vw),
+				'font-weight-5': '500',
+				'line-height-5': formatLh(h5Lh),
+				'letter-spacing-5': lsHeading || 'normal',
+				'text-transform-5': ttHeading || 'none',
+
+				'font-size-large': formatSize(perexRem, perexVw),
+				'font-weight-large': fwBody || '400',
+				'line-height-large': formatLh(perexLh),
+				'letter-spacing-large': lsBody || 'normal',
+				'opacity-large': '1',
+
+				'font-size-default': formatSize(bodyRem, bodyVw),
+				'font-weight-default': fwBody || '400',
+				'line-height-default': formatLh(bodyLh),
+				'letter-spacing-default': lsBody || 'normal',
+
+				'font-size-small': formatSize(capRem, capVw),
+				'font-weight-small': '500',
+				'line-height-small': formatLh(capLh),
+				'letter-spacing-small': lsBody || 'normal',
+				'text-transform-small': ttBody || 'none',
+				'opacity-small': '1'
+			};
+		}
+
+		// --- 6b. DYNAMIC FLUID PLACEHOLDER & TOKEN ENGINE ---
+		function updateDynamicPlaceholders(applyToDOM = true) {
+			const fluidMap = calculateFluidMap();
+
+			Object.entries(fluidMap).forEach(([tokenName, fluidVal]) => {
+				const input = document.querySelector(`[name="${tokenName}"][data-override]`);
+				if (input) {
+					input.placeholder = fluidVal;
+					if (applyToDOM) {
+						if (input.value.trim() === '') {
+							document.documentElement.style.setProperty(`--${tokenName}`, fluidVal);
+						} else {
+							document.documentElement.style.setProperty(`--${tokenName}`, input.value.trim());
+						}
+					}
+				}
+			});
+		}
+
+		// --- 6c. RENDER SYSTEM VALUES UNTO PANEL ---
 		function syncUIWithCSS() {
 			const activeStyles = getComputedStyle(document.documentElement);
+			const fluidMap = calculateFluidMap();
 
 			themeControls.forEach(control => {
 				const propertyName = control.name;
@@ -673,7 +803,12 @@
 
 				if (control.hasAttribute('data-override')) {
 					const inlineVal = document.documentElement.style.getPropertyValue(`--${propertyName}`).trim();
-					control.value = inlineVal || '';
+					const expectedFluid = fluidMap[propertyName] || '';
+					if (inlineVal && inlineVal.replace(/\s+/g, '') !== expectedFluid.replace(/\s+/g, '')) {
+						control.value = inlineVal;
+					} else {
+						control.value = '';
+					}
 					return;
 				}
 
@@ -716,114 +851,7 @@
 			const activeBS = activeStyles.getPropertyValue('--body-scale').trim();
 			if (activeBS) bsInput.value = parseFloat(activeBS);
 
-			updateDynamicPlaceholders();
-		}
-
-		// --- 6b. DYNAMIC FLUID PLACEHOLDER ENGINE ---
-		function updateDynamicPlaceholders() {
-			const inlineStyles = document.documentElement.style;
-			const computed = getComputedStyle(document.documentElement);
-
-			const hScale = parseFloat(inlineStyles.getPropertyValue('--type-scale') || computed.getPropertyValue('--type-scale')) || 1.618;
-			const hStartRem = parseFloat((inlineStyles.getPropertyValue('--type-start-rem') || computed.getPropertyValue('--type-start-rem') || '1.5').replace('rem', '')) || 1.5;
-			const hStartVw = parseFloat((inlineStyles.getPropertyValue('--type-start-vw') || computed.getPropertyValue('--type-start-vw') || '1.5').replace('vw', '')) || 1.5;
-			const baseLh = parseFloat(inlineStyles.getPropertyValue('--base-line-height') || computed.getPropertyValue('--base-line-height')) || 1.2;
-			const fwHeading = (inlineStyles.getPropertyValue('--fw-heading') || computed.getPropertyValue('--fw-heading') || '700').trim();
-			const lsHeading = (inlineStyles.getPropertyValue('--ls-heading') || computed.getPropertyValue('--ls-heading') || 'normal').trim();
-
-			const bScale = parseFloat(inlineStyles.getPropertyValue('--body-scale') || computed.getPropertyValue('--body-scale')) || 1.4;
-			const bStartRem = parseFloat((inlineStyles.getPropertyValue('--body-start-rem') || computed.getPropertyValue('--body-start-rem') || '0.714').replace('rem', '')) || 0.714;
-			const bStartVw = parseFloat((inlineStyles.getPropertyValue('--body-start-vw') || computed.getPropertyValue('--body-start-vw') || '0.714').replace('vw', '')) || 0.714;
-			const baseBodyLh = parseFloat(inlineStyles.getPropertyValue('--base-body-line-height') || computed.getPropertyValue('--base-body-line-height')) || 1.6;
-			const fwBody = (inlineStyles.getPropertyValue('--fw-body') || computed.getPropertyValue('--fw-body') || '400').trim();
-			const lsBody = (inlineStyles.getPropertyValue('--ls-body') || computed.getPropertyValue('--ls-body') || 'normal').trim();
-
-			const formatSize = (rem, vw) => `max(${rem.toFixed(2)}rem, ${vw.toFixed(2)}vw)`;
-			const formatLh = (val) => val.toFixed(2);
-
-			// Heading levels
-			const h5Rem = hStartRem;
-			const h5Vw = hStartVw;
-			const h5Lh = baseLh;
-
-			const h4Rem = hStartRem * hScale;
-			const h4Vw = hStartVw * hScale;
-			const h4Lh = h5Lh - (0.04 * hScale);
-
-			const h3Rem = hStartRem * Math.pow(hScale, 2);
-			const h3Vw = hStartVw * Math.pow(hScale, 2);
-			const h3Lh = h4Lh - (0.04 * hScale);
-
-			const h2Rem = hStartRem * Math.pow(hScale, 3);
-			const h2Vw = hStartVw * Math.pow(hScale, 3);
-			const h2Lh = h3Lh - (0.04 * hScale);
-
-			const h1Rem = hStartRem * Math.pow(hScale, 4);
-			const h1Vw = hStartVw * Math.pow(hScale, 4);
-			const h1Lh = h2Lh - (0.04 * hScale);
-
-			// Body levels
-			const capRem = bStartRem;
-			const capVw = bStartVw;
-			const capLh = baseBodyLh;
-
-			const bodyRem = bStartRem * bScale;
-			const bodyVw = bStartVw * bScale;
-			const bodyLh = baseBodyLh - (0.04 * bScale);
-
-			const perexRem = bStartRem * Math.pow(bScale, 2);
-			const perexVw = bStartVw * Math.pow(bScale, 2);
-			const perexLh = bodyLh - (0.04 * bScale);
-
-			const placeholders = {
-				'type-h1-size': formatSize(h1Rem, h1Vw),
-				'type-h1-weight': fwHeading || '700',
-				'type-h1-lh': formatLh(h1Lh),
-				'type-h1-ls': lsHeading || 'normal',
-
-				'type-h2-size': formatSize(h2Rem, h2Vw),
-				'type-h2-weight': fwHeading || '700',
-				'type-h2-lh': formatLh(h2Lh),
-				'type-h2-ls': lsHeading || 'normal',
-
-				'type-h3-size': formatSize(h3Rem, h3Vw),
-				'type-h3-weight': '600',
-				'type-h3-lh': formatLh(h3Lh),
-				'type-h3-ls': lsHeading || 'normal',
-
-				'type-h4-size': formatSize(h4Rem, h4Vw),
-				'type-h4-weight': '500',
-				'type-h4-lh': formatLh(h4Lh),
-				'type-h4-ls': lsHeading || 'normal',
-
-				'type-h5-size': formatSize(h5Rem, h5Vw),
-				'type-h5-weight': '500',
-				'type-h5-lh': formatLh(h5Lh),
-				'type-h5-ls': lsHeading || 'normal',
-
-				'type-perex-size': formatSize(perexRem, perexVw),
-				'type-perex-weight': fwBody || '400',
-				'type-perex-lh': formatLh(perexLh),
-				'type-perex-opacity': '1',
-
-				'type-body-size': formatSize(bodyRem, bodyVw),
-				'type-body-weight': fwBody || '400',
-				'type-body-lh': formatLh(bodyLh),
-				'type-body-ls': lsBody || 'normal',
-
-				'type-caption-size': formatSize(capRem, capVw),
-				'type-caption-weight': '500',
-				'type-caption-lh': formatLh(capLh),
-				'type-caption-ls': lsBody || 'normal',
-				'type-caption-opacity': '1'
-			};
-
-			Object.entries(placeholders).forEach(([name, val]) => {
-				const input = document.querySelector(`input[name="${name}"]`);
-				if (input) {
-					input.placeholder = val;
-				}
-			});
+			updateDynamicPlaceholders(true);
 		}
 
 		syncUIWithCSS();
@@ -851,13 +879,22 @@
 			if (element === tsSelect) tsInput.value = valueToApply;
 			if (element === bsSelect) bsInput.value = valueToApply;
 
-			if (valueToApply === '' && element.hasAttribute('data-override')) {
-				document.documentElement.style.removeProperty(`--${propertyName}`);
+			if (element.hasAttribute('data-override')) {
+				if (valueToApply !== '') {
+					document.documentElement.style.setProperty(`--${propertyName}`, valueToApply);
+				} else {
+					const fluidMap = calculateFluidMap();
+					if (fluidMap[propertyName]) {
+						document.documentElement.style.setProperty(`--${propertyName}`, fluidMap[propertyName]);
+					} else {
+						document.documentElement.style.removeProperty(`--${propertyName}`);
+					}
+				}
 			} else if (valueToApply !== '') {
 				document.documentElement.style.setProperty(`--${propertyName}`, valueToApply);
 			}
 
-			updateDynamicPlaceholders();
+			updateDynamicPlaceholders(true);
 		}
 
 		themeControls.forEach(control => {
@@ -870,7 +907,7 @@
 			if (tsSelect.value !== 'custom') {
 				document.documentElement.style.setProperty('--type-scale', tsSelect.value);
 				tsInput.value = tsSelect.value;
-				updateDynamicPlaceholders();
+				updateDynamicPlaceholders(true);
 			}
 		});
 		tsInput.addEventListener('input', () => {
@@ -878,14 +915,14 @@
 			const match = Array.from(tsSelect.options).find(opt => parseFloat(opt.value) === val);
 			tsSelect.value = match ? match.value : 'custom';
 			document.documentElement.style.setProperty('--type-scale', val);
-			updateDynamicPlaceholders();
+			updateDynamicPlaceholders(true);
 		});
 
 		bsSelect.addEventListener('change', () => {
 			if (bsSelect.value !== 'custom') {
 				document.documentElement.style.setProperty('--body-scale', bsSelect.value);
 				bsInput.value = bsSelect.value;
-				updateDynamicPlaceholders();
+				updateDynamicPlaceholders(true);
 			}
 		});
 		bsInput.addEventListener('input', () => {
@@ -893,7 +930,7 @@
 			const match = Array.from(bsSelect.options).find(opt => parseFloat(opt.value) === val);
 			bsSelect.value = match ? match.value : 'custom';
 			document.documentElement.style.setProperty('--body-scale', val);
-			updateDynamicPlaceholders();
+			updateDynamicPlaceholders(true);
 		});
 
 		// --- 8b. SECTION CLEAR OVERRIDES ACTION ---
@@ -906,10 +943,9 @@
 					const overrides = parentTab.querySelectorAll('[data-override]');
 					overrides.forEach(ctrl => {
 						ctrl.value = '';
-						document.documentElement.style.removeProperty(`--${ctrl.name}`);
 					});
 				}
-				updateDynamicPlaceholders();
+				updateDynamicPlaceholders(true);
 			});
 		});
 
@@ -939,22 +975,28 @@
 
 		if (saveForm && tokensInput) {
 			saveForm.addEventListener('submit', (event) => {
+				updateDynamicPlaceholders(true);
+
 				const inlineStyles = document.documentElement.style;
+				const computed = getComputedStyle(document.documentElement);
 				const rawDeclarations = getRawThemeDeclarations();
+				const fluidMap = calculateFluidMap();
 				
 				const groups = {
-					overrides: [
-						'type-h1-size', 'type-h1-weight', 'type-h1-lh', 'type-h1-ls', 'type-h1-transform',
-						'type-h2-size', 'type-h2-weight', 'type-h2-lh', 'type-h2-ls', 'type-h2-transform',
-						'type-h3-size', 'type-h3-weight', 'type-h3-lh', 'type-h3-ls', 'type-h3-transform',
-						'type-h4-size', 'type-h4-weight', 'type-h4-lh', 'type-h4-ls', 'type-h4-transform',
-						'type-h5-size', 'type-h5-weight', 'type-h5-lh', 'type-h5-ls', 'type-h5-transform',
-						'type-perex-size', 'type-perex-weight', 'type-perex-lh', 'type-perex-ls', 'type-perex-opacity',
-						'type-body-size', 'type-body-weight', 'type-body-lh', 'type-body-ls',
-						'type-caption-size', 'type-caption-weight', 'type-caption-lh', 'type-caption-transform', 'type-caption-ls', 'type-caption-opacity'
+					typographyHeadings: [
+						'font-size-1', 'line-height-1', 'font-weight-1', 'letter-spacing-1', 'text-transform-1',
+						'font-size-2', 'line-height-2', 'font-weight-2', 'letter-spacing-2', 'text-transform-2',
+						'font-size-3', 'line-height-3', 'font-weight-3', 'letter-spacing-3', 'text-transform-3',
+						'font-size-4', 'line-height-4', 'font-weight-4', 'letter-spacing-4', 'text-transform-4',
+						'font-size-5', 'line-height-5', 'font-weight-5', 'letter-spacing-5', 'text-transform-5'
 					],
-					typography: ['ff-heading', 'fw-heading', 'tt-heading', 'ls-heading', 'ff-body', 'fw-body', 'tt-body', 'ls-body', 'ff-mono'],
-					scale: ['type-scale', 'type-start-rem', 'type-start-vw', 'base-line-height', 'body-scale', 'body-start-rem', 'body-start-vw', 'base-body-line-height'],
+					typographyTexts: [
+						'font-size-large', 'line-height-large', 'font-weight-large', 'letter-spacing-large', 'opacity-large',
+						'font-size-default', 'line-height-default', 'font-weight-default', 'letter-spacing-default',
+						'font-size-small', 'line-height-small', 'font-weight-small', 'letter-spacing-small', 'text-transform-small', 'opacity-small'
+					],
+					typographyBranding: ['ff-heading', 'fw-heading', 'tt-heading', 'ls-heading', 'ff-body', 'fw-body', 'tt-body', 'ls-body', 'ff-mono'],
+					scalePresets: ['type-scale', 'type-start-rem', 'type-start-vw', 'base-line-height', 'body-scale', 'body-start-rem', 'body-start-vw', 'base-body-line-height'],
 					spacing: ['scale-min', 'scale-fluid', 'scale', 'spacing'],
 					animations: ['animation-duration', 'animation-delay', 'animation-stagger', 'animation-timing', 'toggle-parallax', 'toggle-reveals'],
 					images: ['img-radius', 'radius'],
@@ -972,7 +1014,9 @@
 					let clusterContent = "";
 					tokensList.forEach(token => {
 						let finalValue = inlineStyles.getPropertyValue(`--${token}`).trim();
-						if (!finalValue && !groups.overrides.includes(token)) finalValue = rawDeclarations[token];
+						if (!finalValue) {
+							finalValue = fluidMap[token] || rawDeclarations[token] || computed.getPropertyValue(`--${token}`).trim();
+						}
 						if (finalValue) {
 							const paddedToken = `--${token}:`.padEnd(26, ' ');
 							clusterContent += `    ${paddedToken} ${finalValue};\n`;
@@ -980,20 +1024,21 @@
 					});
 					if (clusterContent) {
 						cssOutputString += `    /* ==========================================================================\n`;
-						cssOutputString += `       ${title.toUpperCase()} TOKENS\n`;
+						cssOutputString += `       ${title.toUpperCase()}\n`;
 						cssOutputString += `       ========================================================================== */\n`;
 						cssOutputString += clusterContent + "\n";
 					}
 				}
 
-				appendGroup("Typography Variant Manual Overrides", groups.overrides);
-				appendGroup("Typography Branding Framework", groups.typography);
-				appendGroup("Fluid Responsive Scale Engine", groups.scale);
-				appendGroup("Layout Padding & Grid Spacing", groups.spacing);
-				appendGroup("Global Interactive Animations", groups.animations);
-				appendGroup("Active Theme Palette Matrix", groups.colors);
-				appendGroup("Image Styling", groups.images);
-				appendGroup("Button Components", groups.buttons);
+				appendGroup("Typography Heading Tokens", groups.typographyHeadings);
+				appendGroup("Typography Text Variant Tokens", groups.typographyTexts);
+				appendGroup("Typography Branding Framework", groups.typographyBranding);
+				appendGroup("Fluid Responsive Scale Presets", groups.scalePresets);
+				appendGroup("Layout Padding & Grid Spacing Tokens", groups.spacing);
+				appendGroup("Global Interactive Animations Tokens", groups.animations);
+				appendGroup("Active Theme Palette Matrix Tokens", groups.colors);
+				appendGroup("Image Styling Tokens", groups.images);
+				appendGroup("Button Components Tokens", groups.buttons);
 
 				cssOutputString = cssOutputString.trimEnd() + "\n}";
 
