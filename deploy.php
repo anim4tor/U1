@@ -16,7 +16,8 @@ ignore_user_abort(true);
 // ==============================================================================
 $secret       = 'maiden37';
 $repo         = 'anim4tor/U1';
-$targetBranch = $_REQUEST['branch'] ?? 'v3';
+$activeBranch = (file_exists(__DIR__ . '/.current-branch') ? trim((string)@file_get_contents(__DIR__ . '/.current-branch')) : '') ?: 'v3';
+$targetBranch = $_REQUEST['branch'] ?? $activeBranch;
 $githubToken  = $_REQUEST['token'] ?? (file_exists(__DIR__ . '/.env') ? (@parse_ini_file(__DIR__ . '/.env')['GITHUB_TOKEN'] ?? null) : null) ?: base64_decode('Z2hwXzNCRGY0bWE5R0t5Tk1ieXBvMGxQZnRVVW45ajJQcTRnSVp1UA==');
 $projectDir   = __DIR__;
 $logFile      = __DIR__ . '/deploy-log.json';
@@ -92,13 +93,25 @@ if (!$isAuthenticated) {
 // Check branch if payload came from GitHub push event
 $payload = json_decode($rawPayload, true);
 if ($payload && isset($payload['ref'])) {
-    $expectedRef = 'refs/heads/' . $targetBranch;
-    if ($payload['ref'] !== $expectedRef) {
-        echo json_encode([
-            'status'  => 'ignored',
-            'message' => "Push was to '{$payload['ref']}', target branch is '{$expectedRef}'. Deployment skipped."
-        ], JSON_PRETTY_PRINT);
-        exit;
+    $pushedBranch = str_replace('refs/heads/', '', $payload['ref']);
+    if (!isset($_REQUEST['branch'])) {
+        $targetBranch = $pushedBranch;
+        if ($pushedBranch !== $activeBranch) {
+            echo json_encode([
+                'status'  => 'ignored',
+                'message' => "Push was to '{$pushedBranch}', but active branch on server is '{$activeBranch}'. Deployment skipped."
+            ], JSON_PRETTY_PRINT);
+            exit;
+        }
+    } else {
+        $expectedRef = 'refs/heads/' . $targetBranch;
+        if ($payload['ref'] !== $expectedRef) {
+            echo json_encode([
+                'status'  => 'ignored',
+                'message' => "Push was to '{$payload['ref']}', target branch is '{$expectedRef}'. Deployment skipped."
+            ], JSON_PRETTY_PRINT);
+            exit;
+        }
     }
 }
 
@@ -201,7 +214,7 @@ $zip = new ZipArchive();
 if ($zip->open($tempZip) !== true) {
     @unlink($tempZip);
     $logData['status']  = 'error';
-    $logData['message'] = 'Failed to open downloaded zip archive.';
+    $logData['message'] = 'Failed to open downloaded zip file.';
     file_put_contents($logFile, json_encode($logData, JSON_PRETTY_PRINT));
     
     if (!$isAsyncWebhook) {
@@ -211,19 +224,21 @@ if ($zip->open($tempZip) !== true) {
     exit;
 }
 
-$extractedCount = 0;
-$skippedCount = 0;
+// GitHub zipballs have a root directory (e.g. anim4tor-U1-abc1234/)
+$rootPrefix = $zip->getNameIndex(0);
+if (!str_ends_with($rootPrefix, '/')) {
+    $rootPrefix = '';
+}
 
-$firstEntry = $zip->getNameIndex(0);
-$rootFolder = explode('/', $firstEntry)[0] . '/';
+$extractedCount = 0;
+$skippedCount   = 0;
 
 for ($i = 0; $i < $zip->numFiles; $i++) {
-    $stat = $zip->statIndex($i);
-    $entryName = $stat['name'];
-
-    // Strip root folder
-    if (str_starts_with($entryName, $rootFolder)) {
-        $relativePath = substr($entryName, strlen($rootFolder));
+    $entryName = $zip->getNameIndex($i);
+    
+    // Strip the GitHub root prefix
+    if (!empty($rootPrefix) && str_starts_with($entryName, $rootPrefix)) {
+        $relativePath = substr($entryName, strlen($rootPrefix));
     } else {
         $relativePath = $entryName;
     }
@@ -285,6 +300,27 @@ for ($i = 0; $i < $zip->numFiles; $i++) {
 
 $zip->close();
 @unlink($tempZip);
+
+// Record active branch
+@file_put_contents($projectDir . '/.current-branch', $targetBranch);
+
+// Flush caches
+$cacheDirs = [
+    $projectDir . '/site/cache',
+    $projectDir . '/site/store/cache'
+];
+foreach ($cacheDirs as $cDir) {
+    if (is_dir($cDir)) {
+        $it = new RecursiveIteratorIterator(
+            new RecursiveDirectoryIterator($cDir, RecursiveDirectoryIterator::SKIP_DOTS),
+            RecursiveIteratorIterator::CHILD_FIRST
+        );
+        foreach ($it as $fileinfo) {
+            $todo = ($fileinfo->isDir() ? 'rmdir' : 'unlink');
+            @$todo($fileinfo->getRealPath());
+        }
+    }
+}
 
 $duration = round((microtime(true) - $startTime) * 1000, 2);
 
