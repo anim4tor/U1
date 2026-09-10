@@ -1,10 +1,14 @@
 <?php if ($page->about()->isNotEmpty()) : ?>
 <section class="about" theme="invert">
-	<div class="grid__3 gap__2 mobile:grid__1 inner__1 inner-x__1 mobile:inner-x__1 inner-y__2">
-		<div class="span__2 grid place__start-start gap__3 mobile:inner-x__0">
+	<div class="grid__4 gap__2 mobile:grid__1 inner__4 mobile:inner-x__1">
+		<div class="span__2 grid place__start-start gap__2 mobile:inner-x__0">
 			<?= snippet('molecules/Header', ['header' => $page->about(), 'type' => ['heading']]) ?>
 		</div>
 		<div></div>
+		<div></div>
+		<div class="span__4">
+		<?= snippet('templates/globals/Figures') ?>
+			
 		<!-- <div></div>
 		<?php if ($fig = $page->introFigure()->toFile()) : ?>
 			<div class="grid h__20" >
@@ -14,12 +18,11 @@
 		<div class="grid place__start-end"><?= snippet('molecules/Header', ['header' => $page->about(), 'type' => ['label']]) ?></div>
 		<div></div>
 		<div class="grid place__center-start gap__3">
-			<?= snippet('molecules/Header', ['header' => $page->about(), 'type' => ['text']]) ?>
+			<?= null //snippet('molecules/Header', ['header' => $page->about(), 'type' => ['text']]) ?>
 		</div>
 		<div></div> -->
-		<div></div>
+		</div>
 		
-		<?= snippet('templates/globals/Figures') ?>
 	</div>
 </section>
 <?php endif ?>

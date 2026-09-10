@@ -11,6 +11,7 @@ site/cache/*
 site/store/cache/*
 site/store/safe/sessions/*
 site/store/logs/*
+site/store/backup/*
 
 # Operating System files
 .DS_Store

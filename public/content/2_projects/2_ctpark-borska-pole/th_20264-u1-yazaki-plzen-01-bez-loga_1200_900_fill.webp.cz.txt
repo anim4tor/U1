@@ -7,3 +7,11 @@ Uuid: onnpfA2k13de1mMi
 ----
 
 Template: cover
+
+----
+
+Industry: Výroba
+
+----
+
+Space: fokus zóny, kanceláře

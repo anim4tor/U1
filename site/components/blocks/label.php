@@ -1,1 +1,1 @@
-<div class="grid gap__05" data-scroll data-reveal-text><?= $block->text(); ?></div>
+<div class="upper no__wrap" data-scroll data-reveal-text>(<?= $block->text(); ?>)</div>

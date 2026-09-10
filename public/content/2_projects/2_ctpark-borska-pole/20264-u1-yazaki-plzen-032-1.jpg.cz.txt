@@ -3,3 +3,11 @@ Uuid: TTMJJQ3acdqa3BUL
 ----
 
 Template: blocks/image
+
+----
+
+Industry: Výroba
+
+----
+
+Space: fokus zóny, kanceláře

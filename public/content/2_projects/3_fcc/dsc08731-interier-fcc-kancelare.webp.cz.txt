@@ -7,3 +7,7 @@ Uuid: vgtgwz2FJG8qXj0Z
 ----
 
 Template: cover
+
+----
+
+Space: Kanceláře, Recepce, Meeting roomy

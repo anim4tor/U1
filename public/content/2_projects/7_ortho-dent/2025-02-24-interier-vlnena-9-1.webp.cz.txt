@@ -7,3 +7,11 @@ Uuid: PbkGIyKignXxS6Pf
 ----
 
 Template: image
+
+----
+
+Industry: Zdravotnictví
+
+----
+
+Space: Recepce, Ordinace

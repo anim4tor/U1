@@ -7,3 +7,7 @@ Uuid: jxie6EGazwKUElXv
 ----
 
 Template: cover
+
+----
+
+Space: Openspace, Lobby, Kuchyně

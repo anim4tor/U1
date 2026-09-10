@@ -3,50 +3,101 @@
 use Kirby\Toolkit\Str;
 
 return function ($page, $kirby, $site) {
-    $filterBy = get('filter'); // Receives slug values (e.g., 'real-estate')
-    $projects = collection('Projects');
+    $filterIndustry = get('industry');
+    $filterSpace    = get('space');
+    $filterGeneric  = get('filter');
+
+    $allProjects = collection('Projects');
     
-    // 1. Fetch unique raw text values for industries and spaces separately
-    $rawIndustries = $projects->pluck('industry', ',', true);
-    $rawSpaces     = $projects->pluck('space', ',', true);
+    // 1. Collect ONLY project photos / gallery / covers — EXCLUDE logos & testimonials
+    $allImages = $allProjects->images()->filter(function ($file) {
+        return $file->template() !== 'logo' && $file->extension() !== 'svg';
+    });
+    
+    // Helper to merge, clean and deduplicate tags by slug
+    $extractTags = function(...$tagArrays) {
+        $map = [];
+        foreach ($tagArrays as $tags) {
+            foreach ($tags as $tag) {
+                $trimmed = trim((string)$tag);
+                if ($trimmed !== '') {
+                    $slug = Str::slug($trimmed);
+                    if ($slug !== '' && !isset($map[$slug])) {
+                        $map[$slug] = $trimmed;
+                    }
+                }
+            }
+        }
+        asort($map, SORT_NATURAL | SORT_FLAG_CASE);
 
-    sort($rawIndustries);
-    sort($rawSpaces);
+        $result = [];
+        foreach ($map as $slug => $text) {
+            $result[] = [
+                'text' => $text,
+                'slug' => $slug
+            ];
+        }
+        return $result;
+    };
 
-    // 2. Transform industries into an array containing display text and URL slug
-    $industries = array_map(function($tag) {
-        return [
-            'text' => $tag,
-            'slug' => Str::slug($tag)
-        ];
-    }, $rawIndustries);
+    // 2. Fetch available options from all projects and image tags
+    $industries = $extractTags(
+        $allProjects->pluck('industry', ',', true),
+        $allImages->pluck('industry', ',', true)
+    );
 
-    // 3. Transform spaces into an array containing display text and URL slug
-    $spaces = array_map(function($tag) {
-        return [
-            'text' => $tag,
-            'slug' => Str::slug($tag)
-        ];
-    }, $rawSpaces);
+    $spaces = $extractTags(
+        $allProjects->pluck('space', ',', true),
+        $allImages->pluck('space', ',', true)
+    );
 
-    // 4. Filter projects by comparing the URL slug against the project data slugs
-    if (empty($filterBy) === false) {
-        $projects = $projects->filter(function ($project) use ($filterBy) {
-            // Split fields and map them directly into URL slugs
-            $projectIndustries = array_map([Str::class, 'slug'], $project->industry()->split(','));
-            $projectSpaces     = array_map([Str::class, 'slug'], $project->space()->split(','));
-            
-            // Match if the requested URL slug exists in either field
-            // (Uses OR logic; if you need strict matching per category, adjust accordingly)
-            return in_array($filterBy, $projectIndustries) || 
-                   in_array($filterBy, $projectSpaces);
+    $isFiltered     = !empty($filterIndustry) || !empty($filterSpace) || !empty($filterGeneric);
+    $filteredImages = null;
+    $projects       = $allProjects;
+
+    // 3. Filter ONLY images matching the active tag(s) on the images themselves (supports two tags simultaneously)
+    if ($isFiltered) {
+        $filteredImages = $allImages->filter(function ($image) use ($filterIndustry, $filterSpace, $filterGeneric) {
+            $imageIndustries = array_map([Str::class, 'slug'], $image->industry()->split(','));
+            $imageSpaces     = array_map([Str::class, 'slug'], $image->space()->split(','));
+
+            // If industry filter is set, image MUST explicitly have this industry tag
+            if (!empty($filterIndustry) && !in_array($filterIndustry, $imageIndustries)) {
+                return false;
+            }
+
+            // If space filter is set, image MUST explicitly have this space tag
+            if (!empty($filterSpace) && !in_array($filterSpace, $imageSpaces)) {
+                return false;
+            }
+
+            // Generic legacy filter check (e.g. ?filter=tag)
+            if (!empty($filterGeneric)) {
+                $genericSlugs = array_map([Str::class, 'slug'], explode(',', $filterGeneric));
+                $matchesGeneric = false;
+                foreach ($genericSlugs as $slug) {
+                    if (in_array($slug, $imageIndustries) || in_array($slug, $imageSpaces)) {
+                        $matchesGeneric = true;
+                        break;
+                    }
+                }
+                if (!$matchesGeneric) {
+                    return false;
+                }
+            }
+
+            return true;
         });
     }
 
     return [
-        'industries' => $industries, 
-        'spaces'     => $spaces, 
-        'filterBy'   => $filterBy,
-        'projects'   => $projects->paginate(12),
+        'industries'     => $industries, 
+        'spaces'         => $spaces, 
+        'filterIndustry' => $filterIndustry,
+        'filterSpace'    => $filterSpace,
+        'filterGeneric'  => $filterGeneric,
+        'isFiltered'     => $isFiltered,
+        'projects'       => $projects->paginate(12),
+        'images'         => $filteredImages ? $filteredImages->paginate(24) : null,
     ];
 };

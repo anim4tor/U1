@@ -5,20 +5,39 @@
 		<div class="span__4 inner-y__1 border__bottom flex justify__space-between align__end">
 			<div class="span__2">
 				<div class="flex align__start  gap__02 inner-y__02">
-					<?php if (!empty($filterBy)) : ?>
+					<?php if (!empty($isFiltered)) : ?>
 						<?php 
-						// 1. Find the clean display text for the active slug
-						$activeText = '';
-						$tags = array_merge($industries, $spaces);
-						foreach ($tags as $tagItem) {
-							if ($tagItem['slug'] === $filterBy) {
-								$activeText = $tagItem['text'];
-								break;
+						// Find clean display text for active filters
+						$activeLabels = [];
+						if (!empty($filterIndustry)) {
+							foreach ($industries as $item) {
+								if ($item['slug'] === $filterIndustry) {
+									$activeLabels[] = $item['text'];
+									break;
+								}
 							}
 						}
+						if (!empty($filterSpace)) {
+							foreach ($spaces as $item) {
+								if ($item['slug'] === $filterSpace) {
+									$activeLabels[] = $item['text'];
+									break;
+								}
+							}
+						}
+						if (empty($activeLabels) && !empty($filterGeneric)) {
+							$allTags = array_merge($industries, $spaces);
+							foreach ($allTags as $item) {
+								if ($item['slug'] === $filterGeneric) {
+									$activeLabels[] = $item['text'];
+									break;
+								}
+							}
+						}
+						$activeHeading = !empty($activeLabels) ? implode(' / ', $activeLabels) : 'Filtered';
 						?>
 						<?= snippet('atoms/Heading', [
-							'text'   => $activeText, 
+							'text'   => $activeHeading, 
 							'level'  => 'h1',
 							'reveal' => true
 						]) ?>
@@ -26,22 +45,34 @@
 					<?php else : ?>
 						<?= snippet('molecules/Header', ['header' => $page->hero(), 'type' => ['heading']]) ?>
 					<?php endif ?>
-					<?= snippet('atoms/Text', ['text' => '('.$projects->count().')', 'reveal' => true, 'css' => 'font__size__4' ]) ?>
+					<?php 
+						$itemCount = (!empty($isFiltered) && isset($images)) ? $images->pagination()->total() : $projects->pagination()->total(); 
+					?>
+					<?= snippet('atoms/Text', ['text' => '('.$itemCount.')', 'reveal' => true, 'css' => 'font__size__4' ]) ?>
 				</div>
 			</div>
 			<div></div>
 			<div class="flex justify__end gap__05 align__center" data-scroll>
 				<div class="flex align__start gap__05 ">
 				<?= snippet('atoms/Button', [ 
-			        'url'     => $page, 
+			        'url'     => $page->url(), 
 			        'label'   => 'All', 
-			        'theme'   => 'light', 
+			        'theme'   => empty($isFiltered) ? 'dark' : 'light', 
 			        'reveal'  => true
 			    ]) ?>
-			    <?= snippet('molecules/Dropdown/filter', [ 'label' => 'Industries', 'options' => $industries ]) ?> 
-			    <?= snippet('molecules/Dropdown/filter', [ 'label' => 'Spaces', 'options' => $spaces ]) ?> 
+			    <?= snippet('molecules/Dropdown/filter', [ 
+					'label'   => 'Industries', 
+					'param'   => 'industry',
+					'options' => $industries,
+					'active'  => $filterIndustry ?? null
+				]) ?> 
+			    <?= snippet('molecules/Dropdown/filter', [ 
+					'label'   => 'Spaces', 
+					'param'   => 'space',
+					'options' => $spaces,
+					'active'  => $filterSpace ?? null
+				]) ?> 
 				</div>
-				<!-- <?= snippet('atoms/Text', ['text' => '(Filters)', 'reveal' => true, 'css' => 'upper' ]) ?>	 -->
 			</div>
 		</div>
 		

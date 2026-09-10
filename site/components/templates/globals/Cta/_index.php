@@ -2,7 +2,7 @@
 <section class="cta">
 	<a href="" data-contact-toggle="inquiry">
 		<div class="bg radius absolute inset__stretch" theme="acc"></div>
-		<div class="relative grid__4 gap__1 mobile:grid__1 inner__1 inner-y__2">
+		<div class="relative grid__4 gap__1 mobile:grid__1 inner__4">
 			<div class="item__figure grid img__radius">
 				<?= snippet('molecules/Header', ['header' => $site->ctaContact(), 'type' => ['image']]) ?>
 			</div>

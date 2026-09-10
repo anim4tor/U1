@@ -90,18 +90,31 @@ return function ($kirby) {
         // Convert timestamp (ms) or date string to Unix timestamp
         $timestamp  = isset($post['createdAt']) ? (int)($post['createdAt'] / 1000) : time();
 
+        $content = [
+            'uuid'         => 'social-li-' . md5($postId),
+            'title'        => $commentary,
+            'social_url'   => 'https://www.linkedin.com/feed/update/' . $postId,
+            'media_url'    => $mediaUrl,
+            'platform'     => 'linkedin',
+            'date'         => date('Y-m-d H:i:s', $timestamp),
+            'timestamp'    => $timestamp,
+            'hashtags'     => ''
+        ];
+
         $virtualPages[] = new Page([
-            'slug'     => 'linkedin-' . md5($postId),
-            'template' => 'social-item',
-            'content'  => [
-                'uuid'         => 'social-li-' . md5($postId),
-                'title'        => $commentary,
-                'social_url'   => 'https://www.linkedin.com/feed/update/' . $postId,
-                'media_url'    => $mediaUrl,
-                'platform'     => 'linkedin',
-                'date'         => date('Y-m-d H:i:s', $timestamp),
-                'timestamp'    => $timestamp,
-                'hashtags'     => ''
+            'slug'         => 'linkedin-' . md5($postId),
+            'template'     => 'social-item',
+            'num'          => null,
+            'content'      => $content,
+            'translations' => [
+                'cz' => [
+                    'code'    => 'cz',
+                    'content' => $content
+                ],
+                'en' => [
+                    'code'    => 'en',
+                    'content' => $content
+                ]
             ]
         ]);
     }
@@ -155,19 +168,32 @@ return function ($kirby) {
         $cleanTitle = trim(preg_replace('/#\w+/u', '', $caption));
         $timestamp  = isset($post['timestamp']) ? strtotime($post['timestamp']) : time();
 
+        $content = [
+            'uuid'       => 'social-ig-' . $post['id'],
+            'title'      => $cleanTitle,
+            'media_url'  => $imageUrl,
+            'social_url' => $post['permalink'] ?? '',
+            'media_type' => $post['media_type'] ?? 'IMAGE',
+            'platform'   => 'instagram',
+            'date'       => date('Y-m-d H:i:s', $timestamp),
+            'timestamp'  => $timestamp,
+            'hashtags'   => implode(', ', $hashtags)
+        ];
+
         $virtualPages[] = new Page([
-            'slug'     => 'instagram-' . $post['id'],
-            'template' => 'social-item',
-            'content'  => [
-                'uuid'       => 'social-ig-' . $post['id'],
-                'title'      => $cleanTitle,
-                'media_url'  => $imageUrl,
-                'social_url' => $post['permalink'] ?? '',
-                'media_type' => $post['media_type'] ?? 'IMAGE',
-                'platform'   => 'instagram',
-                'date'       => date('Y-m-d H:i:s', $timestamp),
-                'timestamp'  => $timestamp,
-                'hashtags'   => implode(', ', $hashtags)
+            'slug'         => 'instagram-' . $post['id'],
+            'template'     => 'social-item',
+            'num'          => null,
+            'content'      => $content,
+            'translations' => [
+                'cz' => [
+                    'code'    => 'cz',
+                    'content' => $content
+                ],
+                'en' => [
+                    'code'    => 'en',
+                    'content' => $content
+                ]
             ]
         ]);
     }

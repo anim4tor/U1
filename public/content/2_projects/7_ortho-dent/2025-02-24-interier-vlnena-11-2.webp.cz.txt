@@ -7,3 +7,11 @@ Uuid: LlqN8H5tVOzIDONC
 ----
 
 Template: cover
+
+----
+
+Industry: Zdravotnictví
+
+----
+
+Space: Recepce, Ordinace

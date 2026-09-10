@@ -40,6 +40,64 @@ return [
             'email' => 'panel@u1.cz'
         ]
     ],
+    'hooks' => [
+        'file.update:after' => function ($newFile, $oldFile) {
+            $parent = $newFile->parent();
+            $isProject = $parent instanceof Kirby\Cms\Page && ($parent->intendedTemplate()->name() === 'project' || ($parent->parent() && $parent->parent()->slug() === 'projects'));
+            if ($isProject) {
+                $images = $parent->images()->filter(function ($img) {
+                    return $img->template() !== 'logo' && $img->extension() !== 'svg';
+                });
+                $imageIndustries = $images->pluck('industry', ',', true);
+                $imageSpaces     = $images->pluck('space', ',', true);
+
+                $projectIndustries = $parent->industry()->split(',');
+                $projectSpaces     = $parent->space()->split(',');
+
+                $mergedIndustries = array_values(array_unique(array_filter(array_merge($projectIndustries, $imageIndustries))));
+                $mergedSpaces     = array_values(array_unique(array_filter(array_merge($projectSpaces, $imageSpaces))));
+
+                $newIndustry = implode(', ', $mergedIndustries);
+                $newSpace    = implode(', ', $mergedSpaces);
+
+                if ($newIndustry !== $parent->industry()->value() || $newSpace !== $parent->space()->value()) {
+                    kirby()->impersonate('kirby');
+                    $parent->update([
+                        'industry' => $newIndustry,
+                        'space'    => $newSpace,
+                    ]);
+                }
+            }
+        },
+        'file.create:after' => function ($file) {
+            $parent = $file->parent();
+            $isProject = $parent instanceof Kirby\Cms\Page && ($parent->intendedTemplate()->name() === 'project' || ($parent->parent() && $parent->parent()->slug() === 'projects'));
+            if ($isProject) {
+                $images = $parent->images()->filter(function ($img) {
+                    return $img->template() !== 'logo' && $img->extension() !== 'svg';
+                });
+                $imageIndustries = $images->pluck('industry', ',', true);
+                $imageSpaces     = $images->pluck('space', ',', true);
+
+                $projectIndustries = $parent->industry()->split(',');
+                $projectSpaces     = $parent->space()->split(',');
+
+                $mergedIndustries = array_values(array_unique(array_filter(array_merge($projectIndustries, $imageIndustries))));
+                $mergedSpaces     = array_values(array_unique(array_filter(array_merge($projectSpaces, $imageSpaces))));
+
+                $newIndustry = implode(', ', $mergedIndustries);
+                $newSpace    = implode(', ', $mergedSpaces);
+
+                if ($newIndustry !== $parent->industry()->value() || $newSpace !== $parent->space()->value()) {
+                    kirby()->impersonate('kirby');
+                    $parent->update([
+                        'industry' => $newIndustry,
+                        'space'    => $newSpace,
+                    ]);
+                }
+            }
+        },
+    ],
     'routes' => function ($kirby) {
       return [
           [

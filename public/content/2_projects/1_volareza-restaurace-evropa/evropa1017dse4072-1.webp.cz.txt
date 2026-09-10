@@ -7,3 +7,11 @@ Uuid: 13TtfrExTGRnl1A3
 ----
 
 Template: image
+
+----
+
+Industry: Pohostinství
+
+----
+
+Space: Kuchyně, Bar, Lobby

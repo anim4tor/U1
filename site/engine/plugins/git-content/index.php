@@ -245,23 +245,68 @@ class GitContentService
 
         register_shutdown_function(function () {
             @ignore_user_abort(true);
-            if (function_exists('set_time_limit')) {
-                @set_time_limit(180);
-            }
 
-            // 1. Release PHP session lock immediately so subsequent Panel AJAX requests are never blocked
+            // Release session lock immediately so Panel AJAX calls are never blocked
             if (session_status() === PHP_SESSION_ACTIVE) {
                 @session_write_close();
             }
 
-            // 2. Finish FastCGI request to browser immediately (Panel UI turns green instantly)
+            // On FastCGI servers (Nginx/PHP-FPM): finish request to browser now, sync runs in background
             if (function_exists('fastcgi_finish_request')) {
                 fastcgi_finish_request();
+                if (function_exists('set_time_limit')) @set_time_limit(180);
+                self::processQueue();
+                return;
             }
 
-            // 3. Process GitHub API sync in the background
-            self::processQueue();
+            // On Apache/WampServer (no fastcgi_finish_request): dispatch sync as a fire-and-forget
+            // async cURL self-request so the panel response is NOT blocked by GitHub API calls.
+            $queue = self::$queue;
+            if (empty($queue['push']) && empty($queue['delete'])) {
+                return;
+            }
+
+            // Serialize queue to a temp file
+            $tmpFile = sys_get_temp_dir() . '/gc_queue_' . uniqid('', true) . '.json';
+            @file_put_contents($tmpFile, json_encode($queue, JSON_UNESCAPED_SLASHES));
+
+            // Fire-and-forget HTTP request to our own sync endpoint
+            // CURLOPT_TIMEOUT=1 returns immediately after sending — the server-side worker runs the full sync
+            $config  = self::getConfig();
+            $syncUrl = rtrim((string)(kirby()->url('index') ?? 'http://localhost'), '/') . '/git-content-sync.json';
+            $ch = curl_init($syncUrl);
+            curl_setopt_array($ch, [
+                CURLOPT_POST           => true,
+                CURLOPT_POSTFIELDS     => http_build_query([
+                    'secret'    => $config['secret'],
+                    'queue_file' => $tmpFile,
+                ]),
+                CURLOPT_RETURNTRANSFER => false,
+                CURLOPT_TIMEOUT        => 1,       // Return immediately — don't wait for response
+                CURLOPT_CONNECTTIMEOUT => 1,
+                CURLOPT_HTTPHEADER     => ['Connection: close'],
+                CURLOPT_SSL_VERIFYPEER => false,
+                CURLOPT_SSL_VERIFYHOST => false,
+                CURLOPT_FORBID_REUSE   => true,
+                CURLOPT_FRESH_CONNECT  => true,
+            ]);
+            curl_exec($ch);
+            curl_close($ch);
+            // Panel response is now free — sync continues server-side in the background request
         });
+    }
+
+    /**
+     * Load a previously serialized queue (from async fire-and-forget self-request) into the static queue.
+     */
+    public static function injectQueue(array $queue): void
+    {
+        if (!empty($queue['push']) && is_array($queue['push'])) {
+            self::$queue['push'] = array_merge(self::$queue['push'], $queue['push']);
+        }
+        if (!empty($queue['delete']) && is_array($queue['delete'])) {
+            self::$queue['delete'] = array_merge(self::$queue['delete'], $queue['delete']);
+        }
     }
 
     public static function processQueue(): array
@@ -539,6 +584,20 @@ KirbyApp::plugin('u1/git-content', [
 
                 if (empty($secret) || !hash_equals($config['secret'], $secret)) {
                     return Response::json(['status' => 'error', 'message' => 'Unauthorized'], 401);
+                }
+
+                // Async background worker: load queue from temp file written by the shutdown function
+                $queueFile = get('queue_file') ?? (kirby()->request()->data()['queue_file'] ?? '');
+                if ($queueFile && file_exists($queueFile)) {
+                    @ignore_user_abort(true);
+                    if (function_exists('set_time_limit')) @set_time_limit(180);
+                    $loaded = @json_decode((string)file_get_contents($queueFile), true);
+                    @unlink($queueFile);
+                    if (is_array($loaded)) {
+                        GitContentService::injectQueue($loaded);
+                    }
+                    $res = GitContentService::processQueue();
+                    return Response::json($res);
                 }
 
                 if (get('check')) {

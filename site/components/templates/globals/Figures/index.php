@@ -3,7 +3,7 @@
 		<!-- Odstraníme případné nečíselné znaky z hodnoty -->
 		<?php $targetNumber = preg_replace('/[^0-9]/', '', $figure->feature()); ?>
 		<div class="flex " data-scroll>
-			<h2 class="font__size__1 outlined lighter carousel-counter" 
+			<h2 class="font__size__1 l outlined lighter carousel-counter" 
 			     
 			    data-target="<?= $targetNumber ?>">
 				<!-- JS sem vygeneruje rotující pásy pro každou číslici -->

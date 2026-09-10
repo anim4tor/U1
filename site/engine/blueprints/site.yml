@@ -59,6 +59,10 @@ tabs:
           ctaContact:
             extends: fields/section
             label: Contact Cta
+
+          ctaCareer:
+            extends: fields/section
+            label: Career Cta
           
 
   # CONTACT

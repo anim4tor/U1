@@ -8,7 +8,7 @@ carousel {
 	display: block;
 }
 [data-carousel] {
-	overflow: hidden;
+/*	overflow: hidden;*/
 	position: relative;
 	width: 100%;
 	min-width: 0;
@@ -21,7 +21,7 @@ carousel {
 }
 
 [data-carousel-scroll] {
-	overflow: hidden;
+/*	overflow: hidden;*/
 	position: relative;
 	width: 100%;
 	min-width: 0;

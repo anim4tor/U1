@@ -7,3 +7,11 @@ Uuid: 1KY4IxgClFhGIACb
 ----
 
 Template: image
+
+----
+
+Industry: Pohostinství
+
+----
+
+Space: Kuchyně, Bar, Lobby

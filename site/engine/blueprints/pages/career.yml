@@ -27,6 +27,8 @@ tabs:
           hero:
             extends: fields/hero
 
+          cultureHeader:
+            extends: fields/section
           culture:
             type: structure
             fields:
@@ -36,6 +38,36 @@ tabs:
                 extends: fields/image
               text:
                 type: writer
+
+          coleaguesHeader:
+            extends: fields/section
+          coleagues:
+            type: structure
+            fields:
+              title:
+                type: text
+              image:
+                extends: fields/image
+              text:
+                type: writer
+
+          life:
+            type: structure
+            fields:
+              title:
+                type: text
+              image:
+                extends: fields/cover
+              text:
+                type: writer
+
+          projects:
+            label: Featured Projects
+            type: pages
+            layout: list
+            query: site.find('projects')
+            image:
+              cover: true
 
           positions:
             extends: fields/section
