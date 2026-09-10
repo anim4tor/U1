@@ -213,7 +213,7 @@ function u1GetServerBranches(): array {
     }
 
     if (!is_array($branchesRaw)) {
-        $token = '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';
+        $token = option('u1.git-content.token', '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');
         $ch = curl_init('https://api.github.com/repos/anim4tor/U1/branches');
         curl_setopt_array($ch, [
             CURLOPT_RETURNTRANSFER => true,
@@ -275,7 +275,7 @@ function u1DeployServerBranch(string $target): array {
     }
 
     $repoDir = kirby()->root('index');
-    $token   = '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';
+    $token   = option('u1.git-content.token', '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');
     $zipUrl  = "https://api.github.com/repos/anim4tor/U1/zipball/{$target}";
     $tempZip = sys_get_temp_dir() . '/deploy_switch_' . uniqid() . '.zip';
 
