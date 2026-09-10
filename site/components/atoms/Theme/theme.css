@@ -4,12 +4,12 @@
 /* Tab navigation layout styling */
 .theme-tab-nav {
 	display: flex;
-	gap: 0.2rem;
+	flex-wrap: wrap;
+	gap: 0.25rem;
 	width: 100%;
 	border-bottom: 1px solid rgba(255,255,255,0.1);
 	padding-bottom: 0.5rem;
 	margin-bottom: 0.75rem;
-	overflow: hidden; 
 }
 .theme-tab-btn {
 	flex: 1;
