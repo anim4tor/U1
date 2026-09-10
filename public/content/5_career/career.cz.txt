@@ -10,7 +10,7 @@ Hero: [{"content":{"text":"We are constantly moving forward","level":"h1","mod":
 
 ----
 
-Cultureheader: [{"content":{"text":"Benefity","level":"h2","mod":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"5bf1042d-565b-4efa-8647-fe2837f7a68a","isHidden":false,"type":"heading"}]
+Cultureheader: [{"content":{"text":"Benefity","level":"h2","mod":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"5bf1042d-565b-4efa-8647-fe2837f7a68a","isHidden":false,"type":"heading"},{"content":{"text":"<p>Benefity</p>","mod":"","face":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"369b1667-cedc-40a2-b462-17e816f66046","isHidden":false,"type":"label"}]
 
 ----
 

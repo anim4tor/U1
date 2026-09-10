@@ -2,9 +2,18 @@
 <section class="solutions color__invert" data-tabs="hoverable">
 	<div class="bg radius absolute inset__stretch" theme="dark"></div>
 	<div class="grid__4 gap__2 mobile:grid__1 mobile:inner-t__10 mobile:gap__2 relative inner__4" >
-		<div class="span__4" data-scroll>
+		<div data-scroll class="flex align__start gap__01 span__4">
+			<?= snippet('molecules/Header', ['header' => $page->services(), 'type' => ['label']]) ?>
 			<?= snippet('molecules/Header', ['header' => $page->services(), 'type' => ['heading']]) ?>
 		</div>
+		<div></div>
+		<ol class="span__2 grid__2 place__start-start gap-x__2 solutions__list grid " data-scroll >
+			<?php foreach (collection('Solutions') as $solution) : ?>
+				<a href="<?= $solution->url() ?>" class="flex align__start gap__05 inner-y__02" data-tab="service-<?= $solution->slug() ?>">
+					<h3 data-reveal-text data-split-ignore class="s"><?= $solution->title() ?></h3>
+				</a>
+			<?php endforeach ?>
+		</ol>
 		<div class="span__1 grid place__start-space-between gap__1 ">
 			
 			<div class="sticky top__1 grid__stack place__start-start " data-pane-container data-scroll data-reveal-image >
@@ -22,15 +31,6 @@
 				<?php endforeach ?>
 			</div>
 		</div>
-		<div></div>
-		<ol class="span__2 grid__2 place__start-start gap-x__2 solutions__list grid " data-scroll >
-			<?php foreach (collection('Solutions') as $solution) : ?>
-				<a href="<?= $solution->url() ?>" class="flex align__start gap__05 inner-y__02" data-tab="service-<?= $solution->slug() ?>">
-					<h3 data-reveal-text data-split-ignore><?= $solution->title() ?></h3>
-				</a>
-			<?php endforeach ?>
-		</ol>
-		<div></div>
 	</div>
 </section>
 <?php endif ?>

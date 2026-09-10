@@ -10,7 +10,7 @@
 		</div>
 	<?php endif ?>
 	
-	<div data-scroll class="z__1 intro__header place__end-stretch grid__4 mobile:grid__1 h__100v mobile:h__auto inner__1 mobile:inner-t__10 mobile:gap__2 relative color__invert">
+	<div data-scroll class="z__1 intro__header place__end-stretch grid__4 mobile:grid__1 h__100v mobile:h__auto inner__4 mobile:inner-t__10 mobile:gap__2 relative color__invert">
 		<div class="span__4 grid gap__1 place__stretch-stretch">
 			<h1 class=" secret-door ">
 				<div data-reveal-text=""><?= $page->title() ?></div>

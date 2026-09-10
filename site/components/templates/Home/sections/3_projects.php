@@ -1,7 +1,8 @@
 <?php if ($page->featuredProjects()->isNotEmpty()) : ?>
 <section class="projects radius" theme="dark" >
-	<div class="grid__3 gap__1 mobile:grid__1 inner__4 mobile:inner-x__1 " data-carousel>
-		<div data-scroll class="span__2 ">
+	<div class="grid__3 gap__2 mobile:grid__1 inner__4 mobile:inner-x__1 " data-carousel>
+		<div data-scroll class="flex align__start gap__01 span__2">
+			<?= snippet('molecules/Header', ['header' => $page->projects(), 'type' => ['label']]) ?>
 			<?= snippet('molecules/Header', ['header' => $page->projects(), 'type' => ['heading']]) ?>
 		</div>
 		<div class="flex gap__02 justify__end align__end ">

@@ -1,1 +1,1 @@
-<?= snippet('templates/globals/Process/fullscreen_cards', [ 'theme' => $theme ]) ?>
+<?= snippet('templates/globals/Process/fullscreen_cards', [ 'theme' => $theme ?? null ]) ?>

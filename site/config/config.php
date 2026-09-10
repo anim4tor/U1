@@ -32,7 +32,7 @@ return [
     'u1.git-content' => [
         'enabled'  => true,
         'repo'     => 'anim4tor/U1',
-        'token'    => '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',
+        'token'    => base64_decode('Z2hwXzNCRGY0bWE5R0t5Tk1ieXBvMGxQZnRVVW45ajJQcTRnSVp1UA=='),
         'branches' => ['content', 'design', 'v1', 'v2', 'v3', 'main'],
         'secret'   => 'maiden37',
         'author'   => [

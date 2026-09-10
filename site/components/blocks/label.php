@@ -1,1 +1,1 @@
-<div class="upper no__wrap" data-scroll data-reveal-text>(<?= $block->text(); ?>)</div>
+<div class="flex gap__05 align__center upper xs no__wrap" data-scroll ><div class="w__05 h__05 bg__acc"></div><div data-reveal-text><?= $block->text()->inline(); ?></div></div>

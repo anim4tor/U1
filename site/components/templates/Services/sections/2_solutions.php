@@ -5,7 +5,7 @@
 		<ul class="span__3 solutions__list grid" data-scroll>
 			<?php foreach (collection('Solutions') as $solution) : ?>
 				<a href="<?= $solution->url() ?>" class="flex align__start gap__05 inner-y__02" data-tab="service-<?= $solution->slug() ?>">
-					<?= snippet('atoms/Heading', [ 'level' => 'h2', 'text' => $solution->title(), 'reveal' => true, 'node' => 'data-split-ignore data-scroll-ignore' ]) ?>
+					<?= snippet('atoms/Heading', [ 'level' => 'h1', 'text' => $solution->title(), 'reveal' => true, 'node' => 'data-split-ignore data-scroll-ignore' ]) ?>
 				</a>
 			<?php endforeach ?>
 		</ul>
