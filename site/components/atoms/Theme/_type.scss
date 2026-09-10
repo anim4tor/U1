@@ -262,37 +262,32 @@ body {
     Headings
 */
 .ff__heading,
-.ff__heading *,
 h1,
 h2,
 h3,
 h4,
 h5 {
     font-family: var(--ff-heading), sans-serif;
-    font-weight: var(--fw-heading);
     letter-spacing: var(--ls-heading);
     text-transform: var(--tt-heading);
     font-optical-sizing: auto;
 }
 
 /*
-    Paragraphs
+    Paragraphs & Text Elements
 */
 .ff__body,
-.ff__body *,
 p,
 a,
 button {
     font-family: var(--ff-body), sans-serif;
-    font-weight: var(--fw-body);
     letter-spacing: var(--ls-body);
     text-transform: var(--tt-body);
     font-optical-sizing: auto;
 }
 
-.ff__mono,
-.ff__mono * {
-    font-family: var(--ff-mono), mono;
+.ff__mono {
+    font-family: var(--ff-mono), monospace;
 }
 
 
@@ -338,7 +333,7 @@ button {
 }
 
 .label {
-    font-weight: 500;
+    font-weight: var(--font-weight-small, 500);
 }
 
 .hyphens {
