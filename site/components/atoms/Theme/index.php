@@ -27,9 +27,8 @@
 	<div id="theme-panel-body" class="grid__2 gap__1 inner__05 color__invert bg__black/80 is-hidden" style="max-height: 85vh; overflow-y: auto; font-family: sans-serif; padding: 1rem;">
 		
 		<div class="theme-tab-nav span__2">
-			<button class="theme-tab-btn is-active" data-tab-target="tab-scale">Scale Engine (Fluid)</button>
-			<button class="theme-tab-btn" data-tab-target="tab-variants">Manual Overrides</button>
-			<button class="theme-tab-btn" data-tab-target="tab-typography">Fonts</button>
+			<button class="theme-tab-btn is-active" data-tab-target="tab-headings">Headings</button>
+			<button class="theme-tab-btn" data-tab-target="tab-texts">Texts</button>
 			<button class="theme-tab-btn" data-tab-target="tab-spacing">Spacing</button>
 			<button class="theme-tab-btn" data-tab-target="tab-animations">Animations</button>
 			<button class="theme-tab-btn" data-tab-target="tab-colors">Colors & Canvas</button>
@@ -37,178 +36,18 @@
 			<button class="theme-tab-btn" data-tab-target="tab-buttons">Buttons</button>
 		</div>
 
-		<div id="tab-variants" class="theme-tab-content grid__2 gap__1 span__2 is-hidden">
-			<div class="span__2 flex justify__space-between align__center" style="border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 0.25rem;">
-				<span class="font__size__small op__6 uppercase" style="font-weight:bold;">Manual Variant Overrides</span>
-				<button id="clear-overrides-btn" type="button" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: #fff; font-size: 0.65rem; padding: 0.2rem 0.5rem; border-radius: 3px; cursor: pointer;">
-					⚡ Clear (Use Fluid Auto)
-				</button>
-			</div>
-
-			<!-- Display / H1 -->
-			<div class="typo-section-header">Display / H1</div>
-			<div class="theme-panel-row span__2">
-				<div class="grid">
-					<label class="ff__body op__4 font__size__small">Size</label>
-					<input type="text" name="type-h1-size" placeholder="Auto (fluid)" data-theme-setup data-override>
-				</div>
-				<div class="grid">
-					<label class="ff__body op__4 font__size__small">Weight</label>
-					<input type="number" name="type-h1-weight" step="100" min="100" max="900" placeholder="Auto (700)" data-theme-setup data-override>
-				</div>
-			</div>
-			<div class="theme-panel-row span__2" style="margin-bottom: 0.25rem;">
-				<div class="grid">
-					<label class="ff__body op__4 font__size__small">Line Height</label>
-					<input type="number" name="type-h1-lh" step="0.01" min="0.5" max="2.5" placeholder="Auto (fluid)" data-theme-setup data-override>
-				</div>
-				<div class="grid">
-					<label class="ff__body op__4 font__size__small">Letter Spacing</label>
-					<input type="text" name="type-h1-ls" placeholder="Auto (normal)" data-theme-setup data-override>
-				</div>
-			</div>
-
-			<!-- H2 Sekce -->
-			<div class="typo-section-header">H2 Sekce</div>
-			<div class="theme-panel-row span__2">
-				<div class="grid">
-					<label class="ff__body op__4 font__size__small">Size</label>
-					<input type="text" name="type-h2-size" placeholder="Auto (fluid)" data-theme-setup data-override>
-				</div>
-				<div class="grid">
-					<label class="ff__body op__4 font__size__small">Weight</label>
-					<input type="number" name="type-h2-weight" step="100" min="100" max="900" placeholder="Auto (700)" data-theme-setup data-override>
-				</div>
-			</div>
-			<div class="theme-panel-row span__2" style="margin-bottom: 0.25rem;">
-				<div class="grid">
-					<label class="ff__body op__4 font__size__small">Line Height</label>
-					<input type="number" name="type-h2-lh" step="0.01" min="0.5" max="2.5" placeholder="Auto (fluid)" data-theme-setup data-override>
-				</div>
-				<div class="grid">
-					<label class="ff__body op__4 font__size__small">Letter Spacing</label>
-					<input type="text" name="type-h2-ls" placeholder="Auto (normal)" data-theme-setup data-override>
-				</div>
-			</div>
-
-			<!-- H3 Podnadpis -->
-			<div class="typo-section-header">H3 Podnadpis</div>
-			<div class="theme-panel-row span__2">
-				<div class="grid">
-					<label class="ff__body op__4 font__size__small">Size</label>
-					<input type="text" name="type-h3-size" placeholder="Auto (fluid)" data-theme-setup data-override>
-				</div>
-				<div class="grid">
-					<label class="ff__body op__4 font__size__small">Weight</label>
-					<input type="number" name="type-h3-weight" step="100" min="100" max="900" placeholder="Auto (600)" data-theme-setup data-override>
-				</div>
-			</div>
-			<div class="theme-panel-row span__2" style="margin-bottom: 0.25rem;">
-				<div class="grid">
-					<label class="ff__body op__4 font__size__small">Line Height</label>
-					<input type="number" name="type-h3-lh" step="0.01" min="0.5" max="2.5" placeholder="Auto (fluid)" data-theme-setup data-override>
-				</div>
-				<div class="grid">
-					<label class="ff__body op__4 font__size__small">Letter Spacing</label>
-					<input type="text" name="type-h3-ls" placeholder="Auto (normal)" data-theme-setup data-override>
-				</div>
-			</div>
-
-			<!-- Perex -->
-			<div class="typo-section-header">Perex (Large)</div>
-			<div class="theme-panel-row span__2">
-				<div class="grid">
-					<label class="ff__body op__4 font__size__small">Size</label>
-					<input type="text" name="type-perex-size" placeholder="Auto (fluid)" data-theme-setup data-override>
-				</div>
-				<div class="grid">
-					<label class="ff__body op__4 font__size__small">Weight</label>
-					<input type="number" name="type-perex-weight" step="100" min="100" max="900" placeholder="Auto (400)" data-theme-setup data-override>
-				</div>
-			</div>
-			<div class="theme-panel-row span__2" style="margin-bottom: 0.25rem;">
-				<div class="grid">
-					<label class="ff__body op__4 font__size__small">Line Height</label>
-					<input type="number" name="type-perex-lh" step="0.01" min="0.5" max="2.5" placeholder="Auto (fluid)" data-theme-setup data-override>
-				</div>
-				<div class="grid">
-					<label class="ff__body op__4 font__size__small">Opacity</label>
-					<input type="number" name="type-perex-opacity" step="0.05" min="0.1" max="1" placeholder="Auto (1)" data-theme-setup data-override>
-				</div>
-			</div>
-
-			<!-- Běžný text -->
-			<div class="typo-section-header">Běžný text (Body)</div>
-			<div class="theme-panel-row span__2">
-				<div class="grid">
-					<label class="ff__body op__4 font__size__small">Size</label>
-					<input type="text" name="type-body-size" placeholder="Auto (fluid)" data-theme-setup data-override>
-				</div>
-				<div class="grid">
-					<label class="ff__body op__4 font__size__small">Weight</label>
-					<input type="number" name="type-body-weight" step="100" min="100" max="900" placeholder="Auto (400)" data-theme-setup data-override>
-				</div>
-			</div>
-			<div class="theme-panel-row span__2" style="margin-bottom: 0.25rem;">
-				<div class="grid">
-					<label class="ff__body op__4 font__size__small">Line Height</label>
-					<input type="number" name="type-body-lh" step="0.01" min="0.5" max="2.5" placeholder="Auto (fluid)" data-theme-setup data-override>
-				</div>
-				<div class="grid">
-					<label class="ff__body op__4 font__size__small">Letter Spacing</label>
-					<input type="text" name="type-body-ls" placeholder="Auto (normal)" data-theme-setup data-override>
-				</div>
-			</div>
-
-			<!-- Nadtitulek / Popisek -->
-			<div class="typo-section-header">Nadtitulek / Popisek (Caption)</div>
-			<div class="theme-panel-row span__2">
-				<div class="grid">
-					<label class="ff__body op__4 font__size__small">Size</label>
-					<input type="text" name="type-caption-size" placeholder="Auto (fluid)" data-theme-setup data-override>
-				</div>
-				<div class="grid">
-					<label class="ff__body op__4 font__size__small">Weight</label>
-					<input type="number" name="type-caption-weight" step="100" min="100" max="900" placeholder="Auto (500)" data-theme-setup data-override>
-				</div>
-			</div>
-			<div class="theme-panel-row span__2" style="margin-bottom: 0.25rem;">
-				<div class="grid">
-					<label class="ff__body op__4 font__size__small">Line Height</label>
-					<input type="number" name="type-caption-lh" step="0.01" min="0.5" max="2.5" placeholder="Auto (fluid)" data-theme-setup data-override>
-				</div>
-				<div class="grid">
-					<label class="ff__body op__4 font__size__small">Tracking (LS)</label>
-					<input type="text" name="type-caption-ls" placeholder="Auto (normal)" data-theme-setup data-override>
-				</div>
-			</div>
-			<div class="theme-panel-row span__2" style="margin-bottom: 0.25rem;">
-				<div class="grid">
-					<label class="ff__body op__4 font__size__small">Transform</label>
-					<select name="type-caption-transform" data-theme-setup data-override>
-						<option value="">Auto (none)</option>
-						<option value="uppercase">Verzálky (Uppercase)</option>
-						<option value="none">None</option>
-						<option value="capitalize">Capitalize</option>
-					</select>
-				</div>
-				<div class="grid">
-					<label class="ff__body op__4 font__size__small">Opacity</label>
-					<input type="number" name="type-caption-opacity" step="0.05" min="0.1" max="1" placeholder="Auto (1)" data-theme-setup data-override>
-				</div>
-			</div>
-		</div>
-
-		<div id="tab-typography" class="theme-tab-content grid__2 gap__1 span__2 is-hidden">
-			<div class="typo-section-header">Heading Elements</div>
+		<!-- TAB: HEADINGS -->
+		<div id="tab-headings" class="theme-tab-content grid__2 gap__1 span__2">
+			<div class="typo-section-header">Heading Fluid Engine & Branding</div>
+			
 			<div class="grid span__2">
 				<label class="ff__body op__4 font__size__small">Heading Family</label>
-				<select name="ff-heading" data-theme-setup data-font-select>
-					</select>
+				<select name="ff-heading" data-theme-setup data-font-select></select>
 			</div>
-			<div class="theme-panel-row span__2" style="margin-bottom: 0.5rem;">
+
+			<div class="theme-panel-row span__2">
 				<div class="grid">
-					<label class="ff__body op__4 font__size__small">Weight</label>
+					<label class="ff__body op__4 font__size__small">Default Weight</label>
 					<input type="number" name="fw-heading" step="100" min="100" max="900" data-theme-setup>
 				</div>
 				<div class="grid">
@@ -221,51 +60,16 @@
 				</div>
 				<div class="grid">
 					<label class="ff__body op__4 font__size__small">Tracking</label>
-					<input type="text" name="ls-heading" data-theme-setup>
+					<input type="text" name="ls-heading" placeholder="normal" data-theme-setup>
 				</div>
 			</div>
 
-			<div class="typo-section-header">Body Copy Elements</div>
 			<div class="grid span__2">
-				<label class="ff__body op__4 font__size__small">Body Family</label>
-				<select name="ff-body" data-theme-setup data-font-select>
-					</select>
-			</div>
-			<div class="theme-panel-row span__2" style="margin-bottom: 0.5rem;">
-				<div class="grid">
-					<label class="ff__body op__4 font__size__small">Weight</label>
-					<input type="number" name="fw-body" step="100" min="100" max="900" data-theme-setup>
-				</div>
-				<div class="grid">
-					<label class="ff__body op__4 font__size__small">Transform</label>
-					<select name="tt-body" data-theme-setup>
-						<option value="none">None</option>
-						<option value="uppercase">Uppercase</option>
-						<option value="lowercase">Lowercase</option>
-					</select>
-				</div>
-				<div class="grid">
-					<label class="ff__body op__4 font__size__small">Tracking</label>
-					<input type="text" name="ls-body" data-theme-setup>
-				</div>
-			</div>
-
-			<div class="typo-section-header">Monospace / Code Elements</div>
-			<div class="grid span__2">
-				<label class="ff__body op__4 font__size__small">Mono Family</label>
-				<select name="ff-mono" data-theme-setup data-font-select>
-					</select>
-			</div>
-		</div>
-
-		<div id="tab-scale" class="theme-tab-content grid__2 gap__1 span__2 is-hidden">
-			<div class="grid span__2" style="border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 0.25rem;"><span class="font__size__small op__6 uppercase font-weight:bold;">Heading Hierarchy</span></div>
-			
-			<div class="grid span__2">
-				<label class="ff__body op__4 font__size__small">H-Typescale</label>
+				<label class="ff__body op__4 font__size__small">H-Typescale Ratio</label>
 				<div class="flex" style="align-items: center; gap: 0.25rem; width: 100%;">
 					<select id="ts-select" name="type-scale" data-theme-setup style="flex: 1;">
 						<option value="1.618">1.618 – Golden</option>
+						<option value="1.500">1.500 – Perfect 5th</option>
 						<option value="1.414">1.414 – Aug 4th</option>
 						<option value="1.333">1.333 – Perf 4th</option>
 						<option value="1.250">1.250 – Maj 3rd</option>
@@ -287,18 +91,174 @@
 				</div>
 			</div>
 
-			<div class="grid span__2">
-				<label class="ff__body op__4 font__size__small">H-Line Height</label>
+			<div class="grid span__2" style="margin-bottom: 0.5rem;">
+				<label class="ff__body op__4 font__size__small">H-Line Height Baseline</label>
 				<input type="number" name="base-line-height" step="0.05" min="0.8" max="2" data-theme-setup>
 			</div>
 
-			<div class="grid span__2" style="border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 0.25rem; margin-top: 0.5rem;"><span class="font__size__small op__6 uppercase font-weight:bold;">Body Copy Hierarchy</span></div>
+			<!-- Individual Heading Levels Overrides -->
+			<div class="span__2 flex justify__space-between align__center" style="border-top: 1px solid rgba(255,255,255,0.1); border-bottom: 1px solid rgba(255,255,255,0.05); padding: 0.5rem 0 0.25rem 0; margin-top: 0.25rem;">
+				<span class="font__size__small op__6 uppercase" style="font-weight:bold;">Heading Levels (Manual Overrides)</span>
+				<button type="button" class="clear-section-btn" data-clear-group="headings" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: #fff; font-size: 0.65rem; padding: 0.2rem 0.5rem; border-radius: 3px; cursor: pointer;">
+					⚡ Clear Headings
+				</button>
+			</div>
+
+			<!-- Display / H1 -->
+			<div class="typo-section-header">Display / H1</div>
+			<div class="theme-panel-row span__2">
+				<div class="grid">
+					<label class="ff__body op__4 font__size__small">Size</label>
+					<input type="text" name="type-h1-size" data-theme-setup data-override data-override-prop="h1-size">
+				</div>
+				<div class="grid">
+					<label class="ff__body op__4 font__size__small">Weight</label>
+					<input type="number" name="type-h1-weight" step="100" min="100" max="900" data-theme-setup data-override data-override-prop="h1-weight">
+				</div>
+			</div>
+			<div class="theme-panel-row span__2" style="margin-bottom: 0.25rem;">
+				<div class="grid">
+					<label class="ff__body op__4 font__size__small">Line Height</label>
+					<input type="number" name="type-h1-lh" step="0.01" min="0.5" max="2.5" data-theme-setup data-override data-override-prop="h1-lh">
+				</div>
+				<div class="grid">
+					<label class="ff__body op__4 font__size__small">Letter Spacing</label>
+					<input type="text" name="type-h1-ls" data-theme-setup data-override data-override-prop="h1-ls">
+				</div>
+			</div>
+
+			<!-- H2 Sekce -->
+			<div class="typo-section-header">H2 Sekce</div>
+			<div class="theme-panel-row span__2">
+				<div class="grid">
+					<label class="ff__body op__4 font__size__small">Size</label>
+					<input type="text" name="type-h2-size" data-theme-setup data-override data-override-prop="h2-size">
+				</div>
+				<div class="grid">
+					<label class="ff__body op__4 font__size__small">Weight</label>
+					<input type="number" name="type-h2-weight" step="100" min="100" max="900" data-theme-setup data-override data-override-prop="h2-weight">
+				</div>
+			</div>
+			<div class="theme-panel-row span__2" style="margin-bottom: 0.25rem;">
+				<div class="grid">
+					<label class="ff__body op__4 font__size__small">Line Height</label>
+					<input type="number" name="type-h2-lh" step="0.01" min="0.5" max="2.5" data-theme-setup data-override data-override-prop="h2-lh">
+				</div>
+				<div class="grid">
+					<label class="ff__body op__4 font__size__small">Letter Spacing</label>
+					<input type="text" name="type-h2-ls" data-theme-setup data-override data-override-prop="h2-ls">
+				</div>
+			</div>
+
+			<!-- H3 Podnadpis -->
+			<div class="typo-section-header">H3 Podnadpis</div>
+			<div class="theme-panel-row span__2">
+				<div class="grid">
+					<label class="ff__body op__4 font__size__small">Size</label>
+					<input type="text" name="type-h3-size" data-theme-setup data-override data-override-prop="h3-size">
+				</div>
+				<div class="grid">
+					<label class="ff__body op__4 font__size__small">Weight</label>
+					<input type="number" name="type-h3-weight" step="100" min="100" max="900" data-theme-setup data-override data-override-prop="h3-weight">
+				</div>
+			</div>
+			<div class="theme-panel-row span__2" style="margin-bottom: 0.25rem;">
+				<div class="grid">
+					<label class="ff__body op__4 font__size__small">Line Height</label>
+					<input type="number" name="type-h3-lh" step="0.01" min="0.5" max="2.5" data-theme-setup data-override data-override-prop="h3-lh">
+				</div>
+				<div class="grid">
+					<label class="ff__body op__4 font__size__small">Letter Spacing</label>
+					<input type="text" name="type-h3-ls" data-theme-setup data-override data-override-prop="h3-ls">
+				</div>
+			</div>
+
+			<!-- H4 -->
+			<div class="typo-section-header">H4 Menší podnadpis</div>
+			<div class="theme-panel-row span__2">
+				<div class="grid">
+					<label class="ff__body op__4 font__size__small">Size</label>
+					<input type="text" name="type-h4-size" data-theme-setup data-override data-override-prop="h4-size">
+				</div>
+				<div class="grid">
+					<label class="ff__body op__4 font__size__small">Weight</label>
+					<input type="number" name="type-h4-weight" step="100" min="100" max="900" data-theme-setup data-override data-override-prop="h4-weight">
+				</div>
+			</div>
+			<div class="theme-panel-row span__2" style="margin-bottom: 0.25rem;">
+				<div class="grid">
+					<label class="ff__body op__4 font__size__small">Line Height</label>
+					<input type="number" name="type-h4-lh" step="0.01" min="0.5" max="2.5" data-theme-setup data-override data-override-prop="h4-lh">
+				</div>
+				<div class="grid">
+					<label class="ff__body op__4 font__size__small">Letter Spacing</label>
+					<input type="text" name="type-h4-ls" data-theme-setup data-override data-override-prop="h4-ls">
+				</div>
+			</div>
+
+			<!-- H5 -->
+			<div class="typo-section-header">H5 Titulek</div>
+			<div class="theme-panel-row span__2">
+				<div class="grid">
+					<label class="ff__body op__4 font__size__small">Size</label>
+					<input type="text" name="type-h5-size" data-theme-setup data-override data-override-prop="h5-size">
+				</div>
+				<div class="grid">
+					<label class="ff__body op__4 font__size__small">Weight</label>
+					<input type="number" name="type-h5-weight" step="100" min="100" max="900" data-theme-setup data-override data-override-prop="h5-weight">
+				</div>
+			</div>
+			<div class="theme-panel-row span__2" style="margin-bottom: 0.25rem;">
+				<div class="grid">
+					<label class="ff__body op__4 font__size__small">Line Height</label>
+					<input type="number" name="type-h5-lh" step="0.01" min="0.5" max="2.5" data-theme-setup data-override data-override-prop="h5-lh">
+				</div>
+				<div class="grid">
+					<label class="ff__body op__4 font__size__small">Letter Spacing</label>
+					<input type="text" name="type-h5-ls" data-theme-setup data-override data-override-prop="h5-ls">
+				</div>
+			</div>
+		</div>
+
+		<!-- TAB: TEXTS -->
+		<div id="tab-texts" class="theme-tab-content grid__2 gap__1 span__2 is-hidden">
+			<div class="typo-section-header">Body Fluid Engine & Branding</div>
 			
 			<div class="grid span__2">
-				<label class="ff__body op__4 font__size__small">Body Scale</label>
+				<label class="ff__body op__4 font__size__small">Body Family</label>
+				<select name="ff-body" data-theme-setup data-font-select></select>
+			</div>
+
+			<div class="grid span__2">
+				<label class="ff__body op__4 font__size__small">Mono Family</label>
+				<select name="ff-mono" data-theme-setup data-font-select></select>
+			</div>
+
+			<div class="theme-panel-row span__2">
+				<div class="grid">
+					<label class="ff__body op__4 font__size__small">Default Weight</label>
+					<input type="number" name="fw-body" step="100" min="100" max="900" data-theme-setup>
+				</div>
+				<div class="grid">
+					<label class="ff__body op__4 font__size__small">Transform</label>
+					<select name="tt-body" data-theme-setup>
+						<option value="none">None</option>
+						<option value="uppercase">Uppercase</option>
+						<option value="lowercase">Lowercase</option>
+					</select>
+				</div>
+				<div class="grid">
+					<label class="ff__body op__4 font__size__small">Tracking</label>
+					<input type="text" name="ls-body" placeholder="normal" data-theme-setup>
+				</div>
+			</div>
+
+			<div class="grid span__2">
+				<label class="ff__body op__4 font__size__small">Body Scale Ratio</label>
 				<div class="flex" style="align-items: center; gap: 0.25rem; width: 100%;">
 					<select id="bs-select" name="body-scale" data-theme-setup style="flex: 1;">
 						<option value="1.400">1.400 – Default</option>
+						<option value="1.300">1.300 – Medium</option>
 						<option value="1.222">1.222 – Compact</option>
 						<option value="1.125">1.125 – Tight</option>
 						<option value="custom">Custom...</option>
@@ -318,9 +278,101 @@
 				</div>
 			</div>
 
-			<div class="grid span__2">
-				<label class="ff__body op__4 font__size__small">B-Line Height</label>
+			<div class="grid span__2" style="margin-bottom: 0.5rem;">
+				<label class="ff__body op__4 font__size__small">B-Line Height Baseline</label>
 				<input type="number" name="base-body-line-height" step="0.05" min="1.0" max="2.5" data-theme-setup>
+			</div>
+
+			<!-- Individual Text Variants Overrides -->
+			<div class="span__2 flex justify__space-between align__center" style="border-top: 1px solid rgba(255,255,255,0.1); border-bottom: 1px solid rgba(255,255,255,0.05); padding: 0.5rem 0 0.25rem 0; margin-top: 0.25rem;">
+				<span class="font__size__small op__6 uppercase" style="font-weight:bold;">Text Variants (Manual Overrides)</span>
+				<button type="button" class="clear-section-btn" data-clear-group="texts" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: #fff; font-size: 0.65rem; padding: 0.2rem 0.5rem; border-radius: 3px; cursor: pointer;">
+					⚡ Clear Texts
+				</button>
+			</div>
+
+			<!-- Perex -->
+			<div class="typo-section-header">Perex (Large)</div>
+			<div class="theme-panel-row span__2">
+				<div class="grid">
+					<label class="ff__body op__4 font__size__small">Size</label>
+					<input type="text" name="type-perex-size" data-theme-setup data-override data-override-prop="perex-size">
+				</div>
+				<div class="grid">
+					<label class="ff__body op__4 font__size__small">Weight</label>
+					<input type="number" name="type-perex-weight" step="100" min="100" max="900" data-theme-setup data-override data-override-prop="perex-weight">
+				</div>
+			</div>
+			<div class="theme-panel-row span__2" style="margin-bottom: 0.25rem;">
+				<div class="grid">
+					<label class="ff__body op__4 font__size__small">Line Height</label>
+					<input type="number" name="type-perex-lh" step="0.01" min="0.5" max="2.5" data-theme-setup data-override data-override-prop="perex-lh">
+				</div>
+				<div class="grid">
+					<label class="ff__body op__4 font__size__small">Opacity</label>
+					<input type="number" name="type-perex-opacity" step="0.05" min="0.1" max="1" placeholder="1" data-theme-setup data-override data-override-prop="perex-opacity">
+				</div>
+			</div>
+
+			<!-- Běžný text -->
+			<div class="typo-section-header">Běžný text (Body / Default)</div>
+			<div class="theme-panel-row span__2">
+				<div class="grid">
+					<label class="ff__body op__4 font__size__small">Size</label>
+					<input type="text" name="type-body-size" data-theme-setup data-override data-override-prop="body-size">
+				</div>
+				<div class="grid">
+					<label class="ff__body op__4 font__size__small">Weight</label>
+					<input type="number" name="type-body-weight" step="100" min="100" max="900" data-theme-setup data-override data-override-prop="body-weight">
+				</div>
+			</div>
+			<div class="theme-panel-row span__2" style="margin-bottom: 0.25rem;">
+				<div class="grid">
+					<label class="ff__body op__4 font__size__small">Line Height</label>
+					<input type="number" name="type-body-lh" step="0.01" min="0.5" max="2.5" data-theme-setup data-override data-override-prop="body-lh">
+				</div>
+				<div class="grid">
+					<label class="ff__body op__4 font__size__small">Letter Spacing</label>
+					<input type="text" name="type-body-ls" data-theme-setup data-override data-override-prop="body-ls">
+				</div>
+			</div>
+
+			<!-- Nadtitulek / Popisek -->
+			<div class="typo-section-header">Nadtitulek / Popisek (Caption / Small)</div>
+			<div class="theme-panel-row span__2">
+				<div class="grid">
+					<label class="ff__body op__4 font__size__small">Size</label>
+					<input type="text" name="type-caption-size" data-theme-setup data-override data-override-prop="caption-size">
+				</div>
+				<div class="grid">
+					<label class="ff__body op__4 font__size__small">Weight</label>
+					<input type="number" name="type-caption-weight" step="100" min="100" max="900" data-theme-setup data-override data-override-prop="caption-weight">
+				</div>
+			</div>
+			<div class="theme-panel-row span__2" style="margin-bottom: 0.25rem;">
+				<div class="grid">
+					<label class="ff__body op__4 font__size__small">Line Height</label>
+					<input type="number" name="type-caption-lh" step="0.01" min="0.5" max="2.5" data-theme-setup data-override data-override-prop="caption-lh">
+				</div>
+				<div class="grid">
+					<label class="ff__body op__4 font__size__small">Tracking (LS)</label>
+					<input type="text" name="type-caption-ls" data-theme-setup data-override data-override-prop="caption-ls">
+				</div>
+			</div>
+			<div class="theme-panel-row span__2" style="margin-bottom: 0.25rem;">
+				<div class="grid">
+					<label class="ff__body op__4 font__size__small">Transform</label>
+					<select name="type-caption-transform" data-theme-setup data-override data-override-prop="caption-transform">
+						<option value="">Auto (none)</option>
+						<option value="uppercase">Verzálky (Uppercase)</option>
+						<option value="none">None</option>
+						<option value="capitalize">Capitalize</option>
+					</select>
+				</div>
+				<div class="grid">
+					<label class="ff__body op__4 font__size__small">Opacity</label>
+					<input type="number" name="type-caption-opacity" step="0.05" min="0.1" max="1" placeholder="1" data-theme-setup data-override data-override-prop="caption-opacity">
+				</div>
 			</div>
 		</div>
 
@@ -663,6 +715,115 @@
 
 			const activeBS = activeStyles.getPropertyValue('--body-scale').trim();
 			if (activeBS) bsInput.value = parseFloat(activeBS);
+
+			updateDynamicPlaceholders();
+		}
+
+		// --- 6b. DYNAMIC FLUID PLACEHOLDER ENGINE ---
+		function updateDynamicPlaceholders() {
+			const inlineStyles = document.documentElement.style;
+			const computed = getComputedStyle(document.documentElement);
+
+			const hScale = parseFloat(inlineStyles.getPropertyValue('--type-scale') || computed.getPropertyValue('--type-scale')) || 1.618;
+			const hStartRem = parseFloat((inlineStyles.getPropertyValue('--type-start-rem') || computed.getPropertyValue('--type-start-rem') || '1.5').replace('rem', '')) || 1.5;
+			const hStartVw = parseFloat((inlineStyles.getPropertyValue('--type-start-vw') || computed.getPropertyValue('--type-start-vw') || '1.5').replace('vw', '')) || 1.5;
+			const baseLh = parseFloat(inlineStyles.getPropertyValue('--base-line-height') || computed.getPropertyValue('--base-line-height')) || 1.2;
+			const fwHeading = (inlineStyles.getPropertyValue('--fw-heading') || computed.getPropertyValue('--fw-heading') || '700').trim();
+			const lsHeading = (inlineStyles.getPropertyValue('--ls-heading') || computed.getPropertyValue('--ls-heading') || 'normal').trim();
+
+			const bScale = parseFloat(inlineStyles.getPropertyValue('--body-scale') || computed.getPropertyValue('--body-scale')) || 1.4;
+			const bStartRem = parseFloat((inlineStyles.getPropertyValue('--body-start-rem') || computed.getPropertyValue('--body-start-rem') || '0.714').replace('rem', '')) || 0.714;
+			const bStartVw = parseFloat((inlineStyles.getPropertyValue('--body-start-vw') || computed.getPropertyValue('--body-start-vw') || '0.714').replace('vw', '')) || 0.714;
+			const baseBodyLh = parseFloat(inlineStyles.getPropertyValue('--base-body-line-height') || computed.getPropertyValue('--base-body-line-height')) || 1.6;
+			const fwBody = (inlineStyles.getPropertyValue('--fw-body') || computed.getPropertyValue('--fw-body') || '400').trim();
+			const lsBody = (inlineStyles.getPropertyValue('--ls-body') || computed.getPropertyValue('--ls-body') || 'normal').trim();
+
+			const formatSize = (rem, vw) => `max(${rem.toFixed(2)}rem, ${vw.toFixed(2)}vw)`;
+			const formatLh = (val) => val.toFixed(2);
+
+			// Heading levels
+			const h5Rem = hStartRem;
+			const h5Vw = hStartVw;
+			const h5Lh = baseLh;
+
+			const h4Rem = hStartRem * hScale;
+			const h4Vw = hStartVw * hScale;
+			const h4Lh = h5Lh - (0.04 * hScale);
+
+			const h3Rem = hStartRem * Math.pow(hScale, 2);
+			const h3Vw = hStartVw * Math.pow(hScale, 2);
+			const h3Lh = h4Lh - (0.04 * hScale);
+
+			const h2Rem = hStartRem * Math.pow(hScale, 3);
+			const h2Vw = hStartVw * Math.pow(hScale, 3);
+			const h2Lh = h3Lh - (0.04 * hScale);
+
+			const h1Rem = hStartRem * Math.pow(hScale, 4);
+			const h1Vw = hStartVw * Math.pow(hScale, 4);
+			const h1Lh = h2Lh - (0.04 * hScale);
+
+			// Body levels
+			const capRem = bStartRem;
+			const capVw = bStartVw;
+			const capLh = baseBodyLh;
+
+			const bodyRem = bStartRem * bScale;
+			const bodyVw = bStartVw * bScale;
+			const bodyLh = baseBodyLh - (0.04 * bScale);
+
+			const perexRem = bStartRem * Math.pow(bScale, 2);
+			const perexVw = bStartVw * Math.pow(bScale, 2);
+			const perexLh = bodyLh - (0.04 * bScale);
+
+			const placeholders = {
+				'type-h1-size': formatSize(h1Rem, h1Vw),
+				'type-h1-weight': fwHeading || '700',
+				'type-h1-lh': formatLh(h1Lh),
+				'type-h1-ls': lsHeading || 'normal',
+
+				'type-h2-size': formatSize(h2Rem, h2Vw),
+				'type-h2-weight': fwHeading || '700',
+				'type-h2-lh': formatLh(h2Lh),
+				'type-h2-ls': lsHeading || 'normal',
+
+				'type-h3-size': formatSize(h3Rem, h3Vw),
+				'type-h3-weight': '600',
+				'type-h3-lh': formatLh(h3Lh),
+				'type-h3-ls': lsHeading || 'normal',
+
+				'type-h4-size': formatSize(h4Rem, h4Vw),
+				'type-h4-weight': '500',
+				'type-h4-lh': formatLh(h4Lh),
+				'type-h4-ls': lsHeading || 'normal',
+
+				'type-h5-size': formatSize(h5Rem, h5Vw),
+				'type-h5-weight': '500',
+				'type-h5-lh': formatLh(h5Lh),
+				'type-h5-ls': lsHeading || 'normal',
+
+				'type-perex-size': formatSize(perexRem, perexVw),
+				'type-perex-weight': fwBody || '400',
+				'type-perex-lh': formatLh(perexLh),
+				'type-perex-opacity': '1',
+
+				'type-body-size': formatSize(bodyRem, bodyVw),
+				'type-body-weight': fwBody || '400',
+				'type-body-lh': formatLh(bodyLh),
+				'type-body-ls': lsBody || 'normal',
+
+				'type-caption-size': formatSize(capRem, capVw),
+				'type-caption-weight': '500',
+				'type-caption-lh': formatLh(capLh),
+				'type-caption-ls': lsBody || 'normal',
+				'type-caption-opacity': '1'
+			};
+
+			Object.entries(placeholders).forEach(([name, val]) => {
+				const input = document.querySelector(`input[name="${name}"]`);
+				if (input) {
+					input.placeholder = val;
+				}
+			});
 		}
 
 		syncUIWithCSS();
@@ -695,6 +856,8 @@
 			} else if (valueToApply !== '') {
 				document.documentElement.style.setProperty(`--${propertyName}`, valueToApply);
 			}
+
+			updateDynamicPlaceholders();
 		}
 
 		themeControls.forEach(control => {
@@ -707,6 +870,7 @@
 			if (tsSelect.value !== 'custom') {
 				document.documentElement.style.setProperty('--type-scale', tsSelect.value);
 				tsInput.value = tsSelect.value;
+				updateDynamicPlaceholders();
 			}
 		});
 		tsInput.addEventListener('input', () => {
@@ -714,12 +878,14 @@
 			const match = Array.from(tsSelect.options).find(opt => parseFloat(opt.value) === val);
 			tsSelect.value = match ? match.value : 'custom';
 			document.documentElement.style.setProperty('--type-scale', val);
+			updateDynamicPlaceholders();
 		});
 
 		bsSelect.addEventListener('change', () => {
 			if (bsSelect.value !== 'custom') {
 				document.documentElement.style.setProperty('--body-scale', bsSelect.value);
 				bsInput.value = bsSelect.value;
+				updateDynamicPlaceholders();
 			}
 		});
 		bsInput.addEventListener('input', () => {
@@ -727,19 +893,25 @@
 			const match = Array.from(bsSelect.options).find(opt => parseFloat(opt.value) === val);
 			bsSelect.value = match ? match.value : 'custom';
 			document.documentElement.style.setProperty('--body-scale', val);
+			updateDynamicPlaceholders();
 		});
 
-		// --- 8b. CLEAR OVERRIDES ACTION ---
-		const clearOverridesBtn = document.getElementById('clear-overrides-btn');
-		if (clearOverridesBtn) {
-			clearOverridesBtn.addEventListener('click', () => {
-				const overrideControls = document.querySelectorAll('[data-override]');
-				overrideControls.forEach(ctrl => {
-					ctrl.value = '';
-					document.documentElement.style.removeProperty(`--${ctrl.name}`);
-				});
+		// --- 8b. SECTION CLEAR OVERRIDES ACTION ---
+		const clearSectionBtns = document.querySelectorAll('.clear-section-btn');
+		clearSectionBtns.forEach(btn => {
+			btn.addEventListener('click', () => {
+				const group = btn.dataset.clearGroup;
+				const parentTab = group === 'headings' ? document.getElementById('tab-headings') : document.getElementById('tab-texts');
+				if (parentTab) {
+					const overrides = parentTab.querySelectorAll('[data-override]');
+					overrides.forEach(ctrl => {
+						ctrl.value = '';
+						document.documentElement.style.removeProperty(`--${ctrl.name}`);
+					});
+				}
+				updateDynamicPlaceholders();
 			});
-		}
+		});
 
 		// --- 9. GLOBAL RESET ENGINE ACTION ---
 		if (resetBtn) {
