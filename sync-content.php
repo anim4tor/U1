@@ -15,7 +15,7 @@ ignore_user_abort(true);
 
 $secret       = 'maiden37';
 $repo         = 'anim4tor/U1';
-$githubToken  = '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';
+$githubToken  = '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';
 $targetBranches = ['content', 'design', 'v2', 'v3', 'main'];
 $contentDir   = __DIR__ . '/public/content';
 $logFile      = __DIR__ . '/site/store/logs/git-content.json';
