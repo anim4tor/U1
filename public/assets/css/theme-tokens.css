@@ -5,40 +5,6 @@
 
 :root {
     /* ==========================================================================
-       TYPOGRAPHY VARIANT MANUAL OVERRIDES TOKENS
-       ========================================================================== */
-    --type-h1-size:            72px;
-    --type-h1-weight:          800;
-    --type-h1-lh:              0.98;
-    --type-h1-ls:              -0.03em;
-    --type-h1-transform:       none;
-    --type-h2-size:            40px;
-    --type-h2-weight:          700;
-    --type-h2-lh:              1.1;
-    --type-h2-ls:              normal;
-    --type-h2-transform:       none;
-    --type-h3-size:            24px;
-    --type-h3-weight:          600;
-    --type-h3-lh:              1.3;
-    --type-h3-ls:              normal;
-    --type-h3-transform:       none;
-    --type-perex-size:         22px;
-    --type-perex-weight:       400;
-    --type-perex-lh:           1.5;
-    --type-perex-ls:           normal;
-    --type-perex-opacity:      0.7;
-    --type-body-size:          17px;
-    --type-body-weight:        400;
-    --type-body-lh:            1.6;
-    --type-body-ls:            normal;
-    --type-caption-size:       12px;
-    --type-caption-weight:     500;
-    --type-caption-lh:         1.3;
-    --type-caption-transform:  uppercase;
-    --type-caption-ls:         0.1em;
-    --type-caption-opacity:    0.55;
-
-    /* ==========================================================================
        TYPOGRAPHY BRANDING FRAMEWORK TOKENS
        ========================================================================== */
     --ff-heading:              'Inter';
@@ -54,7 +20,7 @@
     /* ==========================================================================
        FLUID RESPONSIVE SCALE ENGINE TOKENS
        ========================================================================== */
-    --type-scale:              1.5;
+    --type-scale:              1.618;
     --type-start-rem:          0.5rem;
     --type-start-vw:           0.8vw;
     --base-line-height:        1.1;

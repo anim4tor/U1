@@ -27,8 +27,7 @@
 	<div id="theme-panel-body" class="grid__2 gap__1 inner__05 color__invert bg__black/80 is-hidden" style="max-height: 85vh; overflow-y: auto; font-family: sans-serif; padding: 1rem;">
 		
 		<div class="theme-tab-nav span__2">
-			<button class="theme-tab-btn is-active" data-tab-target="tab-variants">Variants (1.5)</button>
-			<button class="theme-tab-btn" data-tab-target="tab-typography">Fonts</button>
+			<button class="theme-tab-btn is-active" data-tab-target="tab-typography">Typography</button>
 			<button class="theme-tab-btn" data-tab-target="tab-scale">Scale Engine</button>
 			<button class="theme-tab-btn" data-tab-target="tab-spacing">Spacing</button>
 			<button class="theme-tab-btn" data-tab-target="tab-animations">Animations</button>
@@ -37,168 +36,7 @@
 			<button class="theme-tab-btn" data-tab-target="tab-buttons">Buttons</button>
 		</div>
 
-		<div id="tab-variants" class="theme-tab-content grid__2 gap__1 span__2">
-			<div class="span__2 flex justify__space-between align__center" style="border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 0.25rem;">
-				<span class="font__size__small op__6 uppercase" style="font-weight:bold;">Manual Variant Overrides</span>
-				<button id="apply-1-5-preset-btn" type="button" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: #fff; font-size: 0.65rem; padding: 0.2rem 0.5rem; border-radius: 3px; cursor: pointer;">
-					🎯 Reset to 1.5 Baseline
-				</button>
-			</div>
-
-			<!-- Display / H1 -->
-			<div class="typo-section-header">Display / H1</div>
-			<div class="theme-panel-row span__2">
-				<div class="grid">
-					<label class="ff__body op__4 font__size__small">Size</label>
-					<input type="text" name="type-h1-size" placeholder="72px" data-theme-setup>
-				</div>
-				<div class="grid">
-					<label class="ff__body op__4 font__size__small">Weight</label>
-					<input type="number" name="type-h1-weight" step="100" min="100" max="900" placeholder="800" data-theme-setup>
-				</div>
-			</div>
-			<div class="theme-panel-row span__2" style="margin-bottom: 0.25rem;">
-				<div class="grid">
-					<label class="ff__body op__4 font__size__small">Line Height</label>
-					<input type="number" name="type-h1-lh" step="0.01" min="0.5" max="2.5" placeholder="0.98" data-theme-setup>
-				</div>
-				<div class="grid">
-					<label class="ff__body op__4 font__size__small">Letter Spacing</label>
-					<input type="text" name="type-h1-ls" placeholder="-0.03em" data-theme-setup>
-				</div>
-			</div>
-
-			<!-- H2 Sekce -->
-			<div class="typo-section-header">H2 Sekce</div>
-			<div class="theme-panel-row span__2">
-				<div class="grid">
-					<label class="ff__body op__4 font__size__small">Size</label>
-					<input type="text" name="type-h2-size" placeholder="40px" data-theme-setup>
-				</div>
-				<div class="grid">
-					<label class="ff__body op__4 font__size__small">Weight</label>
-					<input type="number" name="type-h2-weight" step="100" min="100" max="900" placeholder="700" data-theme-setup>
-				</div>
-			</div>
-			<div class="theme-panel-row span__2" style="margin-bottom: 0.25rem;">
-				<div class="grid">
-					<label class="ff__body op__4 font__size__small">Line Height</label>
-					<input type="number" name="type-h2-lh" step="0.01" min="0.5" max="2.5" placeholder="1.1" data-theme-setup>
-				</div>
-				<div class="grid">
-					<label class="ff__body op__4 font__size__small">Letter Spacing</label>
-					<input type="text" name="type-h2-ls" placeholder="normal" data-theme-setup>
-				</div>
-			</div>
-
-			<!-- H3 Podnadpis -->
-			<div class="typo-section-header">H3 Podnadpis</div>
-			<div class="theme-panel-row span__2">
-				<div class="grid">
-					<label class="ff__body op__4 font__size__small">Size</label>
-					<input type="text" name="type-h3-size" placeholder="24px" data-theme-setup>
-				</div>
-				<div class="grid">
-					<label class="ff__body op__4 font__size__small">Weight</label>
-					<input type="number" name="type-h3-weight" step="100" min="100" max="900" placeholder="600" data-theme-setup>
-				</div>
-			</div>
-			<div class="theme-panel-row span__2" style="margin-bottom: 0.25rem;">
-				<div class="grid">
-					<label class="ff__body op__4 font__size__small">Line Height</label>
-					<input type="number" name="type-h3-lh" step="0.01" min="0.5" max="2.5" placeholder="1.3" data-theme-setup>
-				</div>
-				<div class="grid">
-					<label class="ff__body op__4 font__size__small">Letter Spacing</label>
-					<input type="text" name="type-h3-ls" placeholder="normal" data-theme-setup>
-				</div>
-			</div>
-
-			<!-- Perex -->
-			<div class="typo-section-header">Perex (Large)</div>
-			<div class="theme-panel-row span__2">
-				<div class="grid">
-					<label class="ff__body op__4 font__size__small">Size</label>
-					<input type="text" name="type-perex-size" placeholder="22px" data-theme-setup>
-				</div>
-				<div class="grid">
-					<label class="ff__body op__4 font__size__small">Weight</label>
-					<input type="number" name="type-perex-weight" step="100" min="100" max="900" placeholder="400" data-theme-setup>
-				</div>
-			</div>
-			<div class="theme-panel-row span__2" style="margin-bottom: 0.25rem;">
-				<div class="grid">
-					<label class="ff__body op__4 font__size__small">Line Height</label>
-					<input type="number" name="type-perex-lh" step="0.01" min="0.5" max="2.5" placeholder="1.5" data-theme-setup>
-				</div>
-				<div class="grid">
-					<label class="ff__body op__4 font__size__small">Opacity</label>
-					<input type="number" name="type-perex-opacity" step="0.05" min="0.1" max="1" placeholder="0.7" data-theme-setup>
-				</div>
-			</div>
-
-			<!-- Běžný text -->
-			<div class="typo-section-header">Běžný text (Body)</div>
-			<div class="theme-panel-row span__2">
-				<div class="grid">
-					<label class="ff__body op__4 font__size__small">Size</label>
-					<input type="text" name="type-body-size" placeholder="17px" data-theme-setup>
-				</div>
-				<div class="grid">
-					<label class="ff__body op__4 font__size__small">Weight</label>
-					<input type="number" name="type-body-weight" step="100" min="100" max="900" placeholder="400" data-theme-setup>
-				</div>
-			</div>
-			<div class="theme-panel-row span__2" style="margin-bottom: 0.25rem;">
-				<div class="grid">
-					<label class="ff__body op__4 font__size__small">Line Height</label>
-					<input type="number" name="type-body-lh" step="0.01" min="0.5" max="2.5" placeholder="1.6" data-theme-setup>
-				</div>
-				<div class="grid">
-					<label class="ff__body op__4 font__size__small">Letter Spacing</label>
-					<input type="text" name="type-body-ls" placeholder="normal" data-theme-setup>
-				</div>
-			</div>
-
-			<!-- Nadtitulek / Popisek -->
-			<div class="typo-section-header">Nadtitulek / Popisek (Caption)</div>
-			<div class="theme-panel-row span__2">
-				<div class="grid">
-					<label class="ff__body op__4 font__size__small">Size</label>
-					<input type="text" name="type-caption-size" placeholder="12px" data-theme-setup>
-				</div>
-				<div class="grid">
-					<label class="ff__body op__4 font__size__small">Weight</label>
-					<input type="number" name="type-caption-weight" step="100" min="100" max="900" placeholder="500" data-theme-setup>
-				</div>
-			</div>
-			<div class="theme-panel-row span__2" style="margin-bottom: 0.25rem;">
-				<div class="grid">
-					<label class="ff__body op__4 font__size__small">Line Height</label>
-					<input type="number" name="type-caption-lh" step="0.01" min="0.5" max="2.5" placeholder="1.3" data-theme-setup>
-				</div>
-				<div class="grid">
-					<label class="ff__body op__4 font__size__small">Tracking (LS)</label>
-					<input type="text" name="type-caption-ls" placeholder="0.1em" data-theme-setup>
-				</div>
-			</div>
-			<div class="theme-panel-row span__2" style="margin-bottom: 0.25rem;">
-				<div class="grid">
-					<label class="ff__body op__4 font__size__small">Transform</label>
-					<select name="type-caption-transform" data-theme-setup>
-						<option value="uppercase">Verzálky (Uppercase)</option>
-						<option value="none">None</option>
-						<option value="capitalize">Capitalize</option>
-					</select>
-				</div>
-				<div class="grid">
-					<label class="ff__body op__4 font__size__small">Opacity</label>
-					<input type="number" name="type-caption-opacity" step="0.05" min="0.1" max="1" placeholder="0.55" data-theme-setup>
-				</div>
-			</div>
-		</div>
-
-		<div id="tab-typography" class="theme-tab-content grid__2 gap__1 span__2 is-hidden">
+		<div id="tab-typography" class="theme-tab-content grid__2 gap__1 span__2">
 			<div class="typo-section-header">Heading Elements</div>
 			<div class="grid span__2">
 				<label class="ff__body op__4 font__size__small">Heading Family</label>
@@ -535,42 +373,6 @@
 		// --- 2. DYNAMIC CSS VARIABLE EXTRACTION ENGINE ---
 		function getRawThemeDeclarations() {
 			const declarations = {
-				'type-h1-size' : '72px',
-				'type-h1-weight' : '800',
-				'type-h1-lh' : '0.98',
-				'type-h1-ls' : '-0.03em',
-				'type-h1-transform' : 'none',
-
-				'type-h2-size' : '40px',
-				'type-h2-weight' : '700',
-				'type-h2-lh' : '1.1',
-				'type-h2-ls' : 'normal',
-				'type-h2-transform' : 'none',
-
-				'type-h3-size' : '24px',
-				'type-h3-weight' : '600',
-				'type-h3-lh' : '1.3',
-				'type-h3-ls' : 'normal',
-				'type-h3-transform' : 'none',
-
-				'type-perex-size' : '22px',
-				'type-perex-weight' : '400',
-				'type-perex-lh' : '1.5',
-				'type-perex-ls' : 'normal',
-				'type-perex-opacity' : '0.7',
-
-				'type-body-size' : '17px',
-				'type-body-weight' : '400',
-				'type-body-lh' : '1.6',
-				'type-body-ls' : 'normal',
-
-				'type-caption-size' : '12px',
-				'type-caption-weight' : '500',
-				'type-caption-lh' : '1.3',
-				'type-caption-transform' : 'uppercase',
-				'type-caption-ls' : '0.1em',
-				'type-caption-opacity' : '0.55',
-
 				'spacing' : 'max(calc(var(--scale-min) * 1rem), calc(var(--scale-fluid) * 1vw * var(--scale)))',
 				'type-start-rem' : '1.5rem',
 				'type-start-vw' : '1.5vw',
@@ -580,8 +382,8 @@
 				'animation-timing' : 'cubic-bezier(0.4, 0, 0.2, 1)',
 				'animation-stagger' : '50ms',
 				'animation-delay' : '0ms',
-				'toggle-parallax' : '1',
-				'toggle-reveals' : '1',
+				'toggle-parallax' : '1', // ADDED DEFAULT FALLBACK
+				'toggle-reveals' : '1',  // ADDED DEFAULT FALLBACK
 				'img-radius' : '8px',
 		        'radius' : '4px',
 		        'btn-padding' : '0.5rem 1rem',
@@ -754,55 +556,6 @@
 			document.documentElement.style.setProperty('--body-scale', val);
 		});
 
-		// --- 8b. PRESET 1.5 BASELINE HANDLER ---
-		const presetBtn = document.getElementById('apply-1-5-preset-btn');
-		if (presetBtn) {
-			presetBtn.addEventListener('click', () => {
-				const presetValues = {
-					'type-h1-size': '72px',
-					'type-h1-weight': '800',
-					'type-h1-lh': '0.98',
-					'type-h1-ls': '-0.03em',
-					'type-h1-transform': 'none',
-
-					'type-h2-size': '40px',
-					'type-h2-weight': '700',
-					'type-h2-lh': '1.1',
-					'type-h2-ls': 'normal',
-					'type-h2-transform': 'none',
-
-					'type-h3-size': '24px',
-					'type-h3-weight': '600',
-					'type-h3-lh': '1.3',
-					'type-h3-ls': 'normal',
-					'type-h3-transform': 'none',
-
-					'type-perex-size': '22px',
-					'type-perex-weight': '400',
-					'type-perex-lh': '1.5',
-					'type-perex-ls': 'normal',
-					'type-perex-opacity': '0.7',
-
-					'type-body-size': '17px',
-					'type-body-weight': '400',
-					'type-body-lh': '1.6',
-					'type-body-ls': 'normal',
-
-					'type-caption-size': '12px',
-					'type-caption-weight': '500',
-					'type-caption-lh': '1.3',
-					'type-caption-transform': 'uppercase',
-					'type-caption-ls': '0.1em',
-					'type-caption-opacity': '0.55'
-				};
-				Object.keys(presetValues).forEach(prop => {
-					document.documentElement.style.setProperty(`--${prop}`, presetValues[prop]);
-					const ctrl = document.querySelector(`[name="${prop}"]`);
-					if (ctrl) ctrl.value = presetValues[prop];
-				});
-			});
-		}
-
 		// --- 9. GLOBAL RESET ENGINE ACTION ---
 		if (resetBtn) {
 			resetBtn.addEventListener('click', () => {
@@ -828,18 +581,10 @@
 				const rawDeclarations = getRawThemeDeclarations();
 				
 				const groups = {
-					variants: [
-						'type-h1-size', 'type-h1-weight', 'type-h1-lh', 'type-h1-ls', 'type-h1-transform',
-						'type-h2-size', 'type-h2-weight', 'type-h2-lh', 'type-h2-ls', 'type-h2-transform',
-						'type-h3-size', 'type-h3-weight', 'type-h3-lh', 'type-h3-ls', 'type-h3-transform',
-						'type-perex-size', 'type-perex-weight', 'type-perex-lh', 'type-perex-ls', 'type-perex-opacity',
-						'type-body-size', 'type-body-weight', 'type-body-lh', 'type-body-ls',
-						'type-caption-size', 'type-caption-weight', 'type-caption-lh', 'type-caption-transform', 'type-caption-ls', 'type-caption-opacity'
-					],
 					typography: ['ff-heading', 'fw-heading', 'tt-heading', 'ls-heading', 'ff-body', 'fw-body', 'tt-body', 'ls-body', 'ff-mono'],
 					scale: ['type-scale', 'type-start-rem', 'type-start-vw', 'base-line-height', 'body-scale', 'body-start-rem', 'body-start-vw', 'base-body-line-height'],
 					spacing: ['scale-min', 'scale-fluid', 'scale', 'spacing'],
-					animations: ['animation-duration', 'animation-delay', 'animation-stagger', 'animation-timing', 'toggle-parallax', 'toggle-reveals'],
+					animations: ['animation-duration', 'animation-delay', 'animation-stagger', 'animation-timing', 'toggle-parallax', 'toggle-reveals'], // UPDATED GROUP
 					images: ['img-radius', 'radius'],
 					buttons: ['btn-padding', 'btn-radius', 'btn-border'],
 					colors: []
@@ -869,7 +614,6 @@
 					}
 				}
 
-				appendGroup("Typography Variant Manual Overrides", groups.variants);
 				appendGroup("Typography Branding Framework", groups.typography);
 				appendGroup("Fluid Responsive Scale Engine", groups.scale);
 				appendGroup("Layout Padding & Grid Spacing", groups.spacing);
