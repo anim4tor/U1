@@ -27,8 +27,9 @@
 	<div id="theme-panel-body" class="grid__2 gap__1 inner__05 color__invert bg__black/80 is-hidden" style="max-height: 85vh; overflow-y: auto; font-family: sans-serif; padding: 1rem;">
 		
 		<div class="theme-tab-nav span__2">
-			<button class="theme-tab-btn is-active" data-tab-target="tab-typography">Typography</button>
-			<button class="theme-tab-btn" data-tab-target="tab-scale">Scale Engine</button>
+			<button class="theme-tab-btn is-active" data-tab-target="tab-scale">Scale Engine (Fluid)</button>
+			<button class="theme-tab-btn" data-tab-target="tab-variants">Manual Overrides</button>
+			<button class="theme-tab-btn" data-tab-target="tab-typography">Fonts</button>
 			<button class="theme-tab-btn" data-tab-target="tab-spacing">Spacing</button>
 			<button class="theme-tab-btn" data-tab-target="tab-animations">Animations</button>
 			<button class="theme-tab-btn" data-tab-target="tab-colors">Colors & Canvas</button>
@@ -36,7 +37,169 @@
 			<button class="theme-tab-btn" data-tab-target="tab-buttons">Buttons</button>
 		</div>
 
-		<div id="tab-typography" class="theme-tab-content grid__2 gap__1 span__2">
+		<div id="tab-variants" class="theme-tab-content grid__2 gap__1 span__2 is-hidden">
+			<div class="span__2 flex justify__space-between align__center" style="border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 0.25rem;">
+				<span class="font__size__small op__6 uppercase" style="font-weight:bold;">Manual Variant Overrides</span>
+				<button id="clear-overrides-btn" type="button" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: #fff; font-size: 0.65rem; padding: 0.2rem 0.5rem; border-radius: 3px; cursor: pointer;">
+					⚡ Clear (Use Fluid Auto)
+				</button>
+			</div>
+
+			<!-- Display / H1 -->
+			<div class="typo-section-header">Display / H1</div>
+			<div class="theme-panel-row span__2">
+				<div class="grid">
+					<label class="ff__body op__4 font__size__small">Size</label>
+					<input type="text" name="type-h1-size" placeholder="Auto (fluid)" data-theme-setup data-override>
+				</div>
+				<div class="grid">
+					<label class="ff__body op__4 font__size__small">Weight</label>
+					<input type="number" name="type-h1-weight" step="100" min="100" max="900" placeholder="Auto (700)" data-theme-setup data-override>
+				</div>
+			</div>
+			<div class="theme-panel-row span__2" style="margin-bottom: 0.25rem;">
+				<div class="grid">
+					<label class="ff__body op__4 font__size__small">Line Height</label>
+					<input type="number" name="type-h1-lh" step="0.01" min="0.5" max="2.5" placeholder="Auto (fluid)" data-theme-setup data-override>
+				</div>
+				<div class="grid">
+					<label class="ff__body op__4 font__size__small">Letter Spacing</label>
+					<input type="text" name="type-h1-ls" placeholder="Auto (normal)" data-theme-setup data-override>
+				</div>
+			</div>
+
+			<!-- H2 Sekce -->
+			<div class="typo-section-header">H2 Sekce</div>
+			<div class="theme-panel-row span__2">
+				<div class="grid">
+					<label class="ff__body op__4 font__size__small">Size</label>
+					<input type="text" name="type-h2-size" placeholder="Auto (fluid)" data-theme-setup data-override>
+				</div>
+				<div class="grid">
+					<label class="ff__body op__4 font__size__small">Weight</label>
+					<input type="number" name="type-h2-weight" step="100" min="100" max="900" placeholder="Auto (700)" data-theme-setup data-override>
+				</div>
+			</div>
+			<div class="theme-panel-row span__2" style="margin-bottom: 0.25rem;">
+				<div class="grid">
+					<label class="ff__body op__4 font__size__small">Line Height</label>
+					<input type="number" name="type-h2-lh" step="0.01" min="0.5" max="2.5" placeholder="Auto (fluid)" data-theme-setup data-override>
+				</div>
+				<div class="grid">
+					<label class="ff__body op__4 font__size__small">Letter Spacing</label>
+					<input type="text" name="type-h2-ls" placeholder="Auto (normal)" data-theme-setup data-override>
+				</div>
+			</div>
+
+			<!-- H3 Podnadpis -->
+			<div class="typo-section-header">H3 Podnadpis</div>
+			<div class="theme-panel-row span__2">
+				<div class="grid">
+					<label class="ff__body op__4 font__size__small">Size</label>
+					<input type="text" name="type-h3-size" placeholder="Auto (fluid)" data-theme-setup data-override>
+				</div>
+				<div class="grid">
+					<label class="ff__body op__4 font__size__small">Weight</label>
+					<input type="number" name="type-h3-weight" step="100" min="100" max="900" placeholder="Auto (600)" data-theme-setup data-override>
+				</div>
+			</div>
+			<div class="theme-panel-row span__2" style="margin-bottom: 0.25rem;">
+				<div class="grid">
+					<label class="ff__body op__4 font__size__small">Line Height</label>
+					<input type="number" name="type-h3-lh" step="0.01" min="0.5" max="2.5" placeholder="Auto (fluid)" data-theme-setup data-override>
+				</div>
+				<div class="grid">
+					<label class="ff__body op__4 font__size__small">Letter Spacing</label>
+					<input type="text" name="type-h3-ls" placeholder="Auto (normal)" data-theme-setup data-override>
+				</div>
+			</div>
+
+			<!-- Perex -->
+			<div class="typo-section-header">Perex (Large)</div>
+			<div class="theme-panel-row span__2">
+				<div class="grid">
+					<label class="ff__body op__4 font__size__small">Size</label>
+					<input type="text" name="type-perex-size" placeholder="Auto (fluid)" data-theme-setup data-override>
+				</div>
+				<div class="grid">
+					<label class="ff__body op__4 font__size__small">Weight</label>
+					<input type="number" name="type-perex-weight" step="100" min="100" max="900" placeholder="Auto (400)" data-theme-setup data-override>
+				</div>
+			</div>
+			<div class="theme-panel-row span__2" style="margin-bottom: 0.25rem;">
+				<div class="grid">
+					<label class="ff__body op__4 font__size__small">Line Height</label>
+					<input type="number" name="type-perex-lh" step="0.01" min="0.5" max="2.5" placeholder="Auto (fluid)" data-theme-setup data-override>
+				</div>
+				<div class="grid">
+					<label class="ff__body op__4 font__size__small">Opacity</label>
+					<input type="number" name="type-perex-opacity" step="0.05" min="0.1" max="1" placeholder="Auto (1)" data-theme-setup data-override>
+				</div>
+			</div>
+
+			<!-- Běžný text -->
+			<div class="typo-section-header">Běžný text (Body)</div>
+			<div class="theme-panel-row span__2">
+				<div class="grid">
+					<label class="ff__body op__4 font__size__small">Size</label>
+					<input type="text" name="type-body-size" placeholder="Auto (fluid)" data-theme-setup data-override>
+				</div>
+				<div class="grid">
+					<label class="ff__body op__4 font__size__small">Weight</label>
+					<input type="number" name="type-body-weight" step="100" min="100" max="900" placeholder="Auto (400)" data-theme-setup data-override>
+				</div>
+			</div>
+			<div class="theme-panel-row span__2" style="margin-bottom: 0.25rem;">
+				<div class="grid">
+					<label class="ff__body op__4 font__size__small">Line Height</label>
+					<input type="number" name="type-body-lh" step="0.01" min="0.5" max="2.5" placeholder="Auto (fluid)" data-theme-setup data-override>
+				</div>
+				<div class="grid">
+					<label class="ff__body op__4 font__size__small">Letter Spacing</label>
+					<input type="text" name="type-body-ls" placeholder="Auto (normal)" data-theme-setup data-override>
+				</div>
+			</div>
+
+			<!-- Nadtitulek / Popisek -->
+			<div class="typo-section-header">Nadtitulek / Popisek (Caption)</div>
+			<div class="theme-panel-row span__2">
+				<div class="grid">
+					<label class="ff__body op__4 font__size__small">Size</label>
+					<input type="text" name="type-caption-size" placeholder="Auto (fluid)" data-theme-setup data-override>
+				</div>
+				<div class="grid">
+					<label class="ff__body op__4 font__size__small">Weight</label>
+					<input type="number" name="type-caption-weight" step="100" min="100" max="900" placeholder="Auto (500)" data-theme-setup data-override>
+				</div>
+			</div>
+			<div class="theme-panel-row span__2" style="margin-bottom: 0.25rem;">
+				<div class="grid">
+					<label class="ff__body op__4 font__size__small">Line Height</label>
+					<input type="number" name="type-caption-lh" step="0.01" min="0.5" max="2.5" placeholder="Auto (fluid)" data-theme-setup data-override>
+				</div>
+				<div class="grid">
+					<label class="ff__body op__4 font__size__small">Tracking (LS)</label>
+					<input type="text" name="type-caption-ls" placeholder="Auto (normal)" data-theme-setup data-override>
+				</div>
+			</div>
+			<div class="theme-panel-row span__2" style="margin-bottom: 0.25rem;">
+				<div class="grid">
+					<label class="ff__body op__4 font__size__small">Transform</label>
+					<select name="type-caption-transform" data-theme-setup data-override>
+						<option value="">Auto (none)</option>
+						<option value="uppercase">Verzálky (Uppercase)</option>
+						<option value="none">None</option>
+						<option value="capitalize">Capitalize</option>
+					</select>
+				</div>
+				<div class="grid">
+					<label class="ff__body op__4 font__size__small">Opacity</label>
+					<input type="number" name="type-caption-opacity" step="0.05" min="0.1" max="1" placeholder="Auto (1)" data-theme-setup data-override>
+				</div>
+			</div>
+		</div>
+
+		<div id="tab-typography" class="theme-tab-content grid__2 gap__1 span__2 is-hidden">
 			<div class="typo-section-header">Heading Elements</div>
 			<div class="grid span__2">
 				<label class="ff__body op__4 font__size__small">Heading Family</label>
@@ -456,6 +619,12 @@
 				const propertyName = control.name;
 				let cssValue = activeStyles.getPropertyValue(`--${propertyName}`).trim();
 
+				if (control.hasAttribute('data-override')) {
+					const inlineVal = document.documentElement.style.getPropertyValue(`--${propertyName}`).trim();
+					control.value = inlineVal || '';
+					return;
+				}
+
 				if (!cssValue) return;
 
 				if (control.hasAttribute('data-is-color') && cssValue.startsWith('var(')) {
@@ -508,11 +677,11 @@
 			if (element.hasAttribute('data-is-color')) {
 				valueToApply = rawValue;
 			} else if (element.type === 'number') {
-				const numericValue = rawValue ? parseFloat(rawValue) : 0;
+				const numericValue = rawValue !== '' ? parseFloat(rawValue) : '';
 				const unit = element.dataset.unit || '';
-				valueToApply = `${numericValue}${unit}`;
+				valueToApply = numericValue !== '' ? `${numericValue}${unit}` : '';
 			} else {
-				valueToApply = rawValue;
+				valueToApply = rawValue ? rawValue.trim() : '';
 			}
 
 			if (element === tsSelect && valueToApply === 'custom') return;
@@ -521,12 +690,16 @@
 			if (element === tsSelect) tsInput.value = valueToApply;
 			if (element === bsSelect) bsInput.value = valueToApply;
 
-			document.documentElement.style.setProperty(`--${propertyName}`, valueToApply);
+			if (valueToApply === '' && element.hasAttribute('data-override')) {
+				document.documentElement.style.removeProperty(`--${propertyName}`);
+			} else if (valueToApply !== '') {
+				document.documentElement.style.setProperty(`--${propertyName}`, valueToApply);
+			}
 		}
 
 		themeControls.forEach(control => {
 			control.addEventListener('input', handleControlInput);
-			control.addEventListener('change', handleControlInput); // Added to cleanly trap dropdown selections instantly
+			control.addEventListener('change', handleControlInput);
 		});
 
 		// --- 8. TYPESCALE & BODYSCALE MANAGEMENT ---
@@ -556,12 +729,29 @@
 			document.documentElement.style.setProperty('--body-scale', val);
 		});
 
+		// --- 8b. CLEAR OVERRIDES ACTION ---
+		const clearOverridesBtn = document.getElementById('clear-overrides-btn');
+		if (clearOverridesBtn) {
+			clearOverridesBtn.addEventListener('click', () => {
+				const overrideControls = document.querySelectorAll('[data-override]');
+				overrideControls.forEach(ctrl => {
+					ctrl.value = '';
+					document.documentElement.style.removeProperty(`--${ctrl.name}`);
+				});
+			});
+		}
+
 		// --- 9. GLOBAL RESET ENGINE ACTION ---
 		if (resetBtn) {
 			resetBtn.addEventListener('click', () => {
 				const rawTokens = getRawThemeDeclarations();
 				Object.keys(rawTokens).forEach(tokenName => {
 					document.documentElement.style.removeProperty(`--${tokenName}`);
+				});
+				const overrideControls = document.querySelectorAll('[data-override]');
+				overrideControls.forEach(ctrl => {
+					ctrl.value = '';
+					document.documentElement.style.removeProperty(`--${ctrl.name}`);
 				});
 				document.documentElement.style.removeProperty('--type-scale');
 				document.documentElement.style.removeProperty('--body-scale');
@@ -581,10 +771,20 @@
 				const rawDeclarations = getRawThemeDeclarations();
 				
 				const groups = {
+					overrides: [
+						'type-h1-size', 'type-h1-weight', 'type-h1-lh', 'type-h1-ls', 'type-h1-transform',
+						'type-h2-size', 'type-h2-weight', 'type-h2-lh', 'type-h2-ls', 'type-h2-transform',
+						'type-h3-size', 'type-h3-weight', 'type-h3-lh', 'type-h3-ls', 'type-h3-transform',
+						'type-h4-size', 'type-h4-weight', 'type-h4-lh', 'type-h4-ls', 'type-h4-transform',
+						'type-h5-size', 'type-h5-weight', 'type-h5-lh', 'type-h5-ls', 'type-h5-transform',
+						'type-perex-size', 'type-perex-weight', 'type-perex-lh', 'type-perex-ls', 'type-perex-opacity',
+						'type-body-size', 'type-body-weight', 'type-body-lh', 'type-body-ls',
+						'type-caption-size', 'type-caption-weight', 'type-caption-lh', 'type-caption-transform', 'type-caption-ls', 'type-caption-opacity'
+					],
 					typography: ['ff-heading', 'fw-heading', 'tt-heading', 'ls-heading', 'ff-body', 'fw-body', 'tt-body', 'ls-body', 'ff-mono'],
 					scale: ['type-scale', 'type-start-rem', 'type-start-vw', 'base-line-height', 'body-scale', 'body-start-rem', 'body-start-vw', 'base-body-line-height'],
 					spacing: ['scale-min', 'scale-fluid', 'scale', 'spacing'],
-					animations: ['animation-duration', 'animation-delay', 'animation-stagger', 'animation-timing', 'toggle-parallax', 'toggle-reveals'], // UPDATED GROUP
+					animations: ['animation-duration', 'animation-delay', 'animation-stagger', 'animation-timing', 'toggle-parallax', 'toggle-reveals'],
 					images: ['img-radius', 'radius'],
 					buttons: ['btn-padding', 'btn-radius', 'btn-border'],
 					colors: []
@@ -600,7 +800,7 @@
 					let clusterContent = "";
 					tokensList.forEach(token => {
 						let finalValue = inlineStyles.getPropertyValue(`--${token}`).trim();
-						if (!finalValue) finalValue = rawDeclarations[token];
+						if (!finalValue && !groups.overrides.includes(token)) finalValue = rawDeclarations[token];
 						if (finalValue) {
 							const paddedToken = `--${token}:`.padEnd(26, ' ');
 							clusterContent += `    ${paddedToken} ${finalValue};\n`;
@@ -614,6 +814,7 @@
 					}
 				}
 
+				appendGroup("Typography Variant Manual Overrides", groups.overrides);
 				appendGroup("Typography Branding Framework", groups.typography);
 				appendGroup("Fluid Responsive Scale Engine", groups.scale);
 				appendGroup("Layout Padding & Grid Spacing", groups.spacing);
@@ -624,7 +825,6 @@
 
 				cssOutputString = cssOutputString.trimEnd() + "\n}";
 
-				// Inject text block cleanly into the form element field for submission
 				tokensInput.value = cssOutputString;
 			});
 		}

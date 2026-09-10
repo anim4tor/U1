@@ -7,34 +7,83 @@
 @import "../Media/media";
 
 /* ------------------------------------------------------------
-   THE CALCULATED SYSTEM (Applies globally, evaluates dynamically)
+   THE CALCULATED SYSTEM (Fluid Auto Scale + Manual Overrides)
    ------------------------------------------------------------ */
 :root {
-    /* Headings */
-    --font-size-5: max(calc(var(--type-start-rem) * var(--scale)), calc(var(--type-start-vw) * var(--scale)));
-    --line-height-5: var(--base-line-height);
+    /* 1. Fluid Calculated Scales (Automatic Engine) */
+    --type-fluid-5: max(calc(var(--type-start-rem) * var(--scale)), calc(var(--type-start-vw) * var(--scale)));
+    --lh-fluid-5: var(--base-line-height);
 
-    --font-size-4: max(calc(var(--type-start-rem) * var(--type-scale) * var(--scale)), calc(var(--type-start-vw) * var(--type-scale) * var(--scale)));
-    --line-height-4: calc(var(--line-height-5) - (0.04 * var(--type-scale)));
+    --type-fluid-4: max(calc(var(--type-start-rem) * var(--type-scale) * var(--scale)), calc(var(--type-start-vw) * var(--type-scale) * var(--scale)));
+    --lh-fluid-4: calc(var(--lh-fluid-5) - (0.04 * var(--type-scale)));
 
-    --font-size-3: max(calc(var(--type-start-rem) * var(--type-scale) * var(--type-scale) * var(--scale)), calc(var(--type-start-vw) * var(--type-scale) * var(--type-scale) * var(--scale)));
-    --line-height-3: calc(var(--line-height-4) - (0.04 * var(--type-scale)));
+    --type-fluid-3: max(calc(var(--type-start-rem) * var(--type-scale) * var(--type-scale) * var(--scale)), calc(var(--type-start-vw) * var(--type-scale) * var(--type-scale) * var(--scale)));
+    --lh-fluid-3: calc(var(--lh-fluid-4) - (0.04 * var(--type-scale)));
 
-    --font-size-2: max(calc(var(--type-start-rem) * var(--type-scale) * var(--type-scale) * var(--type-scale) * var(--scale)), calc(var(--type-start-vw) * var(--type-scale) * var(--type-scale) * var(--type-scale) * var(--scale)));
-    --line-height-2: calc(var(--line-height-3) - (0.04 * var(--type-scale)));
+    --type-fluid-2: max(calc(var(--type-start-rem) * var(--type-scale) * var(--type-scale) * var(--type-scale) * var(--scale)), calc(var(--type-start-vw) * var(--type-scale) * var(--type-scale) * var(--type-scale) * var(--scale)));
+    --lh-fluid-2: calc(var(--lh-fluid-3) - (0.04 * var(--type-scale)));
 
-    --font-size-1: max(calc(var(--type-start-rem) * var(--type-scale) * var(--type-scale) * var(--type-scale) * var(--type-scale) * var(--scale)), calc(var(--type-start-vw) * var(--type-scale) * var(--type-scale) * var(--type-scale) * var(--type-scale) * var(--scale)));
-    --line-height-1: calc(var(--line-height-2) - (0.04 * var(--type-scale)));
+    --type-fluid-1: max(calc(var(--type-start-rem) * var(--type-scale) * var(--type-scale) * var(--type-scale) * var(--type-scale) * var(--scale)), calc(var(--type-start-vw) * var(--type-scale) * var(--type-scale) * var(--type-scale) * var(--type-scale) * var(--scale)));
+    --lh-fluid-1: calc(var(--lh-fluid-2) - (0.04 * var(--type-scale)));
 
-    /* Body */
-    --font-size-small: max(calc(var(--body-start-rem) * var(--scale)), calc(var(--body-start-vw) * var(--scale)));
-    --line-height-small: var(--base-body-line-height);
+    --type-fluid-small: max(calc(var(--body-start-rem) * var(--scale)), calc(var(--body-start-vw) * var(--scale)));
+    --lh-fluid-small: var(--base-body-line-height);
 
-    --font-size-default: max(calc(var(--body-start-rem) * var(--body-scale) * var(--scale)), calc(var(--body-start-vw) * var(--body-scale) * var(--scale)));
-    --line-height-default: calc(var(--base-body-line-height) - (0.04 * var(--body-scale)));
+    --type-fluid-default: max(calc(var(--body-start-rem) * var(--body-scale) * var(--scale)), calc(var(--body-start-vw) * var(--body-scale) * var(--scale)));
+    --lh-fluid-default: calc(var(--base-body-line-height) - (0.04 * var(--body-scale)));
 
-    --font-size-large: max(calc(var(--body-start-rem) * var(--body-scale) * var(--body-scale) * var(--scale)), calc(var(--body-start-vw) * var(--body-scale) * var(--body-scale) * var(--scale)));
-    --line-height-large: calc(var(--line-height-default) - (0.04 * var(--body-scale)));
+    --type-fluid-large: max(calc(var(--body-start-rem) * var(--body-scale) * var(--body-scale) * var(--scale)), calc(var(--body-start-vw) * var(--body-scale) * var(--body-scale) * var(--scale)));
+    --lh-fluid-large: calc(var(--lh-fluid-default) - (0.04 * var(--body-scale)));
+
+    /* 2. Effective Level Tokens (Manual Override -> Fluid Fallback) */
+    --font-size-1:              var(--type-h1-size, var(--type-fluid-1));
+    --line-height-1:            var(--type-h1-lh, var(--lh-fluid-1));
+    --font-weight-1:            var(--type-h1-weight, var(--fw-heading, 700));
+    --letter-spacing-1:         var(--type-h1-ls, var(--ls-heading, normal));
+    --text-transform-1:         var(--type-h1-transform, var(--tt-heading, none));
+
+    --font-size-2:              var(--type-h2-size, var(--type-fluid-2));
+    --line-height-2:            var(--type-h2-lh, var(--lh-fluid-2));
+    --font-weight-2:            var(--type-h2-weight, var(--fw-heading, 700));
+    --letter-spacing-2:         var(--type-h2-ls, var(--ls-heading, normal));
+    --text-transform-2:         var(--type-h2-transform, var(--tt-heading, none));
+
+    --font-size-3:              var(--type-h3-size, var(--type-fluid-3));
+    --line-height-3:            var(--type-h3-lh, var(--lh-fluid-3));
+    --font-weight-3:            var(--type-h3-weight, var(--fw-heading, 600));
+    --letter-spacing-3:         var(--type-h3-ls, var(--ls-heading, normal));
+    --text-transform-3:         var(--type-h3-transform, var(--tt-heading, none));
+
+    --font-size-4:              var(--type-h4-size, var(--type-fluid-4));
+    --line-height-4:            var(--type-h4-lh, var(--lh-fluid-4));
+    --font-weight-4:            var(--type-h4-weight, var(--fw-heading, 500));
+    --letter-spacing-4:         var(--type-h4-ls, var(--ls-heading, normal));
+    --text-transform-4:         var(--type-h4-transform, var(--tt-heading, none));
+
+    --font-size-5:              var(--type-h5-size, var(--type-fluid-5));
+    --line-height-5:            var(--type-h5-lh, var(--lh-fluid-5));
+    --font-weight-5:            var(--type-h5-weight, var(--fw-heading, 500));
+    --letter-spacing-5:         var(--type-h5-ls, var(--ls-heading, normal));
+    --text-transform-5:         var(--type-h5-transform, var(--tt-heading, none));
+
+    /* Body Level Variables */
+    --font-size-large:          var(--type-perex-size, var(--type-fluid-large));
+    --line-height-large:        var(--type-perex-lh, var(--lh-fluid-large));
+    --font-weight-large:        var(--type-perex-weight, var(--fw-body, 400));
+    --letter-spacing-large:     var(--type-perex-ls, var(--ls-body, normal));
+    --opacity-large:            var(--type-perex-opacity, 1);
+
+    --font-size-default:        var(--type-body-size, var(--type-fluid-default));
+    --line-height-default:      var(--type-body-lh, var(--lh-fluid-default));
+    --font-weight-default:      var(--type-body-weight, var(--fw-body, 400));
+    --letter-spacing-default:   var(--type-body-ls, var(--ls-body, normal));
+
+    --font-size-small:          var(--type-caption-size, var(--type-fluid-small));
+    --line-height-small:        var(--type-caption-lh, var(--lh-fluid-small));
+    --font-weight-small:        var(--type-caption-weight, var(--fw-body, 500));
+    --text-transform-small:     var(--type-caption-transform, var(--tt-body, none));
+    --letter-spacing-small:     var(--type-caption-ls, var(--ls-body, normal));
+    --opacity-small:            var(--type-caption-opacity, 1);
 }
 
 
@@ -55,6 +104,15 @@ $levels: 'small', 'default', 'large', 5, 4, 3, 2, 1;
                 --output-size: calc(var(--font-size-#{$level}));
                 font-size: var(--output-size);
                 line-height: var(--line-height-#{$level});
+                font-weight: var(--font-weight-#{$level}, inherit);
+                letter-spacing: var(--letter-spacing-#{$level}, inherit);
+                text-transform: var(--text-transform-#{$level}, inherit);
+                @if ($level == 'large') {
+                    opacity: var(--opacity-large, 1);
+                }
+                @if ($level == 'small') {
+                    opacity: var(--opacity-small, 1);
+                }
             }
         }
     }
@@ -189,14 +247,12 @@ body {
     Headings
 */
 .ff__heading,
-.ff__heading *,
 h1,
 h2,
 h3,
 h4,
 h5 {
     font-family: var(--ff-heading), sans-serif;
-    font-weight: var(--fw-heading);
     letter-spacing: var(--ls-heading);
     text-transform: var(--tt-heading);
     font-optical-sizing: auto;
@@ -206,20 +262,17 @@ h5 {
     Paragraphs
 */
 .ff__body,
-.ff__body *,
 p,
 a,
 button {
     font-family: var(--ff-body), sans-serif;
-    font-weight: var(--fw-body);
     letter-spacing: var(--ls-body);
     text-transform: var(--tt-body);
     font-optical-sizing: auto;
 }
 
-.ff__mono,
-.ff__mono * {
-    font-family: var(--ff-mono), mono;
+.ff__mono {
+    font-family: var(--ff-mono), monospace;
 }
 
 
@@ -265,7 +318,7 @@ button {
 }
 
 .label {
-    font-weight: 500;
+    font-weight: var(--font-weight-small, 500);
 }
 
 .hyphens {
