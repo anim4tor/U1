@@ -89,6 +89,13 @@ html body hr {
 .radius {
   @include radius;
 }
+@mixin large__radius {
+  border-radius: calc(var(--radius)*2*1em);
+  overflow: hidden;
+}
+.large__radius {
+  @include large__radius;
+}
 .circle {
   border-radius: 50%;
 }

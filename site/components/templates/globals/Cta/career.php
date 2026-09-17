@@ -10,8 +10,11 @@
 			</div>
 			<div class="span__3 grid__3 justify__space-between align__center gap__2 color__invert">
 				<div class="span__2 grid gap__1">
-					<?= snippet('molecules/Header', ['header' => $site->ctaCareer(), 'type' => ['heading']]) ?>
-					<div class="op__5">
+					<div class="inner-b__0 flex align__start gap__01 span__4">
+						<?= snippet('molecules/Header', ['header' => $site->ctaCareer(), 'type' => ['label']]) ?>
+						<?= snippet('molecules/Header', ['header' => $site->ctaCareer(), 'type' => ['heading']]) ?>
+					</div>
+					<div class="inner-l__1">
 						<?= snippet('molecules/Header', ['header' => $site->ctaCareer(), 'type' => ['text']]) ?>
 					</div>
 				</div>

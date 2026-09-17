@@ -47,6 +47,11 @@ tabs:
             type: pages
             query: site.find('projects')
 
+          process:
+            width: 1/1
+            extends: fields/section
+            label: Process
+
           services:
             width: 1/1
             extends: fields/section

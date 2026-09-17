@@ -1,89 +1,86 @@
 <?php
 $divisions = [
 	[
-		'name'    => 'Office manager',
-		'email'   => 'svacinova@u1.cz',
-		'phone'   => '+420 601 088 517',
+		'name'        => 'Office manager',
+		'email'       => 'svacinova@u1.cz',
+		'phone'       => '+420 601 088 517',
 		'phone_clean' => '+420601088517',
-		'image'   => 'contact_office.jpg',
-		'desc'    => 'Dotazy k provozu, zázemí a obecná komunikace'
+		'image'       => 'contact_office.jpg',
 	],
 	[
-		'name'    => 'Marketing a média',
-		'email'   => 'marketing@u1.cz',
-		'phone'   => '+420 725 020 888',
+		'name'        => 'Marketing a média',
+		'email'       => 'marketing@u1.cz',
+		'phone'       => '+420 725 020 888',
 		'phone_clean' => '+420725020888',
-		'image'   => 'contact_marketing.jpg',
-		'desc'    => 'Tiskové zprávy, média, spolupráce a partnerství'
+		'image'       => 'contact_marketing.jpg',
 	],
 	[
-		'name'    => 'Obchod',
-		'email'   => 'sales@u1.cz',
-		'phone'   => null,
-		'phone_clean' => null,
-		'image'   => 'contact_sales.jpg',
-		'desc'    => 'Poptávky nových projektů, fitoutů a realizací'
-	],
-	[
-		'name'    => 'Design',
-		'email'   => 'design@u1.cz',
-		'phone'   => '+420 737 758 528',
+		'name'        => 'Obchod & Projekty',
+		'email'       => 'sales@u1.cz',
+		'phone'       => '+420 737 758 528',
 		'phone_clean' => '+420737758528',
-		'image'   => 'contact_design.jpg',
-		'desc'    => 'Architektonický koncept, space planning a návrhy interiérů'
+		'image'       => 'contact_sales.jpg',
 	],
 	[
-		'name'    => 'Účetní',
-		'email'   => 'accountant@u1.cz',
-		'phone'   => '+420 720 834 765',
+		'name'        => 'Design & Architektura',
+		'email'       => 'design@u1.cz',
+		'phone'       => '+420 737 758 528',
+		'phone_clean' => '+420737758528',
+		'image'       => 'contact_design.jpg',
+	],
+	[
+		'name'        => 'Finance & Účetní',
+		'email'       => 'accountant@u1.cz',
+		'phone'       => '+420 720 834 765',
 		'phone_clean' => '+420720834765',
-		'image'   => 'contact_accounts.jpg',
-		'desc'    => 'Fakturace, platby a ekonomická administrativa'
+		'image'       => 'contact_accounts.jpg',
+	],
+	[
+		'name'        => 'Kariéra & HR',
+		'email'       => 'kariera@u1.cz',
+		'phone'       => '+420 601 088 517',
+		'phone_clean' => '+420601088517',
+		'image'       => 'contact_hr.jpg',
 	],
 ];
 ?>
 
 <section id="oddeleni" class="contact-divisions" theme="dark">
-	<div class="grid gap__2 inner__1 inner-y__3">
-		<div class="flex justify__space-between align__end border__top inner-t__1" data-scroll>
-			<div class="grid gap__02">
-				<span class="upper op__4 font__size__small" data-reveal-text>Přímé spojení</span>
+	<div class="grid gap__2 inner__4">
+		<!-- <div class="flex justify__space-between align__center" data-scroll>
+			<div class="flex align__start gap__05">
+				<div class="w__05 h__05 bg__acc"></div>
 				<h2 data-reveal-text>Oddělení</h2>
 			</div>
-			<p class="op__5 font__size__small mobile:hidden" data-reveal-text>Spojte se přímo s konkrétním týmem</p>
-		</div>
+		</div> -->
 
-		<div class="grid__3 mobile:grid__1 gap__1">
+		<div class="grid__3 mobile:grid__1 gap__2">
 			<?php foreach ($divisions as $div) : ?>
-				<article class="card relative radius overflow__hidden flex flex__col justify__space-between gap__1 inner__1 bg__light/5 border__light/10 hover:border__acc transition" data-scroll style="min-height: 280px;">
-					<!-- Background / Illustration Image -->
-					<div class="absolute inset__stretch z__0 op__20 hover:op__30 transition" style="background-image: url('<?= url('public/assets/images/' . $div['image']) ?>'); background-size: cover; background-position: center; pointer-events: none;"></div>
-
-					<div class="relative z__1 grid gap__05">
-						<span class="upper op__5 font__size__small">Tým U1</span>
-						<h3><?= $div['name'] ?></h3>
-						<p class="op__6 font__size__small"><?= $div['desc'] ?></p>
+				<article class="card relative radius overflow__hidden flex place__space-between-stretch gap__1 inner__1" data-scroll style="background: rgba(var(--color-invert), 0.03); flex-direction: column;">
+					<div class="grid gap__1">
+						<div class="item__figure img__radius overflow__hidden" data-scroll style="max-width: 140px;">
+							<?= snippet('atoms/Image', [
+								'url'     => $div['image'],
+								'css'     => 'w__100 aspect__3/4 grid object__cover',
+								'reveal'  => true
+							]) ?>
+						</div>
+						<div class="grid gap__02">
+							<h3 class="font__size__3"><?= $div['name'] ?></h3>
+						</div>
 					</div>
 
-					<div class="relative z__1 flex wrap gap__05 inner-t__1 border__top border__light/10">
+					<div class="flex wrap gap__05 ">
 						<?php if (!empty($div['email'])) : ?>
-							<?= snippet('atoms/Button', [
-								'url'   => 'mailto:' . $div['email'],
-								'label' => $div['email'],
-								'icon'  => false,
-								'theme' => false,
-								'css'   => 'bg__light/10 hover:bg__acc color__invert'
-							]) ?>
+							<a href="mailto:<?= $div['email'] ?>" class="button" theme="invert-ghost" hover="invert">
+								<label class="upper font__size__small"><span><?= $div['email'] ?></span></label>
+							</a>
 						<?php endif ?>
 
 						<?php if (!empty($div['phone'])) : ?>
-							<?= snippet('atoms/Button', [
-								'url'   => 'tel:' . $div['phone_clean'],
-								'label' => $div['phone'],
-								'icon'  => false,
-								'theme' => false,
-								'css'   => 'bg__light/10 hover:bg__acc color__invert'
-							]) ?>
+							<a href="tel:<?= $div['phone_clean'] ?>" class="button" theme="invert-ghost" hover="invert">
+								<label class="upper font__size__small"><span><?= $div['phone'] ?></span></label>
+							</a>
 						<?php endif ?>
 					</div>
 				</article>

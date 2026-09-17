@@ -10,9 +10,9 @@
 		<div class="item__meta relative flex justify__space-between align__center gap__2">
 			<div class="flex gap__05 upper ">
 				<!-- <span class="">(<?= str_pad($project->indexOf(collection('Projects')) + 1, 2, '0', STR_PAD_LEFT); ?>)</span> -->
-				<h3 class="font__size__5 wrap"><?= $project->title() ?></h3>
+				<h3 class="font__size__4 wrap"><?= $project->title() ?></h3>
 			</div>
-			<p class="">(<?= $project->date()->toDate('Y') ?>)</p>
+			<p class="font__size__small">(<?= $project->date()->toDate('Y') ?>)</p>
 		</div>
 	</a>
 </div>

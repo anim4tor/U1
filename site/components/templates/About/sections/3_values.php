@@ -1,22 +1,22 @@
 <?php if (collection('Values')->isNotEmpty()) : ?>
-<section class="values" theme="invert">
-	<div class="grid__2 gap__2 relative inner-y__1 border__top inner-b__5" data-tabs="scrollable">
+<section class="values border__top" theme="invert">
+	<div class="grid__2 gap__2 relative inner-y__1 inner-b__4" data-tabs="scrollable">
 		<div class="sticky top__0 gap__2 grid place__space-between-start h__100v inner-y__1" >
-			<div class="relative flex inner-x__1 ">
-				<?= snippet('atoms/Text', ['text' => '(Our values)', 'reveal' => true ]) ?>	
+			<div class="relative flex inner-x__4 ">
+				<?= snippet('atoms/Label', ['text' => 'Our values', 'reveal' => true ]) ?>	
 			</div>
 			<div class="grid place__start-start gap__1">
-				<div class="grid inner-x__1" data-scroll>
+				<div class="grid inner-l__4" data-scroll>
 					<?php foreach (collection('Values') as $step) : ?>
 						<div data-tab="step-<?= $step->step()?>" class="flex align__start gap__02" >
-							<?= snippet('atoms/Heading', [ 'level' => 'h3', 'text' => $step->value(), 'reveal' => true, 'node' => 'data-split-ignore' ]) ?>
-							<div data-reveal-text="" class="wrap-t__03" data-split-ignore style="--in-delay: 800ms">(<?= $step->indexOf(collection('Values')) + 1 ?>)</div>
+							<?= snippet('atoms/Heading', [ 'level' => 'h2', 'text' => $step->value(), 'reveal' => true, 'node' => 'data-split-ignore' ]) ?>
+							<div data-reveal-text="" class="wrap-t__03 font__size__small" data-split-ignore style="--in-delay: 800ms">(<?= $step->indexOf(collection('Values')) + 1 ?>)</div>
 
 						</div>
 						
 					<?php endforeach ?>
 				</div>
-				<div class="grid place__start-start inner-x__1 " data-scroll data-scroll-ignore>
+				<div class="grid place__start-start inner-l__4 " data-scroll data-scroll-ignore>
 					<div data-pane-container class="grid__stack">
 						<?php foreach (collection('Values') as $step) : ?>
 						<div data-pane="step-<?= $step->step()?>" class="grid__2" data-tab-reveal>

@@ -17,7 +17,7 @@
 				<a href="" class="grid place__center-center gap__05 inner-b__1" data-scroll data-scroll-progress data-scroll-ignore data-hoverable >
 					<div class="flex align__start gap__02 inner-y__02 no__wrap" data-scroll>
 						<h3 data-reveal-text><?= $step->label() ?></h3>
-						<div data-reveal-text="" class="-wrap-t__03" data-split-ignore style="--in-delay: 800ms">(<?= $step->step() ?>)</div>
+						<div data-reveal-text="" class="-wrap-t__03 font__size__small" data-split-ignore style="--in-delay: 800ms">(<?= $step->step() ?>)</div>
 					</div>
 					<?php if ($img = $step->figure()->toFile()) : ?>
 						<div class="item__figure img__radius"><?= snippet('atoms/Image', ['img' => $img, 'parallax' => 2, 'reveal' => false, 'css' => 'vh__8 vw__8']) ?></div>

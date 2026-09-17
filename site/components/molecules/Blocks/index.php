@@ -20,15 +20,15 @@ foreach ($blocks as $block):
             // 2. Render based on orientation
             if ($image->orientation() == "landscape"): 
                 ?>
-                <div class="grid span__2 inner__0" data-scroll>
+                <div class="grid inner__0" data-scroll>
                     <?= snippet('atoms/Image', ['img' => $image, 'parallax' => 2, 'css' => 'aspect__16/9']) ?>
                 </div>
                 <?php 
             else: 
                 ?>
-                <div class="span__2 grid grid__post gap__2" data-scroll>
+                <div class="grid__2 gap__2" data-scroll>
                 	<div></div>
-                	<div class="grid inner-r__10">
+                	<div class="grid inner-r__5">
                     	<?= snippet('atoms/Image', ['img' => $image, 'parallax' => 2, 'css' => 'aspect__3/4']) ?>
                 	</div>
                 </div>
@@ -39,7 +39,7 @@ foreach ($blocks as $block):
     elseif ($isGallery):
 		// 1. Safely retrieve the file object from the block
 		if ($images = $block->images()->toFiles()): ?>
-		  <div class="grid__<?= $images->count() ?> gap__1 span__2 inner-y__1">
+		  <div class="grid__<?= $images->count() ?> gap__1 inner-y__1">
 		    <?php foreach ($images as $image): ?>
 		     	<?= snippet('atoms/Image', ['img' => $image, 'parallax' => 2, 'css' => 'aspect__3/4']) ?>
 		    <?php endforeach; ?>
@@ -51,20 +51,21 @@ foreach ($blocks as $block):
         // Start a fresh, clean grid section wrapper
         $inGroup = true;
         ?>
-        <div class="span__2 grid inner-y__1 gap__2 border__top" data-scroll>	
-            <div class="grid__2">
+        <div class="grid__4 gap__2" data-scroll>	
+            <div data-scroll class="flex align__start gap__05 span__2 inner-r__5">
+                <div class="w__05 h__05 bg__acc"></div>
                 <?= $block ?> 
             </div>
-            <div class="grid grid__post gap__2 ">
-            	<div></div>
+            <div class="grid gap__2 span__2">
+            	<!-- <div></div> -->
 	            <!-- Content column wrapper for text, buttons, etc. -->
-	            <div class="grid gap__1 inner-r__10">
+	            <div class="grid gap__1 inner-r__5">
         <?php 
 
     else:
         // Fallback: If content appears before any heading, start a group automatically
         if (!$inGroup):
-            echo '<div class="grid gap__1 inner-r__10">';
+            echo '<div class="grid gap__1 inner-r__5">';
             $inGroup = true;
         endif;
         ?>

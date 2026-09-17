@@ -3,7 +3,7 @@
 		<div class="h__10"></div>
 		<div class="span__4 grid place__stretch-stretch">
 			<div class="span__4 border__top inner-t__05 grid grid__post gap__2 place__space-between-stretch">
-				<p class="grid place__start-start font__size__large">
+				<p class="grid place__start-start font__size__small">
 					<span class="upper ">(Blog post)</span>
 					<span class="op__4"><?= $page->date()->toDate('Y-m-d') ?></span>
 				</p>
@@ -24,10 +24,10 @@
 
 <section class="details" theme="invert">
 
-	<div data-scroll class="place__stretch-stretch grid gap__2 inner-x__1 inner-t__2 inner-b__5">
-		<div class="grid span__2 gap__2 grid__post">
+	<div data-scroll class="place__stretch-stretch grid gap__4 inner__4">
+		<div class="grid span__2 gap__2 grid__2">
 			<div class=""></div>
-			<h2 data-reveal-text="lines" class="font__size__4"><?= $page->excerpt()->inline() ?></h2>
+			<h2 data-reveal-text="lines" class="font__size__3"><?= $page->excerpt()->inline() ?></h2>
 		</div>
 		<?php $start = false; ?>
 		<?php $end = false; ?>
@@ -36,9 +36,9 @@
 
 			<?php if ($block->type() == 'heading' && in_array($block->level(), ['h2','h3'])) : ?>
 				<?= $start ? '</div>' : null ?>
-				<div id="<?= Str::slug($block->text()->inline()) ?>" class="span__2 grid grid__post gap__2 inner-y__1 border__top">	
+				<div id="<?= Str::slug($block->text()->inline()) ?>" class="span__2 grid grid__2 gap__2">	
 					<div class="-wrap-r__5 inner-r__10">
-						<h3 class="font__size__5"><?= $block->text() ?></h3>
+						<h3 class="font__size__2"><?= $block->text() ?></h3>
 					</div>
 					<div class="grid gap__1 inner-r__10">
 				<?php $start = true ?>
@@ -53,22 +53,5 @@
 	</div>
 </section>
 
-<section class="others" theme="light">
-	<div class="relative grid__2 gap__2 inner-x__1 inner-y__1 inner-t__5">
-		<div class="" data-scroll>
-			<h3 data-reveal-text>Explore related articles</h3>
-		</div>
-		<div class="flex justify__end align__end">
-			<?= snippet('atoms/Button', [ 'url' => $page->parent()->url(), 'label' => 'See all articles', 'theme' => 'light', 'icon' => 'arrow-right']) ?>
-		</div>
-	</div>
-	<div class="inner-b__5" >
-		<ol class="grid__3 justify__start align__start no__wrap gap__1 inner-x__1 ">	
-		<?php foreach (collection('Blog')->limit(3) as $feed) : ?>
-			<?= snippet('molecules/Feed', compact('feed')) ?>
-		<?php endforeach ?>
-		</ol>
-	</div>
-</section>
-
+<?= snippet('templates/globals/Feed/related') ?>
 <?= snippet('templates/globals/Cta') ?>

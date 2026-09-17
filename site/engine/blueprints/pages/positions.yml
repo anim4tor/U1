@@ -1,0 +1,63 @@
+title: Volné pozice
+icon: 📋
+
+tabs:
+  jobs:
+    label: Pozice
+    columns:
+      - width: 2/3
+        sections:
+          listed:
+            type: pages
+            headline: Otevřené pozice
+            status: listed
+            layout: cards
+            size: small
+            template: job
+            empty: Přidat pozici
+            image:
+              query: page.cover.toFile
+              cover: true
+              ratio: 4/5
+
+      - width: 1/3
+        sections:
+          drafts:
+            type: pages
+            headline: Drafts
+            status: draft
+            layout: list
+            template: job
+            empty: No drafts
+          unlisted:
+            type: pages
+            headline: Archiv
+            status: unlisted
+            layout: list
+            template: job
+            empty: No archived positions
+
+  content:
+    label: Obsah
+    columns:
+      - width: 3/4
+        fields:
+          hero:
+            extends: fields/hero
+
+      - width: 1/4
+        sticky: true
+        fields:
+          order:
+            type: structure
+            fields:
+              label:
+                label: Choose Section Layout
+                type: select
+                options: query
+                query:
+                  fetch: page.getCurrentAndGlobalSnippets
+                  text: "{{ item.text }}"
+                  value: "{{ item.value }}"
+
+  meta: tabs/meta/page

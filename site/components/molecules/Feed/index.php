@@ -6,7 +6,7 @@
 		<div class="flex gap__2 upper ">
 			<h4 class="font__size__4" data-reveal-text="lines"><?= $feed->title() ?></h4>
 		</div>
-		<p class="no__wrap op__5" data-reveal-text="lines">(<?= $feed->date()->toDate('Y-m-d') ?>)</p>
+		<p class="no__wrap op__5 font__size__small" data-reveal-text="lines">(<?= $feed->date()->toDate('Y-m-d') ?>)</p>
 	</div>
 	<!-- <div class="grid ">
 		<p class="font__size__small upper"><?= $feed->intro()->inline() ?></p>

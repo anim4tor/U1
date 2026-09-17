@@ -20,7 +20,7 @@
 		</div>
 	</div>
 	<?= snippet('templates/globals/Testimonials/carousel') ?>
-	<div class="flex span__3 justify__center inner__2">
+	<div class="flex span__3 justify__center inner-t__1 inner-b__4">
 		<div class="span__3 flex justify__center">
 			<?= snippet('molecules/Header', ['header' => $page->projects(), 'type' => ['button']]) ?>
 		</div>

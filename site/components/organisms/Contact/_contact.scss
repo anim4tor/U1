@@ -25,11 +25,13 @@
 	pointer-events: all;
 	cursor: pointer !important;
 
-	button {
+	button, a.button {
 		height: var(--fab-size);
 		border-radius: var(--fab-size);
 		padding: 0;
 		gap: 0;
+		text-decoration: none;
+		color: inherit;
 /*		clip-path: circle(45% at 50% 50%);		 */
 		display: flex;
 		align-items: center;
@@ -71,7 +73,7 @@
 
 	&:not(&[collapsed]),
 	&:hover {
-		button {
+		button, a.button {
 			label {
 				grid-template-columns: 1fr;
 				& > div {

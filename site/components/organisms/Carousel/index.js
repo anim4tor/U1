@@ -58,29 +58,36 @@ class Carousel {
         console.log('... init Carousel widget with dedicated scroll area');
         this.resize();
         this.initEvents();
+        window.requestAnimationFrame(() => this.resize());
+        window.addEventListener('load', () => this.resize());
         this.change(this.active, 0); 
     }
 
     resize() {
+        if (!this.DOM.items.length) return;
+
         const firstItem = this.DOM.items[0];
+        const lastItem = this.DOM.items[this.DOM.items.length - 1];
+        
         const computedStyle = window.getComputedStyle(firstItem);
         const parentStyle = window.getComputedStyle(this.DOM.panes);
         
         const itemWidth = firstItem.offsetWidth;
         const marginRight = parseFloat(computedStyle.marginRight) || 0;
-        const columnGap = parseFloat(parentStyle.columnGap) || 0;
+        const columnGap = parseFloat(parentStyle.columnGap) || parseFloat(parentStyle.gap) || 0;
         const gap = marginRight || columnGap;
 
         this.itemSizeWithGap = itemWidth + gap;
         
-        const paddingRight = parseFloat(parentStyle.paddingRight) || 0;
-        const totalSlidesWidth = this.DOM.panes.scrollWidth;
-        const carouselVisibleWidth = this.carousel.offsetWidth;
+        // Exact total track width relative to panes
+        const totalSlidesWidth = (lastItem.offsetLeft + lastItem.offsetWidth) - firstItem.offsetLeft;
+        const visibleWidth = this.DOM.scrollArea.clientWidth;
         
-        this.maxScroll = Math.max(0, (totalSlidesWidth + paddingRight) - carouselVisibleWidth);
+        this.maxScroll = Math.max(0, totalSlidesWidth - visibleWidth);
         
-        if (this.active * this.itemSizeWithGap > this.maxScroll) {
-            this.active = Math.max(0, Math.round(this.maxScroll / this.itemSizeWithGap));
+        const maxIndex = this.itemSizeWithGap > 0 ? Math.ceil(this.maxScroll / this.itemSizeWithGap) : 0;
+        if (this.active > maxIndex) {
+            this.active = maxIndex;
         }
         
         this.change(this.active, 0);
@@ -122,10 +129,12 @@ class Carousel {
 
     next(e) {
         if (e) e.preventDefault();
-        const maxIndex = Math.ceil(this.maxScroll / this.itemSizeWithGap);
-        if (this.active < maxIndex) {
+        const maxIndex = this.itemSizeWithGap > 0 ? Math.ceil(this.maxScroll / this.itemSizeWithGap) : 0;
+        if (this.currentX < this.maxScroll - 1 && this.active < maxIndex) {
             this.active++;
             this.change(this.active);
+        } else if (this.currentX < this.maxScroll - 1) {
+            this.change(maxIndex);
         } else {
             this.bounceBack();
         }
@@ -133,23 +142,31 @@ class Carousel {
 
     prev(e) {
         if (e) e.preventDefault();
-        if (this.active > 0) {
+        if (this.currentX > 1 && this.active > 0) {
             this.active--;
             this.change(this.active);
+        } else if (this.currentX > 1) {
+            this.change(0);
         } else {
             this.bounceBack();
         }
     }
 
     change(index, duration = 0.6) {
-        const maxIndex = Math.ceil(this.maxScroll / this.itemSizeWithGap);
+        if (this.maxScroll <= 0) {
+            this.currentX = 0;
+            this.active = 0;
+            gsap.to(this.DOM.panes, { x: 0, duration: 0.3, overwrite: 'auto' });
+            return;
+        }
+
+        const maxIndex = this.itemSizeWithGap > 0 ? Math.ceil(this.maxScroll / this.itemSizeWithGap) : 0;
+        this.active = Math.max(0, Math.min(index, this.DOM.items.length - 1));
         
-        this.active = Math.max(0, Math.min(index, maxIndex));
         let targetX = this.itemSizeWithGap * this.active;
         
-        if (targetX > this.maxScroll) {
+        if (targetX >= this.maxScroll) {
             targetX = this.maxScroll;
-            this.active = Math.round(this.maxScroll / this.itemSizeWithGap);
         }
 
         this.currentX = targetX;
@@ -245,7 +262,7 @@ class Carousel {
         
         this.isPressed = false;
 
-        const maxIndex = Math.ceil(this.maxScroll / this.itemSizeWithGap);
+        const maxIndex = this.itemSizeWithGap > 0 ? Math.ceil(this.maxScroll / this.itemSizeWithGap) : 0;
 
         if (this.isDragged) {
             const speed = Math.abs(this.touch.velocity);
@@ -273,9 +290,14 @@ class Carousel {
             } else {
                 if (distanceAbs > this.config.slowDragThreshold) {
                     const currentPhysicalX = this.touch.dragStartOffset - this.touch.distance;
-                    let targetIndex = Math.round(currentPhysicalX / this.itemSizeWithGap);
-                    
-                    this.change(targetIndex, this.config.durationNormal);
+                    if (currentPhysicalX >= this.maxScroll - (this.itemSizeWithGap * 0.35)) {
+                        this.change(maxIndex, this.config.durationNormal);
+                    } else if (currentPhysicalX <= (this.itemSizeWithGap * 0.35)) {
+                        this.change(0, this.config.durationNormal);
+                    } else {
+                        let targetIndex = Math.round(currentPhysicalX / this.itemSizeWithGap);
+                        this.change(targetIndex, this.config.durationNormal);
+                    }
                 } else {
                     this.bounceBack();
                 }

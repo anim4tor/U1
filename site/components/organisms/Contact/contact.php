@@ -4,7 +4,7 @@
 <div class="grid place__center-center -wrap-b__2 inner-x__2"><?= snippet('atoms/Image', ['url' => 'contact_sales.jpg', 'css' => '']) ?></div>
 <div class="relative grid gap__05 place__end-stretch inner-x__1 inner-y__1">
 	<div class="grid gap__05">
-		<p class="lower font__size__2">Sales</p>
+		<h4 class="lower font__size__4">Sales</h4>
 		<div class="flex gap__02">
 			<?= snippet('atoms/Button', [ 'url' => 'mailto: svacinova@u1.cz', 'label' => 'svacinova@u1.cz', 'icon' => false, 'theme' => false, 'css' => 'bg__light/20 color__invert/60']) ?>
 			<?= snippet('atoms/Button', [ 'url' => 'tel:+402 601 088 517', 'label' => '+402 601 088 517', 'icon' => false, 'theme' => false, 'css' => 'bg__light/20 color__invert/60']) ?>

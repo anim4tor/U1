@@ -64,6 +64,8 @@ tabs:
               detail:
                 type: writer
 
+          teamsHeader:
+            extends: fields/section
           teams:
             type: structure
             fields:
@@ -84,6 +86,8 @@ tabs:
                 type: pages
                 query: site.find('about')
 
+          peopleHeader:
+            extends: fields/section
           # people:
           #   label: People
           #   type: pages

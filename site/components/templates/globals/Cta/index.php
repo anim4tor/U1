@@ -6,7 +6,8 @@
 		</div>
 		<div class="relative grid__4 gap__1 mobile:grid__1 inner__4 inner-t__4">
 			<div class="span__4 flex justify__space-between align__end gap__3 color__invert">
-				<div class="inner-b__0">
+				<div class="inner-b__0 flex align__start gap__01 span__4">
+					<?= snippet('molecules/Header', ['header' => $site->ctaContact(), 'type' => ['label']]) ?>
 					<?= snippet('molecules/Header', ['header' => $site->ctaContact(), 'type' => ['heading']]) ?>
 				</div>
 				<div class="flex justify__end">

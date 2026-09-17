@@ -1,40 +1,122 @@
-title: Job
-icon: 👩‍💼
+title: Pozice
+icon: 📝
 
 tabs:
   content:
+    label: Obsah
     columns:
       main:
         width: 2/3
         fields:
           excerpt:
-            label: Excerpt
+            label: Perex
             type: writer
+
           details:
-            label: Details
+            label: Detaily
             type: writer
+
           description:
-            label: Popis
-            type: list
+            label: Popis práce
+            type: structure
+            fields:
+              text:
+                label: Položka
+                type: text
+
           requirements:
             label: Požadavky
-            type: list
+            type: structure
+            fields:
+              text:
+                label: Položka
+                type: text
+
           benefits:
             label: Benefity
-            type: list
+            type: structure
+            fields:
+              text:
+                label: Položka
+                type: text
+
+          whyusHeader:
+            extends: fields/section
+          whyus:
+            label: Proč pracovat u nás
+            type: structure
+            fields:
+              text:
+                label: Název výhody
+                type: text
+              icon:
+                label: Ikona
+                type: select
+                options:
+                  shield-check: Štít (Bonusy/prémie)
+                  users: Bankovka (Provize z prodeje)
+                  briefcase: Mobil (Mobilní telefon)
+                  heart: Visačka (Sleva na firemní výrobky/služby)
+                  sun: Notebook (Notebook)
+                  users-1: Promoce / čepice (Vzdělávací kurzy, školení)
+                  heart-1: Hrneček kávy (Občerstvení na pracovišti)
+                  sun-1: EKG srdce (Zdravotní volno/sickdays)
+                  users-2: Kalendář (Firemní akce)
+                  users-3: Hodiny (Možnost si napracovat hodiny)
+              image:
+                label: Vlastní obrázek / ikona (volitelné)
+                type: files
+                max: 1
+                uploads:
+                  parent: page
+
+          processHeader:
+            extends: fields/section
+          process:
+            label: Průběh spolupráce / náboru
+            type: structure
+            fields:
+              step:
+                label: Číslo kroku
+                type: text
+                width: 1/3
+              title:
+                label: Název kroku
+                type: text
+                width: 2/3
+              text:
+                label: Popis
+                type: textarea
+              image:
+                label: Obrázek
+                type: files
+                max: 1
+                uploads:
+                  parent: page
 
       sidebar:
         width: 1/3
         fields:
-          cover: fields/image
-          start:
-            type: text
-            width: 1/3
-          location:
-            type: text
-            width: 1/3
-          duration:
-            type: text
-            width: 1/3
+          cover:
+            extends: fields/image
+            label: Foto pozice
 
-  seo: seo/page
+          start:
+            label: Nástup
+            type: text
+            width: 1/3
+            placeholder: "např. ihned"
+
+          location:
+            label: Místo
+            type: text
+            width: 1/3
+            placeholder: "např. Brno"
+
+          duration:
+            label: Úvazek
+            type: text
+            width: 1/3
+            placeholder: "např. HPP"
+
+  meta: tabs/meta/page

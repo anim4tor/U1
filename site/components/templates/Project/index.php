@@ -25,13 +25,16 @@
 </section>
 
 <section class="about" theme="invert">
-	<div data-scroll class="grid grid__post gap__2 mobile:grid__1 inner__4 mobile:inner-x__1 ">
-		<div></div>
-		<div class="span__1 grid place__start-start gap__3 mobile:inner-x__0">
-			<h2 data-reveal-text="lines" class="font__size__3"><?= $page->intro()->inline() ?></h2>
+	<div data-scroll class="grid__4 gap__2 mobile:grid__1 inner__4 mobile:inner-x__1 ">
+		<div class="span__2">
+			<div class="flex gap__05 align__center upper font__size__small no__wrap" data-scroll ><div class="w__05 h__05 bg__acc"></div><div data-reveal-text>About project</div></div>	
+		</div>
+		<div class="span__2 grid place__start-start gap__3 mobile:inner-x__0">
+			<h3 data-reveal-text="lines" class="font__size__3"><?= $page->intro()->inline() ?></h3>
 		</div>
 		<div></div>
-		<div data-scroll class="grid mobile:grid__1 inner-y__2">
+		<div></div>
+		<div data-scroll class="grid span__2 mobile:grid__1">
 			<?php
 			$specs = [
 				'date' => 'Year',
@@ -66,8 +69,8 @@
 	$before = $page->before()->toFile();
 	$after = $page->after()->toFile(); 
 ?>
-<section>
-	<div class="grid inner-x__4" data-scroll>
+<section theme="invert">
+	<div class="grid inner-x__4 inner-b__4" data-scroll>
 		<div class="before-after-container vh__20 img__radius" style="--position: 41.75%;">
 		  <div class="image-container before-image">
 		  	<?= snippet('atoms/Image', ['img' => $before, 'parallax' => 2, 'reveal' => false, 'css' => 'vh__20']) ?>
@@ -102,7 +105,7 @@
 <?php endif; ?>
 
 <section class="details" theme="invert">
-	<div data-scroll class="place__stretch-stretch grid gap__2 inner-x__4 inner-t__2 inner-b__2">
+	<div data-scroll class="place__stretch-stretch grid gap__4 inner-x__4">
 		<?= snippet('molecules/Blocks', [ 'blocks' => $page->details()->toBlocks() ])?>
 		<?php foreach ($page->details()->toBlocks() as $block) {
 		    if ($block->type() === 'image' && $blockImg = $block->image()->toFile()) {
@@ -120,7 +123,7 @@
 <?php if($page->password()->isNotEmpty()) : ?>
 <?php if ($extras === true): ?>
   <section class="unlocked-container">
-  	<div data-scroll class="place__stretch-stretch grid gap__2 inner-x__4 inner-t__2 inner-b__4">
+  	<div data-scroll class="place__stretch-stretch grid gap__4 inner-x__4">
 		<?= snippet('molecules/Blocks', [ 'blocks' => $page->extras()->toBlocks() ])?>
 		<?php foreach ($page->extras()->toBlocks() as $block) {
 		    if ($block->type() === 'image' && $blockImg = $block->image()->toFile()) {
@@ -169,7 +172,8 @@
 <?php if ($similarProjects) : ?>
 <section class="projects radius" theme="light" >
 	<div class="grid__3 gap__1 mobile:grid__1 inner__4 mobile:inner-x__1 " data-carousel>
-		<div data-scroll class="span__2 ">
+		<div data-scroll class="flex align__start gap__05 span__2">
+			<div class="w__05 h__05 bg__acc"></div>
 			<h2 class="">Similar projects</h2>
 		</div>
 		<div class="flex gap__02 justify__end align__end ">
@@ -199,17 +203,16 @@
 <section class="intro radius" theme="invert" >
 	<div data-scroll class="z__1 intro__header inner__4 place__stretch-stretch grid__4 mobile:grid__1 mobile:h__auto inner__1 mobile:inner-t__10 mobile:gap__2 relative ">
 		<a href="<?= $next->url() ?>" class="span__4 grid place__stretch-stretch">
-			<div class="span__4 inner-t__05 grid grid__post gap__2">
+			<div class="span__4 grid__4 gap__2">
 
-				<div class="grid__2">
-					<span class="upper font__size__small">(Next)</span>
+				<div class="span__2">
+					<div class="flex gap__05 align__center upper font__size__small no__wrap" data-scroll ><div class="w__05 h__05 bg__acc"></div><div data-reveal-text>NExt project</div></div>
+					
 				</div>
-				<div class="grid gap__2 place__start-stretch">
-					<div class="">
-						<h2 class="font__size__1">
-							<div data-reveal-text=""><?= $next->title() ?></div>
-						</h2>
-					</div>
+				<div class="span__2 grid gap__2 place__start-stretch">
+					<h2 class="font__size__2">
+						<div data-reveal-text=""><?= $next->title() ?></div>
+					</h2>
 					<?php if ($cover = $next->cover()->toFile()) : ?>
 					<div class="intro__cover grid span__2 " data-scroll ><?= snippet('atoms/Image', ['img' => $cover, 'parallax' => 2, 'reveal' => false, 'css' => 'grid h__20']) ?></div>
 					<?php endif ?>

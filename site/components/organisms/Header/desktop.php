@@ -1,6 +1,6 @@
 <header class="header grid place__start-end inner__05" data-header>
 	<div class="header__wrapper grid place__start-start">
-		<div navbar class="grid  bg__dark/60 color__invert bg__blur radius">
+		<div navbar class="grid  bg__dark/60 color__invert bg__blur large__radius">
 			<div navbar-header data-scroll class="absolute inset__top-stretch grid__3 justify__stretch inner-x__02" >
 				<div class="flex align__center justify__start">
 					
@@ -32,10 +32,10 @@
 			</div>
 			<div navbar-widget class="" data-scroll data-scroll-ignore >
 				<div class="grid ">
-					<div navbar-content class="grid place__space-between-stretch gap__1 inner__05">
+					<div navbar-content class="grid place__space-between-stretch gap__1 inner__4">
 						<div class="grid gap__05 ">
 							<!-- <div class="label upper font__size__small op__4">(Menu)</div> -->
-							<nav navbar-menu class="grid upper ff__heading font__size__3 no__wrap">
+							<nav navbar-menu class="grid upper ff__heading font__size__2 no__wrap">
 								<?php foreach ($pages->find('home', 'projects', 'services') as $p): ?>
 									<div class="grid place__start-start">
 										<?= snippet('atoms/Link', ['url' => $p->url(), 'label' => $p->title(), 'icon' => false, 'css' => $p->isActive() || $page->parents()->has($p) ? '' : 'op__4', 'node' => 'data-reveal-text data-reveal-on-navbar data-split-ignore']) ?>
@@ -57,8 +57,8 @@
 						</div>
 						<div class="grid gap__1">
 							<div class="grid__2 gap__02">
-								<div class="flex"><span class="op__4 upper">Who we are</span></div>
-								<nav navbar-menu class="grid upper ff__heading font__size__4 lighter no__wrap">
+								<div class="flex"><span class="op__4 upper font__size__small">Who we are</span></div>
+								<nav navbar-menu class="grid upper ff__heading font__size__3 lighter no__wrap">
 									<?php foreach ($pages->find('about', 'career', 'contact') as $p): ?>
 										<div class="grid place__start-start">
 											<?= snippet('atoms/Link', ['url' => $p->url(), 'label' => $p->title(), 'icon' => false, 'css' => '', 'node' => 'data-reveal-text data-reveal-on-navbar data-split-ignore']) ?>
@@ -68,8 +68,8 @@
 								</nav>
 							</div>
 							<div class="grid__2 gap__02">
-								<div class="flex"><span class="op__4 upper">Feed</span></div>
-								<nav navbar-menu class="grid upper ff__heading font__size__4 lighter no__wrap">
+								<div class="flex"><span class="op__4 upper font__size__small">Feed</span></div>
+								<nav navbar-menu class="grid upper ff__heading font__size__3 lighter no__wrap">
 									<div class="grid place__start-start">
 										<?= snippet('atoms/Link', ['url' => page('feed')->url() . '#blog', 'label' => 'Blog', 'icon' => false, 'css' => '', 'node' => 'data-reveal-text data-reveal-on-navbar data-split-ignore']) ?>
 
@@ -84,7 +84,7 @@
 									</div>
 								</nav>
 							</div>
-							<div class="grid gap__02 inner-t__1">
+							<div class="grid gap__05 inner-t__1">
 								<div class="label upper font__size__small op__4">(Contact)</div>
 								<div class="grid__2 gap__02">
 									<button class="img__radius flex inner__05 gap__02 justify__center align__center" theme="invert-ghost" data-scroll data-booking-toggle >

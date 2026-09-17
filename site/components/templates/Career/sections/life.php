@@ -21,7 +21,7 @@
 			</div>
 			<div class="relative z__1 grid gap__2 color__invert">
 				<div class="" data-scroll>
-					<p class="label upper" data-reveal-text><span>(Život s U1)</span></p>
+					<div class="flex gap__05 align__center upper font__size__small no__wrap" data-scroll ><div class="w__05 h__05 bg__invert"></div><div data-reveal-text>Život s U1</div></div>
 				</div>
 			</div>
 			<!-- <div class="relative flex inner-x__1 z__1 color__invert">
@@ -33,7 +33,7 @@
 						<div class="grid place__end-start gap__1 inner-y__1">
 							<div data-tab="step-<?= $life->indexOf($page->life()->toStructure())?>" class="flex align__start gap__02" >
 								<?= snippet('atoms/Heading', [ 'level' => 'h2', 'text' => $life->title(), 'reveal' => true, 'css' => '', 'node' => 'data-split-ignore' ]) ?>
-								<div data-reveal-text="" class="" data-split-ignore style="--in-delay: 800ms">(<?= $life->indexOf($page->life()->toStructure()) ?>)</div>
+								<div data-reveal-text="" class="font__size__small" data-split-ignore style="--in-delay: 800ms">(<?= $life->indexOf($page->life()->toStructure()) ?>)</div>
 							</div>
 						</div>
 

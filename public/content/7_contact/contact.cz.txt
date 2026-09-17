@@ -2,6 +2,10 @@ Title: Kontakt
 
 ----
 
+Cover: contact_hero.jpg
+
+----
+
 Intro: Spojte se s námi přímo nebo nám na vás zanechte kontakt. Ozveme se.
 
 ----

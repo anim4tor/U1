@@ -12,14 +12,14 @@
 	<div class="grid__2 gap__2 relative inner-y__1 inner-b__5" data-tabs="scrollable">
 		<div class="sticky top__0 gap__2 grid place__space-between-start h__100v inner-y__2" >
 			<div class="relative flex inner-x__1 ">
-				<?= snippet('atoms/Text', ['text' => '(Our process)', 'reveal' => true ]) ?>	
+				<?= snippet('atoms/Text', ['text' => '(Our process)', 'reveal' => true, 'css' => 'font__size__small upper' ]) ?>	
 			</div>
 			<div class="grid place__start-start gap__1">
 				<div class="grid inner-x__1" data-scroll >
 					<?php foreach (collection('Process') as $step) : ?>
 						<div data-tab="step-<?= $step->step()?>" class="flex align__start gap__02" >
 							<?= snippet('atoms/Heading', [ 'level' => 'h3', 'text' => $step->label(), 'reveal' => true, 'node' => 'data-split-ignore' ]) ?>
-							<div data-reveal-text="" class="wrap-t__03" data-split-ignore style="--in-delay: 800ms">(<?= $step->step() ?>)</div>
+							<div data-reveal-text="" class="wrap-t__03 font__size__small" data-split-ignore style="--in-delay: 800ms">(<?= $step->step() ?>)</div>
 						</div>
 					<?php endforeach ?>
 				</div>

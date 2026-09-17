@@ -2,6 +2,10 @@ Title: Contact
 
 ----
 
+Cover: contact_hero.jpg
+
+----
+
 Intro: Get in touch with us directly or leave us your contact details. We'll get back to you.
 
 ----

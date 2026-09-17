@@ -1,8 +1,9 @@
 <?php
 	$custom ??= false;
-	$type ??=false;
+	$type ??= false;
+	$css ??= '';
 ?>
-<div class="grid gap__1">
+<div class="grid gap__1 <?= esc($css) ?>">
 <?php foreach ($header->blocks()->toBlocks() as $block): ?>
 	<?php if ($type) : ?>
 		<?php if (in_array($block->type(), $type)): ?>

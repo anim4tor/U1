@@ -22,7 +22,7 @@
 					<div class="grid gap__2 place__space-between-stretch">
 						<div class="grid align__start no__wrap">
 							<!-- <div class="font__size__1" data-reveal-text><?= $step->step() ?></div> -->
-							<h3 class=" flex justify__start gap__1" data-reveal-text data-split-ignore>(<?= $step->step() ?>) <?= $step->label() ?></h3>
+							<h3 class=" flex justify__start gap__1" data-reveal-text data-split-ignore><span class="font__size__small">(<?= $step->step() ?>)</span> <?= $step->label() ?></h3>
 						</div>
 						<div class="grid">
 							<p class="span__2" data-reveal="simple"><?= $step->detail()->inline() ?></p>

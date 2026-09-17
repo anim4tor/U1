@@ -724,31 +724,31 @@
 
 			return {
 				'font-size-1': formatSize(h1Rem, h1Vw),
-				'font-weight-1': fwHeading || '700',
+				'font-weight-1': fwHeading || '500',
 				'line-height-1': formatLh(h1Lh),
 				'letter-spacing-1': lsHeading || 'normal',
 				'text-transform-1': ttHeading || 'none',
 
 				'font-size-2': formatSize(h2Rem, h2Vw),
-				'font-weight-2': fwHeading || '700',
+				'font-weight-2': fwHeading || '500',
 				'line-height-2': formatLh(h2Lh),
 				'letter-spacing-2': lsHeading || 'normal',
 				'text-transform-2': ttHeading || 'none',
 
 				'font-size-3': formatSize(h3Rem, h3Vw),
-				'font-weight-3': '600',
+				'font-weight-3': fwHeading || '500',
 				'line-height-3': formatLh(h3Lh),
 				'letter-spacing-3': lsHeading || 'normal',
 				'text-transform-3': ttHeading || 'none',
 
 				'font-size-4': formatSize(h4Rem, h4Vw),
-				'font-weight-4': '500',
+				'font-weight-4': fwHeading || '500',
 				'line-height-4': formatLh(h4Lh),
 				'letter-spacing-4': lsHeading || 'normal',
 				'text-transform-4': ttHeading || 'none',
 
 				'font-size-5': formatSize(h5Rem, h5Vw),
-				'font-weight-5': '500',
+				'font-weight-5': fwHeading || '500',
 				'line-height-5': formatLh(h5Lh),
 				'letter-spacing-5': lsHeading || 'normal',
 				'text-transform-5': ttHeading || 'none',

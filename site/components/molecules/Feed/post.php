@@ -14,8 +14,8 @@
 				</div>
 			</div>
 			<div class="grid place__start-end">
-				<span class="">(<?= $feed->category()->or($feed->industry()) ?>)</span>
-				<span class="op__4"><?= $feed->date()->toDate('Y-m-d') ?></span>
+				<span class="font__size__small">(<?= $feed->category()->or($feed->industry()) ?>)</span>
+				<span class="op__4 font__size__small"><?= $feed->date()->toDate('Y-m-d') ?></span>
 			</div>
 		</div>
 		<!-- <div class="grid ">

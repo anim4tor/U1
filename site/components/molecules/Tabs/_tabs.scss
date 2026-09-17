@@ -64,9 +64,16 @@
 [data-tabs="default"] {
 	[data-pane] {
 		opacity: 0;
+		transition: opacity 300ms ease;
 	}
 
 	[data-pane][data-active] {
+		opacity: 1;
+	}
+}
+
+[data-tabs="default"]:not([data-init]) {
+	[data-pane]:first-child {
 		opacity: 1;
 	}
 }
@@ -96,6 +103,7 @@
 
 [data-tab] {
 	cursor: pointer;
+	transition: opacity 250ms ease;
 
 	&.button[data-active]:not([theme="dark"]) {
 		background: rgba(var(--color-invert), 1);
@@ -104,7 +112,15 @@
 	}
 
 	&:not(button):not([data-active]) {
-		opacity: .4;
+		opacity: .35 !important;
+
+		&:hover {
+			opacity: .75 !important;
+		}
+	}
+
+	&[data-active] {
+		opacity: 1 !important;
 	}
 }
 

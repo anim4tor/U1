@@ -15,7 +15,7 @@
 				<?php foreach (collection('Process') as $step) : ?>
 					<div data-tab="step-<?= $step->step()?>" class="flex align__start gap__02 inner-y__02" data-scroll >
 						<h3 class="" data-reveal-text data-split-ignore><?= $step->label() ?></h3>
-						<span data-reveal-text="lines" class="-wrap-t__03">(<?= $step->step() ?>)</span>
+						<span data-reveal-text="lines" class="-wrap-t__03 font__size__small">(<?= $step->step() ?>)</span>
 					</div>
 				<?php endforeach ?>
 			</div>

@@ -24,7 +24,7 @@
 	<div class="z__1 intro__header grid__4 place__stretch-stretch mobile:grid__1 h__100v intro__rows mobile:h__auto  mobile:inner-t__10 mobile:gap__2 relative color__invert">
 		<div class="h__1"></div>
 		<div class="span__4 grid__4 place__space-between-stretch">
-			<div class="span__4 grid__4 inner-t__05 relative flex justify__space-between align__start border__top inner-x__1" data-scroll data-scroll-ignore>
+			<div class="span__4 grid__4 inner-t__05 relative flex justify__space-between align__start border__top inner-x__4" data-scroll data-scroll-ignore>
 				<div data-tabs-autoplay-line class="autoplay__line absolute left__0 right__0"></div>
 				<div class="upper font__size__small" data-tab-next>Featured project</div>
 				<div class="span__2 grid__stack" data-pane-container>

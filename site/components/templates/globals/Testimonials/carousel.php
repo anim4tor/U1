@@ -17,7 +17,7 @@
 					<?php endif; ?>
 				<?php endforeach ?>
 			</div>
-			<div class="carousel__group flex align__center gap__1" aria-hidden="true">
+			<div class="carousel__group flex gap__1" aria-hidden="true">
 				<?php foreach ($testimonials as $testimonial) : ?>
 					<?php if($testimonial->testimonialQuote()->isNotEmpty()) : ?>
 					<div data-scroll class="carousel__item vw__<?= $width ?>">

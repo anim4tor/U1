@@ -2,11 +2,12 @@
 <section class="team" theme="invert" >
 	<div class="grid gap__2 inner__4">
 		
-		<div class="grid__4 gap__2 relative place__start-start" data-tabs="hoverable">
-			<div class="grid" data-scroll>
-				<?= snippet('molecules/Header', ['header' => $page->teams(), 'type' => ['heading']]) ?>
-			</div>
-			<div class="span__2 grid place__start-start gap__1 " >
+		<div class="grid__4 gap__2 relative" data-tabs="hoverable">
+			<div class="span__2 grid place__space-between-start gap__1 " >
+				<div class="flex align__start gap__01 span__4" data-scroll>
+					<?= snippet('molecules/Header', ['header' => $page->teams(), 'type' => ['label']]) ?>
+					<?= snippet('molecules/Header', ['header' => $page->teams(), 'type' => ['heading']]) ?>
+				</div>
 
 				<div class="grid gap__02 place__start-start" >
 					<?php foreach (collection('Team') as $team) : ?>
@@ -15,7 +16,7 @@
 						?>
 						<a href="<?= $pages->find('about')->url() ?>/#<?= $team->name()->slug() ?>" data-tab="team-<?= $team->indexOf(collection('Team')) ?>" class="flex gap__02 no__wrap" data-scroll>
 							<h3 data-reveal-text data-split-ignore><?= $team->name() ?></h3>
-							<div data-reveal-text="" data-split-ignore style="--in-delay: 800ms" class="-wrap-t__01">(<?= $employees ?>)</div>
+							<div data-reveal-text="" data-split-ignore style="--in-delay: 800ms" class="-wrap-t__01 font__size__small">(<?= $employees ?>)</div>
 						</a>
 					<?php endforeach ?>
 				</div>
@@ -29,7 +30,7 @@
 					</div>
 				</div> -->
 			</div>
-			<div class="grid place__start-end" data-pane-container>
+			<div class="span__2 grid place__start-end" data-pane-container>
 				<div class="grid__stack no__overflow img__radius" data-scroll data-reveal-image >
 					<?php foreach (collection('Team') as $team) : ?>
 						<?php if ($leader = $team->leader()->toPage()) : ?>
@@ -47,7 +48,7 @@
 
 								<div class="flex gap__05 justify__space-between upper wrap">
 									<span class="font__size__default ff__body" data-split-ignore data-reveal-text="lines" ><?= $leader->title() ?></span>
-									<h3 class="font__size__default ff__body" data-split-ignore data-reveal-text="lines" >(<?= $leader->role() ?>)</h3>
+									<h3 class="font__size__small ff__body" data-split-ignore data-reveal-text="lines" >(<?= $leader->role() ?>)</h3>
 								</div> -->
 							</div>
 						</div>

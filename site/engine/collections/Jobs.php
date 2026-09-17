@@ -1,4 +1,8 @@
 <?php
 return function () {
-	return page('career')->children()->listed();
+	$positions = page('career')->find('positions');
+	if (!$positions) {
+		return page('career')->children()->filterBy('template', 'job')->listed();
+	}
+	return $positions->children()->listed();
 };

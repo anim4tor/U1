@@ -1,25 +1,19 @@
-title: Career 
+title: Career
 
 tabs:
-  jobs:
-    columns:  
-      - width: 2/3
+  positions:
+    label: Volné pozice
+    columns:
+      - width: 1/1
         sections:
-          listed:
-            extends: sections/jobs
-            headline: Opened positions
-            status: listed
-
-      - width: 1/3
-        sections:
-          drafts:
-            extends: sections/jobs
+          positions_page:
+            type: pages
+            headline: Stránka volných pozic
+            parent: page
+            templates:
+              - positions
             layout: list
-            status: draft
-          unlisted:
-            extends: sections/jobs
-            layout: list
-            status: unlisted
+            empty: Vytvořit stránku "Volné pozice"
   content:
     columns:
       - width: 3/4
@@ -83,6 +77,24 @@ tabs:
           about:
             extends: fields/section
             label: About
+
+          quoteHeader:
+            extends: fields/section
+            label: Oddělovač sekce Citátu
+
+          quoteAuthor:
+            label: Autor a pozice citátu
+            type: text
+            width: 1/2
+
+          quoteImage:
+            extends: fields/image
+            label: Fotka k citátu
+            width: 1/2
+
+          quoteText:
+            label: Text citátu
+            type: textarea
 
       - width: 1/4
         sticky: true

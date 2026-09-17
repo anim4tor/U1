@@ -28,7 +28,7 @@ return [
     ],
     'instagram.token' => 'IGAARfnJ3rbYlBZAFpvSVZAGSGFLTVFMXzFRUm9kdmlQQzZArS2x6dkFQOUVkWDRDbGJSaWVDOEpXbDFQTldfSWoySkJJd29JNEpWREVweWd5RldwQU9HUV94eTdGeVUtRzJ0TDExVnVzZA2NmdnM2S19uMVlEY21kS2NKQVNZAU1VHSQZDZD',
     'linkedin.org_id' => 'urn:li:organization:18790224',
-    'linkedin.token' => 'AQXc40XujSnxksulm1icLv1Sx81FOROFq9Id6NnEOuwYHozxRDdBPyPNjz7ogFt3GckHMTueH4wMdw_JPyQYDPdVMr3T-okjrFy7OX5W8skS7W74G-b4J9jJ7bv2460WQJqnCmERIPny_JKoWMGLnl-F9OF53pOtRZDw42vZ73oWnAYzfz47jVJ3ybFlAGJTXagDO1go_I5IuWaXf9uzSN_7oXYIfM3EMsz_n5HgGEWeVk7H-FJSu9rDpbE4zsyBtipGcPgewVNl1exAytVA_IeAMy1uZMsGLKq0GHFC-T9Z_-l2cOoXPe9CFf8EE5mcvEZJdR2oIPnaCXCd_BV7EKVJBTs1-Q',
+    'linkedin.token' => 'AQVpka3Ei6QC9lPfNKFV7-p8yoTpCkXZuHz8sAhn002y7QKqK5MJo92OJhjvlw57dtxyfJFNZOf3e-A1n__OjBZZVUvlwtMDUmuABUv1s_D3tWTOXOLok68uVeBbWVQL6AyX6NHnWDB9_lHq9yEbPNfjZgxF9a0kzfoqBgn2Oy1Nw7Vf2wNJS9cxWjrM-iEGNb8baTIWNMexMSCqNagDo0zY6OvedKmPcYkQmDXnXdV09kWel7LjWS2eMXRy3j9k8_rOwF0r881Utv7dxk1i6nDXd8g__YBlbj9ww1VI80sojS8jVRVNKalhXyNvYTOLFjbtXIigc10sN6VjS2lM1l_IZaZL3Q',
     'u1.git-content' => [
         'enabled'  => true,
         'repo'     => 'anim4tor/U1',

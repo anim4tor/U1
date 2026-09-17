@@ -1,13 +1,11 @@
 <?php if (collection('Employees')->isNotEmpty()) : ?>
 <section class="people " theme="invert" >
-	<div class="relative grid gap__5 inner-x__1 ">
-		<div class="border__top inner-y__1" data-scroll>
-			<h2 class="flex justify__space-between" data-reveal-text>
-				<span class="">The</span>
-				<span class="">People</span>
-			</h2>
+	<div class="relative grid gap__5 inner__4 ">
+		<div class="flex align__start gap__01" data-scroll>
+			<?= snippet('molecules/Header', ['header' => $page->peopleHeader(), 'type' => ['label']]) ?>
+			<?= snippet('molecules/Header', ['header' => $page->peopleHeader(), 'type' => ['heading']]) ?>
 		</div>
-		<div class="grid__3 inner-b__5" data-tabs="hoverable">
+		<div class="grid__3" data-tabs="hoverable">
 			<div class="grid gap__02 place__start-stretch span__2">
 				
 			<?php foreach (collection('Team') as $team) : ?>
@@ -30,7 +28,7 @@
 			<?php endforeach ?>
 			</div>
 			<div class="grid place__start-end" data-pane-container>
-				<div class="sticky top__8 grid__stack no__overflow img__radius">
+				<div class="sticky top__0 grid__stack no__overflow img__radius">
 					<?php foreach (collection('Employees') as $employee) : ?>
 						<div data-pane="people-<?= $employee->indexOf(collection('Employees')) ?>" class="" data-scroll data-scroll-ignore data-tab-reveal>
 							<div class="grid place__start-end gap__05">

@@ -15,6 +15,16 @@ if ($caseVal && $caseVal !== 'none') {
     $classes[] = $caseVal; // e.g., upper
 }
 
+$modVal = $block->mod()->isNotEmpty() ? $block->mod()->value() : '';
+if ($modVal && $modVal !== 'default') {
+    $classes[] = $modVal;
+}
+
+$cssVal = $block->css()->isNotEmpty() ? $block->css()->value() : '';
+if ($cssVal) {
+    $classes[] = $cssVal;
+}
+
 $cssClasses = implode(' ', $classes);
 
 // 2. Extract Node Group Settings (bid, attr, select wrapper configurations)

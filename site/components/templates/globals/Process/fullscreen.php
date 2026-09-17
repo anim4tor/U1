@@ -33,7 +33,7 @@
 						<div class="grid place__end-start gap__1 inner__1">
 							<div data-tab="step-<?= $step->step()?>" class="flex align__start gap__02" >
 								<?= snippet('atoms/Heading', [ 'level' => 'h3', 'text' => $step->label(), 'reveal' => true, 'css' => '', 'node' => 'data-split-ignore' ]) ?>
-								<div data-reveal-text="" class="" data-split-ignore style="--in-delay: 800ms">(<?= $step->step() ?>)</div>
+								<div data-reveal-text="" class="font__size__small" data-split-ignore style="--in-delay: 800ms">(<?= $step->step() ?>)</div>
 							</div>
 						</div>
 

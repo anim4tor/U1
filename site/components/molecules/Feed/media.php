@@ -4,10 +4,10 @@
 	<?php endif ?>
 	<div class=" flex justify__space-between align__center gap__2 inner-y__05 ">
 		<div class="flex gap__05 upper ">
-			<span class="" data-reveal-text="lines">(<?= str_pad($feed->indexOf(collection('Projects')) + 1, 2, '0', STR_PAD_LEFT); ?>)</span>
+			<span class="font__size__small" data-reveal-text="lines">(<?= str_pad($feed->indexOf(collection('Projects')) + 1, 2, '0', STR_PAD_LEFT); ?>)</span>
 			<h3 class="font__size__default ff__body" data-reveal-text="lines"><?= $feed->title() ?></h3>
 		</div>
-		<p class="" data-reveal-text="lines">(<?= $feed->date()->toDate('Y') ?>)</p>
+		<p class="font__size__small" data-reveal-text="lines">(<?= $feed->date()->toDate('Y') ?>)</p>
 	</div>
 	<!-- <div class="grid ">
 		<p class="font__size__small upper"><?= $feed->intro()->inline() ?></p>

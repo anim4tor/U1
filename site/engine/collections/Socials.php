@@ -59,7 +59,7 @@ return function ($kirby) {
 
             try {
                 $response = Remote::get($endpoint, [
-                    'timeout' => 3,
+                    'timeout' => 5,
                     'headers' => [
                         'Authorization'             => 'Bearer ' . $token,
                         'LinkedIn-Version'          => '202601',
@@ -68,7 +68,52 @@ return function ($kirby) {
                 ]);
 
                 if ($response->code() === 200) {
-                    $cachedLinkedin = $response->json()['elements'] ?? [];
+                    $rawPosts = $response->json()['elements'] ?? [];
+                    $cachedLinkedin = [];
+
+                    foreach ($rawPosts as $post) {
+                        $postId     = $post['id'] ?? '';
+                        $commentary = $post['commentary'] ?? '';
+                        $content    = $post['content'] ?? [];
+                        $mediaUrn   = $content['multiImage']['images'][0]['id'] ?? ($content['media']['id'] ?? null);
+                        $mediaUrl   = '';
+
+                        if ($mediaUrn) {
+                            $apiHeaders = [
+                                'Authorization'            => 'Bearer ' . $token,
+                                'LinkedIn-Version'         => '202601',
+                                'X-Restli-Protocol-Version' => '2.0.0'
+                            ];
+
+                            if (str_starts_with($mediaUrn, 'urn:li:image:')) {
+                                $imgRes = Remote::get('https://api.linkedin.com/rest/images/' . urlencode($mediaUrn), [
+                                    'timeout' => 4,
+                                    'headers' => $apiHeaders
+                                ]);
+                                if ($imgRes->code() === 200) {
+                                    $mediaUrl = $imgRes->json()['downloadUrl'] ?? '';
+                                }
+                            } elseif (str_starts_with($mediaUrn, 'urn:li:video:')) {
+                                $vidRes = Remote::get('https://api.linkedin.com/rest/videos/' . urlencode($mediaUrn), [
+                                    'timeout' => 4,
+                                    'headers' => $apiHeaders
+                                ]);
+                                if ($vidRes->code() === 200) {
+                                    $mediaUrl = $vidRes->json()['thumbnail'] ?? '';
+                                }
+                            }
+                        } elseif (!empty($content['article']['thumbnail'])) {
+                            $mediaUrl = $content['article']['thumbnail'];
+                        }
+
+                        $cachedLinkedin[] = [
+                            'id'         => $postId,
+                            'commentary' => $commentary,
+                            'media_url'  => $mediaUrl,
+                            'createdAt'  => $post['createdAt'] ?? ($post['publishedAt'] ?? null)
+                        ];
+                    }
+
                     $cache->set('social.linkedin.posts', $cachedLinkedin, 43200); // 12 hours
                 }
             } catch (\Throwable $e) {
@@ -83,12 +128,12 @@ return function ($kirby) {
     }
 
     foreach ($cachedLinkedin as $post) {
-        $postId     = $post['id'] ?? '';
-        $commentary = $post['commentary'] ?? '';
-        $rawMediaUrl = $post['content']['media']['image'] ?? '';
-        $mediaUrl   = !empty($rawMediaUrl) ? $getLocalMediaUrl($rawMediaUrl, 'linkedin-' . md5($postId)) : '';
+        $postId      = $post['id'] ?? '';
+        $commentary  = $post['commentary'] ?? '';
+        $rawMediaUrl = $post['media_url'] ?? '';
+        $mediaUrl    = !empty($rawMediaUrl) ? $getLocalMediaUrl($rawMediaUrl, 'linkedin-' . md5($postId)) : '';
         // Convert timestamp (ms) or date string to Unix timestamp
-        $timestamp  = isset($post['createdAt']) ? (int)($post['createdAt'] / 1000) : time();
+        $timestamp   = isset($post['createdAt']) ? (int)($post['createdAt'] / 1000) : time();
 
         $content = [
             'uuid'         => 'social-li-' . md5($postId),

@@ -13,17 +13,17 @@
 			<div data-pane="contact">
 				<div class="z__1 grid wrap gap__05 inner-x__1 inner-y__1 inner-b__05">
 					<h3>Máš o pozici zájem? <span class="color__acc">Just say it!</span></h3>
-					<div class="flex gap__02">
+					<!-- <div class="flex gap__02">
 						<?= snippet('atoms/Button', [ 'url' => false, 'label' => 'Mám zájem', 'icon' => false, 'theme' => 'invert', 'node' => 'data-tab=inquiry']) ?>
 						<?= snippet('atoms/Button', [ 'url' => page('Career')->url().'#opened-positions', 'label' => 'Zpět na Volné pozice', 'icon' => false, 'theme' => 'invert-ghost', 'node' => 'data-contact-close']) ?>
-					</div>
+					</div> -->
 				</div>
 				<div class="relative grid place__center-center -wrap-b__3 inner-x__2"><?= snippet('atoms/Image', ['url' => 'contact_hr.jpg', 'css' => '']) ?></div>
 				<div class="relative grid gap__05 place__end-stretch inner-x__1 inner-b__1">
 					<div class="grid gap__05">
 						<div>
-							<p class="font__size__small op__4">HR Business partner</p>
-							<p class="lower font__size__2">Jitka Burdová</p>
+							<!-- <p class="font__size__small op__4">HR Business partner</p> -->
+							<h4 class="lower font__size__4">Jitka Burdová</h4>
 						</div>
 						<div class="flex gap__02">
 							<?= snippet('atoms/Button', [ 'url' => 'mailto: hr@u1.cz', 'label' => 'hr@u1.cz', 'icon' => false, 'theme' => false, 'css' => 'bg__light/20 color__invert/60']) ?>

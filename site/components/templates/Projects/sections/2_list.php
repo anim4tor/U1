@@ -18,7 +18,7 @@
 										<?php endif ?>
 									</div>
 									<?php if ($project && $project->date()->isNotEmpty()) : ?>
-										<p class="">(<?= $project->date()->toDate('Y') ?>)</p>
+										<p class="font__size__small">(<?= $project->date()->toDate('Y') ?>)</p>
 									<?php endif ?>
 								</div>
 							</a>

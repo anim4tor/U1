@@ -4,7 +4,7 @@
 		<div class="span__3 inner-x__1">
 			<div class="flex justify__space-between border__top inner-y__1">
 				<div data-scroll class="span__2 ">
-					<span class="upper" data-reveal-text="lines">(Testimonials)</span>
+					<span class="upper font__size__small" data-reveal-text="lines">(Testimonials)</span>
 				</div>
 				<div class="flex gap__02 justify__end align__end">
 					<button data-carousel-prev class="button upper" theme="invert-ghost" hover="invert"><span class="icon"><?= svg('public/assets/images/ui/ui_arrow-left.svg') ?></span></button>
