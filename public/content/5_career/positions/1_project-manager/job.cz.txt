@@ -76,11 +76,52 @@ Benefits:
 
 ----
 
+Whyusheader: [{"content":{"text":"Proč pracovat u nás?","level":"h2","mod":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"9d822f50-277e-415c-9c95-36d62c0f474d","isHidden":false,"type":"heading"},{"content":{"text":"","mod":"","face":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"06c13a7d-50c7-43fe-ba69-62e1825cce67","isHidden":false,"type":"label"}]
+
+----
+
 Whyus:
 
 - 
+  text: Bonusy/prémie
+  icon: shield-check
   image: [ ]
-  text: '<p>Bonusy/prémie</p>'
+- 
+  text: Provize z prodeje
+  icon: users
+  image: [ ]
+- 
+  text: Mobilní telefon
+  icon: briefcase
+  image: [ ]
+- 
+  text: Sleva na firemní výrobky/služby
+  icon: heart
+  image: [ ]
+- 
+  text: Notebook
+  icon: sun
+  image: [ ]
+- 
+  text: Vzdělávací kurzy, školení
+  icon: users-1
+  image: [ ]
+- 
+  text: Občerstvení na pracovišti
+  icon: heart-1
+  image: [ ]
+- 
+  text: Zdravotní volno/sickdays
+  icon: sun-1
+  image: [ ]
+- 
+  text: Firemní akce
+  icon: users-2
+  image: [ ]
+- 
+  text: Možnost si napracovat hodiny
+  icon: users-3
+  image: [ ]
 
 ----
 
