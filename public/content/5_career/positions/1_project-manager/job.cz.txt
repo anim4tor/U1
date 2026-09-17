@@ -10,15 +10,77 @@ Details: <p>Our company supplies interiors for office and commercial premises. O
 
 ----
 
-Description: <ul><li>Communication with suppliers, craftsmen and the client&nbsp;</li><li>Managing the construction process</li><li>Implementation planning, resource management</li><li>Resolving potential obstacles to implementation</li><li>Anticipating potential problems</li></ul>
+Description:
+
+- 
+  text: >
+    Communication with suppliers, craftsmen
+    and the client
+- 
+  text: Managing the construction process
+- 
+  text: >
+    Implementation planning, resource
+    management
+- 
+  text: >
+    Resolving potential obstacles to
+    implementation
+- 
+  text: Anticipating potential problems
 
 ----
 
-Requirements: <ul><li>Communication skills</li><li>Previous experience or education in the field - builder or construction manager</li><li>Ability to plan, anticipate and solve problems</li><li>Ability to manage resources in the construction field</li><li>Technical skill</li></ul>
+Requirements:
+
+- 
+  text: Communication skills
+- 
+  text: 'Previous experience or education in the field - builder or construction manager'
+- 
+  text: >
+    Ability to plan, anticipate and solve
+    problems
+- 
+  text: >
+    Ability to manage resources in the
+    construction field
+- 
+  text: Technical skill
 
 ----
 
-Benefits: <ul><li>Work on projects for the largest companies on the Czech market</li><li>Fair financial remuneration according to experience and work done with a&nbsp;bonus component</li><li>The environment of a&nbsp;Czech company where people and details matter</li><li>We will take care of your personal development and education</li><li>Support and reliability of other team members (sales, business support)</li></ul>
+Benefits:
+
+- 
+  text: >
+    Work on projects for the largest
+    companies on the Czech market
+- 
+  text: >
+    Fair financial remuneration according to
+    experience and work done with a bonus
+    component
+- 
+  text: >
+    The environment of a Czech company where
+    people and details matter
+- 
+  text: >
+    We will take care of your personal
+    development and education
+- 
+  text: >
+    Support and reliability of other team
+    members (sales, business support)
+
+----
+
+Whyus:
+
+- 
+  image: [ ]
+  text: '<p>Bonusy/prémie</p>'
 
 ----
 
