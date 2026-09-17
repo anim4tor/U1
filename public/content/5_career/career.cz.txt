@@ -6,7 +6,7 @@ Slug: career
 
 ----
 
-Hero: [{"content":{"text":"We are constantly moving forward","level":"h1","mod":"xs","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"b184f43d-31ab-419a-8c6c-0430dbdf4156","isHidden":false,"type":"heading"},{"content":{"text":"U nás dostaneš prostor pracovat na smysluplných projektech, rozvíjet se v tom, co tě baví a spolupracovat s inspirativními lidmi. Vyvíjíme řešení, která každý den pomáhají firmám fungovat lépe – ať už jde o malé podniky, nebo velké korporace. Přidej se k nám a buď u toho!","mod":"l","face":"","case":"","hasreveal":"false","bid":"","attr":"","css":"font__size__large","href":"","target":"false","node":""},"id":"3ff9902c-8a26-481b-b274-80976cc59bcd","isHidden":false,"type":"text"},{"content":{"href":"#opened-positions","target":"false","label":"Opened positions","counter":["page://9a41hc2Jz9NaZ0SH"],"theme":"invert","hover":"dark","size":"default","icon":"arrow-down","hasreveal":"true","bid":"","attr":"","css":"","node":""},"id":"e74109fd-5569-469b-bc56-18bf9bed5be2","isHidden":false,"type":"button"},{"content":{"image":["file://rKxIYd1om9PSKV7H"],"hasparallax":"false","parallax":0,"hasreveal":"false","reveal":"","bid":"","attr":"","css":"overlay__bottom","href":"","target":"false","node":""},"id":"5b02c2ca-0422-40b4-b898-9db7469f43ce","isHidden":false,"type":"cover"}]
+Hero: [{"content":{"text":"We are constantly moving forward","level":"h1","mod":"xs","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"b184f43d-31ab-419a-8c6c-0430dbdf4156","isHidden":false,"type":"heading"},{"content":{"text":"U nás dostaneš prostor pracovat na smysluplných projektech, rozvíjet se v tom, co tě baví a spolupracovat s inspirativními lidmi. Vyvíjíme řešení, která každý den pomáhají firmám fungovat lépe – ať už jde o malé podniky, nebo velké korporace. Přidej se k nám a buď u toho!","mod":"l","face":"","case":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"3ff9902c-8a26-481b-b274-80976cc59bcd","isHidden":false,"type":"text"},{"content":{"href":"#opened-positions","target":"false","label":"Opened positions","counter":["page://9a41hc2Jz9NaZ0SH"],"theme":"invert","hover":"dark","size":"default","icon":"arrow-down","hasreveal":"true","bid":"","attr":"","css":"","node":""},"id":"e74109fd-5569-469b-bc56-18bf9bed5be2","isHidden":false,"type":"button"},{"content":{"image":["file://rKxIYd1om9PSKV7H"],"hasparallax":"false","parallax":0,"hasreveal":"false","reveal":"","bid":"","attr":"","css":"overlay__bottom","href":"","target":"false","node":""},"id":"5b02c2ca-0422-40b4-b898-9db7469f43ce","isHidden":false,"type":"cover"}]
 
 ----
 
@@ -111,6 +111,22 @@ About: [{"content":{"text":"Pojď dělat na zajímavých projektech","level":"h2
 
 ----
 
+Quoteheader: 
+
+----
+
+Quoteauthor: David L., Operations Manager
+
+----
+
+Quoteimage: - file://vrID4107Rb90yYX9
+
+----
+
+Quotetext: Twenty-five years of refined expertise, distilled into a comprehensive suite of architectural and design solutions creating experiences that amplify the joy felt in shared human moments.
+
+----
+
 Order:
 
 - 
@@ -123,6 +139,8 @@ Order:
   label: projects
 - 
   label: life
+- 
+  label: quote
 - 
   label: global/Feed/index
 - 
