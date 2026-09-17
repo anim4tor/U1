@@ -62,7 +62,7 @@ Services: [{"content":{"text":"Solutions","level":"h2","mod":"","hasreveal":"fal
 
 ----
 
-Teams: [{"content":{"text":"Our Teams","level":"h2","mod":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"6c933fdb-011d-4082-897c-b1e1a91ac4fa","isHidden":false,"type":"heading"}]
+Teams: [{"content":{"text":"Our Teams","level":"h2","mod":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"6c933fdb-011d-4082-897c-b1e1a91ac4fa","isHidden":false,"type":"heading"},{"content":{"text":"","mod":"","face":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"8b6f5c95-80b9-448c-9a58-85d55d8a5888","isHidden":false,"type":"label"}]
 
 ----
 
