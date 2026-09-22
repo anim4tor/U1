@@ -55,7 +55,7 @@
 				<?php if ($val->isNotEmpty()): ?>
 					<div class="grid__2 gap__2 border__top inner-y__05">
 						<div class="upper font__size__small op__6">(<?= $label ?>)</div>
-						<p class="font__size__large"><?= $field != 'date' ? $val : $val->toDate('Y') ?></p>
+						<p class="font__size__default"><?= $field != 'date' ? $val : $val->toDate('Y') ?></p>
 					</div>
 				<?php endif; ?>
 			<?php endforeach; ?>

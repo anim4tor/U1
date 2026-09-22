@@ -37,7 +37,7 @@
 				
 				<li class="flex align__start gap__05">
 					<div class="inner-t__01"><?= svg('site/assets/images/ui/list-checkmark.svg') ?></div>
-					<span class="font__size__large"><?= $item->text() ?></span>
+					<span class="font__size__default"><?= $item->text() ?></span>
 				</li>
 			<?php endforeach; ?>
 		</ul>
@@ -57,7 +57,7 @@
 					<?php foreach ($page->benefits()->toStructure() as $item) : ?>
 						<li class="flex align__start gap__05">
 							<div class="inner-t__01"><?= svg('site/assets/images/ui/list-checkmark.svg') ?></div>
-							<span class="font__size__large"><?= $item->text() ?></span>
+							<span class="font__size__default"><?= $item->text() ?></span>
 						</li>
 					<?php endforeach; ?>
 				</ul>
@@ -65,7 +65,7 @@
 					<?php foreach ($page->requirements()->toStructure() as $item) : ?>
 						<li class="flex align__start gap__05">
 							<div class="inner-t__01"><?= svg('site/assets/images/ui/list-checkmark.svg') ?></div>
-							<span class="font__size__large"><?= $item->text() ?></span>
+							<span class="font__size__default"><?= $item->text() ?></span>
 						</li>
 					<?php endforeach; ?>
 				</ul>
@@ -107,7 +107,7 @@ try { $whyItems = $page->whyus()->toStructure(); } catch (\Throwable $e) {}
 								<?= snippet('atoms/Image', ['img' => $img, 'reveal' => false]) ?>
 							<?php endif ?>
 						</div>
-						<span class="font__size__large ff__body"><?= $why->text() ?></span>
+						<span class="font__size__default ff__body"><?= $why->text() ?></span>
 					</div>
 				<?php endforeach ?>
 			</div>

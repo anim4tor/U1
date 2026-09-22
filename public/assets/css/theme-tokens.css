@@ -36,12 +36,12 @@
     /* ==========================================================================
         TYPOGRAPHY TEXT VARIANT TOKENS
         ========================================================================== */
-    --font-size-large: clamp(1.15rem, 1.5vw, 1.45rem);
-    --line-height-large: 1.85;
+    --font-size-large: 14px;
+    --line-height-large: 1.90;
     --font-weight-large: 400;
     --letter-spacing-large: -0.035em;
     --opacity-large: 1;
-    --font-size-default: clamp(0.95rem, 1.1vw, 1.10rem);
+    --font-size-default: 14px;
     --line-height-default: 1.90;
     --font-weight-default: 400;
     --letter-spacing-default: -0.035em;

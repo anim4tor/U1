@@ -42,13 +42,13 @@
     --text-transform-5: var(--tt-heading, none);
 
     /* Body Level Variables */
-    --font-size-large: clamp(1.15rem, 1.5vw, 1.45rem);
-    --line-height-large: 1.85;
+    --font-size-large: var(--font-size-default);
+    --line-height-large: var(--line-height-default);
     --font-weight-large: var(--fw-body, 400);
     --letter-spacing-large: var(--ls-body, normal);
     --opacity-large: 1;
 
-    --font-size-default: clamp(0.95rem, 1.1vw, 1.10rem);
+    --font-size-default: 14px;
     --line-height-default: 1.90;
     --font-weight-default: var(--fw-body, 400);
     --letter-spacing-default: var(--ls-body, normal);
@@ -320,10 +320,19 @@ h5 {
     Paragraphs
 */
 .ff__body,
-p,
 a,
 button {
     font-family: var(--ff-body), sans-serif;
+    letter-spacing: var(--ls-body);
+    text-transform: var(--tt-body);
+    font-optical-sizing: auto;
+}
+
+p {
+    font-family: var(--ff-body), sans-serif;
+    font-size: 14px;
+    font-size: var(--font-size-default);
+    line-height: var(--line-height-default);
     letter-spacing: var(--ls-body);
     text-transform: var(--tt-body);
     font-optical-sizing: auto;
@@ -401,6 +410,18 @@ button,
 .button,
 .link {
     font-size: 12px;
+}
+
+.font__size__large,
+.font-size-large,
+.text-large,
+.font__size__default,
+.font-size-default,
+.text-default {
+    --output-size: var(--font-size-default);
+    font-size: 14px;
+    font-size: var(--output-size);
+    line-height: var(--line-height-default);
 }
 
 .hyphens {
