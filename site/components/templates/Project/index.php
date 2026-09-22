@@ -70,7 +70,7 @@
 	$after = $page->after()->toFile(); 
 ?>
 <section theme="invert">
-	<div class="grid inner-x__4 inner-b__4" data-scroll>
+	<div class="grid inner__4" data-scroll>
 		<div class="before-after-container vh__20 img__radius" style="--position: 41.75%;">
 		  <div class="image-container before-image">
 		  	<?= snippet('atoms/Image', ['img' => $before, 'parallax' => 2, 'reveal' => false, 'css' => 'vh__20']) ?>
@@ -105,7 +105,7 @@
 <?php endif; ?>
 
 <section class="details" theme="invert">
-	<div data-scroll class="place__stretch-stretch grid gap__4 inner-x__4">
+	<div data-scroll class="place__stretch-stretch grid gap__4 inner__4">
 		<?= snippet('molecules/Blocks', [ 'blocks' => $page->details()->toBlocks() ])?>
 		<?php foreach ($page->details()->toBlocks() as $block) {
 		    if ($block->type() === 'image' && $blockImg = $block->image()->toFile()) {
@@ -123,7 +123,7 @@
 <?php if($page->password()->isNotEmpty()) : ?>
 <?php if ($extras === true): ?>
   <section class="unlocked-container">
-  	<div data-scroll class="place__stretch-stretch grid gap__4 inner-x__4">
+  	<div data-scroll class="place__stretch-stretch grid gap__4 inner__4">
 		<?= snippet('molecules/Blocks', [ 'blocks' => $page->extras()->toBlocks() ])?>
 		<?php foreach ($page->extras()->toBlocks() as $block) {
 		    if ($block->type() === 'image' && $blockImg = $block->image()->toFile()) {
@@ -201,7 +201,7 @@
 <?php $next = $page->nextListed() ?? collection('Projects')->first(); ?>
 <?php if ($next) : ?>
 <section class="intro radius" theme="invert" >
-	<div data-scroll class="z__1 intro__header inner__4 place__stretch-stretch grid__4 mobile:grid__1 mobile:h__auto inner__1 mobile:inner-t__10 mobile:gap__2 relative ">
+	<div data-scroll class="z__1 intro__header place__stretch-stretch grid__4 mobile:grid__1 mobile:h__auto inner__4 mobile:inner-t__10 mobile:gap__2 relative ">
 		<a href="<?= $next->url() ?>" class="span__4 grid place__stretch-stretch">
 			<div class="span__4 grid__4 gap__2">
 

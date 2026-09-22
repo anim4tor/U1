@@ -682,7 +682,7 @@
 			const bScale = parseFloat(inlineStyles.getPropertyValue('--body-scale') || computed.getPropertyValue('--body-scale')) || 1.4;
 			const bStartRem = parseFloat((inlineStyles.getPropertyValue('--body-start-rem') || computed.getPropertyValue('--body-start-rem') || '0.714').replace('rem', '')) || 0.714;
 			const bStartVw = parseFloat((inlineStyles.getPropertyValue('--body-start-vw') || computed.getPropertyValue('--body-start-vw') || '0.714').replace('vw', '')) || 0.714;
-			const baseBodyLh = parseFloat(inlineStyles.getPropertyValue('--base-body-line-height') || computed.getPropertyValue('--base-body-line-height')) || 1.90;
+			const baseBodyLh = parseFloat(inlineStyles.getPropertyValue('--base-body-line-height') || computed.getPropertyValue('--base-body-line-height')) || 1.52;
 			const fwBody = (inlineStyles.getPropertyValue('--fw-body') || computed.getPropertyValue('--fw-body') || '400').trim();
 			const lsBody = (inlineStyles.getPropertyValue('--ls-body') || computed.getPropertyValue('--ls-body') || 'normal').trim();
 			const ttBody = (inlineStyles.getPropertyValue('--tt-body') || computed.getPropertyValue('--tt-body') || 'none').trim();
@@ -765,7 +765,7 @@
 				'letter-spacing-default': lsBody || 'normal',
 
 				'font-size-small': formatSize(capRem, capVw),
-				'font-weight-small': '500',
+				'font-weight-small': fwBody || '400',
 				'line-height-small': formatLh(capLh),
 				'letter-spacing-small': lsBody || 'normal',
 				'text-transform-small': ttBody || 'none',

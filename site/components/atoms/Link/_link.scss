@@ -14,7 +14,7 @@
 	letter-spacing: 0;
 }
 
-nav {
+nav:not([class*="font__size"]):not(.footer__nav) {
 	.link[href] {
 		font-size: 12px;
 	}

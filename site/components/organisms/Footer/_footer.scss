@@ -24,13 +24,25 @@ footer,
 		}
 	}
 
-	.footer__nav .link {
-		&:hover {
-			opacity: 1;
-			& [data-word] span {
-				--reveal-delay: 0ms;
-				--reveal-duration: 600ms;
-				color: var(--color-acc) !important;
+	.footer__nav {
+		font-size: var(--font-size-3);
+		line-height: var(--line-height-3);
+
+		.link,
+		a,
+		span {
+			font-size: var(--font-size-3) !important;
+			line-height: var(--line-height-3);
+		}
+
+		.link {
+			&:hover {
+				opacity: 1;
+				& [data-word] span {
+					--reveal-delay: 0ms;
+					--reveal-duration: 600ms;
+					color: var(--color-acc) !important;
+				}
 			}
 		}
 	}

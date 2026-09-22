@@ -45,6 +45,8 @@ $pos: (
 			--ncol: #{$col};
 			display: grid;
 			grid-template-columns: repeat(var(--ncol), minmax(0, 1fr));
+			column-gap: var(--grid-gap-x, calc(1 * var(--spacing)));
+			row-gap: var(--grid-gap-y, calc(2 * var(--spacing)));
 		}
 	}
 }
@@ -136,7 +138,14 @@ $pos: (
 @each $modifier , $breakpoint in $map-grid-props {
 	@if($modifier == '') {
 		@include display;
+		.flex {
+			gap: calc(0.5 * var(--spacing));
+		}
 		.grid {
+			--grid-gap-x: calc(1 * var(--spacing));
+			--grid-gap-y: calc(2 * var(--spacing));
+			column-gap: var(--grid-gap-x);
+			row-gap: var(--grid-gap-y);
 			@include grid_columns;
 		}
 		.rows {
@@ -163,7 +172,14 @@ $pos: (
 	} @else {
 		@include create-mq($breakpoint, 'max') {
 			@include display(#{$modifier}\:);
+			.#{$modifier}\:flex {
+				gap: calc(0.5 * var(--spacing));
+			}
 			.#{$modifier}\:grid {
+				--grid-gap-x: calc(1 * var(--spacing));
+				--grid-gap-y: calc(2 * var(--spacing));
+				column-gap: var(--grid-gap-x);
+				row-gap: var(--grid-gap-y);
 				@include grid_columns;
 			}
 			.#{$modifier}\:span {

@@ -8,27 +8,27 @@
        TYPOGRAPHY HEADING TOKENS
        ========================================================================== */
     --font-size-1: clamp(2.40rem, 4.5vw, 4.20rem);
-    --line-height-1: 1.12;
+    --line-height-1: 1.01;
     --font-weight-1: 500;
     --letter-spacing-1: -0.035em;
     --text-transform-1: none;
     --font-size-2: clamp(1.75rem, 3.0vw, 2.75rem);
-    --line-height-2: 1.18;
+    --line-height-2: 1.06;
     --font-weight-2: 500;
     --letter-spacing-2: -0.035em;
     --text-transform-2: none;
     --font-size-3: clamp(1.30rem, 2.0vw, 1.85rem);
-    --line-height-3: 1.25;
+    --line-height-3: 1.12;
     --font-weight-3: 500;
     --letter-spacing-3: -0.035em;
     --text-transform-3: none;
     --font-size-4: clamp(1.05rem, 1.4vw, 1.35rem);
-    --line-height-4: 1.32;
+    --line-height-4: 1.19;
     --font-weight-4: 500;
     --letter-spacing-4: -0.035em;
     --text-transform-4: none;
     --font-size-5: clamp(0.85rem, 1.0vw, 1.05rem);
-    --line-height-5: 1.40;
+    --line-height-5: 1.26;
     --font-weight-5: 500;
     --letter-spacing-5: -0.035em;
     --text-transform-5: none;
@@ -37,17 +37,17 @@
         TYPOGRAPHY TEXT VARIANT TOKENS
         ========================================================================== */
     --font-size-large: 14px;
-    --line-height-large: 1.90;
+    --line-height-large: 1.52;
     --font-weight-large: 400;
     --letter-spacing-large: -0.035em;
     --opacity-large: 1;
     --font-size-default: 14px;
-    --line-height-default: 1.90;
+    --line-height-default: 1.52;
     --font-weight-default: 400;
     --letter-spacing-default: -0.035em;
     --font-size-small: 12px;
-    --line-height-small: 1.80;
-    --font-weight-small: 500;
+    --line-height-small: 1.44;
+    --font-weight-small: 400;
     --letter-spacing-small: -0.035em;
     --text-transform-small: none;
     --opacity-small: 1;
@@ -60,7 +60,7 @@
    --tt-heading: none;
    --ls-heading: -0.035em;
    --ff-body: 'Inter';
-   --fw-body: 500;
+   --fw-body: 400;
    --tt-body: none;
    --ls-body: -0.035em;
    --ff-mono: 'Inter';
@@ -71,11 +71,11 @@
    --type-scale: 1.618;
    --type-start-rem: 0.5rem;
    --type-start-vw: 0.8vw;
-   --base-line-height: 1.40;
+   --base-line-height: 1.26;
    --body-scale: 1.222;
    --body-start-rem: 0.7rem;
    --body-start-vw: 0.7vw;
-   --base-body-line-height: 1.90;
+   --base-body-line-height: 1.52;
 
    /* ==========================================================================
        LAYOUT PADDING & GRID SPACING TOKENS

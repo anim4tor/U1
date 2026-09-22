@@ -12,31 +12,31 @@
 :root {
     /* Headings */
     --font-size-1: clamp(2.40rem, 4.5vw, 4.20rem);
-    --line-height-1: 1.12;
+    --line-height-1: 1.01;
     --font-weight-1: var(--fw-heading, 500);
     --letter-spacing-1: var(--ls-heading, normal);
     --text-transform-1: var(--tt-heading, none);
 
     --font-size-2: clamp(1.75rem, 3.0vw, 2.75rem);
-    --line-height-2: 1.18;
+    --line-height-2: 1.06;
     --font-weight-2: var(--fw-heading, 500);
     --letter-spacing-2: var(--ls-heading, normal);
     --text-transform-2: var(--tt-heading, none);
 
     --font-size-3: clamp(1.30rem, 2.0vw, 1.85rem);
-    --line-height-3: 1.25;
+    --line-height-3: 1.12;
     --font-weight-3: var(--fw-heading, 500);
     --letter-spacing-3: var(--ls-heading, normal);
     --text-transform-3: var(--tt-heading, none);
 
     --font-size-4: clamp(1.05rem, 1.4vw, 1.35rem);
-    --line-height-4: 1.32;
+    --line-height-4: 1.19;
     --font-weight-4: var(--fw-heading, 500);
     --letter-spacing-4: var(--ls-heading, normal);
     --text-transform-4: var(--tt-heading, none);
 
     --font-size-5: clamp(0.85rem, 1.0vw, 1.05rem);
-    --line-height-5: 1.40;
+    --line-height-5: 1.26;
     --font-weight-5: var(--fw-heading, 500);
     --letter-spacing-5: var(--ls-heading, normal);
     --text-transform-5: var(--tt-heading, none);
@@ -49,13 +49,13 @@
     --opacity-large: 1;
 
     --font-size-default: 14px;
-    --line-height-default: 1.90;
+    --line-height-default: 1.52;
     --font-weight-default: var(--fw-body, 400);
     --letter-spacing-default: var(--ls-body, normal);
 
     --font-size-small: 12px;
-    --line-height-small: 1.80;
-    --font-weight-small: var(--fw-body, 500);
+    --line-height-small: 1.44;
+    --font-weight-small: var(--fw-body, 400);
     --text-transform-small: var(--tt-body, none);
     --letter-spacing-small: var(--ls-body, normal);
     --opacity-small: 1;
@@ -296,7 +296,7 @@ body {
     font-family: var(--ff-body);
     font-size: var(--output-size);
     line-height: var(--line-height-default);
-    font-weight: var(--fw-body);
+    font-weight: var(--fw-body, 400);
     font-optical-sizing: auto;
 }
 
@@ -333,6 +333,7 @@ p {
     font-size: 14px;
     font-size: var(--font-size-default);
     line-height: var(--line-height-default);
+    font-weight: var(--font-weight-default, 400);
     letter-spacing: var(--ls-body);
     text-transform: var(--tt-body);
     font-optical-sizing: auto;
@@ -403,13 +404,18 @@ label,
 }
 
 .label {
-    font-weight: var(--font-weight-small, 500);
+    font-weight: var(--font-weight-small, 400);
 }
 
 button,
-.button,
+.button {
+    font-size: 12px;
+    font-weight: var(--button-font-weight, 500);
+}
+
 .link {
     font-size: 12px;
+    font-weight: 400;
 }
 
 .font__size__large,
