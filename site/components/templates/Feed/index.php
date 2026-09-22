@@ -4,11 +4,11 @@
 		<div class="span__4 inner-t__05 grid__4 place__start-start">
 			<div class="span__2">
 				<div class="flex align__start gap__02 inner-y__02 no__wrap" data-scroll>
-					<h1 class="" data-reveal-text>Blog</h1>
+					<h1 class="" data-reveal-text>Články</h1>
 				</div>
 			</div>
-			<a data-scroll-to href="#socials" class="font__size__3 ff__heading op__4" data-reveal-text>Socials</a>
-			<a data-scroll-to href="#media" class="font__size__3 ff__heading op__4" data-reveal-text>Media</a>
+			<a data-scroll-to href="#socials" class="font__size__3 ff__heading op__4" data-reveal-text>Sítě</a>
+			<a data-scroll-to href="#media" class="font__size__3 ff__heading op__4" data-reveal-text>Média</a>
 		</div>
 	</div>
 </section>
@@ -34,13 +34,13 @@
 	<div data-scroll class="z__1 inner-b__2 intro__header grid__4 mobile:grid__1 mobile:h__auto inner__4 mobile:inner-t__10 mobile:gap__2 relative ">
 		<div class="span__4 border__bottom h__8"></div>
 		<div class="span__4 inner-t__05 grid__4 place__start-start">
-			<a data-scroll-to href="#news" class="font__size__3 ff__heading op__4" data-reveal-text>Blog</a>
+			<a data-scroll-to href="#news" class="font__size__3 ff__heading op__4" data-reveal-text>Články</a>
 			<div class="span__2">
 				<div class="flex align__start gap__02 inner-y__02 no__wrap" data-scroll>
-					<h1 class="" data-reveal-text>Socials</h1>
+					<h1 class="" data-reveal-text>Sítě</h1>
 				</div>
 			</div>
-			<a data-scroll-to href="#media" class="font__size__3 ff__heading op__4" data-reveal-text>Media</a>
+			<a data-scroll-to href="#media" class="font__size__3 ff__heading op__4" data-reveal-text>Média</a>
 		</div>
 	</div>
 </section>
@@ -71,11 +71,11 @@
 	<div data-scroll class="z__1 intro__header grid__4 mobile:grid__1 mobile:h__auto inner__4 mobile:inner-t__10 mobile:gap__2 relative ">
 		<div class="span__4 border__bottom h__8"></div>
 		<div class="span__4 inner-t__05 grid__4 place__start-start">
-			<a data-scroll-to href="#news" class="font__size__3 ff__heading op__4" data-reveal-text>Blog</a>
-			<a data-scroll-to href="#socials" class="font__size__3 ff__heading op__4" data-reveal-text>Socials</a>
+			<a data-scroll-to href="#news" class="font__size__3 ff__heading op__4" data-reveal-text>Články</a>
+			<a data-scroll-to href="#socials" class="font__size__3 ff__heading op__4" data-reveal-text>Sítě</a>
 			<div class="span__2">
 				<div class="flex align__start gap__02 inner-y__02 no__wrap" data-scroll>
-					<h1 class="" data-reveal-text>Media</h1>
+					<h1 class="" data-reveal-text>Média</h1>
 				</div>
 			</div>
 		</div>

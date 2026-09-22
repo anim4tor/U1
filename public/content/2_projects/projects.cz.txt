@@ -1,12 +1,12 @@
-Title: Works
+Title: Projekty
 
 ----
 
-Slug: works
+Slug: projects
 
 ----
 
-Hero: [{"content":{"text":"All work","level":"h1","mod":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"a09bb2ad-e5fe-48e9-996d-051def04a923","isHidden":false,"type":"heading"}]
+Hero: [{"content":{"text":"Všechny realizace","level":"h1","mod":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"a09bb2ad-e5fe-48e9-996d-051def04a923","isHidden":false,"type":"heading"}]
 
 ----
 
@@ -85,11 +85,11 @@ Claim:
 
 ----
 
-Customtitle: Yoga lekce
+Customtitle: Projekty
 
 ----
 
-Subtitle: Naše lekce jsou navrženy tak, aby respektovaly individuální potřeby a zároveň posouvaly hranice toho, co jste považovali za možné.
+Subtitle: Naše realizace jsou navrženy tak, aby respektovaly individuální potřeby a zároveň posouvaly hranice pracovního prostředí.
 
 ----
 

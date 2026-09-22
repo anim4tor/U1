@@ -57,7 +57,7 @@
 						</div>
 						<div class="grid gap__1">
 							<div class="grid__2 gap__02">
-								<div class="flex"><span class="op__4 upper font__size__small">Who we are</span></div>
+								<div class="flex"><span class="op__4 upper font__size__small">Kdo jsme</span></div>
 								<nav navbar-menu class="grid upper ff__heading font__size__3 lighter no__wrap">
 									<?php foreach ($pages->find('about', 'career', 'contact') as $p): ?>
 										<div class="grid place__start-start">
@@ -68,38 +68,38 @@
 								</nav>
 							</div>
 							<div class="grid__2 gap__02">
-								<div class="flex"><span class="op__4 upper font__size__small">Feed</span></div>
+								<div class="flex"><span class="op__4 upper font__size__small">Novinky</span></div>
 								<nav navbar-menu class="grid upper ff__heading font__size__3 lighter no__wrap">
 									<div class="grid place__start-start">
-										<?= snippet('atoms/Link', ['url' => page('feed')->url() . '#blog', 'label' => 'Blog', 'icon' => false, 'css' => '', 'node' => 'data-reveal-text data-reveal-on-navbar data-split-ignore']) ?>
+										<?= snippet('atoms/Link', ['url' => page('feed')->url() . '#blog', 'label' => 'Články', 'icon' => false, 'css' => '', 'node' => 'data-reveal-text data-reveal-on-navbar data-split-ignore']) ?>
 
 									</div>
 									<div class="grid place__start-start">
-										<?= snippet('atoms/Link', ['url' => page('feed')->url() . '#socials', 'label' => 'Socials', 'icon' => false, 'css' => '', 'node' => 'data-reveal-text data-reveal-on-navbar data-split-ignore']) ?>
+										<?= snippet('atoms/Link', ['url' => page('feed')->url() . '#socials', 'label' => 'Sítě', 'icon' => false, 'css' => '', 'node' => 'data-reveal-text data-reveal-on-navbar data-split-ignore']) ?>
 
 									</div>
 									<div class="grid place__start-start">
-										<?= snippet('atoms/Link', ['url' => page('feed')->url() . '#media', 'label' => 'Media', 'icon' => false, 'css' => '', 'node' => 'data-reveal-text data-reveal-on-navbar data-split-ignore']) ?>
+										<?= snippet('atoms/Link', ['url' => page('feed')->url() . '#media', 'label' => 'Média', 'icon' => false, 'css' => '', 'node' => 'data-reveal-text data-reveal-on-navbar data-split-ignore']) ?>
 
 									</div>
 								</nav>
 							</div>
 							<div class="grid gap__05 inner-t__1">
-								<div class="label upper font__size__small op__4">(Contact)</div>
+								<div class="label upper font__size__small op__4">(Kontakt)</div>
 								<div class="grid__2 gap__02">
 									<button class="img__radius flex inner__05 gap__02 justify__center align__center" theme="invert-ghost" data-scroll data-booking-toggle >
 										<!-- <div icon class="grid__stack ">
 											<div data-booking-hide class="grid"><?= svg('public/assets/images/hand.svg') ?></div>
 											<div data-booking-reveal class="grid"><?= svg('public/assets/images/ui/ui_close.svg') ?></div>
 										</div> -->
-										<label class="upper">Schedule a call</label>
+										<label class="upper">Domluvit hovor</label>
 									</button>
 									<button class="img__radius flex inner__05 gap__02 justify__center align__center" theme="acc" data-scroll data-booking-toggle >
 										<!-- <div icon class="grid__stack ">
 											<div data-booking-hide class="grid"><?= svg('public/assets/images/hand.svg') ?></div>
 											<div data-booking-reveal class="grid"><?= svg('public/assets/images/ui/ui_close.svg') ?></div>
 										</div> -->
-										<label class="upper">Start project</label>
+										<label class="upper">Poptat projekt</label>
 									</button>
 								</div>
 							</div>

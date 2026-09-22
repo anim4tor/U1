@@ -2,7 +2,7 @@
 <section class="recognition radius" theme="light" >
 	<div class="flex align__center inner-x__1 gap__2">
 		<div class="no__wrap">
-			<div class="upper op__6">Featured in</div>
+			<div class="upper op__6">Napsali o nás</div>
 		</div>
 		<div class="logo-ticker-container">
 			<div class="logo-ticker-track">

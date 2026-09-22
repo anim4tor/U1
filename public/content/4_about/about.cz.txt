@@ -1,4 +1,4 @@
-Title: About
+Title: O nás
 
 ----
 
@@ -6,7 +6,7 @@ Slug: about
 
 ----
 
-Hero: [{"content":{"text":"About Us","level":"h1","mod":"l","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"41f626de-5f9f-4f54-b649-90101a671744","isHidden":false,"type":"heading"},{"content":{"image":["file://EvzC0b5nfuTdhNrI"],"hasparallax":"false","parallax":0,"hasreveal":"false","reveal":"","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"75c0a0cb-fb3d-4f88-99c6-f6524f71f498","isHidden":false,"type":"cover"},{"content":{"text":"Inspiration is all around us. At U1, we work every day to improve our surroundings through the power of know-how and design.","mod":"l","face":"","case":"lower","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"e411a841-0a89-452a-a500-7dbad5f6425c","isHidden":false,"type":"text"}]
+Hero: [{"content":{"text":"O nás","level":"h1","mod":"l","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"41f626de-5f9f-4f54-b649-90101a671744","isHidden":false,"type":"heading"},{"content":{"image":["file://EvzC0b5nfuTdhNrI"],"hasparallax":"false","parallax":0,"hasreveal":"false","reveal":"","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"75c0a0cb-fb3d-4f88-99c6-f6524f71f498","isHidden":false,"type":"cover"},{"content":{"text":"Inspirace je všude kolem nás. V U1 každý den pracujeme na tom, abychom zlepšovali své okolí silou know-how a designu.","mod":"l","face":"","case":"lower","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"e411a841-0a89-452a-a500-7dbad5f6425c","isHidden":false,"type":"text"}]
 
 ----
 
@@ -19,7 +19,7 @@ Featuredtestimonials:
 
 ----
 
-About: [{"content":{"text":"<p>Our story</p>","mod":"","face":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"5e0df47c-57f1-406d-9197-2497acc20f90","isHidden":false,"type":"label"},{"content":{"text":"We’re a team of designers working to deepen the human experience.","level":"h3","mod":"s","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"d215d6bd-e78a-4705-9435-1aa034f0c716","isHidden":false,"type":"heading"},{"content":{"text":"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodoconsequat. Duis aute irure dolor in reprehenderit in voluptate velit essecillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat nonproident, sunt in culpa qui officia deserunt mollit anim id est laborum.","mod":"","face":"","case":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"74f54930-d64b-4af1-af0b-b854cd5707a0","isHidden":false,"type":"text"},{"content":{"image":["file://gQrBkYsL9KNrFgwt"],"hasparallax":"false","parallax":0,"hasreveal":"false","reveal":"","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"c333acbf-6d5b-495e-b0f3-d07d97ce65e0","isHidden":false,"type":"image"}]
+About: [{"content":{"text":"<p>Náš příběh</p>","mod":"","face":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"5e0df47c-57f1-406d-9197-2497acc20f90","isHidden":false,"type":"label"},{"content":{"text":"Jsme tým designérů a architektů, kteří tvoří prostory s hlubším lidským rozměrem.","level":"h3","mod":"s","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"d215d6bd-e78a-4705-9435-1aa034f0c716","isHidden":false,"type":"heading"},{"content":{"text":"Vytváříme moderní pracovní a komerční prostory, které propojují estetiku s maximální funkčností. Naším cílem je navrhovat prostředí, kde se lidé cítí přirozeně, motivovaně a svobodně. Každý projekt je pro nás jedinečným dialogem mezi architekturou a firemní kulturou.","mod":"","face":"","case":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"74f54930-d64b-4af1-af0b-b854cd5707a0","isHidden":false,"type":"text"},{"content":{"image":["file://gQrBkYsL9KNrFgwt"],"hasparallax":"false","parallax":0,"hasreveal":"false","reveal":"","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"c333acbf-6d5b-495e-b0f3-d07d97ce65e0","isHidden":false,"type":"image"}]
 
 ----
 
@@ -27,62 +27,62 @@ Values:
 
 - 
   step: 1
-  value: Integrity
+  value: Integrita
   figure:
     - file://Hzplof4PlkodvbqM
-  detail: '<p>Design development through aesthetics to functionality in line with the latest technologies, structural aspects of projects - construction, materials, sustainable practices and coordination between teams of engineers and construction workers, transforming creative ideas into real products (including market research, customer needs analysis, prototype design and testing, through to final production and market launch.) In other words, the smooth flow of projects from concept to completion.</p>'
+  detail: '<p>Vývoj designu od estetiky po funkčnost v souladu s nejnovějšími technologiemi, stavebními aspekty, materiály, udržitelnými postupy a koordinací. Plynulý tok projektů od prvního konceptu až po dokončení.</p>'
 - 
   step: 2
-  value: Innovation
+  value: Inovace
   figure:
     - file://LIAFLCCTEOYkZ0tC
-  detail: '<p>Converting designs and prototypes into final products, all aspects of production - from materials and equipment, to quality control, to planning and logistics. And making ideas and plans a&nbsp;reality - overseeing project progress, managing schedules, budgets and resources.</p>'
+  detail: '<p>Převádění návrhů a prototypů do finálních produktů – od materiálů a technologií přes kontrolu kvality až po plánování a logistiku. Dohlížíme na harmonogramy, rozpočty a zdroje.</p>'
 - 
   step: 3
-  value: Sustainability
+  value: Udržitelnost
   figure:
     - file://HXa9UZqdtbPdhTUQ
-  detail: '<p>In addition to its internal focus on improving the sustainability of corporate operations, the department also works with clients, suppliers and other stakeholders to encourage wider adoption of sustainable practices. To not only meet current standards and regulations, but also to be a&nbsp;leader in sustainability and an example to others.</p>'
+  detail: '<p>Kromě interního zaměření na udržitelnost provozu spolupracujeme s klienty a dodavateli na širším zavádění udržitelných postupů. Chceme nejen splňovat normy, ale být příkladem pro ostatní.</p>'
 
 ----
 
-Teamsheader: [{"content":{"text":"Our Teams","level":"h2","mod":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"f03be291-c643-469a-9ef5-f40ca637a67c","isHidden":false,"type":"heading"},{"content":{"text":"","mod":"","face":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"c8834fc3-d256-4850-a845-43326249b8af","isHidden":false,"type":"label"}]
+Teamsheader: [{"content":{"text":"Naše týmy","level":"h2","mod":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"f03be291-c643-469a-9ef5-f40ca637a67c","isHidden":false,"type":"heading"},{"content":{"text":"","mod":"","face":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"c8834fc3-d256-4850-a845-43326249b8af","isHidden":false,"type":"label"}]
 
 ----
 
 Teams:
 
 - 
-  name: Leadership
-  details: '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>'
+  name: Vedení
+  details: '<p>Strategické řízení společnosti, rozvoj firemní vize a dlouhodobých partnerství.</p>'
   figure:
     - file://HXa9UZqdtbPdhTUQ
   leader:
     - page://B16gOIE45vW4gRog
 - 
-  name: Sales management
-  details: '<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>'
+  name: Obchodní oddělení
+  details: '<p>Péče o klienty, analýza potřeb a hledání optimálních řešení pro vaše prostory.</p>'
   figure:
     - file://LIAFLCCTEOYkZ0tC
   leader:
     - page://FHQvOe3o8GYV6EL7
 - 
-  name: Design
-  details: '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>'
+  name: Design & Architektura
+  details: '<p>Kreativní koncepty, dispoziční řešení a do detailu promyšlené interiéry.</p>'
   figure:
     - file://EvzC0b5nfuTdhNrI
   leader:
     - page://SGCtsAHVoB3rp6GJ
 - 
-  name: Project Management
-  details: '<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>'
+  name: Projektové řízení
+  details: '<p>Kompletní koordinace realizace, dohled nad rozpočtem, dodavateli a termíny.</p>'
   figure:
     - file://Hzplof4PlkodvbqM
   leader:
     - page://B16gOIE45vW4gRog
 - 
-  name: Business Support
-  details: '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>'
+  name: Provozní podpora
+  details: '<p>Zajištění hladkého chodu kanceláří, back office a administrativní zázemí.</p>'
   figure:
     - file://BRZLiXm4VlnbLheE
   leader:
@@ -90,11 +90,11 @@ Teams:
 
 ----
 
-Peopleheader: [{"content":{"text":"Our people","level":"h2","mod":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"7a1470d7-5e0e-47f5-ba88-9d46c7ed5577","isHidden":false,"type":"heading"},{"content":{"text":"","mod":"","face":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"9a0cdabd-7079-46f5-925f-2ab26f0d3f29","isHidden":false,"type":"label"}]
+Peopleheader: [{"content":{"text":"Naši lidé","level":"h2","mod":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"7a1470d7-5e0e-47f5-ba88-9d46c7ed5577","isHidden":false,"type":"heading"},{"content":{"text":"","mod":"","face":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"9a0cdabd-7079-46f5-925f-2ab26f0d3f29","isHidden":false,"type":"label"}]
 
 ----
 
-Career: [{"content":{"text":"Be part of a team creating meaningful places.","level":"h2","mod":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"ca715af6-ac89-43af-9a8f-eecfe11da498","isHidden":false,"type":"heading"},{"content":{"text":"","mod":"","face":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"8fab0190-b9e2-4092-a560-152a6767164c","isHidden":false,"type":"label"},{"content":{"text":"Be part of a team creating meaningful places. We are looking for motivated, curious and dedicated talent who want to contribute to our growth while sharing our values.","mod":"m","face":"","case":"lower","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"f7cd36bd-697d-44a1-9b79-d9c978dfe267","isHidden":false,"type":"text"},{"content":{"href":"page://VdrNcpDJpzhLQIxA","target":"false","label":"Open positions","counter":["page://9a41hc2Jz9NaZ0SH"],"theme":"invert","hover":"dark","size":"default","icon":"arrow-right","hasreveal":"true","bid":"","attr":"","css":"","node":""},"id":"a4e52313-dc62-4372-959d-a1b4dcfd66b5","isHidden":false,"type":"button"},{"content":{"image":["file://LIAFLCCTEOYkZ0tC"],"hasparallax":"true","parallax":2,"hasreveal":"true","reveal":"","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"23032cf4-7798-4dae-95cb-183ae2520af8","isHidden":false,"type":"image"}]
+Career: [{"content":{"text":"Staňte se součástí týmu, který tvoří smysluplná místa.","level":"h2","mod":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"ca715af6-ac89-43af-9a8f-eecfe11da498","isHidden":false,"type":"heading"},{"content":{"text":"","mod":"","face":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"8fab0190-b9e2-4092-a560-152a6767164c","isHidden":false,"type":"label"},{"content":{"text":"Hledáme motivované, zvídavé a zapálené talenty, kteří se chtějí podílet na našem růstu a sdílet naše hodnoty.","mod":"m","face":"","case":"lower","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"f7cd36bd-697d-44a1-9b79-d9c978dfe267","isHidden":false,"type":"text"},{"content":{"href":"page://VdrNcpDJpzhLQIxA","target":"false","label":"Volné pozice","counter":["page://9a41hc2Jz9NaZ0SH"],"theme":"invert","hover":"dark","size":"default","icon":"arrow-right","hasreveal":"true","bid":"","attr":"","css":"","node":""},"id":"a4e52313-dc62-4372-959d-a1b4dcfd66b5","isHidden":false,"type":"button"},{"content":{"image":["file://LIAFLCCTEOYkZ0tC"],"hasparallax":"true","parallax":2,"hasreveal":"true","reveal":"","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"23032cf4-7798-4dae-95cb-183ae2520af8","isHidden":false,"type":"image"}]
 
 ----
 

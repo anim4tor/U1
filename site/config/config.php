@@ -112,32 +112,6 @@ return [
                 return go("booking.json/collection{$eq}{$collection}/id{$eq}{$id}");
               }
           ],
-          [
-              'pattern' => 'debug-linkedin',
-              'action' => function () {
-                  $token = option('linkedin.token');
-                  $orgId = option('linkedin.org_id');
-                  $endpoint = "https://api.linkedin.com/rest/posts?author=" . urlencode($orgId) . "&q=author&count=2";
-                  $res = \Kirby\Http\Remote::get($endpoint, [
-                      'timeout' => 10,
-                      'headers' => [
-                          'Authorization' => 'Bearer ' . $token,
-                          'LinkedIn-Version' => '202601',
-                          'X-Restli-Protocol-Version' => '2.0.0'
-                      ]
-                  ]);
-                  $cache = kirby()->cache('social');
-                  $cached = $cache->get('social.linkedin.posts');
-                  return \Kirby\Http\Response::json([
-                      'token_prefix' => substr((string)$token, 0, 10),
-                      'org_id' => $orgId,
-                      'http_code' => $res->code(),
-                      'response_sample' => substr((string)$res->content(), 0, 300),
-                      'cached_type' => gettype($cached),
-                      'cached_count' => is_array($cached) ? count($cached) : 0,
-                  ]);
-              }
-          ],
        
       ];
     },

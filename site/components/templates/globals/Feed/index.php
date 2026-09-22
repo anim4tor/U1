@@ -8,9 +8,9 @@
 					<div data-scroll class="flex align__start gap__05 span__2">
 						<div class="w__05 h__05 bg__acc"></div>
 						<div class="flex gap__1 align__center" data-scroll>
-							<h2 data-tab="blog" class="" data-reveal-text>Blog</h2>
-							<h2 data-tab="socials" class="" data-reveal-text>Socials</h2>
-							<h2 data-tab="media" class="" data-reveal-text>Media</h2>
+							<h2 data-tab="blog" class="" data-reveal-text>Články</h2>
+							<h2 data-tab="socials" class="" data-reveal-text>Sítě</h2>
+							<h2 data-tab="media" class="" data-reveal-text>Média</h2>
 						</div>
 					</div>
 					
@@ -34,9 +34,9 @@
 					<div data-scroll class="flex align__start gap__05 span__2">
 						<div class="w__05 h__05 bg__acc"></div>
 						<div class="flex gap__1 align__center" data-scroll>
-							<h2 data-tab="blog" class="" data-reveal-text>Blog</h2>
-							<h2 data-tab="socials" class="" data-reveal-text>Socials</h2>
-							<h2 data-tab="media" class="" data-reveal-text>Media</h2>
+							<h2 data-tab="blog" class="" data-reveal-text>Články</h2>
+							<h2 data-tab="socials" class="" data-reveal-text>Sítě</h2>
+							<h2 data-tab="media" class="" data-reveal-text>Média</h2>
 						</div>
 					</div>
 					<div class="flex gap__02 justify__end align__end">
@@ -59,9 +59,9 @@
 					<div data-scroll class="flex align__start gap__05 span__2">
 						<div class="w__05 h__05 bg__acc"></div>
 						<div class="flex gap__1 align__center" data-scroll>
-							<h2 data-tab="blog" class="" data-reveal-text>Blog</h2>
-							<h2 data-tab="socials" class="" data-reveal-text>Socials</h2>
-							<h2 data-tab="media" class="" data-reveal-text>Media</h2>
+							<h2 data-tab="blog" class="" data-reveal-text>Články</h2>
+							<h2 data-tab="socials" class="" data-reveal-text>Sítě</h2>
+							<h2 data-tab="media" class="" data-reveal-text>Média</h2>
 						</div>
 					</div>
 					<div class="flex gap__02 justify__end align__end">

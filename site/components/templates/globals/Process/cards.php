@@ -8,7 +8,7 @@
 		
 		<div class="sticky top__1 grid place__center-stretch h__100v gap__2 inner-x__1 inner-y__2">
 			<div class="wrap-x__15 inner-b__3" data-scroll>
-				<h2 class="font__size__1 flex justify__center text__center" data-reveal-text><span>Overview of our 5-step process</span></h2>
+				<h2 class="font__size__1 flex justify__center text__center" data-reveal-text><span>Přehled našeho 5krokového procesu</span></h2>
 			</div>
 		</div>
 

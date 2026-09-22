@@ -34,7 +34,7 @@
 								}
 							}
 						}
-						$activeHeading = !empty($activeLabels) ? implode(' / ', $activeLabels) : 'Filtered';
+						$activeHeading = !empty($activeLabels) ? implode(' / ', $activeLabels) : 'Filtrováno';
 						?>
 						<?= snippet('atoms/Heading', [
 							'text'   => $activeHeading, 
@@ -56,18 +56,18 @@
 				<div class="flex align__start gap__05 ">
 				<?= snippet('atoms/Button', [ 
 			        'url'     => $page->url(), 
-			        'label'   => 'All', 
+			        'label'   => 'Vše', 
 			        'theme'   => empty($isFiltered) ? 'dark' : 'light', 
 			        'reveal'  => true
 			    ]) ?>
 			    <?= snippet('molecules/Dropdown/filter', [ 
-					'label'   => 'Industries', 
+					'label'   => 'Odvětví', 
 					'param'   => 'industry',
 					'options' => $industries,
 					'active'  => $filterIndustry ?? null
 				]) ?> 
 			    <?= snippet('molecules/Dropdown/filter', [ 
-					'label'   => 'Spaces', 
+					'label'   => 'Prostory', 
 					'param'   => 'space',
 					'options' => $spaces,
 					'active'  => $filterSpace ?? null

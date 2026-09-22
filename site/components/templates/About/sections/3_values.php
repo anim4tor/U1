@@ -3,7 +3,7 @@
 	<div class="grid__2 gap__2 relative inner-y__1 inner-b__4" data-tabs="scrollable">
 		<div class="sticky top__0 gap__2 grid place__space-between-start h__100v inner-y__1" >
 			<div class="relative flex inner-x__4 ">
-				<?= snippet('atoms/Label', ['text' => 'Our values', 'reveal' => true ]) ?>	
+				<?= snippet('atoms/Label', ['text' => 'Naše hodnoty', 'reveal' => true ]) ?>	
 			</div>
 			<div class="grid place__start-start gap__1">
 				<div class="grid inner-l__4" data-scroll>

@@ -25,7 +25,7 @@
 <section class="about radius" theme="invert">
 	<div data-scroll class="grid__4 gap__2 mobile:grid__1 inner__4 mobile:inner-x__1 ">
 		<div class="span__2">
-			<div class="flex gap__05 align__center upper font__size__small no__wrap" data-scroll ><div class="w__05 h__05 bg__acc"></div><div data-reveal-text>About job</div></div>	
+			<div class="flex gap__05 align__center upper font__size__small no__wrap" data-scroll ><div class="w__05 h__05 bg__acc"></div><div data-reveal-text>O pozici</div></div>	
 		</div>
 		<div class="span__2 grid place__start-start gap__3 mobile:inner-x__0">
 			<h4 data-reveal-text="lines" class="font__size__4"><?= $page->excerpt()->inline() ?></h4>
@@ -174,7 +174,7 @@ try { $processSteps = $page->process()->toStructure(); } catch (\Throwable $e) {
 
 <?php
 $ctaImage = null;
-$ctaHeading = 'Máš o pozici zájem? Just say it!';
+$ctaHeading = 'Máš o pozici zájem? Dej nám vědět!';
 $ctaSub = 'Zuzana Lucková , HR Partner';
 $positionsPage = page('career/positions') ?? page('career')->find('positions');
 $positionsUrl = $positionsPage ? $positionsPage->url() : url('career/positions');

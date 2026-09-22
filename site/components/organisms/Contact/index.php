@@ -26,7 +26,7 @@ $showFab         = ($templateName !== 'job');
 						<div class="grid place__center-center -wrap-l__01"><?= svg('public/assets/images/ui/ui_contact.svg') ?></div>
 					</div>
 					<label class="upper color__invert"><div>
-						<span class="flex inner-r__1">Apply for job</span>
+						<span class="flex inner-r__1">Mám zájem o pozici</span>
 					</div></label>
 				</button>
 			<?php else: ?>
@@ -35,7 +35,7 @@ $showFab         = ($templateName !== 'job');
 						<div class="grid place__center-center -wrap-l__01"><?= svg('public/assets/images/ui/ui_contact.svg') ?></div>
 					</div>
 					<label class="upper color__invert"><div>
-						<span class="flex inner-r__1">Start project</span>
+						<span class="flex inner-r__1">Poptat projekt</span>
 					</div></label>
 				</button>
 			<?php endif ?>

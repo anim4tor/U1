@@ -1,4 +1,4 @@
-Title: Services
+Title: Služby
 
 ----
 
@@ -6,7 +6,7 @@ Slug: services
 
 ----
 
-Hero: [{"content":{"text":"Services","mod":"","face":"","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"ab06c938-ddbd-4f65-b9e3-f37d6a2ebd68","isHidden":false,"type":"label"}]
+Hero: [{"content":{"text":"Služby","mod":"","face":"","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"ab06c938-ddbd-4f65-b9e3-f37d6a2ebd68","isHidden":false,"type":"label"}]
 
 ----
 
@@ -14,34 +14,34 @@ Process:
 
 - 
   step: 1
-  label: Dialogue
+  label: Dialog
   figure:
     - file://zFyM7mkR8tJn9ji8
-  detail: '<p>Dialogue is a platform for in-depth analysis and the creation of a strategy and a proposal. A face-to-face conversation gives us the chance of getting to know your company and performing specification of the project assignment. This leads towards an interior that will let you operate more effectively. </p>'
+  detail: '<p>Dialog je platformou pro hloubkovou analýzu, vytvoření strategie a návrhu. Osobní rozhovor nám dává možnost poznat vaši firmu a přesně specifikovat zadání projektu. Výsledkem je interiér, který vám umožní fungovat efektivněji.</p>'
 - 
   step: 2
-  label: Study
+  label: Studie
   figure:
     - file://j3hFwcIS8Jjjr2Hj
-  detail: '<p>We will dress your building from the inside. We use the word “fit-out” for the realisation of our interiors, including structural alterations. We keep a sharp eye on suppliers, craftsmen, deadlines and, most importantly, the price. We will take care of everything.</p>'
+  detail: '<p>Vytvoříme architektonickou studii a prostorový koncept na míru vašim potřebám, firemní kultuře a pracovním procesům.</p>'
 - 
   step: 3
-  label: Construction
+  label: Realizace
   figure:
     - file://Ya6rkpReR0jAZkEn
-  detail: '<p>We will dress your building from the inside. We use the word “fit-out” for the realisation of our interiors, including structural alterations. We keep a sharp eye on suppliers, craftsmen, deadlines and, most importantly, the price. We will take care of everything.</p>'
+  detail: '<p>Oblečeme vaši budovu zevnitř. Pro realizaci našich interiérů včetně stavebních úprav používáme pojem „fit-out“. Dohlížíme na dodavatele, řemeslníky, termíny a rozpočet. Postaráme se o vše.</p>'
 - 
   step: 4
-  label: Furnishing
+  label: Vybavení
   figure:
     - file://HlaVcAy9a1rVT91c
-  detail: '<p>The furniture and other features we use in your interior will make your work simpler. We can select them and arrange them in functional assemblies to satisfy any workforce from ten to thousands of employees.</p>'
+  detail: '<p>Nábytek a doplňky, které do vašeho interiéru navrhujeme, vám zjednoduší každodenní práci. Vybíráme a skládáme je do funkčních celků pro týmy od deseti po tisíce zaměstnanců.</p>'
 - 
   step: 5
-  label: Research
+  label: Výzkum
   figure:
     - file://RvRLiFTVFPUCkOzq
-  detail: '<p>Our work begins with research, but it certainly doesn’t end with the realisation of your interior. We perform long-term measurement and analysis of the quality of the working environment with the clear aim of its improvement.</p>'
+  detail: '<p>Naše práce začíná výzkumem, ale realizací interiéru rozhodně nekončí. Provádíme dlouhodobé měření a analýzu kvality pracovního prostředí s jasným cílem jeho neustálého zlepšování.</p>'
 
 ----
 
@@ -124,7 +124,7 @@ Subtitle: Ceny lekcí &amp; Členství
 
 ----
 
-Menutitle: Services
+Menutitle: Služby
 
 ----
 

@@ -1,4 +1,4 @@
-Title: Career
+Title: Kariéra
 
 ----
 
@@ -6,7 +6,7 @@ Slug: career
 
 ----
 
-Hero: [{"content":{"text":"We are constantly moving forward","level":"h1","mod":"xs","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"b184f43d-31ab-419a-8c6c-0430dbdf4156","isHidden":false,"type":"heading"},{"content":{"text":"U nás dostaneš prostor pracovat na smysluplných projektech, rozvíjet se v tom, co tě baví a spolupracovat s inspirativními lidmi. Vyvíjíme řešení, která každý den pomáhají firmám fungovat lépe – ať už jde o malé podniky, nebo velké korporace. Přidej se k nám a buď u toho!","mod":"m","face":"","case":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"3ff9902c-8a26-481b-b274-80976cc59bcd","isHidden":false,"type":"text"},{"content":{"href":"#opened-positions","target":"false","label":"Opened positions","counter":["page://9a41hc2Jz9NaZ0SH"],"theme":"invert","hover":"dark","size":"default","icon":"arrow-down","hasreveal":"true","bid":"","attr":"","css":"","node":""},"id":"e74109fd-5569-469b-bc56-18bf9bed5be2","isHidden":false,"type":"button"},{"content":{"image":["file://rKxIYd1om9PSKV7H"],"hasparallax":"false","parallax":0,"hasreveal":"false","reveal":"","bid":"","attr":"","css":"overlay__bottom","href":"","target":"false","node":""},"id":"5b02c2ca-0422-40b4-b898-9db7469f43ce","isHidden":false,"type":"cover"}]
+Hero: [{"content":{"text":"Neustále se posouváme kupředu","level":"h1","mod":"xs","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"b184f43d-31ab-419a-8c6c-0430dbdf4156","isHidden":false,"type":"heading"},{"content":{"text":"U nás dostaneš prostor pracovat na smysluplných projektech, rozvíjet se v tom, co tě baví a spolupracovat s inspirativními lidmi. Vyvíjíme řešení, která každý den pomáhají firmám fungovat lépe – ať už jde o malé podniky, nebo velké korporace. Přidej se k nám a buď u toho!","mod":"m","face":"","case":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"3ff9902c-8a26-481b-b274-80976cc59bcd","isHidden":false,"type":"text"},{"content":{"href":"#opened-positions","target":"false","label":"Volné pozice","counter":["page://9a41hc2Jz9NaZ0SH"],"theme":"invert","hover":"dark","size":"default","icon":"arrow-down","hasreveal":"true","bid":"","attr":"","css":"","node":""},"id":"e74109fd-5569-469b-bc56-18bf9bed5be2","isHidden":false,"type":"button"},{"content":{"image":["file://rKxIYd1om9PSKV7H"],"hasparallax":"false","parallax":0,"hasreveal":"false","reveal":"","bid":"","attr":"","css":"overlay__bottom","href":"","target":"false","node":""},"id":"5b02c2ca-0422-40b4-b898-9db7469f43ce","isHidden":false,"type":"cover"}]
 
 ----
 
@@ -74,22 +74,22 @@ Life:
   title: Sporty
   image:
     - file://rKxIYd1om9PSKV7H
-  text: '<p>Only sophisticated planning can make full use of the potential of your space without the need for early investment in further alterations.</p>'
+  text: '<p>Společně sportujeme a dobíjíme energii. Ať už jde o běh, kolo nebo týmové sporty, pohyb je přirozenou součástí našeho života.</p>'
 - 
   title: Eventy
   image:
     - file://sZRbZagT6UU9Qxum
-  text: '<p>Only sophisticated planning can make full use of the potential of your space without the need for early investment in further alterations.</p>'
+  text: '<p>Pravidelně se potkáváme na teambuildinzích, workshopech a designových akcích, které nás inspirují a posouvají dál.</p>'
 - 
   title: Grilovačky
   image:
     - file://aIhgHI4zAF9EzQAf
-  text: '<p>Only sophisticated planning can make full use of the potential of your space without the need for early investment in further alterations.</p>'
+  text: '<p>Neformální setkání na terase u dobrého jídla a pití. Protože ty nejlepší nápady a přátelství často vznikají mimo zasedačky.</p>'
 - 
   title: Snídaně
   image:
     - file://aN871a0rLQgKvwR6
-  text: '<p>Only sophisticated planning can make full use of the potential of your space without the need for early investment in further alterations.</p>'
+  text: '<p>Společné páteční snídaně jsou naší oblíbenou tradicí. Probereme uplynulý týden a nastartujeme víkend se skvělou kávou.</p>'
 
 ----
 
@@ -103,11 +103,11 @@ Projects:
 
 ----
 
-Positions: [{"content":{"text":"Opened positions","level":"h2","mod":"l","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"5358e90d-9029-4bcd-a24f-c159d2af4d52","isHidden":false,"type":"heading"}]
+Positions: [{"content":{"text":"Volné pozice","level":"h2","mod":"l","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"5358e90d-9029-4bcd-a24f-c159d2af4d52","isHidden":false,"type":"heading"}]
 
 ----
 
-About: [{"content":{"text":"Pojď dělat na zajímavých projektech","level":"h2","mod":"s","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"b38aeedd-197e-4b23-a624-b87bbbb4a38e","isHidden":false,"type":"heading"},{"content":{"text":"","mod":"","face":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"399d4bff-79e4-4edb-a748-c26ced040916","isHidden":false,"type":"label"},{"content":{"text":"Twenty-five years of refined expertise, distilled into a comprehensive suite of architectural and design solutions creating experiences that amplify the joy felt in shared human moments.","mod":"m","face":"","case":"lower","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"7ed68db6-be8e-4318-a06b-07b6fd61861c","isHidden":false,"type":"text"},{"content":{"href":"page://YASipJpnQrG05UlL","target":"false","label":"About us","counter":[],"theme":"invert","hover":"dark","size":"default","icon":"arrow-right","hasreveal":"true","bid":"","attr":"","css":"","node":""},"id":"ee9fc54c-0d02-4d65-976f-2ce8da0d854f","isHidden":false,"type":"button"},{"content":{"image":["file://sZRbZagT6UU9Qxum"],"hasparallax":"true","parallax":2,"hasreveal":"true","reveal":"left","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"0192e1d6-7bc5-4dd1-a53e-56cf1127d30d","isHidden":false,"type":"image"}]
+About: [{"content":{"text":"Pojď dělat na zajímavých projektech","level":"h2","mod":"s","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"b38aeedd-197e-4b23-a624-b87bbbb4a38e","isHidden":false,"type":"heading"},{"content":{"text":"","mod":"","face":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"399d4bff-79e4-4edb-a748-c26ced040916","isHidden":false,"type":"label"},{"content":{"text":"Dvacet pět let zkušeností promítnutých do ucelených architektonických a designových řešení, která prohlubují radost ze společných okamžiků.","mod":"m","face":"","case":"lower","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"7ed68db6-be8e-4318-a06b-07b6fd61861c","isHidden":false,"type":"text"},{"content":{"href":"page://YASipJpnQrG05UlL","target":"false","label":"O nás","counter":[],"theme":"invert","hover":"dark","size":"default","icon":"arrow-right","hasreveal":"true","bid":"","attr":"","css":"","node":""},"id":"ee9fc54c-0d02-4d65-976f-2ce8da0d854f","isHidden":false,"type":"button"},{"content":{"image":["file://sZRbZagT6UU9Qxum"],"hasparallax":"true","parallax":2,"hasreveal":"true","reveal":"left","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"0192e1d6-7bc5-4dd1-a53e-56cf1127d30d","isHidden":false,"type":"image"}]
 
 ----
 
@@ -123,7 +123,7 @@ Quoteimage: - file://vrID4107Rb90yYX9
 
 ----
 
-Quotetext: Twenty-five years of refined expertise, distilled into a comprehensive suite of architectural and design solutions creating experiences that amplify the joy felt in shared human moments.
+Quotetext: Dvacet pět let zkušeností promítnutých do ucelených architektonických a designových řešení vytvářejících prostředí, které podporuje radost ze společných okamžiků.
 
 ----
 

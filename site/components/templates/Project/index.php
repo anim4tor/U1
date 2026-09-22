@@ -27,7 +27,7 @@
 <section class="about" theme="invert">
 	<div data-scroll class="grid__4 gap__2 mobile:grid__1 inner__4 mobile:inner-x__1 ">
 		<div class="span__2">
-			<div class="flex gap__05 align__center upper font__size__small no__wrap" data-scroll ><div class="w__05 h__05 bg__acc"></div><div data-reveal-text>About project</div></div>	
+			<div class="flex gap__05 align__center upper font__size__small no__wrap" data-scroll ><div class="w__05 h__05 bg__acc"></div><div data-reveal-text>O projektu</div></div>	
 		</div>
 		<div class="span__2 grid place__start-start gap__3 mobile:inner-x__0">
 			<h3 data-reveal-text="lines" class="font__size__3"><?= $page->intro()->inline() ?></h3>
@@ -37,17 +37,17 @@
 		<div data-scroll class="grid span__2 mobile:grid__1">
 			<?php
 			$specs = [
-				'date' => 'Year',
-				'client' => 'Client',
-				'place' => 'Locality',
-				'industry' => 'Industry',
-				'space' => 'Space',
-				'production' => 'Production',
-				'size' => 'Size',
+				'date' => 'Rok',
+				'client' => 'Klient',
+				'place' => 'Lokalita',
+				'industry' => 'Odvětví',
+				'space' => 'Typ prostoru',
+				'production' => 'Výroba',
+				'size' => 'Velikost',
 				'team' => 'Realizace',
-				'collabs' => 'Collaborations',
-				'photo'   => 'Photography',
-				'concept' => 'Concept',
+				'collabs' => 'Spolupráce',
+				'photo'   => 'Fotografie',
+				'concept' => 'Koncept',
 			];
 			?>
 			<?php foreach ($specs as $field => $label): ?>
@@ -174,7 +174,7 @@
 	<div class="grid__3 gap__1 mobile:grid__1 inner__4 mobile:inner-x__1 " data-carousel>
 		<div data-scroll class="flex align__start gap__05 span__2">
 			<div class="w__05 h__05 bg__acc"></div>
-			<h2 class="">Similar projects</h2>
+			<h2 class="">Podobné projekty</h2>
 		</div>
 		<div class="flex gap__02 justify__end align__end ">
 			<button data-carousel-prev class="button upper" theme="ghost" hover="dark"><span class="icon"><?= svg('public/assets/images/ui/ui_arrow-left.svg') ?></span></button>
@@ -206,7 +206,7 @@
 			<div class="span__4 grid__4 gap__2">
 
 				<div class="span__2">
-					<div class="flex gap__05 align__center upper font__size__small no__wrap" data-scroll ><div class="w__05 h__05 bg__acc"></div><div data-reveal-text>NExt project</div></div>
+					<div class="flex gap__05 align__center upper font__size__small no__wrap" data-scroll ><div class="w__05 h__05 bg__acc"></div><div data-reveal-text>Další projekt</div></div>
 					
 				</div>
 				<div class="span__2 grid gap__2 place__start-stretch">
