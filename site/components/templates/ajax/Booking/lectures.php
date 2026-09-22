@@ -8,7 +8,7 @@
 		<div class="event__body span__2 grid gap__05 place__center-start">
 			<div class="icon absolute inset__top-right"><?= svg('public/assets/images/ui/ui_arrow-top-right.svg') ?></div>
 			
-			<h3 class=" inner-r__2"><?= $book->title() ?></h2>
+			<h3 class=" inner-r__2"><?= $book->title() ?></h3>
 			<?= snippet('atoms/Button', ['url' => $book->url(), 'label' => 'About lecture', 'theme' => 'ghost']) ?>
 			
 			<!-- <p class=""><?= $book->excerpt() ?></p> -->

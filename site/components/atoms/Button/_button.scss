@@ -31,6 +31,7 @@
 	padding: 0 Var(--button-spacing);
 	border-radius: var(--button-radius);
 	white-space: nowrap;
+	font-size: var(--button-font-size);
 /*	color: currentColor;*/
 	&.border {
   		@include border;
@@ -93,7 +94,7 @@
 }
 
 .tag {
-	font-size: calc(var(--font-size-md)*.85);
+	font-size: calc(var(--font-size-default)*.85);
 	text-transform: uppercase;
 	font-weight: 600;
 	height: auto;

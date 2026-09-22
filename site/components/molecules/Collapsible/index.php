@@ -4,7 +4,7 @@
 			<?php if($counter = $item->counter()->toBool()): ?>
 				<div class="font__size__3 wrap__right__2"><?= str_pad($item->indexOf($list) + 1, 1, "0", STR_PAD_LEFT) ?></div>
 			<?php endif ?>
-			<h3 data-reveal-lines class="upper font__size__lg smaller wrap__right__5"><?= $item->summary()->inline() ?></h3>
+			<h3 data-reveal-lines class="upper font__size__large wrap__right__5"><?= $item->summary()->inline() ?></h3>
 			<div class="plus flex flex__end wrap__left__1" ><div collapsible-icon><span></span><span></span></div></div>
 		</div>
 	</summary>
