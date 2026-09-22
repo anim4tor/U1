@@ -28,19 +28,7 @@ return function ($kirby) {
             return $localUrl;
         }
 
-        // Otherwise download and save locally
-        try {
-            $response = Remote::get($remoteUrl, ['timeout' => 8]);
-            if ($response->code() === 200 && !empty($response->content())) {
-                @F::write($filePath, $response->content());
-                if (file_exists($filePath) && filesize($filePath) > 0) {
-                    return $localUrl;
-                }
-            }
-        } catch (\Throwable $e) {
-            // Fallback to remote URL on download error
-        }
-
+        // Return CDN remote URL directly so page loads immediately without blocking HTTP downloads
         return $remoteUrl;
     };
 
@@ -49,7 +37,7 @@ return function ($kirby) {
     // ----------------------------------------------------
     $cachedLinkedin = $cache->get('social.linkedin.posts');
 
-    if ($cachedLinkedin === null) {
+    if ($cachedLinkedin === null || empty($cachedLinkedin)) {
         $orgId = (string) option('linkedin.org_id');
         $token = trim((string) option('linkedin.token'));
         if (!empty($orgId) && !empty($token)) {
@@ -57,11 +45,11 @@ return function ($kirby) {
                 $orgId = 'urn:li:organization:' . $orgId;
             }
 
-            $endpoint = "https://api.linkedin.com/rest/posts?author=" . urlencode($orgId) . "&q=author&count=10";
+            $endpoint = "https://api.linkedin.com/rest/posts?author=" . urlencode($orgId) . "&q=author&count=8";
 
             try {
                 $response = Remote::get($endpoint, [
-                    'timeout' => 5,
+                    'timeout' => 12,
                     'headers' => [
                         'Authorization'             => 'Bearer ' . $token,
                         'LinkedIn-Version'          => '202601',
@@ -81,32 +69,41 @@ return function ($kirby) {
                         $mediaUrl   = '';
 
                         if ($mediaUrn) {
-                            $apiHeaders = [
-                                'Authorization'            => 'Bearer ' . $token,
-                                'LinkedIn-Version'         => '202601',
-                                'X-Restli-Protocol-Version' => '2.0.0'
-                            ];
+                            $mediaCacheKey = 'social.li.urn.' . md5($mediaUrn);
+                            $cachedUrnUrl = $cache->get($mediaCacheKey);
+                            if ($cachedUrnUrl) {
+                                $mediaUrl = $cachedUrnUrl;
+                            } else {
+                                $apiHeaders = [
+                                    'Authorization'            => 'Bearer ' . $token,
+                                    'LinkedIn-Version'         => '202601',
+                                    'X-Restli-Protocol-Version' => '2.0.0'
+                                ];
 
-                            try {
-                                if (str_starts_with($mediaUrn, 'urn:li:image:')) {
-                                    $imgRes = Remote::get('https://api.linkedin.com/rest/images/' . urlencode($mediaUrn), [
-                                        'timeout' => 4,
-                                        'headers' => $apiHeaders
-                                    ]);
-                                    if ($imgRes->code() === 200) {
-                                        $mediaUrl = $imgRes->json()['downloadUrl'] ?? '';
+                                try {
+                                    if (str_starts_with($mediaUrn, 'urn:li:image:')) {
+                                        $imgRes = Remote::get('https://api.linkedin.com/rest/images/' . urlencode($mediaUrn), [
+                                            'timeout' => 4,
+                                            'headers' => $apiHeaders
+                                        ]);
+                                        if ($imgRes->code() === 200) {
+                                            $mediaUrl = $imgRes->json()['downloadUrl'] ?? '';
+                                        }
+                                    } elseif (str_starts_with($mediaUrn, 'urn:li:video:')) {
+                                        $vidRes = Remote::get('https://api.linkedin.com/rest/videos/' . urlencode($mediaUrn), [
+                                            'timeout' => 4,
+                                            'headers' => $apiHeaders
+                                        ]);
+                                        if ($vidRes->code() === 200) {
+                                            $mediaUrl = $vidRes->json()['thumbnail'] ?? '';
+                                        }
                                     }
-                                } elseif (str_starts_with($mediaUrn, 'urn:li:video:')) {
-                                    $vidRes = Remote::get('https://api.linkedin.com/rest/videos/' . urlencode($mediaUrn), [
-                                        'timeout' => 4,
-                                        'headers' => $apiHeaders
-                                    ]);
-                                    if ($vidRes->code() === 200) {
-                                        $mediaUrl = $vidRes->json()['thumbnail'] ?? '';
+                                    if (!empty($mediaUrl)) {
+                                        $cache->set($mediaCacheKey, $mediaUrl, 604800); // Cache image URL for 7 days
                                     }
+                                } catch (\Throwable $e) {
+                                    // If resolving media fails, continue without mediaUrl
                                 }
-                            } catch (\Throwable $e) {
-                                // If resolving media fails, continue without mediaUrl
                             }
                         } elseif (!empty($content['article']['thumbnail'])) {
                             $mediaUrl = $content['article']['thumbnail'];
@@ -131,8 +128,8 @@ return function ($kirby) {
 
         if ($cachedLinkedin === null || empty($cachedLinkedin)) {
             $cachedLinkedin = is_array($cachedLinkedin) ? $cachedLinkedin : [];
-            // If failed to fetch, retry sooner
-            $cache->set('social.linkedin.posts', $cachedLinkedin, 30);
+            // If failed to fetch, retry after 5 seconds instead of 30
+            $cache->set('social.linkedin.posts', $cachedLinkedin, 5);
         }
     }
 
