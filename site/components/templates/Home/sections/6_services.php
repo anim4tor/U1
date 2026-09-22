@@ -7,7 +7,7 @@
 			<?= snippet('molecules/Header', ['header' => $page->services(), 'type' => ['heading']]) ?>
 		</div>
 		<div></div>
-		<ol class="span__2 grid__2 place__start-start gap-x__2 solutions__list grid " data-scroll >
+		<ol class="span__2 grid__2 place__start-start gap-x__2 gap-y__05 solutions__list grid " data-scroll >
 			<?php foreach (collection('Solutions') as $solution) : ?>
 				<a href="<?= $solution->url() ?>" class="flex align__start gap__05 inner-y__02" data-tab="service-<?= $solution->slug() ?>">
 					<h3 data-reveal-text data-split-ignore class="s"><?= $solution->title() ?></h3>

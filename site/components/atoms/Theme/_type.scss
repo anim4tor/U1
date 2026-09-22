@@ -75,11 +75,16 @@ $levels: 'small', 'default', 'large', 5, 4, 3, 2, 1;
             h#{$level},
             .font__size__#{$level},
             .font-size-#{$level},
+            .font_size_#{$level},
             .text-#{$level} {
                 --output-size: calc(var(--font-size-#{$level}));
                 font-size: var(--output-size);
                 line-height: var(--line-height-#{$level});
-                font-weight: var(--font-weight-#{$level}, inherit);
+                @if ($level == 1 or $level == 2 or $level == 3 or $level == 4 or $level == 5) {
+                    font-weight: var(--font-weight-#{$level}, 500);
+                } @else {
+                    font-weight: var(--font-weight-#{$level}, inherit);
+                }
                 letter-spacing: var(--letter-spacing-#{$level}, inherit);
                 text-transform: var(--text-transform-#{$level}, inherit);
 
@@ -308,9 +313,24 @@ h1,
 h2,
 h3,
 h4,
-h5 {
+h5,
+.font__size__1,
+.font__size__2,
+.font__size__3,
+.font__size__4,
+.font__size__5,
+.font-size-1,
+.font-size-2,
+.font-size-3,
+.font-size-4,
+.font-size-5,
+.font_size_1,
+.font_size_2,
+.font_size_3,
+.font_size_4,
+.font_size_5 {
     font-family: var(--ff-heading), sans-serif;
-    font-weight: var(--fw-heading, 500);
+    font-weight: 500;
     letter-spacing: var(--ls-heading);
     text-transform: var(--tt-heading);
     font-optical-sizing: auto;

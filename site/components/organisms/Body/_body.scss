@@ -25,3 +25,7 @@ section {
 	position: relative;
 	max-width: 100vw;
 }
+
+.solutions__list {
+	row-gap: calc(0.5 * var(--spacing)) !important;
+}

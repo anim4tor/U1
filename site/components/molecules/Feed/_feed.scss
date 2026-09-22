@@ -25,3 +25,9 @@
         max-width: 100%;
     }
 }
+
+.social__card,
+.instagram__card,
+.linkedin__card {
+    row-gap: calc(0.5 * var(--spacing));
+}

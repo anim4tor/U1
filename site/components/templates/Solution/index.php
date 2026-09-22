@@ -51,7 +51,7 @@
 
 <?php if ($page->relatedProjects()->isNotEmpty()) : ?>
 <section class="projects radius" theme="dark" >
-	<div class="grid__3 gap__1 mobile:grid__1 inner__4 mobile:inner-x__1 " data-carousel>
+	<div class="grid__3 gap-x__1 gap-y__2 mobile:grid__1 inner__4 mobile:inner-x__1 " data-carousel>
 		<div data-scroll class="flex align__start gap__05 span__2">
 			<div class="w__05 h__05 bg__acc"></div>
 			<h2 class="">Související projekty</h2>

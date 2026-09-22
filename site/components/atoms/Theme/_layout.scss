@@ -116,11 +116,35 @@ $pos: (
 	  		&#{$label}__#{$i} {
 	  		  --gap: calc(0.15 * var(--spacing));
 	  		  #{$attr}: var(--gap);
+	  		  @if($label == '') {
+	  		    --grid-gap-x: var(--gap);
+	  		    --grid-gap-y: var(--gap);
+	  		    row-gap: var(--gap);
+	  		    column-gap: var(--gap);
+	  		  } @else if($label == '-x') {
+	  		    --grid-gap-x: var(--gap);
+	  		    column-gap: var(--gap);
+	  		  } @else if($label == '-y') {
+	  		    --grid-gap-y: var(--gap);
+	  		    row-gap: var(--gap);
+	  		  }
 	  		}
 	  	} @else {
 		    &#{$label}__#{$i} {
 		      --gap: calc(#{$i} * var(--spacing));
 		      #{$attr}: var(--gap);
+		      @if($label == '') {
+		        --grid-gap-x: var(--gap);
+		        --grid-gap-y: var(--gap);
+		        row-gap: var(--gap);
+		        column-gap: var(--gap);
+		      } @else if($label == '-x') {
+		        --grid-gap-x: var(--gap);
+		        column-gap: var(--gap);
+		      } @else if($label == '-y') {
+		        --grid-gap-y: var(--gap);
+		        row-gap: var(--gap);
+		      }
 		    }
 	  	}
   	}
@@ -130,6 +154,18 @@ $pos: (
       &#{$label}__0#{$i} {
 	      --gap: calc(#{$i/10} * var(--spacing));
 	      #{$attr}: var(--gap);
+	      @if($label == '') {
+	        --grid-gap-x: var(--gap);
+	        --grid-gap-y: var(--gap);
+	        row-gap: var(--gap);
+	        column-gap: var(--gap);
+	      } @else if($label == '-x') {
+	        --grid-gap-x: var(--gap);
+	        column-gap: var(--gap);
+	      } @else if($label == '-y') {
+	        --grid-gap-y: var(--gap);
+	        row-gap: var(--gap);
+	      }
 	    }
 	  }
   } 

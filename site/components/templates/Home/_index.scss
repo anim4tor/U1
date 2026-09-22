@@ -158,21 +158,57 @@ section.process {
 	
 }
 
+:root {
+  --process-meta-height: clamp(130px, 18vh, 175px);
+}
+
+.process__fullscreen-sticky {
+  height: 100vh;
+  height: 100dvh;
+  max-height: 100vh;
+  max-height: 100dvh;
+  overflow: hidden;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: calc(1.5 * var(--spacing));
+
+  @media (max-height: 800px) {
+    padding-top: calc(2 * var(--spacing)) !important;
+    padding-bottom: calc(2 * var(--spacing)) !important;
+    gap: calc(1 * var(--spacing));
+  }
+}
+
+.process__header {
+  flex-shrink: 0;
+}
+
+.process__cards-wrapper {
+  flex: 1 1 0;
+  min-height: 0;
+  height: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
 .process__grid {
   display: grid;
-  /* 
-    We define 5 equal columns by default using 1fr each. 
-    Total relative tracks = 6fr (1 + 2 + 1 + 1 + 1).
-  */
   grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: 1fr var(--process-meta-height);
+  height: 100%;
+  min-height: 0;
+  column-gap: calc(1 * var(--spacing));
+  position: relative;
   @include animation;
   transition-duration: 400ms;
 }
 
-
 /* 
   When a specific column has data-active, we dynamically shift 
-  the 5-column track definition so that the active column takes 2fr 
+  the 5-column track definition so that the active column takes 2.5fr 
   and the rest remain 1fr.
 */
 .process__grid:has([data-tab]:nth-child(1)[data-active]) { grid-template-columns: 2.5fr 1fr 1fr 1fr 1fr; }
@@ -180,3 +216,78 @@ section.process {
 .process__grid:has([data-tab]:nth-child(3)[data-active]) { grid-template-columns: 1fr 1fr 2.5fr 1fr 1fr; }
 .process__grid:has([data-tab]:nth-child(4)[data-active]) { grid-template-columns: 1fr 1fr 1fr 2.5fr 1fr; }
 .process__grid:has([data-tab]:nth-child(5)[data-active]) { grid-template-columns: 1fr 1fr 1fr 1fr 2.5fr; }
+
+.process-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+  position: relative;
+
+  @supports (grid-template-rows: subgrid) {
+    grid-row: span 2;
+    display: grid;
+    grid-template-rows: subgrid;
+    row-gap: 0;
+  }
+}
+
+.process-card__figure {
+  flex: 1 1 0;
+  min-height: 0;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-img, 8px);
+
+  figure {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    position: relative;
+    overflow: hidden;
+    display: block;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+}
+
+.process-card__meta {
+  flex-shrink: 0;
+  min-height: var(--process-meta-height);
+  height: var(--process-meta-height);
+  display: flex;
+  flex-direction: column;
+  gap: calc(0.5 * var(--spacing));
+  padding-top: calc(0.75 * var(--spacing));
+  overflow: hidden;
+
+  .process-card__detail {
+    overflow-y: auto;
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    p {
+      margin: 0;
+      max-width: 100%;
+      line-height: var(--base-body-line-height, 1.52);
+    }
+  }
+}
+
+.process__progress-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: var(--process-meta-height);
+  z-index: 2;
+  pointer-events: none;
+}
