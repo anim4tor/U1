@@ -48,7 +48,7 @@
 					<?php 
 						$itemCount = (!empty($isFiltered) && isset($images)) ? $images->pagination()->total() : $projects->pagination()->total(); 
 					?>
-					<?= snippet('atoms/Text', ['text' => '('.$itemCount.')', 'reveal' => true, 'css' => 'font__size__4' ]) ?>
+					<?= snippet('atoms/Text', ['text' => '('.$itemCount.')', 'reveal' => true, 'css' => 'font__size__small' ]) ?>
 				</div>
 			</div>
 			<div></div>

@@ -12,49 +12,49 @@
 :root {
     /* Headings */
     --font-size-1: clamp(2.40rem, 4.5vw, 4.20rem);
-    --line-height-1: 1.08;
+    --line-height-1: 1.12;
     --font-weight-1: var(--fw-heading, 500);
     --letter-spacing-1: var(--ls-heading, normal);
     --text-transform-1: var(--tt-heading, none);
 
     --font-size-2: clamp(1.75rem, 3.0vw, 2.75rem);
-    --line-height-2: 1.14;
+    --line-height-2: 1.18;
     --font-weight-2: var(--fw-heading, 500);
     --letter-spacing-2: var(--ls-heading, normal);
     --text-transform-2: var(--tt-heading, none);
 
     --font-size-3: clamp(1.30rem, 2.0vw, 1.85rem);
-    --line-height-3: 1.21;
+    --line-height-3: 1.25;
     --font-weight-3: var(--fw-heading, 500);
     --letter-spacing-3: var(--ls-heading, normal);
     --text-transform-3: var(--tt-heading, none);
 
     --font-size-4: clamp(1.05rem, 1.4vw, 1.35rem);
-    --line-height-4: 1.28;
+    --line-height-4: 1.32;
     --font-weight-4: var(--fw-heading, 500);
     --letter-spacing-4: var(--ls-heading, normal);
     --text-transform-4: var(--tt-heading, none);
 
     --font-size-5: clamp(0.85rem, 1.0vw, 1.05rem);
-    --line-height-5: 1.34;
+    --line-height-5: 1.40;
     --font-weight-5: var(--fw-heading, 500);
     --letter-spacing-5: var(--ls-heading, normal);
     --text-transform-5: var(--tt-heading, none);
 
     /* Body Level Variables */
     --font-size-large: clamp(1.15rem, 1.5vw, 1.45rem);
-    --line-height-large: 1.60;
+    --line-height-large: 1.85;
     --font-weight-large: var(--fw-body, 400);
     --letter-spacing-large: var(--ls-body, normal);
     --opacity-large: 1;
 
     --font-size-default: clamp(0.95rem, 1.1vw, 1.10rem);
-    --line-height-default: 1.71;
+    --line-height-default: 1.90;
     --font-weight-default: var(--fw-body, 400);
     --letter-spacing-default: var(--ls-body, normal);
 
-    --font-size-small: clamp(0.72rem, 0.8vw, 0.85rem);
-    --line-height-small: 1.76;
+    --font-size-small: 12px;
+    --line-height-small: 1.80;
     --font-weight-small: var(--fw-body, 500);
     --text-transform-small: var(--tt-body, none);
     --letter-spacing-small: var(--ls-body, normal);
@@ -383,10 +383,24 @@ button {
     text-transform: uppercase;
 }
 
-.label {
-    font-size: var(--font-size-small);
+.label,
+label,
+.block__label,
+.font__size__small,
+.font-size-small,
+.text-small {
+    font-size: 12px;
     line-height: var(--line-height-small);
+}
+
+.label {
     font-weight: var(--font-weight-small, 500);
+}
+
+button,
+.button,
+.link {
+    font-size: 12px;
 }
 
 .hyphens {

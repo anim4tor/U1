@@ -57,7 +57,7 @@
 						</div>
 						<div class="grid gap__1">
 							<div class="grid__2 gap__02">
-								<div class="flex"><span class="op__4 upper font__size__small">Kdo jsme</span></div>
+								<div class="flex"><span class="op__4 upper font__size__small">(Kdo jsme)</span></div>
 								<nav navbar-menu class="grid upper ff__heading font__size__3 lighter no__wrap">
 									<?php foreach ($pages->find('about', 'career', 'contact') as $p): ?>
 										<div class="grid place__start-start">
@@ -68,7 +68,7 @@
 								</nav>
 							</div>
 							<div class="grid__2 gap__02">
-								<div class="flex"><span class="op__4 upper font__size__small">Novinky</span></div>
+								<div class="flex"><span class="op__4 upper font__size__small">(Novinky)</span></div>
 								<nav navbar-menu class="grid upper ff__heading font__size__3 lighter no__wrap">
 									<div class="grid place__start-start">
 										<?= snippet('atoms/Link', ['url' => page('feed')->url() . '#blog', 'label' => 'Články', 'icon' => false, 'css' => '', 'node' => 'data-reveal-text data-reveal-on-navbar data-split-ignore']) ?>

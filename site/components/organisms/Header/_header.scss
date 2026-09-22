@@ -62,7 +62,7 @@ html[navbar-open] {
 	[navbar-header] {
 		z-index: 1;
 		height: var(--header-height);
-		font-size: 13px;
+		font-size: 12px;
 		letter-spacing: 0;
 
 		.button,
@@ -72,7 +72,7 @@ html[navbar-open] {
 		label,
 		nav,
 		span {
-			font-size: 13px;
+			font-size: 12px;
 			letter-spacing: 0;
 		}
 	}

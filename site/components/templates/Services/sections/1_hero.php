@@ -9,7 +9,7 @@
 				</div>
 			</div>
 			<div class="flex justify__end">
-				<?= snippet('atoms/Text', ['text' => '('.collection('Solutions')->count().')', 'reveal' => true, 'css' => 'font__size__4' ]) ?>
+				<?= snippet('atoms/Text', ['text' => '('.collection('Solutions')->count().')', 'reveal' => true, 'css' => 'font__size__small' ]) ?>
 			</div>
 		</div>
 	</div>

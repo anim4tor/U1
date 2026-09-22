@@ -6,7 +6,7 @@
 			<div class="span__2">
 				<div class="flex align__start gap__02 inner-y__02">
 					<?= snippet('molecules/Header', ['header' => $page->hero(), 'type' => ['heading']]) ?>
-					<?= snippet('atoms/Text', ['text' => '('.$jobs->count().')', 'reveal' => true, 'css' => 'font__size__4']) ?>
+					<?= snippet('atoms/Text', ['text' => '('.$jobs->count().')', 'reveal' => true, 'css' => 'font__size__small']) ?>
 				</div>
 			</div>
 			<div></div>

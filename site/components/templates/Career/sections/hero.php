@@ -5,7 +5,7 @@
 		<div class="span__4 grid place__space-between-stretch">
 			<div class="span__4 h__5 place__start-start grid__4 gap__2 border__top inner-t__05">
 				<div class="span__2 upper font__size__small">
-					Kariéra
+					(Kariéra)
 				</div>
 				<div class="span__2">
 					<?= snippet('molecules/Header', ['header' => $page->hero(), 'type' => ['text']]) ?>

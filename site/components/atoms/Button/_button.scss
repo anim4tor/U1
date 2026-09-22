@@ -12,7 +12,7 @@
 	--button-radius: 2em;
 	--button-spacing: 1.0em;
 	--button-family: var(--ff-body);
-	--button-font-size: calc(var(--font-size-default)*0.9);
+	--button-font-size: 12px;
 	--checkbox-radius: 1rem;
 }
 .button {
@@ -72,7 +72,7 @@
 
 	&.--small {
 		--button-size: 30px;
-		font-size: calc(var(--font-size-default)*0.75);
+		font-size: 12px;
 	}
 }
 
@@ -94,7 +94,7 @@
 }
 
 .tag {
-	font-size: calc(var(--font-size-default)*.85);
+	font-size: 12px;
 	text-transform: uppercase;
 	font-weight: 600;
 	height: auto;
@@ -102,6 +102,8 @@
 }
 
 button, .button {
+	font-size: 12px;
+	letter-spacing: 0;
 	@include animation(transform);
 	transition-delay: 0ms;
 	transition-duration: 300ms;

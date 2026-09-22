@@ -42,7 +42,7 @@
 					</nav>
 				</div>
 				<div class="grid">
-					<nav data-reveal-text="words" class="flex justify__space-between gap__05 op__5 font__size__default">
+					<nav data-reveal-text="words" class="flex justify__space-between gap__05 op__5 font__size__small">
 						<?= snippet('atoms/Link', ['url' => 'terms', 'label' => 'Podmínky', 'icon' => false]) ?>
 						<?= snippet('atoms/Link', ['url' => 'privacy', 'label' => 'Soukromí', 'icon' => false]) ?>
 						<?= snippet('atoms/Link', ['url' => 'cookies', 'label' => 'Cookies', 'icon' => false]) ?>
