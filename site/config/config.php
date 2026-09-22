@@ -29,10 +29,13 @@ return [
     'instagram.token' => 'IGAARfnJ3rbYlBZAFpvSVZAGSGFLTVFMXzFRUm9kdmlQQzZArS2x6dkFQOUVkWDRDbGJSaWVDOEpXbDFQTldfSWoySkJJd29JNEpWREVweWd5RldwQU9HUV94eTdGeVUtRzJ0TDExVnVzZA2NmdnM2S19uMVlEY21kS2NKQVNZAU1VHSQZDZD',
     'linkedin.org_id' => 'urn:li:organization:18790224',
     'linkedin.token' => 'AQVpka3Ei6QC9lPfNKFV7-p8yoTpCkXZuHz8sAhn002y7QKqK5MJo92OJhjvlw57dtxyfJFNZOf3e-A1n__OjBZZVUvlwtMDUmuABUv1s_D3tWTOXOLok68uVeBbWVQL6AyX6NHnWDB9_lHq9yEbPNfjZgxF9a0kzfoqBgn2Oy1Nw7Vf2wNJS9cxWjrM-iEGNb8baTIWNMexMSCqNagDo0zY6OvedKmPcYkQmDXnXdV09kWel7LjWS2eMXRy3j9k8_rOwF0r881Utv7dxk1i6nDXd8g__YBlbj9ww1VI80sojS8jVRVNKalhXyNvYTOLFjbtXIigc10sN6VjS2lM1l_IZaZL3Q',
+    'u1.branch-switcher' => [
+        'enabled' => false
+    ],
     'u1.git-content' => [
         'enabled'  => true,
         'repo'     => 'anim4tor/U1',
-        'token'    => base64_decode('Z2hwXzNCRGY0bWE5R0t5Tk1ieXBvMGxQZnRVVW45ajJQcTRnSVp1UA=='),
+        'token'    => getenv('GITHUB_TOKEN') ?: (file_exists(dirname(__DIR__, 2) . '/.env') ? (@parse_ini_file(dirname(__DIR__, 2) . '/.env')['GITHUB_TOKEN'] ?? null) : null) ?: '',
         'branches' => ['content', 'design', 'v1', 'v2', 'v3', 'main'],
         'secret'   => 'maiden37',
         'author'   => [

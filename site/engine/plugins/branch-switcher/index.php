@@ -106,12 +106,24 @@ Kirby::plugin('u1/branch-switcher', [
 ]);
 
 function u1IsAllowedEnv(): bool {
+    // Hidden / disabled by default
+    if (option('u1.branch-switcher.enabled', false) !== true) {
+        return false;
+    }
     $host = $_SERVER['HTTP_HOST'] ?? '';
     // Disabled on production domain
     if (in_array($host, ['u1.cz', 'www.u1.cz'], true)) {
         return false;
     }
     return true;
+}
+
+function u1GetToken(): string {
+    $token = option('u1.git-content.token');
+    if (!empty($token)) {
+        return (string)$token;
+    }
+    return (string)(getenv('GITHUB_TOKEN') ?: (file_exists(dirname(kirby()->root('index')) . '/.env') ? (@parse_ini_file(dirname(kirby()->root('index')) . '/.env')['GITHUB_TOKEN'] ?? null) : null) ?: '');
 }
 
 function u1HasGit(): bool {
@@ -213,7 +225,7 @@ function u1GetServerBranches(): array {
     }
 
     if (!is_array($branchesRaw)) {
-        $token = option('u1.git-content.token', base64_decode('Z2hwXzNCRGY0bWE5R0t5Tk1ieXBvMGxQZnRVVW45ajJQcTRnSVp1UA=='));
+        $token = u1GetToken();
         $ch = curl_init('https://api.github.com/repos/anim4tor/U1/branches');
         curl_setopt_array($ch, [
             CURLOPT_RETURNTRANSFER => true,
@@ -275,7 +287,7 @@ function u1DeployServerBranch(string $target): array {
     }
 
     $repoDir = kirby()->root('index');
-    $token   = option('u1.git-content.token', base64_decode('Z2hwXzNCRGY0bWE5R0t5Tk1ieXBvMGxQZnRVVW45ajJQcTRnSVp1UA=='));
+    $token   = u1GetToken();
     $zipUrl  = "https://api.github.com/repos/anim4tor/U1/zipball/{$target}";
     $tempZip = sys_get_temp_dir() . '/deploy_switch_' . uniqid() . '.zip';
 

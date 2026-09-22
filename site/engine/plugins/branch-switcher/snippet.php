@@ -1,4 +1,7 @@
 <?php
+if (option('u1.branch-switcher.enabled', false) !== true) {
+    return;
+}
 $branchData = u1GetBranchData();
 $current = !empty($branchData['current']) ? $branchData['current'] : 'v2';
 $hiddenBranches = ['main', 'master', 'head', 'staging'];
