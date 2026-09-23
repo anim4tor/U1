@@ -96,6 +96,9 @@ html[navbar-open] {
 		}
 
 		[navbar-menu] {
+			gap: calc(0.5 * var(--spacing));
+			row-gap: calc(0.5 * var(--spacing));
+
 			&.font__size__2,
 			&[class*="font__size__2"] {
 				font-size: var(--font-size-2);
