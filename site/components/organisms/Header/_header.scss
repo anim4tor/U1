@@ -95,14 +95,50 @@ html[navbar-open] {
 			height: calc(100vh - var(--spacing)*1);
 		}
 
-		[navbar-menu] .link {
-			&:hover {
-				opacity: 1;
-				[data-char] {
-					--reveal-delay: 0ms;
-					--color-delay: 0ms;
-					--reveal-duration: 600ms;
-					color: var(--color-acc) !important;
+		[navbar-menu] {
+			&.font__size__2,
+			&[class*="font__size__2"] {
+				font-size: var(--font-size-2);
+				line-height: var(--line-height-2);
+
+				.link,
+				a,
+				span {
+					font-size: var(--font-size-2) !important;
+					line-height: var(--line-height-2) !important;
+				}
+			}
+
+			&.font__size__3,
+			&[class*="font__size__3"] {
+				font-size: var(--font-size-3);
+				line-height: var(--line-height-3);
+
+				.link,
+				a,
+				span {
+					font-size: var(--font-size-3) !important;
+					line-height: var(--line-height-3) !important;
+				}
+			}
+
+			.link {
+				font-size: inherit;
+				line-height: inherit;
+
+				span {
+					font-size: inherit;
+					line-height: inherit;
+				}
+
+				&:hover {
+					opacity: 1;
+					[data-char] {
+						--reveal-delay: 0ms;
+						--color-delay: 0ms;
+						--reveal-duration: 600ms;
+						color: var(--color-acc) !important;
+					}
 				}
 			}
 		}

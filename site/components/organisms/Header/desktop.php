@@ -38,7 +38,7 @@
 							<nav navbar-menu class="grid upper ff__heading font__size__2 no__wrap">
 								<?php foreach ($pages->find('home', 'projects', 'services') as $p): ?>
 									<div class="grid place__start-start">
-										<?= snippet('atoms/Link', ['url' => $p->url(), 'label' => $p->title(), 'icon' => false, 'css' => $p->isActive() || $page->parents()->has($p) ? '' : 'op__4', 'node' => 'data-reveal-text data-reveal-on-navbar data-split-ignore']) ?>
+										<?= snippet('atoms/Link', ['url' => $p->url(), 'label' => $p->title(), 'icon' => false, 'css' => ($p->isActive() || $page->parents()->has($p) ? '' : 'op__4') . ' font__size__2', 'node' => 'data-reveal-text data-reveal-on-navbar data-split-ignore']) ?>
 									</div>
 								<?php endforeach ?>
 							</nav>
@@ -61,7 +61,7 @@
 								<nav navbar-menu class="grid upper ff__heading font__size__3 lighter no__wrap">
 									<?php foreach ($pages->find('about', 'career', 'contact') as $p): ?>
 										<div class="grid place__start-start">
-											<?= snippet('atoms/Link', ['url' => $p->url(), 'label' => $p->title(), 'icon' => false, 'css' => '', 'node' => 'data-reveal-text data-reveal-on-navbar data-split-ignore']) ?>
+											<?= snippet('atoms/Link', ['url' => $p->url(), 'label' => $p->title(), 'icon' => false, 'css' => 'font__size__3', 'node' => 'data-reveal-text data-reveal-on-navbar data-split-ignore']) ?>
 
 										</div>
 									<?php endforeach ?>
@@ -71,15 +71,15 @@
 								<div class="flex"><span class="op__4 upper font__size__small">(Novinky)</span></div>
 								<nav navbar-menu class="grid upper ff__heading font__size__3 lighter no__wrap">
 									<div class="grid place__start-start">
-										<?= snippet('atoms/Link', ['url' => page('feed')->url() . '#blog', 'label' => 'Články', 'icon' => false, 'css' => '', 'node' => 'data-reveal-text data-reveal-on-navbar data-split-ignore']) ?>
+										<?= snippet('atoms/Link', ['url' => page('feed')->url() . '#blog', 'label' => 'Články', 'icon' => false, 'css' => 'font__size__3', 'node' => 'data-reveal-text data-reveal-on-navbar data-split-ignore']) ?>
 
 									</div>
 									<div class="grid place__start-start">
-										<?= snippet('atoms/Link', ['url' => page('feed')->url() . '#socials', 'label' => 'Sítě', 'icon' => false, 'css' => '', 'node' => 'data-reveal-text data-reveal-on-navbar data-split-ignore']) ?>
+										<?= snippet('atoms/Link', ['url' => page('feed')->url() . '#socials', 'label' => 'Sítě', 'icon' => false, 'css' => 'font__size__3', 'node' => 'data-reveal-text data-reveal-on-navbar data-split-ignore']) ?>
 
 									</div>
 									<div class="grid place__start-start">
-										<?= snippet('atoms/Link', ['url' => page('feed')->url() . '#media', 'label' => 'Média', 'icon' => false, 'css' => '', 'node' => 'data-reveal-text data-reveal-on-navbar data-split-ignore']) ?>
+										<?= snippet('atoms/Link', ['url' => page('feed')->url() . '#media', 'label' => 'Média', 'icon' => false, 'css' => 'font__size__3', 'node' => 'data-reveal-text data-reveal-on-navbar data-split-ignore']) ?>
 
 									</div>
 								</nav>

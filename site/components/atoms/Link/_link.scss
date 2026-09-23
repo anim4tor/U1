@@ -14,7 +14,15 @@
 	letter-spacing: 0;
 }
 
-nav:not([class*="font__size"]):not(.footer__nav) {
+nav[class*="font__size"] .link,
+nav[class*="font__size"] .link span,
+[navbar-widget] [navbar-menu] .link,
+[navbar-widget] [navbar-menu] .link span {
+	font-size: inherit;
+	line-height: inherit;
+}
+
+nav:not([class*="font__size"]):not(.footer__nav):not([navbar-menu]) {
 	.link[href] {
 		font-size: 12px;
 	}
