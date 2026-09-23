@@ -6,7 +6,7 @@
 	<?php if ($cover = $page->cover()->toFile()) : ?>
 		<div class="intro__cover absolute inset__stretch grid" data-scroll >
 			<?= snippet('atoms/Image', ['img' => $cover, 'parallax' => 2, 'reveal' => false, 'css' => 'overlay__bottom']) ?>
-			<?php $usedImages[] = $cover?->id(); ?>
+			<?php if ($cover) { $usedImages[] = $cover->id(); } ?>
 		</div>
 	<?php endif ?>
 	
@@ -27,7 +27,7 @@
 <section class="about" theme="invert">
 	<div data-scroll class="grid__4 gap__2 mobile:grid__1 inner__4 mobile:inner-x__1 ">
 		<div class="span__2">
-			<div class="flex gap__05 align__center upper font__size__small no__wrap" data-scroll ><div class="w__05 h__05 bg__acc"></div><div data-reveal-text>O projektu</div></div>	
+			<div class="flex gap__05 align__center upper font__size__small no__wrap" data-scroll ><div class="w__03 h__03 bg__acc"></div><div data-reveal-text>O projektu</div></div>	
 		</div>
 		<div class="span__2 grid place__start-start gap__3 mobile:inner-x__0">
 			<h3 data-reveal-text="lines" class="font__size__3"><?= $page->intro()->inline() ?></h3>
@@ -74,12 +74,12 @@
 		<div class="before-after-container vh__20 img__radius" style="--position: 41.75%;">
 		  <div class="image-container before-image">
 		  	<?= snippet('atoms/Image', ['img' => $before, 'parallax' => 2, 'reveal' => false, 'css' => 'vh__20']) ?>
-		  	<?php $usedImages[] = $before?->id(); ?>
+		  	<?php if ($before) { $usedImages[] = $before->id(); } ?>
 		  </div>
 
 		  <div class="image-container after-image">
 		  	<?= snippet('atoms/Image', ['img' => $after, 'parallax' => 2, 'reveal' => false, 'css' => 'vh__20']) ?>
-		  	<?php $usedImages[] = $after?->id(); ?>
+		  	<?php if ($after) { $usedImages[] = $after->id(); } ?>
 		  </div>
 
 		  <input 
@@ -109,11 +109,11 @@
 		<?= snippet('molecules/Blocks', [ 'blocks' => $page->details()->toBlocks() ])?>
 		<?php foreach ($page->details()->toBlocks() as $block) {
 		    if ($block->type() === 'image' && $blockImg = $block->image()->toFile()) {
-		        $usedImages[] = $blockImg?->id();
+		        $usedImages[] = $blockImg->id();
 		    }
 		    if ($block->type() === 'gallery') {
 		        foreach ($block->images()->toFiles() as $galleryImg) {
-		        	$usedImages[] = $galleryImg?->id();
+		        	if ($galleryImg) { $usedImages[] = $galleryImg->id(); }
 		        }
 		    }
 		} ?>
@@ -127,11 +127,11 @@
 		<?= snippet('molecules/Blocks', [ 'blocks' => $page->extras()->toBlocks() ])?>
 		<?php foreach ($page->extras()->toBlocks() as $block) {
 		    if ($block->type() === 'image' && $blockImg = $block->image()->toFile()) {
-		        $usedImages[] = $blockImg?->id();
+		        $usedImages[] = $blockImg->id();
 		    }
 		    if ($block->type() === 'gallery') {
 		        foreach ($block->images()->toFiles() as $galleryImg) {
-		        	$usedImages[] = $galleryImg?->id();
+		        	if ($galleryImg) { $usedImages[] = $galleryImg->id(); }
 		        }
 		    }
 		} ?>
@@ -173,7 +173,7 @@
 <section class="projects radius" theme="light" >
 	<div class="grid__3 gap-x__1 gap-y__2 mobile:grid__1 inner__4 mobile:inner-x__1 " data-carousel>
 		<div data-scroll class="flex align__start gap__05 span__2">
-			<div class="w__05 h__05 bg__acc"></div>
+			<div class="w__03 h__03 bg__acc"></div>
 			<h2 class="">Podobné projekty</h2>
 		</div>
 		<div class="flex gap__02 justify__end align__end ">
@@ -206,7 +206,7 @@
 			<div class="span__4 grid__4 gap__2">
 
 				<div class="span__2">
-					<div class="flex gap__05 align__center upper font__size__small no__wrap" data-scroll ><div class="w__05 h__05 bg__acc"></div><div data-reveal-text>Další projekt</div></div>
+					<div class="flex gap__05 align__center upper font__size__small no__wrap" data-scroll ><div class="w__03 h__03 bg__acc"></div><div data-reveal-text>Další projekt</div></div>
 					
 				</div>
 				<div class="span__2 grid gap__2 place__start-stretch">

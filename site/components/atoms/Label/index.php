@@ -1,1 +1,1 @@
-<div class="flex gap__05 align__center upper font__size__small no__wrap" data-scroll ><div class="w__05 h__05 bg__acc"></div><div data-reveal-text><?= $text ?></div></div>
+<div class="flex gap__05 align__center upper font__size__small no__wrap" data-scroll ><div class="w__03 h__03 bg__acc"></div><div data-reveal-text><?= $text ?></div></div>

@@ -53,7 +53,7 @@ foreach ($blocks as $block):
         ?>
         <div class="grid__4 gap__2" data-scroll>	
             <div data-scroll class="flex align__start gap__05 span__2 inner-r__5">
-                <div class="w__05 h__05 bg__acc"></div>
+                <div class="w__03 h__03 bg__acc"></div>
                 <?= $block ?> 
             </div>
             <div class="grid gap__2 span__2">

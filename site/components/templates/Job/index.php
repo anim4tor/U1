@@ -25,7 +25,7 @@
 <section class="about radius" theme="invert">
 	<div data-scroll class="grid__4 gap__2 mobile:grid__1 inner__4 mobile:inner-x__1 ">
 		<div class="span__2">
-			<div class="flex gap__05 align__center upper font__size__small no__wrap" data-scroll ><div class="w__05 h__05 bg__acc"></div><div data-reveal-text>O pozici</div></div>	
+			<div class="flex gap__05 align__center upper font__size__small no__wrap" data-scroll ><div class="w__03 h__03 bg__acc"></div><div data-reveal-text>O pozici</div></div>	
 		</div>
 		<div class="span__2 grid place__start-start gap__3 mobile:inner-x__0">
 			<h4 data-reveal-text="lines" class="font__size__4"><?= $page->excerpt()->inline() ?></h4>
@@ -132,7 +132,7 @@ try { $processSteps = $page->process()->toStructure(); } catch (\Throwable $e) {
 			<?php else : ?>
 
 				<div data-scroll class="flex align__start gap__01 span__2">
-					<div class="w__05 h__05 bg__acc"></div>
+					<div class="w__03 h__03 bg__acc"></div>
 					<h2 class="font__size__2 ff__heading wrap" data-reveal-text="lines">
 						Každá spolupráce<br>začíná kontaktem
 					</h2>
