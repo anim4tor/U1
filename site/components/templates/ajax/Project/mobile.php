@@ -78,7 +78,7 @@
 
 	<section class="panel__next grid inner-y__10" >
 		<div class="grid gap__0 place__center-center" data-scroll data-scroll-repeat >
-			<h3 data-panel-reveal class="font__size__4">NXT PROJ</h3>
+			<h3 data-panel-reveal class="font__size__4"><?= t('next-project') ?></h3>
 			<div data-panel-reveal class="mono flex align__center"><span class="icon inline"><img src="/public/assets/images/ui/ui_arrow-down.svg"></span></div>
 		</div>
 		<div class="grid inner-x__4 inner-y__10">

@@ -52,7 +52,7 @@
 				<button data-carousel-prev class="button upper" theme="ghost" ><span class="icon"><?= svg('public/assets/images/ui/ui_arrow-left.svg') ?></span></button>
 				<button data-carousel-next class="button upper" theme="ghost" ><span class="icon"><?= svg('public/assets/images/ui/ui_arrow-right.svg') ?></span></button>
 
-				<!-- <?= snippet('atoms/Link', ['url' => 'projects', 'label' => 'All projects']) ?> -->
+				<!-- <?= snippet('atoms/Link', ['url' => 'projects', 'label' => 'Všechny projekty']) ?> -->
 			</div>
 		</div>
 	</div>

@@ -75,8 +75,8 @@
 
 	<section class="panel__next ">
 		<div class="grid gap__0 place__center-center" data-scroll>
-			<h3 data-panel-reveal class="font__size__5">NXT PROJECT</h3>
-			<div data-panel-reveal class="mono flex align__center"><span class="icon inline"><img src="/public/assets/images/ui/ui_arrow-down.svg"></span>Scroll</div>
+			<h3 data-panel-reveal class="font__size__5"><?= t('next-project') ?></h3>
+			<div data-panel-reveal class="mono flex align__center"><span class="icon inline"><img src="/public/assets/images/ui/ui_arrow-down.svg"></span><?= t('scroll') ?></div>
 		</div>
 		<div class="grid grid__fullheight place__center-center" data-scroll data-scroll-progress data-scroll-position='start, start' data-scroll-offset="50%,0%">
 			<a href="<?= $next->url() ?>" data-fetch="/ajax/project/<?= $next->slug() ?>" class="grid inner-x__1 inner-y__0" data-next >

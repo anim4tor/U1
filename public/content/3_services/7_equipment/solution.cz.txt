@@ -1,4 +1,4 @@
-Title: Equipment
+Title: Vybavení interiérů
 
 ----
 
@@ -6,7 +6,7 @@ Cover: - file://B3qzowr055hl3ljC
 
 ----
 
-Intro: <p>Only sophisticated planning can make full use of the potential of your space without the need for early investment in further alterations.</p>
+Intro: <p>Kompletní dodávka doplňků, technologického vybavení a prvků, které dotvářejí funkční a příjemné pracoviště.</p>
 
 ----
 

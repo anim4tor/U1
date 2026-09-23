@@ -1,4 +1,4 @@
-Title: Air Conditioning
+Title: Vzduchotechnika a chlazení
 
 ----
 
@@ -6,7 +6,7 @@ Cover: - file://WJ9efU3ipU0wnamB
 
 ----
 
-Intro: <p>Only sophisticated planning can make full use of the potential of your space without the need for early investment in further alterations.</p>
+Intro: <p>Zajišťujeme optimální klima, větrání i rekuperaci pro zdravé a produktivní pracovní prostředí po celý rok.</p>
 
 ----
 

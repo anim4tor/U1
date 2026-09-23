@@ -1,6 +1,6 @@
 <div class="flex align__center gap__2 inner-x__1 no__overflow">
 	<div class="inner-x__1 no__wrap">
-		<div class="upper op__6">Trusted by</div>
+		<div class="upper op__6"><?= t('trusted-by') ?></div>
 	</div>
 	<div class="logo-ticker-container">
 		<div class="logo-ticker-track">

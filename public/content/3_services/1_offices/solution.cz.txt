@@ -1,4 +1,4 @@
-Title: Offices
+Title: Kanceláře
 
 ----
 
@@ -6,15 +6,15 @@ Cover: - file://GQ11bD7Ux3WfiTJa
 
 ----
 
-Excerpt: <p>Office interiors are not just about aesthetics and first impressions. They combine design, function and technology.</p>
+Excerpt: <p>Kancelářské interiéry nejsou jen o estetice a prvním dojmu. Propojují design, funkčnost a technologie.</p>
 
 ----
 
-Intro: <p>We rely on sustainable systems and products and will guide you through the whole process.</p>
+Intro: <p>Sázíme na udržitelná řešení i produkty a celým procesem vás provedeme od prvotního návrhu až po předání.</p>
 
 ----
 
-Details: <p>We select a&nbsp;suitable space, prepare a&nbsp;cost estimate, handle the technical requirements of the buildings, utilise the potential of the environment and help activate the performance of its users through proper use of space and choosing a&nbsp;strategy that is in line with the company's&nbsp;pace of development.</p>
+Details: <p>Vybereme vhodný prostor, připravíme rozpočet, vyřešíme technické požadavky budovy, využijeme potenciál prostředí a pomůžeme podpořit výkonnost i spokojenost lidí prostřednictvím promyšleného uspořádání a strategie, která odpovídá dynamice růstu vaší firmy.</p>
 
 ----
 

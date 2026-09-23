@@ -187,7 +187,7 @@ Cover: - file://EvzC0b5nfuTdhNrI
 
 ----
 
-Intro: Inspiration is all around us. At U1, we work every day to improve our surroundings through the power of know-how and design.
+Intro: Inspirace je všude kolem nás. V U1 každý den pracujeme na tom, abychom zlepšovali své okolí silou know-how a designu.
 
 ----
 

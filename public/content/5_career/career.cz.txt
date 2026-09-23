@@ -115,7 +115,7 @@ Quoteheader:
 
 ----
 
-Quoteauthor: David L., Operations Manager
+Quoteauthor: David L., provozní manažer
 
 ----
 
@@ -204,7 +204,7 @@ Uuid: 9a41hc2Jz9NaZ0SH
 
 ----
 
-Intro: We are constantly moving forward
+Intro: Neustále se posouváme kupředu
 
 ----
 

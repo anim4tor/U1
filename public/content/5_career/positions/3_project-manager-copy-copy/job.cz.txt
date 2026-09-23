@@ -1,78 +1,51 @@
-Title: Project Manager Copy Copy
+Title: Junior projektový manažer
 
 ----
 
-Excerpt: <p>We are growing and need to add another technically proficient partner to our project team - a&nbsp;Construction Project Manager.</p>
+Excerpt: <p>Chceš se naučit řídit komplexní realizace moderních kanceláří? Dáme ti prostor růst pod vedením zkušených kolegů z oboru.</p>
 
 ----
 
-Details: <p>Our company supplies interiors for office and commercial premises. Our main clients are IBM, Avast, Kentico, Miele, Konica-Minolta and others, we create their new interiors for them. We work with major architects and developers across the country.&nbsp;</p><p>Coordination and planning sets things in motion for us.</p><p>Anyone who wants to take on a&nbsp;project and see it through to completion will be a&nbsp;valuable colleague for us. The implementation of office interiors takes place in the environment of technologically advanced buildings and today's&nbsp;offices resemble more of a&nbsp;quality space to live in. &nbsp;We manage everything during the implementation. From working with the client and team to the contractor. We influence budgets, quality, and most importantly all the implementation processes.</p><p>The level of education is not essential to us, but a&nbsp;talent for planning, forecasting, and managing construction resources will be a&nbsp;great asset in the toolkit of our future project manager. We are prepared to teach you our craft from scratch, however, with certain prerequisites this will not be possible.</p><p>We are technically oriented, but we manage all relationships at a&nbsp;very good communicative level. The result is then a&nbsp;successful implementation day, and that's&nbsp;worth it.</p>
+Details: <p>Naše společnost realizuje prémiové interiéry kancelářských a komerčních prostor. Mezi naše hlavní klienty patří IBM, Avast, Kentico, Miele, Konica-Minolta a další významné společnosti. Spolupracujeme s předními architekty a developery po celé republice.</p><p>Koordinace a plánování dávají věci do pohybu.</p><p>Každý, kdo chce převzít projekt a dotáhnout jej do úspěšného konce, bude u nás cenným kolegou. Realizace kancelářských interiérů probíhá v technologicky vyspělých budovách a dnešní kanceláře představují kvalitní prostor pro život. Během realizace řídíme celý proces – od spolupráce s klientem a týmem až po dodavatele. Máme přímý vliv na rozpočet, kvalitu i veškeré realizační procesy.</p><p>Stupeň vzdělání pro nás není rozhodující, ale talent pro plánování, předvídání a řízení stavebních zdrojů bude pro budoucího projektového manažera velkou výhodou. Jsme připraveni vás naše řemeslo od základů naučit.</p><p>Jsme technicky zaměření, ale všechny vztahy stavíme na lidské a otevřené komunikaci. Výsledkem je úspěšně předaný projekt – a to za to stojí.</p>
 
 ----
 
-Description:
-
+Description: - 
+  text: Komunikace s dodavateli, řemeslníky a klientem
 - 
-  text: >
-    Communication with suppliers, craftsmen
-    and the client
+  text: Řízení průběhu stavby a realizace
 - 
-  text: Managing the construction process
+  text: Plánování realizace a řízení zdrojů
 - 
-  text: >
-    Implementation planning, resource
-    management
+  text: Řešení případných překážek a koordinace profesí
 - 
-  text: >
-    Resolving potential obstacles to
-    implementation
-- 
-  text: Anticipating potential problems
+  text: Předvídání a eliminace možných rizik
 
 ----
 
-Requirements:
-
+Requirements: - 
+  text: Skvělé komunikační a organizační schopnosti
 - 
-  text: Communication skills
+  text: 'Předchozí zkušenosti nebo vzdělání v oboru – stavař, stavbyvedoucí či přípravář'
 - 
-  text: 'Previous experience or education in the field - builder or construction manager'
+  text: Schopnost plánovat, předvídat a efektivně řešit problémy
 - 
-  text: >
-    Ability to plan, anticipate and solve
-    problems
+  text: Znalost řízení stavebních kapacit a subdodavatelů
 - 
-  text: >
-    Ability to manage resources in the
-    construction field
-- 
-  text: Technical skill
+  text: Technické myšlení a smysl pro detail
 
 ----
 
-Benefits:
-
+Benefits: - 
+  text: Práce na prestižních projektech pro největší společnosti na českém trhu
 - 
-  text: >
-    Work on projects for the largest
-    companies on the Czech market
+  text: Férové finanční ohodnocení odpovídající zkušenostem s motivační bonusovou složkou
 - 
-  text: >
-    Fair financial remuneration according to
-    experience and work done with a bonus
-    component
+  text: Prostředí české společnosti, kde záleží na lidech a každém detailu
 - 
-  text: >
-    The environment of a Czech company where
-    people and details matter
+  text: Podpora osobního rozvoje, vzdělávání a profesního růstu
 - 
-  text: >
-    We will take care of your personal
-    development and education
-- 
-  text: >
-    Support and reliability of other team
-    members (sales, business support)
+  text: Skvělý a spolehlivý tým (obchod, technická podpora, zázemí)
 
 ----
 
@@ -80,9 +53,7 @@ Whyusheader: [{"content":{"text":"Proč pracovat u nás?","level":"h2","mod":"",
 
 ----
 
-Whyus:
-
-- 
+Whyus: - 
   text: Bonusy/prémie
   icon: shield-check
   image: [ ]
@@ -129,9 +100,7 @@ Processheader: [{"content":{"text":"Každá spolupráce začíná kontaktem","le
 
 ----
 
-Process:
-
-- 
+Process: - 
   step: "1"
   title: Napíšeme si
   text: >

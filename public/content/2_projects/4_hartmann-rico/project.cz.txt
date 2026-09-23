@@ -70,9 +70,7 @@ Collabs:
 
 ----
 
-Gallery:
-
-- file://HZ1CIOcsVYDdyXTF
+Gallery: - file://HZ1CIOcsVYDdyXTF
 - file://Ru4GCZ74wu7qhj7w
 - file://xo8oswDyI1uiUCR8
 - file://N1ZG1IT80dEwbwaT
@@ -88,15 +86,15 @@ Gallery:
 
 ----
 
-Testimonialquote: <p>Working with this team has been a game-changer for our business. Their attention to detail and ability to deliver high-quality results on schedule is unmatched. I highly recommend them to anyone looking for reliable and professional expertise.</p>
+Testimonialquote: <p>Nové kanceláře posunuly firemní kulturu i efektivitu týmů na novou úroveň. Precizní projektové řízení a dodržení termínů ze strany U1 bylo příkladné.</p>
 
 ----
 
-Testimonialauthor: 
+Testimonialauthor: Tomáš N.
 
 ----
 
-Testimonialposition: 
+Testimonialposition: Facility manažer
 
 ----
 

@@ -19,7 +19,17 @@ return [
         'opening-hours' => 'Otevírací doba',
         'pricing-single' => 'Jednorázový vstup',
         'pricing-passes' => 'Permanentky',
-        'pricing-membership' => 'Členství'
+        'pricing-membership' => 'Členství',
+        'hover-previous' => 'Předchozí',
+        'hover-next' => 'Další',
+        'job.apply' => 'Mám zájem',
+        'filter-all' => 'Vše',
+        'all-projects' => 'Všechny projekty',
+        'trusted-by' => 'Důvěřují nám',
+        'related-articles' => 'Související články',
+        'testimonials' => 'Reference',
+        'next-project' => 'Další projekt',
+        'scroll' => 'Scrollovat'
     ],
     'url' => '/'
 ];

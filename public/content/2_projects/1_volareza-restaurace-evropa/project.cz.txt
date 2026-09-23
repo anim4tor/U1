@@ -66,9 +66,7 @@ Collabs:
 
 ----
 
-Gallery:
-
-- file://2qI2BU4bqaoPqIzX
+Gallery: - file://2qI2BU4bqaoPqIzX
 - file://8qAHqPprc1ddYcUR
 - file://cMcdvrZecq78ACU6
 - file://wi7rYIgpzhvSmkN8
@@ -88,7 +86,7 @@ Gallery:
 
 ----
 
-Testimonialquote: <p>City results on schedule is unmatched. I highly recommend them to anyone looking for reliable and professional expertise.</p>
+Testimonialquote: <p>Preciznost výroby i montáže v náročném památkovém prostoru byla klíčová. Výsledek předčil naše očekávání a interiér funguje bezchybně.</p>
 
 ----
 
@@ -96,7 +94,7 @@ Testimonialauthor: Jiří Klusák
 
 ----
 
-Testimonialposition: Senior Designer
+Testimonialposition: Vedoucí designér
 
 ----
 

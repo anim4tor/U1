@@ -70,9 +70,7 @@ Collabs:
 
 ----
 
-Gallery:
-
-- file://cTz76RmCkA95xgNn
+Gallery: - file://cTz76RmCkA95xgNn
 - file://G6DnxMRCgPjSlDZ5
 - file://5eSjpL6Nzuo15JZ0
 - file://0LfJrUDHuBDFqpmw
@@ -82,7 +80,7 @@ Gallery:
 
 ----
 
-Testimonialquote: <p>Working with this team has been a game-changer for our business. Their attention to detail and ability to deliver high-quality results on schedule is unmatched. I highly recommend them to anyone looking for reliable and professional expertise.</p>
+Testimonialquote: <p>Spolupráce s týmem U1 pro nás byla zásadním krokem. Jejich smysl pro detail a schopnost dodat špičkový výsledek přesně podle harmonogramu je výjimečná. Vřele doporučujeme každému, kdo hledá spolehlivého partnera.</p>
 
 ----
 
@@ -90,7 +88,7 @@ Testimonialauthor: David L.
 
 ----
 
-Testimonialposition: Operations Manager
+Testimonialposition: Provozní ředitel
 
 ----
 
@@ -106,7 +104,7 @@ Password:
 
 ----
 
-Meta-description: Classic, on the wave of your own breath
+Meta-description: Moderní administrativní zázemí a kancelářské prostory CTPark Borská pole v Plzni.
 
 ----
 

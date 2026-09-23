@@ -1,4 +1,4 @@
-Title: Project Management
+Title: Projektový management
 
 ----
 
@@ -6,7 +6,7 @@ Cover: - file://81TkJRRnJucdYgfI
 
 ----
 
-Intro: <p>Only sophisticated planning can make full use of the potential of your space without the need for early investment in further alterations.</p>
+Intro: <p>Koordinujeme všechny profese, harmonogram i rozpočet tak, aby realizace probíhala hladce, včas a v požadované kvalitě.</p>
 
 ----
 

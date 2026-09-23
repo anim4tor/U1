@@ -6,7 +6,7 @@
 <section class="process" <?= $theme ? 'theme="'.$theme.'"' : null ?> >
 	<div class="relative grid gap__2 inner-x__1 inner-y__2">
 		<div class="" data-scroll>
-			<h2 class="flex justify__space-between" data-reveal-text><span>The</span><span>Process</span></h2>
+			<h2 class="flex justify__space-between" data-reveal-text><span>Náš</span><span>Proces</span></h2>
 		</div>
 	</div>
 	<div >

@@ -70,9 +70,7 @@ Collabs: HUA HUA Architects
 
 ----
 
-Gallery:
-
-- file://GpWprqrJlmifB6Rq
+Gallery: - file://GpWprqrJlmifB6Rq
 - file://zsZKjCl6FV8ZueTn
 - file://ByUDxx2PibfdFTio
 - file://vuHvMeuekfB12chs
@@ -85,15 +83,15 @@ Gallery:
 
 ----
 
-Testimonialquote: <p>Working with this team has been a game-changer for our business. Their attention to detail and ability to deliver high-quality results on schedule is unmatched. I highly recommend them to anyone looking for reliable and professional expertise.</p>
+Testimonialquote: <p>Spojení funkčnosti zdravotnického provozu s estetickým a uklidňujícím designem pro pacienty se U1 podařilo na jedničku. Skvělá komunikace a profesionální přístup.</p>
 
 ----
 
-Testimonialauthor: 
+Testimonialauthor: MUDr. Jan V.
 
 ----
 
-Testimonialposition: 
+Testimonialposition: Vedoucí lékař
 
 ----
 

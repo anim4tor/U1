@@ -18,7 +18,7 @@
 		<p class="quote font__size__4 ff__heading upper" data-reveal-text="lines" data-split-ignore>"<?= $project->testimonialQuote()->inline() ?>"</p>
 	</div>
 	<div class="flex justify__space-between">
-		<div class="upper font__size__small" >(Testimonials)</div>
+		<div class="upper font__size__small" >(<?= t('testimonials') ?>)</div>
 		<div class="font__size__small" ><span data-reveal-text="lines" data-split-ignore><?= $project->indexOf(collection('Projects')) + 1 ?></span><span>/<?= $testimonials->count() ?></span></div>
 	</div>
 	<!-- <div class="flex justify__space-between">

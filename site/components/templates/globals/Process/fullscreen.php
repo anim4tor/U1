@@ -21,7 +21,7 @@
 			</div>
 			<div class="relative z__1 grid gap__2 inner-x__1 color__invert">
 				<div class="" data-scroll>
-					<h2 class="flex justify__space-between" data-reveal-text><span>The</span><span>Process</span></h2>
+					<h2 class="flex justify__space-between" data-reveal-text><span>Náš</span><span>Proces</span></h2>
 				</div>
 			</div>
 			<!-- <div class="relative flex inner-x__1 z__1 color__invert">
