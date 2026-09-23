@@ -52,7 +52,7 @@ foreach ($blocks as $block):
         $inGroup = true;
         ?>
         <div class="grid__4 gap__2" data-scroll>	
-            <div data-scroll class="flex align__start gap__05 span__2 inner-r__5">
+            <div data-scroll class="flex align__start gap__01 span__2 inner-r__5">
                 <div class="w__03 h__03 bg__acc"></div>
                 <?= $block ?> 
             </div>

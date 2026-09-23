@@ -48,7 +48,7 @@ $divisions = [
 <section id="oddeleni" class="contact-divisions" theme="dark">
 	<div class="grid gap__2 inner__4">
 		<!-- <div class="flex justify__space-between align__center" data-scroll>
-			<div class="flex align__start gap__05">
+			<div class="flex align__start gap__01">
 				<div class="w__03 h__03 bg__acc"></div>
 				<h2 data-reveal-text>Oddělení</h2>
 			</div>

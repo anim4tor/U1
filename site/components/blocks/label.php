@@ -1,1 +1,6 @@
-<div class="flex gap__05 align__center upper font__size__small no__wrap" data-scroll ><div class="w__03 h__03 bg__acc"></div><div data-reveal-text><?= $block->text()->inline(); ?></div></div>
+<?php 
+$labelText = $block->text()->inline();
+if (trim(strip_tags((string)$labelText)) !== ''): 
+?>
+<div class="flex gap__05 align__center upper font__size__small no__wrap" data-scroll ><div class="w__03 h__03 bg__acc"></div><div data-reveal-text><?= $labelText ?></div></div>
+<?php endif; ?>
