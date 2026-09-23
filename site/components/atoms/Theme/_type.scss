@@ -41,6 +41,12 @@
     --letter-spacing-5: var(--ls-heading, normal);
     --text-transform-5: var(--tt-heading, none);
 
+    --font-size-6: clamp(0.75rem, 0.8vw, 0.95rem);
+    --line-height-6: 1.30;
+    --font-weight-6: var(--fw-heading, 500);
+    --letter-spacing-6: var(--ls-heading, normal);
+    --text-transform-6: var(--tt-heading, none);
+
     /* Body Level Variables */
     --font-size-large: var(--font-size-default);
     --line-height-large: var(--line-height-default);
@@ -66,7 +72,7 @@
     Levels
 */
 
-$levels: 'small', 'default', 'large', 5, 4, 3, 2, 1;
+$levels: 'small', 'default', 'large', 6, 5, 4, 3, 2, 1;
 
 @each $modifier , $breakpoint in $map-grid-props {
     @if($modifier =='') {
@@ -74,14 +80,17 @@ $levels: 'small', 'default', 'large', 5, 4, 3, 2, 1;
 
             h#{$level},
             .font__size__#{$level},
+            .fonts__size__#{$level},
             .font-size-#{$level},
+            .fonts-size-#{$level},
             .font_size_#{$level},
+            .fonts_size_#{$level},
             .text-#{$level} {
                 --output-size: calc(var(--font-size-#{$level}));
                 font-size: var(--output-size);
                 line-height: var(--line-height-#{$level});
-                @if ($level == 1 or $level == 2 or $level == 3 or $level == 4 or $level == 5) {
-                    font-weight: var(--font-weight-#{$level}, 500);
+                @if ($level == 1 or $level == 2 or $level == 3 or $level == 4 or $level == 5 or $level == 6) {
+                    font-weight: 500;
                 } @else {
                     font-weight: var(--font-weight-#{$level}, inherit);
                 }
@@ -104,7 +113,11 @@ $levels: 'small', 'default', 'large', 5, 4, 3, 2, 1;
             @include create-mq($breakpoint, 'max') {
 
                 .#{$modifier}\:font__size__#{$level},
+                .#{$modifier}\:fonts__size__#{$level},
                 .#{$modifier}\:font-size-#{$level},
+                .#{$modifier}\:fonts-size-#{$level},
+                .#{$modifier}\:font_size_#{$level},
+                .#{$modifier}\:fonts_size_#{$level},
                 .#{$modifier}\:text-#{$level} {
                     --output-size: calc(var(--font-size-#{$level}));
                     font-size: var(--output-size);
@@ -314,21 +327,43 @@ h2,
 h3,
 h4,
 h5,
+h6,
 .font__size__1,
 .font__size__2,
 .font__size__3,
 .font__size__4,
 .font__size__5,
+.font__size__6,
+.fonts__size__1,
+.fonts__size__2,
+.fonts__size__3,
+.fonts__size__4,
+.fonts__size__5,
+.fonts__size__6,
 .font-size-1,
 .font-size-2,
 .font-size-3,
 .font-size-4,
 .font-size-5,
+.font-size-6,
+.fonts-size-1,
+.fonts-size-2,
+.fonts-size-3,
+.fonts-size-4,
+.fonts-size-5,
+.fonts-size-6,
 .font_size_1,
 .font_size_2,
 .font_size_3,
 .font_size_4,
-.font_size_5 {
+.font_size_5,
+.font_size_6,
+.fonts_size_1,
+.fonts_size_2,
+.fonts_size_3,
+.fonts_size_4,
+.fonts_size_5,
+.fonts_size_6 {
     font-family: var(--ff-heading), sans-serif;
     font-weight: 500;
     letter-spacing: var(--ls-heading);
