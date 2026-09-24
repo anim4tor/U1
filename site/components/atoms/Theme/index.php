@@ -773,7 +773,7 @@
 		}
 
 		// --- 6b. DYNAMIC FLUID PLACEHOLDER & TOKEN ENGINE ---
-		function updateDynamicPlaceholders(applyToDOM = true) {
+		function updateDynamicPlaceholders(applyToDOM = false) {
 			const fluidMap = calculateFluidMap();
 
 			Object.entries(fluidMap).forEach(([tokenName, fluidVal]) => {
@@ -781,9 +781,7 @@
 				if (input) {
 					input.placeholder = fluidVal;
 					if (applyToDOM) {
-						if (input.value.trim() === '') {
-							document.documentElement.style.setProperty(`--${tokenName}`, fluidVal);
-						} else {
+						if (input.value.trim() !== '') {
 							document.documentElement.style.setProperty(`--${tokenName}`, input.value.trim());
 						}
 					}
@@ -794,22 +792,10 @@
 		// --- 6c. RENDER SYSTEM VALUES UNTO PANEL ---
 		function syncUIWithCSS() {
 			const activeStyles = getComputedStyle(document.documentElement);
-			const fluidMap = calculateFluidMap();
 
 			themeControls.forEach(control => {
 				const propertyName = control.name;
 				let cssValue = activeStyles.getPropertyValue(`--${propertyName}`).trim();
-
-				if (control.hasAttribute('data-override')) {
-					const inlineVal = document.documentElement.style.getPropertyValue(`--${propertyName}`).trim();
-					const expectedFluid = fluidMap[propertyName] || '';
-					if (inlineVal && inlineVal.replace(/\s+/g, '') !== expectedFluid.replace(/\s+/g, '')) {
-						control.value = inlineVal;
-					} else {
-						control.value = '';
-					}
-					return;
-				}
 
 				if (!cssValue) return;
 
@@ -878,22 +864,13 @@
 			if (element === tsSelect) tsInput.value = valueToApply;
 			if (element === bsSelect) bsInput.value = valueToApply;
 
-			if (element.hasAttribute('data-override')) {
-				if (valueToApply !== '') {
-					document.documentElement.style.setProperty(`--${propertyName}`, valueToApply);
-				} else {
-					const fluidMap = calculateFluidMap();
-					if (fluidMap[propertyName]) {
-						document.documentElement.style.setProperty(`--${propertyName}`, fluidMap[propertyName]);
-					} else {
-						document.documentElement.style.removeProperty(`--${propertyName}`);
-					}
-				}
-			} else if (valueToApply !== '') {
+			if (valueToApply !== '') {
 				document.documentElement.style.setProperty(`--${propertyName}`, valueToApply);
+			} else {
+				document.documentElement.style.removeProperty(`--${propertyName}`);
 			}
 
-			updateDynamicPlaceholders(true);
+			updateDynamicPlaceholders(false);
 		}
 
 		themeControls.forEach(control => {
@@ -906,7 +883,7 @@
 			if (tsSelect.value !== 'custom') {
 				document.documentElement.style.setProperty('--type-scale', tsSelect.value);
 				tsInput.value = tsSelect.value;
-				updateDynamicPlaceholders(true);
+				updateDynamicPlaceholders(false);
 			}
 		});
 		tsInput.addEventListener('input', () => {
@@ -914,14 +891,14 @@
 			const match = Array.from(tsSelect.options).find(opt => parseFloat(opt.value) === val);
 			tsSelect.value = match ? match.value : 'custom';
 			document.documentElement.style.setProperty('--type-scale', val);
-			updateDynamicPlaceholders(true);
+			updateDynamicPlaceholders(false);
 		});
 
 		bsSelect.addEventListener('change', () => {
 			if (bsSelect.value !== 'custom') {
 				document.documentElement.style.setProperty('--body-scale', bsSelect.value);
 				bsInput.value = bsSelect.value;
-				updateDynamicPlaceholders(true);
+				updateDynamicPlaceholders(false);
 			}
 		});
 		bsInput.addEventListener('input', () => {
@@ -929,7 +906,7 @@
 			const match = Array.from(bsSelect.options).find(opt => parseFloat(opt.value) === val);
 			bsSelect.value = match ? match.value : 'custom';
 			document.documentElement.style.setProperty('--body-scale', val);
-			updateDynamicPlaceholders(true);
+			updateDynamicPlaceholders(false);
 		});
 
 		// --- 8b. SECTION CLEAR OVERRIDES ACTION ---
@@ -942,9 +919,10 @@
 					const overrides = parentTab.querySelectorAll('[data-override]');
 					overrides.forEach(ctrl => {
 						ctrl.value = '';
+						document.documentElement.style.removeProperty(`--${ctrl.name}`);
 					});
 				}
-				updateDynamicPlaceholders(true);
+				updateDynamicPlaceholders(false);
 			});
 		});
 
@@ -1014,7 +992,7 @@
 					tokensList.forEach(token => {
 						let finalValue = inlineStyles.getPropertyValue(`--${token}`).trim();
 						if (!finalValue) {
-							finalValue = fluidMap[token] || rawDeclarations[token] || computed.getPropertyValue(`--${token}`).trim();
+							finalValue = rawDeclarations[token] || computed.getPropertyValue(`--${token}`).trim() || fluidMap[token];
 						}
 						if (finalValue) {
 							const paddedToken = `--${token}:`.padEnd(26, ' ');
