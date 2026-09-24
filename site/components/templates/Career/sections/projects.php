@@ -1,6 +1,6 @@
 <?php if ($page->projects()->isNotEmpty()) : ?>
 <section class="about radius" theme="invert">
-	<div class="grid__2 gap__2 place__stretch-stretch inner__4" data-tabs="default">
+	<div class="grid__4 gap__2 place__stretch-stretch inner__4" data-tabs="default">
 		<div class="hidden absolute">
 			<?php foreach ($page->projects()->toPages() as $project) : ?>
 				<div data-tab="project-<?= $project->indexOf($page->projects()->toPages()) ?>"></div>
@@ -30,12 +30,13 @@
 				</div>
 			</div>
 		</div>
-		<div data-pane-container class="grid__stack" data-scroll>
+		<div></div>
+		<div data-pane-container class="span__2 grid__stack" data-scroll>
 			<?php foreach ($page->projects()->toPages() as $project) : ?>
 				<?php if ($img = $project->cover()->toFile()) : ?>
 					<div data-scroll data-scroll-ignore data-tab-reveal data-pane="project-<?= $project->indexOf($page->projects()->toPages()) ?>" id="project-<?= $project->indexOf($page->projects()->toPages()) ?>" class="grid">
 						<div class="grid" data-reveal-image>
-							<?= snippet('atoms/Image', ['img' => $img, 'reveal' => false, 'css' => 'aspect__4/5']) ?>
+							<?= snippet('atoms/Image', ['img' => $img, 'reveal' => false, 'css' => 'aspect__5/4']) ?>
 						</div>
 					</div>
 				<?php endif ?>

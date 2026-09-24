@@ -16,4 +16,11 @@ if (!empty($cssContent)) {
     
     // Write your generated CSS payload to disk
     file_put_contents($targetFile, $cssContent);
-}
+
+    // Flush Kirby page caches so non-logged-in visitors immediately receive new styles
+    try {
+        if ($pagesCache = $kirby->cache('pages')) {
+            $pagesCache->flush();
+        }
+    } catch (\Throwable $e) {}
+}
