@@ -28,7 +28,7 @@
 			<div class="flex gap__05 align__center upper font__size__small no__wrap" data-scroll ><div class="w__03 h__03 bg__acc"></div><div data-reveal-text>O pozici</div></div>	
 		</div>
 		<div class="span__2 grid place__start-start gap__3 mobile:inner-x__0">
-			<h4 data-reveal-text="lines" class="font__size__4"><?= $page->excerpt()->inline() ?></h4>
+			<h3 data-reveal-text="lines" class=""><?= $page->excerpt()->inline() ?></h3>
 		</div>
 		<div></div>
 		<div></div>
@@ -157,11 +157,11 @@ try { $processSteps = $page->process()->toStructure(); } catch (\Throwable $e) {
 							<img src="<?= url($fallbackImg) ?>" alt="<?= $step->title() ?>" class="is-loaded w__full h__full" style="object-fit: cover; aspect-ratio: 16/9;">
 						<?php endif ?>
 					</div>
-					<div class="flex justify__space-between align__start gap__1">
+					<div class="grid gap__05">
 						<span class="color__acc font__size__1 ff__heading leading__none"><?= $num ?></span>
 						<h3 class="font__size__3 ff__heading"><?= $step->title() ?></h3>
+						<p class="wrap-t__1"><?= $step->text() ?></p>
 					</div>
-					<p class="wrap-t__2"><?= $step->text() ?></p>
 				</div>
 				<?php $idx++; ?>
 			<?php endforeach ?>
@@ -212,13 +212,19 @@ if ($cta = $site->ctaCareer()) {
 			</div>
 		</div>
 		<div class="job-sticky-cta__actions">
-			<a href="<?= $positionsUrl ?>" class="button job-sticky-cta__btn-back" theme="invert-ghost" hover="invert">
-				<label class="upper"><span>ZPĚT NA VOLNÉ POZICE</span></label>
-			</a>
-			<button type="button" class="button job-sticky-cta__btn-apply bg__acc" theme="acc" hover="dark" data-contact-toggle="inquiry">
-				<span class="job-sticky-cta__btn-icon"><?= svg('public/assets/images/ui/ui_contact.svg') ?></span>
-				<label class="upper color__invert font__size__small"><span>(MÁM ZÁJEM O POZICI)</span></label>
-			</button>
+			<?= snippet('atoms/Button', [
+				'url'   => $positionsUrl,
+				'label' => 'Zpět na volné pozice',
+				'theme' => 'invert-ghost',
+				'hover' => 'invert',
+			]) ?>
+			<?= snippet('atoms/Button', [
+				'label' => '(Mám zájem o pozici)',
+				'icon'  => 'arrow-right',
+				'theme' => 'acc',
+				'hover' => 'dark',
+				'node'  => 'data-contact-toggle="inquiry"'
+			]) ?>
 		</div>
 	</div>
 </div>

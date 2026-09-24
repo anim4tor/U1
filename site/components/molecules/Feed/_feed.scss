@@ -34,8 +34,10 @@
 
 .events,
 .blog {
-    .item__figure,
-    .item__figure figure {
+    .item__figure:not(.featured__figure),
+    .item__figure:not(.featured__figure) figure,
+    .item .item__figure,
+    .item .item__figure figure {
         aspect-ratio: 1 / 1;
         --aspect-ratio: 1/1;
         align-self: start;

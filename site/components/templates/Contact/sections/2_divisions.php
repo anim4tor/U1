@@ -45,7 +45,7 @@ $divisions = [
 ];
 ?>
 
-<section id="oddeleni" class="contact-divisions" theme="dark">
+<section id="oddeleni" class="contact-divisions radius" theme="dark">
 	<div class="grid gap__2 inner__4">
 		<!-- <div class="flex justify__space-between align__center" data-scroll>
 			<div class="flex align__start gap__01">

@@ -19,7 +19,7 @@
 				<?php if ($img = $project->cover()->toFile()) : ?>
 					<div data-scroll data-scroll-ignore data-tab-reveal data-pane="project-<?= $project->indexOf($page->projects()->toPages()) ?>" id="project-<?= $project->indexOf($page->projects()->toPages()) ?>" class="grid">
 						<div class="grid" data-reveal-image>
-							<?= snippet('atoms/Image', ['img' => $img, 'reveal' => false, 'css' => '']) ?>
+							<?= snippet('atoms/Image', ['img' => $img, 'reveal' => false, 'css' => 'aspect__4/5']) ?>
 						</div>
 					</div>
 				<?php endif ?>

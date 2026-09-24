@@ -6,36 +6,34 @@
 
 @import "../Media/media";
 
-:root {
-	
-}
+:root {}
 
 $limit: 20;
 $display: (
-	grid, 
-	flex, 
-	block, 
-	inline-flex, 
-	inline-block, 
+	grid,
+	flex,
+	block,
+	inline-flex,
+	inline-block,
 	none
 );
 $flow: (
-	horizontal: row, 
-	vertical: column, 
+	horizontal: row,
+	vertical: column,
 	none: none
 );
 $gap: (
 	'': gap,
-	'-x': column-gap, 
+	'-x': column-gap,
 	'-y': row-gap
 );
 $pos: (
-	start, 
-	center, 
-	end, 
-	stretch, 
-	none, 
-	space-between, 
+	start,
+	center,
+	end,
+	stretch,
+	none,
+	space-between,
 	space-around
 );
 
@@ -45,11 +43,12 @@ $pos: (
 			--ncol: #{$col};
 			display: grid;
 			grid-template-columns: repeat(var(--ncol), minmax(0, 1fr));
-			column-gap: var(--grid-gap-x, calc(1 * var(--spacing)));
-			row-gap: var(--grid-gap-y, calc(2 * var(--spacing)));
+			column-gap: var(--grid-gap-x, calc(0 * var(--spacing)));
+			row-gap: var(--grid-gap-y, calc(0 * var(--spacing)));
 		}
 	}
 }
+
 @mixin grid_rows {
 	@for $row from 1 through 12 {
 		&__#{$row} {
@@ -59,6 +58,7 @@ $pos: (
 		}
 	}
 }
+
 @mixin grid_span {
 	@for $width from 1 through 12 {
 		&__#{$width} {
@@ -67,13 +67,15 @@ $pos: (
 		}
 	}
 }
+
 @mixin display($modifier: '') {
-  @each $label in $display {
-    .#{$modifier}#{$label} {
-      display: #{$label};
-    }
-  }
+	@each $label in $display {
+		.#{$modifier}#{$label} {
+			display: #{$label};
+		}
+	}
 }
+
 @mixin flow() {
 	@each $label, $value in $flow {
 		&__#{$label} {
@@ -82,6 +84,7 @@ $pos: (
 		}
 	}
 }
+
 @mixin place() {
 	@each $align in $pos {
 		@each $justify in $pos {
@@ -92,6 +95,7 @@ $pos: (
 		}
 	}
 }
+
 @mixin align() {
 	@each $align in $pos {
 		&__#{$align} {
@@ -100,6 +104,7 @@ $pos: (
 		}
 	}
 }
+
 @mixin justify() {
 	@each $justify in $pos {
 		&__#{$justify} {
@@ -110,107 +115,134 @@ $pos: (
 }
 
 @mixin gap($max: $limit) {
-  @for $i from 0 through $max {
-  	@each $label, $attr in $gap {
-	  	@if($i == 0) { 
-	  		&#{$label}__#{$i} {
-	  		  --gap: calc(0.15 * var(--spacing));
-	  		  #{$attr}: var(--gap);
-	  		  @if($label == '') {
-	  		    --grid-gap-x: var(--gap);
-	  		    --grid-gap-y: var(--gap);
-	  		    row-gap: var(--gap);
-	  		    column-gap: var(--gap);
-	  		  } @else if($label == '-x') {
-	  		    --grid-gap-x: var(--gap);
-	  		    column-gap: var(--gap);
-	  		  } @else if($label == '-y') {
-	  		    --grid-gap-y: var(--gap);
-	  		    row-gap: var(--gap);
-	  		  }
-	  		}
-	  	} @else {
-		    &#{$label}__#{$i} {
-		      --gap: calc(#{$i} * var(--spacing));
-		      #{$attr}: var(--gap);
-		      @if($label == '') {
-		        --grid-gap-x: var(--gap);
-		        --grid-gap-y: var(--gap);
-		        row-gap: var(--gap);
-		        column-gap: var(--gap);
-		      } @else if($label == '-x') {
-		        --grid-gap-x: var(--gap);
-		        column-gap: var(--gap);
-		      } @else if($label == '-y') {
-		        --grid-gap-y: var(--gap);
-		        row-gap: var(--gap);
-		      }
-		    }
-	  	}
-  	}
-  } 
-  @for $i from 1 through 9 {
-  	@each $label, $attr in $gap {
-      &#{$label}__0#{$i} {
-	      --gap: calc(#{$i/10} * var(--spacing));
-	      #{$attr}: var(--gap);
-	      @if($label == '') {
-	        --grid-gap-x: var(--gap);
-	        --grid-gap-y: var(--gap);
-	        row-gap: var(--gap);
-	        column-gap: var(--gap);
-	      } @else if($label == '-x') {
-	        --grid-gap-x: var(--gap);
-	        column-gap: var(--gap);
-	      } @else if($label == '-y') {
-	        --grid-gap-y: var(--gap);
-	        row-gap: var(--gap);
-	      }
-	    }
-	  }
-  } 
+	@for $i from 0 through $max {
+		@each $label, $attr in $gap {
+			@if($i ==0) {
+				&#{$label}__#{$i} {
+					--gap: calc(0.15 * var(--spacing));
+					#{$attr}: var(--gap);
+
+					@if($label =='') {
+						--grid-gap-x: var(--gap);
+						--grid-gap-y: var(--gap);
+						row-gap: var(--gap);
+						column-gap: var(--gap);
+					}
+
+					@else if($label =='-x') {
+						--grid-gap-x: var(--gap);
+						column-gap: var(--gap);
+					}
+
+					@else if($label =='-y') {
+						--grid-gap-y: var(--gap);
+						row-gap: var(--gap);
+					}
+				}
+			}
+
+			@else {
+				&#{$label}__#{$i} {
+					--gap: calc(#{$i} * var(--spacing));
+					#{$attr}: var(--gap);
+
+					@if($label =='') {
+						--grid-gap-x: var(--gap);
+						--grid-gap-y: var(--gap);
+						row-gap: var(--gap);
+						column-gap: var(--gap);
+					}
+
+					@else if($label =='-x') {
+						--grid-gap-x: var(--gap);
+						column-gap: var(--gap);
+					}
+
+					@else if($label =='-y') {
+						--grid-gap-y: var(--gap);
+						row-gap: var(--gap);
+					}
+				}
+			}
+		}
+	}
+
+	@for $i from 1 through 9 {
+		@each $label, $attr in $gap {
+			&#{$label}__0#{$i} {
+				--gap: calc(#{$i/10} * var(--spacing));
+				#{$attr}: var(--gap);
+
+				@if($label =='') {
+					--grid-gap-x: var(--gap);
+					--grid-gap-y: var(--gap);
+					row-gap: var(--gap);
+					column-gap: var(--gap);
+				}
+
+				@else if($label =='-x') {
+					--grid-gap-x: var(--gap);
+					column-gap: var(--gap);
+				}
+
+				@else if($label =='-y') {
+					--grid-gap-y: var(--gap);
+					row-gap: var(--gap);
+				}
+			}
+		}
+	}
 }
 
 @each $modifier , $breakpoint in $map-grid-props {
-	@if($modifier == '') {
+	@if($modifier =='') {
 		@include display;
+
 		.flex {
 			gap: calc(0.5 * var(--spacing));
 		}
+
 		.grid {
-			--grid-gap-x: calc(1 * var(--spacing));
-			--grid-gap-y: calc(2 * var(--spacing));
-			column-gap: var(--grid-gap-x);
-			row-gap: var(--grid-gap-y);
 			@include grid_columns;
 		}
+
 		.rows {
 			@include grid_rows;
 		}
+
 		.span {
 			@include grid_span;
 		}
+
 		.flow {
 			@include flow;
 		}
+
 		.place {
 			@include place;
 		}
+
 		.align {
 			@include align;
 		}
+
 		.justify {
 			@include justify;
 		}
+
 		.gap {
 			@include gap;
 		}
-	} @else {
+	}
+
+	@else {
 		@include create-mq($breakpoint, 'max') {
 			@include display(#{$modifier}\:);
+
 			.#{$modifier}\:flex {
 				gap: calc(0.5 * var(--spacing));
 			}
+
 			.#{$modifier}\:grid {
 				--grid-gap-x: calc(1 * var(--spacing));
 				--grid-gap-y: calc(2 * var(--spacing));
@@ -218,21 +250,27 @@ $pos: (
 				row-gap: var(--grid-gap-y);
 				@include grid_columns;
 			}
+
 			.#{$modifier}\:span {
 				@include grid_span;
 			}
+
 			.#{$modifier}\:flow {
 				@include flow;
 			}
+
 			.#{$modifier}\:place {
 				@include place;
 			}
+
 			.#{$modifier}\:align {
 				@include align;
 			}
+
 			.#{$modifier}\:justify {
 				@include justify;
 			}
+
 			.#{$modifier}\:gap {
 				@include gap;
 			}
@@ -267,7 +305,7 @@ $pos: (
 	min-width: 0;
 	width: 100%;
 
-	& > * {
+	&>* {
 		grid-column: 1;
 		grid-row: 1;
 		min-width: 0;
@@ -282,6 +320,4 @@ $pos: (
 	grid-template-rows: auto 1fr;
 }
 
-.grid__auto {
-	
-}
+.grid__auto {}

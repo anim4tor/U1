@@ -13,7 +13,7 @@ $cover = $page->cover()->toFile() ?? $page->image('contact_hero.jpg') ?? $page->
 					(<?= $page->title() ?>)
 				</div>
 				<div class="span__2">
-					<p data-reveal-text="lines" class="font__size__4 lower">
+					<p data-reveal-text="lines" class="m lower">
 						<?= $page->intro()->isNotEmpty() ? $page->intro()->inline() : 'Spojte se s námi přímo nebo nám na vás zanechte kontakt. Ozveme se.' ?>
 					</p>
 				</div>

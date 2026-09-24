@@ -5,9 +5,9 @@
 		<div class="grid__stack place__start-start inner__4 mobile:inner-x__1">
 			<div data-pane="blog" data-scroll data-scroll-ignore data-tab-reveal class="w__full">
 				<div data-carousel class="grid__3 gap-x__1 gap-y__2 mobile:grid__1">
-					<div data-scroll class="flex align__start gap__01 span__2">
-						<div class="w__03 h__03 bg__acc"></div>
-						<div class="flex gap__2 align__center" data-scroll>
+					<div data-scroll class="flex align__start gap__01 span__2 relative">
+						<div class="absolute -left__03 w__03 h__03 bg__acc"></div>
+						<div class="flex gap__05 align__center" data-scroll>
 							<h2 data-tab="blog" class="" data-reveal-text>Články</h2>
 							<h2 data-tab="socials" class="" data-reveal-text>Sítě</h2>
 							<h2 data-tab="media" class="" data-reveal-text>Média</h2>
@@ -31,9 +31,9 @@
 			</div>
 			<div data-pane="socials" data-scroll data-scroll-ignore data-tab-reveal class="w__full">
 				<div data-carousel class="grid__3 gap-x__1 gap-y__2 mobile:grid__1">
-					<div data-scroll class="flex align__start gap__01 span__2">
-						<div class="w__03 h__03 bg__acc"></div>
-						<div class="flex gap__2 align__center" data-scroll>
+					<div data-scroll class="flex align__start gap__01 span__2 relative">
+						<div class="absolute -left__03 w__03 h__03 bg__acc"></div>
+						<div class="flex gap__05 align__center" data-scroll>
 							<h2 data-tab="blog" class="" data-reveal-text>Články</h2>
 							<h2 data-tab="socials" class="" data-reveal-text>Sítě</h2>
 							<h2 data-tab="media" class="" data-reveal-text>Média</h2>
@@ -56,9 +56,9 @@
 			</div>
 			<div data-pane="media" data-scroll data-scroll-ignore data-tab-reveal class="w__full">
 				<div data-carousel class="grid__3 gap-x__1 gap-y__2 mobile:grid__1">
-					<div data-scroll class="flex align__start gap__01 span__2">
-						<div class="w__03 h__03 bg__acc"></div>
-						<div class="flex gap__2 align__center" data-scroll>
+					<div data-scroll class="flex align__start gap__01 span__2 relative">
+						<div class="absolute -left__03 w__03 h__03 bg__acc"></div>
+						<div class="flex gap__05 align__center" data-scroll>
 							<h2 data-tab="blog" class="" data-reveal-text>Články</h2>
 							<h2 data-tab="socials" class="" data-reveal-text>Sítě</h2>
 							<h2 data-tab="media" class="" data-reveal-text>Média</h2>

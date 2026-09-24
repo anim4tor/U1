@@ -1,0 +1,30 @@
+{
+    // Emmet - Sublime Text 2 behavior
+    "emmet.triggerExpansionOnTab": true,
+    "emmet.showExpandedAbbreviation": "always",
+    "emmet.showSuggestionsAsSnippets": true,
+    "emmet.showAbbreviationSuggestions": true,
+    "emmet.includeLanguages": {
+        "php": "html",
+        "html": "html",
+        "blade": "html",
+        "latte": "html",
+        "vue": "html",
+        "javascript": "javascriptreact",
+        "typescript": "typescriptreact",
+        "markdown": "html",
+        "plaintext": "html"
+    },
+    "emmet.syntaxProfiles": {
+        "html": {
+            "attr_quotes": "double"
+        }
+    },
+    "emmet.preferences": {
+        "css.fuzzySearchMinScore": 0.3
+    },
+
+    // Editor tab & snippet completion settings like Sublime Text
+    "editor.tabCompletion": "on",
+    "editor.snippetSuggestions": "top"
+}

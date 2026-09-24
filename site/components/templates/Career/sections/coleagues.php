@@ -7,9 +7,9 @@
 		</div>
 		<div class="span__4 grid__3 gap__2">
 			<?php foreach ($page->coleagues()->toStructure() as $benefit) : ?>
-				<div class="grid gap__1">
+				<div class="grid gap__05">
 					<figure class=""><?= $benefit->image()->toFile() ?></figure>
-					<h4 class="s"><?= $benefit->title()->inline() ?></h4>
+					<h4 class="font__size__5"><?= $benefit->title()->inline() ?></h4>
 					<p><?= $benefit->text()->inline() ?></p>
 				</div>
 			<?php endforeach; ?>

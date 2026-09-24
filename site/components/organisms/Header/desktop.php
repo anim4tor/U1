@@ -33,32 +33,18 @@
 			<div navbar-widget class="" data-scroll data-scroll-ignore >
 				<div class="grid ">
 					<div navbar-content class="grid place__space-between-stretch gap__1 inner__2">
-						<div class="grid gap__05 ">
+						<div class="grid gap__05 place__start-start">
 							<!-- <div class="label upper font__size__small op__4">(Menu)</div> -->
-							<nav navbar-menu class="grid upper ff__heading font__size__2 no__wrap gap__05">
+							<nav navbar-menu class="grid place__start-start upper ff__heading font__size__2 no__wrap">
 								<?php foreach ($pages->find('home', 'projects', 'services') as $p): ?>
-									<div class="grid place__start-start">
-										<?= snippet('atoms/Link', ['url' => $p->url(), 'label' => $p->title(), 'icon' => false, 'css' => ($p->isActive() || $page->parents()->has($p) ? '' : 'op__4') . ' font__size__2', 'node' => 'data-reveal-text data-reveal-on-navbar data-split-ignore']) ?>
-									</div>
+									<?= snippet('atoms/Link', ['url' => $p->url(), 'label' => $p->title(), 'icon' => false, 'css' => ($p->isActive() || $page->parents()->has($p) ? '' : 'op__4') . ' font__size__2', 'node' => 'data-reveal-text data-reveal-on-navbar data-split-ignore']) ?>
 								<?php endforeach ?>
 							</nav>
-							<div class="grid gap__02">
-								<!-- <div class="label upper font__size__small op__4">(Socials)</div> -->
-								<nav class="flex justify__center gap__02 op__4 font__size__small">
-									<?php foreach ($site->social()->toStructure() as $s): ?>
-										<?php if(!$s->isFirst()) : ?>
-											<span class="light ff__body op__2">/</span>
-										<?php endif ?>
-										<?= snippet('atoms/Link', ['url' => $s->link()->url(), 'label' => '('.$s->platform().')', 'icon' => false, 'node' => 'data-reveal-text data-split-ignore']) ?>
-									<?php endforeach ?>
-
-								</nav>
-							</div>
 						</div>
-						<div class="grid gap__1">
+						<div class="grid gap__1 ">
 							<div class="grid__2 gap__02">
 								<div class="flex"><span class="op__4 upper font__size__small">(Kdo jsme)</span></div>
-								<nav navbar-menu class="grid upper ff__heading font__size__3 lighter no__wrap gap__05">
+								<nav navbar-menu class="grid upper ff__heading font__size__3 lighter no__wrap ">
 									<?php foreach ($pages->find('about', 'career', 'contact') as $p): ?>
 										<div class="grid place__start-start">
 											<?= snippet('atoms/Link', ['url' => $p->url(), 'label' => $p->title(), 'icon' => false, 'css' => 'font__size__3', 'node' => 'data-reveal-text data-reveal-on-navbar data-split-ignore']) ?>
@@ -69,7 +55,7 @@
 							</div>
 							<div class="grid__2 gap__02">
 								<div class="flex"><span class="op__4 upper font__size__small">(Novinky)</span></div>
-								<nav navbar-menu class="grid upper ff__heading font__size__3 lighter no__wrap gap__05">
+								<nav navbar-menu class="grid upper ff__heading font__size__3 lighter no__wrap ">
 									<div class="grid place__start-start">
 										<?= snippet('atoms/Link', ['url' => page('feed')->url() . '#blog', 'label' => 'Články', 'icon' => false, 'css' => 'font__size__3', 'node' => 'data-reveal-text data-reveal-on-navbar data-split-ignore']) ?>
 

@@ -6,7 +6,7 @@
 		<nav class="span__3 footer__nav flex wrap align__center gap__02 ff__heading font__size__3">
 			<?php foreach ($pages->listed() as $p): ?>
 				<?php if(!$p->isFirst()) : ?>
-					<span class="light ff__body op__2">/</span>
+					<span class="ff__body op__2">/</span>
 				<?php endif ?>
 				<?= snippet('atoms/Link', ['url' => $p->url(), 'label' => $p->title(), 'icon' => false, 'css' => !$p->isActive() ? 'op__4' : '', 'node' => 'data-reveal-text data-split-ignore']) ?>
 			<?php endforeach ?>

@@ -6,6 +6,7 @@
 @import "../../atoms/Media/media";
 @import "../../atoms/Animation/animation";
 @import "../../atoms/Theme/border";
+
 :root {
 	--header-height: Max(55px, calc(var(--spacing)*1.75));
 	--header-width: calc(50vw + #{$screen-mobile}*1.25/2);
@@ -21,14 +22,10 @@
 	display: grid;
 	@include animation;
 	backdrop-filter: blur(0rem) brightness(1);
-	
-	&[hide] {
 
-	}
+	&[hide] {}
 
-	&[collapsed] {
-
-	}
+	&[collapsed] {}
 
 	.header__wrapper {
 		width: var(--header-width);
@@ -52,100 +49,74 @@ html[navbar-open] {
 	@include animation;
 	width: calc(#{$screen-mobile}*1.25);
 	min-height: var(--header-height);
-	
-/*	height: var(--header-height);*/
+
+	/*	height: var(--header-height);*/
 }
-	
-	[navbar-toggle] {
-		cursor: pointer;
-	}
-	[navbar-header] {
-		z-index: 1;
-		height: var(--header-height);
+
+[navbar-toggle] {
+	cursor: pointer;
+}
+
+[navbar-header] {
+	z-index: 1;
+	height: var(--header-height);
+	font-size: 12px;
+	letter-spacing: 0;
+
+	.button,
+	button,
+	.link,
+	a,
+	label,
+	nav,
+	span {
 		font-size: 12px;
 		letter-spacing: 0;
+	}
+}
 
-		.button,
-		button,
-		.link,
-		a,
-		label,
-		nav,
-		span {
-			font-size: 12px;
-			letter-spacing: 0;
-		}
+[navbar-widget] {
+	display: grid;
+	grid-template-rows: 0fr;
+	contain: paint;
+	pointer-events: none;
+	@include animation(grid-template-rows);
+	transition-duration: calc(var(--animation-duration)*.5);
+
+	&>div {
+		min-height: 0;
+		@include animation;
+		visibility: hidden;
 	}
 
-	[navbar-widget] {
-		display: grid;
-		grid-template-rows: 0fr;
-		contain: paint;
-		pointer-events: none;
-		@include animation(grid-template-rows);
-		transition-duration: calc(var(--animation-duration)*.5);
+	[navbar-content] {
+		height: calc(100vh - var(--spacing)*1);
+	}
 
-		& > div {
-			min-height: 0;
-			@include animation;
-			visibility: hidden;
-		}
+	[navbar-menu] {
 
-		[navbar-content] {
-			height: calc(100vh - var(--spacing)*1);
-		}
+		.link {
+			font-size: inherit;
+			line-height: inherit;
 
-		[navbar-menu] {
-			gap: calc(0.5 * var(--spacing));
-			row-gap: calc(0.5 * var(--spacing));
-
-			&.font__size__2,
-			&[class*="font__size__2"] {
-				font-size: var(--font-size-2);
-				line-height: var(--line-height-2);
-
-				.link,
-				a,
-				span {
-					font-size: var(--font-size-2) !important;
-					line-height: var(--line-height-2) !important;
-				}
-			}
-
-			&.font__size__3,
-			&[class*="font__size__3"] {
-				font-size: var(--font-size-3);
-				line-height: var(--line-height-3);
-
-				.link,
-				a,
-				span {
-					font-size: var(--font-size-3) !important;
-					line-height: var(--line-height-3) !important;
-				}
-			}
-
-			.link {
+			span {
 				font-size: inherit;
 				line-height: inherit;
+			}
 
-				span {
-					font-size: inherit;
-					line-height: inherit;
-				}
+			&:hover {
+				opacity: 1;
 
-				&:hover {
-					opacity: 1;
-					[data-char] {
-						--reveal-delay: 0ms;
-						--color-delay: 0ms;
-						--reveal-duration: 600ms;
-						color: var(--color-acc) !important;
-					}
+				[data-char] {
+					--reveal-delay: 0ms;
+					--color-delay: 0ms;
+					--reveal-duration: 600ms;
+					color: var(--color-acc) !important;
 				}
 			}
 		}
 	}
+}
 
 html[navbar-open] {
 
@@ -155,15 +126,17 @@ html[navbar-open] {
 		--background: var(--color-dark);
 		background: var(--background);
 	}
+
 	[data-header] {
 		backdrop-filter: blur(1rem) brightness(0.6);
 	}
+
 	[navbar-widget] {
 		pointer-events: all;
 		grid-template-rows: 1fr;
-/*		max-height: calc(100vh - var(--spacing)*1);*/
+		/*		max-height: calc(100vh - var(--spacing)*1);*/
 
-		& > div {
+		&>div {
 			visibility: visible;
 		}
 
@@ -171,79 +144,86 @@ html[navbar-open] {
 }
 
 [navbar-header] {
-  & [data-on-navbar-hover] {
-    & > * {
-      transition: visibility 0s, opacity 0.3s ease, transform 0.3s ease;
-    }
-    & > :not([data-default]) {
-      visibility: hidden;
-      opacity: 0;
-      transform: translateY(10px);
-    }
-    & > [data-default] {
-      visibility: visible;
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
+	& [data-on-navbar-hover] {
+		&>* {
+			transition: visibility 0s, opacity 0.3s ease, transform 0.3s ease;
+		}
 
-  & [data-on-navbar-toggle] {
-    & > * {
-      transition: visibility 0s, opacity 0.3s ease, transform 0.3s ease;
-    }
-    & > :not([data-default]) { 
-      visibility: hidden; 
-      opacity: 0; 
-      transform: translateY(10px);
-    }
-    & > [data-default] { 
-      visibility: visible; 
-      opacity: 1; 
-      transform: translateY(0);
-    }
-  }
+		&> :not([data-default]) {
+			visibility: hidden;
+			opacity: 0;
+			transform: translateY(10px);
+		}
 
-  html:not([navbar-open]) &:hover [data-on-navbar-hover] {
-    & > [data-default] {
-      visibility: hidden;
-      opacity: 0;
-      transform: translateY(-10px);
-      transition: visibility 0s 0.3s, opacity 0.3s ease, transform 0.3s ease;
-    }
-    & > :not([data-default]) {
-      visibility: visible;
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
+		&>[data-default] {
+			visibility: visible;
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
 
-  html[navbar-open] & {
-    & [data-on-navbar-hover] {
-      & > [data-default] {
-        visibility: hidden;
-        opacity: 0;
-        transform: translateY(-10px);
-        transition: visibility 0s 0.3s, opacity 0.3s ease, transform 0.3s ease;
-      }
-      & > :not([data-default]) {
-        visibility: visible;
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
+	& [data-on-navbar-toggle] {
+		&>* {
+			transition: visibility 0s, opacity 0.3s ease, transform 0.3s ease;
+		}
 
-    & [data-on-navbar-toggle] {
-      & > [data-default] { 
-        visibility: hidden; 
-        opacity: 0; 
-        transform: translateY(-10px);
-        transition: visibility 0s 0.3s, opacity 0.3s ease, transform 0.3s ease;
-      }
-      & > :not([data-default]) { 
-        visibility: visible; 
-        opacity: 1; 
-        transform: translateY(0);
-      }
-    }
-  }
+		&> :not([data-default]) {
+			visibility: hidden;
+			opacity: 0;
+			transform: translateY(10px);
+		}
+
+		&>[data-default] {
+			visibility: visible;
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	html:not([navbar-open]) &:hover [data-on-navbar-hover] {
+		&>[data-default] {
+			visibility: hidden;
+			opacity: 0;
+			transform: translateY(-10px);
+			transition: visibility 0s 0.3s, opacity 0.3s ease, transform 0.3s ease;
+		}
+
+		&> :not([data-default]) {
+			visibility: visible;
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	html[navbar-open] & {
+		& [data-on-navbar-hover] {
+			&>[data-default] {
+				visibility: hidden;
+				opacity: 0;
+				transform: translateY(-10px);
+				transition: visibility 0s 0.3s, opacity 0.3s ease, transform 0.3s ease;
+			}
+
+			&> :not([data-default]) {
+				visibility: visible;
+				opacity: 1;
+				transform: translateY(0);
+			}
+		}
+
+		& [data-on-navbar-toggle] {
+			&>[data-default] {
+				visibility: hidden;
+				opacity: 0;
+				transform: translateY(-10px);
+				transition: visibility 0s 0.3s, opacity 0.3s ease, transform 0.3s ease;
+			}
+
+			&> :not([data-default]) {
+				visibility: visible;
+				opacity: 1;
+				transform: translateY(0);
+			}
+		}
+	}
 }

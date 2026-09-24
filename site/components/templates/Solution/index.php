@@ -10,7 +10,7 @@
 					<a href="<?= $page->parent()->url() ?>" data-reveal-text="lines" class="upper font__size__small">(<?= $page->parent() ? $page->parent()->title() : $page->title() ?>)</a>
 				</div>
 				<div>
-					<p data-reveal-text="lines" class="font__size__4 lower"><?= $page->excerpt()->or($page->intro())->inline() ?></p>
+					<p data-reveal-text="lines" class="m lower"><?= $page->excerpt()->or($page->intro())->inline() ?></p>
 				</div>
 			</div>
 			<div class="intro__title relative place__end-stretch span__4 mobile:span__1 inner-y__05" style="--in-delay: 500ms">
@@ -49,34 +49,6 @@
 	</div>
 </section>
 
-<?php if ($page->relatedProjects()->isNotEmpty()) : ?>
-<section class="projects radius" theme="dark" >
-	<div class="grid__3 gap-x__1 gap-y__2 mobile:grid__1 inner__4 mobile:inner-x__1 " data-carousel>
-		<div data-scroll class="flex align__start gap__01 span__2">
-			<div class="w__03 h__03 bg__acc"></div>
-			<h2 class="">Související projekty</h2>
-		</div>
-		<div class="flex gap__02 justify__end align__end ">
-			<button data-carousel-prev class="button upper" theme="ghost" hover="dark"><span class="icon"><?= svg('public/assets/images/ui/ui_arrow-left.svg') ?></span></button>
-			<button data-carousel-next class="button upper" theme="ghost" hover="dark"><span class="icon"><?= svg('public/assets/images/ui/ui_arrow-right.svg') ?></span></button>
-		</div>
-		<div class="span__3" data-carousel-scroll>
-			<ol class="flex justify__start align__center no__wrap gap__1  " data-carousel-slides >	
-			<?php foreach ($page->relatedProjects()->toPages() as $project) : ?>
-				<li data-slide class="project__wrapper vw__5">	
-					<?= snippet('molecules/Project', compact('project')) ?>
-				</li>
-			<?php endforeach ?>
-				<li data-slide class="vw__6 flex justify__end">	
-					<div class="span__3 flex justify__center">
-						<?= snippet('molecules/Header', ['header' => $page->projects(), 'type' => ['button']]) ?>
-					</div>
-				</li>
-			</ol>
-		</div>
-	</div>
-</section>
-<?php endif ?>
-
+<?= snippet('templates/globals/Projects/related') ?>
 <?= snippet('templates/globals/Feed/related') ?>
 <?= snippet('templates/globals/Cta') ?>

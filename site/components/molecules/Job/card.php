@@ -5,9 +5,9 @@
 		<?php endif ?>
 		<div class="item__meta relative flex justify__space-between align__center gap__2">
 			<div class="flex gap__05 upper">
-				<h3 class="wrap font__size__4"><?= $job->title() ?></h3>
+				<h3 class="wrap font__size__5"><?= $job->title() ?></h3>
 			</div>
-			<div class="flex gap__1 align__center">
+			<div class="flex gap__1 align__center no__wrap">
 				<?php if ($job->location()->isNotEmpty()) : ?>
 					<p class="font__size__small">(<?= $job->location() ?>)</p>
 				<?php endif ?>

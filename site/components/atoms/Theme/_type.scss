@@ -89,11 +89,15 @@ $levels: 'small', 'default', 'large', 6, 5, 4, 3, 2, 1;
                 --output-size: calc(var(--font-size-#{$level}));
                 font-size: var(--output-size);
                 line-height: var(--line-height-#{$level});
-                @if ($level == 1 or $level == 2 or $level == 3 or $level == 4 or $level == 5 or $level == 6) {
+
+                @if ($level ==1 or $level ==2 or $level ==3 or $level ==4 or $level ==5 or $level ==6) {
                     font-weight: 500;
-                } @else {
+                }
+
+                @else {
                     font-weight: var(--font-weight-#{$level}, inherit);
                 }
+
                 letter-spacing: var(--letter-spacing-#{$level}, inherit);
                 text-transform: var(--text-transform-#{$level}, inherit);
 
@@ -470,7 +474,6 @@ button,
 
 .link {
     font-size: 12px;
-    font-weight: 400;
 }
 
 .font__size__large,

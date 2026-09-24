@@ -9,7 +9,7 @@
 					<?= snippet('molecules/Header', ['header' => $page->teams(), 'type' => ['heading']]) ?>
 				</div>
 
-				<div class="grid gap__02 place__start-start" >
+				<div class="grid gap__05 place__start-start" >
 					<?php foreach (collection('Team') as $team) : ?>
 						<?php
 							$employees = collection('Employees')->filterBy('team', '*=', $team->name())->count();
@@ -40,7 +40,9 @@
 									<?php if ($img = $team->figure()->toFile()) : ?>
 										<?= snippet('atoms/Image', ['img' => $img, 'parallax' => false, 'reveal' => false, 'css' => 'aspect__6/4', 'node' => 'data-reveal-image']) ?>
 									<?php endif ?>
-									<?= snippet('atoms/Text', ['text' => $team->details()->inline(), 'reveal' => true, 'node' => 'data-split-ignore data-scroll-ignore']) ?>
+									<div class="op__7">
+										<?= snippet('atoms/Text', ['text' => $team->details()->inline(), 'reveal' => true, 'node' => 'data-split-ignore data-scroll-ignore']) ?>
+									</div>
 								</div>
 								<!-- <?php if ($photo = $leader->photo()->toFile()) : ?>
 									<div data-reveal-image class="item__figure img__radius no__overflow "><?= snippet('atoms/Image', ['img' => $photo, 'parallax' => 1, 'css' => 'w__10 aspect__3/4 grid' ]) ?></div>
