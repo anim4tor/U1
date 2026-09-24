@@ -83,10 +83,19 @@
 }
 
 @font-face {
-    font-family: 'Bricolage Grotesque';
-    src: url('../fonts/BricolageGrotesque-SemiBold.woff2') format('woff2'),
-        url('../fonts/BricolageGrotesque-SemiBold.woff') format('woff');
-    font-weight: 600;
+    font-family: 'ITC Garamond Std Lt Narrow';
+    src: url('../fonts/ITCGaramondStd-LtNarrow.woff2') format('woff2'),
+        url('../fonts/ITCGaramondStd-LtNarrow.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'TAN - MEMORIES';
+    src: url('../fonts/TANMEMORIES-Regular.woff2') format('woff2'),
+        url('../fonts/TANMEMORIES-Regular.woff') format('woff');
+    font-weight: normal;
     font-style: normal;
     font-display: swap;
 }

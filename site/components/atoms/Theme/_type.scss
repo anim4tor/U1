@@ -11,42 +11,40 @@
    ------------------------------------------------------------ */
 :root {
     /* Headings */
-    --font-family-1: 'BricolageGrotesque', 'Bricolage Grotesque', var(--ff-heading), sans-serif;
     --font-size-1: clamp(2.40rem, 4.5vw, 4.20rem);
     --line-height-1: 1.01;
     --font-weight-1: 600;
-    --letter-spacing-1: var(--ls-heading, normal);
+    --letter-spacing-1: var(--ls-heading, 0);
     --text-transform-1: var(--tt-heading, none);
 
-    --font-family-2: 'BricolageGrotesque', 'Bricolage Grotesque', var(--ff-heading), sans-serif;
     --font-size-2: clamp(1.75rem, 3.0vw, 2.75rem);
     --line-height-2: 1.06;
     --font-weight-2: 600;
-    --letter-spacing-2: var(--ls-heading, normal);
+    --letter-spacing-2: var(--ls-heading, 0);
     --text-transform-2: var(--tt-heading, none);
 
     --font-size-3: clamp(1.30rem, 2.0vw, 1.85rem);
     --line-height-3: 1.12;
     --font-weight-3: var(--fw-heading, 500);
-    --letter-spacing-3: var(--ls-heading, normal);
+    --letter-spacing-3: var(--ls-heading, 0);
     --text-transform-3: var(--tt-heading, none);
 
     --font-size-4: clamp(1.05rem, 1.4vw, 1.35rem);
     --line-height-4: 1.19;
     --font-weight-4: var(--fw-heading, 500);
-    --letter-spacing-4: var(--ls-heading, normal);
+    --letter-spacing-4: var(--ls-heading, 0);
     --text-transform-4: var(--tt-heading, none);
 
     --font-size-5: clamp(0.85rem, 1.0vw, 1.05rem);
     --line-height-5: 1.26;
     --font-weight-5: var(--fw-heading, 500);
-    --letter-spacing-5: var(--ls-heading, normal);
+    --letter-spacing-5: var(--ls-heading, 0);
     --text-transform-5: var(--tt-heading, none);
 
     --font-size-6: clamp(0.75rem, 0.8vw, 0.95rem);
     --line-height-6: 1.30;
     --font-weight-6: var(--fw-heading, 500);
-    --letter-spacing-6: var(--ls-heading, normal);
+    --letter-spacing-6: var(--ls-heading, 0);
     --text-transform-6: var(--tt-heading, none);
 
     /* Body Level Variables */
@@ -89,7 +87,6 @@ $levels: 'small', 'default', 'large', 6, 5, 4, 3, 2, 1;
             .fonts_size_#{$level},
             .text-#{$level} {
                 --output-size: calc(var(--font-size-#{$level}));
-                font-family: var(--font-family-#{$level}, inherit);
                 font-size: var(--output-size);
                 line-height: var(--line-height-#{$level});
                 font-weight: var(--font-weight-#{$level}, inherit);
@@ -365,22 +362,7 @@ h6,
 .fonts_size_5,
 .fonts_size_6 {
     font-family: var(--ff-heading), sans-serif;
-    letter-spacing: var(--ls-heading);
-    text-transform: var(--tt-heading);
     font-optical-sizing: auto;
-}
-
-h1,
-h2,
-.font__size__1,
-.font__size__2,
-.fonts__size__1,
-.fonts__size__2,
-.font-size-1,
-.font-size-2,
-.font_size_1,
-.font_size_2 {
-    font-family: var(--font-family-1, 'BricolageGrotesque', 'Bricolage Grotesque', var(--ff-heading), sans-serif);
 }
 
 /*
@@ -401,8 +383,8 @@ p {
     font-size: var(--font-size-default);
     line-height: var(--line-height-default);
     font-weight: var(--font-weight-default, 400);
-    letter-spacing: var(--ls-body);
-    text-transform: var(--tt-body);
+    letter-spacing: var(--letter-spacing-default, var(--ls-body, normal));
+    text-transform: var(--text-transform-default, var(--tt-body, none));
     font-optical-sizing: auto;
 }
 

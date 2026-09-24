@@ -7,32 +7,30 @@
    /* ==========================================================================
        TYPOGRAPHY HEADING TOKENS
        ========================================================================== */
-   --font-family-1: 'BricolageGrotesque', 'Bricolage Grotesque', var(--ff-heading), sans-serif;
    --font-size-1: clamp(2.40rem, 4.5vw, 4.20rem);
    --line-height-1: 1.01;
    --font-weight-1: 600;
-   --letter-spacing-1: -0.035em;
+   --letter-spacing-1: 0;
    --text-transform-1: none;
-   --font-family-2: 'BricolageGrotesque', 'Bricolage Grotesque', var(--ff-heading), sans-serif;
    --font-size-2: clamp(1.75rem, 3.0vw, 2.75rem);
    --line-height-2: 1.06;
    --font-weight-2: 600;
-   --letter-spacing-2: -0.035em;
+   --letter-spacing-2: 0;
    --text-transform-2: none;
    --font-size-3: clamp(1.30rem, 2.0vw, 1.85rem);
    --line-height-3: 1.12;
    --font-weight-3: 500;
-   --letter-spacing-3: -0.035em;
+   --letter-spacing-3: 0;
    --text-transform-3: none;
    --font-size-4: clamp(1.05rem, 1.4vw, 1.35rem);
    --line-height-4: 1.19;
    --font-weight-4: 500;
-   --letter-spacing-4: -0.035em;
+   --letter-spacing-4: 0;
    --text-transform-4: none;
    --font-size-5: clamp(0.85rem, 1.0vw, 1.05rem);
    --line-height-5: 1.26;
    --font-weight-5: 500;
-   --letter-spacing-5: -0.035em;
+   --letter-spacing-5: 0;
    --text-transform-5: none;
 
    /* ==========================================================================
@@ -60,7 +58,7 @@
    --ff-heading: 'Inter';
    --fw-heading: 500;
    --tt-heading: none;
-   --ls-heading: -0.035em;
+   --ls-heading: 0;
    --ff-body: 'Inter';
    --fw-body: 400;
    --tt-body: none;

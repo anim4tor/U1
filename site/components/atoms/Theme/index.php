@@ -466,11 +466,11 @@
 		    </div>
 		    <div class="grid">
 		        <label class="ff__body op__4 font__size__small">Btn Radius</label>
-		        <input type="number" name="btn-radius" step="1" min="0" max="50" data-theme-setup>
+		        <input type="number" name="btn-radius" step="1" min="0" max="50" data-theme-setup data-unit="px">
 		    </div>
 		    <div class="grid span__2">
 		        <label class="ff__body op__4 font__size__small">Btn Border Width</label>
-		        <input type="number" name="btn-border" step="1" min="0" max="10" data-theme-setup>
+		        <input type="number" name="btn-border" step="1" min="0" max="10" data-theme-setup data-unit="px">
 		    </div>
 		</div>
 
@@ -781,7 +781,9 @@
 				if (input) {
 					input.placeholder = fluidVal;
 					if (applyToDOM) {
-						if (input.value.trim() !== '') {
+						if (input.value.trim() === '') {
+							document.documentElement.style.setProperty(`--${tokenName}`, fluidVal);
+						} else {
 							document.documentElement.style.setProperty(`--${tokenName}`, input.value.trim());
 						}
 					}
@@ -870,7 +872,12 @@
 				document.documentElement.style.removeProperty(`--${propertyName}`);
 			}
 
-			updateDynamicPlaceholders(false);
+			const scaleTokens = ['type-scale', 'type-start-rem', 'type-start-vw', 'base-line-height', 'body-scale', 'body-start-rem', 'body-start-vw', 'base-body-line-height', 'fw-heading', 'ls-heading', 'tt-heading', 'fw-body', 'ls-body', 'tt-body'];
+			if (scaleTokens.includes(propertyName)) {
+				updateDynamicPlaceholders(true);
+			} else {
+				updateDynamicPlaceholders(false);
+			}
 		}
 
 		themeControls.forEach(control => {
@@ -883,7 +890,7 @@
 			if (tsSelect.value !== 'custom') {
 				document.documentElement.style.setProperty('--type-scale', tsSelect.value);
 				tsInput.value = tsSelect.value;
-				updateDynamicPlaceholders(false);
+				updateDynamicPlaceholders(true);
 			}
 		});
 		tsInput.addEventListener('input', () => {
@@ -891,14 +898,14 @@
 			const match = Array.from(tsSelect.options).find(opt => parseFloat(opt.value) === val);
 			tsSelect.value = match ? match.value : 'custom';
 			document.documentElement.style.setProperty('--type-scale', val);
-			updateDynamicPlaceholders(false);
+			updateDynamicPlaceholders(true);
 		});
 
 		bsSelect.addEventListener('change', () => {
 			if (bsSelect.value !== 'custom') {
 				document.documentElement.style.setProperty('--body-scale', bsSelect.value);
 				bsInput.value = bsSelect.value;
-				updateDynamicPlaceholders(false);
+				updateDynamicPlaceholders(true);
 			}
 		});
 		bsInput.addEventListener('input', () => {
@@ -906,7 +913,7 @@
 			const match = Array.from(bsSelect.options).find(opt => parseFloat(opt.value) === val);
 			bsSelect.value = match ? match.value : 'custom';
 			document.documentElement.style.setProperty('--body-scale', val);
-			updateDynamicPlaceholders(false);
+			updateDynamicPlaceholders(true);
 		});
 
 		// --- 8b. SECTION CLEAR OVERRIDES ACTION ---
@@ -922,7 +929,7 @@
 						document.documentElement.style.removeProperty(`--${ctrl.name}`);
 					});
 				}
-				updateDynamicPlaceholders(false);
+				updateDynamicPlaceholders(true);
 			});
 		});
 
