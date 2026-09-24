@@ -105,6 +105,10 @@
 
 			<!-- Display / H1 -->
 			<div class="typo-section-header">Display / H1</div>
+			<div class="grid span__2">
+				<label class="ff__body op__4 font__size__small">Font Family</label>
+				<select name="font-family-1" data-theme-setup data-override data-font-select data-has-inherit="var(--ff-heading)"></select>
+			</div>
 			<div class="theme-panel-row span__2">
 				<div class="grid">
 					<label class="ff__body op__4 font__size__small">Size</label>
@@ -128,6 +132,10 @@
 
 			<!-- H2 Sekce -->
 			<div class="typo-section-header">H2 Sekce</div>
+			<div class="grid span__2">
+				<label class="ff__body op__4 font__size__small">Font Family</label>
+				<select name="font-family-2" data-theme-setup data-override data-font-select data-has-inherit="var(--ff-heading)"></select>
+			</div>
 			<div class="theme-panel-row span__2">
 				<div class="grid">
 					<label class="ff__body op__4 font__size__small">Size</label>
@@ -151,6 +159,10 @@
 
 			<!-- H3 Podnadpis -->
 			<div class="typo-section-header">H3 Podnadpis</div>
+			<div class="grid span__2">
+				<label class="ff__body op__4 font__size__small">Font Family</label>
+				<select name="font-family-3" data-theme-setup data-override data-font-select data-has-inherit="var(--ff-heading)"></select>
+			</div>
 			<div class="theme-panel-row span__2">
 				<div class="grid">
 					<label class="ff__body op__4 font__size__small">Size</label>
@@ -174,6 +186,10 @@
 
 			<!-- H4 -->
 			<div class="typo-section-header">H4 Menší podnadpis</div>
+			<div class="grid span__2">
+				<label class="ff__body op__4 font__size__small">Font Family</label>
+				<select name="font-family-4" data-theme-setup data-override data-font-select data-has-inherit="var(--ff-heading)"></select>
+			</div>
 			<div class="theme-panel-row span__2">
 				<div class="grid">
 					<label class="ff__body op__4 font__size__small">Size</label>
@@ -197,6 +213,10 @@
 
 			<!-- H5 -->
 			<div class="typo-section-header">H5 Titulek</div>
+			<div class="grid span__2">
+				<label class="ff__body op__4 font__size__small">Font Family</label>
+				<select name="font-family-5" data-theme-setup data-override data-font-select data-has-inherit="var(--ff-heading)"></select>
+			</div>
 			<div class="theme-panel-row span__2">
 				<div class="grid">
 					<label class="ff__body op__4 font__size__small">Size</label>
@@ -215,6 +235,33 @@
 				<div class="grid">
 					<label class="ff__body op__4 font__size__small">Letter Spacing</label>
 					<input type="text" name="letter-spacing-5" data-theme-setup data-override>
+				</div>
+			</div>
+
+			<!-- H6 -->
+			<div class="typo-section-header">H6 Titulek</div>
+			<div class="grid span__2">
+				<label class="ff__body op__4 font__size__small">Font Family</label>
+				<select name="font-family-6" data-theme-setup data-override data-font-select data-has-inherit="var(--ff-heading)"></select>
+			</div>
+			<div class="theme-panel-row span__2">
+				<div class="grid">
+					<label class="ff__body op__4 font__size__small">Size</label>
+					<input type="text" name="font-size-6" data-theme-setup data-override>
+				</div>
+				<div class="grid">
+					<label class="ff__body op__4 font__size__small">Weight</label>
+					<input type="number" name="font-weight-6" step="100" min="100" max="900" data-theme-setup data-override>
+				</div>
+			</div>
+			<div class="theme-panel-row span__2" style="margin-bottom: 0.25rem;">
+				<div class="grid">
+					<label class="ff__body op__4 font__size__small">Line Height</label>
+					<input type="number" name="line-height-6" step="0.01" min="0.5" max="2.5" data-theme-setup data-override>
+				</div>
+				<div class="grid">
+					<label class="ff__body op__4 font__size__small">Letter Spacing</label>
+					<input type="text" name="letter-spacing-6" data-theme-setup data-override>
 				</div>
 			</div>
 		</div>
@@ -292,6 +339,10 @@
 
 			<!-- Perex -->
 			<div class="typo-section-header">Perex (Large)</div>
+			<div class="grid span__2">
+				<label class="ff__body op__4 font__size__small">Font Family</label>
+				<select name="font-family-large" data-theme-setup data-override data-font-select data-has-inherit="var(--ff-body)"></select>
+			</div>
 			<div class="theme-panel-row span__2">
 				<div class="grid">
 					<label class="ff__body op__4 font__size__small">Size</label>
@@ -308,13 +359,17 @@
 					<input type="number" name="line-height-large" step="0.01" min="0.5" max="2.5" data-theme-setup data-override>
 				</div>
 				<div class="grid">
-					<label class="ff__body op__4 font__size__small">Opacity</label>
-					<input type="number" name="opacity-large" step="0.05" min="0.1" max="1" placeholder="1" data-theme-setup data-override>
+					<label class="ff__body op__4 font__size__small">Letter Spacing</label>
+					<input type="text" name="letter-spacing-large" data-theme-setup data-override>
 				</div>
 			</div>
 
 			<!-- Běžný text -->
 			<div class="typo-section-header">Běžný text (Body / Default)</div>
+			<div class="grid span__2">
+				<label class="ff__body op__4 font__size__small">Font Family</label>
+				<select name="font-family-default" data-theme-setup data-override data-font-select data-has-inherit="var(--ff-body)"></select>
+			</div>
 			<div class="theme-panel-row span__2">
 				<div class="grid">
 					<label class="ff__body op__4 font__size__small">Size</label>
@@ -338,6 +393,10 @@
 
 			<!-- Nadtitulek / Popisek -->
 			<div class="typo-section-header">Nadtitulek / Popisek (Caption / Small)</div>
+			<div class="grid span__2">
+				<label class="ff__body op__4 font__size__small">Font Family</label>
+				<select name="font-family-small" data-theme-setup data-override data-font-select data-has-inherit="var(--ff-body)"></select>
+			</div>
 			<div class="theme-panel-row span__2">
 				<div class="grid">
 					<label class="ff__body op__4 font__size__small">Size</label>
@@ -557,7 +616,13 @@
 
 			const fontDropdowns = document.querySelectorAll('[data-font-select]');
 			fontDropdowns.forEach(dropdown => {
-				dropdown.innerHTML = ''; 
+				dropdown.innerHTML = '';
+				if (dropdown.dataset.hasInherit) {
+					const inheritOpt = document.createElement('option');
+					inheritOpt.value = dropdown.dataset.hasInherit;
+					inheritOpt.textContent = dropdown.dataset.hasInherit.includes('heading') ? 'Inherit (Default Heading)' : 'Inherit (Default Body)';
+					dropdown.appendChild(inheritOpt);
+				}
 				discoveredFonts.forEach(fontName => {
 					const opt = document.createElement('option');
 					opt.value = `'${fontName}'`; 
@@ -722,47 +787,62 @@
 			const perexLh = bodyLh - (0.04 * bScale);
 
 			return {
+				'font-family-1': 'var(--ff-heading)',
 				'font-size-1': formatSize(h1Rem, h1Vw),
 				'font-weight-1': fwHeading || '500',
 				'line-height-1': formatLh(h1Lh),
-				'letter-spacing-1': lsHeading || 'normal',
+				'letter-spacing-1': lsHeading || '0',
 				'text-transform-1': ttHeading || 'none',
 
+				'font-family-2': 'var(--ff-heading)',
 				'font-size-2': formatSize(h2Rem, h2Vw),
 				'font-weight-2': fwHeading || '500',
 				'line-height-2': formatLh(h2Lh),
-				'letter-spacing-2': lsHeading || 'normal',
+				'letter-spacing-2': lsHeading || '0',
 				'text-transform-2': ttHeading || 'none',
 
+				'font-family-3': 'var(--ff-heading)',
 				'font-size-3': formatSize(h3Rem, h3Vw),
 				'font-weight-3': fwHeading || '500',
 				'line-height-3': formatLh(h3Lh),
-				'letter-spacing-3': lsHeading || 'normal',
+				'letter-spacing-3': lsHeading || '0',
 				'text-transform-3': ttHeading || 'none',
 
+				'font-family-4': 'var(--ff-heading)',
 				'font-size-4': formatSize(h4Rem, h4Vw),
 				'font-weight-4': fwHeading || '500',
 				'line-height-4': formatLh(h4Lh),
-				'letter-spacing-4': lsHeading || 'normal',
+				'letter-spacing-4': lsHeading || '0',
 				'text-transform-4': ttHeading || 'none',
 
+				'font-family-5': 'var(--ff-heading)',
 				'font-size-5': formatSize(h5Rem, h5Vw),
 				'font-weight-5': fwHeading || '500',
 				'line-height-5': formatLh(h5Lh),
-				'letter-spacing-5': lsHeading || 'normal',
+				'letter-spacing-5': lsHeading || '0',
 				'text-transform-5': ttHeading || 'none',
 
+				'font-family-6': 'var(--ff-heading)',
+				'font-size-6': formatSize(h5Rem * 0.85, h5Vw * 0.85),
+				'font-weight-6': fwHeading || '500',
+				'line-height-6': formatLh(h5Lh),
+				'letter-spacing-6': lsHeading || '0',
+				'text-transform-6': ttHeading || 'none',
+
+				'font-family-large': 'var(--ff-body)',
 				'font-size-large': formatSize(perexRem, perexVw),
 				'font-weight-large': fwBody || '400',
 				'line-height-large': formatLh(perexLh),
 				'letter-spacing-large': lsBody || 'normal',
 				'opacity-large': '1',
 
+				'font-family-default': 'var(--ff-body)',
 				'font-size-default': formatSize(bodyRem, bodyVw),
 				'font-weight-default': fwBody || '400',
 				'line-height-default': formatLh(bodyLh),
 				'letter-spacing-default': lsBody || 'normal',
 
+				'font-family-small': 'var(--ff-body)',
 				'font-size-small': formatSize(capRem, capVw),
 				'font-weight-small': fwBody || '400',
 				'line-height-small': formatLh(capLh),
@@ -968,16 +1048,17 @@
 				
 				const groups = {
 					typographyHeadings: [
-						'font-size-1', 'line-height-1', 'font-weight-1', 'letter-spacing-1', 'text-transform-1',
-						'font-size-2', 'line-height-2', 'font-weight-2', 'letter-spacing-2', 'text-transform-2',
-						'font-size-3', 'line-height-3', 'font-weight-3', 'letter-spacing-3', 'text-transform-3',
-						'font-size-4', 'line-height-4', 'font-weight-4', 'letter-spacing-4', 'text-transform-4',
-						'font-size-5', 'line-height-5', 'font-weight-5', 'letter-spacing-5', 'text-transform-5'
+						'font-family-1', 'font-size-1', 'line-height-1', 'font-weight-1', 'letter-spacing-1', 'text-transform-1',
+						'font-family-2', 'font-size-2', 'line-height-2', 'font-weight-2', 'letter-spacing-2', 'text-transform-2',
+						'font-family-3', 'font-size-3', 'line-height-3', 'font-weight-3', 'letter-spacing-3', 'text-transform-3',
+						'font-family-4', 'font-size-4', 'line-height-4', 'font-weight-4', 'letter-spacing-4', 'text-transform-4',
+						'font-family-5', 'font-size-5', 'line-height-5', 'font-weight-5', 'letter-spacing-5', 'text-transform-5',
+						'font-family-6', 'font-size-6', 'line-height-6', 'font-weight-6', 'letter-spacing-6', 'text-transform-6'
 					],
 					typographyTexts: [
-						'font-size-large', 'line-height-large', 'font-weight-large', 'letter-spacing-large', 'opacity-large',
-						'font-size-default', 'line-height-default', 'font-weight-default', 'letter-spacing-default',
-						'font-size-small', 'line-height-small', 'font-weight-small', 'letter-spacing-small', 'text-transform-small', 'opacity-small'
+						'font-family-large', 'font-size-large', 'line-height-large', 'font-weight-large', 'letter-spacing-large', 'opacity-large',
+						'font-family-default', 'font-size-default', 'line-height-default', 'font-weight-default', 'letter-spacing-default', 'text-transform-default',
+						'font-family-small', 'font-size-small', 'line-height-small', 'font-weight-small', 'letter-spacing-small', 'text-transform-small', 'opacity-small'
 					],
 					typographyBranding: ['ff-heading', 'fw-heading', 'tt-heading', 'ls-heading', 'ff-body', 'fw-body', 'tt-body', 'ls-body', 'ff-mono'],
 					scalePresets: ['type-scale', 'type-start-rem', 'type-start-vw', 'base-line-height', 'body-scale', 'body-start-rem', 'body-start-vw', 'base-body-line-height'],

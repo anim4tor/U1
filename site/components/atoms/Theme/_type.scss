@@ -7,66 +7,9 @@
 @import "../Media/media";
 
 /* ------------------------------------------------------------
-   TYPOGRAPHY DESIGN TOKENS (Static Tokens / Read From Tokens)
+   TYPOGRAPHY DESIGN TOKENS
+   Tokens are loaded directly from theme-tokens.css (Single Source of Truth)
    ------------------------------------------------------------ */
-:root {
-    /* Headings */
-    --font-size-1: clamp(2.40rem, 4.5vw, 4.20rem);
-    --line-height-1: 1.01;
-    --font-weight-1: 600;
-    --letter-spacing-1: var(--ls-heading, 0);
-    --text-transform-1: var(--tt-heading, none);
-
-    --font-size-2: clamp(1.75rem, 3.0vw, 2.75rem);
-    --line-height-2: 1.06;
-    --font-weight-2: 600;
-    --letter-spacing-2: var(--ls-heading, 0);
-    --text-transform-2: var(--tt-heading, none);
-
-    --font-size-3: clamp(1.30rem, 2.0vw, 1.85rem);
-    --line-height-3: 1.12;
-    --font-weight-3: var(--fw-heading, 500);
-    --letter-spacing-3: var(--ls-heading, 0);
-    --text-transform-3: var(--tt-heading, none);
-
-    --font-size-4: clamp(1.05rem, 1.4vw, 1.35rem);
-    --line-height-4: 1.19;
-    --font-weight-4: var(--fw-heading, 500);
-    --letter-spacing-4: var(--ls-heading, 0);
-    --text-transform-4: var(--tt-heading, none);
-
-    --font-size-5: clamp(0.85rem, 1.0vw, 1.05rem);
-    --line-height-5: 1.26;
-    --font-weight-5: var(--fw-heading, 500);
-    --letter-spacing-5: var(--ls-heading, 0);
-    --text-transform-5: var(--tt-heading, none);
-
-    --font-size-6: clamp(0.75rem, 0.8vw, 0.95rem);
-    --line-height-6: 1.30;
-    --font-weight-6: var(--fw-heading, 500);
-    --letter-spacing-6: var(--ls-heading, 0);
-    --text-transform-6: var(--tt-heading, none);
-
-    /* Body Level Variables */
-    --font-size-large: var(--font-size-default);
-    --line-height-large: var(--line-height-default);
-    --font-weight-large: var(--fw-body, 400);
-    --letter-spacing-large: var(--ls-body, normal);
-    --opacity-large: 1;
-
-    --font-size-default: 15px;
-    --line-height-default: 1.52;
-    --font-weight-default: var(--fw-body, 400);
-    --letter-spacing-default: var(--ls-body, normal);
-
-    --font-size-small: 12px;
-    --line-height-small: 1.44;
-    --font-weight-small: var(--fw-body, 400);
-    --text-transform-small: var(--tt-body, none);
-    --letter-spacing-small: var(--ls-body, normal);
-    --opacity-small: 1;
-}
-
 
 /*
     Levels
@@ -87,12 +30,23 @@ $levels: 'small', 'default', 'large', 6, 5, 4, 3, 2, 1;
             .fonts_size_#{$level},
             .text-#{$level} {
                 --output-size: calc(var(--font-size-#{$level}));
+
+                @if ($level =='small' or $level =='default' or $level =='large') {
+                    font-family: var(--font-family-#{$level}, var(--ff-body, sans-serif));
+                    font-weight: var(--font-weight-#{$level}, var(--fw-body, inherit));
+                    letter-spacing: var(--letter-spacing-#{$level}, var(--ls-body, inherit));
+                    text-transform: var(--text-transform-#{$level}, var(--tt-body, inherit));
+                }
+
+                @else {
+                    font-family: var(--font-family-#{$level}, var(--ff-heading, sans-serif));
+                    font-weight: var(--font-weight-#{$level}, var(--fw-heading, inherit));
+                    letter-spacing: var(--letter-spacing-#{$level}, var(--ls-heading, inherit));
+                    text-transform: var(--text-transform-#{$level}, var(--tt-heading, inherit));
+                }
+
                 font-size: var(--output-size);
                 line-height: var(--line-height-#{$level});
-                font-weight: var(--font-weight-#{$level}, inherit);
-
-                letter-spacing: var(--letter-spacing-#{$level}, inherit);
-                text-transform: var(--text-transform-#{$level}, inherit);
 
                 @if ($level =='large') {
                     opacity: var(--opacity-large, 1);
@@ -125,177 +79,7 @@ $levels: 'small', 'default', 'large', 6, 5, 4, 3, 2, 1;
     }
 }
 
-/*
-    Modifiers (Pure CSS Specificity and Cascade Fix)
-*/
-$text-mods: (
-    xxl: 3,
-    '2xl': 3,
-    '3xl': 3,
-    xl: 2,
-    l: 1.5,
-    lg: 1.5,
-    large: 1.5,
-    m: 1.25,
-    md: 1.25,
-    df: 1,
-    base: 1,
-    default: 1,
-    s: 0.9,
-    sm: 0.9,
-    small: 0.9,
-    xs: 0.8
-);
 
-$legacy-mods: (
-    xxl: 3,
-    xl: 2,
-    l: 1.5,
-    m: 1.25,
-    df: 1,
-    s: 0.9,
-    xs: 0.8
-);
-
-@each $modifier, $breakpoint in $map-grid-props {
-    @if($modifier =='') {
-        @each $mod, $scale in $text-mods {
-
-            h1.text-#{$mod},
-            h2.text-#{$mod},
-            h3.text-#{$mod},
-            h4.text-#{$mod},
-            h5.text-#{$mod},
-            h6.text-#{$mod},
-            p.text-#{$mod},
-            a.text-#{$mod},
-            li.text-#{$mod},
-            .ff__heading.text-#{$mod} {
-                font-size: calc(var(--output-size, 1rem) * #{$scale}) !important;
-            }
-
-            .text-#{$mod} {
-                font-size: calc(var(--output-size, var(--font-size-default)) * #{$scale}) !important;
-
-                h1,
-                h2,
-                h3,
-                h4,
-                h5,
-                h6,
-                p,
-                a,
-                li,
-                .ff__heading {
-                    font-size: calc(var(--output-size, var(--font-size-default)) * #{$scale}) !important;
-                }
-            }
-        }
-
-        @each $mod, $scale in $legacy-mods {
-
-            h1.#{$mod},
-            h2.#{$mod},
-            h3.#{$mod},
-            h4.#{$mod},
-            h5.#{$mod},
-            h6.#{$mod},
-            p.#{$mod},
-            a.#{$mod},
-            li.#{$mod},
-            .ff__heading.#{$mod} {
-                font-size: calc(var(--output-size, 1rem) * #{$scale}) !important;
-            }
-
-            .#{$mod} {
-                font-size: calc(var(--output-size, var(--font-size-default)) * #{$scale}) !important;
-
-                h1,
-                h2,
-                h3,
-                h4,
-                h5,
-                h6,
-                p,
-                a,
-                li,
-                .ff__heading {
-                    font-size: calc(var(--output-size, var(--font-size-default)) * #{$scale}) !important;
-                }
-            }
-        }
-    }
-
-    @else {
-        @include create-mq($breakpoint, 'max') {
-            @each $mod, $scale in $text-mods {
-
-                h1.#{$modifier}\:text-#{$mod},
-                h2.#{$modifier}\:text-#{$mod},
-                h3.#{$modifier}\:text-#{$mod},
-                h4.#{$modifier}\:text-#{$mod},
-                h5.#{$modifier}\:text-#{$mod},
-                h6.#{$modifier}\:text-#{$mod},
-                p.#{$modifier}\:text-#{$mod},
-                a.#{$modifier}\:text-#{$mod},
-                li.#{$modifier}\:text-#{$mod},
-                .ff__heading.#{$modifier}\:text-#{$mod} {
-                    font-size: calc(var(--output-size, 1rem) * #{$scale}) !important;
-                }
-
-                .#{$modifier}\:text-#{$mod} {
-                    font-size: calc(var(--output-size, var(--font-size-default)) * #{$scale}) !important;
-
-                    h1,
-                    h2,
-                    h3,
-                    h4,
-                    h5,
-                    h6,
-                    p,
-                    a,
-                    li,
-                    .ff__heading {
-                        font-size: calc(var(--output-size, var(--font-size-default)) * #{$scale}) !important;
-                    }
-                }
-            }
-
-            @each $mod, $scale in $legacy-mods {
-
-                h1.#{$modifier}\:#{$mod},
-                h2.#{$modifier}\:#{$mod},
-                h3.#{$modifier}\:#{$mod},
-                h4.#{$modifier}\:#{$mod},
-                h5.#{$modifier}\:#{$mod},
-                h6.#{$modifier}\:#{$mod},
-                p.#{$modifier}\:#{$mod},
-                a.#{$modifier}\:#{$mod},
-                li.#{$modifier}\:#{$mod},
-                .ff__heading.#{$modifier}\:#{$mod} {
-                    font-size: calc(var(--output-size, 1rem) * #{$scale}) !important;
-                }
-
-                .#{$modifier}\:#{$mod} {
-                    font-size: calc(var(--output-size, var(--font-size-default)) * #{$scale}) !important;
-
-                    h1,
-                    h2,
-                    h3,
-                    h4,
-                    h5,
-                    h6,
-                    p,
-                    a,
-                    li,
-                    .ff__heading {
-                        font-size: calc(var(--output-size, var(--font-size-default)) * #{$scale}) !important;
-                    }
-                }
-            }
-        }
-    }
-}
 
 /*
     Body
@@ -307,60 +91,18 @@ html {
 
 /*16px*/
 body {
-    --output-size: var(--font-size-default);
-    font-family: var(--ff-body);
+    --output-size: var(--font-size-default, 15px);
+    font-family: var(--font-family-default, var(--ff-body, sans-serif));
     font-size: var(--output-size);
-    line-height: var(--line-height-default);
-    font-weight: var(--fw-body, 400);
+    line-height: var(--line-height-default, 1.52);
+    font-weight: var(--font-weight-default, var(--fw-body, 400));
     font-optical-sizing: auto;
 }
 
 /*
     Headings
 */
-.ff__heading,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-.font__size__1,
-.font__size__2,
-.font__size__3,
-.font__size__4,
-.font__size__5,
-.font__size__6,
-.fonts__size__1,
-.fonts__size__2,
-.fonts__size__3,
-.fonts__size__4,
-.fonts__size__5,
-.fonts__size__6,
-.font-size-1,
-.font-size-2,
-.font-size-3,
-.font-size-4,
-.font-size-5,
-.font-size-6,
-.fonts-size-1,
-.fonts-size-2,
-.fonts-size-3,
-.fonts-size-4,
-.fonts-size-5,
-.fonts-size-6,
-.font_size_1,
-.font_size_2,
-.font_size_3,
-.font_size_4,
-.font_size_5,
-.font_size_6,
-.fonts_size_1,
-.fonts_size_2,
-.fonts_size_3,
-.fonts_size_4,
-.fonts_size_5,
-.fonts_size_6 {
+.ff__heading {
     font-family: var(--ff-heading), sans-serif;
     font-optical-sizing: auto;
 }
@@ -378,11 +120,10 @@ button {
 }
 
 p {
-    font-family: var(--ff-body), sans-serif;
-    font-size: 15px;
-    font-size: var(--font-size-default);
-    line-height: var(--line-height-default);
-    font-weight: var(--font-weight-default, 400);
+    font-family: var(--font-family-default, var(--ff-body, sans-serif));
+    font-size: var(--font-size-default, 15px);
+    line-height: var(--line-height-default, 1.52);
+    font-weight: var(--font-weight-default, var(--fw-body, 400));
     letter-spacing: var(--letter-spacing-default, var(--ls-body, normal));
     text-transform: var(--text-transform-default, var(--tt-body, none));
     font-optical-sizing: auto;
@@ -454,28 +195,6 @@ label,
 
 .label {
     font-weight: var(--font-weight-small, 400);
-}
-
-button,
-.button {
-    font-size: 12px;
-    font-weight: var(--button-font-weight, 500);
-}
-
-.link {
-    font-size: 12px;
-}
-
-.font__size__large,
-.font-size-large,
-.text-large,
-.font__size__default,
-.font-size-default,
-.text-default {
-    --output-size: var(--font-size-default);
-    font-size: 15px;
-    font-size: var(--output-size);
-    line-height: var(--line-height-default);
 }
 
 .hyphens {
