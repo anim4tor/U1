@@ -1,7 +1,7 @@
 <article class="instagram__card grid gap__05">
 	<!-- Image & Permalink -->
     <a href="<?= $post->social_url() ?>" target="_blank" rel="noopener noreferrer" class="instagram-image-link">
-      <figure class="img__radius overlay__bottom relative color__invert">
+      <figure class="img__radius overlay__bottom relative color__invert aspect__1/1">
 	      <img 
 	        src="<?= $post->media_url() ?>" 
 	        alt="<?= $post->title()->html() ?>" 

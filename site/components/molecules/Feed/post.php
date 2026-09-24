@@ -2,7 +2,7 @@
 	<a href="<?= $feed->url() ?>" class="grid__2 place__stretch-stretch gap__2 inner-y__1 border__top wrap">	
 		<div class="grid inner-r__10">
 			<?php if ($cover = $feed->cover()->toFile()) : ?>
-				<div class="item__figure grid img__radius no__overflow "><?= snippet('atoms/Image', ['img' => $cover, 'css' => 'h__12 grid' ]) ?></div>
+				<div class="item__figure grid img__radius no__overflow aspect__1/1"><?= snippet('atoms/Image', ['img' => $cover, 'css' => 'aspect__1/1 grid' ]) ?></div>
 			<?php endif ?>
 		</div>
 		<div class="grid__2 gap__2 -wrap-l__5">

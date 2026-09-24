@@ -11,7 +11,7 @@
 	</div>
 	<?php if ($cover = $feed->cover()->toFile()) : ?>
 	<a href="<?= $feed->url() ?>" class="grid">
-		<div class="item__figure grid img__radius no__overflow -wrap-l__5"><?= snippet('atoms/Image', ['img' => $cover, 'parallax' => 1, 'reveal' => true, 'css' => 'vh__10 grid ' ]) ?></div>
+		<div class="item__figure grid img__radius no__overflow aspect__1/1 -wrap-l__5"><?= snippet('atoms/Image', ['img' => $cover, 'parallax' => 1, 'reveal' => true, 'css' => 'aspect__1/1 grid ' ]) ?></div>
 	</a>
 	<?php endif ?>
 	<!-- <div class="grid ">

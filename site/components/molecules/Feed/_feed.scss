@@ -30,4 +30,24 @@
 .instagram__card,
 .linkedin__card {
     row-gap: calc(0.5 * var(--spacing));
-}
+}
+
+.events,
+.blog {
+    .item__figure,
+    .item__figure figure {
+        aspect-ratio: 1 / 1;
+        --aspect-ratio: 1/1;
+        align-self: start;
+        width: 100%;
+    }
+}
+
+.social__card figure,
+.instagram__card figure,
+.linkedin__card figure {
+    aspect-ratio: 1 / 1;
+    --aspect-ratio: 1/1;
+}
+
+

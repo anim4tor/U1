@@ -1,7 +1,7 @@
 <article class="linkedin__card grid gap__05">
 	<!-- Image & Link -->
 	<a href="<?= $post->social_url() ?>" target="_blank" rel="noopener noreferrer" class="linkedin-image-link">
-		<figure class="img__radius overlay__bottom relative color__invert">
+		<figure class="img__radius overlay__bottom relative color__invert aspect__1/1">
 			<?php if ($post->media_url()->isNotEmpty()): ?>
 				<img 
 					src="<?= $post->media_url() ?>" 
