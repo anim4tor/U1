@@ -5,13 +5,12 @@
 */
 @import "../Animation/animation";
 
-:root {
-	
-}
+:root {}
 
 .link {
 	font-size: 12px;
 	letter-spacing: 0;
+	font-weight: 600;
 }
 
 nav[class*="font__size"] .link,
@@ -30,5 +29,5 @@ nav:not([class*="font__size"]):not(.footer__nav):not([navbar-menu]) {
 
 p a[href] {
 	position: relative;
-	
-}	
+
+}

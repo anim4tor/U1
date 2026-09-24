@@ -49,6 +49,6 @@
 	</div>
 </section>
 
-<?= snippet('templates/globals/Projects/related') ?>
+<?= snippet('templates/globals/Projects/related', ['projects' => $page->relatedProjects()]) ?>
 <?= snippet('templates/globals/Feed/related') ?>
 <?= snippet('templates/globals/Cta') ?>

@@ -13,13 +13,13 @@
     /* Headings */
     --font-size-1: clamp(2.40rem, 4.5vw, 4.20rem);
     --line-height-1: 1.01;
-    --font-weight-1: var(--fw-heading, 500);
+    --font-weight-1: 700;
     --letter-spacing-1: var(--ls-heading, normal);
     --text-transform-1: var(--tt-heading, none);
 
     --font-size-2: clamp(1.75rem, 3.0vw, 2.75rem);
     --line-height-2: 1.06;
-    --font-weight-2: var(--fw-heading, 500);
+    --font-weight-2: 700;
     --letter-spacing-2: var(--ls-heading, normal);
     --text-transform-2: var(--tt-heading, none);
 
@@ -54,7 +54,7 @@
     --letter-spacing-large: var(--ls-body, normal);
     --opacity-large: 1;
 
-    --font-size-default: 14px;
+    --font-size-default: 15px;
     --line-height-default: 1.52;
     --font-weight-default: var(--fw-body, 400);
     --letter-spacing-default: var(--ls-body, normal);
@@ -89,14 +89,7 @@ $levels: 'small', 'default', 'large', 6, 5, 4, 3, 2, 1;
                 --output-size: calc(var(--font-size-#{$level}));
                 font-size: var(--output-size);
                 line-height: var(--line-height-#{$level});
-
-                @if ($level ==1 or $level ==2 or $level ==3 or $level ==4 or $level ==5 or $level ==6) {
-                    font-weight: 500;
-                }
-
-                @else {
-                    font-weight: var(--font-weight-#{$level}, inherit);
-                }
+                font-weight: var(--font-weight-#{$level}, inherit);
 
                 letter-spacing: var(--letter-spacing-#{$level}, inherit);
                 text-transform: var(--text-transform-#{$level}, inherit);
@@ -369,7 +362,6 @@ h6,
 .fonts_size_5,
 .fonts_size_6 {
     font-family: var(--ff-heading), sans-serif;
-    font-weight: 500;
     letter-spacing: var(--ls-heading);
     text-transform: var(--tt-heading);
     font-optical-sizing: auto;
@@ -389,7 +381,7 @@ button {
 
 p {
     font-family: var(--ff-body), sans-serif;
-    font-size: 14px;
+    font-size: 15px;
     font-size: var(--font-size-default);
     line-height: var(--line-height-default);
     font-weight: var(--font-weight-default, 400);
@@ -483,7 +475,7 @@ button,
 .font-size-default,
 .text-default {
     --output-size: var(--font-size-default);
-    font-size: 14px;
+    font-size: 15px;
     font-size: var(--output-size);
     line-height: var(--line-height-default);
 }
