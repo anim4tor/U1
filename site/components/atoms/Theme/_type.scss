@@ -7,9 +7,38 @@
 @import "../Media/media";
 
 /* ------------------------------------------------------------
-   TYPOGRAPHY DESIGN TOKENS
-   Tokens are loaded directly from theme-tokens.css (Single Source of Truth)
+   FLUID TYPOGRAPHY ENGINE (CSS Variables)
    ------------------------------------------------------------ */
+:root {
+    /* Headings Fluid Calculation */
+    --font-size-5-fluid: max(calc(var(--type-start-rem, 1rem) * var(--scale, 1)), calc(var(--type-start-vw, 1.3vw) * var(--scale, 1)));
+    --line-height-5-fluid: var(--base-line-height, 1.26);
+
+    --font-size-4-fluid: max(calc(var(--type-start-rem, 1rem) * var(--type-scale, 1.618) * var(--scale, 1)), calc(var(--type-start-vw, 1.3vw) * var(--type-scale, 1.618) * var(--scale, 1)));
+    --line-height-4-fluid: calc(var(--base-line-height, 1.26) - (0.04 * var(--type-scale, 1.618)));
+
+    --font-size-3-fluid: max(calc(var(--type-start-rem, 1rem) * var(--type-scale, 1.618) * var(--type-scale, 1.618) * var(--scale, 1)), calc(var(--type-start-vw, 1.3vw) * var(--type-scale, 1.618) * var(--type-scale, 1.618) * var(--scale, 1)));
+    --line-height-3-fluid: calc(var(--base-line-height, 1.26) - (0.08 * var(--type-scale, 1.618)));
+
+    --font-size-2-fluid: max(calc(var(--type-start-rem, 1rem) * var(--type-scale, 1.618) * var(--type-scale, 1.618) * var(--type-scale, 1.618) * var(--scale, 1)), calc(var(--type-start-vw, 1.3vw) * var(--type-scale, 1.618) * var(--type-scale, 1.618) * var(--type-scale, 1.618) * var(--scale, 1)));
+    --line-height-2-fluid: calc(var(--base-line-height, 1.26) - (0.12 * var(--type-scale, 1.618)));
+
+    --font-size-1-fluid: max(calc(var(--type-start-rem, 1rem) * var(--type-scale, 1.618) * var(--type-scale, 1.618) * var(--type-scale, 1.618) * var(--type-scale, 1.618) * var(--scale, 1)), calc(var(--type-start-vw, 1.3vw) * var(--type-scale, 1.618) * var(--type-scale, 1.618) * var(--type-scale, 1.618) * var(--type-scale, 1.618) * var(--scale, 1)));
+    --line-height-1-fluid: calc(var(--base-line-height, 1.26) - (0.16 * var(--type-scale, 1.618)));
+
+    --font-size-6-fluid: max(calc(var(--type-start-rem, 1rem) * 0.85 * var(--scale, 1)), calc(var(--type-start-vw, 1.3vw) * 0.85 * var(--scale, 1)));
+    --line-height-6-fluid: var(--base-line-height, 1.26);
+
+    /* Body / Texts Fluid Calculation */
+    --font-size-small-fluid: max(calc(var(--body-start-rem, 0.7rem) * var(--scale, 1)), calc(var(--body-start-vw, 0.65vw) * var(--scale, 1)));
+    --line-height-small-fluid: var(--base-body-line-height, 1.52);
+
+    --font-size-default-fluid: max(calc(var(--body-start-rem, 0.7rem) * var(--body-scale, 1.222) * var(--scale, 1)), calc(var(--body-start-vw, 0.65vw) * var(--body-scale, 1.222) * var(--scale, 1)));
+    --line-height-default-fluid: calc(var(--base-body-line-height, 1.52) - (0.04 * var(--body-scale, 1.222)));
+
+    --font-size-large-fluid: max(calc(var(--body-start-rem, 0.7rem) * var(--body-scale, 1.222) * var(--body-scale, 1.222) * var(--scale, 1)), calc(var(--body-start-vw, 0.65vw) * var(--body-scale, 1.222) * var(--body-scale, 1.222) * var(--scale, 1)));
+    --line-height-large-fluid: calc(var(--base-body-line-height, 1.52) - (0.08 * var(--body-scale, 1.222)));
+}
 
 /*
     Levels
@@ -29,24 +58,24 @@ $levels: 'small', 'default', 'large', 6, 5, 4, 3, 2, 1;
             .font_size_#{$level},
             .fonts_size_#{$level},
             .text-#{$level} {
-                --output-size: calc(var(--font-size-#{$level}));
+                --output-size: var(--font-size-#{$level}, var(--font-size-#{$level}-fluid));
 
                 @if ($level =='small' or $level =='default' or $level =='large') {
                     font-family: var(--font-family-#{$level}, var(--ff-body, sans-serif));
-                    font-weight: var(--font-weight-#{$level}, var(--fw-body, inherit));
+                    font-weight: var(--font-weight-#{$level}, var(--fw-body, 400));
                     letter-spacing: var(--letter-spacing-#{$level}, var(--ls-body, inherit));
                     text-transform: var(--text-transform-#{$level}, var(--tt-body, inherit));
                 }
 
                 @else {
                     font-family: var(--font-family-#{$level}, var(--ff-heading, sans-serif));
-                    font-weight: var(--font-weight-#{$level}, var(--fw-heading, inherit));
+                    font-weight: var(--font-weight-#{$level}, var(--fw-heading, 500));
                     letter-spacing: var(--letter-spacing-#{$level}, var(--ls-heading, inherit));
                     text-transform: var(--text-transform-#{$level}, var(--tt-heading, inherit));
                 }
 
                 font-size: var(--output-size);
-                line-height: var(--line-height-#{$level});
+                line-height: var(--line-height-#{$level}, var(--line-height-#{$level}-fluid));
 
                 @if ($level =='large') {
                     opacity: var(--opacity-large, 1);
@@ -70,9 +99,9 @@ $levels: 'small', 'default', 'large', 6, 5, 4, 3, 2, 1;
                 .#{$modifier}\:font_size_#{$level},
                 .#{$modifier}\:fonts_size_#{$level},
                 .#{$modifier}\:text-#{$level} {
-                    --output-size: calc(var(--font-size-#{$level}));
+                    --output-size: var(--font-size-#{$level}, var(--font-size-#{$level}-fluid));
                     font-size: var(--output-size);
-                    line-height: var(--line-height-#{$level});
+                    line-height: var(--line-height-#{$level}, var(--line-height-#{$level}-fluid));
                 }
             }
         }
@@ -91,10 +120,10 @@ html {
 
 /*16px*/
 body {
-    --output-size: var(--font-size-default, 15px);
+    --output-size: var(--font-size-default, var(--font-size-default-fluid, 15px));
     font-family: var(--font-family-default, var(--ff-body, sans-serif));
     font-size: var(--output-size);
-    line-height: var(--line-height-default, 1.52);
+    line-height: var(--line-height-default, var(--line-height-default-fluid, 1.52));
     font-weight: var(--font-weight-default, var(--fw-body, 400));
     font-optical-sizing: auto;
 }
@@ -121,8 +150,8 @@ button {
 
 p {
     font-family: var(--font-family-default, var(--ff-body, sans-serif));
-    font-size: var(--font-size-default, 15px);
-    line-height: var(--line-height-default, 1.52);
+    font-size: var(--font-size-default, var(--font-size-default-fluid, 15px));
+    line-height: var(--line-height-default, var(--line-height-default-fluid, 1.52));
     font-weight: var(--font-weight-default, var(--fw-body, 400));
     letter-spacing: var(--letter-spacing-default, var(--ls-body, normal));
     text-transform: var(--text-transform-default, var(--tt-body, none));
@@ -189,12 +218,12 @@ label,
 .font__size__small,
 .font-size-small,
 .text-small {
-    font-size: 12px;
-    line-height: var(--line-height-small);
+    font-size: var(--font-size-small, var(--font-size-small-fluid, 12px));
+    line-height: var(--line-height-small, var(--line-height-small-fluid, 1.44));
 }
 
 .label {
-    font-weight: var(--font-weight-small, 400);
+    font-weight: var(--font-weight-small, var(--fw-body, 400));
 }
 
 .hyphens {

@@ -735,55 +735,61 @@
 			const inlineStyles = document.documentElement.style;
 			const computed = getComputedStyle(document.documentElement);
 
+			const scale = parseFloat(inlineStyles.getPropertyValue('--scale') || computed.getPropertyValue('--scale')) || 1;
+
 			const hScale = parseFloat(inlineStyles.getPropertyValue('--type-scale') || computed.getPropertyValue('--type-scale')) || 1.618;
-			const hStartRem = parseFloat((inlineStyles.getPropertyValue('--type-start-rem') || computed.getPropertyValue('--type-start-rem') || '1.5').replace('rem', '')) || 1.5;
-			const hStartVw = parseFloat((inlineStyles.getPropertyValue('--type-start-vw') || computed.getPropertyValue('--type-start-vw') || '1.5').replace('vw', '')) || 1.5;
-			const baseLh = parseFloat(inlineStyles.getPropertyValue('--base-line-height') || computed.getPropertyValue('--base-line-height')) || 1.40;
-			const fwHeading = (inlineStyles.getPropertyValue('--fw-heading') || computed.getPropertyValue('--fw-heading') || '700').trim();
-			const lsHeading = (inlineStyles.getPropertyValue('--ls-heading') || computed.getPropertyValue('--ls-heading') || 'normal').trim();
+			const hStartRem = parseFloat((inlineStyles.getPropertyValue('--type-start-rem') || computed.getPropertyValue('--type-start-rem') || '1.0').replace('rem', '')) || 1.0;
+			const hStartVw = parseFloat((inlineStyles.getPropertyValue('--type-start-vw') || computed.getPropertyValue('--type-start-vw') || '1.3').replace('vw', '')) || 1.3;
+			const baseLh = parseFloat(inlineStyles.getPropertyValue('--base-line-height') || computed.getPropertyValue('--base-line-height')) || 1.26;
+			const fwHeading = (inlineStyles.getPropertyValue('--fw-heading') || computed.getPropertyValue('--fw-heading') || '500').trim();
+			const lsHeading = (inlineStyles.getPropertyValue('--ls-heading') || computed.getPropertyValue('--ls-heading') || '0').trim();
 			const ttHeading = (inlineStyles.getPropertyValue('--tt-heading') || computed.getPropertyValue('--tt-heading') || 'none').trim();
 
-			const bScale = parseFloat(inlineStyles.getPropertyValue('--body-scale') || computed.getPropertyValue('--body-scale')) || 1.4;
-			const bStartRem = parseFloat((inlineStyles.getPropertyValue('--body-start-rem') || computed.getPropertyValue('--body-start-rem') || '0.714').replace('rem', '')) || 0.714;
-			const bStartVw = parseFloat((inlineStyles.getPropertyValue('--body-start-vw') || computed.getPropertyValue('--body-start-vw') || '0.714').replace('vw', '')) || 0.714;
+			const bScale = parseFloat(inlineStyles.getPropertyValue('--body-scale') || computed.getPropertyValue('--body-scale')) || 1.222;
+			const bStartRem = parseFloat((inlineStyles.getPropertyValue('--body-start-rem') || computed.getPropertyValue('--body-start-rem') || '0.7').replace('rem', '')) || 0.7;
+			const bStartVw = parseFloat((inlineStyles.getPropertyValue('--body-start-vw') || computed.getPropertyValue('--body-start-vw') || '0.65').replace('vw', '')) || 0.65;
 			const baseBodyLh = parseFloat(inlineStyles.getPropertyValue('--base-body-line-height') || computed.getPropertyValue('--base-body-line-height')) || 1.52;
 			const fwBody = (inlineStyles.getPropertyValue('--fw-body') || computed.getPropertyValue('--fw-body') || '400').trim();
-			const lsBody = (inlineStyles.getPropertyValue('--ls-body') || computed.getPropertyValue('--ls-body') || 'normal').trim();
+			const lsBody = (inlineStyles.getPropertyValue('--ls-body') || computed.getPropertyValue('--ls-body') || '-0.035em').trim();
 			const ttBody = (inlineStyles.getPropertyValue('--tt-body') || computed.getPropertyValue('--tt-body') || 'none').trim();
 
 			const formatSize = (rem, vw) => `max(${rem.toFixed(2)}rem, ${vw.toFixed(2)}vw)`;
 			const formatLh = (val) => val.toFixed(2);
 
-			const h5Rem = hStartRem;
-			const h5Vw = hStartVw;
+			const h5Rem = hStartRem * scale;
+			const h5Vw = hStartVw * scale;
 			const h5Lh = baseLh;
 
-			const h4Rem = hStartRem * hScale;
-			const h4Vw = hStartVw * hScale;
+			const h4Rem = hStartRem * hScale * scale;
+			const h4Vw = hStartVw * hScale * scale;
 			const h4Lh = h5Lh - (0.04 * hScale);
 
-			const h3Rem = hStartRem * Math.pow(hScale, 2);
-			const h3Vw = hStartVw * Math.pow(hScale, 2);
+			const h3Rem = hStartRem * Math.pow(hScale, 2) * scale;
+			const h3Vw = hStartVw * Math.pow(hScale, 2) * scale;
 			const h3Lh = h4Lh - (0.04 * hScale);
 
-			const h2Rem = hStartRem * Math.pow(hScale, 3);
-			const h2Vw = hStartVw * Math.pow(hScale, 3);
+			const h2Rem = hStartRem * Math.pow(hScale, 3) * scale;
+			const h2Vw = hStartVw * Math.pow(hScale, 3) * scale;
 			const h2Lh = h3Lh - (0.04 * hScale);
 
-			const h1Rem = hStartRem * Math.pow(hScale, 4);
-			const h1Vw = hStartVw * Math.pow(hScale, 4);
+			const h1Rem = hStartRem * Math.pow(hScale, 4) * scale;
+			const h1Vw = hStartVw * Math.pow(hScale, 4) * scale;
 			const h1Lh = h2Lh - (0.04 * hScale);
 
-			const capRem = bStartRem;
-			const capVw = bStartVw;
+			const h6Rem = hStartRem * 0.85 * scale;
+			const h6Vw = hStartVw * 0.85 * scale;
+			const h6Lh = baseLh;
+
+			const capRem = bStartRem * scale;
+			const capVw = bStartVw * scale;
 			const capLh = baseBodyLh;
 
-			const bodyRem = bStartRem * bScale;
-			const bodyVw = bStartVw * bScale;
+			const bodyRem = bStartRem * bScale * scale;
+			const bodyVw = bStartVw * bScale * scale;
 			const bodyLh = baseBodyLh - (0.04 * bScale);
 
-			const perexRem = bStartRem * Math.pow(bScale, 2);
-			const perexVw = bStartVw * Math.pow(bScale, 2);
+			const perexRem = bStartRem * Math.pow(bScale, 2) * scale;
+			const perexVw = bStartVw * Math.pow(bScale, 2) * scale;
 			const perexLh = bodyLh - (0.04 * bScale);
 
 			return {
@@ -823,9 +829,9 @@
 				'text-transform-5': ttHeading || 'none',
 
 				'font-family-6': 'var(--ff-heading)',
-				'font-size-6': formatSize(h5Rem * 0.85, h5Vw * 0.85),
+				'font-size-6': formatSize(h6Rem, h6Vw),
 				'font-weight-6': fwHeading || '500',
-				'line-height-6': formatLh(h5Lh),
+				'line-height-6': formatLh(h6Lh),
 				'letter-spacing-6': lsHeading || '0',
 				'text-transform-6': ttHeading || 'none',
 
@@ -833,40 +839,34 @@
 				'font-size-large': formatSize(perexRem, perexVw),
 				'font-weight-large': fwBody || '400',
 				'line-height-large': formatLh(perexLh),
-				'letter-spacing-large': lsBody || 'normal',
+				'letter-spacing-large': lsBody || '-0.035em',
 				'opacity-large': '1',
 
 				'font-family-default': 'var(--ff-body)',
 				'font-size-default': formatSize(bodyRem, bodyVw),
 				'font-weight-default': fwBody || '400',
 				'line-height-default': formatLh(bodyLh),
-				'letter-spacing-default': lsBody || 'normal',
+				'letter-spacing-default': lsBody || '-0.035em',
+				'text-transform-default': ttBody || 'none',
 
 				'font-family-small': 'var(--ff-body)',
 				'font-size-small': formatSize(capRem, capVw),
 				'font-weight-small': fwBody || '400',
 				'line-height-small': formatLh(capLh),
-				'letter-spacing-small': lsBody || 'normal',
+				'letter-spacing-small': lsBody || '-0.035em',
 				'text-transform-small': ttBody || 'none',
 				'opacity-small': '1'
 			};
 		}
 
-		// --- 6b. DYNAMIC FLUID PLACEHOLDER & TOKEN ENGINE ---
-		function updateDynamicPlaceholders(applyToDOM = false) {
+		// --- 6b. DYNAMIC FLUID PLACEHOLDER ENGINE ---
+		function updateDynamicPlaceholders() {
 			const fluidMap = calculateFluidMap();
 
 			Object.entries(fluidMap).forEach(([tokenName, fluidVal]) => {
 				const input = document.querySelector(`[name="${tokenName}"][data-override]`);
 				if (input) {
 					input.placeholder = fluidVal;
-					if (applyToDOM) {
-						if (input.value.trim() === '') {
-							document.documentElement.style.setProperty(`--${tokenName}`, fluidVal);
-						} else {
-							document.documentElement.style.setProperty(`--${tokenName}`, input.value.trim());
-						}
-					}
 				}
 			});
 		}
@@ -874,41 +874,69 @@
 		// --- 6c. RENDER SYSTEM VALUES UNTO PANEL ---
 		function syncUIWithCSS() {
 			const activeStyles = getComputedStyle(document.documentElement);
+			const rawTokens = getRawThemeDeclarations();
 
 			themeControls.forEach(control => {
 				const propertyName = control.name;
-				let cssValue = activeStyles.getPropertyValue(`--${propertyName}`).trim();
+				const isOverride = control.hasAttribute('data-override');
 
-				if (!cssValue) return;
-
-				if (control.hasAttribute('data-is-color') && cssValue.startsWith('var(')) {
-					const nestedProp = cssValue.replace(/^var\(--/, '').replace(/\)$/, '');
-					cssValue = activeStyles.getPropertyValue(`--${nestedProp}`).trim();
-				}
-
-				if (control.dataset.unit) {
-					cssValue = cssValue.replace(control.dataset.unit, '');
-				}
-
-				if (control.hasAttribute('data-is-color')) {
-					if (cssValue.length === 4) {
-						cssValue = '#' + cssValue[1] + cssValue[1] + cssValue[2] + cssValue[2] + cssValue[3] + cssValue[3];
-					}
-					control.value = cssValue;
-				} else if (control.type === 'number') {
-					control.value = cssValue ? parseFloat(cssValue) : '';
-				} else if (control.tagName === 'SELECT') {
-					const options = Array.from(control.options);
-					const matchingOption = options.find(opt => 
-						cssValue.toLowerCase().replace(/['"]/g, '') === opt.value.toLowerCase().replace(/['"]/g, '')
-					);
-					if (matchingOption) {
-						control.value = matchingOption.value;
-					} else if (propertyName === 'type-scale' || propertyName === 'body-scale') {
-						control.value = 'custom';
+				if (isOverride) {
+					// Only populate override controls if an explicit override token is defined in theme-tokens.css
+					if (rawTokens.hasOwnProperty(propertyName) && rawTokens[propertyName] !== '') {
+						let cssValue = rawTokens[propertyName].trim();
+						if (control.dataset.unit) {
+							cssValue = cssValue.replace(control.dataset.unit, '');
+						}
+						if (control.type === 'number') {
+							control.value = cssValue !== '' ? parseFloat(cssValue) : '';
+						} else if (control.tagName === 'SELECT') {
+							const options = Array.from(control.options);
+							const matchingOption = options.find(opt => 
+								cssValue.toLowerCase().replace(/['"]/g, '') === opt.value.toLowerCase().replace(/['"]/g, '')
+							);
+							control.value = matchingOption ? matchingOption.value : cssValue;
+						} else {
+							control.value = cssValue;
+						}
+					} else {
+						control.value = '';
+						if (control.tagName === 'SELECT' && control.dataset.hasInherit) {
+							control.value = control.dataset.hasInherit;
+						}
 					}
 				} else {
-					control.value = cssValue; 
+					let cssValue = activeStyles.getPropertyValue(`--${propertyName}`).trim();
+					if (!cssValue) return;
+
+					if (control.hasAttribute('data-is-color') && cssValue.startsWith('var(')) {
+						const nestedProp = cssValue.replace(/^var\(--/, '').replace(/\)$/, '');
+						cssValue = activeStyles.getPropertyValue(`--${nestedProp}`).trim();
+					}
+
+					if (control.dataset.unit) {
+						cssValue = cssValue.replace(control.dataset.unit, '');
+					}
+
+					if (control.hasAttribute('data-is-color')) {
+						if (cssValue.length === 4) {
+							cssValue = '#' + cssValue[1] + cssValue[1] + cssValue[2] + cssValue[2] + cssValue[3] + cssValue[3];
+						}
+						control.value = cssValue;
+					} else if (control.type === 'number') {
+						control.value = cssValue ? parseFloat(cssValue) : '';
+					} else if (control.tagName === 'SELECT') {
+						const options = Array.from(control.options);
+						const matchingOption = options.find(opt => 
+							cssValue.toLowerCase().replace(/['"]/g, '') === opt.value.toLowerCase().replace(/['"]/g, '')
+						);
+						if (matchingOption) {
+							control.value = matchingOption.value;
+						} else if (propertyName === 'type-scale' || propertyName === 'body-scale') {
+							control.value = 'custom';
+						}
+					} else {
+						control.value = cssValue; 
+					}
 				}
 			});
 
@@ -918,7 +946,7 @@
 			const activeBS = activeStyles.getPropertyValue('--body-scale').trim();
 			if (activeBS) bsInput.value = parseFloat(activeBS);
 
-			updateDynamicPlaceholders(false);
+			updateDynamicPlaceholders();
 		}
 
 		syncUIWithCSS();
@@ -927,6 +955,7 @@
 		function handleControlInput(event) {
 			const element = event.target;
 			const propertyName = element.name;
+			const isOverride = element.hasAttribute('data-override');
 			let rawValue = element.value;
 			let valueToApply;
 
@@ -946,18 +975,24 @@
 			if (element === tsSelect) tsInput.value = valueToApply;
 			if (element === bsSelect) bsInput.value = valueToApply;
 
-			if (valueToApply !== '') {
-				document.documentElement.style.setProperty(`--${propertyName}`, valueToApply);
+			if (isOverride) {
+				if (element.tagName === 'SELECT' && element.dataset.hasInherit && valueToApply === element.dataset.hasInherit) {
+					valueToApply = '';
+				}
+				if (valueToApply !== '') {
+					document.documentElement.style.setProperty(`--${propertyName}`, valueToApply);
+				} else {
+					document.documentElement.style.removeProperty(`--${propertyName}`);
+				}
 			} else {
-				document.documentElement.style.removeProperty(`--${propertyName}`);
+				if (valueToApply !== '') {
+					document.documentElement.style.setProperty(`--${propertyName}`, valueToApply);
+				} else {
+					document.documentElement.style.removeProperty(`--${propertyName}`);
+				}
 			}
 
-			const scaleTokens = ['type-scale', 'type-start-rem', 'type-start-vw', 'base-line-height', 'body-scale', 'body-start-rem', 'body-start-vw', 'base-body-line-height', 'fw-heading', 'ls-heading', 'tt-heading', 'fw-body', 'ls-body', 'tt-body'];
-			if (scaleTokens.includes(propertyName)) {
-				updateDynamicPlaceholders(true);
-			} else {
-				updateDynamicPlaceholders(false);
-			}
+			updateDynamicPlaceholders();
 		}
 
 		themeControls.forEach(control => {
@@ -970,7 +1005,7 @@
 			if (tsSelect.value !== 'custom') {
 				document.documentElement.style.setProperty('--type-scale', tsSelect.value);
 				tsInput.value = tsSelect.value;
-				updateDynamicPlaceholders(true);
+				updateDynamicPlaceholders();
 			}
 		});
 		tsInput.addEventListener('input', () => {
@@ -978,14 +1013,14 @@
 			const match = Array.from(tsSelect.options).find(opt => parseFloat(opt.value) === val);
 			tsSelect.value = match ? match.value : 'custom';
 			document.documentElement.style.setProperty('--type-scale', val);
-			updateDynamicPlaceholders(true);
+			updateDynamicPlaceholders();
 		});
 
 		bsSelect.addEventListener('change', () => {
 			if (bsSelect.value !== 'custom') {
 				document.documentElement.style.setProperty('--body-scale', bsSelect.value);
 				bsInput.value = bsSelect.value;
-				updateDynamicPlaceholders(true);
+				updateDynamicPlaceholders();
 			}
 		});
 		bsInput.addEventListener('input', () => {
@@ -993,7 +1028,7 @@
 			const match = Array.from(bsSelect.options).find(opt => parseFloat(opt.value) === val);
 			bsSelect.value = match ? match.value : 'custom';
 			document.documentElement.style.setProperty('--body-scale', val);
-			updateDynamicPlaceholders(true);
+			updateDynamicPlaceholders();
 		});
 
 		// --- 8b. SECTION CLEAR OVERRIDES ACTION ---
@@ -1005,11 +1040,15 @@
 				if (parentTab) {
 					const overrides = parentTab.querySelectorAll('[data-override]');
 					overrides.forEach(ctrl => {
-						ctrl.value = '';
+						if (ctrl.tagName === 'SELECT' && ctrl.dataset.hasInherit) {
+							ctrl.value = ctrl.dataset.hasInherit;
+						} else {
+							ctrl.value = '';
+						}
 						document.documentElement.style.removeProperty(`--${ctrl.name}`);
 					});
 				}
-				updateDynamicPlaceholders(true);
+				updateDynamicPlaceholders();
 			});
 		});
 
@@ -1022,11 +1061,16 @@
 				});
 				const overrideControls = document.querySelectorAll('[data-override]');
 				overrideControls.forEach(ctrl => {
-					ctrl.value = '';
+					if (ctrl.tagName === 'SELECT' && ctrl.dataset.hasInherit) {
+						ctrl.value = ctrl.dataset.hasInherit;
+					} else {
+						ctrl.value = '';
+					}
 					document.documentElement.style.removeProperty(`--${ctrl.name}`);
 				});
 				document.documentElement.style.removeProperty('--type-scale');
 				document.documentElement.style.removeProperty('--body-scale');
+				document.documentElement.style.removeProperty('--scale');
 				canvasSelector.value = 'default';
 				document.documentElement.removeAttribute('theme');
 				syncUIWithCSS();
@@ -1039,27 +1083,11 @@
 
 		if (saveForm && tokensInput) {
 			saveForm.addEventListener('submit', (event) => {
-				updateDynamicPlaceholders(true);
-
 				const inlineStyles = document.documentElement.style;
 				const computed = getComputedStyle(document.documentElement);
 				const rawDeclarations = getRawThemeDeclarations();
-				const fluidMap = calculateFluidMap();
 				
-				const groups = {
-					typographyHeadings: [
-						'font-family-1', 'font-size-1', 'line-height-1', 'font-weight-1', 'letter-spacing-1', 'text-transform-1',
-						'font-family-2', 'font-size-2', 'line-height-2', 'font-weight-2', 'letter-spacing-2', 'text-transform-2',
-						'font-family-3', 'font-size-3', 'line-height-3', 'font-weight-3', 'letter-spacing-3', 'text-transform-3',
-						'font-family-4', 'font-size-4', 'line-height-4', 'font-weight-4', 'letter-spacing-4', 'text-transform-4',
-						'font-family-5', 'font-size-5', 'line-height-5', 'font-weight-5', 'letter-spacing-5', 'text-transform-5',
-						'font-family-6', 'font-size-6', 'line-height-6', 'font-weight-6', 'letter-spacing-6', 'text-transform-6'
-					],
-					typographyTexts: [
-						'font-family-large', 'font-size-large', 'line-height-large', 'font-weight-large', 'letter-spacing-large', 'opacity-large',
-						'font-family-default', 'font-size-default', 'line-height-default', 'font-weight-default', 'letter-spacing-default', 'text-transform-default',
-						'font-family-small', 'font-size-small', 'line-height-small', 'font-weight-small', 'letter-spacing-small', 'text-transform-small', 'opacity-small'
-					],
+				const globalGroups = {
 					typographyBranding: ['ff-heading', 'fw-heading', 'tt-heading', 'ls-heading', 'ff-body', 'fw-body', 'tt-body', 'ls-body', 'ff-mono'],
 					scalePresets: ['type-scale', 'type-start-rem', 'type-start-vw', 'base-line-height', 'body-scale', 'body-start-rem', 'body-start-vw', 'base-body-line-height'],
 					spacing: ['scale-min', 'scale-fluid', 'scale', 'spacing'],
@@ -1070,7 +1098,22 @@
 				};
 
 				Object.keys(rawDeclarations).forEach(token => {
-					if (token.startsWith('color-')) groups.colors.push(token);
+					if (token.startsWith('color-')) globalGroups.colors.push(token);
+				});
+
+				// Collect only explicit non-empty overrides
+				const overrideControls = document.querySelectorAll('[data-override]');
+				const activeOverrides = [];
+				overrideControls.forEach(ctrl => {
+					let val = ctrl.value ? ctrl.value.trim() : '';
+					if (ctrl.tagName === 'SELECT' && ctrl.dataset.hasInherit && val === ctrl.dataset.hasInherit) {
+						val = '';
+					}
+					if (val !== '') {
+						let unit = ctrl.dataset.unit || '';
+						let formattedVal = (ctrl.type === 'number' && unit) ? `${val}${unit}` : val;
+						activeOverrides.push({ name: ctrl.name, value: formattedVal });
+					}
 				});
 
 				let cssOutputString = "/**\n * Design Tokens Live Export\n * Saved via Kirby Theme Panel Component\n */\n\n:root {\n";
@@ -1078,10 +1121,7 @@
 				function appendGroup(title, tokensList) {
 					let clusterContent = "";
 					tokensList.forEach(token => {
-						let finalValue = inlineStyles.getPropertyValue(`--${token}`).trim();
-						if (!finalValue) {
-							finalValue = rawDeclarations[token] || computed.getPropertyValue(`--${token}`).trim() || fluidMap[token];
-						}
+						let finalValue = inlineStyles.getPropertyValue(`--${token}`).trim() || rawDeclarations[token] || computed.getPropertyValue(`--${token}`).trim();
 						if (finalValue) {
 							const paddedToken = `--${token}:`.padEnd(26, ' ');
 							clusterContent += `    ${paddedToken} ${finalValue};\n`;
@@ -1095,15 +1135,25 @@
 					}
 				}
 
-				appendGroup("Typography Heading Tokens", groups.typographyHeadings);
-				appendGroup("Typography Text Variant Tokens", groups.typographyTexts);
-				appendGroup("Typography Branding Framework", groups.typographyBranding);
-				appendGroup("Fluid Responsive Scale Presets", groups.scalePresets);
-				appendGroup("Layout Padding & Grid Spacing Tokens", groups.spacing);
-				appendGroup("Global Interactive Animations Tokens", groups.animations);
-				appendGroup("Active Theme Palette Matrix Tokens", groups.colors);
-				appendGroup("Image Styling Tokens", groups.images);
-				appendGroup("Button Components Tokens", groups.buttons);
+				appendGroup("Typography Branding Framework", globalGroups.typographyBranding);
+				appendGroup("Fluid Responsive Scale Presets", globalGroups.scalePresets);
+				appendGroup("Layout Padding & Grid Spacing Tokens", globalGroups.spacing);
+				appendGroup("Global Interactive Animations Tokens", globalGroups.animations);
+				appendGroup("Active Theme Palette Matrix Tokens", globalGroups.colors);
+				appendGroup("Image Styling Tokens", globalGroups.images);
+				appendGroup("Button Components Tokens", globalGroups.buttons);
+
+				if (activeOverrides.length > 0) {
+					let overrideContent = "";
+					activeOverrides.forEach(item => {
+						const paddedToken = `--${item.name}:`.padEnd(26, ' ');
+						overrideContent += `    ${paddedToken} ${item.value};\n`;
+					});
+					cssOutputString += `    /* ==========================================================================\n`;
+					cssOutputString += `       INDIVIDUAL TYPOGRAPHY OVERRIDES\n`;
+					cssOutputString += `       ========================================================================== */\n`;
+					cssOutputString += overrideContent + "\n";
+				}
 
 				cssOutputString = cssOutputString.trimEnd() + "\n}";
 
