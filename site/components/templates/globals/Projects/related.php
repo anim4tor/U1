@@ -24,7 +24,6 @@ if (!isset($button)) {
 <section class="projects radius" theme="<?= $theme ?>">
 	<div class="grid__3 gap-x__1 gap-y__2 mobile:grid__1 inner__4 mobile:inner-x__1 " data-carousel>
 		<div data-scroll class="flex align__start gap__01 span__2 relative">
-			<div class="absolute -left__03 w__03 h__03 bg__acc"></div>
 			<h2 class=""><?= $title ?></h2>
 		</div>
 		<div class="flex gap__02 justify__end align__end ">

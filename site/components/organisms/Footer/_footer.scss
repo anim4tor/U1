@@ -12,12 +12,14 @@ footer,
 .footer {
 	position: relative;
 	pointer-events: none;
-	& > * {
+
+	&>* {
 		pointer-events: all;
 	}
 
-	.footer__logo  {
+	.footer__logo {
 		height: 3em;
+
 		svg {
 			width: auto;
 			height: 100%;
@@ -25,19 +27,11 @@ footer,
 	}
 
 	.footer__nav {
-		font-size: var(--font-size-3);
-		line-height: var(--line-height-3);
-
-		.link,
-		a,
-		span {
-			font-size: var(--font-size-3) !important;
-			line-height: var(--line-height-3);
-		}
 
 		.link {
 			&:hover {
 				opacity: 1;
+
 				& [data-word] span {
 					--reveal-delay: 0ms;
 					--reveal-duration: 600ms;
@@ -48,6 +42,4 @@ footer,
 	}
 }
 
-[data-footer] {
-	
-}
+[data-footer] {}

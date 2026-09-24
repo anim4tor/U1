@@ -4,7 +4,7 @@
 	<?php endif ?>
 	<div class=" flex justify__space-between align__center gap__2 ">
 		<div class="flex gap__05 upper ">
-			<h4 class="font__size__5 ff__body" data-reveal-text="lines"><?= $feed->title() ?></h4>
+			<h3 class="font__size__4 ff__body" data-reveal-text="lines"><?= $feed->title() ?></h3>
 		</div>
 		<p class="font__size__small" data-reveal-text="lines">(<?= $feed->date()->toDate('Y') ?>)</p>
 	</div>

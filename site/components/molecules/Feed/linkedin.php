@@ -19,7 +19,7 @@
 	<div class="item__meta relative flex justify__space-between align__center gap__2">
 		<?php if ($post->title()->isNotEmpty()): ?>
 			<div class="flex gap__05 upper">
-				<h3 class="font__size__5 wrap"><?= $post->title()->excerpt(200) ?></h3>
+				<h3 class="font__size__4 wrap"><?= $post->title()->excerpt(200) ?></h3>
 			</div>
 		<?php endif ?>
 	</div>

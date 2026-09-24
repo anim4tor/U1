@@ -3,12 +3,12 @@
 
 	<div class="grid__4 gap__1 inner-x__4 inner-y__2 inner-b__1">
 		<a class="footer__logo" href="<?= page('home')->url() ?>"><span data-reveal ><?= svg('public/assets/images/fig_logo_invert.svg') ?></span></a>	
-		<nav class="span__3 footer__nav flex wrap align__center gap__02 ff__heading font__size__3">
+		<nav class="span__3 footer__nav flex wrap align__center gap__02 ff__heading ">
 			<?php foreach ($pages->listed() as $p): ?>
 				<?php if(!$p->isFirst()) : ?>
 					<span class="ff__body op__2">/</span>
 				<?php endif ?>
-				<?= snippet('atoms/Link', ['url' => $p->url(), 'label' => $p->title(), 'icon' => false, 'css' => !$p->isActive() ? 'op__4' : '', 'node' => 'data-reveal-text data-split-ignore']) ?>
+				<?= snippet('atoms/Link', ['url' => $p->url(), 'label' => $p->title(), 'icon' => false, 'css' => !$p->isActive() ? 'op__4 font__size__3' : 'font__size__3', 'node' => 'data-reveal-text data-split-ignore']) ?>
 			<?php endforeach ?>
 			
 		</nav>

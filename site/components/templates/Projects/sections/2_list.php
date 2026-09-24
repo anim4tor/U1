@@ -1,7 +1,7 @@
 <?php if (!empty($isFiltered) && isset($images)) : ?>
 	<?php if ($images->isNotEmpty()) : ?>
 		<section class="list" theme="invert">
-			<ol class="grid__3 gap__1 inner__4">
+			<ol class="grid__3 gap__1 inner__4 inner-t__2">
 				<?php foreach ($images as $image) : ?>
 					<?php $project = $image->parent(); ?>
 					<div data-slide class="inner-b__3">	
@@ -31,7 +31,7 @@
 <?php else : ?>
 	<?php if (collection('Projects')->isNotEmpty()) : ?>
 		<section class="list" theme="invert">
-			<ol class="grid__3 gap__1 inner__4">
+			<ol class="grid__3 gap__1 inner__4 inner-t__2">
 				<?php foreach ($projects as $project) : ?>
 					<div data-slide class="inner-b__3">	
 						<?= snippet('molecules/Project/large', compact('project')) ?>

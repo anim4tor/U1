@@ -2,7 +2,6 @@
 
 	<div class="grid__3 gap__2 mobile:grid__1 inner__4 mobile:inner-x__1 relative z__1" data-carousel>
 		<div data-scroll class="flex align__start gap__01 span__2 relative">
-			<div class="absolute -left__03 w__03 h__03 bg__acc"></div>
 			<h2 class=""><?= t('related-articles') ?></h2>
 		</div>
 		<div class="flex gap__02 justify__end align__end ">

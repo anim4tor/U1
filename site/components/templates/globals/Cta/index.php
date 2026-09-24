@@ -4,15 +4,26 @@
 		<div class="bg radius absolute inset__stretch" >
 			<!-- <?= asset('public/assets/images/cta_bg.png') ?> -->
 		</div>
-		<div class="relative grid__4 gap__1 mobile:grid__1 inner__4 inner-t__4">
-			<div class="span__4 flex justify__space-between align__end gap__3 color__invert">
-				<div class="inner-b__0 flex align__start gap__01 span__4">
-					<?= snippet('molecules/Header', ['header' => $site->ctaContact(), 'type' => ['label']]) ?>
-					<?= snippet('molecules/Header', ['header' => $site->ctaContact(), 'type' => ['heading']]) ?>
+		<div class="relative grid__4 gap__1 mobile:grid__1 inner__4">
+			
+			<div class="absolute w__10 top__2 bottom__1 left__4">
+				<?= snippet('molecules/Header', ['header' => $site->ctaContact(), 'type' => ['image']]) ?>
+			</div>
+			<div class="span__3 flex align__end gap__2 color__invert relative">
+				<div class="span__2 grid gap__05 inner-l__10">
+					<div class="inner-b__0 flex align__start gap__01 span__4">
+						<?= snippet('molecules/Header', ['header' => $site->ctaContact(), 'type' => ['label']]) ?>
+						<?= snippet('molecules/Header', ['header' => $site->ctaContact(), 'type' => ['heading']]) ?>
+					</div>
+					<div class="inner-l__04">
+						<?= snippet('molecules/Header', ['header' => $site->ctaContact(), 'type' => ['text']]) ?>
+					</div>
 				</div>
-				<div class="flex justify__end">
-					<?= snippet('molecules/Header', ['header' => $site->ctaContact(), 'type' => ['button']]) ?>
-				</div>
+			</div>
+			<div class="flex gap__0 justify__end align__end">
+				<?= snippet('atoms/Button', [ 'type' => 'button', 'theme' => 'invert-ghost', 'hover' => 'dark', 'label' => 'Volné pozice', 'url' => page('career/positions')->url() ]) ?>
+				<?= snippet('molecules/Header', ['header' => $site->ctaContact(), 'type' => ['button']]) ?>
+
 			</div>
 		</div>
 	</div>
