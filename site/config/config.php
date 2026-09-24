@@ -111,6 +111,36 @@ return [
     'routes' => function ($kirby) {
       return [
           [
+              'pattern' => 'theme/save',
+              'method' => 'POST',
+              'action' => function () {
+                $kirby = kirby();
+                if (!$kirby->user()) {
+                    return \Kirby\Http\Response::json(['status' => 'error', 'message' => 'Unauthorized'], 401);
+                }
+                $generatorScript = $kirby->root('site') . '/components/atoms/Theme/save-theme.php';
+                if (file_exists($generatorScript)) {
+                    include($generatorScript);
+                }
+                return \Kirby\Http\Response::json(['status' => 'success', 'message' => 'Theme tokens saved successfully']);
+              }
+          ],
+          [
+              'pattern' => 'theme/sync-fonts',
+              'method' => 'POST',
+              'action' => function () {
+                $kirby = kirby();
+                if (!$kirby->user()) {
+                    return \Kirby\Http\Response::json(['status' => 'error', 'message' => 'Unauthorized'], 401);
+                }
+                $generatorScript = $kirby->root('site') . '/components/atoms/Theme/generate-fonts.php';
+                if (file_exists($generatorScript)) {
+                    include($generatorScript);
+                }
+                return \Kirby\Http\Response::json(['status' => 'success', 'message' => 'Fonts synced successfully']);
+              }
+          ],
+          [
               'pattern' => ['booking/(:any)/(:any)'],
               'action' => function ($collection,$id) {
                 $host = explode('.',$_SERVER['HTTP_HOST']);

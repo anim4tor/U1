@@ -535,19 +535,15 @@
 
 		<div class="flex span__2" style="width: 100%; margin-top: 0.75rem; gap: 0.5rem; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 0.75rem; flex-wrap: wrap;">
 					
-			<form action="<?= $page->url() ?>" method="POST" style="width: 100%; margin: 0; padding: 0;">
-				<input type="hidden" name="action" value="sync_theme_fonts">
-				
-				<button type="submit" style="width: 100%; background: rgba(0, 123, 255, 0.2); color: #007bff; border: 1px solid rgba(0, 123, 255, 0.4); padding: 0.5rem; border-radius: 4px; cursor: pointer; font-family: sans-serif; font-size: 0.75rem; letter-spacing: 0.05em; text-transform: uppercase; font-weight: bold; margin-bottom: 0.25rem; transition: all 0.2s;">
+			<form id="theme-sync-form" action="<?= url('theme/sync-fonts') ?>" method="POST" style="width: 100%; margin: 0; padding: 0;">
+				<button type="submit" id="sync-fonts-btn" style="width: 100%; background: rgba(0, 123, 255, 0.2); color: #007bff; border: 1px solid rgba(0, 123, 255, 0.4); padding: 0.5rem; border-radius: 4px; cursor: pointer; font-family: sans-serif; font-size: 0.75rem; letter-spacing: 0.05em; text-transform: uppercase; font-weight: bold; margin-bottom: 0.25rem; transition: all 0.2s;">
 					🔄 Sync Fonts
 				</button>
 			</form>
 
-			<form id="theme-save-form" action="<?= $page->url() ?>" method="POST" style="flex: 2; margin: 0; padding: 0;">
-				<input type="hidden" name="action" value="save-theme">
+			<form id="theme-save-form" action="<?= url('theme/save') ?>" method="POST" style="flex: 2; margin: 0; padding: 0;">
 				<input type="hidden" id="css-tokens-input" name="css_tokens" value="">
-				
-				<button type="submit" style="width: 100%; background: rgba(40, 167, 69, 0.2); color: #28a745; border: 1px solid rgba(40, 167, 69, 0.4); padding: 0.5rem; border-radius: 4px; cursor: pointer; font-family: sans-serif; font-size: 0.75rem; letter-spacing: 0.05em; text-transform: uppercase; font-weight: bold;">
+				<button type="submit" id="save-config-btn" style="width: 100%; background: rgba(40, 167, 69, 0.2); color: #28a745; border: 1px solid rgba(40, 167, 69, 0.4); padding: 0.5rem; border-radius: 4px; cursor: pointer; font-family: sans-serif; font-size: 0.75rem; letter-spacing: 0.05em; text-transform: uppercase; font-weight: bold; transition: all 0.2s;">
 					💾 Save Config File
 				</button>
 			</form>
@@ -653,21 +649,21 @@
 			const declarations = {
 				'spacing' : 'max(calc(var(--scale-min) * 1rem), calc(var(--scale-fluid) * 1vw * var(--scale)))',
 				'type-scale' : '1.618',
-				'type-start-rem' : '1.5rem',
-				'type-start-vw' : '1.5vw',
-				'base-line-height' : '1.40',
-				'body-scale' : '1.400',
-				'body-start-rem' : '0.714rem',
-				'body-start-vw' : '0.714vw',
-				'base-body-line-height' : '1.90',
-				'animation-duration' : '800ms',
+				'type-start-rem' : '1rem',
+				'type-start-vw' : '1.3vw',
+				'base-line-height' : '1.26',
+				'body-scale' : '1.222',
+				'body-start-rem' : '0.7rem',
+				'body-start-vw' : '0.65vw',
+				'base-body-line-height' : '1.52',
+				'animation-duration' : '1000ms',
 				'animation-timing' : 'cubic-bezier(0.4, 0, 0.2, 1)',
 				'animation-stagger' : '50ms',
 				'animation-delay' : '0ms',
 				'toggle-parallax' : '1',
 				'toggle-reveals' : '1',
-				'img-radius' : '8px',
-		        'radius' : '4px',
+				'img-radius' : '0.75',
+		        'radius' : '1.5',
 		        'btn-padding' : '0.5rem 1rem',
 		        'btn-radius' : '4px',
 		        'btn-border' : '1px'
@@ -1077,12 +1073,44 @@
 			});
 		}
 
-		// --- 10. SYNCHRONOUS FORM SUBMIT ENGINE ---
+		// --- 10. FORM SUBMISSION (GLOBAL AJAX ENDPOINTS) ---
 		const saveForm = document.getElementById('theme-save-form');
 		const tokensInput = document.getElementById('css-tokens-input');
+		const saveBtn = document.getElementById('save-config-btn');
+		const syncForm = document.getElementById('theme-sync-form');
+		const syncBtn = document.getElementById('sync-fonts-btn');
 
-		if (saveForm && tokensInput) {
-			saveForm.addEventListener('submit', (event) => {
+		if (syncForm && syncBtn) {
+			syncForm.addEventListener('submit', async (e) => {
+				e.preventDefault();
+				const originalText = syncBtn.textContent;
+				syncBtn.textContent = '⏳ Syncing...';
+				syncBtn.disabled = true;
+				try {
+					const res = await fetch(syncForm.action, { method: 'POST' });
+					if (res.ok) {
+						discoverAndPopulateFonts();
+						syncBtn.textContent = '✓ Fonts Synced!';
+					} else {
+						syncBtn.textContent = '❌ Error';
+					}
+				} catch (err) {
+					syncBtn.textContent = '❌ Error';
+				}
+				setTimeout(() => {
+					syncBtn.textContent = originalText;
+					syncBtn.disabled = false;
+				}, 2000);
+			});
+		}
+
+		if (saveForm && tokensInput && saveBtn) {
+			saveForm.addEventListener('submit', async (event) => {
+				event.preventDefault();
+				const originalText = saveBtn.textContent;
+				saveBtn.textContent = '⏳ Saving...';
+				saveBtn.disabled = true;
+
 				const inlineStyles = document.documentElement.style;
 				const computed = getComputedStyle(document.documentElement);
 				const rawDeclarations = getRawThemeDeclarations();
@@ -1156,8 +1184,27 @@
 				}
 
 				cssOutputString = cssOutputString.trimEnd() + "\n}";
-
 				tokensInput.value = cssOutputString;
+
+				try {
+					const formData = new FormData(saveForm);
+					const res = await fetch(saveForm.action, {
+						method: 'POST',
+						body: formData
+					});
+					if (res.ok) {
+						saveBtn.textContent = '💾 Saved ✓';
+					} else {
+						saveBtn.textContent = '❌ Save Failed';
+					}
+				} catch (err) {
+					saveBtn.textContent = '❌ Save Error';
+				}
+
+				setTimeout(() => {
+					saveBtn.textContent = originalText;
+					saveBtn.disabled = false;
+				}, 2000);
 			});
 		}
 	});
