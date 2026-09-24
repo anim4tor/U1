@@ -37,9 +37,11 @@ return function ($kirby) {
     // ----------------------------------------------------
     $cachedLinkedin = $cache->get('social.linkedin.posts');
 
-    if ($cachedLinkedin === null || empty($cachedLinkedin)) {
+    if ($cachedLinkedin === null) {
+        $cachedLinkedin = [];
         $orgId = (string) option('linkedin.org_id');
         $token = trim((string) option('linkedin.token'));
+
         if (!empty($orgId) && !empty($token)) {
             if (!str_starts_with($orgId, 'urn:li:organization:')) {
                 $orgId = 'urn:li:organization:' . $orgId;
@@ -49,11 +51,11 @@ return function ($kirby) {
 
             try {
                 $response = Remote::get($endpoint, [
-                    'timeout' => 12,
+                    'timeout' => 2,
                     'headers' => [
                         'Authorization'             => 'Bearer ' . $token,
                         'LinkedIn-Version'          => '202601',
-                        'X-Restli-Protocol-Version'  => '2.0.0'
+                        'X-Restli-Protocol-Version' => '2.0.0'
                     ]
                 ]);
 
@@ -83,7 +85,7 @@ return function ($kirby) {
                                 try {
                                     if (str_starts_with($mediaUrn, 'urn:li:image:')) {
                                         $imgRes = Remote::get('https://api.linkedin.com/rest/images/' . urlencode($mediaUrn), [
-                                            'timeout' => 4,
+                                            'timeout' => 2,
                                             'headers' => $apiHeaders
                                         ]);
                                         if ($imgRes->code() === 200) {
@@ -91,7 +93,7 @@ return function ($kirby) {
                                         }
                                     } elseif (str_starts_with($mediaUrn, 'urn:li:video:')) {
                                         $vidRes = Remote::get('https://api.linkedin.com/rest/videos/' . urlencode($mediaUrn), [
-                                            'timeout' => 4,
+                                            'timeout' => 2,
                                             'headers' => $apiHeaders
                                         ]);
                                         if ($vidRes->code() === 200) {
@@ -117,19 +119,17 @@ return function ($kirby) {
                         ];
                     }
 
-                    if (!empty($cachedLinkedin)) {
-                        $cache->set('social.linkedin.posts', $cachedLinkedin, 43200); // 12 hours
-                    }
+                    $cache->set('social.linkedin.posts', $cachedLinkedin, 43200); // 12 hours
+                } else {
+                    // Cache empty response on API error (e.g. 401 token expired) to avoid stalling future page loads
+                    $cache->set('social.linkedin.posts', [], 7200); // 2 hours
                 }
             } catch (\Throwable $e) {
-                // Ignore network errors
+                // Timeout / network error -> cache empty for 1 hour
+                $cache->set('social.linkedin.posts', [], 3600);
             }
-        }
-
-        if ($cachedLinkedin === null || empty($cachedLinkedin)) {
-            $cachedLinkedin = is_array($cachedLinkedin) ? $cachedLinkedin : [];
-            // If failed to fetch, retry after 5 seconds instead of 30
-            $cache->set('social.linkedin.posts', $cachedLinkedin, 5);
+        } else {
+            $cache->set('social.linkedin.posts', [], 86400);
         }
     }
 
@@ -182,18 +182,22 @@ return function ($kirby) {
             $endpoint = "https://graph.instagram.com/me/media?fields=id,caption,media_type,media_url,permalink,timestamp,thumbnail_url&limit=50&access_token={$token}";
 
             try {
-                $response = Remote::get($endpoint, ['timeout' => 3]);
+                $response = Remote::get($endpoint, ['timeout' => 2]);
                 if ($response->code() === 200) {
                     $cachedInstagram = $response->json()['data'] ?? [];
                     $cache->set('social.instagram.posts', $cachedInstagram, 43200); // 12 hours
+                } else {
+                    $cachedInstagram = [];
+                    $cache->set('social.instagram.posts', [], 7200); // 2 hours
                 }
             } catch (\Throwable $e) {
                 // Ignore network errors, fall back to empty array
                 $cachedInstagram = [];
-                $cache->set('social.instagram.posts', [], 300); // 5 min cooldown
+                $cache->set('social.instagram.posts', [], 3600); // 1 hour cooldown
             }
         } else {
             $cachedInstagram = [];
+            $cache->set('social.instagram.posts', [], 86400);
         }
     }
 

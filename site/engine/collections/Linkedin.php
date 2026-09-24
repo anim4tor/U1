@@ -9,6 +9,7 @@ return function ($kirby) {
     $cachedPosts = $cache->get('linkedin.posts');
 
     if ($cachedPosts === null) {
+        $cachedPosts = [];
         $token  = option('linkedin.token');
         $orgId  = option('linkedin.org_id'); // e.g. 'urn:li:organization:12345678'
         
@@ -17,7 +18,7 @@ return function ($kirby) {
             
             try {
                 $response = Remote::get($endpoint, [
-                    'timeout' => 3,
+                    'timeout' => 2,
                     'headers' => [
                         'Authorization' => 'Bearer ' . $token,
                         'LinkedIn-Version' => '202601',
@@ -28,15 +29,14 @@ return function ($kirby) {
                 if ($response->code() === 200) {
                     $cachedPosts = $response->json()['elements'] ?? [];
                     $cache->set('linkedin.posts', $cachedPosts, 43200); // 12 hours
+                } else {
+                    $cache->set('linkedin.posts', [], 7200); // 2 hours
                 }
             } catch (\Throwable $e) {
-                // Ignore network errors
+                $cache->set('linkedin.posts', [], 3600); // 1 hour cooldown
             }
-        }
-
-        if ($cachedPosts === null) {
-            $cachedPosts = [];
-            $cache->set('linkedin.posts', [], 300); // 5 min retry cooldown
+        } else {
+            $cache->set('linkedin.posts', [], 86400);
         }
     }
 
