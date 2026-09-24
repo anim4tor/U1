@@ -1,4 +1,7 @@
-/* LOCAL WEB FONTS */
+/* AUTOMATICALLY GENERATED - DO NOT EDIT */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
 @font-face {
     font-family: 'ABCArizonaFlare';
@@ -9,9 +12,45 @@
 }
 
 @font-face {
+    font-family: 'BricolageGrotesque';
+    src: url('../fonts/BricolageGrotesque-SemiBold.woff2') format('woff2'),
+        url('../fonts/BricolageGrotesque-SemiBold.woff') format('woff');
+    font-weight: 500 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
     font-family: 'Inter';
     src: url('../fonts/Inter-VariableFont_opsz,wght.ttf') format('truetype');
     font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'IvyPrestoText';
+    src: url('../fonts/IvyPrestoText-Bold.woff') format('woff'),
+        url('../fonts/IvyPrestoText-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Migra';
+    src: url('../fonts/Migra-Extrabold.woff') format('woff'),
+        url('../fonts/Migra-Extrabold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Migra';
+    src: url('../fonts/Migra-Extralight.woff') format('woff'),
+        url('../fonts/Migra-Extralight.woff2') format('woff2');
+    font-weight: 300;
     font-style: normal;
     font-display: swap;
 }
@@ -44,28 +83,10 @@
 }
 
 @font-face {
-    font-family: 'IvyPresto Text';
-    src: url('../fonts/IvyPrestoText-Bold.woff2') format('woff2'),
-        url('../fonts/IvyPrestoText-Bold.woff') format('woff');
-    font-weight: bold;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Migra';
-    src: url('../fonts/Migra-Extrabold.woff2') format('woff2'),
-        url('../fonts/Migra-Extrabold.woff') format('woff');
-    font-weight: 500 900;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Migra';
-    src: url('../fonts/Migra-Extralight.woff2') format('woff2'),
-        url('../fonts/Migra-Extralight.woff') format('woff');
-    font-weight: 100 300;
+    font-family: 'Bricolage Grotesque';
+    src: url('../fonts/BricolageGrotesque-SemiBold.woff2') format('woff2'),
+        url('../fonts/BricolageGrotesque-SemiBold.woff') format('woff');
+    font-weight: 600;
     font-style: normal;
     font-display: swap;
 }

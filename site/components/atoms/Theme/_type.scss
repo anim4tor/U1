@@ -11,12 +11,14 @@
    ------------------------------------------------------------ */
 :root {
     /* Headings */
+    --font-family-1: 'BricolageGrotesque', 'Bricolage Grotesque', var(--ff-heading), sans-serif;
     --font-size-1: clamp(2.40rem, 4.5vw, 4.20rem);
     --line-height-1: 1.01;
     --font-weight-1: 600;
     --letter-spacing-1: var(--ls-heading, normal);
     --text-transform-1: var(--tt-heading, none);
 
+    --font-family-2: 'BricolageGrotesque', 'Bricolage Grotesque', var(--ff-heading), sans-serif;
     --font-size-2: clamp(1.75rem, 3.0vw, 2.75rem);
     --line-height-2: 1.06;
     --font-weight-2: 600;
@@ -87,6 +89,7 @@ $levels: 'small', 'default', 'large', 6, 5, 4, 3, 2, 1;
             .fonts_size_#{$level},
             .text-#{$level} {
                 --output-size: calc(var(--font-size-#{$level}));
+                font-family: var(--font-family-#{$level}, inherit);
                 font-size: var(--output-size);
                 line-height: var(--line-height-#{$level});
                 font-weight: var(--font-weight-#{$level}, inherit);
@@ -365,6 +368,19 @@ h6,
     letter-spacing: var(--ls-heading);
     text-transform: var(--tt-heading);
     font-optical-sizing: auto;
+}
+
+h1,
+h2,
+.font__size__1,
+.font__size__2,
+.fonts__size__1,
+.fonts__size__2,
+.font-size-1,
+.font-size-2,
+.font_size_1,
+.font_size_2 {
+    font-family: var(--font-family-1, 'BricolageGrotesque', 'Bricolage Grotesque', var(--ff-heading), sans-serif);
 }
 
 /*

@@ -7,11 +7,13 @@
    /* ==========================================================================
        TYPOGRAPHY HEADING TOKENS
        ========================================================================== */
+   --font-family-1: 'BricolageGrotesque', 'Bricolage Grotesque', var(--ff-heading), sans-serif;
    --font-size-1: clamp(2.40rem, 4.5vw, 4.20rem);
    --line-height-1: 1.01;
    --font-weight-1: 600;
    --letter-spacing-1: -0.035em;
    --text-transform-1: none;
+   --font-family-2: 'BricolageGrotesque', 'Bricolage Grotesque', var(--ff-heading), sans-serif;
    --font-size-2: clamp(1.75rem, 3.0vw, 2.75rem);
    --line-height-2: 1.06;
    --font-weight-2: 600;
