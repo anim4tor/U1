@@ -9,12 +9,12 @@
        ========================================================================== */
    --font-size-1: clamp(2.40rem, 4.5vw, 4.20rem);
    --line-height-1: 1.01;
-   --font-weight-1: 700;
+   --font-weight-1: 600;
    --letter-spacing-1: -0.035em;
    --text-transform-1: none;
    --font-size-2: clamp(1.75rem, 3.0vw, 2.75rem);
    --line-height-2: 1.06;
-   --font-weight-2: 700;
+   --font-weight-2: 600;
    --letter-spacing-2: -0.035em;
    --text-transform-2: none;
    --font-size-3: clamp(1.30rem, 2.0vw, 1.85rem);

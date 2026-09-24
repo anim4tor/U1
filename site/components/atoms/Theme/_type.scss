@@ -13,13 +13,13 @@
     /* Headings */
     --font-size-1: clamp(2.40rem, 4.5vw, 4.20rem);
     --line-height-1: 1.01;
-    --font-weight-1: 700;
+    --font-weight-1: 600;
     --letter-spacing-1: var(--ls-heading, normal);
     --text-transform-1: var(--tt-heading, none);
 
     --font-size-2: clamp(1.75rem, 3.0vw, 2.75rem);
     --line-height-2: 1.06;
-    --font-weight-2: 700;
+    --font-weight-2: 600;
     --letter-spacing-2: var(--ls-heading, normal);
     --text-transform-2: var(--tt-heading, none);
 
@@ -502,7 +502,7 @@ button,
 
 .outlined {
     -webkit-text-stroke: 0.015em rgb(var(--background));
-    letter-spacing: -0.05em;
+    letter-spacing: 0;
 }
 
 ::selection {

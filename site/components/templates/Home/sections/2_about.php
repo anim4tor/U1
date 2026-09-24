@@ -11,19 +11,6 @@
 		<div class="span__2"></div>
 		<div class="span__2">
 		<?= snippet('templates/globals/Figures') ?>
-			
-		<!-- <div></div>
-		<?php if ($fig = $page->introFigure()->toFile()) : ?>
-			<div class="grid h__20" >
-				<?= snippet('molecules/Header', ['header' => $page->about(), 'type' => ['image']]) ?>
-			</div>
-		<?php endif ?>
-		<div class="grid place__start-end"><?= snippet('molecules/Header', ['header' => $page->about(), 'type' => ['label']]) ?></div>
-		<div></div>
-		<div class="grid place__center-start gap__3">
-			<?= null //snippet('molecules/Header', ['header' => $page->about(), 'type' => ['text']]) ?>
-		</div>
-		<div></div> -->
 		</div>
 		
 	</div>
