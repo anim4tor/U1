@@ -160,7 +160,7 @@ try { $processSteps = $page->process()->toStructure(); } catch (\Throwable $e) {
 					<div class="grid gap__05">
 						<span class="color__acc font__size__1 ff__heading leading__none"><?= $num ?></span>
 						<h3 class="font__size__3 ff__heading"><?= $step->title() ?></h3>
-						<p class="wrap-t__1"><?= $step->text() ?></p>
+						<p class=""><?= $step->text() ?></p>
 					</div>
 				</div>
 				<?php $idx++; ?>

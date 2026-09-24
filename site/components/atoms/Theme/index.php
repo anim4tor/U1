@@ -59,7 +59,7 @@
 				</div>
 				<div class="grid">
 					<label class="ff__body op__4 font__size__small">Tracking</label>
-					<input type="text" name="ls-heading" placeholder="normal" data-theme-setup>
+					<input type="number" name="ls-heading" step="0.01" placeholder="0" data-theme-setup data-unit="em">
 				</div>
 			</div>
 
@@ -126,7 +126,7 @@
 				</div>
 				<div class="grid">
 					<label class="ff__body op__4 font__size__small">Letter Spacing</label>
-					<input type="text" name="letter-spacing-1" data-theme-setup data-override>
+					<input type="number" name="letter-spacing-1" step="0.01" placeholder="0" data-theme-setup data-override data-unit="em">
 				</div>
 			</div>
 
@@ -153,7 +153,7 @@
 				</div>
 				<div class="grid">
 					<label class="ff__body op__4 font__size__small">Letter Spacing</label>
-					<input type="text" name="letter-spacing-2" data-theme-setup data-override>
+					<input type="number" name="letter-spacing-2" step="0.01" placeholder="0" data-theme-setup data-override data-unit="em">
 				</div>
 			</div>
 
@@ -180,7 +180,7 @@
 				</div>
 				<div class="grid">
 					<label class="ff__body op__4 font__size__small">Letter Spacing</label>
-					<input type="text" name="letter-spacing-3" data-theme-setup data-override>
+					<input type="number" name="letter-spacing-3" step="0.01" placeholder="0" data-theme-setup data-override data-unit="em">
 				</div>
 			</div>
 
@@ -207,7 +207,7 @@
 				</div>
 				<div class="grid">
 					<label class="ff__body op__4 font__size__small">Letter Spacing</label>
-					<input type="text" name="letter-spacing-4" data-theme-setup data-override>
+					<input type="number" name="letter-spacing-4" step="0.01" placeholder="0" data-theme-setup data-override data-unit="em">
 				</div>
 			</div>
 
@@ -234,7 +234,7 @@
 				</div>
 				<div class="grid">
 					<label class="ff__body op__4 font__size__small">Letter Spacing</label>
-					<input type="text" name="letter-spacing-5" data-theme-setup data-override>
+					<input type="number" name="letter-spacing-5" step="0.01" placeholder="0" data-theme-setup data-override data-unit="em">
 				</div>
 			</div>
 
@@ -261,7 +261,7 @@
 				</div>
 				<div class="grid">
 					<label class="ff__body op__4 font__size__small">Letter Spacing</label>
-					<input type="text" name="letter-spacing-6" data-theme-setup data-override>
+					<input type="number" name="letter-spacing-6" step="0.01" placeholder="0" data-theme-setup data-override data-unit="em">
 				</div>
 			</div>
 		</div>
@@ -295,7 +295,7 @@
 				</div>
 				<div class="grid">
 					<label class="ff__body op__4 font__size__small">Tracking</label>
-					<input type="text" name="ls-body" placeholder="normal" data-theme-setup>
+					<input type="number" name="ls-body" step="0.01" placeholder="-0.035" data-theme-setup data-unit="em">
 				</div>
 			</div>
 
@@ -360,7 +360,7 @@
 				</div>
 				<div class="grid">
 					<label class="ff__body op__4 font__size__small">Letter Spacing</label>
-					<input type="text" name="letter-spacing-large" data-theme-setup data-override>
+					<input type="number" name="letter-spacing-large" step="0.01" placeholder="-0.035" data-theme-setup data-override data-unit="em">
 				</div>
 			</div>
 
@@ -387,7 +387,7 @@
 				</div>
 				<div class="grid">
 					<label class="ff__body op__4 font__size__small">Letter Spacing</label>
-					<input type="text" name="letter-spacing-default" data-theme-setup data-override>
+					<input type="number" name="letter-spacing-default" step="0.01" placeholder="-0.035" data-theme-setup data-override data-unit="em">
 				</div>
 			</div>
 
@@ -414,7 +414,7 @@
 				</div>
 				<div class="grid">
 					<label class="ff__body op__4 font__size__small">Tracking (LS)</label>
-					<input type="text" name="letter-spacing-small" data-theme-setup data-override>
+					<input type="number" name="letter-spacing-small" step="0.01" placeholder="-0.035" data-theme-setup data-override data-unit="em">
 				</div>
 			</div>
 			<div class="theme-panel-row span__2" style="margin-bottom: 0.25rem;">
