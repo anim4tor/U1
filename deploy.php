@@ -17,8 +17,7 @@ ignore_user_abort(true);
 $secret       = 'maiden37';
 $repo         = 'anim4tor/U1';
 $activeBranch = (file_exists(__DIR__ . '/.current-branch') ? trim((string)@file_get_contents(__DIR__ . '/.current-branch')) : '') ?: 'v3';
-$targetBranch = $_REQUEST['branch'] ?? $activeBranch;
-$githubToken  = $_REQUEST['token'] ?? (file_exists(__DIR__ . '/.env') ? (@parse_ini_file(__DIR__ . '/.env')['GITHUB_TOKEN'] ?? null) : null) ?: base64_decode('Z2hwXzNCRGY0bWE5R0t5Tk1ieXBvMGxQZnRVVW45ajJQcTRnSVp1UA==');
+$githubToken  = $_REQUEST['token'] ?? (file_exists(__DIR__ . '/.env') ? (@parse_ini_file(__DIR__ . '/.env')['GITHUB_TOKEN'] ?? null) : null) ?? (getenv('GITHUB_TOKEN') ?: null);
 $projectDir   = __DIR__;
 $logFile      = __DIR__ . '/deploy-log.json';
 

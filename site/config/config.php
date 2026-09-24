@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'debug'  => true,
+    'debug'  => ($_SERVER['HTTP_HOST'] ?? '') === 'u1.test',
     'panel.install' => true,
     'home' => 'home',
     'languages' => true,
@@ -21,6 +21,13 @@ return [
         '#11b5bb' => 'cyan',
     ],
     'cache' => [
+        'pages' => [
+            'active' => ($_SERVER['HTTP_HOST'] ?? '') !== 'u1.test',
+            'type'   => 'file',
+            'ignore' => function ($page) {
+                return kirby()->user() !== null;
+            }
+        ],
         'social' => true
     ],
     'panel' => [
