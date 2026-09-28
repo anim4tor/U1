@@ -8,9 +8,9 @@ if (!$item) return;
 // 1. Detect item type
 $type = $type ?? null;
 if (!$type) {
-    if (is_object($item) && method_exists($item, 'platform') && $item->platform()->isNotEmpty()) {
+    if ($item->content()->has('platform') && $item->platform()->isNotEmpty()) {
         $type = 'social';
-    } elseif (is_object($item) && method_exists($item, 'intendedTemplate') && $item->intendedTemplate()->name() === 'project') {
+    } elseif ($item->intendedTemplate()->name() === 'project') {
         $type = 'media';
     } else {
         $type = 'blog';
@@ -20,22 +20,22 @@ if (!$type) {
 $isSocial = ($type === 'social');
 
 // 2. Resolve URL and attributes
-$url      = $isSocial ? (method_exists($item, 'social_url') ? $item->social_url()->value() : '#') : $item->url();
+$url      = $isSocial ? ($item->content()->has('social_url') ? $item->social_url()->value() : '#') : $item->url();
 $target   = $isSocial ? '_blank' : null;
 $rel      = $isSocial ? 'noopener noreferrer' : null;
-$title    = $isSocial ? (method_exists($item, 'title') ? $item->title()->excerpt(200) : '') : $item->title();
+$title    = $isSocial ? $item->title()->excerpt(200) : $item->title();
 
 // 3. Date / Meta
 $dateText = null;
-if (!$isSocial && method_exists($item, 'date') && $item->date()->isNotEmpty()) {
+if (!$isSocial && $item->content()->has('date') && $item->date()->isNotEmpty()) {
     $dateText = '(' . ($type === 'media' ? $item->date()->toDate('Y') : $item->date()->toDate('Y-m-d')) . ')';
 }
 
 // 4. Figure & Media
-$coverFile = method_exists($item, 'cover') ? $item->cover()->toFile() : null;
-$mediaUrl  = ($isSocial && method_exists($item, 'media_url')) ? $item->media_url()->value() : null;
-$platform  = ($isSocial && method_exists($item, 'platform')) ? $item->platform()->value() : null;
-$isVideo   = ($isSocial && method_exists($item, 'media_type')) ? ($item->media_type()->value() === 'VIDEO') : false;
+$coverFile = $item->cover()->toFile();
+$mediaUrl  = $isSocial && $item->content()->has('media_url') ? $item->media_url()->value() : null;
+$platform  = $isSocial && $item->content()->has('platform') ? $item->platform()->value() : null;
+$isVideo   = $isSocial && $item->content()->has('media_type') && ($item->media_type()->value() === 'VIDEO');
 ?>
 
 <div class="item --feed --feed-<?= esc($type) ?>" data-scroll>
