@@ -23,7 +23,7 @@
 						<ol class="flex justify__start align__start no__wrap gap__1 " data-carousel-slides >	
 						<?php foreach (collection('Blog') as $feed) : ?>
 							<li data-slide class="vw__5">	
-								<?= snippet('molecules/Feed', compact('feed')) ?>
+								<?= snippet('molecules/Feed/list', ['item' => $feed, 'type' => 'blog']) ?>
 							</li>
 						<?php endforeach ?>
 						</ol>
@@ -49,7 +49,7 @@
 						<ol class="flex justify__start align__start no__wrap gap__1 " data-carousel-slides >	
 						<?php foreach (collection('Socials') as $post) : ?>
 							<li data-slide class="vw__5 aspect__1/1">	
-								<?= snippet('molecules/Feed/social', compact('post')) ?>
+								<?= snippet('molecules/Feed/list', ['item' => $post, 'type' => 'social']) ?>
 							</li>
 						<?php endforeach ?>
 						</ol>
@@ -75,7 +75,7 @@
 						<ol class="flex justify__start align__start no__wrap gap__1 " data-carousel-slides >	
 						<?php foreach (collection('Projects') as $feed) : ?>
 							<li data-slide class="vw__5 aspect__1/1">	
-								<?= snippet('molecules/Feed/media', compact('feed')) ?>
+								<?= snippet('molecules/Feed/list', ['item' => $feed, 'type' => 'media']) ?>
 							</li>
 						<?php endforeach ?>
 						</ol>

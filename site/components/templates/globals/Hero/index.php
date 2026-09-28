@@ -15,11 +15,11 @@ if (isset($page) && $page->cover()->isNotEmpty()) {
 ?>
 <?php if ($hasHero || $cover || (isset($page) && $page->title()->isNotEmpty())) : ?>
 <section class="intro radius" theme="dark" style="--in-delay: 500ms">
-	<div class="intro__cover absolute inset__stretch grid" data-scroll>
+	<div class="intro__cover absolute inset__stretch grid overlay__harder" data-scroll>
 		<?php if ($hasHero) : ?>
 			<?= snippet('molecules/Header', ['header' => $hero, 'type' => ['cover']]) ?>
 		<?php elseif ($cover) : ?>
-			<?= snippet('atoms/Image', ['img' => $cover, 'parallax' => 2, 'reveal' => false, 'css' => 'overlay__bottom']) ?>
+			<?= snippet('atoms/Image', ['img' => $cover, 'parallax' => 2, 'reveal' => false, 'css' => '']) ?>
 		<?php endif ?>
 	</div>
 	<div data-scroll class="z__1 intro__header place__stretch-stretch grid__4 intro__rows mobile:grid__1 h__100v mobile:h__auto inner__4 mobile:inner-t__10 mobile:gap__2 relative color__invert">
