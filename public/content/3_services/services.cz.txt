@@ -6,7 +6,7 @@ Slug: services
 
 ----
 
-Hero: [{"content":{"text":"Služby","mod":"","face":"","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"ab06c938-ddbd-4f65-b9e3-f37d6a2ebd68","isHidden":false,"type":"label"}]
+Hero: [{"content":{"text":"Solutions","level":"h1","mod":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"9aad427c-0306-47d7-8e74-f5361d9935fd","isHidden":false,"type":"heading"}]
 
 ----
 
