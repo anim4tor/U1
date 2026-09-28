@@ -19,7 +19,7 @@ if ($hero instanceof \Kirby\Cms\Field) {
 					(<?= $page->title() ?>)
 				</div>
 				<div class="span__2">
-					<?= snippet('molecules/Header', ['header' => $hero, 'type' => ['text']]) ?>
+					<?= snippet('molecules/Header', ['header' => $hero, 'type' => ['text', 'button']]) ?>
 				</div>
 			</div>
 			<div class="intro__title relative place__end-stretch span__2 mobile:span__1 inner-y__05" style="--in-delay: 500ms">

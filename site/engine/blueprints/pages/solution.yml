@@ -8,31 +8,17 @@ status:
 tabs:
   content:
     columns:
-      - width: 1/2
+      - width: 2/3
         fields:
-          cover:
-            width: 1/1
-            type: files
-            template: cover
-            info: "{{ file.dimensions }}"
-            uploads:
-              template: cover
-            image:
-              ratio: 5/4
-              cover: true
-            max: 1
-            layout: cards
-            size: full
+          hero:
+            extends: fields/hero
 
-          relatedProjects:
-            width: 1/1
-            label: Related Projects
-            type: pages
-            layout: cards
-            size: small
-            query: site.find('projects')
-            image:
-              cover: true
+          excerpt:
+            type: writer
+          intro:
+            type: writer
+          details:
+            type: writer
 
           gallery:
             width: 1/1
@@ -48,12 +34,30 @@ tabs:
             size: large
             empty: No images yet
 
-      - width: 1/2
+          relatedProjects:
+            width: 1/1
+            label: Related Projects
+            type: pages
+            layout: cards
+            size: small
+            query: site.find('projects')
+            image:
+              cover: true
+
+      - width: 1/3
         fields:
-          excerpt:
-            type: writer
-          intro:
-            type: writer
-          details:
-            type: writer
+          cover:
+            width: 1/1
+            type: files
+            template: cover
+            info: "{{ file.dimensions }}"
+            uploads:
+              template: cover
+            image:
+              ratio: 5/4
+              cover: true
+            max: 1
+            layout: cards
+            size: full
+
   meta: tabs/meta/page
