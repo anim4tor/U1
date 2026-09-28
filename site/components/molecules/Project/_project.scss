@@ -10,41 +10,38 @@
 .item {
     [href] {
         row-gap: calc(0.5 * var(--spacing));
-    }
 
-    .item__meta {
-        margin-top: 0;
-        padding-top: 0;
-        @include animation;
-    }
-
-    .item__figure {
-        overflow: hidden;
-        @include animation((transform, clip-path, opacity), 600ms);
-        clip-path: inset(0% 0% 0% 0%);
-
-        figure,
-        & > figure,
-        & > img {
-            @include animation((opacity, clip-path, filter, transform), 600ms);
-            transform: scale(1.1);
-            filter: blur(0) brightness(0.8);
-        }
-    }
-
-    [href]:hover {
         .item__figure {
+            overflow: hidden;
+            @include animation((transform, clip-path, opacity), 600ms);
             clip-path: inset(0% 0% 0% 0%);
-            transform: none;
+
             figure,
             & > figure,
-            & > img {
-                transform: scale(1);
-                filter: blur(0) brightness(1.0);
+            & > img,
+            [data-reveal-image] {
+                @include animation((opacity, clip-path, filter, transform, visibility), 600ms);
+                transform: scale(1.1);
+                filter: blur(0) brightness(0.8);
             }
         }
-        .item__meta {
-            clip-path: inset(0% 0% 0% 0%);
+
+        &:hover,
+        &:focus {
+            .item__figure {
+                clip-path: inset(0% 0% 0% 0%);
+                transform: none;
+                figure,
+                & > figure,
+                & > img,
+                [data-reveal-image] {
+                    transform: scale(1);
+                    filter: blur(0) brightness(1.0);
+                }
+            }
+            .item__meta {
+                clip-path: inset(0% 0% 0% 0%);
+            }
         }
     }
 }

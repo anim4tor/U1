@@ -156,7 +156,7 @@
 
 	[data-reveal-image] {
 		/*		visibility: hidden;*/
-		@include animation((visibility, opacity));
+		@include animation((visibility, opacity, transform, filter, clip-path));
 		--reveal-duration: 600ms;
 		transition-duration: var(--reveal-duration);
 		opacity: 0;
