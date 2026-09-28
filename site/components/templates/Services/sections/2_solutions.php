@@ -1,11 +1,11 @@
 <?php if (collection('Solutions')->isNotEmpty()) : ?>
 <section class="solutions" data-tabs="hoverable" theme="invert" >
 	<div class="bg radius absolute inset__stretch" ></div>
-	<div class="grid__4 place__end-stretch mobile:grid__1 mobile:inner-t__10 mobile:gap__2 relative inner__4">
-		<ul class="span__3 solutions__list grid gap-y__02" data-scroll>
+	<div class="grid__4 place__end-stretch mobile:grid__1 mobile:inner-t__10 mobile:gap__2 relative inner__4 inner-t__0">
+		<ul class="span__3 solutions__list grid__2 gap-y__02" data-scroll>
 			<?php foreach (collection('Solutions') as $solution) : ?>
 				<a href="<?= $solution->url() ?>" class="flex align__start gap__05" data-tab="service-<?= $solution->slug() ?>">
-					<?= snippet('atoms/Heading', [ 'level' => 'h1', 'text' => $solution->title(), 'reveal' => true, 'css' => 'font__size__2', 'node' => 'data-split-ignore data-scroll-ignore' ]) ?>
+					<?= snippet('atoms/Heading', [ 'level' => 'h2', 'text' => $solution->title(), 'reveal' => true, 'css' => 'font__size__3', 'node' => 'data-split-ignore data-scroll-ignore' ]) ?>
 				</a>
 			<?php endforeach ?>
 		</ul>
