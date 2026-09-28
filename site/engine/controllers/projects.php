@@ -6,6 +6,7 @@ return function ($page, $kirby, $site) {
     $filterIndustry = get('industry');
     $filterSpace    = get('space');
     $filterGeneric  = get('filter');
+    $filterSearch   = trim((string)(get('search') ?? get('q') ?? ''));
 
     $allProjects = collection('Projects');
     
@@ -51,15 +52,36 @@ return function ($page, $kirby, $site) {
         $allImages->pluck('space', ',', true)
     );
 
-    $isFiltered     = !empty($filterIndustry) || !empty($filterSpace) || !empty($filterGeneric);
+    $hasTagFilter   = !empty($filterIndustry) || !empty($filterSpace) || !empty($filterGeneric);
+    $hasSearch      = !empty($filterSearch);
+    $isFiltered     = $hasTagFilter || $hasSearch;
     $filteredImages = null;
     $projects       = $allProjects;
 
-    // 3. Filter ONLY images matching the active tag(s) on the images themselves (supports two tags simultaneously)
+    // Filter projects if search is active
+    if ($hasSearch) {
+        $projects = $projects->search($filterSearch, 'title|industry|space|architect|location|intro');
+    }
+
+    // 3. Filter ONLY images matching the active tag(s) or search on the images themselves
     if ($isFiltered) {
-        $filteredImages = $allImages->filter(function ($image) use ($filterIndustry, $filterSpace, $filterGeneric) {
+        $filteredImages = $allImages->filter(function ($image) use ($filterIndustry, $filterSpace, $filterGeneric, $filterSearch) {
             $imageIndustries = array_map([Str::class, 'slug'], $image->industry()->split(','));
             $imageSpaces     = array_map([Str::class, 'slug'], $image->space()->split(','));
+
+            // Search filter check on image / parent project
+            if (!empty($filterSearch)) {
+                $parent = $image->parent();
+                $haystack = mb_strtolower(
+                    ($parent ? $parent->title()->value() . ' ' . $parent->industry()->value() . ' ' . $parent->space()->value() . ' ' . $parent->location()->value() . ' ' . $parent->architect()->value() . ' ' : '') .
+                    $image->caption()->value() . ' ' .
+                    $image->industry()->value() . ' ' .
+                    $image->space()->value()
+                );
+                if (!str_contains($haystack, mb_strtolower($filterSearch))) {
+                    return false;
+                }
+            }
 
             // If industry filter is set, image MUST explicitly have this industry tag
             if (!empty($filterIndustry) && !in_array($filterIndustry, $imageIndustries)) {
@@ -96,8 +118,9 @@ return function ($page, $kirby, $site) {
         'filterIndustry' => $filterIndustry,
         'filterSpace'    => $filterSpace,
         'filterGeneric'  => $filterGeneric,
+        'filterSearch'   => $filterSearch,
         'isFiltered'     => $isFiltered,
         'projects'       => $projects->paginate(12),
-        'images'         => $filteredImages ? $filteredImages->paginate(24) : null,
+        'images'         => $hasTagFilter ? ($filteredImages ? $filteredImages->paginate(24) : null) : null,
     ];
 };

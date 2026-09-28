@@ -9,6 +9,7 @@ import '../../components/atoms/Reveal/index.js';
 import '../../components/molecules/Collapsible/index.js';
 import '../../components/molecules/Tabs/index.js';
 import '../../components/molecules/Dropdown/index.js';
+import { initProjectSearch } from '../../components/molecules/Search/index.js';
 import '../../components/organisms/Loader/index.js';
 import '../../components/organisms/Header/index.js';
 import '../../components/organisms/Carousel/index.js';
@@ -137,7 +138,8 @@ const init = async () => {
         initTabs, 
         initCollapsibles, 
         initCarousels,
-        initContact
+        initContact,
+        initProjectSearch
     ];
     
     // Spustíme komponenty (await počká na ty, které vrací Promise)

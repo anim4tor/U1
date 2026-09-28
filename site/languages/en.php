@@ -31,6 +31,11 @@ return [
         'our-values' => 'Our values',
         'next-project' => 'Next project',
         'view-project' => 'View project',
+        'search' => 'Search',
+        'search-projects' => 'Search projects...',
+        'search-no-results' => 'No projects found',
+        'search-all-results' => 'View all results',
+        'reset-filters' => 'Reset filters',
         'scroll' => 'Scroll',
 
         // Template names

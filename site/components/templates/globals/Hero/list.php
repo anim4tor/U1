@@ -54,6 +54,9 @@ if (!empty($isFiltered)) {
             }
         }
     }
+    if (!empty($filterSearch)) {
+        $activeLabels[] = '„' . $filterSearch . '“';
+    }
     $activeHeading = !empty($activeLabels) ? implode(' / ', $activeLabels) : 'Filtrováno';
 }
 ?>
@@ -110,7 +113,7 @@ if (!empty($isFiltered)) {
 				<?php if (isset($controls)) : ?>
 					<?= $controls ?>
 				<?php elseif (!empty($industries) || !empty($spaces)) : ?>
-					<div class="flex align__start gap__05">
+					<div class="flex align__center gap__05 flex__wrap">
 						<?= snippet('atoms/Button', [ 
 							'url'     => isset($page) ? $page->url() : '#', 
 							'label'   => 'Vše', 
@@ -132,6 +135,12 @@ if (!empty($isFiltered)) {
 								'options' => $spaces,
 								'active'  => $filterSpace ?? null
 							]) ?> 
+						<?php endif ?>
+						<?php if (!empty($searchable)) : ?>
+							<?= snippet('molecules/Search', [
+								'theme' => 'light',
+								'url'   => isset($page) ? $page->url() : url('projects'),
+							]) ?>
 						<?php endif ?>
 					</div>
 				<?php elseif (!empty($nav)) : ?>

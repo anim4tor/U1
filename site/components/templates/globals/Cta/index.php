@@ -20,7 +20,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="flex gap__0 justify__end align__end">
+			<div class="flex gap__02 justify__end align__end">
 				<?= snippet('molecules/Header', ['header' => $site->ctaContact(), 'type' => ['button']]) ?>
 
 			</div>

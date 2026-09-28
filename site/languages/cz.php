@@ -31,6 +31,11 @@ return [
         'our-values' => 'Naše hodnoty',
         'next-project' => 'Další projekt',
         'view-project' => 'Zobrazit projekt',
+        'search' => 'Hledat',
+        'search-projects' => 'Hledat projekt...',
+        'search-no-results' => 'Žádné projekty nenalezeny',
+        'search-all-results' => 'Zobrazit všechny výsledky',
+        'reset-filters' => 'Zrušit filtry',
         'scroll' => 'Scrollovat',
 
         // Template names

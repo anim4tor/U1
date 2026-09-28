@@ -1,6 +1,6 @@
 <?php if (!empty($isFiltered) && isset($images)) : ?>
-	<?php if ($images->isNotEmpty()) : ?>
-		<section class="list" theme="invert">
+	<section class="list" theme="invert">
+		<?php if ($images->isNotEmpty()) : ?>
 			<ol class="grid__3 gap__1 inner__4 inner-t__2">
 				<?php foreach ($images as $image) : ?>
 					<?php $project = $image->parent(); ?>
@@ -26,11 +26,20 @@
 					</div>
 				<?php endforeach ?>
 			</ol>
-		</section>
-	<?php endif ?>
+		<?php else : ?>
+			<div class="inner__4 inner-y__5 text__center flex-centered gap__1">
+				<p class="font__size__3 op__6"><?= t('search-no-results', 'Žádné projekty nebyly nalezeny') ?></p>
+				<?= snippet('atoms/Button', [
+					'url'   => $page->url(),
+					'label' => t('reset-filters', 'Zrušit filtry'),
+					'theme' => 'light'
+				]) ?>
+			</div>
+		<?php endif ?>
+	</section>
 <?php else : ?>
-	<?php if (collection('Projects')->isNotEmpty()) : ?>
-		<section class="list" theme="invert">
+	<section class="list" theme="invert">
+		<?php if ($projects && $projects->isNotEmpty()) : ?>
 			<ol class="grid__3 gap__1 inner__4 inner-t__2">
 				<?php foreach ($projects as $project) : ?>
 					<div data-slide class="inner-b__3">	
@@ -38,6 +47,15 @@
 					</div>
 				<?php endforeach ?>
 			</ol>
-		</section>
-	<?php endif ?>
+		<?php elseif (!empty($isFiltered)) : ?>
+			<div class="inner__4 inner-y__5 text__center flex-centered gap__1">
+				<p class="font__size__3 op__6"><?= t('search-no-results', 'Žádné projekty nebyly nalezeny') ?></p>
+				<?= snippet('atoms/Button', [
+					'url'   => $page->url(),
+					'label' => t('reset-filters', 'Zrušit filtry'),
+					'theme' => 'light'
+				]) ?>
+			</div>
+		<?php endif ?>
+	</section>
 <?php endif ?>

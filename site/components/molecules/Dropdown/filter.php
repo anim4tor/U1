@@ -4,9 +4,11 @@ $activeValue = $active ?? get($param);
 
 // Gather current active query parameters
 $currentQuery = [];
-if ($ind = get('industry')) $currentQuery['industry'] = $ind;
-if ($sp  = get('space'))    $currentQuery['space']    = $sp;
-if ($f   = get('filter'))   $currentQuery['filter']   = $f;
+if ($ind    = get('industry')) $currentQuery['industry'] = $ind;
+if ($sp     = get('space'))    $currentQuery['space']    = $sp;
+if ($f      = get('filter'))   $currentQuery['filter']   = $f;
+if ($search = get('search'))   $currentQuery['search']   = $search;
+if ($q      = get('q'))        $currentQuery['q']        = $q;
 ?>
 <div class="custom-dropdown">
   <div class="dropdown-container relative">

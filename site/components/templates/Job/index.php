@@ -25,7 +25,7 @@
 <section class="about radius" theme="invert">
 	<div data-scroll class="grid__4 gap__2 mobile:grid__1 inner__4 mobile:inner-x__1 ">
 		<div class="span__2">
-			<div class="flex gap__05 align__center upper font__size__small no__wrap" data-scroll ><div class="w__03 h__03 bg__acc"></div><div data-reveal-text>O pozici</div></div>	
+			<div class="flex gap__05 align__center upper font__size__small no__wrap" data-scroll ><div data-reveal-text>O pozici</div></div>	
 		</div>
 		<div class="span__2 grid place__start-start gap__3 mobile:inner-x__0">
 			<h3 data-reveal-text="lines" class=""><?= $page->excerpt()->inline() ?></h3>
@@ -36,7 +36,7 @@
 			<?php foreach ($page->description()->toStructure() as $item) : ?>
 				
 				<li class="flex align__start gap__05">
-					<div class="inner-t__01"><?= svg('site/assets/images/ui/list-checkmark.svg') ?></div>
+					<div class=""><?= svg('site/assets/images/ui/list-checkmark.svg') ?></div>
 					<span class="font__size__default"><?= $item->text() ?></span>
 				</li>
 			<?php endforeach; ?>
@@ -56,7 +56,7 @@
 				<ul data-pane="benefits" class="grid__2 place__start-start gap__1 mobile:inner-x__0">
 					<?php foreach ($page->benefits()->toStructure() as $item) : ?>
 						<li class="flex align__start gap__05">
-							<div class="inner-t__01"><?= svg('site/assets/images/ui/list-checkmark.svg') ?></div>
+							<div class=""><?= svg('site/assets/images/ui/list-checkmark.svg') ?></div>
 							<span class="font__size__default"><?= $item->text() ?></span>
 						</li>
 					<?php endforeach; ?>
@@ -64,7 +64,7 @@
 				<ul data-pane="requirements" class="grid__2 place__start-start gap__1 mobile:inner-x__0">
 					<?php foreach ($page->requirements()->toStructure() as $item) : ?>
 						<li class="flex align__start gap__05">
-							<div class="inner-t__01"><?= svg('site/assets/images/ui/list-checkmark.svg') ?></div>
+							<div class=""><?= svg('site/assets/images/ui/list-checkmark.svg') ?></div>
 							<span class="font__size__default"><?= $item->text() ?></span>
 						</li>
 					<?php endforeach; ?>
@@ -122,7 +122,7 @@ try { $processSteps = $page->process()->toStructure(); } catch (\Throwable $e) {
 ?>
 <?php if ($processSteps && $processSteps->isNotEmpty()) : ?>
 <section class="hiring-process radius border__bottom" theme="dark">
-	<div class="grid gap__3 inner__4 mobile:inner__2" data-scroll>
+	<div class="grid gap__2 inner__4 mobile:inner__2" data-scroll>
 		<div>
 			<?php if ($page->processHeader()->isNotEmpty() && $page->processHeader()->toBlocks()->isNotEmpty()) : ?>
 				<div data-scroll class="flex align__start gap__01 span__2">
@@ -149,18 +149,20 @@ try { $processSteps = $page->process()->toStructure(); } catch (\Throwable $e) {
 				$img = $step->image()->toFile();
 				$fallbackImg = 'site/assets/images/job/step_0' . $idx . '.png';
 				?>
-				<div class="grid inner__1 border radius gap__1 place__start-stretch" data-scroll>
-					<div class="img__radius overflow__hidden aspect__16/9">
+				<div class="grid gap__1 place__start-stretch" data-scroll>
+					<div class="img__radius overflow__hidden vh__8">
 						<?php if ($img) : ?>
-							<?= snippet('atoms/Image', ['img' => $img, 'reveal' => true, 'css' => 'aspect__16/9']) ?>
+							<?= snippet('atoms/Image', ['img' => $img, 'reveal' => true]) ?>
 						<?php elseif (file_exists(kirby()->root('index') . '/' . $fallbackImg)) : ?>
-							<img src="<?= url($fallbackImg) ?>" alt="<?= $step->title() ?>" class="is-loaded w__full h__full" style="object-fit: cover; aspect-ratio: 16/9;">
+							<img src="<?= url($fallbackImg) ?>" alt="<?= $step->title() ?>" class="is-loaded w__full h__full" style="object-fit: cover;">
 						<?php endif ?>
 					</div>
-					<div class="grid gap__05">
-						<span class="color__acc font__size__1 ff__heading leading__none"><?= $num ?></span>
-						<h3 class="font__size__3 ff__heading"><?= $step->title() ?></h3>
-						<p class=""><?= $step->text() ?></p>
+					<div class="flex align__start gap__2">
+						<span class="color__acc font__size__1 ff__heading leading__none -wrap-t__02"><?= $num ?></span>
+						<div class="grid gap__05">
+							<h3 class="font__size__3 ff__heading"><?= $step->title() ?></h3>
+							<p class=""><?= $step->text() ?></p>
+						</div>
 					</div>
 				</div>
 				<?php $idx++; ?>
@@ -211,15 +213,15 @@ if ($cta = $site->ctaCareer()) {
 				<span class="job-sticky-cta__sub"><?= $ctaSub ?></span>
 			</div>
 		</div>
-		<div class="job-sticky-cta__actions">
+		<div class="flex gap__02 align__center">
 			<?= snippet('atoms/Button', [
 				'url'   => $positionsUrl,
-				'label' => 'Zpět na volné pozice',
+				'label' => 'Volné pozice (' . collection('Jobs')->count() . ')',
 				'theme' => 'invert-ghost',
 				'hover' => 'invert',
 			]) ?>
 			<?= snippet('atoms/Button', [
-				'label' => '(Mám zájem o pozici)',
+				'label' => 'Mám zájem o pozici',
 				'icon'  => 'arrow-right',
 				'theme' => 'acc',
 				'hover' => 'dark',

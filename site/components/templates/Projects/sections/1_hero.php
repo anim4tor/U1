@@ -3,6 +3,8 @@
     'filterIndustry'   => $filterIndustry ?? null,
     'filterSpace'      => $filterSpace ?? null,
     'filterGeneric'    => $filterGeneric ?? null,
+    'filterSearch'     => $filterSearch ?? null,
+    'searchable'       => true,
     'industries'       => $industries ?? [],
     'spaces'           => $spaces ?? [],
     'images'           => $images ?? null,

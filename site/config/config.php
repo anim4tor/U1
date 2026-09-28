@@ -145,6 +145,57 @@ return [
                 return go("booking.json/collection{$eq}{$collection}/id{$eq}{$id}");
               }
           ],
+          [
+              'pattern' => 'api/projects/search',
+              'action'  => function () {
+                $q = trim((string)(get('q') ?? get('search') ?? ''));
+                $projects = collection('Projects');
+                if ($q !== '') {
+                    $projects = $projects->search($q, 'title|industry|space|architect|location|intro');
+                }
+
+                $ind = get('industry');
+                $sp  = get('space');
+                if (!empty($ind)) {
+                    $projects = $projects->filter(function ($p) use ($ind) {
+                        return in_array($ind, array_map([\Kirby\Toolkit\Str::class, 'slug'], $p->industry()->split(',')));
+                    });
+                }
+                if (!empty($sp)) {
+                    $projects = $projects->filter(function ($p) use ($sp) {
+                        return in_array($sp, array_map([\Kirby\Toolkit\Str::class, 'slug'], $p->space()->split(',')));
+                    });
+                }
+
+                $data = [];
+                foreach ($projects->limit(8) as $p) {
+                    $cover = $p->cover()->toFile() ?? $p->images()->filter(function ($f) {
+                        return $f->template() !== 'logo' && $f->extension() !== 'svg';
+                    })->first();
+
+                    $coverUrl = null;
+                    if ($cover) {
+                        try {
+                            $coverUrl = $cover->resize(120, 90, 80)->url();
+                        } catch (\Throwable $e) {
+                            $coverUrl = $cover->url();
+                        }
+                    }
+
+                    $data[] = [
+                        'id'        => $p->id(),
+                        'title'     => $p->title()->value(),
+                        'url'       => $p->url(),
+                        'cover'     => $coverUrl,
+                        'industry'  => $p->industry()->value(),
+                        'space'     => $p->space()->value(),
+                        'location'  => $p->location()->value(),
+                        'year'      => $p->date()->isNotEmpty() ? $p->date()->toDate('Y') : '',
+                    ];
+                }
+                return \Kirby\Http\Response::json($data);
+              }
+          ],
        
       ];
     },

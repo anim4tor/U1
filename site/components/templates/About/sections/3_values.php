@@ -8,7 +8,7 @@
 						<?php if ($img = $value->figure()->toFile()) : ?>
 							<div data-scroll data-scroll-ignore data-tab-reveal data-pane="step-<?= $value->indexOf(collection('Values')) ?>" id="trigger-<?= $value->indexOf(collection('Values')) ?>" class="vh__20 grid overlay__bottom">
 								<div class="grid w__100v " data-reveal-image>
-									<?= snippet('atoms/Image', ['img' => $img, 'reveal' => false, 'css' => 'overlay__bottom']) ?>
+									<?= snippet('atoms/Image', ['img' => $img, 'reveal' => false, 'css' => 'overlay__harder']) ?>
 								</div>
 							</div>
 						<?php endif ?>
@@ -21,7 +21,7 @@
 				</div>
 			</div>
 			<div class="grid gap__05 place__start-stretch z__1 relative color__invert inner-b__5">
-				<div class="grid__4 " data-scroll >
+				<div class="grid__<?= collection('Values')->count() ?>" data-scroll >
 					<?php foreach (collection('Values') as $value) : ?>
 						<div class="grid place__end-start gap__1 inner-y__1">
 							<div data-tab="step-<?= $value->indexOf(collection('Values')) ?>" class="flex align__start gap__02" >
@@ -34,7 +34,7 @@
 				<div class="border__top grid">
 					<div data-tabs-progress-line class="progress__line"></div>
 				</div>
-				<div data-pane-container class="grid__4" data-scroll>
+				<div data-pane-container class="grid__<?= collection('Values')->count() ?>" data-scroll>
 					<?php foreach (collection('Values') as $value) : ?>
 						<div class="grid gap__1 inner-y__1" data-tab-reveal data-pane="step-<?= $value->indexOf(collection('Values')) ?>" id="pane-text-<?= $value->indexOf(collection('Values')) ?>">
 							<p class="" data-reveal-text="lines" data-split-ignore ><?= $value->detail()->inline() ?></p>
