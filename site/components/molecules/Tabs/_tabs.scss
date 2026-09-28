@@ -64,17 +64,29 @@
 [data-tabs="default"] {
 	[data-pane] {
 		opacity: 0;
+		visibility: hidden;
+		height: 0;
+		overflow: hidden;
+		pointer-events: none;
 		transition: opacity 300ms ease;
 	}
 
 	[data-pane][data-active] {
 		opacity: 1;
+		visibility: visible;
+		height: auto;
+		overflow: visible;
+		pointer-events: all;
 	}
 }
 
 [data-tabs="default"]:not([data-init]) {
 	[data-pane]:first-child {
 		opacity: 1;
+		visibility: visible;
+		height: auto;
+		overflow: visible;
+		pointer-events: all;
 	}
 }
 
