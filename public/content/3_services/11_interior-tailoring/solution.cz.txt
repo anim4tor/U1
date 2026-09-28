@@ -1,6 +1,80 @@
 Title: Atypická výroba a truhlářství
 
+----
+
+Hero: [{"type":"heading","id":"block-q9s5p8pn","isHidden":false,"content":{"text":"Atypická výroba a truhlářství","level":"h1","mod":"l","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""}},{"type":"cover","id":"block-niramipq","isHidden":false,"content":{"image":["file://B3qzowr055hl3ljC"],"hasparallax":"false","parallax":0,"hasreveal":"false","reveal":"","bid":"","attr":"","css":"overlay__harder","href":"","target":"false","node":""}},{"type":"text","id":"block-bqoxiu93","isHidden":false,"content":{"text":"Vlastní truhlářská a atypická výroba prvků na míru, které dají vašemu prostoru originální charakter a dokonalý detail.","mod":"l","face":"","case":"lower","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""}}]
 
 ----
 
-Hero: [{"type":"heading","id":"hero-head-dji4fpu","isHidden":false,"content":{"text":"Atypická výroba a truhlářství\n","level":"h1","mod":"l","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""}}]
+Cover:  - file://B3qzowr055hl3ljC
+
+
+----
+
+Intro:  <p>Vlastní truhlářská a atypická výroba prvků na míru, které dají vašemu prostoru originální charakter a dokonalý detail.</p>
+
+
+----
+
+Details:  
+
+
+----
+
+Meta-description:  
+
+
+----
+
+Meta-title:  
+
+
+----
+
+Meta-canonical-url:  
+
+
+----
+
+Og-title:  
+
+
+----
+
+Og-description:  
+
+
+----
+
+Og-image:  
+
+
+----
+
+Robots-index:  
+
+
+----
+
+Robots-follow:  
+
+
+----
+
+Robots-archive:  
+
+
+----
+
+Robots-imageindex:  
+
+
+----
+
+Robots-snippet:  
+
+
+----
+
+Uuid:  HVtP2o21xJQJFAZM
+

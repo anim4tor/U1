@@ -1,6 +1,80 @@
 Title: Podlahy a krytiny
 
+----
+
+Hero: [{"type":"heading","id":"block-bl1ccb12","isHidden":false,"content":{"text":"Podlahy a krytiny","level":"h1","mod":"l","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""}},{"type":"cover","id":"block-tx2inwrv","isHidden":false,"content":{"image":["file://B3qzowr055hl3ljC"],"hasparallax":"false","parallax":0,"hasreveal":"false","reveal":"","bid":"","attr":"","css":"overlay__harder","href":"","target":"false","node":""}},{"type":"text","id":"block-ipiuiepq","isHidden":false,"content":{"text":"Výběr a pokládka odolných podlahových krytin, kobercových čtverců a vinylů s důrazem na akustiku a dlouhou životnost.","mod":"l","face":"","case":"lower","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""}}]
 
 ----
 
-Hero: [{"type":"heading","id":"hero-head-tgao33b","isHidden":false,"content":{"text":"Podlahy a krytiny\n","level":"h1","mod":"l","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""}}]
+Cover:  - file://B3qzowr055hl3ljC
+
+
+----
+
+Intro:  <p>Výběr a pokládka odolných podlahových krytin, kobercových čtverců a vinylů s důrazem na akustiku a dlouhou životnost.</p>
+
+
+----
+
+Details:  
+
+
+----
+
+Meta-description:  
+
+
+----
+
+Meta-title:  
+
+
+----
+
+Meta-canonical-url:  
+
+
+----
+
+Og-title:  
+
+
+----
+
+Og-description:  
+
+
+----
+
+Og-image:  
+
+
+----
+
+Robots-index:  
+
+
+----
+
+Robots-follow:  
+
+
+----
+
+Robots-archive:  
+
+
+----
+
+Robots-imageindex:  
+
+
+----
+
+Robots-snippet:  
+
+
+----
+
+Uuid:  uAYYAbsvVi1WeCTp
+

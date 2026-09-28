@@ -1,6 +1,80 @@
 Title: Vybavení interiérů
 
+----
+
+Hero: [{"type":"heading","id":"block-sw7v65pe","isHidden":false,"content":{"text":"Vybavení interiérů","level":"h1","mod":"l","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""}},{"type":"cover","id":"block-s5d7hssw","isHidden":false,"content":{"image":["file://B3qzowr055hl3ljC"],"hasparallax":"false","parallax":0,"hasreveal":"false","reveal":"","bid":"","attr":"","css":"overlay__harder","href":"","target":"false","node":""}},{"type":"text","id":"block-iz3jenm9","isHidden":false,"content":{"text":"Kompletní dodávka doplňků, technologického vybavení a prvků, které dotvářejí funkční a příjemné pracoviště.","mod":"l","face":"","case":"lower","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""}}]
 
 ----
 
-Hero: [{"type":"heading","id":"hero-head-dnp6fly","isHidden":false,"content":{"text":"Vybavení interiérů\n","level":"h1","mod":"l","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""}}]
+Cover:  - file://B3qzowr055hl3ljC
+
+
+----
+
+Intro:  <p>Kompletní dodávka doplňků, technologického vybavení a prvků, které dotvářejí funkční a příjemné pracoviště.</p>
+
+
+----
+
+Details:  
+
+
+----
+
+Meta-description:  
+
+
+----
+
+Meta-title:  
+
+
+----
+
+Meta-canonical-url:  
+
+
+----
+
+Og-title:  
+
+
+----
+
+Og-description:  
+
+
+----
+
+Og-image:  
+
+
+----
+
+Robots-index:  
+
+
+----
+
+Robots-follow:  
+
+
+----
+
+Robots-archive:  
+
+
+----
+
+Robots-imageindex:  
+
+
+----
+
+Robots-snippet:  
+
+
+----
+
+Uuid:  lD5GCDRmX1SPID3M
+

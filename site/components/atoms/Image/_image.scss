@@ -8,9 +8,10 @@
 @import "../../atoms/Media/media";
 @import "../../atoms/Animation/animation";
 @import "../../atoms/Theme/border";
+
 :root {
   --img-radius: 0.75;
-  
+
 }
 
 
@@ -21,10 +22,11 @@ figure {
   background-color: rgba(var(--color-invert), 0.03);
 
   &:not(.no__radius) {
-/*    border-radius: var(--img-radius);*/
+    /*    border-radius: var(--img-radius);*/
   }
 
-  img, video {
+  img,
+  video {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -44,8 +46,8 @@ figure {
   }
 
   video {
-  	height: 100%;	
-  	width: 	100%;
+    height: 100%;
+    width: 100%;
   }
 
 }
@@ -64,37 +66,32 @@ img {
 }
 
 [data-parallax] {
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    
-    img {
-        // Safe, static layout base size
-        --buffer: calc(100% + (var(--speed, 0) * 4% * var(--toggle-parallax, 1)));
-        position: absolute;
-        width: 100%;
-        height: var(--buffer);
-        min-height: var(--buffer);
-        object-fit: cover;
-        
-        --parallax-speed: calc(var(--speed, 0));
-        
-        // Pure mathematical vertical boundary compensation offset
-        --height-modifier: calc((var(--progress, 0.5) - 0.5) * (var(--speed, 0) * -2%));
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-        transform: 
-            translateY(calc(
-                ((var(--parallax-speed, 10) * -10%) + 
-                (var(--parallax-speed, 10) * 20% * var(--progress, 0.5)) +
-                var(--height-modifier))
-                * var(--toggle-parallax, 1)
-            ));
-/*            scale(calc(1.1 - 0.1 * var(--progress) * var(--toggle-parallax, 1)));*/
-        
-        will-change: transform;
-    }
+  img {
+    // Safe, static layout base size
+    --buffer: calc(100% + (var(--speed, 0) * 4% * var(--toggle-parallax, 1)));
+    position: absolute;
+    width: 100%;
+    height: var(--buffer);
+    min-height: var(--buffer);
+    object-fit: cover;
+
+    --parallax-speed: calc(var(--speed, 0));
+
+    // Pure mathematical vertical boundary compensation offset
+    --height-modifier: calc((var(--progress, 0.5) - 0.5) * (var(--speed, 0) * -2%));
+
+    transform:
+      translateY(calc(((var(--parallax-speed, 10) * -10%) + (var(--parallax-speed, 10) * 20% * var(--progress, 0.5)) + var(--height-modifier)) * var(--toggle-parallax, 1)));
+    /*            scale(calc(1.1 - 0.1 * var(--progress) * var(--toggle-parallax, 1)));*/
+
+    will-change: transform;
+  }
 }
 
 .overlay__bottom:after {
@@ -103,14 +100,18 @@ img {
   inset: 0;
   background: linear-gradient(to top, black 0%, rgba(black, .25) 50%);
   opacity: .75;
+  z-index: 1;
 }
+
 .overlay__harder:after {
   content: '';
   position: absolute;
   inset: 0;
   background: linear-gradient(to top, black 0%, rgba(black, .25) 100%);
   opacity: .8;
+  z-index: 1;
 }
+
 /*
 [href] {
   figure img {

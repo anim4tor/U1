@@ -1,6 +1,80 @@
 Title: Stropy a akustické podhledy
 
+----
+
+Hero: [{"type":"heading","id":"block-dvrcb0pl","isHidden":false,"content":{"text":"Stropy a akustické podhledy","level":"h1","mod":"l","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""}},{"type":"cover","id":"block-cz4lsgr8","isHidden":false,"content":{"image":["file://7TuExEOVK0Da25GC"],"hasparallax":"false","parallax":0,"hasreveal":"false","reveal":"","bid":"","attr":"","css":"overlay__harder","href":"","target":"false","node":""}},{"type":"text","id":"block-9f1lvz0b","isHidden":false,"content":{"text":"Navrhujeme a instalujeme akustické i designové podhledy, které krotí hluk a integrují moderní osvětlení i technologie.","mod":"l","face":"","case":"lower","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""}}]
 
 ----
 
-Hero: [{"type":"heading","id":"hero-head-1740606","isHidden":false,"content":{"text":"Stropy a akustické podhledy\n","level":"h1","mod":"l","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""}}]
+Cover:  - file://7TuExEOVK0Da25GC
+
+
+----
+
+Intro:  <p>Navrhujeme a instalujeme akustické i designové podhledy, které krotí hluk a integrují moderní osvětlení i technologie.</p>
+
+
+----
+
+Details:  
+
+
+----
+
+Meta-description:  
+
+
+----
+
+Meta-title:  
+
+
+----
+
+Meta-canonical-url:  
+
+
+----
+
+Og-title:  
+
+
+----
+
+Og-description:  
+
+
+----
+
+Og-image:  
+
+
+----
+
+Robots-index:  
+
+
+----
+
+Robots-follow:  
+
+
+----
+
+Robots-archive:  
+
+
+----
+
+Robots-imageindex:  
+
+
+----
+
+Robots-snippet:  
+
+
+----
+
+Uuid:  n3oRU0NZDnbZJwU1
+

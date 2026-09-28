@@ -1,6 +1,80 @@
 Title: Vzduchotechnika a chlazení
 
+----
+
+Hero: [{"type":"heading","id":"block-wh2sz8fz","isHidden":false,"content":{"text":"Vzduchotechnika a chlazení","level":"h1","mod":"l","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""}},{"type":"cover","id":"block-af418125","isHidden":false,"content":{"image":["file://WJ9efU3ipU0wnamB"],"hasparallax":"false","parallax":0,"hasreveal":"false","reveal":"","bid":"","attr":"","css":"overlay__harder","href":"","target":"false","node":""}},{"type":"text","id":"block-vd8xjlu7","isHidden":false,"content":{"text":"Zajišťujeme optimální klima, větrání i rekuperaci pro zdravé a produktivní pracovní prostředí po celý rok.","mod":"l","face":"","case":"lower","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""}}]
 
 ----
 
-Hero: [{"type":"heading","id":"hero-head-l2q6mxy","isHidden":false,"content":{"text":"Vzduchotechnika a chlazení\n","level":"h1","mod":"l","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""}}]
+Cover:  - file://WJ9efU3ipU0wnamB
+
+
+----
+
+Intro:  <p>Zajišťujeme optimální klima, větrání i rekuperaci pro zdravé a produktivní pracovní prostředí po celý rok.</p>
+
+
+----
+
+Details:  
+
+
+----
+
+Meta-description:  
+
+
+----
+
+Meta-title:  
+
+
+----
+
+Meta-canonical-url:  
+
+
+----
+
+Og-title:  
+
+
+----
+
+Og-description:  
+
+
+----
+
+Og-image:  
+
+
+----
+
+Robots-index:  
+
+
+----
+
+Robots-follow:  
+
+
+----
+
+Robots-archive:  
+
+
+----
+
+Robots-imageindex:  
+
+
+----
+
+Robots-snippet:  
+
+
+----
+
+Uuid:  x8H16uqUzHQe1inL
+

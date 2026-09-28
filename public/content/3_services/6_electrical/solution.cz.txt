@@ -1,6 +1,80 @@
 Title: Elektroinstalace a osvětlení
 
+----
+
+Hero: [{"type":"heading","id":"block-6cxpa6gf","isHidden":false,"content":{"text":"Elektroinstalace a osvětlení","level":"h1","mod":"l","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""}},{"type":"cover","id":"block-oowo3ao0","isHidden":false,"content":{"image":["file://B3qzowr055hl3ljC"],"hasparallax":"false","parallax":0,"hasreveal":"false","reveal":"","bid":"","attr":"","css":"overlay__harder","href":"","target":"false","node":""}},{"type":"text","id":"block-5l748425","isHidden":false,"content":{"text":"Komplexní řešení slaboproudých i silnoproudých rozvodů a inteligentního osvětlení přizpůsobeného modernímu provozu kanceláří.","mod":"l","face":"","case":"lower","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""}}]
 
 ----
 
-Hero: [{"type":"heading","id":"hero-head-x1o7o6h","isHidden":false,"content":{"text":"Elektroinstalace a osvětlení\n","level":"h1","mod":"l","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""}}]
+Cover:  - file://B3qzowr055hl3ljC
+
+
+----
+
+Intro:  <p>Komplexní řešení slaboproudých i silnoproudých rozvodů a inteligentního osvětlení přizpůsobeného modernímu provozu kanceláří.</p>
+
+
+----
+
+Details:  
+
+
+----
+
+Meta-description:  
+
+
+----
+
+Meta-title:  
+
+
+----
+
+Meta-canonical-url:  
+
+
+----
+
+Og-title:  
+
+
+----
+
+Og-description:  
+
+
+----
+
+Og-image:  
+
+
+----
+
+Robots-index:  
+
+
+----
+
+Robots-follow:  
+
+
+----
+
+Robots-archive:  
+
+
+----
+
+Robots-imageindex:  
+
+
+----
+
+Robots-snippet:  
+
+
+----
+
+Uuid:  WjOjzEHyfnAH1vKZ
+

@@ -1,6 +1,80 @@
 Title: Povrchy a materiály
 
+----
+
+Hero: [{"type":"heading","id":"block-1dkxv03n","isHidden":false,"content":{"text":"Povrchy a materiály","level":"h1","mod":"l","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""}},{"type":"cover","id":"block-7g0edafo","isHidden":false,"content":{"image":["file://B3qzowr055hl3ljC"],"hasparallax":"false","parallax":0,"hasreveal":"false","reveal":"","bid":"","attr":"","css":"overlay__harder","href":"","target":"false","node":""}},{"type":"text","id":"block-sj0a77ia","isHidden":false,"content":{"text":"Kvalitní stěnové obklady, akustické panely a designové povrchy, které dodají interiéru jedinečnou atmosféru.","mod":"l","face":"","case":"lower","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""}}]
 
 ----
 
-Hero: [{"type":"heading","id":"hero-head-tjongfi","isHidden":false,"content":{"text":"Povrchy a materiály\n","level":"h1","mod":"l","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""}}]
+Cover:  - file://B3qzowr055hl3ljC
+
+
+----
+
+Intro:  <p>Kvalitní stěnové obklady, akustické panely a designové povrchy, které dodají interiéru jedinečnou atmosféru.</p>
+
+
+----
+
+Details:  
+
+
+----
+
+Meta-description:  
+
+
+----
+
+Meta-title:  
+
+
+----
+
+Meta-canonical-url:  
+
+
+----
+
+Og-title:  
+
+
+----
+
+Og-description:  
+
+
+----
+
+Og-image:  
+
+
+----
+
+Robots-index:  
+
+
+----
+
+Robots-follow:  
+
+
+----
+
+Robots-archive:  
+
+
+----
+
+Robots-imageindex:  
+
+
+----
+
+Robots-snippet:  
+
+
+----
+
+Uuid:  kCogPLO0xvpIFAM7
+

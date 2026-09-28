@@ -1,6 +1,80 @@
 Title: Kancelářský nábytek
 
+----
+
+Hero: [{"type":"heading","id":"block-3bbw26sm","isHidden":false,"content":{"text":"Kancelářský nábytek","level":"h1","mod":"l","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""}},{"type":"cover","id":"block-r8nyufkc","isHidden":false,"content":{"image":["file://B3qzowr055hl3ljC"],"hasparallax":"false","parallax":0,"hasreveal":"false","reveal":"","bid":"","attr":"","css":"overlay__harder","href":"","target":"false","node":""}},{"type":"text","id":"block-e3dml71p","isHidden":false,"content":{"text":"Ergonomický nábytek, výškově stavitelné stoly a sezení od předních evropských výrobců pro pohodlí a zdraví při práci.","mod":"l","face":"","case":"lower","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""}}]
 
 ----
 
-Hero: [{"type":"heading","id":"hero-head-9txfct9","isHidden":false,"content":{"text":"Kancelářský nábytek\n","level":"h1","mod":"l","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""}}]
+Cover:  - file://B3qzowr055hl3ljC
+
+
+----
+
+Intro:  <p>Ergonomický nábytek, výškově stavitelné stoly a sezení od předních evropských výrobců pro pohodlí a zdraví při práci.</p>
+
+
+----
+
+Details:  
+
+
+----
+
+Meta-description:  
+
+
+----
+
+Meta-title:  
+
+
+----
+
+Meta-canonical-url:  
+
+
+----
+
+Og-title:  
+
+
+----
+
+Og-description:  
+
+
+----
+
+Og-image:  
+
+
+----
+
+Robots-index:  
+
+
+----
+
+Robots-follow:  
+
+
+----
+
+Robots-archive:  
+
+
+----
+
+Robots-imageindex:  
+
+
+----
+
+Robots-snippet:  
+
+
+----
+
+Uuid:  2Ll0juXi1rbF8Cip
+

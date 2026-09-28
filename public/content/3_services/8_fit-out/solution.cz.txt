@@ -1,6 +1,80 @@
 Title: Fit-out a stavební úpravy
 
+----
+
+Hero: [{"type":"heading","id":"block-6aoh0r1v","isHidden":false,"content":{"text":"Fit-out a stavební úpravy","level":"h1","mod":"l","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""}},{"type":"cover","id":"block-1cvy6rlu","isHidden":false,"content":{"image":["file://B3qzowr055hl3ljC"],"hasparallax":"false","parallax":0,"hasreveal":"false","reveal":"","bid":"","attr":"","css":"overlay__harder","href":"","target":"false","node":""}},{"type":"text","id":"block-vjqhow4k","isHidden":false,"content":{"text":"Kompletní realizace stavebních úprav komerčních prostor na klíč – od bouracích prací až po finální detaily.","mod":"l","face":"","case":"lower","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""}}]
 
 ----
 
-Hero: [{"type":"heading","id":"hero-head-nwvx0bd","isHidden":false,"content":{"text":"Fit-out a stavební úpravy\n","level":"h1","mod":"l","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""}}]
+Cover:  - file://B3qzowr055hl3ljC
+
+
+----
+
+Intro:  <p>Kompletní realizace stavebních úprav komerčních prostor na klíč – od bouracích prací až po finální detaily.</p>
+
+
+----
+
+Details:  
+
+
+----
+
+Meta-description:  
+
+
+----
+
+Meta-title:  
+
+
+----
+
+Meta-canonical-url:  
+
+
+----
+
+Og-title:  
+
+
+----
+
+Og-description:  
+
+
+----
+
+Og-image:  
+
+
+----
+
+Robots-index:  
+
+
+----
+
+Robots-follow:  
+
+
+----
+
+Robots-archive:  
+
+
+----
+
+Robots-imageindex:  
+
+
+----
+
+Robots-snippet:  
+
+
+----
+
+Uuid:  Ob1NrAjJLcuKIwUa
+
