@@ -51,20 +51,20 @@ Coleaguesheader: [{"content":{"text":"Co říkají na život v U1 naši kolegov�
 Coleagues:
 
 - 
-  title: 'Více než 96 % zaměstnanců to u nás baví.'
+  title: '96%'
   image:
     - file://sZRbZagT6UU9Qxum
-  text: ""
+  text: '<p>Více než 96 % zaměstnanců to u nás baví.</p>'
 - 
-  title: '95 % zaměstnanců chválí skvělou spolupráci se svým nadřízeným.'
+  title: '95% '
   image:
     - file://sZRbZagT6UU9Qxum
-  text: ""
+  text: '<p>zaměstnanců chválí skvělou spolupráci se svým nadřízeným.</p>'
 - 
-  title: '83 % zaměstnanců je spokojených s benefity, které dostávají.'
+  title: '83%'
   image:
     - file://sZRbZagT6UU9Qxum
-  text: ""
+  text: '<p>zaměstnanců je spokojených s benefity, které dostávají.</p>'
 
 ----
 
