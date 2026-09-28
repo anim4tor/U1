@@ -1,14 +1,8 @@
-<a href="<?= $feed->url() ?>" class="grid gap__05 wrap">	
-	<?php if ($cover = $feed->cover()->toFile()) : ?>
-		<div class="item__figure grid img__radius no__overflow"><?= snippet('atoms/Image', ['img' => $cover, 'reveal' => true, 'node' => 'data-reveal-image', 'css' => 'vh__8 grid' ]) ?></div>
-	<?php endif ?>
-	<div class="flex justify__space-between align__start gap__5">
-		<div class="flex gap__2 upper ">
-			<h3 class="font__size__4" data-reveal-text="lines"><?= $feed->title() ?></h3>
-		</div>
-		<p class="no__wrap op__7 font__size__small" data-reveal-text="lines">(<?= $feed->date()->toDate('Y-m-d') ?>)</p>
-	</div>
-	<!-- <div class="grid ">
-		<p class="font__size__small upper"><?= $feed->intro()->inline() ?></p>
-	</div> -->
-</a>
+<?php
+/**
+ * Feed Article Snippet - forwards to unified list snippet
+ */
+echo snippet('molecules/Feed/list', [
+    'item' => $feed ?? $item ?? null,
+    'type' => 'blog'
+]);

@@ -34,7 +34,7 @@
 			<ol class="grid__3 gap__1 inner__4 inner-t__2">
 				<?php foreach ($projects as $project) : ?>
 					<div data-slide class="inner-b__3">	
-						<?= snippet('molecules/Project/large', compact('project')) ?>
+						<?= snippet('molecules/Project/list', compact('project')) ?>
 					</div>
 				<?php endforeach ?>
 			</ol>

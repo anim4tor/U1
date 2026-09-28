@@ -3,7 +3,7 @@
 	<ol class="grid__3 gap__1 inner__4 inner-t__2 mobile:grid__1">
 		<?php foreach ($jobs as $job) : ?>
 			<div data-slide class="inner-b__3">
-				<?= snippet('molecules/Job/card', compact('job')) ?>
+				<?= snippet('molecules/Job/list', compact('job')) ?>
 			</div>
 		<?php endforeach ?>
 	</ol>
