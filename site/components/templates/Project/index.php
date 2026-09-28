@@ -1,33 +1,16 @@
 <?php
 	$usedImages = [];
+	if ($cover = $page->cover()->toFile()) {
+		$usedImages[] = $cover->id();
+	}
 ?>
 
-<section class="intro radius" theme="acc" style="--in-delay: 0ms">
-	<?php if ($cover = $page->cover()->toFile()) : ?>
-		<div class="intro__cover absolute inset__stretch grid" data-scroll >
-			<?= snippet('atoms/Image', ['img' => $cover, 'parallax' => 2, 'reveal' => false, 'css' => 'overlay__bottom']) ?>
-			<?php if ($cover) { $usedImages[] = $cover->id(); } ?>
-		</div>
-	<?php endif ?>
-	
-	<div data-scroll class="z__1 intro__header place__end-stretch grid__4 mobile:grid__1 h__100v mobile:h__auto inner__4 mobile:inner-t__10 mobile:gap__2 relative color__invert">
-		<div class="span__4 grid gap__1 place__stretch-stretch">
-			<h1 class=" secret-door ">
-				<div data-reveal-text=""><?= $page->title() ?></div>
-			</h1>
-			<div class="grid__4 border__top inner-y__1">
-				<a href="<?= $page->parent()->url() ?>" data-reveal-text="lines" class="upper font__size__small">(<?= $page->parent() ? $page->parent()->title() : $page->title() ?>)</a>
-				<div data-reveal-text="lines" class="upper font__size__small">(<?= $page->date()->toDate('Y') ?>)</div>
-			</div>
-		</div>
-	</div>
-
-</section>
+<?= snippet('templates/globals/Hero/project') ?>
 
 <section class="about" theme="invert">
 	<div data-scroll class="grid__4 gap__2 mobile:grid__1 inner__4 mobile:inner-x__1 ">
 		<div class="span__2">
-			<div class="flex gap__05 align__center upper font__size__small no__wrap" data-scroll ><div class="w__03 h__03 bg__acc"></div><div data-reveal-text>O projektu</div></div>	
+			<div class="flex gap__05 align__center upper font__size__small no__wrap" data-scroll ><div data-reveal-text>O projektu</div></div>	
 		</div>
 		<div class="span__2 grid place__start-start gap__3 mobile:inner-x__0">
 			<h3 data-reveal-text="lines" class="font__size__3"><?= $page->intro()->inline() ?></h3>
