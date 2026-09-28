@@ -70,12 +70,12 @@ if (!empty($isFiltered)) {
 								<?php if ($index > 0) : ?>
 									<div class="w__03 h__03 bg__text op__4"></div>
 								<?php endif ?>
-								<h2 data-tab="<?= esc($tabItem['id']) ?>" class="cursor__pointer flex align__start gap__02 font__size__2 ff__heading" data-reveal-text>
+								<h1 data-tab="<?= esc($tabItem['id']) ?>" class="cursor__pointer flex align__start gap__02 font__size__1 ff__heading" data-reveal-text>
 									<span><?= esc($tabItem['label']) ?></span>
 									<?php if (isset($tabItem['count']) && $tabItem['count'] !== null) : ?>
 										<span class="font__size__small op__6">(<?= $tabItem['count'] ?>)</span>
 									<?php endif ?>
-								</h2>
+								</h1>
 							<?php endforeach ?>
 						</div>
 					<?php elseif ($activeHeading) : ?>
