@@ -10,7 +10,7 @@ if ($hero instanceof \Kirby\Cms\Field) {
 ?>
 <?php if ($hasHero) : ?>
 <section class="intro radius" theme="dark" style="--in-delay: 500ms">
-	<div class="intro__cover absolute inset__stretch grid" data-scroll><?= snippet('molecules/Header', ['header' => $hero, 'type' => ['cover'], 'css' => 'overlay__bottom']) ?></div>
+	<div class="intro__cover absolute inset__stretch grid overlay__bottom" data-scroll><?= snippet('molecules/Header', ['header' => $hero, 'type' => ['cover']]) ?></div>
 	<div data-scroll class="z__1 intro__header place__stretch-stretch grid__4 intro__rows mobile:grid__1 h__100v mobile:h__auto inner__4 mobile:inner-t__10 mobile:gap__2 relative color__invert">
 		<div class=""></div>
 		<div class="span__4 grid place__space-between-stretch">
@@ -18,7 +18,7 @@ if ($hero instanceof \Kirby\Cms\Field) {
 				<div class="span__2 upper font__size__small">
 					(<?= $page->title() ?>)
 				</div>
-				<div class="span__2">
+				<div class="grid gap__1 place__start-start span__2">
 					<?= snippet('molecules/Header', ['header' => $hero, 'type' => ['text', 'button']]) ?>
 				</div>
 			</div>

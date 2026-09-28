@@ -14,7 +14,7 @@
 	}
 ?>
 <?php if (trim($output) !== ''): ?>
-<div class="grid gap__1 <?= esc($css) ?>">
+<!-- <div class="grid gap__1  <?= esc($css) ?>"> -->
 	<?= $output ?>
-</div>
+<!-- </div> -->
 <?php endif ?>

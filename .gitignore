@@ -12,6 +12,7 @@ site/store/cache/*
 site/store/safe/sessions/*
 site/store/logs/*
 site/store/backup/*
+**/.lock
 
 # Operating System files
 .DS_Store
@@ -20,6 +21,7 @@ Thumbs.db
 # Legacy / Editor files
 prepros.config
 *.sublime-workspace
+.prepros*
 
 # Environment & secrets
 .env
