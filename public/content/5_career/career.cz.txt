@@ -36,11 +36,6 @@ Culture:
   image:
     - file://DiUU5nkhaJkFLlHC
   text: '<p>96 % zaměstnanců je u nás spokojených. Přidáš se?</p>'
-- 
-  label: Neomezená dovolená
-  image:
-    - file://sLLeTG3SK4ryDA4M
-  text: '<p>Neomezená dovolená týmům přináší větší volnost při čerpání volna. Věříme, že tím podpoříme vzájemnou důvěru a zaměstnanci získají více času k odpočinku.</p>'
 
 ----
 
