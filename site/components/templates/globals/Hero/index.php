@@ -16,7 +16,7 @@ if ($hero instanceof \Kirby\Cms\Field) {
 		<div class="span__4 grid place__space-between-stretch">
 			<div class="span__4 h__5 place__start-start grid__4 gap__2 border__top inner-t__05">
 				<div class="span__2 upper font__size__small">
-					(<?= $page->title() ?>)
+					(<?= t('template.' . $page->intendedTemplate()->name(), t($page->intendedTemplate()->name(), $page->title()->value())) ?>)
 				</div>
 				<div class="grid gap__1 place__start-start span__2">
 					<?= snippet('molecules/Header', ['header' => $hero, 'type' => ['text', 'button']]) ?>

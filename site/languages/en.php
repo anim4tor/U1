@@ -19,7 +19,19 @@ return [
         'studio' => 'Studio',
         'pricing-single' => 'Single entry',
         'pricing-passes' => 'Passes',
-        'pricing-membership' => 'Membership'
+        'pricing-membership' => 'Membership',
+
+        // Template names
+        'template.about'     => 'About',
+        'template.career'    => 'Career',
+        'template.contact'   => 'Contact',
+        'template.solution'  => 'Solution',
+        'template.services'  => 'Services',
+        'template.feed'      => 'Feed',
+        'template.project'   => 'Project',
+        'template.projects'  => 'Projects',
+        'template.job'       => 'Position',
+        'template.positions' => 'Positions',
     ],
     'url' => NULL
 ];

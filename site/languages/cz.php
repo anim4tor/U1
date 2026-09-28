@@ -29,7 +29,19 @@ return [
         'related-articles' => 'Související články',
         'testimonials' => 'Reference',
         'next-project' => 'Další projekt',
-        'scroll' => 'Scrollovat'
+        'scroll' => 'Scrollovat',
+
+        // Template names
+        'template.about'     => 'O nás',
+        'template.career'    => 'Kariéra',
+        'template.contact'   => 'Kontakt',
+        'template.solution'  => 'Služba',
+        'template.services'  => 'Služby',
+        'template.feed'      => 'Feed',
+        'template.project'   => 'Projekt',
+        'template.projects'  => 'Projekty',
+        'template.job'       => 'Pozice',
+        'template.positions' => 'Volné pozice',
     ],
     'url' => '/'
 ];

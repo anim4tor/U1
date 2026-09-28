@@ -8,7 +8,7 @@
 		]
 	]) ?>
 
-	<div data-pane-container class="relative z__1">
+	<div data-pane-container class="grid__stack place__start-start relative z__1">
 		<!-- 1. Blog Tab -->
 		<div data-pane="blog" data-tab-reveal class="w__full">
 			<ol class="grid__3 gap__1 inner__4 inner-t__2 mobile:grid__1">
