@@ -9,7 +9,7 @@ $theme         = $theme ?? 'light';
 ?>
 <div class="project-search" 
      data-project-search 
-     data-api-url="<?= url('api/projects/search') ?>"
+     data-api-url="<?= url('ajax/projects/search') ?>"
      data-i18n-no-results="<?= esc(t('search-no-results', 'Žádné projekty nenalezeny')) ?>"
      data-i18n-all-results="<?= esc(t('search-all-results', 'Zobrazit všechny výsledky')) ?>"
 >

@@ -146,7 +146,7 @@ return [
               }
           ],
           [
-              'pattern' => 'api/projects/search',
+              'pattern' => ['ajax/projects/search', 'projects/search.json'],
               'action'  => function () {
                 $q = trim((string)(get('q') ?? get('search') ?? ''));
                 $projects = collection('Projects');
