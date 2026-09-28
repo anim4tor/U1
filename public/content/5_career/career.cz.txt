@@ -39,7 +39,7 @@ Culture:
 
 ----
 
-Coleaguesheader: [{"content":{"text":"Co říkají na život v U1 naši kolegové?","level":"h2","mod":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"a73ed639-0976-484c-86af-75f9bbf18fd1","isHidden":false,"type":"heading"},{"content":{"text":"","mod":"","face":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"5166d3e3-ee17-4609-a43b-910890146578","isHidden":false,"type":"label"}]
+Coleaguesheader: [{"content":{"text":"Co říkají na život v U1 naši kolegové?","level":"h2","mod":"","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"a73ed639-0976-484c-86af-75f9bbf18fd1","isHidden":false,"type":"heading"},{"content":{"text":"","mod":"","face":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"5166d3e3-ee17-4609-a43b-910890146578","isHidden":false,"type":"label"}]
 
 ----
 
