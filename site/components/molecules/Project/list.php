@@ -3,7 +3,7 @@
 		<?php if ($cover = $project->cover()->toFile()) : ?>
 			<div class="item__figure grid img__radius no__overflow"><?= snippet('atoms/Image', ['img' => $cover, 'reveal' => true, 'css' => 'vh__8 grid', 'node' => 'data-reveal-image']) ?></div>
 		<?php endif ?>
-		<div class="item__meta relative flex justify__space-between align__center gap__2 ">
+		<div class="item__meta relative flex justify__space-between align__start gap__2 ">
 			<div class="flex gap__05 upper ">
 				<!-- <span class="">(<?= str_pad($project->indexOf(collection('Projects')) + 1, 2, '0', STR_PAD_LEFT); ?>)</span> -->
 				<h3 class="font__size__4 wrap"><?= $project->title() ?></h3>

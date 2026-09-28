@@ -60,7 +60,7 @@ $isVideo   = $isSocial && $item->content()->has('media_type') && ($item->media_t
 			</div>
 		<?php endif ?>
 
-		<div class="item__meta relative flex justify__space-between align__center gap__2">
+		<div class="item__meta relative flex justify__space-between align__start gap__2">
 			<div class="flex gap__05 upper">
 				<h3 class="font__size__4 wrap <?= $type === 'media' ? 'ff__body' : '' ?>" data-reveal-text="lines"><?= $title ?></h3>
 			</div>

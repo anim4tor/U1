@@ -4,7 +4,7 @@ $text   = $page->quoteText()->or('Twenty-five years of refined expertise, distil
 $image  = $page->quoteImage()->toFile() ?? $page->file('david.webp');
 ?>
 <section class="quote radius" theme="dark">
-	<div class="grid__4 gap__3 place__stretch-stretch inner-x__4 inner-y__5 mobile:grid__1 mobile:inner__2" data-scroll>
+	<div class="grid__4 gap__2 place__stretch-stretch inner-x__4 inner-y__5 mobile:grid__1 mobile:inner__2" data-scroll>
 		<div class="span__1 flex align__start justify__start mobile:justify__center">
 			<?php if ($image) : ?>
 				<div class="item__figure grid img__radius overflow__hidden w__100">
@@ -13,14 +13,14 @@ $image  = $page->quoteImage()->toFile() ?? $page->file('david.webp');
 			<?php endif ?>
 		</div>
 		<div></div>
-		<div class="span__2 grid place__space-between-start justify__space-between gap__4 mobile:gap__2">
+		<div class="span__2 grid gap__2 place__start-start">
 			<div class="flex align__start">
-				<span class="font__size__small op__6" data-reveal-text="lines"><?= $author ?></span>
+				<p class="op__8" data-reveal-text="lines"><?= $author ?></p>
 			</div>
 			<div class="grid place__end-start">
-				<h4 class="font__size__3 " data-reveal-text="lines" data-split-ignore>
-					<?= $text ?>
-				</h4>
+				<h2 class="" data-reveal-text="lines" data-split-ignore>
+					 "<?= $text ?>"
+				</h2>
 			</div>
 		</div>
 	</div>

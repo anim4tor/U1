@@ -3,7 +3,7 @@
 		<?php if ($cover = $job->cover()->toFile()) : ?>
 			<div class="item__figure grid img__radius no__overflow"><?= snippet('atoms/Image', ['img' => $cover, 'reveal' => true, 'css' => 'vh__8 grid', 'node' => 'data-reveal-image']) ?></div>
 		<?php endif ?>
-		<div class="item__meta relative flex justify__space-between align__center gap__2">
+		<div class="item__meta relative flex justify__space-between align__start gap__2">
 			<div class="flex gap__05 upper">
 				<h3 class="wrap font__size__4"><?= $job->title() ?></h3>
 			</div>

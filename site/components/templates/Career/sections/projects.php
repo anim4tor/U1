@@ -7,7 +7,7 @@
 			<?php endforeach ?>
 		</div>
 
-		<div class="relative grid gap__5 place__end-start" data-scroll >
+		<div class="relative grid gap__5 place__space-between-start" data-scroll >
 			<div class="grid place__start-stretch" data-reveal-text>
 				<div data-scroll class="flex align__start gap__01 span__2">
 					<?= snippet('molecules/Header', ['header' => $page->about(), 'type' => ['label']]) ?>

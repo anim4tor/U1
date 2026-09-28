@@ -8,9 +8,11 @@
 		<div class="span__4 grid__3 gap__2">
 			<?php foreach ($page->coleagues()->toStructure() as $benefit) : ?>
 				<div class="grid gap__05">
-					<figure class=""><?= $benefit->image()->toFile() ?></figure>
-					<h4 class="font__size__5"><?= $benefit->title()->inline() ?></h4>
-					<p><?= $benefit->text()->inline() ?></p>
+					<figure class="vh__8"><?= $benefit->image()->toFile() ?></figure>
+					<div class="flex justify__space-between align__start gap__2">
+						<h3 class=""><?= $benefit->title()->inline() ?></h3>
+						<p class="op__8"><?= $benefit->text()->inline() ?></p>
+					</div>
 				</div>
 			<?php endforeach; ?>
 		</div>

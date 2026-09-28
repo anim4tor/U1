@@ -4,7 +4,7 @@
 <section class="about" theme="invert">
 	<div data-scroll class="grid__4 gap__2 mobile:grid__1 inner__4 mobile:inner-x__1 ">
 		<div class="span__2">
-			<div class="flex gap__05 align__center upper font__size__small no__wrap" data-scroll ><div class="w__03 h__03 bg__acc"></div><div data-reveal-text>O službě</div></div>	
+			<div class="flex gap__05 align__center upper font__size__small no__wrap" data-scroll ><div data-reveal-text>O službě</div></div>	
 		</div>
 		<div class="span__2 grid place__start-start gap__2 mobile:inner-x__0">
 			<h3 data-reveal-text="lines" class="font__size__3"><?= $page->intro()->inline() ?></h3>
@@ -15,10 +15,11 @@
 	</div>
 </section>
 
+<?php if ($page->gallery()->isNotEmpty() && ($galleryImages = $page->gallery()->toFiles()) && $galleryImages->isNotEmpty()) : ?>
 <section class="gallery" theme="invert">
 	<!-- randomizace -->
 	<div class="grid__4 gap__2 gap-y__4 inner__4">
-		<?php foreach ($page->gallery()->toFiles() as $image) : ?>
+		<?php foreach ($galleryImages as $image) : ?>
 			<?php if($image->orientation() == "landscape") : ?>
 				<div class="grid place__center-center span__2 inner__0" data-scroll ><?= snippet('atoms/Image', ['img' => $image, 'parallax' => 2, 'css' => 'vw__'.rand(5,9) . ' vh__'.rand(10,14) . ' aspect__1/1']) ?></div>
 			<?php else : ?>
@@ -27,6 +28,7 @@
 		<?php endforeach ?>
 	</div>
 </section>
+<?php endif ?>
 
 <?= snippet('templates/globals/Projects/related', ['projects' => $page->relatedProjects()]) ?>
 <?= snippet('templates/globals/Feed/related') ?>

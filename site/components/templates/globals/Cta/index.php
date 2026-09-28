@@ -21,7 +21,6 @@
 				</div>
 			</div>
 			<div class="flex gap__0 justify__end align__end">
-				<?= snippet('atoms/Button', [ 'type' => 'button', 'theme' => 'invert-ghost', 'hover' => 'dark', 'label' => 'Volné pozice', 'url' => page('career/positions')->url() ]) ?>
 				<?= snippet('molecules/Header', ['header' => $site->ctaContact(), 'type' => ['button']]) ?>
 
 			</div>
