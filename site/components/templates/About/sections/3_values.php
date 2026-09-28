@@ -8,9 +8,9 @@
 		</div>
 
 		<div class="relative grid gap__5 place__space-between-start" data-scroll>
-			<div class="grid place__start-stretch" data-reveal-text>
-				<div data-scroll class="flex align__start gap__01 span__2">
-					<?= snippet('atoms/Label', ['text' => t('our-values', 'Naše hodnoty'), 'reveal' => true]) ?>
+			<div class="grid place__start-stretch">
+				<div class="flex align__start gap__01 span__2">
+					<h2 data-reveal-text><?= t('our-values') ?></h2>
 				</div>
 			</div>
 			
