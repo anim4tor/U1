@@ -62,9 +62,23 @@ if (!empty($isFiltered)) {
 	<div class="z__1 relative intro__header inner-b__2 place__stretch-stretch grid__4 gap__2 mobile:grid__1 mobile:h__auto inner__4 mobile:inner-t__10 mobile:gap__2 relative">
 		<div class="span__4 h__2"></div>
 		<div class="span__4 inner-y__1 border__bottom flex justify__space-between align__end">
-			<div class="span__2">
+			<div class="span__3">
 				<div class="flex align__start gap__02 inner-y__02">
-					<?php if ($activeHeading) : ?>
+					<?php if (!empty($tabs)) : ?>
+						<div class="flex align__center gap__1" data-scroll>
+							<?php foreach ($tabs as $index => $tabItem) : ?>
+								<?php if ($index > 0) : ?>
+									<div class="w__03 h__03 bg__text op__4"></div>
+								<?php endif ?>
+								<h2 data-tab="<?= esc($tabItem['id']) ?>" class="cursor__pointer flex align__start gap__02 font__size__2 ff__heading" data-reveal-text>
+									<span><?= esc($tabItem['label']) ?></span>
+									<?php if (isset($tabItem['count']) && $tabItem['count'] !== null) : ?>
+										<span class="font__size__small op__6">(<?= $tabItem['count'] ?>)</span>
+									<?php endif ?>
+								</h2>
+							<?php endforeach ?>
+						</div>
+					<?php elseif ($activeHeading) : ?>
 						<?= snippet('atoms/Heading', [
 							'text'   => $activeHeading, 
 							'level'  => 'h1',
@@ -86,13 +100,13 @@ if (!empty($isFiltered)) {
 						]) ?>
 					<?php endif ?>
 
-					<?php if ($itemCount !== null) : ?>
+					<?php if (empty($tabs) && $itemCount !== null) : ?>
 						<?= snippet('atoms/Text', ['text' => '(' . $itemCount . ')', 'reveal' => true, 'css' => 'font__size__small']) ?>
 					<?php endif ?>
 				</div>
 			</div>
 			
-			<div class="span__2 flex justify__end gap__05 align__center" data-scroll>
+			<div class="span__1 flex justify__end gap__05 align__center" data-scroll>
 				<?php if (isset($controls)) : ?>
 					<?= $controls ?>
 				<?php elseif (!empty($industries) || !empty($spaces)) : ?>

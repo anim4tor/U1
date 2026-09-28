@@ -1,79 +1,47 @@
-<?= snippet('templates/globals/Hero/list', [
-	'id'    => 'news',
-	'theme' => 'light',
-	'title' => 'Články',
-	'nav'   => [
-		['label' => 'Sítě', 'url' => '#socials'],
-		['label' => 'Média', 'url' => '#media'],
-	]
-]) ?>
+<div class="feed-page" data-tabs="default">
+	<?= snippet('templates/globals/Hero/list', [
+		'theme' => 'invert',
+		'tabs'  => [
+			['id' => 'blog',    'label' => 'Články', 'count' => collection('Blog')->count()],
+			['id' => 'socials', 'label' => 'Sítě',   'count' => collection('Socials')->count()],
+			['id' => 'media',   'label' => 'Média',  'count' => collection('Projects')->count()],
+		]
+	]) ?>
 
-<section class="blog" theme="light" >
-	<div class="inner-t__5" >
-		<ol class="grid inner-x__4 ">	
-			<?php $feed = collection('Blog')->first(); ?>
-			<li class="" data-scroll>
-				<?= snippet('molecules/Feed/featured', compact('feed')) ?>
-			</li>
-			<?php foreach (collection('Blog') as $feed) : ?>
-				<li class="item" data-scroll>
-					<?= snippet('molecules/Feed/post', compact('feed')) ?>
-				</li>
-			<?php endforeach ?>
-		</ol>
-	</div>
-</section>
+	<div data-pane-container class="relative z__1">
+		<!-- 1. Blog Tab -->
+		<div data-pane="blog" data-tab-reveal class="w__full">
+			<ol class="grid__3 gap__1 inner__4 inner-t__2 mobile:grid__1">
+				<?php foreach (collection('Blog') as $feed) : ?>
+					<li class="inner-b__3" data-scroll>
+						<?= snippet('molecules/Feed', compact('feed')) ?>
+					</li>
+				<?php endforeach ?>
+			</ol>
+		</div>
 
-<?= snippet('templates/globals/Hero/list', [
-	'id'    => 'socials',
-	'theme' => 'light',
-	'title' => 'Sítě',
-	'nav'   => [
-		['label' => 'Články', 'url' => '#news'],
-		['label' => 'Média', 'url' => '#media'],
-	]
-]) ?>
+		<!-- 2. Socials Tab -->
+		<div data-pane="socials" data-tab-reveal class="w__full">
+			<ol class="grid__3 gap__1 inner__4 inner-t__2 mobile:grid__1">
+				<?php foreach (collection('Socials') as $post) : ?>
+					<li class="inner-b__3" data-scroll>
+						<?= snippet('molecules/Feed/social', compact('post')) ?>
+					</li>
+				<?php endforeach ?>
+			</ol>
+		</div>
 
-<section class="events" theme="light" data-carousel>
-	<div class="relative grid gap__2 inner-x__4 ">
-		<div class="flex justify__end inner-y__1 border__bottom">
-			<div class="flex gap__02 justify__end align__end">
-				<button data-carousel-prev class="button upper" theme="ghost" ><span class="icon"><?= svg('public/assets/images/ui/ui_arrow-left.svg') ?></span></button>
-				<button data-carousel-next class="button upper" theme="ghost" ><span class="icon"><?= svg('public/assets/images/ui/ui_arrow-right.svg') ?></span></button>
-			</div>
+		<!-- 3. Media Tab -->
+		<div data-pane="media" data-tab-reveal class="w__full">
+			<ol class="grid__3 gap__1 inner__4 inner-t__2 mobile:grid__1">
+				<?php foreach (collection('Projects') as $feed) : ?>
+					<li class="inner-b__3" data-scroll>
+						<?= snippet('molecules/Feed/media', compact('feed')) ?>
+					</li>
+				<?php endforeach ?>
+			</ol>
 		</div>
 	</div>
-	<div class="inner-y__1 " data-carousel-scroll>
-		<ol class="flex justify__start align__start no__wrap gap__1 inner-x__4 " data-carousel-slides >	
-		<?php foreach (collection('Socials') as $post) : ?>
-			<div data-slide data-scroll class="vw__5 aspect__1/1">	
-				<?= snippet('molecules/Feed/social', compact('post')) ?>
-			</div>
-		<?php endforeach ?>
-		</ol>
-	</div>
-</section>
-
-<?= snippet('templates/globals/Hero/list', [
-	'id'    => 'media',
-	'theme' => 'light',
-	'title' => 'Média',
-	'nav'   => [
-		['label' => 'Články', 'url' => '#news'],
-		['label' => 'Sítě', 'url' => '#socials'],
-	]
-]) ?>
-
-<section class="events" theme="light" >
-	<div class="inner-t__5 inner-b__5" >
-		<ol class="grid inner-x__4 ">	
-			<?php foreach (collection('Blog') as $feed) : ?>
-				<li class="item vw__7" data-scroll>
-					<?= snippet('molecules/Feed/post', compact('feed')) ?>
-				</li>
-			<?php endforeach ?>
-		</ol>
-	</div>
-</section>
+</div>
 
 <?= snippet('templates/globals/Cta') ?>
