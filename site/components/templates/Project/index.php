@@ -5,7 +5,7 @@
 	}
 ?>
 
-<?= snippet('templates/globals/Hero/project') ?>
+<?= snippet('templates/globals/Hero') ?>
 
 <section class="about" theme="invert">
 	<div data-scroll class="grid__4 gap__2 mobile:grid__1 inner__4 mobile:inner-x__1 ">

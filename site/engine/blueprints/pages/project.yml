@@ -11,6 +11,8 @@ tabs:
       - width: 1/1
 
         fields:
+          hero:
+            extends: fields/hero
           cover:
             extends: fields/cover
           intro:
