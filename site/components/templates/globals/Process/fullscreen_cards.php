@@ -12,7 +12,7 @@
 <?php if (collection('Process')->isNotEmpty()) : ?>
 <section class="process relative" >
 	<div class="radius absolute inset__stretch" <?= $theme ? 'theme="'.$theme.'"' : null ?>></div>
-	<div class="grid__stack gap__2 relative" <?= $theme ? 'theme="'.$theme.'"' : null ?> data-tabs="scrollable" >
+	<div class="grid__stack gap__2 relative" data-tabs="scrollable" >
 		<div class="process__fullscreen-sticky sticky top__0 inner__4 radius gap__2" >
 			<div class="process__header relative z__1 grid gap__2">
 				<div class="inner-b__0 flex align__start gap__01 span__4 <?= $color ?>" data-scroll>
