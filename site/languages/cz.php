@@ -28,6 +28,7 @@ return [
         'trusted-by' => 'Důvěřují nám',
         'related-articles' => 'Související články',
         'testimonials' => 'Reference',
+        'our-values' => 'Naše hodnoty',
         'next-project' => 'Další projekt',
         'view-project' => 'Zobrazit projekt',
         'scroll' => 'Scrollovat',

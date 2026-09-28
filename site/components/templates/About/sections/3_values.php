@@ -1,41 +1,50 @@
 <?php if (collection('Values')->isNotEmpty()) : ?>
-<section class="values border__top" theme="invert">
-	<div class="grid__2 gap__2 relative inner-y__1 inner-b__4" data-tabs="scrollable">
-		<div class="sticky top__0 gap__2 grid place__space-between-start h__100v inner-y__1" >
-			<div class="relative flex inner-x__4 ">
-				<?= snippet('atoms/Label', ['text' => 'Naše hodnoty', 'reveal' => true ]) ?>	
-			</div>
-			<div class="grid place__start-start gap__1">
-				<div class="grid inner-l__4" data-scroll>
-					<?php foreach (collection('Values') as $step) : ?>
-						<div data-tab="step-<?= $step->step()?>" class="flex align__start gap__02" >
-							<?= snippet('atoms/Heading', [ 'level' => 'h2', 'text' => $step->value(), 'reveal' => true, 'node' => 'data-split-ignore' ]) ?>
-							<div data-reveal-text="" class="wrap-t__03 font__size__small" data-split-ignore style="--in-delay: 800ms">(<?= $step->indexOf(collection('Values')) + 1 ?>)</div>
+<section class="about radius" theme="invert">
+	<div class="grid__4 gap__2 place__stretch-stretch inner__4" data-tabs="default">
+		<div class="hidden absolute">
+			<?php foreach (collection('Values') as $value) : ?>
+				<div data-tab="value-<?= $value->indexOf(collection('Values')) ?>"></div>
+			<?php endforeach ?>
+		</div>
 
+		<div class="relative grid gap__5 place__space-between-start" data-scroll>
+			<div class="grid place__start-stretch" data-reveal-text>
+				<div data-scroll class="flex align__start gap__01 span__2">
+					<?= snippet('atoms/Label', ['text' => t('our-values', 'Naše hodnoty'), 'reveal' => true]) ?>
+				</div>
+			</div>
+			
+			<div class="grid gap__1 place__start-start">
+				<div data-pane-container class="grid__stack place__end-start" data-scroll>
+					<?php foreach (collection('Values') as $value) : ?>
+					<div data-scroll data-scroll-ignore data-tab-reveal data-pane="value-<?= $value->indexOf(collection('Values')) ?>" id="value-<?= $value->indexOf(collection('Values')) ?>" class="grid gap__1 place__start-start">
+						<div class="flex align__center gap__02">
+							<h3><?= $value->value()->inline() ?></h3>
+							<span class="font__size__small op__7">(<?= $value->indexOf(collection('Values')) + 1 ?>)</span>
 						</div>
-						
+						<p><?= $value->detail()->inline() ?></p>
+					</div>
 					<?php endforeach ?>
 				</div>
-				<div class="grid place__start-start inner-l__4 " data-scroll data-scroll-ignore>
-					<div data-pane-container class="grid__stack">
-						<?php foreach (collection('Values') as $step) : ?>
-						<div data-pane="step-<?= $step->step()?>" class="grid__2" data-tab-reveal>
-							<?= snippet('atoms/Text', ['text' => $step->detail()->inline(), 'reveal' => true, 'node' => 'data-split-ignore data-scroll-ignore']) ?>
-						</div>
-						<?php endforeach ?>
-					</div>
+				<div class="flex gap__02 justify__start align__end">
+					<button data-tab-prev class="button upper" theme="ghost" hover="dark"><span class="icon"><?= svg('public/assets/images/ui/ui_arrow-left.svg') ?></span></button>
+					<button data-tab-next class="button upper" theme="ghost" hover="dark"><span class="icon"><?= svg('public/assets/images/ui/ui_arrow-right.svg') ?></span></button>
 				</div>
 			</div>
 		</div>
-		<div class="grid gap__05 inner-r__1">
-			<?php foreach (collection('Values') as $step) : ?>
-				<?php if ($img = $step->figure()->toFile()) : ?>
-					<div data-pane-trigger="step-<?= $step->step() ?>" id="trigger-<?= $step->step() ?>" class="vh__20 grid">
-						<?= snippet('atoms/Image', ['img' => $img, 'parallax' => 6, 'reveal' => false, 'css' => 'radius']) ?>
+		<div></div>
+		<div data-pane-container class="span__2 grid__stack" data-scroll>
+			<?php foreach (collection('Values') as $value) : ?>
+				<?php if ($img = $value->figure()->toFile()) : ?>
+					<div data-scroll data-scroll-ignore data-tab-reveal data-pane="value-<?= $value->indexOf(collection('Values')) ?>" id="value-img-<?= $value->indexOf(collection('Values')) ?>" class="grid">
+						<div class="grid" data-reveal-image>
+							<?= snippet('atoms/Image', ['img' => $img, 'reveal' => false, 'css' => 'aspect__5/4']) ?>
+						</div>
 					</div>
 				<?php endif ?>
 			<?php endforeach ?>
 		</div>
+
 	</div>
 </section>
 <?php endif ?>

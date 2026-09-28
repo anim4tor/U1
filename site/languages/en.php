@@ -28,6 +28,7 @@ return [
         'trusted-by' => 'Trusted by',
         'related-articles' => 'Related articles',
         'testimonials' => 'Testimonials',
+        'our-values' => 'Our values',
         'next-project' => 'Next project',
         'view-project' => 'View project',
         'scroll' => 'Scroll',
