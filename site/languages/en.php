@@ -20,6 +20,17 @@ return [
         'pricing-single' => 'Single entry',
         'pricing-passes' => 'Passes',
         'pricing-membership' => 'Membership',
+        'hover-previous' => 'Previous',
+        'hover-next' => 'Next',
+        'job.apply' => 'Apply',
+        'filter-all' => 'All',
+        'all-projects' => 'All projects',
+        'trusted-by' => 'Trusted by',
+        'related-articles' => 'Related articles',
+        'testimonials' => 'Testimonials',
+        'next-project' => 'Next project',
+        'view-project' => 'View project',
+        'scroll' => 'Scroll',
 
         // Template names
         'template.about'     => 'About',

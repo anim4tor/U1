@@ -156,26 +156,33 @@
 
 <?php $next = $page->nextListed() ?? collection('Projects')->first(); ?>
 <?php if ($next) : ?>
-<section class="intro radius" theme="invert" >
-	<div data-scroll class="z__1 intro__header place__stretch-stretch grid__4 mobile:grid__1 mobile:h__auto inner__4 mobile:inner-t__10 mobile:gap__2 relative ">
-		<a href="<?= $next->url() ?>" class="span__4 grid place__stretch-stretch">
-			<div class="span__4 grid__4 gap__2">
+	<section class="about radius" theme="invert">
+	<div class="grid__4 gap__2 place__stretch-stretch inner__4">
 
-				<div class="span__2">
-					<div class="flex gap__05 align__center upper font__size__small no__wrap" data-scroll ><div class="w__03 h__03 bg__acc"></div><div data-reveal-text>Další projekt</div></div>
-					
-				</div>
-				<div class="span__2 grid gap__2 place__start-stretch">
-					<h2 class="font__size__2">
-						<div data-reveal-text=""><?= $next->title() ?></div>
-					</h2>
-					<?php if ($cover = $next->cover()->toFile()) : ?>
-					<div class="intro__cover grid span__2 " data-scroll ><?= snippet('atoms/Image', ['img' => $cover, 'parallax' => 2, 'reveal' => false, 'css' => 'grid h__20']) ?></div>
-					<?php endif ?>
-					
+		<div class="relative grid gap__5 place__space-between-start" data-scroll >
+			<div class="grid place__start-stretch">
+				<div class="flex align__start gap__01 span__2">
+					<h2 data-reveal-text><?= t('next-project') ?></h2>
 				</div>
 			</div>
-		</a>
+			
+			<div class="grid gap__1 place__start-start">
+				<div data-scroll data-scroll-ignore class="grid gap__1 place__start-start">
+					<h3><?= $next->title()->inline() ?></h3>
+					<p><?= $next->intro()->inline() ?></p>
+					<a href="<?= $next->url() ?>" class="button upper" theme="ghost" hover="dark"><?= t('view-project') ?></a>
+				</div>
+			</div>
+		</div>
+		<div></div>
+		<div class="span__2" data-scroll>
+			<?php if ($img = $next->cover()->toFile()) : ?>
+				<div class="grid" data-reveal-image>
+					<?= snippet('atoms/Image', ['img' => $img, 'reveal' => false, 'css' => 'aspect__5/4']) ?>
+				</div>
+			<?php endif ?>
+		</div>
+
 	</div>
 </section>
 <?php endif; ?>

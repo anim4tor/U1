@@ -29,6 +29,7 @@ return [
         'related-articles' => 'Související články',
         'testimonials' => 'Reference',
         'next-project' => 'Další projekt',
+        'view-project' => 'Zobrazit projekt',
         'scroll' => 'Scrollovat',
 
         // Template names
