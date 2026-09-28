@@ -2,6 +2,10 @@ Title: CTPark Borská pole
 
 ----
 
+Hero: [{"content":{"text":"CTPark Borská pole","level":"h1","mod":"l","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"hero-head-ctpark-borska-pole-cz","isHidden":false,"type":"heading"},{"content":{"image":["file://onnpfA2k13de1mMi"],"hasparallax":"false","parallax":0,"hasreveal":"false","reveal":"","bid":"","attr":"","css":"overlay__bottom","href":"","target":"false","node":""},"id":"hero-cover-ctpark-borska-pole-cz","isHidden":false,"type":"cover"},{"content":{"text":"(2026)","mod":"l","face":"","case":"upper","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"hero-text-ctpark-borska-pole-cz","isHidden":false,"type":"text"}]
+
+----
+
 Cover: - file://onnpfA2k13de1mMi
 
 ----
@@ -42,7 +46,15 @@ Industry: Výroba
 
 ----
 
+Solutions: 
+
+----
+
 Space: fokus zóny, kanceláře
+
+----
+
+Production: 
 
 ----
 
@@ -70,7 +82,9 @@ Collabs:
 
 ----
 
-Gallery: - file://cTz76RmCkA95xgNn
+Gallery:
+
+- file://cTz76RmCkA95xgNn
 - file://G6DnxMRCgPjSlDZ5
 - file://5eSjpL6Nzuo15JZ0
 - file://0LfJrUDHuBDFqpmw

@@ -2,7 +2,7 @@ Title: Ortho Dent
 
 ----
 
-Hero: [{"content":{"text":"Ortho Dent","level":"h1","mod":"l","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"hero-head-ortho-dent-cz","isHidden":false,"type":"heading"},{"content":{"image":["file://LlqN8H5tVOzIDONC"],"hasparallax":"false","parallax":0,"hasreveal":"false","reveal":"","bid":"","attr":"","css":"overlay__bottom","href":"","target":"false","node":""},"id":"hero-cover-ortho-dent-cz","isHidden":false,"type":"cover"},{"content":{"text":"(2025)","mod":"l","face":"","case":"upper","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"hero-text-ortho-dent-cz","isHidden":false,"type":"text"}]
+Hero: [{"content":{"text":"Ortho Dent","level":"h1","mod":"l","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"hero-head-ortho-dent-en","isHidden":false,"type":"heading"},{"content":{"image":["file://LlqN8H5tVOzIDONC"],"hasparallax":"false","parallax":0,"hasreveal":"false","reveal":"","bid":"","attr":"","css":"overlay__bottom","href":"","target":"false","node":""},"id":"hero-cover-ortho-dent-en","isHidden":false,"type":"cover"},{"content":{"text":"(2025)","mod":"l","face":"","case":"upper","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"hero-text-ortho-dent-en","isHidden":false,"type":"text"}]
 
 ----
 
@@ -145,32 +145,8 @@ Og-image:
 
 ----
 
-Robots-index: 
-
-----
-
-Robots-follow: 
-
-----
-
-Robots-archive: 
-
-----
-
-Robots-imageindex: 
-
-----
-
-Robots-snippet: 
-
-----
-
 Footnote: 
 
 ----
 
 Author: 
-
-----
-
-Uuid: NVWahod5DcLtOlh5
