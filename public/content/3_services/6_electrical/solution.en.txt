@@ -51,27 +51,3 @@ Og-description:
 ----
 
 Og-image: 
-
-----
-
-Robots-index: 
-
-----
-
-Robots-follow: 
-
-----
-
-Robots-archive: 
-
-----
-
-Robots-imageindex: 
-
-----
-
-Robots-snippet: 
-
-----
-
-Uuid: WjOjzEHyfnAH1vKZ

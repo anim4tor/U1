@@ -12,7 +12,7 @@
 			<ol class="flex justify__start align__start no__wrap gap__1 " data-carousel-slides >	
 			<?php foreach (collection('Blog') as $feed) : ?>
 				<li data-slide class="vw__5" >	
-					<?= snippet('molecules/Feed', compact('feed')) ?>
+					<?= snippet('molecules/Feed/list', compact('feed')) ?>
 				</li>
 			<?php endforeach ?>
 			</ol>
