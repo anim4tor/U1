@@ -2,15 +2,11 @@ Title: Kontakt
 
 ----
 
-Hero: [{"content":{"text":"Kontakt","level":"h1","mod":"l","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"hero-head-contact-cz","isHidden":false,"type":"heading"},{"content":{"image":["contact_hero.jpg"],"hasparallax":"false","parallax":0,"hasreveal":"false","reveal":"","bid":"","attr":"","css":"overlay__harder","href":"","target":"false","node":""},"id":"hero-cover-contact-cz","isHidden":false,"type":"cover"},{"content":{"text":"Spojte se s námi přímo nebo nám na vás zanechte kontakt. Ozveme se.","mod":"l","face":"","case":"lower","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"hero-text-contact-cz","isHidden":false,"type":"text"}]
+Hero: [{"content":{"text":"Kontakt","level":"h1","mod":"l","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"hero-head-contact-cz","isHidden":false,"type":"heading"},{"content":{"image":["file://Z4ALtoUPLP0eh9Fk"],"hasparallax":"false","parallax":0,"hasreveal":"false","reveal":"","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"hero-cover-contact-cz","isHidden":false,"type":"cover"},{"content":{"text":"Spojte se s námi přímo nebo nám na vás zanechte kontakt. Ozveme se.","mod":"l","face":"","case":"lower","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"hero-text-contact-cz","isHidden":false,"type":"text"}]
 
 ----
 
-Cover: contact_hero.jpg
-
-----
-
-Intro: Spojte se s námi přímo nebo nám na vás zanechte kontakt. Ozveme se.
+Intro: [{"content":{"text":"<p>Spojte se s námi přímo nebo nám na vás zanechte kontakt. Ozveme se.</p>","mod":"","face":"","case":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"314174b5-cf1c-4923-b213-cc87b33531e0","isHidden":false,"type":"text"}]
 
 ----
 
@@ -22,6 +18,10 @@ Meta-title: Kontakt | U1 Space Design
 
 ----
 
+Meta-canonical-url: 
+
+----
+
 Og-title: Kontakt | U1 Space Design
 
 ----
@@ -30,11 +30,31 @@ Og-description: Spojte se s námi přímo nebo nám na vás zanechte kontakt. U1
 
 ----
 
-Robots-index: true
+Og-image: 
 
 ----
 
-Robots-follow: true
+Robots-index: 
+
+----
+
+Robots-follow: 
+
+----
+
+Robots-archive: 
+
+----
+
+Robots-imageindex: 
+
+----
+
+Robots-snippet: 
+
+----
+
+Cover: contact_hero.jpg
 
 ----
 
