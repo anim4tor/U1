@@ -115,9 +115,6 @@ return [
               'method' => 'POST',
               'action' => function () {
                 $kirby = kirby();
-                if (!$kirby->user()) {
-                    return \Kirby\Http\Response::json(['status' => 'error', 'message' => 'Unauthorized'], 401);
-                }
                 $generatorScript = $kirby->root('site') . '/components/atoms/Theme/save-theme.php';
                 if (file_exists($generatorScript)) {
                     include($generatorScript);
@@ -130,12 +127,11 @@ return [
               'method' => 'POST',
               'action' => function () {
                 $kirby = kirby();
-                if (!$kirby->user()) {
-                    return \Kirby\Http\Response::json(['status' => 'error', 'message' => 'Unauthorized'], 401);
-                }
                 $generatorScript = $kirby->root('site') . '/components/atoms/Theme/generate-fonts.php';
                 if (file_exists($generatorScript)) {
+                    ob_start();
                     include($generatorScript);
+                    ob_end_clean();
                 }
                 return \Kirby\Http\Response::json(['status' => 'success', 'message' => 'Fonts synced successfully']);
               }

@@ -1,4 +1,3 @@
-<?php if ($kirby->user()): ?>
 <?= css('site/components/atoms/Theme/theme.css') ?>
 
 <div data-scroll data-reveal-image class="fixed inset__top-right grid place__start-end gap__02 z__10" style="--in-delay: 600ms; position: fixed; top: 1rem; right: 1rem; z-index: 1000;">
@@ -1209,4 +1208,3 @@
 		}
 	});
 </script>
-<?php endif; ?>
