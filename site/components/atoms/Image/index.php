@@ -49,7 +49,8 @@
 		<?php if ($img && is_object($img)) : ?>
 			<img class="<?= $priority ? 'is-loaded' : '' ?>" loading="<?= esc($loading) ?>" <?= $fetchpriority ? 'fetchpriority="' . esc($fetchpriority) . '" ' : '' ?>decoding="<?= esc($decoding) ?>" onload="this.classList.add('is-loaded')" src="<?= $img->url() ?>" alt="<?= $altText ?>"<?= $widthAttr ?><?= $heightAttr ?>>
 		<?php elseif ($url): ?>
-			<img class="<?= $priority ? 'is-loaded' : '' ?>" loading="<?= esc($loading) ?>" <?= $fetchpriority ? 'fetchpriority="' . esc($fetchpriority) . '" ' : '' ?>decoding="<?= esc($decoding) ?>" onload="this.classList.add('is-loaded')" src="<?= asset('public/assets/images/' . $url)->url() ?>" alt="<?= $altText ?>">
+			<?php $srcUrl = (str_starts_with($url, 'http://') || str_starts_with($url, 'https://') || str_starts_with($url, '//') || str_starts_with($url, '/')) ? $url : asset('public/assets/images/' . $url)->url(); ?>
+			<img class="<?= $priority ? 'is-loaded' : '' ?>" loading="<?= esc($loading) ?>" <?= $fetchpriority ? 'fetchpriority="' . esc($fetchpriority) . '" ' : '' ?>decoding="<?= esc($decoding) ?>" onload="this.classList.add('is-loaded')" src="<?= $srcUrl ?>" alt="<?= $altText ?>">
 		<?php endif ?>
 	</figure>
 

@@ -40,28 +40,23 @@ $isVideo   = ($isSocial && method_exists($item, 'media_type')) ? ($item->media_t
 
 <div class="item --feed --feed-<?= esc($type) ?>" data-scroll>
 	<a href="<?= esc($url) ?>" <?= $target ? 'target="' . esc($target) . '"' : '' ?> <?= $rel ? 'rel="' . esc($rel) . '"' : '' ?> class="grid gap__05 relative">
-		<?php if ($coverFile) : ?>
-			<div class="item__figure grid img__radius no__overflow">
+		<?php if ($coverFile || $mediaUrl) : ?>
+			<div class="item__figure grid img__radius no__overflow relative <?= $isSocial ? 'color__invert' : '' ?>">
 				<?= snippet('atoms/Image', [
-					'img'    => $coverFile, 
+					'img'    => $coverFile,
+					'url'    => $mediaUrl,
 					'reveal' => true, 
-					'css'    => 'vh__8 grid', 
+					'css'    => 'vh__8 grid' . ($isSocial ? ' overlay__bottom' : ''), 
 					'node'   => 'data-reveal-image'
 				]) ?>
-			</div>
-		<?php elseif ($mediaUrl) : ?>
-			<div class="item__figure grid img__radius no__overflow relative color__invert">
-				<figure class="overlay__bottom relative vh__8 grid">
-					<img src="<?= esc($mediaUrl) ?>" alt="<?= esc($title) ?>" loading="lazy" class="w__full h__full object__cover vh__8 grid" data-reveal-image />
-					<?php if ($platform) : ?>
-						<div class="badge absolute bottom__1 right__1 z__1">
-							<?= svg('public/assets/images/' . $platform . '.svg') ?>
-						</div>
-					<?php endif ?>
-					<?php if ($isVideo) : ?>
-						<span class="video-badge absolute top__1 right__1 z__1">▶ Video</span>
-					<?php endif ?>
-				</figure>
+				<?php if ($isSocial && $platform) : ?>
+					<div class="badge absolute bottom__1 right__1 z__1">
+						<?= svg('public/assets/images/' . $platform . '.svg') ?>
+					</div>
+				<?php endif ?>
+				<?php if ($isSocial && $isVideo) : ?>
+					<span class="video-badge absolute top__1 right__1 z__1">▶ Video</span>
+				<?php endif ?>
 			</div>
 		<?php endif ?>
 
