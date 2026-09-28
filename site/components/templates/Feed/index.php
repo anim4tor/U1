@@ -1,6 +1,6 @@
-<div class="feed-page" data-tabs="default">
+<div class="feed-page" data-tabs="default" theme="light">
 	<?= snippet('templates/globals/Hero/list', [
-		'theme' => 'invert',
+		'theme' => 'light',
 		'tabs'  => [
 			['id' => 'blog',    'label' => 'Články', 'count' => collection('Blog')->count()],
 			['id' => 'socials', 'label' => 'Sítě',   'count' => collection('Socials')->count()],
