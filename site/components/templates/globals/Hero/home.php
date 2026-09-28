@@ -5,7 +5,7 @@
 			<div data-tab="project-<?= $project->indexOf($page->heroSlider()->toPages()) ?>"></div>
 		<?php endforeach ?>
 	</div>
-	<div data-pane-container class="grid__stack absolute inset__stretch" >
+	<div data-pane-container class="grid__stack absolute inset__stretch overlay__harder" >
 		<?php $heroProjects = $page->heroSlider()->toPages(); ?>
 		<?php foreach ($heroProjects as $index => $project) : ?>
 			<?php if ($cover = $project->cover()->toFile()) : ?>
@@ -14,7 +14,7 @@
 					'img' => $cover, 
 					'parallax' => 2, 
 					'reveal' => false, 
-					'css' => 'overlay__bottom h__100v',
+					'css' => ' h__100v',
 					'priority' => $project->indexOf($heroProjects) === 0
 				]) ?></div>
 			</div>
