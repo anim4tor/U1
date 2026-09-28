@@ -38,8 +38,6 @@
     .item__figure:not(.featured__figure) figure,
     .item .item__figure,
     .item .item__figure figure {
-        aspect-ratio: 1 / 1;
-        --aspect-ratio: 1/1;
         align-self: start;
         width: 100%;
     }
@@ -48,8 +46,7 @@
 .social__card figure,
 .instagram__card figure,
 .linkedin__card figure {
-    aspect-ratio: 1 / 1;
-    --aspect-ratio: 1/1;
+    width: 100%;
 }
 
 
