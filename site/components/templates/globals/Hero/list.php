@@ -104,7 +104,7 @@ if (!empty($isFiltered)) {
 					<?php endif ?>
 
 					<?php if (empty($tabs) && $itemCount !== null) : ?>
-						<?= snippet('atoms/Text', ['text' => '(' . $itemCount . ')', 'reveal' => true, 'css' => 'font__size__small']) ?>
+						<?= snippet('atoms/Label', ['text' => $itemCount]) ?>
 					<?php endif ?>
 				</div>
 			</div>
