@@ -29,6 +29,11 @@ class Navbar {
     init() {
         this.DOM.triggers.forEach(btn => btn.addEventListener('click', (e) => this.toggle(e)));
         this.DOM.closeBtns.forEach(btn => btn.addEventListener('click', () => this.close()));
+
+        // Close navbar when clicking contact toggle buttons inside navbar
+        this.DOM.navbar.querySelectorAll('[data-contact-toggle]').forEach(btn => {
+            btn.addEventListener('click', () => this.close());
+        });
     }
 
     toggle(e) {
@@ -55,7 +60,12 @@ class Navbar {
         if (!this.state.isOpen) return;
         this.state.isOpen = false;
 
-        this.DOM.html.style.overflow = ''; 
+        // Preserve body overflow lock if contact modal is open
+        const isContactOpen = this.DOM.html.hasAttribute('contact-open') && this.DOM.html.getAttribute('contact-open') !== 'pop';
+        if (!isContactOpen) {
+            this.DOM.html.style.overflow = '';
+        }
+
         this.DOM.html.removeAttribute('navbar-open');
         this.DOM.navbar.setAttribute('aria-hidden', 'true');
 
@@ -76,7 +86,8 @@ class Navbar {
 }
 
 function initNavbar() {
-    document.querySelector('[navbar]') ? 
-        new Navbar(document.querySelector('[navbar]')) 
-    : null
+    const el = document.querySelector('[navbar]');
+    if (el) {
+        window.NAVBAR = new Navbar(el);
+    }
 }

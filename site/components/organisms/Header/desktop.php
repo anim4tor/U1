@@ -77,14 +77,14 @@
 										'label' => t('book-call'),
 										'theme' => 'invert-ghost',
 										'hover' => 'invert',
-										'node'  => 'data-scroll data-contact-toggle="contact"',
+										'node'  => 'data-scroll data-contact-toggle="contact" navbar-close',
 										'css' => 'justify__center'
 									]) ?>
 									<?= snippet('atoms/Button', [
 										'label' => t('inquire-project'),
 										'theme' => 'acc',
 										'hover' => 'invert',
-										'node'  => 'data-scroll data-contact-toggle="inquiry"',
+										'node'  => 'data-scroll data-contact-toggle="inquiry" navbar-close',
 										'css' => 'justify__center'
 									]) ?>
 								</div>
