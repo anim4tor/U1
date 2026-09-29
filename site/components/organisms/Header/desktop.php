@@ -73,20 +73,18 @@
 							<div class="grid gap__05 inner-t__1">
 								<div class="label upper font__size__small op__4">(Kontakt)</div>
 								<div class="grid__2 gap__02">
-									<button class="img__radius flex inner__05 gap__02 justify__center align__center" theme="invert-ghost" data-scroll data-booking-toggle >
-										<!-- <div icon class="grid__stack ">
-											<div data-booking-hide class="grid"><?= svg('public/assets/images/hand.svg') ?></div>
-											<div data-booking-reveal class="grid"><?= svg('public/assets/images/ui/ui_close.svg') ?></div>
-										</div> -->
-										<label class="upper">Domluvit hovor</label>
-									</button>
-									<button class="img__radius flex inner__05 gap__02 justify__center align__center" theme="acc" data-scroll data-booking-toggle >
-										<!-- <div icon class="grid__stack ">
-											<div data-booking-hide class="grid"><?= svg('public/assets/images/hand.svg') ?></div>
-											<div data-booking-reveal class="grid"><?= svg('public/assets/images/ui/ui_close.svg') ?></div>
-										</div> -->
-										<label class="upper">Poptat projekt</label>
-									</button>
+									<?= snippet('atoms/Button', [
+										'label' => t('book-call'),
+										'theme' => 'invert-ghost',
+										'hover' => 'invert',
+										'node'  => 'data-scroll data-contact-toggle="contact"',
+									]) ?>
+									<?= snippet('atoms/Button', [
+										'label' => t('inquire-project'),
+										'theme' => 'acc',
+										'hover' => 'invert',
+										'node'  => 'data-scroll data-contact-toggle="inquiry"',
+									]) ?>
 								</div>
 							</div>
 						</div>

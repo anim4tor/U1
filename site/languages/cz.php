@@ -33,6 +33,8 @@ return [
         'about-project' => 'O projektu',
         'about-solution' => 'O službě',
         'about-service' => 'O službě',
+        'book-call' => 'Domluvit hovor',
+        'inquire-project' => 'Poptat projekt',
         'next-project' => 'Další projekt',
         'view-project' => 'Zobrazit projekt',
         'search' => 'Hledat',

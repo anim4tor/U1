@@ -33,6 +33,8 @@ return [
         'about-project' => 'About project',
         'about-solution' => 'About solution',
         'about-service' => 'About service',
+        'book-call' => 'Book a call',
+        'inquire-project' => 'Inquire a project',
         'next-project' => 'Next project',
         'view-project' => 'View project',
         'search' => 'Search',
