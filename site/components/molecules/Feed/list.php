@@ -28,7 +28,7 @@ $title    = $isSocial ? $item->title()->excerpt(200) : $item->title();
 // 3. Date / Meta
 $dateText = null;
 if (!$isSocial && $item->content()->has('date') && $item->date()->isNotEmpty()) {
-    $dateText = '(' . ($type === 'media' ? $item->date()->toDate('Y') : $item->date()->toDate('Y-m-d')) . ')';
+    $dateText = $type === 'media' ? $item->date()->toDate('Y') : $item->date()->toDate('Y-m-d');
 }
 
 // 4. Figure & Media
@@ -65,7 +65,7 @@ $isVideo   = $isSocial && $item->content()->has('media_type') && ($item->media_t
 				<h3 class="font__size__4 wrap <?= $type === 'media' ? 'ff__body' : '' ?>" data-reveal-text="lines"><?= $title ?></h3>
 			</div>
 			<?php if ($dateText) : ?>
-				<p class="font__size__small op__7 no__wrap" data-reveal-text="lines"><?= $dateText ?></p>
+				<?= snippet('atoms/Label', ['text' => $dateText]) ?>
 			<?php endif ?>
 		</div>
 	</a>
