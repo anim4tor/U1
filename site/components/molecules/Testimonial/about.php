@@ -1,31 +1,17 @@
-<div class="testimonial" data-scroll>
+<div class="item --testimonial relative" data-scroll>
 	<div class="grid gap__05 relative">	
 		<div class="relative">
-			<?php if ($cover = $testimonial->testimonialImage()->toFile()) : ?>
-				<div class="testimonial__figure grid img__radius"><?= snippet('atoms/Image', ['img' => $cover, 'reveal' => true, 'css' => 'vh__'.rand(10,15), 'node' => 'data-reveal-image']) ?></div>
+			<?php if ($cover = $testimonial->testimonialImage()->toFile() ?? (page('about') ? page('about')->file($testimonial->testimonialImage()->value()) : null)) : ?>
+				<div class="item__figure grid img__radius"><?= snippet('atoms/Image', ['img' => $cover, 'reveal' => true, 'css' => 'vh__'.rand(8,10), 'node' => 'data-reveal-image']) ?></div>
 			<?php endif ?>
-			
-			<div class="testimonial__hover absolute bottom__1 right__1 w__15">
-				<div class="grid gap__3 img__radius inner__1 border" theme="dark">
-					<div class="grid gap__1">
-						<div class="grid gap__4 place__space-between-start">
-							<div class="grid place__start-stretch gap__1">
-								<!-- Quote is already formatted as inline string -->
-								<p class="quote ff__heading wrap" data-reveal-text="lines" data-split-ignore>"<?= $testimonial->testimonialQuote()->inline() ?>"</p>
-							</div>
-						</div>
-					</div>
-					<div class="flex justify__space-between gap__05 align__end">
-						<div class="grid gap__01">
-							<div class="upper op__4 font__size__small" data-reveal-text="lines"><?= $testimonial->testimonialAuthor()->or($testimonial->parent()->client()) ?></div>
-							<?php if ($testimonial->testimonialPosition()->isNotEmpty()) : ?>
-								<div class="upper op__4 font__size__small" data-reveal-text="lines">(<?= $testimonial->testimonialPosition() ?>)</div>
-							<?php endif ?>
-						</div>
-					</div>
-				</div>
+		</div>
+		<div class="item__meta relative flex justify__space-between align__center gap__2">
+			<div class="flex gap__05 upper">
+				<h3 class="font__size__4 wrap"><?= $testimonial->testimonialAuthor() ?></h3>
 			</div>
-			
+			<?php if ($testimonial->testimonialPosition()->isNotEmpty()) : ?>
+				<p class="font__size__small">(<?= $testimonial->testimonialPosition() ?>)</p>
+			<?php endif ?>
 		</div>
 	</div>
 </div>
