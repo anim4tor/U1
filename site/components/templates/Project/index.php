@@ -169,7 +169,7 @@
 			<div class="grid gap__1 place__start-start">
 				<div data-scroll data-scroll-ignore class="grid gap__1 place__start-start">
 					<h3><?= $next->title()->inline() ?></h3>
-					<p><?= $next->intro()->inline() ?></p>
+					<p class="op__7"><?= $next->intro()->inline() ?></p>
 					<a href="<?= $next->url() ?>" class="button upper" theme="ghost" hover="dark"><?= t('view-project') ?></a>
 				</div>
 			</div>

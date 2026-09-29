@@ -12,7 +12,7 @@
 <?php if ($text) : ?>
 	<p 
 		<?= $reveal ? 'data-scroll data-reveal-text="lines"' : '' ?>
-		class="<?= esc($css) ?>" 
+		class="<?= esc($css) ?> op__7" 
 		<?= $node ?>
 	>
 		<?= $text ?>
