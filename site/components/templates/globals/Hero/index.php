@@ -26,9 +26,10 @@ if (isset($page) && $page->cover()->isNotEmpty()) {
 		<div class=""></div>
 		<div class="span__4 grid__2 place__space-between-stretch">
 			<div class="span__2 h__5 place__start-start grid__4 gap__2 border__top inner-t__05">
-				<div class="span__2 upper font__size__small">
-					(<?= t('template.' . $page->intendedTemplate()->name(), t($page->intendedTemplate()->name(), $page->title()->value())) ?>)
-				</div>
+				<?= snippet('atoms/Label', [
+					'text' => t('template.' . $page->intendedTemplate()->name(), t($page->intendedTemplate()->name(), $page->title()->value())),
+					'css'  => 'span__2'
+				]) ?>
 				<div class="grid gap__1 place__start-start span__2">
 					
 					<?php if ($hasHero) : ?>
