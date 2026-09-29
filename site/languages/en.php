@@ -31,6 +31,8 @@ return [
         'our-values' => 'Our values',
         'life-at-u1' => 'Life at U1',
         'about-project' => 'About project',
+        'about-solution' => 'About solution',
+        'about-service' => 'About service',
         'next-project' => 'Next project',
         'view-project' => 'View project',
         'search' => 'Search',

@@ -31,6 +31,8 @@ return [
         'our-values' => 'Naše hodnoty',
         'life-at-u1' => 'Život s U1',
         'about-project' => 'O projektu',
+        'about-solution' => 'O službě',
+        'about-service' => 'O službě',
         'next-project' => 'Další projekt',
         'view-project' => 'Zobrazit projekt',
         'search' => 'Hledat',

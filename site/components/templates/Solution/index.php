@@ -4,7 +4,7 @@
 <section class="about" theme="invert">
 	<div data-scroll class="grid__4 gap__2 mobile:grid__1 inner__4 mobile:inner-x__1 ">
 		<div class="span__2">
-			<div class="flex gap__05 align__center upper font__size__small no__wrap" data-scroll ><div data-reveal-text>O službě</div></div>	
+			<?= snippet('atoms/Label', ['text' => t('about-solution')]) ?>
 		</div>
 		<div class="span__2 grid place__start-start gap__2 mobile:inner-x__0">
 			<h3 data-reveal-text="lines" class="font__size__3"><?= $page->intro()->inline() ?></h3>
