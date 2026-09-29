@@ -105,13 +105,13 @@ Order:
 - 
   label: 2_about
 - 
-  label: 3_values
+  label: 3_testimonials
 - 
-  label: 4_teams
+  label: 4_values
 - 
-  label: 5_people
+  label: 5_teams
 - 
-  label: 6_career
+  label: 6_people
 - 
   label: global/Feed/index
 - 
