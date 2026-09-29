@@ -29,9 +29,11 @@
 									<?= snippet('atoms/Image', ['img' => $img, 'reveal' => false, 'css' => 'radius overlay__bottom']) ?>
 								</div>
 							<?php endif ?>
-							<div class="process-card__title flex no__wrap align__center gap__02 relative z__1 inner-y__05">
+							<div class="process-card__title flex no__wrap align__center relative z__1 inner-y__05">
 								<?= snippet('atoms/Heading', [ 'level' => 'h3', 'text' => $step->label(), 'reveal' => true, 'css' => '', 'node' => 'data-split-ignore' ]) ?>
-								<div data-reveal-text="" class="font__size__small" data-split-ignore style="--in-delay: 800ms">(<?= $step->step() ?>)</div>
+								<div class="-wrap-t__02">
+									<?= snippet('atoms/Label', ['text' => $step->step()]) ?>
+								</div>
 							</div>
 							<div class="process-card__detail" data-tab-reveal data-pane="step-<?= $step->step() ?>" id="trigger-<?= $step->step() ?>">
 								<div class="op__7">

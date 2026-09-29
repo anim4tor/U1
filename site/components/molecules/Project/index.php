@@ -12,7 +12,7 @@
 				<!-- <span class="">(<?= str_pad($project->indexOf(collection('Projects')) + 1, 2, '0', STR_PAD_LEFT); ?>)</span> -->
 				<h3 class="font__size__4 wrap"><?= $project->title() ?></h3>
 			</div>
-			<p class="font__size__small">(<?= $project->date()->toDate('Y') ?>)</p>
+			<?= snippet('atoms/Label', ['text' => $project->date()->toDate('Y')]) ?>
 		</div>
 	</a>
 </div>
