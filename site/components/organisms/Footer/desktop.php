@@ -1,4 +1,4 @@
-<footer id="footer" class="" theme="invert" data-footer data-scroll>
+<footer id="footer" class="radius" theme="invert" data-footer data-scroll>
 	<div class="bg radius absolute inset__stretch"></div>
 
 	<div class="grid__4 gap__1 inner-x__4 inner-y__2 inner-b__1">

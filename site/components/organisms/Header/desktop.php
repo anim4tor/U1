@@ -1,6 +1,6 @@
 <header class="header grid place__start-end inner__05" data-header>
 	<div class="header__wrapper grid place__start-start">
-		<div navbar class="grid  bg__dark/60 color__invert bg__blur large__radius">
+		<div navbar class="grid  bg__dark/60 color__invert bg__blur radius">
 			<div navbar-header data-scroll class="absolute inset__top-stretch grid__3 justify__stretch inner-x__02" >
 				<div class="flex align__center justify__start">
 					
@@ -25,7 +25,7 @@
 					</div>
 					<div class="grid__stack place__center-end" navbar-toggle data-on-navbar-toggle>
 						<?= snippet('atoms/Button', [ 'label' => false, 'icon' => 'menu', 'node' => 'data-navbar-toggle data-default', 'theme' => 'transparent', 'css' => 'circle' ]) ?>
-						<?= snippet('atoms/Button', [ 'label' => false, 'icon' => 'close', 'node' => 'data-navbar-toggle', 'theme' => 'transparent', 'css' => 'circle' ]) ?>
+						<?= snippet('atoms/Button', [ 'label' => false, 'icon' => 'close', 'node' => 'data-navbar-toggle', 'theme' => '', 'css' => 'circle --small bg__light/20 color__invert/80 wrap-r__05' ]) ?>
 								
 					</div>
 				<!-- </div> -->
@@ -70,7 +70,7 @@
 									</div>
 								</nav>
 							</div>
-							<div class="grid place__start-start gap__05 inner-t__1">
+							<div class="grid place__start-stretch gap__05 inner-t__1">
 								<div class="flex"><?= snippet('atoms/Label', ['text' => t('contact'), 'css' => 'op__4']) ?></div>
 								<div class="grid__2 gap__02">
 									<?= snippet('atoms/Button', [

@@ -1,7 +1,7 @@
 <?= snippet('templates/globals/Hero') ?>
 
 
-<section class="about" theme="invert">
+<section class="about radius" theme="invert">
 	<div data-scroll class="grid__4 gap__2 mobile:grid__1 inner__4 mobile:inner-x__1 ">
 		<div class="span__2">
 			<?= snippet('atoms/Label', ['text' => t('about-solution')]) ?>

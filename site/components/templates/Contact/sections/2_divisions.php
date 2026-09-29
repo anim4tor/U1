@@ -56,7 +56,7 @@ $divisions = [
 
 		<div class="grid__3 mobile:grid__1 gap__2">
 			<?php foreach ($divisions as $div) : ?>
-				<article class="card relative radius overflow__hidden flex place__space-between-stretch gap__1 inner__1" data-scroll style="background: rgba(var(--color-invert), 0.03); flex-direction: column;">
+				<article class="card relative radius overflow__hidden flex place__space-between-stretch gap__05 inner__1" data-scroll style="background: rgba(var(--color-invert), 0.03); flex-direction: column;">
 					<div class="grid gap__1">
 						<div class="item__figure img__radius overflow__hidden" data-scroll style="max-width: 140px;">
 							<?= snippet('atoms/Image', [
@@ -70,7 +70,7 @@ $divisions = [
 						</div>
 					</div>
 
-					<div class="flex wrap gap__05 ">
+					<div class="flex wrap gap__02 ">
 						<?php if (!empty($div['email'])) : ?>
 							<a href="mailto:<?= $div['email'] ?>" class="button" theme="invert-ghost" hover="invert">
 								<label class="upper font__size__small"><span><?= $div['email'] ?></span></label>
