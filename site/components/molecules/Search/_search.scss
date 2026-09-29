@@ -42,7 +42,6 @@
 		&:focus-within {
 			width: 280px;
 			box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
-			border-color: var(--color-acc, #e5005a);
 		}
 
 		@media (max-width: 768px) {
@@ -75,8 +74,9 @@
 		flex: 1;
 		min-width: 0;
 		height: 100%;
-		border: none;
-		outline: none;
+		border: none !important;
+		outline: none !important;
+		box-shadow: none !important;
 		background: transparent;
 		color: inherit;
 		font-family: inherit;
@@ -84,6 +84,15 @@
 		font-weight: 500;
 		padding: 0;
 		letter-spacing: 0;
+
+		&:focus,
+		&:focus-visible,
+		&:target,
+		&:active {
+			border: none !important;
+			outline: none !important;
+			box-shadow: none !important;
+		}
 
 		&::placeholder {
 			color: inherit;
