@@ -29,6 +29,7 @@ return [
         'related-articles' => 'Související články',
         'testimonials' => 'Reference',
         'our-values' => 'Naše hodnoty',
+        'life-at-u1' => 'Život s U1',
         'next-project' => 'Další projekt',
         'view-project' => 'Zobrazit projekt',
         'search' => 'Hledat',

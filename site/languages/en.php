@@ -29,6 +29,7 @@ return [
         'related-articles' => 'Related articles',
         'testimonials' => 'Testimonials',
         'our-values' => 'Our values',
+        'life-at-u1' => 'Life at U1',
         'next-project' => 'Next project',
         'view-project' => 'View project',
         'search' => 'Search',
