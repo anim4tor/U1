@@ -20,7 +20,7 @@ function resolveImports(filePath, visited = new Set()) {
 
   const lines = content.split(/\r?\n/);
   for (const line of lines) {
-    const importMatch = line.match(/^\s*import\s+['"](.+?)['"];?/) ||
+    const importMatch = line.match(/^\s*import\s+(?:.+?\s+from\s+)?['"](.+?)['"];?/) ||
                         line.match(/^\s*\/\/\s*@prepros-prepend\s+['"]?(.+?)['"]?\s*$/);
 
     if (importMatch) {

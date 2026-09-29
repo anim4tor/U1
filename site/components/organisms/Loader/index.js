@@ -34,35 +34,59 @@ class Loader {
             return;
         }
 
+        let completed = false;
+        const completeOnce = () => {
+            if (!completed) {
+                completed = true;
+                this.onComplete();
+            }
+        };
+
+        // Safety fallback: if images take too long or stall, complete anyway
+        const safetyTimeout = setTimeout(() => {
+            if (this.loaded < this.total) {
+                console.warn('Loader timed out waiting for images, proceeding.');
+                completeOnce();
+            }
+        }, 3500);
+
+        const checkDone = () => {
+            if (this.loaded >= this.total) {
+                clearTimeout(safetyTimeout);
+                completeOnce();
+            }
+        };
+
         this.images.forEach(img => {
+            const rawSrc = img.getAttribute('src');
+            if (!rawSrc || rawSrc.trim() === '' || img.src === window.location.href) {
+                this.loaded++;
+                checkDone();
+                return;
+            }
+
             const tempImage = new Image();
             tempImage.src = img.src;
 
             tempImage.onload = () => {
-                // 1. Capture the true dimensions from the loaded file
-                // const width = tempImage.naturalWidth;
-                // const height = tempImage.naturalHeight;
-
                 const rect = img.getBoundingClientRect();
                 const width = rect.width;
                 const height = rect.height;
 
-                // 2. Apply those dimensions to the original DOM element
-                // This prevents layout shift and informs your CSS
                 img.width = width;
                 img.height = height;
 
-                // 2. Set CSS Variables on the specific image element
-                // We append 'px' so you can use them directly in calculations
                 img.style.setProperty('--w', `${width}px`);
                 img.style.setProperty('--h', `${height}px`);
 
                 this.updateProgress();
+                checkDone();
             };
 
             tempImage.onerror = () => {
                 console.warn(`Failed to load: ${img.src}`);
                 this.updateProgress();
+                checkDone();
             };
         });
     }
@@ -70,12 +94,6 @@ class Loader {
     updateProgress() {
         this.loaded++;
         const percent = Math.min(Math.floor((this.loaded / this.total) * 100), 100);
-        console.clear();
-        console.log(`Loading: ${percent}%`);
         this.onProgress(percent);
-
-        if (this.loaded === this.total) {
-            this.onComplete();
-        }
     }
 }

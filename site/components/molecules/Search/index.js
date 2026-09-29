@@ -246,7 +246,7 @@ class ProjectSearch {
 	}
 }
 
-export function initProjectSearch() {
+function initProjectSearch() {
 	document.querySelectorAll('[data-project-search]').forEach(el => {
 		if (el._projectSearch) return;
 		el._projectSearch = new ProjectSearch(el);

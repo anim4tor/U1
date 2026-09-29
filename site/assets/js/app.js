@@ -9,7 +9,7 @@ import '../../components/atoms/Reveal/index.js';
 import '../../components/molecules/Collapsible/index.js';
 import '../../components/molecules/Tabs/index.js';
 import '../../components/molecules/Dropdown/index.js';
-import { initProjectSearch } from '../../components/molecules/Search/index.js';
+import '../../components/molecules/Search/index.js';
 import '../../components/organisms/Loader/index.js';
 import '../../components/organisms/Header/index.js';
 import '../../components/organisms/Carousel/index.js';
@@ -143,10 +143,20 @@ const init = async () => {
     ];
     
     // Spustíme komponenty (await počká na ty, které vrací Promise)
-    await Promise.all(components.map(fn => typeof fn === 'function' && fn()));
+    await Promise.all(components.map(async (fn) => {
+        if (typeof fn === 'function') {
+            try {
+                await fn();
+            } catch (err) {
+                console.error('Error initializing component:', fn.name || 'anonymous', err);
+            }
+        }
+    }));
 
     // 2. Aktivujeme Reveal engine těsně předtím, než zmizí loader
-    REVEAL.enable(); 
+    if (typeof REVEAL !== 'undefined' && REVEAL && typeof REVEAL.enable === 'function') {
+        REVEAL.enable(); 
+    }
 
     // 3. Sequence transition classes pro odhalení obsahu
     requestAnimationFrame(() => {
@@ -164,9 +174,13 @@ const startApp = async () => {
     document.documentElement.setAttribute('data-loading', 'true');
 
     const PAGE = new Promise((resolve) => {
+        if (typeof Loader === 'undefined') {
+            resolve();
+            return;
+        }
         const loader = new Loader(
             (percent) => {
-                document.querySelector('[data-loader]').style.setProperty('--progress', percent);
+                document.querySelector('[data-loader]')?.style.setProperty('--progress', percent);
             },
             () => {
                 resolve();
@@ -176,7 +190,10 @@ const startApp = async () => {
     });
 
     try {
-        await PAGE;
+        await Promise.race([
+            PAGE,
+            new Promise(res => setTimeout(res, 4000))
+        ]);
     } catch (err) {
         console.warn("Preload failed, initializing anyway", err);
     }
