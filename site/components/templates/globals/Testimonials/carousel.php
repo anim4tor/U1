@@ -125,7 +125,5 @@
 	    slider.addEventListener("touchmove", pointerMove, { passive: false });
 	    slider.addEventListener("touchend", pointerUp);
 	});
-</script>tListener("touchmove", pointerMove, { passive: false });
-	    slider.addEventListener("touchend", pointerUp);
-	});
+
 </script>

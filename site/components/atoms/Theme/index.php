@@ -118,7 +118,7 @@
 					<input type="number" name="font-weight-1" step="100" min="100" max="900" data-theme-setup data-override>
 				</div>
 			</div>
-			<div class="theme-panel-row span__2" style="margin-bottom: 0.25rem;">
+			<div class="theme-panel-row span__2">
 				<div class="grid">
 					<label class="ff__body op__4 font__size__small">Line Height</label>
 					<input type="number" name="line-height-1" step="0.01" min="0.5" max="2.5" data-theme-setup data-override>
@@ -127,6 +127,16 @@
 					<label class="ff__body op__4 font__size__small">Letter Spacing</label>
 					<input type="number" name="letter-spacing-1" step="0.01" placeholder="0" data-theme-setup data-override data-unit="em">
 				</div>
+			</div>
+			<div class="grid span__2" style="margin-bottom: 0.25rem;">
+				<label class="ff__body op__4 font__size__small">Transform</label>
+				<select name="text-transform-1" data-theme-setup data-override>
+					<option value="">Auto (none)</option>
+					<option value="none">None</option>
+					<option value="uppercase">Uppercase</option>
+					<option value="lowercase">Lowercase</option>
+					<option value="capitalize">Capitalize</option>
+				</select>
 			</div>
 
 			<!-- H2 Sekce -->
@@ -145,7 +155,7 @@
 					<input type="number" name="font-weight-2" step="100" min="100" max="900" data-theme-setup data-override>
 				</div>
 			</div>
-			<div class="theme-panel-row span__2" style="margin-bottom: 0.25rem;">
+			<div class="theme-panel-row span__2">
 				<div class="grid">
 					<label class="ff__body op__4 font__size__small">Line Height</label>
 					<input type="number" name="line-height-2" step="0.01" min="0.5" max="2.5" data-theme-setup data-override>
@@ -154,6 +164,16 @@
 					<label class="ff__body op__4 font__size__small">Letter Spacing</label>
 					<input type="number" name="letter-spacing-2" step="0.01" placeholder="0" data-theme-setup data-override data-unit="em">
 				</div>
+			</div>
+			<div class="grid span__2" style="margin-bottom: 0.25rem;">
+				<label class="ff__body op__4 font__size__small">Transform</label>
+				<select name="text-transform-2" data-theme-setup data-override>
+					<option value="">Auto (none)</option>
+					<option value="none">None</option>
+					<option value="uppercase">Uppercase</option>
+					<option value="lowercase">Lowercase</option>
+					<option value="capitalize">Capitalize</option>
+				</select>
 			</div>
 
 			<!-- H3 Podnadpis -->
@@ -172,7 +192,7 @@
 					<input type="number" name="font-weight-3" step="100" min="100" max="900" data-theme-setup data-override>
 				</div>
 			</div>
-			<div class="theme-panel-row span__2" style="margin-bottom: 0.25rem;">
+			<div class="theme-panel-row span__2">
 				<div class="grid">
 					<label class="ff__body op__4 font__size__small">Line Height</label>
 					<input type="number" name="line-height-3" step="0.01" min="0.5" max="2.5" data-theme-setup data-override>
@@ -181,6 +201,16 @@
 					<label class="ff__body op__4 font__size__small">Letter Spacing</label>
 					<input type="number" name="letter-spacing-3" step="0.01" placeholder="0" data-theme-setup data-override data-unit="em">
 				</div>
+			</div>
+			<div class="grid span__2" style="margin-bottom: 0.25rem;">
+				<label class="ff__body op__4 font__size__small">Transform</label>
+				<select name="text-transform-3" data-theme-setup data-override>
+					<option value="">Auto (none)</option>
+					<option value="none">None</option>
+					<option value="uppercase">Uppercase</option>
+					<option value="lowercase">Lowercase</option>
+					<option value="capitalize">Capitalize</option>
+				</select>
 			</div>
 
 			<!-- H4 -->
@@ -199,7 +229,7 @@
 					<input type="number" name="font-weight-4" step="100" min="100" max="900" data-theme-setup data-override>
 				</div>
 			</div>
-			<div class="theme-panel-row span__2" style="margin-bottom: 0.25rem;">
+			<div class="theme-panel-row span__2">
 				<div class="grid">
 					<label class="ff__body op__4 font__size__small">Line Height</label>
 					<input type="number" name="line-height-4" step="0.01" min="0.5" max="2.5" data-theme-setup data-override>
@@ -208,6 +238,16 @@
 					<label class="ff__body op__4 font__size__small">Letter Spacing</label>
 					<input type="number" name="letter-spacing-4" step="0.01" placeholder="0" data-theme-setup data-override data-unit="em">
 				</div>
+			</div>
+			<div class="grid span__2" style="margin-bottom: 0.25rem;">
+				<label class="ff__body op__4 font__size__small">Transform</label>
+				<select name="text-transform-4" data-theme-setup data-override>
+					<option value="">Auto (none)</option>
+					<option value="none">None</option>
+					<option value="uppercase">Uppercase</option>
+					<option value="lowercase">Lowercase</option>
+					<option value="capitalize">Capitalize</option>
+				</select>
 			</div>
 
 			<!-- H5 -->
@@ -226,7 +266,7 @@
 					<input type="number" name="font-weight-5" step="100" min="100" max="900" data-theme-setup data-override>
 				</div>
 			</div>
-			<div class="theme-panel-row span__2" style="margin-bottom: 0.25rem;">
+			<div class="theme-panel-row span__2">
 				<div class="grid">
 					<label class="ff__body op__4 font__size__small">Line Height</label>
 					<input type="number" name="line-height-5" step="0.01" min="0.5" max="2.5" data-theme-setup data-override>
@@ -235,6 +275,16 @@
 					<label class="ff__body op__4 font__size__small">Letter Spacing</label>
 					<input type="number" name="letter-spacing-5" step="0.01" placeholder="0" data-theme-setup data-override data-unit="em">
 				</div>
+			</div>
+			<div class="grid span__2" style="margin-bottom: 0.25rem;">
+				<label class="ff__body op__4 font__size__small">Transform</label>
+				<select name="text-transform-5" data-theme-setup data-override>
+					<option value="">Auto (none)</option>
+					<option value="none">None</option>
+					<option value="uppercase">Uppercase</option>
+					<option value="lowercase">Lowercase</option>
+					<option value="capitalize">Capitalize</option>
+				</select>
 			</div>
 
 			<!-- H6 -->
@@ -253,7 +303,7 @@
 					<input type="number" name="font-weight-6" step="100" min="100" max="900" data-theme-setup data-override>
 				</div>
 			</div>
-			<div class="theme-panel-row span__2" style="margin-bottom: 0.25rem;">
+			<div class="theme-panel-row span__2">
 				<div class="grid">
 					<label class="ff__body op__4 font__size__small">Line Height</label>
 					<input type="number" name="line-height-6" step="0.01" min="0.5" max="2.5" data-theme-setup data-override>
@@ -262,6 +312,16 @@
 					<label class="ff__body op__4 font__size__small">Letter Spacing</label>
 					<input type="number" name="letter-spacing-6" step="0.01" placeholder="0" data-theme-setup data-override data-unit="em">
 				</div>
+			</div>
+			<div class="grid span__2" style="margin-bottom: 0.25rem;">
+				<label class="ff__body op__4 font__size__small">Transform</label>
+				<select name="text-transform-6" data-theme-setup data-override>
+					<option value="">Auto (none)</option>
+					<option value="none">None</option>
+					<option value="uppercase">Uppercase</option>
+					<option value="lowercase">Lowercase</option>
+					<option value="capitalize">Capitalize</option>
+				</select>
 			</div>
 		</div>
 
@@ -352,7 +412,7 @@
 					<input type="number" name="font-weight-large" step="100" min="100" max="900" data-theme-setup data-override>
 				</div>
 			</div>
-			<div class="theme-panel-row span__2" style="margin-bottom: 0.25rem;">
+			<div class="theme-panel-row span__2">
 				<div class="grid">
 					<label class="ff__body op__4 font__size__small">Line Height</label>
 					<input type="number" name="line-height-large" step="0.01" min="0.5" max="2.5" data-theme-setup data-override>
@@ -361,6 +421,16 @@
 					<label class="ff__body op__4 font__size__small">Letter Spacing</label>
 					<input type="number" name="letter-spacing-large" step="0.01" placeholder="-0.035" data-theme-setup data-override data-unit="em">
 				</div>
+			</div>
+			<div class="grid span__2" style="margin-bottom: 0.25rem;">
+				<label class="ff__body op__4 font__size__small">Transform</label>
+				<select name="text-transform-large" data-theme-setup data-override>
+					<option value="">Auto (none)</option>
+					<option value="none">None</option>
+					<option value="uppercase">Uppercase</option>
+					<option value="lowercase">Lowercase</option>
+					<option value="capitalize">Capitalize</option>
+				</select>
 			</div>
 
 			<!-- Běžný text -->
@@ -379,7 +449,7 @@
 					<input type="number" name="font-weight-default" step="100" min="100" max="900" data-theme-setup data-override>
 				</div>
 			</div>
-			<div class="theme-panel-row span__2" style="margin-bottom: 0.25rem;">
+			<div class="theme-panel-row span__2">
 				<div class="grid">
 					<label class="ff__body op__4 font__size__small">Line Height</label>
 					<input type="number" name="line-height-default" step="0.01" min="0.5" max="2.5" data-theme-setup data-override>
@@ -388,6 +458,16 @@
 					<label class="ff__body op__4 font__size__small">Letter Spacing</label>
 					<input type="number" name="letter-spacing-default" step="0.01" placeholder="-0.035" data-theme-setup data-override data-unit="em">
 				</div>
+			</div>
+			<div class="grid span__2" style="margin-bottom: 0.25rem;">
+				<label class="ff__body op__4 font__size__small">Transform</label>
+				<select name="text-transform-default" data-theme-setup data-override>
+					<option value="">Auto (none)</option>
+					<option value="none">None</option>
+					<option value="uppercase">Uppercase</option>
+					<option value="lowercase">Lowercase</option>
+					<option value="capitalize">Capitalize</option>
+				</select>
 			</div>
 
 			<!-- Nadtitulek / Popisek -->
@@ -421,8 +501,9 @@
 					<label class="ff__body op__4 font__size__small">Transform</label>
 					<select name="text-transform-small" data-theme-setup data-override>
 						<option value="">Auto (none)</option>
-						<option value="uppercase">Verzálky (Uppercase)</option>
 						<option value="none">None</option>
+						<option value="uppercase">Uppercase</option>
+						<option value="lowercase">Lowercase</option>
 						<option value="capitalize">Capitalize</option>
 					</select>
 				</div>
@@ -835,6 +916,7 @@
 				'font-weight-large': fwBody || '400',
 				'line-height-large': formatLh(perexLh),
 				'letter-spacing-large': lsBody || '-0.035em',
+				'text-transform-large': ttBody || 'none',
 				'opacity-large': '1',
 
 				'font-family-default': 'var(--ff-body)',
@@ -859,9 +941,16 @@
 			const fluidMap = calculateFluidMap();
 
 			Object.entries(fluidMap).forEach(([tokenName, fluidVal]) => {
-				const input = document.querySelector(`[name="${tokenName}"][data-override]`);
-				if (input) {
-					input.placeholder = fluidVal;
+				const ctrl = document.querySelector(`[name="${tokenName}"][data-override]`);
+				if (ctrl) {
+					if (ctrl.tagName === 'SELECT') {
+						const autoOption = ctrl.querySelector('option[value=""]');
+						if (autoOption) {
+							autoOption.textContent = `Auto (${fluidVal})`;
+						}
+					} else {
+						ctrl.placeholder = fluidVal;
+					}
 				}
 			});
 		}

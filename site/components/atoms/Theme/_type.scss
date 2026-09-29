@@ -125,6 +125,8 @@ body {
     font-size: var(--output-size);
     line-height: var(--line-height-default, var(--line-height-default-fluid, 1.52));
     font-weight: var(--font-weight-default, var(--fw-body, 400));
+    letter-spacing: var(--letter-spacing-default, var(--ls-body, normal));
+    text-transform: var(--text-transform-default, var(--tt-body, none));
     font-optical-sizing: auto;
 }
 
