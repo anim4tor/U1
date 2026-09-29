@@ -105,8 +105,6 @@ Order:
 - 
   label: 2_about
 - 
-  label: 3_testimonials
-- 
   label: 4_values
 - 
   label: 5_teams
