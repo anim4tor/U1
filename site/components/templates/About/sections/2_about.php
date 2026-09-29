@@ -1,5 +1,5 @@
 <?php if ($page->about()->isNotEmpty()) : ?>
-<section class="about radius border__top" theme="invert">
+<section class="about radius" theme="invert">
 	<div class="grid__4 place__start-stretch gap__2 mobile:grid__1 inner__4 mobile:inner-x__1">
 		<div class="span__2 flex align__center gap__05 mobile:inner-x__0">
 			
