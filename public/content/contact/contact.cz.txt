@@ -2,7 +2,7 @@ Title: Kontakt
 
 ----
 
-Hero: [{"content":{"text":"Kontakt","level":"h1","mod":"l","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"hero-head-contact-cz","isHidden":false,"type":"heading"},{"content":{"image":["file://Z4ALtoUPLP0eh9Fk"],"hasparallax":"false","parallax":0,"hasreveal":"false","reveal":"","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"hero-cover-contact-cz","isHidden":false,"type":"cover"},{"content":{"text":"Spojte se s námi přímo nebo nám na vás zanechte kontakt. Ozveme se.","mod":"l","face":"","case":"lower","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"hero-text-contact-cz","isHidden":false,"type":"text"}]
+Hero: [{"content":{"text":"Spojte se s námi","level":"h1","mod":"l","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"hero-head-contact-cz","isHidden":false,"type":"heading"},{"content":{"image":["file://Z4ALtoUPLP0eh9Fk"],"hasparallax":"false","parallax":0,"hasreveal":"false","reveal":"","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"hero-cover-contact-cz","isHidden":false,"type":"cover"},{"content":{"text":"Spojte se s námi přímo nebo nám na vás zanechte kontakt. Ozveme se.","mod":"l","face":"","case":"lower","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"hero-text-contact-cz","isHidden":false,"type":"text"}]
 
 ----
 
