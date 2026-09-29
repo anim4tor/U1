@@ -8,7 +8,7 @@
 			    data-target="<?= $targetNumber ?>">
 				<!-- JS sem vygeneruje rotující pásy pro každou číslici -->
 			</h2>
-			<div class="font__size__small label" data-reveal-text><?= $figure->label() ?></div>
+			<?= snippet('atoms/Label', ['text' => $figure->label()]) ?>
 		</div>
 	<?php endforeach ?>
 </div>
