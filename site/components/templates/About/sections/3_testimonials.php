@@ -20,12 +20,10 @@
 					<?php foreach ($testimonials as $testimonial) : ?>
 					<div data-scroll data-scroll-ignore data-tab-reveal data-pane="testimonial-<?= $testimonial->indexOf($testimonials) ?>" id="testimonial-<?= $testimonial->indexOf($testimonials) ?>" class="grid gap__1 place__start-start">
 						<p class="font__size__3 ff__heading">“<?= $testimonial->testimonialQuote()->inline() ?>”</p>
-						<div class="flex gap__05 upper font__size__small op__7">
-							(<?= $testimonial->testimonialAuthor()->inline() ?>, 
-							<?php if ($testimonial->testimonialPosition()->isNotEmpty()): ?>
-								<?= $testimonial->testimonialPosition()->inline() ?>
-							<?php endif ?>)
-						</div>
+						<?= snippet('atoms/Label', [
+							'text' => $testimonial->testimonialAuthor()->inline() . ($testimonial->testimonialPosition()->isNotEmpty() ? ', ' . $testimonial->testimonialPosition()->inline() : ''),
+							'css'  => 'op__7'
+						]) ?>
 					</div>
 					<?php endforeach ?>
 				</div>
