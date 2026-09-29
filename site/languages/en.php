@@ -45,6 +45,7 @@ return [
         'search-all-results' => 'View all results',
         'reset-filters' => 'Reset filters',
         'scroll' => 'Scroll',
+        'featured-project' => 'Featured project',
 
         // Template names
         'template.about'     => 'About',

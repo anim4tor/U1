@@ -39,12 +39,15 @@ if (isset($page) && $page->cover()->isNotEmpty()) {
 					<?php endif ?>
 				</div>
 			</div>
-			<div class="grid gap__1 place__start-start relative mobile:span__1 inner-y__05" style="--in-delay: 500ms">
-				<?php if ($hasHero) : ?>
-					<?= snippet('molecules/Header', ['header' => $hero, 'type' => ['text', 'button']]) ?>
-				<?php elseif (isset($page) && $page->date()->isNotEmpty()) : ?>
-					<p class="font__size__small op__7">(<?= $page->date()->toDate('Y') ?>)</p>
-				<?php endif ?>
+			<div class="grid__2">
+
+				<div class="grid gap__1 place__start-start relative mobile:span__1 inner-y__05" style="--in-delay: 500ms">
+					<?php if ($hasHero) : ?>
+						<?= snippet('molecules/Header', ['header' => $hero, 'type' => ['text', 'button']]) ?>
+						<?php elseif (isset($page) && $page->date()->isNotEmpty()) : ?>
+							<p class="font__size__small op__7">(<?= $page->date()->toDate('Y') ?>)</p>
+							<?php endif ?>
+						</div>
 			</div>
 		</div>
 	</div>

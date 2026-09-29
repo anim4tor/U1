@@ -45,6 +45,7 @@ return [
         'search-all-results' => 'Zobrazit všechny výsledky',
         'reset-filters' => 'Zrušit filtry',
         'scroll' => 'Scrollovat',
+        'featured-project' => 'Vybraný projekt',
 
         // Template names
         'template.about'     => 'O nás',
