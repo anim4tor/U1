@@ -35,9 +35,7 @@
 								<?php if ($photo = $employee->photo()->toFile()) : ?>
 									<?= snippet('atoms/Image', ['img' => $photo, 'parallax' => false, 'reveal' => false, 'css' => 'w__10 aspect__3/4', 'node' => 'data-reveal-image']) ?>
 								<?php endif ?>
-								<div class="flex gap__05 justify__space-between upper wrap">
-									<?= snippet('atoms/Text', ['text' => '(' . $employee->role() . ')', 'reveal' => true, 'node' => 'data-split-ignore data-scroll-ignore']) ?>
-								</div>
+								<?= snippet('atoms/Label', ['text' => $employee->role()]) ?>
 							</div>
 						</div>
 					<?php endforeach ?>
