@@ -30,6 +30,7 @@ return [
         'testimonials' => 'Reference',
         'our-values' => 'Naše hodnoty',
         'life-at-u1' => 'Život s U1',
+        'about-project' => 'O projektu',
         'next-project' => 'Další projekt',
         'view-project' => 'Zobrazit projekt',
         'search' => 'Hledat',

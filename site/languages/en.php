@@ -30,6 +30,7 @@ return [
         'testimonials' => 'Testimonials',
         'our-values' => 'Our values',
         'life-at-u1' => 'Life at U1',
+        'about-project' => 'About project',
         'next-project' => 'Next project',
         'view-project' => 'View project',
         'search' => 'Search',
