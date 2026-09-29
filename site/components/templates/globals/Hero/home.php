@@ -31,8 +31,8 @@
 					<?php foreach ($page->heroSlider()->toPages() as $project) : ?>
 						<?php if ($cover = $project->cover()->toFile()) : ?>
 						<div data-pane="project-<?= $project->indexOf($page->heroSlider()->toPages()) ?>" class="grid__2" data-tab-reveal>
-							<a href="<?= $project->url() ?>"><div data-reveal-text="words" data-split-ignore class="upper font__size__small"><?= $project->title() ?></div></a>
-							<div data-reveal-text="words" data-split-ignore class="upper font__size__small flex justify__end"><?= $project->date()->toDate('Y') ?></div>
+							<a href="<?= $project->url() ?>"><div data-reveal-text="words" data-split-ignore class="upper font__size__small">(<?= $project->title() ?>)</div></a>
+							<div data-reveal-text="words" data-split-ignore class="upper font__size__small flex justify__end">(<?= $project->date()->toDate('Y') ?>)</div>
 						</div>	
 						<?php endif ?>
 					<?php endforeach ?>
