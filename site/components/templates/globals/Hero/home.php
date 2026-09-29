@@ -32,7 +32,7 @@
 						<?php if ($cover = $project->cover()->toFile()) : ?>
 						<div data-pane="project-<?= $project->indexOf($page->heroSlider()->toPages()) ?>" class="grid__2" data-tab-reveal>
 							<?= snippet('atoms/Label', ['text' => $project->title(), 'url' => $project->url()]) ?>
-							<div data-reveal-text="words" data-split-ignore class="upper font__size__small flex justify__end"><?= $project->date()->toDate('Y') ?></div>
+							<?= snippet('atoms/Label', ['text' => $project->date()->toDate('Y'), 'css' => 'justify__end']) ?>
 						</div>	
 						<?php endif ?>
 					<?php endforeach ?>
