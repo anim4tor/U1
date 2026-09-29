@@ -20,7 +20,7 @@
 				</div>
 			</div>
 			<div class="relative z__1 grid gap__2 color__invert">
-				<?= snippet('atoms/Label', ['text' => '(' . t('life-at-u1') . ')']) ?>
+				<?= snippet('atoms/Label', ['text' => t('life-at-u1')]) ?>
 			</div>
 			<!-- <div class="relative flex inner-x__1 z__1 color__invert">
 				<?= snippet('atoms/Text', ['text' => '(Our process)', 'reveal' => true, 'css' => 'upper' ]) ?>	
