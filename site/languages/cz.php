@@ -35,6 +35,8 @@ return [
         'about-service' => 'O službě',
         'book-call' => 'Domluvit hovor',
         'inquire-project' => 'Poptat projekt',
+        'who-we-are' => 'Kdo jsme',
+        'news' => 'Novinky',
         'next-project' => 'Další projekt',
         'view-project' => 'Zobrazit projekt',
         'search' => 'Hledat',

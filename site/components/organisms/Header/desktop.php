@@ -42,8 +42,8 @@
 							</nav>
 						</div>
 						<div class="grid gap__1 ">
-							<div class="grid__2 gap__02">
-								<div class="flex"><span class="op__4 upper font__size__small">(Kdo jsme)</span></div>
+							<div class="grid__2 place__start-start gap__02">
+								<div class="flex"><?= snippet('atoms/Label', ['text' => t('who-we-are'), 'css' => 'op__4']) ?></div>
 								<nav navbar-menu class="grid upper ff__heading font__size__3 lighter no__wrap ">
 									<?php foreach ($pages->find('about', 'career', 'contact') as $p): ?>
 										<div class="grid place__start-start">
@@ -53,8 +53,8 @@
 									<?php endforeach ?>
 								</nav>
 							</div>
-							<div class="grid__2 gap__02">
-								<div class="flex"><span class="op__4 upper font__size__small">(Novinky)</span></div>
+							<div class="grid__2 place__start-start gap__02">
+								<div class="flex"><?= snippet('atoms/Label', ['text' => t('news'), 'css' => 'op__4']) ?></div>
 								<nav navbar-menu class="grid upper ff__heading font__size__3 lighter no__wrap ">
 									<div class="grid place__start-start">
 										<?= snippet('atoms/Link', ['url' => page('feed')->url() . '#blog', 'label' => 'Články', 'icon' => false, 'css' => 'font__size__3', 'node' => 'data-reveal-text data-reveal-on-navbar data-split-ignore']) ?>
@@ -70,20 +70,22 @@
 									</div>
 								</nav>
 							</div>
-							<div class="grid gap__05 inner-t__1">
-								<div class="label upper font__size__small op__4">(Kontakt)</div>
+							<div class="grid place__start-start gap__05 inner-t__1">
+								<div class="flex"><?= snippet('atoms/Label', ['text' => t('contact'), 'css' => 'op__4']) ?></div>
 								<div class="grid__2 gap__02">
 									<?= snippet('atoms/Button', [
 										'label' => t('book-call'),
 										'theme' => 'invert-ghost',
 										'hover' => 'invert',
 										'node'  => 'data-scroll data-contact-toggle="contact"',
+										'css' => 'justify__center'
 									]) ?>
 									<?= snippet('atoms/Button', [
 										'label' => t('inquire-project'),
 										'theme' => 'acc',
 										'hover' => 'invert',
 										'node'  => 'data-scroll data-contact-toggle="inquiry"',
+										'css' => 'justify__center'
 									]) ?>
 								</div>
 							</div>
