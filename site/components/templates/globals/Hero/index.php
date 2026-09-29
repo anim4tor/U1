@@ -30,18 +30,19 @@ if (isset($page) && $page->cover()->isNotEmpty()) {
 					(<?= t('template.' . $page->intendedTemplate()->name(), t($page->intendedTemplate()->name(), $page->title()->value())) ?>)
 				</div>
 				<div class="grid gap__1 place__start-start span__2">
+					
 					<?php if ($hasHero) : ?>
-						<?= snippet('molecules/Header', ['header' => $hero, 'type' => ['text', 'button']]) ?>
-					<?php elseif (isset($page) && $page->date()->isNotEmpty()) : ?>
-						<p class="font__size__small op__7">(<?= $page->date()->toDate('Y') ?>)</p>
+						<?= snippet('molecules/Header', ['header' => $hero, 'type' => ['heading']]) ?>
+					<?php else : ?>
+						<h1 class="font__size__1" data-reveal-text><?= $page->title() ?></h1>
 					<?php endif ?>
 				</div>
 			</div>
-			<div class="intro__title relative place__end-stretch mobile:span__1 inner-y__05" style="--in-delay: 500ms">
+			<div class="grid gap__1 place__start-start relative mobile:span__1 inner-y__05" style="--in-delay: 500ms">
 				<?php if ($hasHero) : ?>
-					<?= snippet('molecules/Header', ['header' => $hero, 'type' => ['heading']]) ?>
-				<?php else : ?>
-					<h1 class="font__size__1" data-reveal-text><?= $page->title() ?></h1>
+					<?= snippet('molecules/Header', ['header' => $hero, 'type' => ['text', 'button']]) ?>
+				<?php elseif (isset($page) && $page->date()->isNotEmpty()) : ?>
+					<p class="font__size__small op__7">(<?= $page->date()->toDate('Y') ?>)</p>
 				<?php endif ?>
 			</div>
 		</div>

@@ -99,7 +99,7 @@ try { $whyItems = $page->whyus()->toStructure(); } catch (\Throwable $e) {}
 					$svgPath  = 'site/assets/images/benefits/small/' . $iconName . '.svg';
 					$hasSvg   = $iconName && file_exists(kirby()->root('index') . '/' . $svgPath);
 					?>
-					<div class="flex align__center gap__1 inner-y__02">
+					<div class="flex align__center gap__05 inner-y__02">
 						<div class="flex align__center justify__center flex-shrink__0" style="width: 36px; height: 36px; min-width: 36px;">
 							<?php if ($hasSvg) : ?>
 								<?= svg($svgPath) ?>
@@ -107,7 +107,7 @@ try { $whyItems = $page->whyus()->toStructure(); } catch (\Throwable $e) {}
 								<?= snippet('atoms/Image', ['img' => $img, 'reveal' => false]) ?>
 							<?php endif ?>
 						</div>
-						<span class="font__size__default ff__body"><?= $why->text() ?></span>
+						<span class="font__size__large ff__body"><?= $why->text() ?></span>
 					</div>
 				<?php endforeach ?>
 			</div>

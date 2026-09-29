@@ -1,6 +1,6 @@
 <?php if (collection('Employees')->isNotEmpty()) : ?>
 <section class="people " theme="invert" >
-	<div class="relative grid gap__5 inner__4 ">
+	<div class="relative grid gap__2 inner__4 ">
 		<div class="flex align__start gap__01" data-scroll>
 			<?= snippet('molecules/Header', ['header' => $page->peopleHeader(), 'type' => ['label']]) ?>
 			<?= snippet('molecules/Header', ['header' => $page->peopleHeader(), 'type' => ['heading']]) ?>

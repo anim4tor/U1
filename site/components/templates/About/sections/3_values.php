@@ -16,9 +16,7 @@
 				</div>
 			</div>
 			<div class="relative z__1 grid gap__2 color__invert">
-				<div class="" data-scroll>
-					<div class="flex gap__05 align__center upper font__size__small no__wrap" data-scroll data-reveal="simple"><div><?= t('our-values') ?></div></div>
-				</div>
+				<?= snippet('atoms/Label', ['text' => '(' . t('our-values') . ')']) ?>
 			</div>
 			<div class="grid gap__05 place__start-stretch z__1 relative color__invert inner-b__5">
 				<div class="grid__<?= collection('Values')->count() ?>" data-scroll >
