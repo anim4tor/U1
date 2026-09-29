@@ -31,13 +31,13 @@
 					<?php foreach ($page->heroSlider()->toPages() as $project) : ?>
 						<?php if ($cover = $project->cover()->toFile()) : ?>
 						<div data-pane="project-<?= $project->indexOf($page->heroSlider()->toPages()) ?>" class="grid__2" data-tab-reveal>
-							<?= snippet('atoms/Label', ['text' => $project->title(), 'url' => $project->url()]) ?>
-							<?= snippet('atoms/Label', ['text' => $project->date()->toDate('Y'), 'css' => 'justify__end']) ?>
+							<a href="<?= $project->url() ?>"><div data-reveal-text="words" data-split-ignore class="upper font__size__small"><?= $project->title() ?></div></a>
+							<div data-reveal-text="words" data-split-ignore class="upper font__size__small flex justify__end"><?= $project->date()->toDate('Y') ?></div>
 						</div>	
 						<?php endif ?>
 					<?php endforeach ?>
 				</div>
-				<div class="upper font__size__small flex justify__end" data-tab-next>(Další)</div>
+				<?= snippet('atoms/Label', ['text' => t('hover-next', 'Další'), 'css' => 'justify__end cursor__pointer', 'node' => 'data-tab-next']) ?>
 			</div>
 			<div class="intro__title relative place__end-stretch span__3 mobile:span__1 inner__4" style="--in-delay: 0ms">
 				<?= snippet('molecules/Header', ['header' => $page->hero(), 'type' => ['heading']]) ?>
