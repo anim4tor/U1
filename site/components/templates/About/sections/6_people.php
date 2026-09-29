@@ -13,7 +13,7 @@
 					
 					<div class="grid place__start-start " >
 						<div class="grid place__start-start gap__1 " data-scroll>
-							<?= snippet('atoms/Text', ['text' => '(' . $team->name()  . ')', 'reveal' => true, 'node' => 'data-split-ignore data-scroll-ignore']) ?>							
+							<?= snippet('atoms/Label', ['text' => $team->name()]) ?>							
 						</div>
 					</div>
 					<div class="grid gap__02 place__start-start gap__2 " >
