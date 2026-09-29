@@ -10,7 +10,7 @@
 				<div class="grid gap__1">
 					<figure class="h__3 w__3"><?= $benefit->image()->toFile() ?></figure>
 					<h3 class="s"><?= $benefit->label()->inline() ?></h3>
-					<p><?= $benefit->text()->inline() ?></p>
+					<p class="op__7"><?= $benefit->text()->inline() ?></p>
 				</div>
 			<?php endforeach; ?>
 		</div>

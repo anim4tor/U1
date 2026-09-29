@@ -11,7 +11,7 @@
 					<figure class="vh__8"><?= $benefit->image()->toFile() ?></figure>
 					<div class="flex justify__space-between align__start gap__2">
 						<h3 class=""><?= $benefit->title()->inline() ?></h3>
-						<p class="op__8"><?= $benefit->text()->inline() ?></p>
+						<p class="op__7"><?= $benefit->text()->inline() ?></p>
 					</div>
 				</div>
 			<?php endforeach; ?>

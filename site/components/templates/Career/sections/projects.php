@@ -20,7 +20,7 @@
 					<?php foreach ($page->projects()->toPages() as $project) : ?>
 					<div data-scroll data-scroll-ignore data-tab-reveal data-pane="project-<?= $project->indexOf($page->projects()->toPages()) ?>" id="project-<?= $project->indexOf($page->projects()->toPages()) ?>" class="grid gap__1 place__start-start">
 						<h3><?= $project->title()->inline() ?></h3>
-						<p><?= $project->intro()->inline() ?></p>
+						<p class="op__7"><?= $project->intro()->inline() ?></p>
 					</div>
 					<?php endforeach ?>
 				</div>
