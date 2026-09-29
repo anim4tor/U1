@@ -24,13 +24,13 @@ Aboutfigures:
 
 - 
   feature: "200"
-  label: (+PROJEKTŮ)
+  label: +PROJEKTŮ
 - 
   feature: "90"
-  label: (+LIDÍ)
+  label: +LIDÍ
 - 
   feature: "12"
-  label: (+LET)
+  label: +LET
 
 ----
 
