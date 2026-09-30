@@ -3,3 +3,11 @@ Uuid: 5inyjVYibO2hQALc
 ----
 
 Template: blocks/image
+
+----
+
+Industry: Výroba
+
+----
+
+Space: fokus zóny, kanceláře
