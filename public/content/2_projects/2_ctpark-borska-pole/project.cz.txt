@@ -2,6 +2,10 @@ Title: CTPark Borská pole
 
 ----
 
+Hero: [{"content":{"text":"CTPark Borská pole","level":"h1","mod":"l","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"hero-head-ctpark-borska-pole-cz","isHidden":false,"type":"heading"},{"content":{"image":["file://onnpfA2k13de1mMi"],"hasparallax":"false","parallax":0,"hasreveal":"false","reveal":"","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"hero-cover-ctpark-borska-pole-cz","isHidden":false,"type":"cover"},{"content":{"text":"(2026)","mod":"l","face":"","case":"upper","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"hero-text-ctpark-borska-pole-cz","isHidden":false,"type":"text"}]
+
+----
+
 Cover: - file://onnpfA2k13de1mMi
 
 ----
@@ -42,7 +46,15 @@ Industry: Výroba
 
 ----
 
+Solutions: 
+
+----
+
 Space: fokus zóny, kanceláře
+
+----
+
+Production: 
 
 ----
 
@@ -82,7 +94,7 @@ Gallery:
 
 ----
 
-Testimonialquote: <p>Working with this team has been a game-changer for our business. Their attention to detail and ability to deliver high-quality results on schedule is unmatched. I highly recommend them to anyone looking for reliable and professional expertise.</p>
+Testimonialquote: <p>Spolupráce s týmem U1 pro nás byla zásadním krokem. Jejich smysl pro detail a schopnost dodat špičkový výsledek přesně podle harmonogramu je výjimečná. Vřele doporučujeme každému, kdo hledá spolehlivého partnera.</p>
 
 ----
 
@@ -90,7 +102,7 @@ Testimonialauthor: David L.
 
 ----
 
-Testimonialposition: Operations Manager
+Testimonialposition: Provozní ředitel
 
 ----
 
@@ -106,7 +118,7 @@ Password:
 
 ----
 
-Meta-description: Classic, on the wave of your own breath
+Meta-description: Moderní administrativní zázemí a kancelářské prostory CTPark Borská pole v Plzni.
 
 ----
 
