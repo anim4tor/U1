@@ -7,3 +7,11 @@ Uuid: PRdD7coQC5pznXGK
 ----
 
 Template: logo
+
+----
+
+Industry: Výroba
+
+----
+
+Space: fokus zóny, kanceláře
