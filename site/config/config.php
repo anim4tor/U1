@@ -149,51 +149,121 @@ return [
               'pattern' => ['ajax/projects/search', 'projects/search.json'],
               'action'  => function () {
                 $q = trim((string)(get('q') ?? get('search') ?? ''));
-                $projects = collection('Projects');
-                if ($q !== '') {
-                    $projects = $projects->search($q, 'title|industry|space|architect|location|intro');
-                }
+                $allProjects = collection('Projects');
+                $allImages = $allProjects->images()->filter(function ($f) {
+                    return $f->template() !== 'logo' && $f->extension() !== 'svg';
+                });
 
-                $ind = get('industry');
-                $sp  = get('space');
-                if (!empty($ind)) {
-                    $projects = $projects->filter(function ($p) use ($ind) {
-                        return in_array($ind, array_map([\Kirby\Toolkit\Str::class, 'slug'], $p->industry()->split(',')));
-                    });
-                }
-                if (!empty($sp)) {
-                    $projects = $projects->filter(function ($p) use ($sp) {
-                        return in_array($sp, array_map([\Kirby\Toolkit\Str::class, 'slug'], $p->space()->split(',')));
-                    });
-                }
+                $formatCount = function ($cnt) {
+                    if ($cnt === 1) return '1 fotografie';
+                    if ($cnt >= 2 && $cnt <= 4) return $cnt . ' fotografie';
+                    return $cnt . ' fotografií';
+                };
 
-                $data = [];
-                foreach ($projects->limit(8) as $p) {
-                    $cover = $p->cover()->toFile() ?? $p->images()->filter(function ($f) {
-                        return $f->template() !== 'logo' && $f->extension() !== 'svg';
-                    })->first();
+                $tagMap = [];
 
-                    $coverUrl = null;
-                    if ($cover) {
-                        try {
-                            $coverUrl = $cover->resize(120, 90, 80)->url();
-                        } catch (\Throwable $e) {
-                            $coverUrl = $cover->url();
-                        }
+                $registerTag = function ($type, $category, $param, $rawText, $image = null) use (&$tagMap) {
+                    $trimmed = trim((string)$rawText);
+                    if ($trimmed === '') return;
+                    $slug = \Kirby\Toolkit\Str::slug($trimmed);
+                    if ($slug === '') return;
+
+                    $key = $type . ':' . $slug;
+                    if (!isset($tagMap[$key])) {
+                        $tagMap[$key] = [
+                            'id'       => $key,
+                            'title'    => $trimmed,
+                            'slug'     => $slug,
+                            'type'     => $type,
+                            'category' => $category,
+                            'param'    => $param,
+                            'count'    => 0,
+                            'cover'    => null,
+                            'url'      => url('projects') . '?' . $param . '=' . $slug
+                        ];
                     }
 
-                    $data[] = [
-                        'id'        => $p->id(),
-                        'title'     => $p->title()->value(),
-                        'url'       => $p->url(),
-                        'cover'     => $coverUrl,
-                        'industry'  => $p->industry()->value(),
-                        'space'     => $p->space()->value(),
-                        'location'  => $p->location()->value(),
-                        'year'      => $p->date()->isNotEmpty() ? $p->date()->toDate('Y') : '',
-                    ];
+                    if ($image) {
+                        $tagMap[$key]['count']++;
+                        if (!$tagMap[$key]['cover']) {
+                            try {
+                                $tagMap[$key]['cover'] = $image->resize(120, 90, 80)->url();
+                            } catch (\Throwable $e) {
+                                $tagMap[$key]['cover'] = $image->url();
+                            }
+                        }
+                    }
+                };
+
+                // Scan all project photos
+                foreach ($allImages as $img) {
+                    foreach ($img->space()->split(',') as $s) {
+                        $registerTag('space', 'Typ prostoru', 'space', $s, $img);
+                    }
+                    foreach ($img->industry()->split(',') as $i) {
+                        $registerTag('industry', 'Odvětví', 'industry', $i, $img);
+                    }
+                    foreach ($img->tags()->split(',') as $t) {
+                        $registerTag('tag', 'Tag', 'filter', $t, $img);
+                    }
                 }
-                return \Kirby\Http\Response::json($data);
+
+                // Also scan project level tags
+                foreach ($allProjects as $proj) {
+                    foreach ($proj->space()->split(',') as $s) {
+                        $registerTag('space', 'Typ prostoru', 'space', $s, null);
+                    }
+                    foreach ($proj->industry()->split(',') as $i) {
+                        $registerTag('industry', 'Odvětví', 'industry', $i, null);
+                    }
+                }
+
+                // For tags without images directly attached yet, calculate matching images from project
+                foreach ($tagMap as $key => &$tag) {
+                    if ($tag['count'] === 0) {
+                        $param = $tag['param'];
+                        $slug = $tag['slug'];
+                        $matchingImgs = $allImages->filter(function ($img) use ($param, $slug) {
+                            $parent = $img->parent();
+                            if ($parent) {
+                                $projTags = array_map([\Kirby\Toolkit\Str::class, 'slug'], $parent->$param()->split(','));
+                                if (in_array($slug, $projTags)) return true;
+                            }
+                            return false;
+                        });
+                        $tag['count'] = $matchingImgs->count();
+                        if ($matchingImgs->first()) {
+                            try {
+                                $tag['cover'] = $matchingImgs->first()->resize(120, 90, 80)->url();
+                            } catch (\Throwable $e) {
+                                $tag['cover'] = $matchingImgs->first()->url();
+                            }
+                        }
+                    }
+                    $tag['count_label'] = $formatCount($tag['count']);
+                }
+                unset($tag);
+
+                $results = array_values($tagMap);
+
+                // Filter by query
+                if ($q !== '') {
+                    $qSlug = \Kirby\Toolkit\Str::slug($q);
+                    $qLower = mb_strtolower($q);
+                    $results = array_filter($results, function ($item) use ($qSlug, $qLower) {
+                        $titleLower = mb_strtolower($item['title']);
+                        return str_contains($titleLower, $qLower) 
+                            || str_contains($item['slug'], $qSlug)
+                            || str_contains(mb_strtolower($item['category']), $qLower);
+                    });
+                }
+
+                // Sort by count descending
+                usort($results, function ($a, $b) {
+                    return $b['count'] <=> $a['count'];
+                });
+
+                return \Kirby\Http\Response::json(array_values($results));
               }
           ],
        

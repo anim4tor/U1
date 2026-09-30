@@ -2,7 +2,7 @@ Title: Direct pojišťovna
 
 ----
 
-Hero: [{"content":{"text":"Direct pojišťovna","level":"h1","mod":"l","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"hero-head-direct-pojistovna-en","isHidden":false,"type":"heading"},{"content":{"image":["file://jxie6EGazwKUElXv"],"hasparallax":"false","parallax":0,"hasreveal":"false","reveal":"","bid":"","attr":"","css":"overlay__bottom","href":"","target":"false","node":""},"id":"hero-cover-direct-pojistovna-en","isHidden":false,"type":"cover"},{"content":{"text":"(2025)","mod":"l","face":"","case":"upper","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"hero-text-direct-pojistovna-en","isHidden":false,"type":"text"}]
+Hero: [{"content":{"text":"Direct pojišťovna","level":"h1","mod":"l","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"hero-head-direct-pojistovna-en","isHidden":false,"type":"heading"},{"content":{"image":["file://jxie6EGazwKUElXv"],"hasparallax":"false","parallax":0,"hasreveal":"false","reveal":"","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"hero-cover-direct-pojistovna-en","isHidden":false,"type":"cover"},{"content":{"text":"(2025)","mod":"l","face":"","case":"upper","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"hero-text-direct-pojistovna-en","isHidden":false,"type":"text"}]
 
 ----
 

@@ -3,15 +3,15 @@
  * Molecule: Project Search with Autocomplete (Našeptávač)
  */
 $query         = get('search') ?? get('q') ?? '';
-$placeholder   = $placeholder ?? t('search-projects', 'Hledat projekt...');
+$placeholder   = $placeholder ?? t('search-projects', 'Hledat prostor, odvětví...');
 $targetUrl     = $url ?? (isset($page) ? $page->url() : url('projects'));
 $theme         = $theme ?? 'light';
 ?>
 <div class="project-search" 
      data-project-search 
      data-api-url="<?= url('ajax/projects/search') ?>"
-     data-i18n-no-results="<?= esc(t('search-no-results', 'Žádné projekty nenalezeny')) ?>"
-     data-i18n-all-results="<?= esc(t('search-all-results', 'Zobrazit všechny výsledky')) ?>"
+     data-i18n-no-results="<?= esc(t('search-no-results', 'Žádné tagy ani fotografie nenalezeny')) ?>"
+     data-i18n-all-results="<?= esc(t('search-all-results', 'Zobrazit fotografie pro')) ?>"
 >
 	<form action="<?= $targetUrl ?>" method="GET" class="project-search__form" role="search">
 		<?php if ($ind = get('industry')) : ?>

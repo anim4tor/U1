@@ -2,7 +2,7 @@ Title: Hatha
 
 ----
 
-Hero: [{"content":{"text":"Hatha","level":"h1","mod":"l","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"hero-head-ctpark-borska-pole-en","isHidden":false,"type":"heading"},{"content":{"image":[],"hasparallax":"false","parallax":0,"hasreveal":"false","reveal":"","bid":"","attr":"","css":"overlay__bottom","href":"","target":"false","node":""},"id":"hero-cover-ctpark-borska-pole-en","isHidden":false,"type":"cover"},{"content":{"text":"(2026)","mod":"l","face":"","case":"upper","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"hero-text-ctpark-borska-pole-en","isHidden":false,"type":"text"}]
+Hero: [{"content":{"text":"Hatha","level":"h1","mod":"l","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"hero-head-ctpark-borska-pole-en","isHidden":false,"type":"heading"},{"content":{"image":[],"hasparallax":"false","parallax":0,"hasreveal":"false","reveal":"","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"hero-cover-ctpark-borska-pole-en","isHidden":false,"type":"cover"},{"content":{"text":"(2026)","mod":"l","face":"","case":"upper","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"hero-text-ctpark-borska-pole-en","isHidden":false,"type":"text"}]
 
 ----
 

@@ -71,7 +71,7 @@ function stringifyKirbyContent(fields) {
                     reveal: '',
                     bid: '',
                     attr: '',
-                    css: 'overlay__bottom',
+                    css: '',
                     href: '',
                     target: 'false',
                     node: ''
@@ -169,7 +169,7 @@ if (fs.existsSync(servicesDir)) {
                             reveal: '',
                             bid: '',
                             attr: '',
-                            css: 'overlay__bottom',
+                            css: '',
                             href: '',
                             target: 'false',
                             node: ''

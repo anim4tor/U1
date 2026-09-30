@@ -2,7 +2,7 @@ Title: Plzeňský Prazdroj
 
 ----
 
-Hero: [{"content":{"text":"Plzeňský Prazdroj","level":"h1","mod":"l","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"hero-head-plzensky-prazdroj-en","isHidden":false,"type":"heading"},{"content":{"image":["file://ZfInp4c6OPdObXKj"],"hasparallax":"false","parallax":0,"hasreveal":"false","reveal":"","bid":"","attr":"","css":"overlay__bottom","href":"","target":"false","node":""},"id":"hero-cover-plzensky-prazdroj-en","isHidden":false,"type":"cover"},{"content":{"text":"(2025)","mod":"l","face":"","case":"upper","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"hero-text-plzensky-prazdroj-en","isHidden":false,"type":"text"}]
+Hero: [{"content":{"text":"Plzeňský Prazdroj","level":"h1","mod":"l","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"hero-head-plzensky-prazdroj-en","isHidden":false,"type":"heading"},{"content":{"image":["file://ZfInp4c6OPdObXKj"],"hasparallax":"false","parallax":0,"hasreveal":"false","reveal":"","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"hero-cover-plzensky-prazdroj-en","isHidden":false,"type":"cover"},{"content":{"text":"(2025)","mod":"l","face":"","case":"upper","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"hero-text-plzensky-prazdroj-en","isHidden":false,"type":"text"}]
 
 ----
 

@@ -37,7 +37,7 @@
 							<?php if(!$s->isFirst()) : ?>
 								<span class="light ff__body op__2">/</span>
 							<?php endif ?>
-							<?= snippet('atoms/Link', ['url' => $s->link()->url(), 'label' => $s->platform(), 'icon' => false, 'node' => 'data-reveal-text data-split-ignore']) ?>
+							<?= snippet('atoms/Link', ['url' => $s->link()->url(), 'label' => $s->platform(), 'icon' => false, 'node' => 'data-reveal="simple" data-split-ignore']) ?>
 						<?php endforeach ?>
 					</nav>
 				</div>

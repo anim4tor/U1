@@ -121,6 +121,6 @@ return function ($page, $kirby, $site) {
         'filterSearch'   => $filterSearch,
         'isFiltered'     => $isFiltered,
         'projects'       => $projects->paginate(12),
-        'images'         => $hasTagFilter ? ($filteredImages ? $filteredImages->paginate(24) : null) : null,
+        'images'         => $isFiltered ? ($filteredImages ? $filteredImages->paginate(24) : null) : null,
     ];
 };

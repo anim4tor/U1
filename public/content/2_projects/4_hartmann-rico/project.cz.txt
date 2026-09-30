@@ -2,7 +2,7 @@ Title: Hartmann Rico
 
 ----
 
-Hero: [{"content":{"text":"Hartmann Rico","level":"h1","mod":"l","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"hero-head-hartmann-rico-cz","isHidden":false,"type":"heading"},{"content":{"image":["file://zcAJYfbGdhR84qT1"],"hasparallax":"false","parallax":0,"hasreveal":"false","reveal":"","bid":"","attr":"","css":"overlay__bottom","href":"","target":"false","node":""},"id":"hero-cover-hartmann-rico-cz","isHidden":false,"type":"cover"},{"content":{"text":"(2025)","mod":"l","face":"","case":"upper","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"hero-text-hartmann-rico-cz","isHidden":false,"type":"text"}]
+Hero: [{"content":{"text":"Hartmann Rico","level":"h1","mod":"l","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"hero-head-hartmann-rico-cz","isHidden":false,"type":"heading"},{"content":{"image":["file://zcAJYfbGdhR84qT1"],"hasparallax":"false","parallax":0,"hasreveal":"false","reveal":"","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"hero-cover-hartmann-rico-cz","isHidden":false,"type":"cover"},{"content":{"text":"(2025)","mod":"l","face":"","case":"upper","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"hero-text-hartmann-rico-cz","isHidden":false,"type":"text"}]
 
 ----
 

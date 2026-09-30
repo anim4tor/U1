@@ -152,8 +152,8 @@ class ProjectSearch {
 		this.currentItems = results || [];
 		this.selectedIndex = -1;
 
-		const noResultsText = this.container.dataset.i18nNoResults || 'Žádné projekty nenalezeny';
-		const allResultsText = this.container.dataset.i18nAllResults || 'Zobrazit všechny výsledky';
+		const noResultsText = this.container.dataset.i18nNoResults || 'Žádné tagy nenalezeny';
+		const allResultsText = this.container.dataset.i18nAllResults || 'Zobrazit všechny fotografie';
 
 		if (!this.currentItems.length) {
 			this.list.innerHTML = `
@@ -167,8 +167,8 @@ class ProjectSearch {
 
 		const html = this.currentItems.map((item, index) => {
 			const highlightedTitle = this.highlightMatch(item.title, query);
-			const metaParts = [item.industry, item.space, item.location, item.year].filter(Boolean);
-			const metaString = metaParts.join(' · ');
+			const category = item.category || (item.type === 'space' ? 'Typ prostoru' : (item.type === 'industry' ? 'Odvětví' : 'Tag'));
+			const countLabel = item.count_label || (item.count ? `${item.count} fotek` : '');
 
 			return `
 				<a href="${this.escapeHtml(item.url)}" class="project-search__item" role="option" data-index="${index}">
@@ -176,9 +176,13 @@ class ProjectSearch {
 						${item.cover ? `<img src="${this.escapeHtml(item.cover)}" alt="${this.escapeHtml(item.title)}" loading="lazy">` : `<div class="project-search__thumb-placeholder">U1</div>`}
 					</div>
 					<div class="project-search__info">
-						<span class="project-search__title">${highlightedTitle}</span>
-						${metaString ? `<span class="project-search__meta">${this.escapeHtml(metaString)}</span>` : ''}
+						<div class="project-search__row">
+							<span class="project-search__title">${highlightedTitle}</span>
+							${countLabel ? `<span class="project-search__count">(${this.escapeHtml(countLabel)})</span>` : ''}
+						</div>
+						<span class="project-search__meta">${this.escapeHtml(category)}</span>
 					</div>
+					<span class="project-search__arrow" aria-hidden="true">&rarr;</span>
 				</a>
 			`;
 		}).join('');
