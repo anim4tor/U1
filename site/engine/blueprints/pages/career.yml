@@ -80,11 +80,18 @@ tabs:
 
           quoteHeader:
             extends: fields/section
-            label: Oddělovač sekce Citátu
+            label: Citát
+
+          quoteLabel:
+            label: Nadtitulek / Label sekce
+            type: text
+            placeholder: Např. Z týmu / Citát
+            width: 1/2
 
           quoteAuthor:
             label: Autor a pozice citátu
             type: text
+            placeholder: Např. David L., provozní manažer
             width: 1/2
 
           quoteImage:
@@ -95,6 +102,7 @@ tabs:
           quoteText:
             label: Text citátu
             type: textarea
+            width: 1/1
 
       - width: 1/4
         sticky: true

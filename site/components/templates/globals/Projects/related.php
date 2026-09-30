@@ -27,7 +27,7 @@ if (!isset($button)) {
 <section class="projects radius" theme="<?= $theme ?>">
 	<div class="grid__3 gap-x__1 gap-y__2 mobile:grid__1 inner__4 mobile:inner-x__1 " data-carousel>
 		<div data-scroll class="flex align__start gap__01 span__2 relative">
-			<h2 class=""><?= $title ?></h2>
+			<h3 class="strong"><?= $title ?></h3>
 		</div>
 		<div class="flex gap__02 justify__end align__end ">
 			<button data-carousel-prev class="button upper" theme="<?= $btnTheme ?>" hover="<?= $btnHover ?>"><span class="icon"><?= svg('public/assets/images/ui/ui_arrow-left.svg') ?></span></button>
