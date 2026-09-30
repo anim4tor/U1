@@ -55,6 +55,12 @@ class Tabs {
 
         this._boundHandleKeydown = this.handleKeydown.bind(this);
         this._boundScrollEvent = this.handleScrollEvent.bind(this);
+        this._boundHandleWheel = this.handleWheel.bind(this);
+
+        this.wheelDeltaX = 0;
+        this.isWheelThrottled = false;
+        this.wheelResetTimer = null;
+        this.wheelCooldownTimer = null;
 
         this.autoplayInterval = parseInt(el.getAttribute('data-autoplay')) || 0;
         this.autoplayTimer = null;
@@ -429,8 +435,120 @@ class Tabs {
         }
     }
 
+    prev() {
+        const liveTabs = Array.from(this.DOM.widget.querySelectorAll('[data-tab], [data-async-tab]'));
+        if (liveTabs.length <= 1) return;
+        clearTimeout(this.hover_timeout);
+        let prevIndex;
+        if (this.is_scrollable) {
+            if (this.data.active <= 0) return;
+            prevIndex = this.data.active - 1;
+        } else {
+            prevIndex = this.data.active > 0 ? this.data.active - 1 : liveTabs.length - 1;
+        }
+        this.setActive(prevIndex);
+        this.scrollToTrigger(prevIndex);
+        this.resetAutoplay();
+    }
+
+    next() {
+        const liveTabs = Array.from(this.DOM.widget.querySelectorAll('[data-tab], [data-async-tab]'));
+        if (liveTabs.length <= 1) return;
+        clearTimeout(this.hover_timeout);
+        let nextIndex;
+        if (this.is_scrollable) {
+            if (this.data.active >= liveTabs.length - 1) return;
+            nextIndex = this.data.active + 1;
+        } else {
+            nextIndex = this.data.active < (liveTabs.length - 1) ? this.data.active + 1 : 0;
+        }
+        this.setActive(nextIndex);
+        this.scrollToTrigger(nextIndex);
+        this.resetAutoplay();
+    }
+
+    handleWheel(e) {
+        if (!this.DOM.widget.contains(e.target)) return;
+        if (e.target.closest('[data-tabs]') !== this.DOM.widget) return;
+
+        const liveTabs = Array.from(this.DOM.widget.querySelectorAll('[data-tab], [data-async-tab]'));
+        if (liveTabs.length <= 1) return;
+
+        if (e.target.closest('input, textarea, select')) return;
+
+        let el = e.target;
+        while (el && el !== this.DOM.widget) {
+            if (el.scrollWidth > el.clientWidth) {
+                const overflowX = window.getComputedStyle(el).overflowX;
+                if (overflowX === 'auto' || overflowX === 'scroll') {
+                    return;
+                }
+            }
+            el = el.parentElement;
+        }
+
+        let deltaX = e.deltaX;
+        let deltaY = e.deltaY;
+
+        if (e.deltaMode === 1) {
+            deltaX *= 16;
+            deltaY *= 16;
+        } else if (e.deltaMode === 2) {
+            deltaX *= window.innerWidth;
+            deltaY *= window.innerHeight;
+        }
+
+        const absX = Math.abs(deltaX);
+        const absY = Math.abs(deltaY);
+
+        // NATIVE VERTICAL SCROLL: Absolutely do not interfere if vertical motion is dominant or deltaX is minimal
+        if (absY >= absX || absX < 6) {
+            return;
+        }
+
+        // Horizontal gesture detected: prevent browser back/forward history navigation and viewport bounce
+        e.preventDefault();
+
+        if (this.isWheelThrottled) {
+            clearTimeout(this.wheelCooldownTimer);
+            this.wheelCooldownTimer = setTimeout(() => {
+                this.isWheelThrottled = false;
+                this.wheelDeltaX = 0;
+            }, 200);
+            return;
+        }
+
+        this.wheelDeltaX += deltaX;
+
+        clearTimeout(this.wheelResetTimer);
+        this.wheelResetTimer = setTimeout(() => {
+            this.wheelDeltaX = 0;
+        }, 200);
+
+        const THRESHOLD = 35;
+
+        if (Math.abs(this.wheelDeltaX) >= THRESHOLD) {
+            const direction = this.wheelDeltaX > 0 ? 1 : -1;
+            this.wheelDeltaX = 0;
+            this.isWheelThrottled = true;
+
+            if (direction > 0) {
+                this.next();
+            } else {
+                this.prev();
+            }
+
+            clearTimeout(this.wheelCooldownTimer);
+            this.wheelCooldownTimer = setTimeout(() => {
+                this.isWheelThrottled = false;
+                this.wheelDeltaX = 0;
+            }, 400);
+        }
+    }
+
     destroy() {
         this.DOM.widget.removeEventListener('keydown', this._boundHandleKeydown);
+        this.DOM.widget.removeEventListener('wheel', this._boundHandleWheel);
         window.removeEventListener("scrollTabEvent", this._boundScrollEvent);
 
         // --- NEW: Remove progress listener ---
@@ -441,6 +559,8 @@ class Tabs {
         if (this.observer) this.observer.disconnect();
         clearTimeout(this.scroll_timeout);
         clearTimeout(this.hover_timeout);
+        clearTimeout(this.wheelResetTimer);
+        clearTimeout(this.wheelCooldownTimer);
         this.closing_timeouts.forEach(id => clearTimeout(id));
         this.DOM.panes.forEach(p => p.style.zIndex = '');
         this.DOM.widget.removeAttribute('data-scroll-progress');
@@ -508,39 +628,21 @@ class Tabs {
                     clearTimeout(this.hover_timeout);
                     this.setActive(index);
                     this.scrollToTrigger(index);
+                    this.resetAutoplay();
                 }
                 return;
             }
 
-            const liveTabs = Array.from(this.DOM.widget.querySelectorAll('[data-tab], [data-async-tab]'));
             if (e.target.closest('[data-tab-prev]')) {
-                clearTimeout(this.hover_timeout);
-                const prevIndex = this.data.active > 0 ? this.data.active - 1 : liveTabs.length - 1;
-                this.setActive(prevIndex);
-                this.scrollToTrigger(prevIndex);
-            } else if (e.target.closest('[data-tab-next]')) {
-                clearTimeout(this.hover_timeout);
-                const nextIndex = this.data.active < (liveTabs.length - 1) ? this.data.active + 1 : 0;
-                this.setActive(nextIndex);
-                this.scrollToTrigger(nextIndex);
-            }
-
-            // Add resetAutoplay() after user interaction
-            if (tab && this.DOM.widget.contains(tab)) {
-                // ... (existing tab clicking logic)
-                this.resetAutoplay();
+                this.prev();
                 return;
-            }
-
-            if (e.target.closest('[data-tab-prev]')) {
-                // ...
-                this.resetAutoplay();
             } else if (e.target.closest('[data-tab-next]')) {
-                // ...
-                this.resetAutoplay();
+                this.next();
+                return;
             }
         });
 
+        this.DOM.widget.addEventListener('wheel', this._boundHandleWheel, { passive: false });
         this.DOM.widget.addEventListener('keydown', this._boundHandleKeydown);
         window.addEventListener("scrollTabEvent", this._boundScrollEvent);
 

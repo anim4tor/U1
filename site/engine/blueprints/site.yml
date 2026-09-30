@@ -58,21 +58,21 @@ tabs:
         fields:
           menuHeader:
             label: Horní lišta hlavičky
-            help: Odkazy zobrazené přímo v navigační liště hlavičky (výchozí: Projekty, Služby, Kariéra, Feed)
+            help: "Odkazy zobrazené přímo v navigační liště hlavičky (výchozí: Projekty, Služby, Kariéra, Feed)"
             type: pages
             query: site.children.listed
             layout: list
 
           menuMain:
             label: Hlavní velké menu (Rozbalovací)
-            help: Velké primární odkazy v rozbaleném menu (výchozí: Domů, Projekty, Služby)
+            help: "Velké primární odkazy v rozbaleném menu (výchozí: Domů, Projekty, Služby)"
             type: pages
             query: site.children.listed
             layout: list
 
           menuAbout:
             label: Sekce „Kdo jsme“ (Rozbalovací menu)
-            help: Odkazy v sekci Kdo jsme v rozbaleném menu (výchozí: O nás, Kariéra, Kontakt)
+            help: "Odkazy v sekci Kdo jsme v rozbaleném menu (výchozí: O nás, Kariéra, Kontakt)"
             type: pages
             query: site.children.listed
             layout: list
