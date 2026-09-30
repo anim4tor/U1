@@ -7,3 +7,7 @@ Uuid: xA4f3ime3dnwkGmG
 ----
 
 Template: image
+
+----
+
+Space: Recepce, meeting room, gastro/kantýna, Vstupní lobby, recepce, hlavní zasedací místnost, zaměstnanecká jídelna
