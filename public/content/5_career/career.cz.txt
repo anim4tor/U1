@@ -110,6 +110,10 @@ Quoteheader:
 
 ----
 
+Quotelabel: CEO
+
+----
+
 Quoteauthor: David L., provozní manažer
 
 ----
