@@ -7,3 +7,7 @@ Uuid: iTfzrgXr5Wqt2eyH
 ----
 
 Template: image
+
+----
+
+Space: Openspace, Lobby, Kuchyně
