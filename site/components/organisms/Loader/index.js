@@ -14,20 +14,6 @@ class Loader {
         this.onComplete = onComplete || (() => {});
     }
 
-    // init() {
-    //     if (this.total === 0) return this.onComplete();
-
-    //     this.images.forEach(img => {
-    //         // Check if image is already complete (cached)
-    //         if (img.complete) {
-    //             this.updateProgress();
-    //         } else {
-    //             img.addEventListener('load', () => this.updateProgress());
-    //             img.addEventListener('error', () => this.updateProgress());
-    //         }
-    //     });
-    // }
-
     init() {
         if (this.total === 0) {
             this.onComplete();
@@ -48,7 +34,7 @@ class Loader {
                 console.warn('Loader timed out waiting for images, proceeding.');
                 completeOnce();
             }
-        }, 3500);
+        }, 2000);
 
         const checkDone = () => {
             if (this.loaded >= this.total) {
@@ -65,9 +51,13 @@ class Loader {
                 return;
             }
 
-            const tempImage = new Image();
-            tempImage.src = img.src;
+            if (img.complete && img.naturalWidth > 0) {
+                this.updateProgress();
+                checkDone();
+                return;
+            }
 
+            const tempImage = new Image();
             tempImage.onload = () => {
                 const rect = img.getBoundingClientRect();
                 const width = rect.width;
@@ -88,6 +78,8 @@ class Loader {
                 this.updateProgress();
                 checkDone();
             };
+
+            tempImage.src = img.src;
         });
     }
 

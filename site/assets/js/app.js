@@ -132,14 +132,15 @@ const init = async () => {
     console.log('Init components: ');
 
     const components = [
-        initScroll, 
-        initReveals,
-        initNavbar, 
-        initTabs, 
-        initCollapsibles, 
-        initCarousels,
-        initContact,
-        initProjectSearch
+        typeof initScroll === 'function' ? initScroll : null, 
+        typeof initReveals === 'function' ? initReveals : null,
+        typeof initNavbar === 'function' ? initNavbar : null, 
+        typeof initTabs === 'function' ? initTabs : null, 
+        typeof initCollapsibles === 'function' ? initCollapsibles : null, 
+        typeof initCarousels === 'function' ? initCarousels : null,
+        typeof initContact === 'function' ? initContact : null,
+        typeof initProjectSearch === 'function' ? initProjectSearch : null,
+        typeof initDropdowns === 'function' ? initDropdowns : null
     ];
     
     // Spustíme komponenty (await počká na ty, které vrací Promise)
@@ -155,7 +156,11 @@ const init = async () => {
 
     // 2. Aktivujeme Reveal engine těsně předtím, než zmizí loader
     if (typeof REVEAL !== 'undefined' && REVEAL && typeof REVEAL.enable === 'function') {
-        REVEAL.enable(); 
+        try {
+            REVEAL.enable(); 
+        } catch (err) {
+            console.warn('Error enabling reveal:', err);
+        }
     }
 
     // 3. Sequence transition classes pro odhalení obsahu
@@ -169,9 +174,18 @@ const init = async () => {
     });
 };
 
-// 2. Tvůj stávající startApp zůstává téměř beze změny
+// 2. Tvůj stávající startApp
 const startApp = async () => {
     document.documentElement.setAttribute('data-loading', 'true');
+
+    // Global fail-safe timeout to guarantee the loader ALWAYS closes
+    const failSafeTimeout = setTimeout(() => {
+        if (document.documentElement.hasAttribute('data-loading')) {
+            console.warn('Fail-safe loader dismiss triggered.');
+            document.documentElement.setAttribute('data-transition', 'true');
+            document.documentElement.removeAttribute('data-loading');
+        }
+    }, 3500);
 
     const PAGE = new Promise((resolve) => {
         if (typeof Loader === 'undefined') {
@@ -192,17 +206,29 @@ const startApp = async () => {
     try {
         await Promise.race([
             PAGE,
-            new Promise(res => setTimeout(res, 4000))
+            new Promise(res => setTimeout(res, 2500))
         ]);
     } catch (err) {
         console.warn("Preload failed, initializing anyway", err);
     }
     
-    // Tady zavoláš inicializaci komponent
-    await init();    
+    try {
+        // Tady zavoláš inicializaci komponent
+        await init();
+    } catch (err) {
+        console.error('App init error:', err);
+        document.documentElement.setAttribute('data-transition', 'true');
+        document.documentElement.removeAttribute('data-loading');
+    } finally {
+        clearTimeout(failSafeTimeout);
+    }
 };
 
 // Start the engine
-document.addEventListener('DOMContentLoaded', async () => {
-  startApp();
-});
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+        startApp();
+    });
+} else {
+    startApp();
+}
