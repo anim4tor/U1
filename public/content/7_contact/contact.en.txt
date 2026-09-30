@@ -2,6 +2,14 @@ Title: Contact
 
 ----
 
+Hero: [{"content":{"text":"Contact","level":"h1","mod":"l","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"hero-head-contact-en","isHidden":false,"type":"heading"},{"content":{"image":["contact_hero.jpg"],"hasparallax":"false","parallax":0,"hasreveal":"false","reveal":"","bid":"","attr":"","css":"overlay__harder","href":"","target":"false","node":""},"id":"hero-cover-contact-en","isHidden":false,"type":"cover"},{"content":{"text":"Get in touch with us directly or leave us your contact details. We'll get back to you.","mod":"l","face":"","case":"lower","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"hero-text-contact-en","isHidden":false,"type":"text"}]
+
+----
+
+Cover: contact_hero.jpg
+
+----
+
 Intro: Get in touch with us directly or leave us your contact details. We'll get back to you.
 
 ----
