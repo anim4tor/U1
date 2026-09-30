@@ -3,7 +3,7 @@
 		<div class="grid gap__4 place__space-between-start">
 			<div class="grid place__start-stretch gap__1">
 				<!-- Quote is already formatted as inline string -->
-				<p class="font__size__3 ff__heading wrap" data-reveal-text="lines" data-split-ignore>"<?= $testimonial->testimonialQuote()->inline() ?>"</p>
+				<p class="font__size__4 ff__heading wrap" data-reveal-text="lines" data-split-ignore>"<?= $testimonial->testimonialQuote()->inline() ?>"</p>
 			</div>
 		</div>
 	</div>
