@@ -2,27 +2,11 @@ Title: Hatha
 
 ----
 
-Customtitle: 
+Hero: [{"content":{"text":"Hatha","level":"h1","mod":"l","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"hero-head-ctpark-borska-pole-en","isHidden":false,"type":"heading"},{"content":{"image":[],"hasparallax":"false","parallax":0,"hasreveal":"false","reveal":"","bid":"","attr":"","css":"overlay__bottom","href":"","target":"false","node":""},"id":"hero-cover-ctpark-borska-pole-en","isHidden":false,"type":"cover"},{"content":{"text":"(2026)","mod":"l","face":"","case":"upper","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"hero-text-ctpark-borska-pole-en","isHidden":false,"type":"text"}]
 
 ----
 
-Menutitle: 
-
-----
-
-Subtitle: Classic, on the wave of your own breath
-
-----
-
-Gradientfrom: #db6b57
-
-----
-
-Gradientto: #db5f7e
-
-----
-
-Cover: - file://9nu6PFLlER7h8IxR
+Cover: 
 
 ----
 
@@ -30,19 +14,99 @@ Intro: [{"content":{"text":"Hatha yoga is the foundation of yoga practice. Sit c
 
 ----
 
-Features: 
-
-----
-
 Details: 
 
 ----
 
-Meditation: 
+Before: - file://TTMJJQ3acdqa3BUL
+
+----
+
+After: - file://0LfJrUDHuBDFqpmw
+
+----
+
+Quote: 
+
+----
+
+Client: 
+
+----
+
+Date: 2026-05-01
+
+----
+
+Place: Plzeň
+
+----
+
+Industry: Výroba
+
+----
+
+Solutions: 
+
+----
+
+Space: fokus zóny, kanceláře
+
+----
+
+Production: 
+
+----
+
+Size: 
+
+----
+
+Hash: #u1spacedesign, #realizaceinterieru, #officedesign
+
+----
+
+Team: 
+
+----
+
+Concept: 
+
+----
+
+Photo: 
+
+----
+
+Collabs: 
 
 ----
 
 Gallery: 
+
+----
+
+Testimonialquote: <p>Spolupráce s týmem U1 pro nás byla zásadním krokem. Jejich smysl pro detail a schopnost dodat špičkový výsledek přesně podle harmonogramu je výjimečná. Vřele doporučujeme každému, kdo hledá spolehlivého partnera.</p>
+
+----
+
+Testimonialauthor: David L.
+
+----
+
+Testimonialposition: Provozní ředitel
+
+----
+
+Testimonialimage: - file://PRdD7coQC5pznXGK
+
+----
+
+Extras: 
+
+----
+
+Password: 
 
 ----
 
@@ -66,35 +130,51 @@ Og-description:
 
 ----
 
-Og-image: - file://9nu6PFLlER7h8IxR
+Og-image: 
 
 ----
 
-Robots-index: 
+Claim: <strong>Kde jste naposledy viděli, že se interiér a&nbsp;fasáda jedné budovy stavěly současně?</strong>
 
 ----
 
-Robots-follow: 
+Footnote: <p>Děkujeme klientovi za důvěru, Ing. arch. Kateřině Šauerové za skvělý architektonický návrh a&nbsp;všem partnerům za spolupráci.</p>
 
 ----
 
-Robots-archive: 
+Author: 
 
 ----
 
-Robots-imageindex: 
+Customtitle: 
 
 ----
 
-Robots-snippet: 
+Menutitle: 
+
+----
+
+Subtitle: Classic, on the wave of your own breath
+
+----
+
+Gradientfrom: #db6b57
+
+----
+
+Gradientto: #db5f7e
+
+----
+
+Features: 
+
+----
+
+Meditation: 
 
 ----
 
 Desc: 
-
-----
-
-Client: 
 
 ----
 
@@ -115,7 +195,3 @@ Preview:
 ----
 
 Link: 
-
-----
-
-Uuid: L80Kg91ZN2V8zh8v
