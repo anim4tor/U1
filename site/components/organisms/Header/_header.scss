@@ -60,19 +60,6 @@ html[navbar-open] {
 [navbar-header] {
 	z-index: 1;
 	height: var(--header-height);
-	font-size: 12px;
-	letter-spacing: 0;
-
-	.button,
-	button,
-	.link,
-	a,
-	label,
-	nav,
-	span {
-		font-size: 12px;
-		letter-spacing: 0;
-	}
 }
 
 [navbar-widget] {

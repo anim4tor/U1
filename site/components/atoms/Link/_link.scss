@@ -23,7 +23,7 @@ nav[class*="font__size"] .link span,
 
 nav:not([class*="font__size"]):not(.footer__nav):not([navbar-menu]) {
 	.link[href] {
-		font-size: 12px;
+		// font-size: 12px;
 	}
 }
 

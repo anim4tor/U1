@@ -1,3 +1,8 @@
+<?php
+$headerNavPages = $site->menuHeader()->isNotEmpty() ? $site->menuHeader()->toPages() : $pages->find('projects', 'services', 'career', 'feed');
+$mainNavPages   = $site->menuMain()->isNotEmpty()   ? $site->menuMain()->toPages()   : $pages->find('home', 'projects', 'services');
+$aboutNavPages  = $site->menuAbout()->isNotEmpty()  ? $site->menuAbout()->toPages()  : $pages->find('about', 'career', 'contact');
+?>
 <header class="header grid place__start-end inner__05" data-header>
 	<div class="header__wrapper grid place__start-start">
 		<div navbar class="grid  bg__dark/60 color__invert bg__blur radius">
@@ -13,9 +18,9 @@
 						
 					<div data-on-navbar-toggle class="grid__stack place__center-center upper">
 						<nav data-default class="flex align__center gap__2 no__wrap">
-							<?php foreach ($pages->find('projects', 'career', 'feed') as $p): ?>
+							<?php foreach ($headerNavPages as $p): ?>
 								<div class="grid place__start-start">
-									<?= snippet('atoms/Link', ['url' => $p->url(), 'label' => $p->title(), 'icon' => false, 'css' => 'upper', 'node' => 'data-reveal-text  data-split-ignore']) ?>
+									<?= snippet('atoms/Link', ['url' => $p->url(), 'label' => $p->title(), 'icon' => false, 'css' => 'upper ', 'node' => 'data-reveal="simple"  data-split-ignore']) ?>
 
 								</div>
 							<?php endforeach ?>
@@ -36,7 +41,7 @@
 						<div class="grid gap__05 place__start-start">
 							<!-- <div class="label upper font__size__small op__4">(Menu)</div> -->
 							<nav navbar-menu class="grid place__start-start upper ff__heading font__size__2 no__wrap">
-								<?php foreach ($pages->find('home', 'projects', 'services') as $p): ?>
+								<?php foreach ($mainNavPages as $p): ?>
 									<?= snippet('atoms/Link', ['url' => $p->url(), 'label' => $p->title(), 'icon' => false, 'css' => ($p->isActive() || $page->parents()->has($p) ? '' : 'op__4') . ' font__size__2', 'node' => 'data-reveal-text data-reveal-on-navbar data-split-ignore']) ?>
 								<?php endforeach ?>
 							</nav>
@@ -45,7 +50,7 @@
 							<div class="grid__2 place__start-start gap__02">
 								<div class="flex"><?= snippet('atoms/Label', ['text' => t('who-we-are'), 'css' => 'op__4']) ?></div>
 								<nav navbar-menu class="grid upper ff__heading font__size__3 lighter no__wrap ">
-									<?php foreach ($pages->find('about', 'career', 'contact') as $p): ?>
+									<?php foreach ($aboutNavPages as $p): ?>
 										<div class="grid place__start-start">
 											<?= snippet('atoms/Link', ['url' => $p->url(), 'label' => $p->title(), 'icon' => false, 'css' => 'font__size__3', 'node' => 'data-reveal-text data-reveal-on-navbar data-split-ignore']) ?>
 
