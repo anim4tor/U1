@@ -121,24 +121,26 @@ if (empty($spaces) && empty($industries)) {
 					]) ?> 
 				<?php endif ?>
 
-				<div class="project-filter__submit-wrap">
+				<div class="project-filter__actions-wrap flex align__center gap__05">
+					<?php if (!empty($isFiltered)) : ?>
+						<a 
+							href="<?= $targetUrl ?>" 
+							class="button circle project-filter__reset" 
+							theme="ghost" 
+							hover="dark" 
+							title="Resetovat filtry" 
+							aria-label="Resetovat filtry" 
+							data-ajax-filter-reset
+						>
+							<?= snippet('atoms/Icon', ['name' => 'close', 'css' => 'icon-close']) ?>
+						</a>
+					<?php endif ?>
+
 					<button type="submit" class="button upper justify__center" theme="dark" hover="acc">
 						<span>Filtrovat</span>
 					</button>
 				</div>
 			</div>
-
-			<!-- Row 3: Footer with Reset (left) -->
-			<?php if (!empty($isFiltered)) : ?>
-				<div class="project-filter__footer-row flex justify__start align__center">
-					<?= snippet('atoms/Button', [
-						'url'    => $targetUrl,
-						'label'  => 'Resetovat filtry',
-						'theme'  => 'ghost',
-						'node'   => 'data-ajax-filter-reset'
-					]) ?>
-				</div>
-			<?php endif ?>
 
 		</form>
 	</div>

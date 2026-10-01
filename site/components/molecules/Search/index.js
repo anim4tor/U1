@@ -72,6 +72,9 @@ class ProjectFilter {
 				if (toggleBtn) toggleBtn.textContent = baseLabel + ' (' + activeSlugs.length + ') ▾';
 				if (toggleAtom) toggleAtom.setAttribute('theme', 'dark');
 			}
+
+			// Live reload immediately on option change
+			this.submitFilterForm();
 		});
 
 		// 2. Form Submit
@@ -82,7 +85,7 @@ class ProjectFilter {
 			});
 		}
 
-		// 3. Search Input Autocomplete
+		// 3. Search Input Autocomplete & Live Debounced Filter
 		if (this.input) {
 			this.input.addEventListener('input', () => {
 				const query = this.input.value.trim();
@@ -92,6 +95,11 @@ class ProjectFilter {
 				this.debounceTimer = setTimeout(() => {
 					this.fetchResults(query);
 				}, 150);
+
+				clearTimeout(this.filterSubmitTimer);
+				this.filterSubmitTimer = setTimeout(() => {
+					this.submitFilterForm();
+				}, 350);
 			});
 
 			this.input.addEventListener('keydown', (e) => {
@@ -117,6 +125,7 @@ class ProjectFilter {
 							this.input.value = selectedWord;
 							this.toggleClearBtn(true);
 							if (this.list) this.list.innerHTML = '';
+							this.submitFilterForm();
 						}
 					}
 				}
@@ -131,6 +140,7 @@ class ProjectFilter {
 				this.toggleClearBtn(false);
 				this.input.focus();
 				if (this.list) this.list.innerHTML = '';
+				this.submitFilterForm();
 			});
 		}
 	}
@@ -231,6 +241,7 @@ class ProjectFilter {
 					this.toggleClearBtn(true);
 					this.list.innerHTML = '';
 					this.input.focus();
+					this.submitFilterForm();
 				}
 			});
 

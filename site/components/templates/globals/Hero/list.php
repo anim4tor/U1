@@ -149,15 +149,6 @@ if (!empty($isFiltered)) {
 					<?= $controls ?>
 				<?php elseif (!empty($searchable) || !empty($industries) || !empty($spaces)) : ?>
 					<div class="flex align__center gap__02 flex__wrap">
-						<?php if (!empty($isFiltered)) : ?>
-							<?= snippet('atoms/Button', [ 
-								'url'     => isset($page) ? $page->url() : '#', 
-								'label'   => 'Reset', 
-								'theme'   => 'light', 
-								'reveal'  => true,
-								'node'    => 'data-ajax-filter-reset'
-							]) ?>
-						<?php endif ?>
 						<?php if (!empty($searchable)) : ?>
 							<button 
 								type="button" 
