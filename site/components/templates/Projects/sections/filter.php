@@ -49,14 +49,6 @@ if (empty($spaces) && empty($industries)) {
 						aria-label="<?= esc(t('search-projects', 'Hledat prostor, odvětví, klienta...')) ?>"
 					>
 					<div class="project-filter__search-actions flex align__center gap__05">
-						<button 
-							type="button" 
-							class="project-filter__clear <?= !empty($filterSearch) ? 'is-visible' : '' ?>" 
-							aria-label="Vymazat hledání"
-							tabindex="-1"
-						>
-							&times;
-						</button>
 						<div class="project-filter__spinner" aria-hidden="true"></div>
 					</div>
 				</div>

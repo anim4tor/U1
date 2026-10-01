@@ -7,10 +7,8 @@ class ProjectFilter {
 		this.panel     = panel;
 		this.form      = panel.querySelector('form') || panel;
 		this.input     = panel.querySelector('input[name="search"]');
-		this.clearBtn  = panel.querySelector('.project-filter__clear, .project-search__clear');
 		this.list      = panel.querySelector('[data-search-list]');
 		this.apiUrl    = panel.querySelector('[data-api-url]')?.dataset.apiUrl || '/ajax/projects/search';
-
 		this.debounceTimer = null;
 		this.cache         = {};
 		this.selectedIndex = -1;
@@ -85,21 +83,15 @@ class ProjectFilter {
 			});
 		}
 
-		// 3. Search Input Autocomplete & Live Debounced Filter
+		// 3. Search Input Autocomplete
 		if (this.input) {
 			this.input.addEventListener('input', () => {
 				const query = this.input.value.trim();
-				this.toggleClearBtn(query.length > 0);
 
 				clearTimeout(this.debounceTimer);
 				this.debounceTimer = setTimeout(() => {
 					this.fetchResults(query);
 				}, 150);
-
-				clearTimeout(this.filterSubmitTimer);
-				this.filterSubmitTimer = setTimeout(() => {
-					this.submitFilterForm();
-				}, 350);
 			});
 
 			this.input.addEventListener('keydown', (e) => {
@@ -123,31 +115,12 @@ class ProjectFilter {
 						const selectedWord = this.currentItems[this.selectedIndex].title;
 						if (selectedWord) {
 							this.input.value = selectedWord;
-							this.toggleClearBtn(true);
 							if (this.list) this.list.innerHTML = '';
 							this.submitFilterForm();
 						}
 					}
 				}
 			});
-		}
-
-		// 4. Clear button
-		if (this.clearBtn && this.input) {
-			this.clearBtn.addEventListener('click', (e) => {
-				e.preventDefault();
-				this.input.value = '';
-				this.toggleClearBtn(false);
-				this.input.focus();
-				if (this.list) this.list.innerHTML = '';
-				this.submitFilterForm();
-			});
-		}
-	}
-
-	toggleClearBtn(show) {
-		if (this.clearBtn) {
-			this.clearBtn.classList.toggle('is-visible', show);
 		}
 	}
 
@@ -222,10 +195,9 @@ class ProjectFilter {
 		}
 
 		const html = this.currentItems.map((item, index) => {
-			const highlightedTitle = this.highlightMatch(item.title, query);
 			return `
 				<button type="button" class="button --small project-filter__tag-pill" theme="ghost" hover="dark" role="option" data-index="${index}" data-word="${this.escapeHtml(item.title)}">
-					<span>${highlightedTitle}</span>
+					<span>${this.escapeHtml(item.title)}</span>
 				</button>
 			`;
 		}).join('');

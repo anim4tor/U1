@@ -111,12 +111,6 @@ if (!empty($isFiltered)) {
 								<?php endif ?>
 								<span class="filter-token flex align__start no__wrap">
 									<span class="filter-token__text"><?= esc(\Kirby\Toolkit\Str::ucfirst($token['label'])) ?></span>
-									<?= snippet('atoms/Label', [
-										'text' => '×',
-										'url'  => $token['removeUrl'],
-										'css'  => 'filter-token__remove',
-										'node' => 'data-ajax-filter="true" title="Zrušit ' . esc($token['label']) . '"'
-									]) ?>
 								</span>
 							<?php endforeach ?>
 						</h1>
@@ -152,13 +146,13 @@ if (!empty($isFiltered)) {
 						<?php if (!empty($searchable)) : ?>
 							<button 
 								type="button" 
-								class="button circle project-search__trigger <?= !empty($filterSearch) ? 'is-active' : '' ?>" 
-								theme="<?= ($theme === 'dark') ? 'invert-ghost' : 'ghost' ?>" 
-								hover="dark"
+								class="button circle project-search__trigger <?= !empty($isFiltered) ? 'has-filter' : '' ?>" 
+								theme="<?= !empty($isFiltered) ? 'acc' : (($theme === 'dark') ? 'invert-ghost' : 'ghost') ?>" 
+								hover="<?= !empty($isFiltered) ? 'acc' : 'dark' ?>"
 								data-search-trigger
 								data-filter-trigger
 								aria-label="<?= esc(t('search-projects', 'Hledat prostor, odvětví...')) ?>" 
-								aria-expanded="<?= !empty($filterSearch) ? 'true' : 'false' ?>"
+								aria-expanded="false"
 								title="<?= esc(t('search-projects', 'Hledat prostor, odvětví...')) ?>"
 							>
 								<?= snippet('atoms/Icon', ['name' => 'filter', 'css' => 'icon-filter']) ?>
