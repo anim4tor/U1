@@ -1,19 +1,12 @@
 /*
-
   MOLECULES: Dropdown
-
 */
-
 
 @import "../../atoms/Media/media";
 @import "../../atoms/Animation/animation";
-:root {
-
-}
 
 .custom-dropdown {
-/*  position: relative;*/
-/*  max-width: 300px;*/
+  position: relative;
 }
 
 .dropdown-label {
@@ -23,13 +16,6 @@
   font-size: 0.9rem;
   color: #333;
 }
-
-/*.dropdown-toggle:hover,
-.dropdown-toggle:focus {
-  border-color: #007bff;
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.15);
-}*/
 
 .dropdown-arrow {
   font-size: 0.75rem;
@@ -44,37 +30,72 @@
   position: absolute;
   top: calc(100% + 4px);
   right: 0;
-  min-width: var(--button-size);
+  min-width: var(--button-size, 160px);
   max-height: 300px;
-  overflow-y: scroll;
-  padding: Var(--button-spacing) 0;
-  border-radius: var(--button-radius);
+  overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding: 0.35rem 0;
+  border-radius: var(--button-radius, 1rem);
   list-style: none;
   display: none;
   z-index: 1000;
-}
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 
-.dropdown-menu.is-open {
-  display: block;
-}
+  &::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+  }
 
-.dropdown-menu li {
-  padding: 0.75rem 1rem;
-  cursor: pointer;
-  transition: background-color 0.15s;
-}
+  &.is-open {
+    display: block;
+  }
 
-.dropdown-menu li:first-child {
-  border-top-left-radius: 6px;
-  border-top-right-radius: 6px;
-}
+  /* Reset button animation on dropdown items and use clean darkened hover */
+  a.button, button.button {
+    width: 100%;
+    justify-content: flex-start;
+    border-radius: 0 !important;
+    background: transparent !important;
+    color: var(--color-text, #151314) !important;
+    transition: background-color 0.15s ease !important;
+    text-align: left;
+    padding: 0.5rem 1rem;
+    height: auto;
+    min-height: 36px;
+    transform: none !important;
 
-.dropdown-menu li:last-child {
-  border-bottom-left-radius: 6px;
-  border-bottom-right-radius: 6px;
-}
+    > [aria-label] {
+      transform: none !important;
+      &:after {
+        display: none !important;
+      }
+    }
 
-.dropdown-menu li:hover {
-  background-color: #f1f3f5;
-  color: #007bff;
+    &:hover {
+      background: rgba(0, 0, 0, 0.08) !important;
+      color: var(--color-text, #151314) !important;
+      transform: none !important;
+
+      > [aria-label] {
+        transform: none !important;
+      }
+    }
+
+    &[theme="dark"], &.is-active {
+      background: rgba(0, 0, 0, 0.05) !important;
+      font-weight: 600;
+    }
+  }
+
+  li {
+    padding: 0;
+    cursor: pointer;
+    transition: background-color 0.15s;
+
+    &:hover {
+      background: rgba(0, 0, 0, 0.08);
+    }
+  }
 }

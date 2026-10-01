@@ -30,7 +30,7 @@
 		<?php endif ?>
 	</a>
 <?php else: ?>
-	<button class="button upper <?= $css ?>" <?= $node ?> <?= $theme ? 'theme="'.$theme.'"' : null ?> <?= $hover ? 'hover="'.$hover.'"' : null ?> <?= $reveal ? 'data-reveal-text' : '' ?>>
+	<button class="button upper <?= $css ?>" <?= $node ?> <?= $theme ? 'theme="'.$theme.'"' : null ?> <?= $hover ? 'hover="'.$hover.'"' : null ?> <?= $reveal ? 'data-reveal="simple"' : '' ?>>
 		<?php if ($label) : ?>
 			<span aria-label="<?= $label ?><?= $counter !== false ? ' (' . $counter . ')' : '' ?>">
 				<?= $label ?><?= $counter !== false ? ' (' . $counter . ')' : '' ?>

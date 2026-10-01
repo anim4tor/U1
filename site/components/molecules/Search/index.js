@@ -24,7 +24,7 @@ class ProjectSearch {
 	}
 
 	init() {
-		if (!this.input) return;
+		if (!this.input || !this.form) return;
 
 		// 1. Toggle Trigger
 		if (this.trigger) {
@@ -77,9 +77,11 @@ class ProjectSearch {
 			} else if (e.key === 'Enter') {
 				if (this.selectedIndex >= 0 && this.currentItems[this.selectedIndex]) {
 					e.preventDefault();
-					const selectedUrl = this.currentItems[this.selectedIndex].url;
-					if (selectedUrl) {
-						window.location.href = selectedUrl;
+					const selectedWord = this.currentItems[this.selectedIndex].title;
+					if (selectedWord) {
+						this.input.value = selectedWord;
+						this.toggleClearBtn(true);
+						this.form.submit();
 					}
 				}
 			} else if (e.key === 'Escape') {
@@ -94,11 +96,6 @@ class ProjectSearch {
 				this.close();
 			}
 		});
-
-		// If initially open with a value, prefetch results
-		if (this.isOpen && this.input.value.trim()) {
-			this.fetchResults(this.input.value.trim());
-		}
 	}
 
 	toggle() {
@@ -126,7 +123,11 @@ class ProjectSearch {
 
 		const currentVal = this.input.value.trim();
 		this.toggleClearBtn(currentVal.length > 0);
-		this.fetchResults(currentVal);
+		if (currentVal.length > 0) {
+			this.fetchResults(currentVal);
+		} else if (this.list) {
+			this.list.innerHTML = '';
+		}
 	}
 
 	close() {
@@ -138,6 +139,9 @@ class ProjectSearch {
 			this.trigger.focus();
 		}
 		this.selectedIndex = -1;
+		if (this.list) {
+			this.list.innerHTML = '';
+		}
 	}
 
 	toggleClearBtn(show) {
@@ -147,6 +151,13 @@ class ProjectSearch {
 	}
 
 	async fetchResults(query) {
+		if (!query || !query.trim()) {
+			this.currentItems = [];
+			this.selectedIndex = -1;
+			if (this.list) this.list.innerHTML = '';
+			return;
+		}
+
 		let searchUrl = `${this.apiUrl}?q=${encodeURIComponent(query)}`;
 		const ind = this.form.querySelector('input[name="industry"]')?.value;
 		const sp  = this.form.querySelector('input[name="space"]')?.value;
@@ -178,6 +189,11 @@ class ProjectSearch {
 		this.currentItems = results || [];
 		this.selectedIndex = -1;
 
+		if (!query || !query.trim()) {
+			if (this.list) this.list.innerHTML = '';
+			return;
+		}
+
 		const noResultsText = this.container.dataset.i18nNoResults || 'Žádné tagy nenalezeny';
 
 		if (!this.currentItems.length) {
@@ -194,24 +210,30 @@ class ProjectSearch {
 		}
 
 		const html = this.currentItems.map((item, index) => {
-			const highlightedTitle = query ? this.highlightMatch(item.title, query) : this.escapeHtml(item.title);
-			const category = item.category || (item.type === 'space' ? 'Prostor' : (item.type === 'industry' ? 'Odvětví' : 'Tag'));
-			const count = item.count ? `(${item.count})` : '';
+			const highlightedTitle = this.highlightMatch(item.title, query);
 
 			return `
-				<a href="${this.escapeHtml(item.url)}" class="button --small project-search__tag-pill" theme="ghost" hover="dark" role="option" data-index="${index}">
-					<span class="project-search__tag-cat op__5 font__size__small">${this.escapeHtml(category)}:</span>
-					<span class="project-search__tag-title">${highlightedTitle}</span>
-					${count ? `<span class="project-search__tag-count op__4 font__size__small">${this.escapeHtml(count)}</span>` : ''}
-				</a>
+				<button type="button" class="button --small project-search__tag-pill" theme="ghost" hover="dark" role="option" data-index="${index}" data-word="${this.escapeHtml(item.title)}">
+					<span>${highlightedTitle}</span>
+				</button>
 			`;
 		}).join('');
 
 		this.list.innerHTML = html;
 
-		// Attach mouse hover handlers to tag pills
-		this.list.querySelectorAll('.project-search__tag-pill').forEach((itemEl, idx) => {
-			itemEl.addEventListener('mouseenter', () => {
+		// Attach click and mouse hover handlers to tag pills
+		this.list.querySelectorAll('.project-search__tag-pill').forEach((btn, idx) => {
+			btn.addEventListener('click', (e) => {
+				e.preventDefault();
+				const word = btn.dataset.word;
+				if (word) {
+					this.input.value = word;
+					this.toggleClearBtn(true);
+					this.form.submit();
+				}
+			});
+
+			btn.addEventListener('mouseenter', () => {
 				this.selectedIndex = idx;
 				this.updateSelection();
 			});

@@ -18,8 +18,8 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		width: 16px;
-		height: 16px;
+		width: 14px;
+		height: 14px;
 
 		svg {
 			width: 100%;
@@ -41,8 +41,9 @@
 	}
 
 	&.is-active {
-		border-color: var(--color-acc, #e5005a) !important;
-		color: var(--color-acc, #e5005a) !important;
+		background: var(--color-light, #edece7) !important;
+		color: var(--color-text, #151314) !important;
+		border-color: transparent !important;
 
 		.icon-search {
 			display: none;
@@ -120,7 +121,7 @@
 		font-weight: var(--font-weight-2, var(--fw-heading, 500)) !important;
 		letter-spacing: var(--letter-spacing-2, var(--ls-heading, -0.03em)) !important;
 		line-height: var(--line-height-2, var(--line-height-2-fluid, 1.2)) !important;
-		text-transform: uppercase !important;
+		text-transform: none !important;
 		padding: 0.25rem 0 !important;
 
 		&:focus,
@@ -138,7 +139,7 @@
 			font-family: var(--font-family-2, var(--ff-heading, 'Inter', sans-serif));
 			font-weight: var(--font-weight-2, var(--fw-heading, 500));
 			letter-spacing: var(--letter-spacing-2, var(--ls-heading, -0.03em));
-			text-transform: uppercase;
+			text-transform: none !important;
 		}
 
 		&::-webkit-search-decoration,
@@ -170,8 +171,8 @@
 			display: flex;
 			align-items: center;
 			justify-content: center;
-			width: 16px;
-			height: 16px;
+			width: 14px;
+			height: 14px;
 
 			svg {
 				width: 100%;
@@ -244,10 +245,9 @@
 
 	&__tag-pill {
 		cursor: pointer;
-		text-decoration: none;
 		display: inline-flex;
 		align-items: center;
-		gap: 0.35rem;
+		text-transform: none;
 
 		mark {
 			background: transparent;
@@ -257,7 +257,8 @@
 		}
 
 		&.is-selected {
-			border-color: var(--color-acc, #e5005a) !important;
+			background: var(--color-dark, #000) !important;
+			color: var(--color-invert, #fff) !important;
 		}
 	}
 
