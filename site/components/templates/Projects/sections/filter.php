@@ -12,19 +12,22 @@ $targetPage       = $page ?? (function_exists('page') && page() ? page() : null)
 $targetUrl        = $targetPage ? $targetPage->url() : url('projects');
 
 if (empty($spaces) && empty($industries)) {
-    $ctrl = kirby()->controller('projects', ['page' => $targetPage, 'kirby' => kirby(), 'site' => site()]);
-    if (is_array($ctrl)) {
-        $spaces      = $ctrl['spaces'] ?? [];
-        $industries  = $ctrl['industries'] ?? [];
-        $solutions   = $ctrl['solutions'] ?? [];
-        $productions = $ctrl['productions'] ?? [];
-        $hashes      = $ctrl['hashes'] ?? [];
-        $isFiltered  = $ctrl['isFiltered'] ?? false;
-        $filterSpace = $filterSpace ?? $ctrl['filterSpace'] ?? null;
-        $filterIndustry = $filterIndustry ?? $ctrl['filterIndustry'] ?? null;
-        $filterSolution = $filterSolution ?? $ctrl['filterSolution'] ?? null;
-        $filterProduction = $filterProduction ?? $ctrl['filterProduction'] ?? null;
-        $filterHash = $filterHash ?? $ctrl['filterHash'] ?? null;
+    $projectsPage = $targetPage ?? page('projects');
+    if ($projectsPage && method_exists($projectsPage, 'controller')) {
+        $ctrl = $projectsPage->controller();
+        if (is_array($ctrl)) {
+            $spaces           = $ctrl['spaces'] ?? [];
+            $industries       = $ctrl['industries'] ?? [];
+            $solutions        = $ctrl['solutions'] ?? [];
+            $productions      = $ctrl['productions'] ?? [];
+            $hashes           = $ctrl['hashes'] ?? [];
+            $isFiltered       = $ctrl['isFiltered'] ?? false;
+            $filterSpace      = $filterSpace ?? $ctrl['filterSpace'] ?? null;
+            $filterIndustry   = $filterIndustry ?? $ctrl['filterIndustry'] ?? null;
+            $filterSolution   = $filterSolution ?? $ctrl['filterSolution'] ?? null;
+            $filterProduction = $filterProduction ?? $ctrl['filterProduction'] ?? null;
+            $filterHash       = $filterHash ?? $ctrl['filterHash'] ?? null;
+        }
     }
 }
 ?>

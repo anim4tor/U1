@@ -1,10 +1,10 @@
 <?php if (!empty($isFiltered) && isset($images)) : ?>
 	<section class="list radius" theme="invert" data-ajax-filter-list>
 		<?php if ($images->isNotEmpty()) : ?>
-			<ol class="grid__3 gap__1 inner__4 inner-t__2">
+			<ol class="grid__3 gap__1 gap-y__2 inner__4 inner-t__2">
 				<?php foreach ($images as $image) : ?>
 					<?php $project = $image->parent(); ?>
-					<div data-slide class="inner-b__3">	
+					<div data-slide class="">	
 						<div class="item --project" data-scroll>
 							<a href="<?= $project ? $project->url() : '#' ?>" class="grid gap__05 relative">	
 								<div class="item__figure grid img__radius">
@@ -44,7 +44,7 @@
 		<?php if ($projects && $projects->isNotEmpty()) : ?>
 			<ol class="grid__3 gap__1 inner__4 inner-t__2">
 				<?php foreach ($projects as $project) : ?>
-					<div data-slide class="inner-b__3">	
+					<div data-slide class="">	
 						<?= snippet('molecules/Project/list', compact('project')) ?>
 					</div>
 				<?php endforeach ?>

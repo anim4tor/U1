@@ -1,5 +1,9 @@
-<?= snippet('templates/Projects/sections/filter', [
-    'isFiltered'       => $isFiltered ?? false,
+<?php
+$projectsPage = $page ?? page('projects');
+$ctrlData = ($projectsPage && method_exists($projectsPage, 'controller')) ? $projectsPage->controller() : [];
+?>
+<?= snippet('templates/Projects/sections/filter', array_merge($ctrlData, array_filter([
+    'isFiltered'       => $isFiltered ?? null,
     'filterIndustry'   => $filterIndustry ?? null,
     'filterSpace'      => $filterSpace ?? null,
     'filterSolution'   => $filterSolution ?? null,
@@ -7,9 +11,4 @@
     'filterHash'       => $filterHash ?? null,
     'filterGeneric'    => $filterGeneric ?? null,
     'filterSearch'     => $filterSearch ?? null,
-    'industries'       => $industries ?? [],
-    'spaces'           => $spaces ?? [],
-    'solutions'        => $solutions ?? [],
-    'productions'      => $productions ?? [],
-    'hashes'           => $hashes ?? [],
-]) ?>
+], fn($v) => $v !== null))) ?>
