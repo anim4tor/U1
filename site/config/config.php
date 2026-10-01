@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'debug'  => ($_SERVER['HTTP_HOST'] ?? '') === 'u1.test',
+    'debug'  => true,
     'panel.install' => true,
     'home' => 'home',
     'languages' => true,
