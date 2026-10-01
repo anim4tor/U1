@@ -2,6 +2,10 @@ Title: Direct pojišťovna
 
 ----
 
+Hero: [{"content":{"text":"Direct pojišťovna","level":"h1","mod":"l","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"hero-head-direct-pojistovna-cz","isHidden":false,"type":"heading"},{"content":{"image":["file://jxie6EGazwKUElXv"],"hasparallax":"false","parallax":0,"hasreveal":"false","reveal":"","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"hero-cover-direct-pojistovna-cz","isHidden":false,"type":"cover"},{"content":{"text":"(2025)","mod":"l","face":"","case":"upper","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"hero-text-direct-pojistovna-cz","isHidden":false,"type":"text"}]
+
+----
+
 Cover: - file://jxie6EGazwKUElXv
 
 ----
@@ -38,19 +42,7 @@ Place: Brno, komplex Titanium
 
 ----
 
-Industry: 
-
-----
-
-Space: Openspace, Lobby, Kuchyně
-
-----
-
 Size: 2 700 m²
-
-----
-
-Hash: 
 
 ----
 
@@ -58,15 +50,35 @@ Team:
 
 ----
 
-Concept: 
-
-----
-
 Photo: Ing. arch. Martina Pitáková
 
 ----
 
-Collabs: 
+Custominfo:
+
+- 
+  label: Spolupráce
+  value: Studi ABC
+
+----
+
+Space: Openspace, Lobby, Kuchyně
+
+----
+
+Industry: 
+
+----
+
+Solutions: 
+
+----
+
+Production: 
+
+----
+
+Hash: 
 
 ----
 
@@ -158,10 +170,6 @@ Robots-imageindex:
 ----
 
 Robots-snippet: 
-
-----
-
-Hero: 
 
 ----
 
