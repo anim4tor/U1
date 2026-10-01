@@ -9,6 +9,7 @@
 .project-search {
 	position: relative;
 	display: inline-block;
+	color: var(--col, var(--color-text));
 
 	&__form {
 		margin: 0;
@@ -22,7 +23,8 @@
 		padding: 0 1rem;
 		border-radius: var(--button-radius, 2em);
 		background: var(--background, transparent);
-		color: var(--col, var(--color-text, currentColor));
+		color: var(--col, currentColor);
+		@include border;
 		transition: border-color 0.25s ease, box-shadow 0.25s ease, width 0.3s ease, background-color 0.25s ease, color 0.25s ease;
 		width: 200px;
 		position: relative;
@@ -30,7 +32,7 @@
 
 		&[theme="ghost"] {
 			--background: transparent;
-			--col: var(--color-text);
+			--col: var(--color-text, #151314);
 			@include border;
 
 			&:hover {
@@ -40,7 +42,7 @@
 
 		&[theme="invert-ghost"] {
 			--background: transparent;
-			--col: var(--color-invert);
+			--col: var(--color-invert, #ffffff);
 			@include border;
 
 			&:hover {
@@ -49,14 +51,14 @@
 		}
 
 		&[theme="dark"] {
-			--background: var(--color-dark);
-			--col: var(--color-invert);
+			--background: var(--color-dark, #000000);
+			--col: var(--color-invert, #ffffff);
 			border: 1px solid rgba(255, 255, 255, 0.15);
 		}
 
 		&[theme="light"] {
-			--background: #ffffff;
-			--col: #000000;
+			--background: var(--color-light, #edece7);
+			--col: var(--color-text, #151314);
 			border: 1px solid rgba(0, 0, 0, 0.08);
 		}
 
@@ -74,25 +76,6 @@
 		}
 	}
 
-	&__icon {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		width: 16px;
-		height: 16px;
-		margin-left: 0.55rem;
-		margin-right: 0;
-		flex-shrink: 0;
-		opacity: 0.6;
-		pointer-events: none;
-
-		svg {
-			width: 100%;
-			height: 100%;
-			stroke: currentColor;
-		}
-	}
-
 	&__input {
 		flex: 1;
 		min-width: 0;
@@ -101,7 +84,7 @@
 		outline: none !important;
 		box-shadow: none !important;
 		background: transparent;
-		color: inherit;
+		color: var(--col, currentColor);
 		font-family: inherit;
 		font-size: 12px;
 		font-weight: 500;
@@ -118,8 +101,8 @@
 		}
 
 		&::placeholder {
-			color: inherit;
-			opacity: 0.55;
+			color: var(--col, currentColor);
+			opacity: 0.6;
 			font-weight: 400;
 		}
 
@@ -128,6 +111,29 @@
 		&::-webkit-search-results-button,
 		&::-webkit-search-results-decoration {
 			display: none;
+		}
+	}
+
+	&__icon {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 16px;
+		height: 16px;
+		margin-left: 0.55rem;
+		margin-right: 0;
+		flex-shrink: 0;
+		opacity: 0.75;
+		pointer-events: none;
+		color: var(--col, currentColor);
+
+		svg {
+			width: 100%;
+			height: 100%;
+			stroke: currentColor;
+			circle, path {
+				stroke: currentColor;
+			}
 		}
 	}
 

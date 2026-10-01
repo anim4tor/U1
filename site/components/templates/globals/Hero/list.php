@@ -138,7 +138,7 @@ if (!empty($isFiltered)) {
 						<?php endif ?>
 						<?php if (!empty($searchable)) : ?>
 							<?= snippet('molecules/Search', [
-								'theme' => ($theme === 'dark' || $theme === 'invert') ? 'invert-ghost' : 'ghost',
+								'theme' => ($theme === 'dark') ? 'invert-ghost' : 'ghost',
 								'url'   => isset($page) ? $page->url() : url('projects'),
 							]) ?>
 						<?php endif ?>
