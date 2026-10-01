@@ -1,5 +1,5 @@
 /**
- * Molecule: Project Search with Full-width H2 Input and Autocomplete
+ * Molecule: Project Search with Minimal Autocomplete Tags
  */
 
 class ProjectSearch {
@@ -12,7 +12,6 @@ class ProjectSearch {
 		this.input       = container.querySelector('.project-search__input');
 		this.clearBtn    = container.querySelector('.project-search__clear');
 		this.list        = container.querySelector('[data-search-list]');
-		this.footer      = container.querySelector('[data-search-footer]');
 		this.apiUrl      = container.dataset.apiUrl || '/ajax/projects/search';
 
 		this.debounceTimer = null;
@@ -63,15 +62,15 @@ class ProjectSearch {
 
 			const itemsCount = this.currentItems.length;
 
-			if (e.key === 'ArrowDown') {
-				e.preventDefault();
+			if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
 				if (itemsCount > 0) {
+					e.preventDefault();
 					this.selectedIndex = (this.selectedIndex + 1) % itemsCount;
 					this.updateSelection();
 				}
-			} else if (e.key === 'ArrowUp') {
-				e.preventDefault();
+			} else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
 				if (itemsCount > 0) {
+					e.preventDefault();
 					this.selectedIndex = (this.selectedIndex - 1 + itemsCount) % itemsCount;
 					this.updateSelection();
 				}
@@ -179,56 +178,39 @@ class ProjectSearch {
 		this.currentItems = results || [];
 		this.selectedIndex = -1;
 
-		const noResultsText = this.container.dataset.i18nNoResults || 'Žádné tagy ani fotografie nenalezeny';
-		const allResultsText = this.container.dataset.i18nAllResults || 'Zobrazit fotografie pro';
+		const noResultsText = this.container.dataset.i18nNoResults || 'Žádné tagy nenalezeny';
 
 		if (!this.currentItems.length) {
-			this.list.innerHTML = `
-				<div class="project-search__empty span__3">
-					${this.escapeHtml(noResultsText)} pro „<strong>${this.escapeHtml(query)}</strong>“
-				</div>
-			`;
-			if (this.footer) this.footer.innerHTML = '';
+			if (query) {
+				this.list.innerHTML = `
+					<div class="project-search__empty op__5 font__size__small">
+						${this.escapeHtml(noResultsText)} pro „<strong>${this.escapeHtml(query)}</strong>“
+					</div>
+				`;
+			} else {
+				this.list.innerHTML = '';
+			}
 			return;
 		}
 
 		const html = this.currentItems.map((item, index) => {
 			const highlightedTitle = query ? this.highlightMatch(item.title, query) : this.escapeHtml(item.title);
-			const category = item.category || (item.type === 'space' ? 'Typ prostoru' : (item.type === 'industry' ? 'Odvětví' : 'Tag'));
-			const countLabel = item.count_label || (item.count ? `${item.count} fotek` : '');
+			const category = item.category || (item.type === 'space' ? 'Prostor' : (item.type === 'industry' ? 'Odvětví' : 'Tag'));
+			const count = item.count ? `(${item.count})` : '';
 
 			return `
-				<a href="${this.escapeHtml(item.url)}" class="project-search__card" role="option" data-index="${index}">
-					<div class="project-search__card-thumb">
-						${item.cover ? `<img src="${this.escapeHtml(item.cover)}" alt="${this.escapeHtml(item.title)}" loading="lazy">` : `<div class="project-search__thumb-placeholder">U1</div>`}
-					</div>
-					<div class="project-search__card-body">
-						<div class="project-search__card-header">
-							<span class="project-search__badge upper">${this.escapeHtml(category)}</span>
-							${countLabel ? `<span class="project-search__count">(${this.escapeHtml(countLabel)})</span>` : ''}
-						</div>
-						<div class="project-search__card-title ff__heading font__size__4">${highlightedTitle}</div>
-					</div>
-					<div class="project-search__card-arrow" aria-hidden="true">&rarr;</div>
+				<a href="${this.escapeHtml(item.url)}" class="button --small project-search__tag-pill" theme="ghost" hover="dark" role="option" data-index="${index}">
+					<span class="project-search__tag-cat op__5 font__size__small">${this.escapeHtml(category)}:</span>
+					<span class="project-search__tag-title">${highlightedTitle}</span>
+					${count ? `<span class="project-search__tag-count op__4 font__size__small">${this.escapeHtml(count)}</span>` : ''}
 				</a>
 			`;
 		}).join('');
 
 		this.list.innerHTML = html;
 
-		if (this.footer && query) {
-			this.footer.innerHTML = `
-				<button type="submit" class="project-search__footer-btn" onclick="this.closest('.project-search').querySelector('form').submit();">
-					<span>${this.escapeHtml(allResultsText)} „${this.escapeHtml(query)}“</span>
-					<span class="icon">&rarr;</span>
-				</button>
-			`;
-		} else if (this.footer) {
-			this.footer.innerHTML = '';
-		}
-
-		// Attach mouse hover handlers to items
-		this.list.querySelectorAll('.project-search__card').forEach((itemEl, idx) => {
+		// Attach mouse hover handlers to tag pills
+		this.list.querySelectorAll('.project-search__tag-pill').forEach((itemEl, idx) => {
 			itemEl.addEventListener('mouseenter', () => {
 				this.selectedIndex = idx;
 				this.updateSelection();
@@ -237,13 +219,15 @@ class ProjectSearch {
 	}
 
 	updateSelection() {
-		const items = this.list.querySelectorAll('.project-search__card');
+		const items = this.list.querySelectorAll('.project-search__tag-pill');
 		items.forEach((item, idx) => {
 			const isSelected = idx === this.selectedIndex;
 			item.classList.toggle('is-selected', isSelected);
 			item.setAttribute('aria-selected', isSelected ? 'true' : 'false');
 			if (isSelected) {
-				item.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+				item.setAttribute('theme', 'dark');
+			} else {
+				item.setAttribute('theme', 'ghost');
 			}
 		});
 	}

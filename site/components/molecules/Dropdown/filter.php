@@ -14,7 +14,7 @@ if ($q      = get('q'))        $currentQuery['q']        = $q;
   <div class="dropdown-container relative">
     <?= snippet('atoms/Button', [ 
       'label'   => $label . ($activeValue ? ' (1)' : '') . ' ▾', 
-      'theme'   => $activeValue ? 'dark' : 'light', 
+      'theme'   => $activeValue ? 'dark' : ($theme ?? 'ghost'), 
       'reveal'  => true,
       'css'     => 'dropdown-toggle',
       'node'    => 'type="button" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="dropdown-label"'

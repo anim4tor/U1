@@ -114,18 +114,21 @@ if (!empty($isFiltered)) {
 					<?= $controls ?>
 				<?php elseif (!empty($industries) || !empty($spaces)) : ?>
 					<div class="flex align__center gap__02 flex__wrap">
-						<?= snippet('atoms/Button', [ 
-							'url'     => isset($page) ? $page->url() : '#', 
-							'label'   => 'Vše', 
-							'theme'   => empty($isFiltered) ? 'dark' : 'light', 
-							'reveal'  => true
-						]) ?>
+						<?php if (!empty($isFiltered)) : ?>
+							<?= snippet('atoms/Button', [ 
+								'url'     => isset($page) ? $page->url() : '#', 
+								'label'   => 'Reset', 
+								'theme'   => 'light', 
+								'reveal'  => true
+							]) ?>
+						<?php endif ?>
 						<?php if (!empty($industries)) : ?>
 							<?= snippet('molecules/Dropdown/filter', [ 
 								'label'   => 'Odvětví', 
 								'param'   => 'industry',
 								'options' => $industries,
-								'active'  => $filterIndustry ?? null
+								'active'  => $filterIndustry ?? null,
+								'theme'   => 'ghost'
 							]) ?> 
 						<?php endif ?>
 						<?php if (!empty($spaces)) : ?>
@@ -133,13 +136,14 @@ if (!empty($isFiltered)) {
 								'label'   => 'Prostory', 
 								'param'   => 'space',
 								'options' => $spaces,
-								'active'  => $filterSpace ?? null
+								'active'  => $filterSpace ?? null,
+								'theme'   => 'ghost'
 							]) ?> 
 						<?php endif ?>
 						<?php if (!empty($searchable)) : ?>
 							<button 
 								type="button" 
-								class="button circle project-search__trigger <?= !empty($filterSearch) ? 'is-active' : '' ?>" 
+								class="button circle --small project-search__trigger <?= !empty($filterSearch) ? 'is-active' : '' ?>" 
 								theme="<?= ($theme === 'dark') ? 'invert-ghost' : 'ghost' ?>" 
 								hover="dark"
 								data-search-trigger
@@ -147,8 +151,11 @@ if (!empty($isFiltered)) {
 								aria-expanded="<?= !empty($filterSearch) ? 'true' : 'false' ?>"
 								title="<?= esc(t('search-projects', 'Hledat prostor, odvětví...')) ?>"
 							>
-								<span class="icon">
+								<span class="icon icon-search">
 									<?= svg('public/assets/images/ui/ui_search.svg') ?>
+								</span>
+								<span class="icon icon-close">
+									<?= svg('public/assets/images/ui/ui_close.svg') ?>
 								</span>
 							</button>
 						<?php endif ?>
