@@ -1,7 +1,7 @@
 <?php if (!empty($isFiltered) && isset($images)) : ?>
 	<section class="list radius" theme="invert" data-ajax-filter-list>
 		<?php if ($images->isNotEmpty()) : ?>
-			<ol class="grid__3 gap__1 inner__4 inner-t__2">
+			<ol class="grid__3 gap__1 inner__4">
 				<?php foreach ($images as $image) : ?>
 					<?php $project = $image->parent(); ?>
 					<div data-slide class="inner-b__3">	

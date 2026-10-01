@@ -10,6 +10,23 @@ $filterProduction = $filterProduction ?? get('production');
 $filterHash       = $filterHash ?? get('hash') ?? get('tag');
 $targetPage       = $page ?? (function_exists('page') && page() ? page() : null);
 $targetUrl        = $targetPage ? $targetPage->url() : url('projects');
+
+if (empty($spaces) && empty($industries)) {
+    $ctrl = kirby()->controller('projects', ['page' => $targetPage, 'kirby' => kirby(), 'site' => site()]);
+    if (is_array($ctrl)) {
+        $spaces      = $ctrl['spaces'] ?? [];
+        $industries  = $ctrl['industries'] ?? [];
+        $solutions   = $ctrl['solutions'] ?? [];
+        $productions = $ctrl['productions'] ?? [];
+        $hashes      = $ctrl['hashes'] ?? [];
+        $isFiltered  = $ctrl['isFiltered'] ?? false;
+        $filterSpace = $filterSpace ?? $ctrl['filterSpace'] ?? null;
+        $filterIndustry = $filterIndustry ?? $ctrl['filterIndustry'] ?? null;
+        $filterSolution = $filterSolution ?? $ctrl['filterSolution'] ?? null;
+        $filterProduction = $filterProduction ?? $ctrl['filterProduction'] ?? null;
+        $filterHash = $filterHash ?? $ctrl['filterHash'] ?? null;
+    }
+}
 ?>
 <section id="project-filter-section" class="project-filter-section relative z__2 radius" theme="light" data-ajax-filter-panel>
 	<div class="project-filter-inner inner__4 inner-y__2">
@@ -25,7 +42,7 @@ $targetUrl        = $targetPage ? $targetPage->url() : url('projects');
 						placeholder="<?= esc(t('search-projects', 'Hledat prostor, odvětví, klienta...')) ?>" 
 						autocomplete="off" 
 						spellcheck="false"
-						class="project-filter__input font__size__2"
+						class="project-filter__input font__size__2 smaller"
 						aria-label="<?= esc(t('search-projects', 'Hledat prostor, odvětví, klienta...')) ?>"
 					>
 					<div class="project-filter__search-actions flex align__center gap__05">

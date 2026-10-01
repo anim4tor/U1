@@ -1,2 +1,2 @@
 
-<?= snippet('organisms/Main') ?>
+<?= snippet('organisms/Main', get_defined_vars()) ?>
