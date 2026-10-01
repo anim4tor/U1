@@ -1,17 +1,19 @@
 /**
- * Molecule: Project Search with Autocomplete (Našeptávač)
+ * Molecule: Project Search with Fullscreen Bar and Autocomplete
  */
 
 class ProjectSearch {
 	constructor(container) {
 		this.container   = container;
+		this.trigger     = container.querySelector('[data-search-trigger]');
+		this.overlay     = container.querySelector('[data-search-overlay]');
+		this.closeBtns   = container.querySelectorAll('[data-search-close]');
 		this.form        = container.querySelector('form');
 		this.input       = container.querySelector('.project-search__input');
 		this.clearBtn    = container.querySelector('.project-search__clear');
-		this.dropdown    = container.querySelector('.project-search__dropdown');
 		this.list        = container.querySelector('[data-search-list]');
 		this.footer      = container.querySelector('[data-search-footer]');
-		this.apiUrl      = container.dataset.apiUrl || '/api/projects/search';
+		this.apiUrl      = container.dataset.apiUrl || '/ajax/projects/search';
 
 		this.debounceTimer = null;
 		this.cache         = {};
@@ -23,55 +25,47 @@ class ProjectSearch {
 	}
 
 	init() {
-		if (!this.input || !this.dropdown) return;
+		if (!this.input || !this.overlay) return;
 
-		// 1. Input typing with debounce
+		// 1. Open Trigger
+		if (this.trigger) {
+			this.trigger.addEventListener('click', (e) => {
+				e.preventDefault();
+				this.open();
+			});
+		}
+
+		// 2. Close Buttons
+		this.closeBtns.forEach(btn => {
+			btn.addEventListener('click', (e) => {
+				e.preventDefault();
+				this.close();
+			});
+		});
+
+		// 3. Input typing with debounce
 		this.input.addEventListener('input', () => {
 			const query = this.input.value.trim();
 			this.toggleClearBtn(query.length > 0);
 
-			if (query.length < 1) {
-				this.close();
-				return;
-			}
-
 			clearTimeout(this.debounceTimer);
 			this.debounceTimer = setTimeout(() => {
 				this.fetchResults(query);
-			}, 180);
+			}, 150);
 		});
 
-		// 2. Input focus
-		this.input.addEventListener('focus', () => {
-			const query = this.input.value.trim();
-			if (query.length >= 1) {
-				if (this.cache[query]) {
-					this.renderResults(this.cache[query], query);
-					this.open();
-				} else {
-					this.fetchResults(query);
-				}
-			}
-		});
-
-		// 3. Clear button
+		// 4. Clear button
 		if (this.clearBtn) {
 			this.clearBtn.addEventListener('click', (e) => {
 				e.preventDefault();
 				this.input.value = '';
 				this.toggleClearBtn(false);
-				this.close();
 				this.input.focus();
-				
-				// If currently filtered on search query, submitting empty search resets filter
-				const urlParams = new URLSearchParams(window.location.search);
-				if (urlParams.has('search') || urlParams.has('q')) {
-					this.form.submit();
-				}
+				this.fetchResults('');
 			});
 		}
 
-		// 4. Keyboard Navigation
+		// 5. Keyboard Navigation
 		this.input.addEventListener('keydown', (e) => {
 			if (!this.isOpen) return;
 
@@ -97,16 +91,15 @@ class ProjectSearch {
 						window.location.href = selectedUrl;
 					}
 				}
-				// Otherwise let the form submit normally
 			} else if (e.key === 'Escape') {
 				e.preventDefault();
 				this.close();
 			}
 		});
 
-		// 5. Click outside to close
-		document.addEventListener('click', (e) => {
-			if (!this.container.contains(e.target)) {
+		// Global Escape key
+		document.addEventListener('keydown', (e) => {
+			if (e.key === 'Escape' && this.isOpen) {
 				this.close();
 			}
 		});
@@ -128,7 +121,6 @@ class ProjectSearch {
 		const cacheKey = `${query}|${ind || ''}|${sp || ''}`;
 		if (this.cache[cacheKey]) {
 			this.renderResults(this.cache[cacheKey], query);
-			this.open();
 			return;
 		}
 
@@ -140,7 +132,6 @@ class ProjectSearch {
 			const data = await res.json();
 			this.cache[cacheKey] = data;
 			this.renderResults(data, query);
-			this.open();
 		} catch (err) {
 			console.warn('Search error:', err);
 		} finally {
@@ -152,12 +143,12 @@ class ProjectSearch {
 		this.currentItems = results || [];
 		this.selectedIndex = -1;
 
-		const noResultsText = this.container.dataset.i18nNoResults || 'Žádné tagy nenalezeny';
-		const allResultsText = this.container.dataset.i18nAllResults || 'Zobrazit všechny fotografie';
+		const noResultsText = this.container.dataset.i18nNoResults || 'Žádné tagy ani fotografie nenalezeny';
+		const allResultsText = this.container.dataset.i18nAllResults || 'Zobrazit fotografie pro';
 
 		if (!this.currentItems.length) {
 			this.list.innerHTML = `
-				<div class="project-search__empty">
+				<div class="project-search__empty span__3">
 					${this.escapeHtml(noResultsText)} pro „<strong>${this.escapeHtml(query)}</strong>“
 				</div>
 			`;
@@ -166,40 +157,42 @@ class ProjectSearch {
 		}
 
 		const html = this.currentItems.map((item, index) => {
-			const highlightedTitle = this.highlightMatch(item.title, query);
+			const highlightedTitle = query ? this.highlightMatch(item.title, query) : this.escapeHtml(item.title);
 			const category = item.category || (item.type === 'space' ? 'Typ prostoru' : (item.type === 'industry' ? 'Odvětví' : 'Tag'));
 			const countLabel = item.count_label || (item.count ? `${item.count} fotek` : '');
 
 			return `
-				<a href="${this.escapeHtml(item.url)}" class="project-search__item" role="option" data-index="${index}">
-					<div class="project-search__thumb">
+				<a href="${this.escapeHtml(item.url)}" class="project-search__card" role="option" data-index="${index}">
+					<div class="project-search__card-thumb">
 						${item.cover ? `<img src="${this.escapeHtml(item.cover)}" alt="${this.escapeHtml(item.title)}" loading="lazy">` : `<div class="project-search__thumb-placeholder">U1</div>`}
 					</div>
-					<div class="project-search__info">
-						<div class="project-search__row">
-							<span class="project-search__title">${highlightedTitle}</span>
+					<div class="project-search__card-body">
+						<div class="project-search__card-header">
+							<span class="project-search__badge upper">${this.escapeHtml(category)}</span>
 							${countLabel ? `<span class="project-search__count">(${this.escapeHtml(countLabel)})</span>` : ''}
 						</div>
-						<span class="project-search__meta">${this.escapeHtml(category)}</span>
+						<div class="project-search__card-title ff__heading font__size__4">${highlightedTitle}</div>
 					</div>
-					<span class="project-search__arrow" aria-hidden="true">&rarr;</span>
+					<div class="project-search__card-arrow" aria-hidden="true">&rarr;</div>
 				</a>
 			`;
 		}).join('');
 
 		this.list.innerHTML = html;
 
-		if (this.footer) {
+		if (this.footer && query) {
 			this.footer.innerHTML = `
-				<button type="submit" onclick="this.closest('.project-search').querySelector('form').submit();">
-					<span>${this.escapeHtml(allResultsText)} pro „${this.escapeHtml(query)}“</span>
-					<span>&rarr;</span>
+				<button type="submit" class="project-search__footer-btn" onclick="this.closest('.project-search').querySelector('form').submit();">
+					<span>${this.escapeHtml(allResultsText)} „${this.escapeHtml(query)}“</span>
+					<span class="icon">&rarr;</span>
 				</button>
 			`;
+		} else if (this.footer) {
+			this.footer.innerHTML = '';
 		}
 
 		// Attach mouse hover handlers to items
-		this.list.querySelectorAll('.project-search__item').forEach((itemEl, idx) => {
+		this.list.querySelectorAll('.project-search__card').forEach((itemEl, idx) => {
 			itemEl.addEventListener('mouseenter', () => {
 				this.selectedIndex = idx;
 				this.updateSelection();
@@ -208,13 +201,13 @@ class ProjectSearch {
 	}
 
 	updateSelection() {
-		const items = this.list.querySelectorAll('.project-search__item');
+		const items = this.list.querySelectorAll('.project-search__card');
 		items.forEach((item, idx) => {
 			const isSelected = idx === this.selectedIndex;
 			item.classList.toggle('is-selected', isSelected);
 			item.setAttribute('aria-selected', isSelected ? 'true' : 'false');
 			if (isSelected) {
-				item.scrollIntoView({ block: 'nearest' });
+				item.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
 			}
 		});
 	}
@@ -237,16 +230,39 @@ class ProjectSearch {
 	}
 
 	open() {
-		this.dropdown.classList.add('is-open');
-		this.input.setAttribute('aria-expanded', 'true');
+		if (this.isOpen) return;
 		this.isOpen = true;
+
+		this.overlay.classList.add('is-open');
+		this.overlay.setAttribute('aria-hidden', 'false');
+		if (this.trigger) this.trigger.setAttribute('aria-expanded', 'true');
+		document.documentElement.style.overflow = 'hidden';
+
+		setTimeout(() => {
+			this.input.focus();
+			if (this.input.value) {
+				this.input.select();
+			}
+		}, 100);
+
+		const currentVal = this.input.value.trim();
+		this.toggleClearBtn(currentVal.length > 0);
+		this.fetchResults(currentVal);
 	}
 
 	close() {
-		this.dropdown.classList.remove('is-open');
-		this.input.setAttribute('aria-expanded', 'false');
-		this.selectedIndex = -1;
+		if (!this.isOpen) return;
 		this.isOpen = false;
+
+		this.overlay.classList.remove('is-open');
+		this.overlay.setAttribute('aria-hidden', 'true');
+		if (this.trigger) this.trigger.setAttribute('aria-expanded', 'false');
+		document.documentElement.style.overflow = '';
+		this.selectedIndex = -1;
+
+		if (this.trigger) {
+			this.trigger.focus();
+		}
 	}
 }
 
