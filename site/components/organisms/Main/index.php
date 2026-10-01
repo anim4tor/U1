@@ -59,16 +59,12 @@ if ($structure->isNotEmpty()) {
 ?>
 
 <?php # 4. Render the output list ?>
-<?php 
-$sectionData = get_defined_vars();
-unset($sectionData['sectionsOrder'], $sectionData['structure'], $sectionData['localFiles'], $sectionData['files']);
-?>
 <?php foreach ($sectionsOrder as $label) : ?>
     <?php 
     $isGlobal = str_starts_with($label, 'global/');
     $dir = $isGlobal ? 'templates/globals' : 'templates/' . ucfirst($page->intendedTemplate()->name()) . '/sections';
     $file = $isGlobal ? substr($label, 7) : $label;
 
-    snippet($dir . '/' . $file, $sectionData);
+    snippet($dir . '/' . $file);
     ?>
 <?php endforeach ?>
