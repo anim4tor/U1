@@ -26,7 +26,7 @@
 			</span>
 		<?php endif ?>
 		<?php if ($icon) : ?>
-			<span class="icon"><?= svg('public/assets/images/ui/ui_'.$icon.'.svg') ?></span>
+			<?= snippet('atoms/Icon', ['name' => $icon]) ?>
 		<?php endif ?>
 	</a>
 <?php else: ?>
@@ -37,7 +37,7 @@
 			</span>
 		<?php endif ?>
 		<?php if ($icon) : ?>
-			<span class="icon"><?= svg('public/assets/images/ui/ui_'.$icon.'.svg') ?></span>
+			<?= snippet('atoms/Icon', ['name' => $icon]) ?>
 		<?php endif ?>
 	</button>
 <?php endif ?>
