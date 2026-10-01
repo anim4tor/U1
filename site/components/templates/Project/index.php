@@ -28,9 +28,7 @@
 				'production' => 'Výroba',
 				'size' => 'Velikost',
 				'team' => 'Realizace',
-				'collabs' => 'Spolupráce',
 				'photo'   => 'Fotografie',
-				'concept' => 'Koncept',
 			];
 			?>
 			<?php foreach ($specs as $field => $label): ?>
@@ -42,6 +40,32 @@
 					</div>
 				<?php endif; ?>
 			<?php endforeach; ?>
+
+			<?php 
+			$customItems = $page->customInfo()->toStructure();
+			if ($customItems->isNotEmpty()): 
+				foreach ($customItems as $item): 
+					if ($item->value()->isNotEmpty()): ?>
+						<div class="grid__2 gap__2 border__top inner-y__05">
+							<?= snippet('atoms/Label', ['text' => $item->label()->isNotEmpty() ? $item->label() : $item->title()]) ?>
+							<p class="font__size__default"><?= $item->value() ?></p>
+						</div>
+					<?php endif; 
+				endforeach; 
+			else: 
+				if ($page->concept()->isNotEmpty()): ?>
+					<div class="grid__2 gap__2 border__top inner-y__05">
+						<?= snippet('atoms/Label', ['text' => 'Koncept']) ?>
+						<p class="font__size__default"><?= $page->concept() ?></p>
+					</div>
+				<?php endif; ?>
+				<?php if ($page->collabs()->isNotEmpty()): ?>
+					<div class="grid__2 gap__2 border__top inner-y__05">
+						<?= snippet('atoms/Label', ['text' => 'Spolupráce']) ?>
+						<p class="font__size__default"><?= $page->collabs() ?></p>
+					</div>
+				<?php endif; ?>
+			<?php endif; ?>
 
 		</div>
 	</div>

@@ -70,15 +70,15 @@ Team: Michal Gróf, Nick Tan, Jana Benešová
 
 ----
 
-Concept: Atelier Dimense
-
-----
-
 Photo: 
 
 ----
 
-Collabs: 
+Custominfo:
+
+- 
+  label: Concept
+  value: Atelier Dimense 
 
 ----
 

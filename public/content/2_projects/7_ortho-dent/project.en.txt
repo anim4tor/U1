@@ -70,15 +70,15 @@ Team:
 
 ----
 
-Concept: 
-
-----
-
 Photo: 
 
 ----
 
-Collabs: HUA HUA Architects
+Custominfo:
+
+- 
+  label: Collabs
+  value: HUA HUA Architects
 
 ----
 

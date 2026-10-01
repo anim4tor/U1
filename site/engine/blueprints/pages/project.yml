@@ -80,16 +80,31 @@ tabs:
           text: "{{ page.title }}"
           value: "{{ page.title }}"
 
-      concept:
-        width: 1/3
-        label: Koncept
-        type: text
       photo:
-        width: 1/3
+        width: 1/1
+        label: Fotografie
         type: text
-      collabs:
-        width: 1/3
-        type: text
+
+      customInfo:
+        label: Variabilní položky
+        help: "Doplňující specifikace projektu (např. Koncept, Spolupráce / Collab, Vybavení / Furnishing apod.)"
+        type: structure
+        columns:
+          label:
+            width: 1/3
+          value:
+            width: 2/3
+        fields:
+          label:
+            label: Položka
+            type: text
+            width: 1/3
+            placeholder: "např. Spolupráce, Koncept, Vybavení..."
+          value:
+            label: Hodnota
+            type: text
+            width: 2/3
+            placeholder: "např. Název studia, partnera, popis..."
 
   gallery:
     columns:
