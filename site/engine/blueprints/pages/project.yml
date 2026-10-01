@@ -30,81 +30,94 @@ tabs:
             extends: fields/section
             label: Quote
   info:
-    fields:
-
-      client:
-        width: 1/3
-        label: Client
-        type: text
-      date:
-        width: 1/3
-        type: date
-        label: Rok realizace
-      place:
-        width: 1/3
-        type: text
-        label: Lokalita
-      industry:
-        width: 1/2
-        type: tags
-        label: Obor podnikání
-      solutions:
-        type: multiselect
-        label: Služby
-        options:
-          type: query
-          query: site.index.filterBy("intendedTemplate", "in", ["solution"])
-          text: "{{ page.title }}"
-      space:
-        width: 1/2
-        type: tags
-        label: Typ prostoru
-      production:
-        width: 1/2
-        type: tags
-        label: Výroba
-      size:
-        width: 1/3
-        type: text
-        label: Velikost
-      hash:
-        width: 2/3
-        type: tags
-        label: Hashtags
-      team:
-        width: 1/1
-        type: multiselect
-        options:
-          type: query
-          query: site.index.filterBy("intendedTemplate", "in", ["employee"])
-          text: "{{ page.title }}"
-          value: "{{ page.title }}"
-
-      photo:
-        width: 1/1
-        label: Fotografie
-        type: text
-
-      customInfo:
-        label: Variabilní položky
-        help: "Doplňující specifikace projektu (např. Koncept, Spolupráce / Collab, Vybavení / Furnishing apod.)"
-        type: structure
-        columns:
-          label:
-            width: 1/3
-          value:
-            width: 2/3
+    columns:
+      - width: 2/3
         fields:
-          label:
-            label: Položka
+          mainHeadline:
+            type: headline
+            label: Základní informace
+          client:
+            width: 1/2
+            label: Klient
             type: text
-            width: 1/3
-            placeholder: "např. Spolupráce, Koncept, Vybavení..."
-          value:
-            label: Hodnota
+          date:
+            width: 1/2
+            type: date
+            label: Rok realizace
+          place:
+            width: 1/2
             type: text
-            width: 2/3
-            placeholder: "např. Název studia, partnera, popis..."
+            label: Lokalita
+          size:
+            width: 1/2
+            type: text
+            label: Velikost
+
+          teamHeadline:
+            type: headline
+            label: Realizace a autoři
+          team:
+            width: 1/1
+            type: multiselect
+            label: Tým U1
+            options:
+              type: query
+              query: site.index.filterBy("intendedTemplate", "in", ["employee"])
+              text: "{{ page.title }}"
+              value: "{{ page.title }}"
+          photo:
+            width: 1/1
+            label: Autor fotografií
+            type: text
+
+          customHeadline:
+            type: headline
+            label: Doplňující specifikace
+          customInfo:
+            label: Variabilní položky
+            help: "Zadejte další informace o projektu (např. Koncept, Spolupráce / Collab, Vybavení / Furnishing apod.)"
+            type: structure
+            columns:
+              label:
+                width: 1/3
+              value:
+                width: 2/3
+            fields:
+              label:
+                label: Položka
+                type: text
+                width: 1/3
+                placeholder: "např. Spolupráce, Koncept, Vybavení..."
+              value:
+                label: Hodnota
+                type: text
+                width: 2/3
+                placeholder: "např. Název studia, partnera, popis..."
+
+      - width: 1/3
+        fields:
+          taxonomyHeadline:
+            type: headline
+            label: Kategorie a filtry
+          space:
+            type: tags
+            label: Typ prostoru
+          industry:
+            type: tags
+            label: Obor podnikání
+          solutions:
+            type: multiselect
+            label: Služby
+            options:
+              type: query
+              query: site.index.filterBy("intendedTemplate", "in", ["solution"])
+              text: "{{ page.title }}"
+          production:
+            type: tags
+            label: Výroba
+          hash:
+            type: tags
+            label: Hashtagy
 
   gallery:
     columns:
