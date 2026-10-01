@@ -50,6 +50,34 @@ $ignorePatterns = [
     '*.code-workspace'
 ];
 
+$flushDirectory = function ($dir) use (&$flushDirectory) {
+    if (!is_dir($dir)) return;
+    $items = @scandir($dir);
+    if ($items === false) return;
+    foreach (array_diff($items, ['.', '..']) as $item) {
+        $path = $dir . '/' . $item;
+        if (is_dir($path)) {
+            $flushDirectory($path);
+            @rmdir($path);
+        } else {
+            @unlink($path);
+        }
+    }
+};
+
+// If requesting cache flush: ?secret=maiden37&flush=1
+if (isset($_GET['flush']) && isset($_GET['secret']) && hash_equals($secret, $_GET['secret'])) {
+    $cacheDirs = [
+        $projectDir . '/site/cache',
+        $projectDir . '/site/store/cache'
+    ];
+    foreach ($cacheDirs as $cDir) {
+        $flushDirectory($cDir);
+    }
+    echo json_encode(['status' => 'success', 'message' => 'Caches flushed successfully.']);
+    exit;
+}
+
 // If requesting log view: ?secret=maiden37&log=1
 if (isset($_GET['log']) && isset($_GET['secret']) && hash_equals($secret, $_GET['secret'])) {
     if (file_exists($logFile)) {
@@ -309,16 +337,7 @@ $cacheDirs = [
     $projectDir . '/site/store/cache'
 ];
 foreach ($cacheDirs as $cDir) {
-    if (is_dir($cDir)) {
-        $it = new RecursiveIteratorIterator(
-            new RecursiveDirectoryIterator($cDir, RecursiveDirectoryIterator::SKIP_DOTS),
-            RecursiveIteratorIterator::CHILD_FIRST
-        );
-        foreach ($it as $fileinfo) {
-            $todo = ($fileinfo->isDir() ? 'rmdir' : 'unlink');
-            @$todo($fileinfo->getRealPath());
-        }
-    }
+    $flushDirectory($cDir);
 }
 
 $duration = round((microtime(true) - $startTime) * 1000, 2);
