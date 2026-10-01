@@ -22,10 +22,10 @@ return [
     ],
     'cache' => [
         'pages' => [
-            'active' => ($_SERVER['HTTP_HOST'] ?? '') !== 'u1.test',
+            'active' => false,
             'type'   => 'file',
             'ignore' => function ($page) {
-                return kirby()->user() !== null;
+                return true;
             }
         ],
         'social' => true

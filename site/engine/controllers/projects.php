@@ -90,14 +90,28 @@ return function ($page, $kirby, $site) {
         $allImages->pluck('tags', ',', true)
     );
 
+    // Safe year extractor helper
+    $getYear = function($p) {
+        if (!$p) return null;
+        try {
+            $f = $p->date();
+            if (!$f || !$f->isNotEmpty()) return null;
+            $raw = trim((string)$f->value());
+            if (preg_match('/^(\d{4})/', $raw, $m)) {
+                return $m[1];
+            }
+            $y = $f->toDate('Y');
+            return $y ? (string)$y : null;
+        } catch (\Throwable $e) {
+            return null;
+        }
+    };
+
     // Extract years from project dates
     $yearMap = [];
     foreach ($allProjects as $proj) {
-        $d = $proj->date();
-        if ($d->isNotEmpty()) {
-            $y = $d->toDate('Y');
-            if ($y) $yearMap[$y] = $y;
-        }
+        $y = $getYear($proj);
+        if ($y) $yearMap[$y] = $y;
     }
     krsort($yearMap, SORT_NUMERIC);
     $years = [];
@@ -129,8 +143,8 @@ return function ($page, $kirby, $site) {
 
     // Filter projects by year if active
     if (!empty($filterYearSlugs)) {
-        $projects = $projects->filter(function($p) use ($filterYearSlugs) {
-            $y = $p->date()->isNotEmpty() ? $p->date()->toDate('Y') : null;
+        $projects = $projects->filter(function($p) use ($filterYearSlugs, $getYear) {
+            $y = $getYear($p);
             return $y && in_array((string)$y, $filterYearSlugs);
         });
     }
@@ -138,7 +152,7 @@ return function ($page, $kirby, $site) {
     // 3. Filter ONLY images matching active tags or search
     if ($isFiltered) {
         $filteredImages = $allImages->filter(function ($image) use (
-            $filterIndustrySlugs, $filterSpaceSlugs, $filterSolutionSlugs, $filterProductionSlugs, $filterHashSlugs, $filterYearSlugs, $genericSlugs, $filterSearch
+            $filterIndustrySlugs, $filterSpaceSlugs, $filterSolutionSlugs, $filterProductionSlugs, $filterHashSlugs, $filterYearSlugs, $genericSlugs, $filterSearch, $getYear
         ) {
             $imageIndustries = array_map([Str::class, 'slug'], $image->industry()->split(','));
             $imageSpaces     = array_map([Str::class, 'slug'], $image->space()->split(','));
@@ -150,7 +164,7 @@ return function ($page, $kirby, $site) {
             $projSolutions   = $parent ? array_map([Str::class, 'slug'], $parent->solutions()->split(',')) : [];
             $projProductions = $parent ? array_map([Str::class, 'slug'], $parent->production()->split(',')) : [];
             $projHashes      = $parent ? array_map([Str::class, 'slug'], $parent->hash()->split(',')) : [];
-            $projYear        = ($parent && $parent->date()->isNotEmpty()) ? (string)$parent->date()->toDate('Y') : null;
+            $projYear        = $getYear($parent);
 
             $allIndustries  = array_unique(array_filter(array_merge($imageIndustries, $projIndustries)));
             $allSpaces      = array_unique(array_filter(array_merge($imageSpaces, $projSpaces)));
