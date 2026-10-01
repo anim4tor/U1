@@ -10,7 +10,7 @@ $aboutNavPages  = $site->menuAbout()->isNotEmpty()  ? $site->menuAbout()->toPage
 				<div class="flex align__center justify__start">
 					
 					<div class="grid__stack place__center-start" data-on-navbar-toggle>
-						<a data-default class="button circle flex justify__center align__center" href="<?= page('home')->url() ?>"><div class="flex align__center" data-reveal ><?= svg('public/assets/images/fig_logo.svg') ?> <!-- <span class="upper">Space Design</span> --></div></a>	
+						<a data-default class="button circle flex justify__center align__center wrap-l__02 wrap-b__01" href="<?= page('home')->url() ?>"><div class="flex align__center" data-reveal ><?= svg('public/assets/images/fig_logo.svg') ?> <!-- <span class="upper">Space Design</span> --></div></a>	
 						<span class="upper inner-x__05"> </span>
 					</div>
 				</div>
@@ -24,7 +24,7 @@ $aboutNavPages  = $site->menuAbout()->isNotEmpty()  ? $site->menuAbout()->toPage
 
 								</div>
 							<?php endforeach ?>
-							<!-- <?= snippet('atoms/Link', ['url' => false, 'label' => $page->parent() ? $page->parent()->title() : $page->title(), 'icon' => false, 'css' => '', 'node' => 'data-reveal-text  data-split-ignore']) ?> -->
+							<!-- <?= snippet('atoms/Link', ['url' => false, 'label' => $page->parent() ? $page->parent()->title() : $page->title(), 'icon' => false, 'css' => '', 'node' => 'data-reveal="simple"  data-split-ignore']) ?> -->
 						</nav>
 						<span> </span>
 					</div>
