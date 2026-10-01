@@ -15,6 +15,8 @@ Order:
 - 
   label: 1_hero
 - 
+  label: 2_filter
+- 
   label: 2_list
 - 
   label: global/Testimonials/index
