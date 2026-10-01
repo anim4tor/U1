@@ -86,8 +86,9 @@
 		background: transparent;
 		color: var(--col, currentColor);
 		font-family: inherit;
-		font-size: 12px;
-		font-weight: 500;
+		font-size: var(--button-font-size, 12px);
+		font-weight: var(--button-font-weight, 500);
+		text-transform: uppercase;
 		padding: 0;
 		letter-spacing: 0;
 
@@ -103,7 +104,9 @@
 		&::placeholder {
 			color: var(--col, currentColor);
 			opacity: 0.6;
-			font-weight: 400;
+			font-weight: var(--button-font-weight, 500);
+			text-transform: uppercase;
+			font-size: var(--button-font-size, 12px);
 		}
 
 		&::-webkit-search-decoration,
@@ -118,12 +121,12 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		width: 16px;
-		height: 16px;
+		width: 20px;
+		height: 20px;
 		margin-left: 0.55rem;
 		margin-right: 0;
 		flex-shrink: 0;
-		opacity: 0.75;
+		opacity: 0.85;
 		pointer-events: none;
 		color: var(--col, currentColor);
 
