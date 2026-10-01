@@ -1,3 +1,10 @@
+<?php
+if (!isset($images) && !isset($projects)) {
+    $projectsPage = $page ?? page('projects');
+    $ctrlData = ($projectsPage && method_exists($projectsPage, 'controller')) ? $projectsPage->controller() : [];
+    extract($ctrlData, EXTR_SKIP);
+}
+?>
 <?php if (!empty($isFiltered) && isset($images)) : ?>
 	<section class="list radius" theme="invert" data-ajax-filter-list>
 		<?php if ($images->isNotEmpty()) : ?>

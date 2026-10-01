@@ -8,6 +8,7 @@ $filterIndustry   = $filterIndustry ?? get('industry');
 $filterSolution   = $filterSolution ?? get('solution');
 $filterProduction = $filterProduction ?? get('production');
 $filterHash       = $filterHash ?? get('hash') ?? get('tag');
+$filterYear       = $filterYear ?? get('year') ?? get('rok');
 $targetPage       = $page ?? (function_exists('page') && page() ? page() : null);
 $targetUrl        = $targetPage ? $targetPage->url() : url('projects');
 
@@ -21,12 +22,14 @@ if (empty($spaces) && empty($industries)) {
             $solutions        = $ctrl['solutions'] ?? [];
             $productions      = $ctrl['productions'] ?? [];
             $hashes           = $ctrl['hashes'] ?? [];
+            $years            = $ctrl['years'] ?? [];
             $isFiltered       = $ctrl['isFiltered'] ?? false;
             $filterSpace      = $filterSpace ?? $ctrl['filterSpace'] ?? null;
             $filterIndustry   = $filterIndustry ?? $ctrl['filterIndustry'] ?? null;
             $filterSolution   = $filterSolution ?? $ctrl['filterSolution'] ?? null;
             $filterProduction = $filterProduction ?? $ctrl['filterProduction'] ?? null;
             $filterHash       = $filterHash ?? $ctrl['filterHash'] ?? null;
+            $filterYear       = $filterYear ?? $ctrl['filterYear'] ?? null;
         }
     }
 }
@@ -108,6 +111,17 @@ if (empty($spaces) && empty($industries)) {
 						'param'    => 'hash',
 						'options'  => $hashes,
 						'active'   => $filterHash ?? null,
+						'theme'    => 'ghost',
+						'formMode' => true
+					]) ?> 
+				<?php endif ?>
+
+				<?php if (!empty($years)) : ?>
+					<?= snippet('molecules/Dropdown/filter', [ 
+						'label'    => 'Rok', 
+						'param'    => 'year',
+						'options'  => $years,
+						'active'   => $filterYear ?? null,
 						'theme'    => 'ghost',
 						'formMode' => true
 					]) ?> 

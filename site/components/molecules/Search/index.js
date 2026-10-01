@@ -129,7 +129,7 @@ class ProjectFilter {
 		const formData = new FormData(this.form);
 
 		// Clear existing search parameters on target
-		['industry', 'space', 'solution', 'production', 'hash', 'tag', 'filter', 'search', 'q'].forEach(p => {
+		['industry', 'space', 'solution', 'production', 'hash', 'tag', 'year', 'rok', 'filter', 'search', 'q'].forEach(p => {
 			targetUrl.searchParams.delete(p);
 		});
 

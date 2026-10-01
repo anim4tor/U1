@@ -8,6 +8,7 @@ return function ($page, $kirby, $site) {
     $filterSolution   = get('solution') ?? get('solutions');
     $filterProduction = get('production');
     $filterHash       = get('hash') ?? get('tag');
+    $filterYear       = get('year') ?? get('rok');
     $filterGeneric    = get('filter');
     $filterSearch     = trim((string)(get('search') ?? get('q') ?? ''));
 
@@ -89,14 +90,33 @@ return function ($page, $kirby, $site) {
         $allImages->pluck('tags', ',', true)
     );
 
+    // Extract years from project dates
+    $yearMap = [];
+    foreach ($allProjects as $proj) {
+        $d = $proj->date();
+        if ($d->isNotEmpty()) {
+            $y = $d->toDate('Y');
+            if ($y) $yearMap[$y] = $y;
+        }
+    }
+    krsort($yearMap, SORT_NUMERIC);
+    $years = [];
+    foreach ($yearMap as $y => $val) {
+        $years[] = [
+            'text' => (string)$val,
+            'slug' => (string)$y
+        ];
+    }
+
     $filterIndustrySlugs   = $parseSlugs($filterIndustry);
     $filterSpaceSlugs      = $parseSlugs($filterSpace);
     $filterSolutionSlugs   = $parseSlugs($filterSolution);
     $filterProductionSlugs = $parseSlugs($filterProduction);
     $filterHashSlugs       = $parseSlugs($filterHash);
+    $filterYearSlugs       = $parseSlugs($filterYear);
     $genericSlugs         = $parseSlugs($filterGeneric);
 
-    $hasTagFilter = !empty($filterIndustrySlugs) || !empty($filterSpaceSlugs) || !empty($filterSolutionSlugs) || !empty($filterProductionSlugs) || !empty($filterHashSlugs) || !empty($genericSlugs);
+    $hasTagFilter = !empty($filterIndustrySlugs) || !empty($filterSpaceSlugs) || !empty($filterSolutionSlugs) || !empty($filterProductionSlugs) || !empty($filterHashSlugs) || !empty($filterYearSlugs) || !empty($genericSlugs);
     $hasSearch    = !empty($filterSearch);
     $isFiltered   = $hasTagFilter || $hasSearch;
     $filteredImages = null;
@@ -107,10 +127,18 @@ return function ($page, $kirby, $site) {
         $projects = $projects->search($filterSearch, 'title|industry|space|solutions|production|hash|architect|location|intro');
     }
 
+    // Filter projects by year if active
+    if (!empty($filterYearSlugs)) {
+        $projects = $projects->filter(function($p) use ($filterYearSlugs) {
+            $y = $p->date()->isNotEmpty() ? $p->date()->toDate('Y') : null;
+            return $y && in_array((string)$y, $filterYearSlugs);
+        });
+    }
+
     // 3. Filter ONLY images matching active tags or search
     if ($isFiltered) {
         $filteredImages = $allImages->filter(function ($image) use (
-            $filterIndustrySlugs, $filterSpaceSlugs, $filterSolutionSlugs, $filterProductionSlugs, $filterHashSlugs, $genericSlugs, $filterSearch
+            $filterIndustrySlugs, $filterSpaceSlugs, $filterSolutionSlugs, $filterProductionSlugs, $filterHashSlugs, $filterYearSlugs, $genericSlugs, $filterSearch
         ) {
             $imageIndustries = array_map([Str::class, 'slug'], $image->industry()->split(','));
             $imageSpaces     = array_map([Str::class, 'slug'], $image->space()->split(','));
@@ -122,6 +150,7 @@ return function ($page, $kirby, $site) {
             $projSolutions   = $parent ? array_map([Str::class, 'slug'], $parent->solutions()->split(',')) : [];
             $projProductions = $parent ? array_map([Str::class, 'slug'], $parent->production()->split(',')) : [];
             $projHashes      = $parent ? array_map([Str::class, 'slug'], $parent->hash()->split(',')) : [];
+            $projYear        = ($parent && $parent->date()->isNotEmpty()) ? (string)$parent->date()->toDate('Y') : null;
 
             $allIndustries  = array_unique(array_filter(array_merge($imageIndustries, $projIndustries)));
             $allSpaces      = array_unique(array_filter(array_merge($imageSpaces, $projSpaces)));
@@ -132,7 +161,7 @@ return function ($page, $kirby, $site) {
             // Search filter check on image / parent project
             if (!empty($filterSearch)) {
                 $haystack = mb_strtolower(
-                    ($parent ? $parent->title()->value() . ' ' . $parent->industry()->value() . ' ' . $parent->space()->value() . ' ' . $parent->solutions()->value() . ' ' . $parent->production()->value() . ' ' . $parent->hash()->value() . ' ' . $parent->location()->value() . ' ' . $parent->architect()->value() . ' ' : '') .
+                    ($parent ? $parent->title()->value() . ' ' . $parent->industry()->value() . ' ' . $parent->space()->value() . ' ' . $parent->solutions()->value() . ' ' . $parent->production()->value() . ' ' . $parent->hash()->value() . ' ' . $parent->location()->value() . ' ' . $parent->architect()->value() . ' ' . ($projYear ?? '') . ' ' : '') .
                     $image->caption()->value() . ' ' .
                     $image->industry()->value() . ' ' .
                     $image->space()->value() . ' ' .
@@ -168,9 +197,15 @@ return function ($page, $kirby, $site) {
                 return false;
             }
 
+            // Year multiselect
+            if (!empty($filterYearSlugs) && (!$projYear || !in_array($projYear, $filterYearSlugs))) {
+                return false;
+            }
+
             // Generic legacy filter
             if (!empty($genericSlugs)) {
                 $allCombined = array_merge($allIndustries, $allSpaces, $allSolutions, $allProductions, $allHashes);
+                if ($projYear) $allCombined[] = $projYear;
                 if (empty(array_intersect($genericSlugs, $allCombined))) {
                     return false;
                 }
@@ -189,6 +224,7 @@ return function ($page, $kirby, $site) {
     if (!empty($filterSolutionSlugs))   $currentQuery['solution']   = implode(',', $filterSolutionSlugs);
     if (!empty($filterProductionSlugs)) $currentQuery['production'] = implode(',', $filterProductionSlugs);
     if (!empty($filterHashSlugs))       $currentQuery['hash']       = implode(',', $filterHashSlugs);
+    if (!empty($filterYearSlugs))       $currentQuery['year']       = implode(',', $filterYearSlugs);
     if (!empty($genericSlugs))         $currentQuery['filter']     = implode(',', $genericSlugs);
     if ($filterSearch)                 $currentQuery['search']     = $filterSearch;
 
@@ -228,7 +264,8 @@ return function ($page, $kirby, $site) {
     $buildTokens($filterSolutionSlugs, 'solution', $solutions);
     $buildTokens($filterProductionSlugs, 'production', $productions);
     $buildTokens($filterHashSlugs, 'hash', $hashes, '#');
-    $buildTokens($genericSlugs, 'filter', array_merge($industries, $spaces, $solutions, $productions, $hashes));
+    $buildTokens($filterYearSlugs, 'year', $years);
+    $buildTokens($genericSlugs, 'filter', array_merge($industries, $spaces, $solutions, $productions, $hashes, $years));
 
     if (!empty($filterSearch)) {
         $q = $currentQuery; unset($q['search']); unset($q['q']);
@@ -246,11 +283,13 @@ return function ($page, $kirby, $site) {
         'solutions'        => $solutions,
         'productions'      => $productions,
         'hashes'           => $hashes,
+        'years'            => $years,
         'filterIndustry'   => !empty($filterIndustrySlugs) ? implode(',', $filterIndustrySlugs) : null,
         'filterSpace'      => !empty($filterSpaceSlugs) ? implode(',', $filterSpaceSlugs) : null,
         'filterSolution'   => !empty($filterSolutionSlugs) ? implode(',', $filterSolutionSlugs) : null,
         'filterProduction' => !empty($filterProductionSlugs) ? implode(',', $filterProductionSlugs) : null,
         'filterHash'       => !empty($filterHashSlugs) ? implode(',', $filterHashSlugs) : null,
+        'filterYear'       => !empty($filterYearSlugs) ? implode(',', $filterYearSlugs) : null,
         'filterGeneric'    => !empty($genericSlugs) ? implode(',', $genericSlugs) : null,
         'filterSearch'     => $filterSearch,
         'isFiltered'       => $isFiltered,

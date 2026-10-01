@@ -56,6 +56,9 @@ if ($structure->isNotEmpty()) {
         }
     }
 }
+
+$ctrlData = ($page && method_exists($page, 'controller')) ? ($page->controller() ?? []) : [];
+if (!is_array($ctrlData)) $ctrlData = [];
 ?>
 
 <?php # 4. Render the output list ?>
@@ -65,6 +68,6 @@ if ($structure->isNotEmpty()) {
     $dir = $isGlobal ? 'templates/globals' : 'templates/' . ucfirst($page->intendedTemplate()->name()) . '/sections';
     $file = $isGlobal ? substr($label, 7) : $label;
 
-    snippet($dir . '/' . $file);
+    snippet($dir . '/' . $file, $ctrlData);
     ?>
 <?php endforeach ?>

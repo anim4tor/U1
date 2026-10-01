@@ -9,6 +9,7 @@ $ctrlData = ($projectsPage && method_exists($projectsPage, 'controller')) ? $pro
     'filterSolution'   => $filterSolution ?? null,
     'filterProduction' => $filterProduction ?? null,
     'filterHash'       => $filterHash ?? null,
+    'filterYear'       => $filterYear ?? null,
     'filterGeneric'    => $filterGeneric ?? null,
     'filterSearch'     => $filterSearch ?? null,
 ], fn($v) => $v !== null))) ?>
