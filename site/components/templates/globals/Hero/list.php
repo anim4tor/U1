@@ -169,7 +169,7 @@ if (!empty($isFiltered)) {
 								aria-expanded="<?= !empty($filterSearch) ? 'true' : 'false' ?>"
 								title="<?= esc(t('search-projects', 'Hledat prostor, odvětví...')) ?>"
 							>
-								<?= snippet('atoms/Icon', ['name' => 'search', 'css' => 'icon-search']) ?>
+								<?= snippet('atoms/Icon', ['name' => 'filter', 'css' => 'icon-filter']) ?>
 								<?= snippet('atoms/Icon', ['name' => 'close', 'css' => 'icon-close']) ?>
 							</button>
 						<?php endif ?>

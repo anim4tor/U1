@@ -61,8 +61,8 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		width: 14px;
-		height: 14px;
+		width: 18px;
+		height: 18px;
 
 		svg {
 			width: 100%;
@@ -77,9 +77,11 @@
 
 	.icon-close {
 		display: none;
+		width: 14px;
+		height: 14px;
 	}
 
-	.icon-search {
+	.icon-filter, .icon-search {
 		display: flex;
 	}
 
@@ -88,7 +90,7 @@
 		color: var(--color-text, #151314) !important;
 		border-color: transparent !important;
 
-		.icon-search {
+		.icon-filter, .icon-search {
 			display: none;
 		}
 

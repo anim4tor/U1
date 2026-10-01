@@ -115,79 +115,74 @@ $pos: (
 }
 
 @mixin gap($max: $limit) {
+	// 1. General gap (both axes)
 	@for $i from 0 through $max {
-		@each $label, $attr in $gap {
-			@if($i ==0) {
-				&#{$label}__#{$i} {
-					--gap: calc(0.15 * var(--spacing));
-					#{$attr}: var(--gap);
-
-					@if($label =='') {
-						--grid-gap-x: var(--gap);
-						--grid-gap-y: var(--gap);
-						row-gap: var(--gap);
-						column-gap: var(--gap);
-					}
-
-					@else if($label =='-x') {
-						--grid-gap-x: var(--gap);
-						column-gap: var(--gap);
-					}
-
-					@else if($label =='-y') {
-						--grid-gap-y: var(--gap);
-						row-gap: var(--gap);
-					}
-				}
+		@if($i == 0) {
+			&__#{$i} {
+				--gap: calc(0.15 * var(--spacing));
+				--grid-gap-x: var(--gap);
+				--grid-gap-y: var(--gap);
+				gap: var(--gap);
+				row-gap: var(--gap);
+				column-gap: var(--gap);
 			}
-
-			@else {
-				&#{$label}__#{$i} {
-					--gap: calc(#{$i} * var(--spacing));
-					#{$attr}: var(--gap);
-
-					@if($label =='') {
-						--grid-gap-x: var(--gap);
-						--grid-gap-y: var(--gap);
-						row-gap: var(--gap);
-						column-gap: var(--gap);
-					}
-
-					@else if($label =='-x') {
-						--grid-gap-x: var(--gap);
-						column-gap: var(--gap);
-					}
-
-					@else if($label =='-y') {
-						--grid-gap-y: var(--gap);
-						row-gap: var(--gap);
-					}
-				}
+		} @else {
+			&__#{$i} {
+				--gap: calc(#{$i} * var(--spacing));
+				--grid-gap-x: var(--gap);
+				--grid-gap-y: var(--gap);
+				gap: var(--gap);
+				row-gap: var(--gap);
+				column-gap: var(--gap);
 			}
 		}
 	}
 
 	@for $i from 1 through 9 {
-		@each $label, $attr in $gap {
+		&__0#{$i} {
+			--gap: calc(#{$i/10} * var(--spacing));
+			--grid-gap-x: var(--gap);
+			--grid-gap-y: var(--gap);
+			gap: var(--gap);
+			row-gap: var(--gap);
+			column-gap: var(--gap);
+		}
+	}
+
+	// 2. Axis-specific overrides (gap-x for column-gap, gap-y for row-gap)
+	@each $label, $attr in ( '-x': column-gap, '-y': row-gap ) {
+		@for $i from 0 through $max {
+			@if($i == 0) {
+				&#{$label}__#{$i} {
+					--gap#{$label}: calc(0.15 * var(--spacing));
+					#{$attr}: var(--gap#{$label});
+					@if($label == '-x') {
+						--grid-gap-x: var(--gap#{$label});
+					} @else {
+						--grid-gap-y: var(--gap#{$label});
+					}
+				}
+			} @else {
+				&#{$label}__#{$i} {
+					--gap#{$label}: calc(#{$i} * var(--spacing));
+					#{$attr}: var(--gap#{$label});
+					@if($label == '-x') {
+						--grid-gap-x: var(--gap#{$label});
+					} @else {
+						--grid-gap-y: var(--gap#{$label});
+					}
+				}
+			}
+		}
+
+		@for $i from 1 through 9 {
 			&#{$label}__0#{$i} {
-				--gap: calc(#{$i/10} * var(--spacing));
-				#{$attr}: var(--gap);
-
-				@if($label =='') {
-					--grid-gap-x: var(--gap);
-					--grid-gap-y: var(--gap);
-					row-gap: var(--gap);
-					column-gap: var(--gap);
-				}
-
-				@else if($label =='-x') {
-					--grid-gap-x: var(--gap);
-					column-gap: var(--gap);
-				}
-
-				@else if($label =='-y') {
-					--grid-gap-y: var(--gap);
-					row-gap: var(--gap);
+				--gap#{$label}: calc(#{$i/10} * var(--spacing));
+				#{$attr}: var(--gap#{$label});
+				@if($label == '-x') {
+					--grid-gap-x: var(--gap#{$label});
+				} @else {
+					--grid-gap-y: var(--gap#{$label});
 				}
 			}
 		}
