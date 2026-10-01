@@ -37,7 +37,7 @@ if (empty($spaces) && empty($industries)) {
 			
 			<!-- Row 1: Large Search Bar with autocomplete -->
 			<div class="project-filter__search-row relative" data-project-search data-api-url="<?= url('ajax/projects/search') ?>">
-				<div class="project-filter__search-bar flex align__center justify__space-between border__bottom inner-b__05">
+				<div class="project-filter__search-bar flex align__center justify__space-between inner-b__05">
 					<input 
 						type="text" 
 						name="search" 
@@ -65,7 +65,7 @@ if (empty($spaces) && empty($industries)) {
 			</div>
 
 			<!-- Row 2: Filter Dropdowns linked to blueprint fields -->
-			<div class="project-filter__dropdowns-row grid__5 align__center gap__05 flex__wrap" data-scroll>
+			<div class="project-filter__dropdowns-row flex align__center gap__05 flex__wrap" data-scroll>
 				<?php if (!empty($spaces)) : ?>
 					<?= snippet('molecules/Dropdown/filter', [ 
 						'label'    => 'Prostory', 
@@ -123,7 +123,7 @@ if (empty($spaces) && empty($industries)) {
 			</div>
 
 			<!-- Row 3: Footer with Reset (left) and Submit (right) -->
-			<div class="project-filter__footer-row flex justify__space-between align__center inner-t__1">
+			<div class="project-filter__footer-row flex justify__space-between align__center">
 				<div>
 					<?php if (!empty($isFiltered)) : ?>
 						<?= snippet('atoms/Button', [

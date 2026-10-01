@@ -102,6 +102,9 @@
 .project-filter-section {
 	width: 100%;
 	display: none;
+	overflow: visible !important;
+	position: relative;
+	z-index: 20;
 
 	&.is-open {
 		display: block;
@@ -110,6 +113,7 @@
 
 	> .project-filter-inner {
 		width: 100%;
+		overflow: visible;
 	}
 }
 
@@ -173,13 +177,8 @@
 
 	&__search-bar {
 		position: relative;
-		border-bottom: 1px solid rgba(128, 128, 128, 0.3);
-		padding-bottom: 0.5rem;
-		transition: border-color 0.25s ease;
-
-		&:focus-within {
-			border-bottom-color: var(--color-acc, #e5005a);
-		}
+		border-bottom: none !important;
+		padding-bottom: 0.25rem;
 	}
 
 	&__search-actions {
