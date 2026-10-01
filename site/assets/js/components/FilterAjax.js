@@ -128,11 +128,34 @@ class FilterAjax {
       if (typeof initReveals === 'function') {
         initReveals();
       }
-      if (typeof REVEAL !== 'undefined' && REVEAL && typeof REVEAL.init === 'function') {
+      if (typeof REVEAL !== 'undefined' && REVEAL) {
         try {
-          REVEAL.init();
-        } catch (e) {}
+          if (typeof REVEAL.init === 'function') REVEAL.init();
+          if (typeof REVEAL.refresh === 'function') REVEAL.refresh();
+          if (typeof REVEAL.initImages === 'function') REVEAL.initImages();
+          if (typeof REVEAL.enable === 'function') REVEAL.enable();
+        } catch (e) {
+          console.warn('[FilterAjax] REVEAL refresh error', e);
+        }
       }
+
+      // Ensure newly morphed text and images are split and visible
+      document.querySelectorAll('[data-reveal-text]').forEach((el) => {
+        if (!el.classList.contains('is-split')) {
+          if (typeof REVEAL !== 'undefined' && REVEAL && typeof REVEAL._splitText === 'function') {
+            REVEAL._splitText(el);
+          } else if (typeof Splitting === 'function') {
+            Splitting({ target: el, by: el.getAttribute('data-reveal-text') || 'chars' });
+            el.classList.add('is-split', 'is-inview');
+          }
+        }
+        el.classList.add('is-inview');
+      });
+
+      document.querySelectorAll('[data-ajax-filter-list] [data-reveal-image], [data-ajax-filter-list] [data-scroll]').forEach((el) => {
+        el.classList.add('is-inview');
+      });
+
       if (window.SCROLL && typeof window.SCROLL.resize === 'function') {
         window.SCROLL.resize();
       }

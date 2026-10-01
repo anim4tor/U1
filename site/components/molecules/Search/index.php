@@ -43,7 +43,7 @@ $theme         = $theme ?? 'dark';
 					&times;
 				</button>
 				<div class="project-search__spinner" aria-hidden="true"></div>
-				<button type="submit" class="button circle --small project-search__submit" theme="dark" hover="acc" aria-label="Hledat">
+				<button type="submit" class="button circle project-search__submit" theme="dark" hover="acc" aria-label="Hledat">
 					<span class="icon">
 						<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 							<line x1="5" y1="12" x2="19" y2="12"></line>

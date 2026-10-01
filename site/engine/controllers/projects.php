@@ -65,13 +65,22 @@ return function ($page, $kirby, $site) {
 
     // 3. Filter ONLY images matching the active tag(s) or search on the images themselves
     if ($isFiltered) {
-        $filteredImages = $allImages->filter(function ($image) use ($filterIndustry, $filterSpace, $filterGeneric, $filterSearch) {
+        $filterIndustrySlug = !empty($filterIndustry) ? Str::slug($filterIndustry) : null;
+        $filterSpaceSlug    = !empty($filterSpace) ? Str::slug($filterSpace) : null;
+        $genericSlugs       = !empty($filterGeneric) ? array_map([Str::class, 'slug'], explode(',', $filterGeneric)) : [];
+
+        $filteredImages = $allImages->filter(function ($image) use ($filterIndustrySlug, $filterSpaceSlug, $genericSlugs, $filterSearch) {
             $imageIndustries = array_map([Str::class, 'slug'], $image->industry()->split(','));
             $imageSpaces     = array_map([Str::class, 'slug'], $image->space()->split(','));
+            $parent          = $image->parent();
+            $projIndustries  = $parent ? array_map([Str::class, 'slug'], $parent->industry()->split(',')) : [];
+            $projSpaces      = $parent ? array_map([Str::class, 'slug'], $parent->space()->split(',')) : [];
+
+            $allIndustries = array_unique(array_filter(array_merge($imageIndustries, $projIndustries)));
+            $allSpaces     = array_unique(array_filter(array_merge($imageSpaces, $projSpaces)));
 
             // Search filter check on image / parent project
             if (!empty($filterSearch)) {
-                $parent = $image->parent();
                 $haystack = mb_strtolower(
                     ($parent ? $parent->title()->value() . ' ' . $parent->industry()->value() . ' ' . $parent->space()->value() . ' ' . $parent->location()->value() . ' ' . $parent->architect()->value() . ' ' : '') .
                     $image->caption()->value() . ' ' .
@@ -83,22 +92,21 @@ return function ($page, $kirby, $site) {
                 }
             }
 
-            // If industry filter is set, image MUST explicitly have this industry tag
-            if (!empty($filterIndustry) && !in_array($filterIndustry, $imageIndustries)) {
+            // If industry filter is set, must match industry tags
+            if ($filterIndustrySlug && !in_array($filterIndustrySlug, $allIndustries)) {
                 return false;
             }
 
-            // If space filter is set, image MUST explicitly have this space tag
-            if (!empty($filterSpace) && !in_array($filterSpace, $imageSpaces)) {
+            // If space filter is set, must match space tags
+            if ($filterSpaceSlug && !in_array($filterSpaceSlug, $allSpaces)) {
                 return false;
             }
 
             // Generic legacy filter check (e.g. ?filter=tag)
-            if (!empty($filterGeneric)) {
-                $genericSlugs = array_map([Str::class, 'slug'], explode(',', $filterGeneric));
+            if (!empty($genericSlugs)) {
                 $matchesGeneric = false;
                 foreach ($genericSlugs as $slug) {
-                    if (in_array($slug, $imageIndustries) || in_array($slug, $imageSpaces)) {
+                    if (in_array($slug, $allIndustries) || in_array($slug, $allSpaces)) {
                         $matchesGeneric = true;
                         break;
                     }

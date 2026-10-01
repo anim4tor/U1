@@ -29,29 +29,51 @@ if (isset($count) && $count !== null && $count !== false) {
 $activeHeading = null;
 if (!empty($isFiltered)) {
     $activeLabels = [];
-    if (!empty($filterIndustry) && !empty($industries)) {
-        foreach ($industries as $item) {
-            if (($item['slug'] ?? '') === $filterIndustry) {
-                $activeLabels[] = $item['text'] ?? $item['name'] ?? $filterIndustry;
-                break;
+    if (!empty($filterIndustry)) {
+        $indSlug = \Kirby\Toolkit\Str::slug($filterIndustry);
+        $found = false;
+        if (!empty($industries)) {
+            foreach ($industries as $item) {
+                if (($item['slug'] ?? '') === $indSlug || ($item['text'] ?? '') === $filterIndustry) {
+                    $activeLabels[] = $item['text'] ?? $item['name'] ?? $filterIndustry;
+                    $found = true;
+                    break;
+                }
             }
         }
+        if (!$found) {
+            $activeLabels[] = ucfirst(str_replace('-', ' ', $filterIndustry));
+        }
     }
-    if (!empty($filterSpace) && !empty($spaces)) {
-        foreach ($spaces as $item) {
-            if (($item['slug'] ?? '') === $filterSpace) {
-                $activeLabels[] = $item['text'] ?? $item['name'] ?? $filterSpace;
-                break;
+    if (!empty($filterSpace)) {
+        $spaceSlug = \Kirby\Toolkit\Str::slug($filterSpace);
+        $found = false;
+        if (!empty($spaces)) {
+            foreach ($spaces as $item) {
+                if (($item['slug'] ?? '') === $spaceSlug || ($item['text'] ?? '') === $filterSpace) {
+                    $activeLabels[] = $item['text'] ?? $item['name'] ?? $filterSpace;
+                    $found = true;
+                    break;
+                }
             }
+        }
+        if (!$found) {
+            $activeLabels[] = ucfirst(str_replace('-', ' ', $filterSpace));
         }
     }
     if (empty($activeLabels) && !empty($filterGeneric)) {
+        $genSlug = \Kirby\Toolkit\Str::slug($filterGeneric);
         $allTags = array_merge($industries ?? [], $spaces ?? []);
+        $found = false;
         foreach ($allTags as $item) {
-            if (($item['slug'] ?? '') === $filterGeneric) {
+            if (($item['slug'] ?? '') === $genSlug || ($item['text'] ?? '') === $filterGeneric) {
                 $activeLabels[] = $item['text'] ?? $item['name'] ?? $filterGeneric;
+                $found = true;
                 break;
             }
+        }
+        if (!$found) {
+            $activeLabels[] = ucfirst(str_replace('-', ' ', $filterGeneric));
         }
     }
     if (!empty($filterSearch)) {
@@ -144,7 +166,7 @@ if (!empty($isFiltered)) {
 						<?php if (!empty($searchable)) : ?>
 							<button 
 								type="button" 
-								class="button circle --small project-search__trigger <?= !empty($filterSearch) ? 'is-active' : '' ?>" 
+								class="button circle project-search__trigger <?= !empty($filterSearch) ? 'is-active' : '' ?>" 
 								theme="<?= ($theme === 'dark') ? 'invert-ghost' : 'ghost' ?>" 
 								hover="dark"
 								data-search-trigger

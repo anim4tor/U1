@@ -1,6 +1,8 @@
 <?php
 $param       = $param ?? 'filter';
 $activeValue = $active ?? get($param);
+$targetPage  = $page ?? (function_exists('page') && page() ? page() : null);
+$baseUrl     = $targetPage ? $targetPage->url() : url('projects');
 
 // Gather current active query parameters
 $currentQuery = [];
@@ -34,7 +36,7 @@ if ($q      = get('q'))        $currentQuery['q']        = $q;
           }
 
           $queryString = http_build_query($tagQuery);
-          $url = $page->url() . ($queryString ? '?' . $queryString : '');
+          $url = $baseUrl . ($queryString ? '?' . $queryString : '');
         ?>
         <?= snippet('atoms/Button', [ 
           'url'     => $url, 
