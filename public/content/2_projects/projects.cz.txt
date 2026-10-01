@@ -17,7 +17,7 @@ Order:
 - 
   label: 2_filter
 - 
-  label: 2_list
+  label: 3_list
 - 
   label: global/Testimonials/index
 - 
