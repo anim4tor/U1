@@ -2,6 +2,7 @@
 import './vendor/lenis.min.js';
 import './vendor/splitting.min.js';
 import './vendor/gsap.min.js';
+import './vendor/idiomorph.min.js';
 
 if (typeof gsap !== 'undefined') {
     window.gsap = gsap;
@@ -14,6 +15,7 @@ import '../../components/molecules/Collapsible/index.js';
 import '../../components/molecules/Tabs/index.js';
 import '../../components/molecules/Dropdown/index.js';
 import '../../components/molecules/Search/index.js';
+import './components/FilterAjax.js';
 import '../../components/organisms/Loader/index.js';
 import '../../components/organisms/Header/index.js';
 import '../../components/organisms/Carousel/index.js';
@@ -27,6 +29,9 @@ const isMobile = window.matchMedia("(max-width: 768px)").matches ||
 const isWindow = navigator.platform.toUpperCase().indexOf('WIN') > -1;
 
 window.addEventListener('popstate', () => {
+    if (document.querySelector('[data-ajax-filter-hero]') || document.querySelector('[data-ajax-filter-list]')) {
+        return;
+    }
     // 1. Apply the transition attribute
     document.documentElement.setAttribute('data-transition-out', 'true');
 
@@ -47,8 +52,8 @@ document.addEventListener('click', (e) => {
 
     const link = e.target.closest('a');
     
-    // Ignoruj, pokud to není validní odkaz nebo má specifické odkazové datasety
-    if (!link || link.target === '_blank' || link.dataset.asyncTab || link.dataset.tabPrev) return;
+    // Ignoruj, pokud to není validní odkaz nebo má specifické odkazové datasety / AJAX filtry
+    if (!link || link.target === '_blank' || link.dataset.asyncTab || link.dataset.tabPrev || link.hasAttribute('data-ajax-filter') || link.hasAttribute('data-ajax-filter-reset') || link.closest('.dropdown-menu')) return;
 
     const url = new URL(link.href, window.location.origin);
     const isInternal = url.hostname === window.location.hostname;

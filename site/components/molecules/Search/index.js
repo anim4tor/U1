@@ -1,5 +1,5 @@
 /**
- * Molecule: Project Search with Minimal Autocomplete Tags
+ * Molecule: Project Search with Minimal Autocomplete Tags and AJAX Filtering
  */
 
 class ProjectSearch {
@@ -34,7 +34,14 @@ class ProjectSearch {
 			});
 		}
 
-		// 2. Input typing with debounce
+		// 2. Form Submit (AJAX search)
+		this.form.addEventListener('submit', (e) => {
+			e.preventDefault();
+			const query = this.input.value.trim();
+			this.applySearch(query);
+		});
+
+		// 3. Input typing with debounce
 		this.input.addEventListener('input', () => {
 			const query = this.input.value.trim();
 			this.toggleClearBtn(query.length > 0);
@@ -45,18 +52,19 @@ class ProjectSearch {
 			}, 150);
 		});
 
-		// 3. Clear button
+		// 4. Clear button
 		if (this.clearBtn) {
 			this.clearBtn.addEventListener('click', (e) => {
 				e.preventDefault();
 				this.input.value = '';
 				this.toggleClearBtn(false);
 				this.input.focus();
-				this.fetchResults('');
+				if (this.list) this.list.innerHTML = '';
+				this.applySearch('');
 			});
 		}
 
-		// 4. Keyboard Navigation
+		// 5. Keyboard Navigation
 		this.input.addEventListener('keydown', (e) => {
 			if (!this.isOpen) return;
 
@@ -81,7 +89,7 @@ class ProjectSearch {
 					if (selectedWord) {
 						this.input.value = selectedWord;
 						this.toggleClearBtn(true);
-						this.form.submit();
+						this.applySearch(selectedWord);
 					}
 				}
 			} else if (e.key === 'Escape') {
@@ -96,6 +104,27 @@ class ProjectSearch {
 				this.close();
 			}
 		});
+	}
+
+	applySearch(query) {
+		let targetUrl = new URL(this.form.action || window.location.href, window.location.origin);
+		const ind = this.form.querySelector('input[name="industry"]')?.value;
+		const sp  = this.form.querySelector('input[name="space"]')?.value;
+		if (ind) targetUrl.searchParams.set('industry', ind);
+		if (sp)  targetUrl.searchParams.set('space', sp);
+
+		if (query) {
+			targetUrl.searchParams.set('search', query);
+		} else {
+			targetUrl.searchParams.delete('search');
+			targetUrl.searchParams.delete('q');
+		}
+
+		if (window.filterAjaxNavigate) {
+			window.filterAjaxNavigate(targetUrl.toString());
+		} else {
+			window.location.href = targetUrl.toString();
+		}
 	}
 
 	toggle() {
@@ -229,7 +258,7 @@ class ProjectSearch {
 				if (word) {
 					this.input.value = word;
 					this.toggleClearBtn(true);
-					this.form.submit();
+					this.applySearch(word);
 				}
 			});
 

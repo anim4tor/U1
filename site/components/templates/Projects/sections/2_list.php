@@ -1,5 +1,5 @@
 <?php if (!empty($isFiltered) && isset($images)) : ?>
-	<section class="list" theme="invert">
+	<section class="list" theme="invert" data-ajax-filter-list>
 		<?php if ($images->isNotEmpty()) : ?>
 			<ol class="grid__3 gap__1 inner__4 inner-t__2">
 				<?php foreach ($images as $image) : ?>
@@ -32,13 +32,14 @@
 				<?= snippet('atoms/Button', [
 					'url'   => $page->url(),
 					'label' => t('reset-filters', 'Zrušit filtry'),
-					'theme' => 'light'
+					'theme' => 'light',
+					'node'  => 'data-ajax-filter-reset'
 				]) ?>
 			</div>
 		<?php endif ?>
 	</section>
 <?php else : ?>
-	<section class="list" theme="invert">
+	<section class="list" theme="invert" data-ajax-filter-list>
 		<?php if ($projects && $projects->isNotEmpty()) : ?>
 			<ol class="grid__3 gap__1 inner__4 inner-t__2">
 				<?php foreach ($projects as $project) : ?>
@@ -53,7 +54,8 @@
 				<?= snippet('atoms/Button', [
 					'url'   => $page->url(),
 					'label' => t('reset-filters', 'Zrušit filtry'),
-					'theme' => 'light'
+					'theme' => 'light',
+					'node'  => 'data-ajax-filter-reset'
 				]) ?>
 			</div>
 		<?php endif ?>

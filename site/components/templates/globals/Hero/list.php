@@ -61,7 +61,7 @@ if (!empty($isFiltered)) {
 }
 ?>
 
-<section <?= $id ? 'id="' . esc($id) . '"' : '' ?> class="intro relative z__2" theme="<?= $theme ?>" style="--in-delay: 500ms">
+<section <?= $id ? 'id="' . esc($id) . '"' : '' ?> class="intro relative z__2" theme="<?= $theme ?>" style="--in-delay: 500ms" data-ajax-filter-hero>
 	<div class="z__1 relative intro__header inner-b__2 place__stretch-stretch grid__4 gap__2 mobile:grid__1 mobile:h__auto inner__4 mobile:inner-t__10 mobile:gap__2 relative">
 		<div class="span__4 h__2"></div>
 		<div class="span__4 inner-y__1 border__bottom flex justify__space-between align__end">
@@ -119,7 +119,8 @@ if (!empty($isFiltered)) {
 								'url'     => isset($page) ? $page->url() : '#', 
 								'label'   => 'Reset', 
 								'theme'   => 'light', 
-								'reveal'  => true
+								'reveal'  => true,
+								'node'    => 'data-ajax-filter-reset'
 							]) ?>
 						<?php endif ?>
 						<?php if (!empty($industries)) : ?>

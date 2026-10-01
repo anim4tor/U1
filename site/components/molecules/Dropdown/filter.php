@@ -41,7 +41,8 @@ if ($q      = get('q'))        $currentQuery['q']        = $q;
           'label'   => ($isActive ? '✓ ' : '') . $tag['text'], 
           'theme'   => $isActive ? 'dark' : 'light',
           'css'     => 'justify__start',
-          'reveal'  => true
+          'reveal'  => true,
+          'node'    => 'data-ajax-filter="true"'
         ]) ?>
       <?php endforeach ?>
     </ul>
