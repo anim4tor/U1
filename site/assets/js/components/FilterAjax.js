@@ -4,8 +4,9 @@
 
 class FilterAjax {
   constructor() {
-    this.heroSelector = '[data-ajax-filter-hero]';
-    this.listSelector = '[data-ajax-filter-list]';
+    this.heroSelector  = '[data-ajax-filter-hero]';
+    this.panelSelector = '[data-ajax-filter-panel]';
+    this.listSelector  = '[data-ajax-filter-list]';
     this.abortController = null;
 
     this.init();
@@ -53,8 +54,9 @@ class FilterAjax {
   }
 
   async navigate(url, pushState = true) {
-    const heroEl = document.querySelector(this.heroSelector);
-    const listEl = document.querySelector(this.listSelector);
+    const heroEl  = document.querySelector(this.heroSelector);
+    const panelEl = document.querySelector(this.panelSelector);
+    const listEl  = document.querySelector(this.listSelector);
 
     if (!heroEl && !listEl) {
       window.location.href = url;
@@ -92,7 +94,10 @@ class FilterAjax {
         document.title = newDoc.title;
       }
 
-      // Morph or replace hero and list
+      // Preserve filter panel open state
+      const wasPanelOpen = panelEl && panelEl.classList.contains('is-open');
+
+      // Morph or replace hero
       const newHero = newDoc.querySelector(this.heroSelector);
       const currentHero = document.querySelector(this.heroSelector);
       if (newHero && currentHero) {
@@ -106,6 +111,24 @@ class FilterAjax {
         }
       }
 
+      // Morph or replace filter panel
+      const newPanel = newDoc.querySelector(this.panelSelector);
+      const currentPanel = document.querySelector(this.panelSelector);
+      if (newPanel && currentPanel) {
+        if (wasPanelOpen) {
+          newPanel.classList.add('is-open');
+        }
+        if (window.Idiomorph) {
+          Idiomorph.morph(currentPanel, newPanel, {
+            morphStyle: 'outerHTML',
+            ignoreActiveValue: true
+          });
+        } else {
+          currentPanel.replaceWith(newPanel);
+        }
+      }
+
+      // Morph or replace list
       const newList = newDoc.querySelector(this.listSelector);
       const currentList = document.querySelector(this.listSelector);
       if (newList && currentList) {
@@ -121,6 +144,9 @@ class FilterAjax {
       // Re-initialize interactive components on the morphed DOM
       if (typeof initDropdowns === 'function') {
         initDropdowns();
+      }
+      if (typeof initProjectFilter === 'function') {
+        initProjectFilter();
       }
       if (typeof initProjectSearch === 'function') {
         initProjectSearch();

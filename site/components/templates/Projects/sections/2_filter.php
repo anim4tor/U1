@@ -1,0 +1,15 @@
+<?= snippet('templates/Projects/sections/filter', [
+    'isFiltered'       => $isFiltered ?? false,
+    'filterIndustry'   => $filterIndustry ?? null,
+    'filterSpace'      => $filterSpace ?? null,
+    'filterSolution'   => $filterSolution ?? null,
+    'filterProduction' => $filterProduction ?? null,
+    'filterHash'       => $filterHash ?? null,
+    'filterGeneric'    => $filterGeneric ?? null,
+    'filterSearch'     => $filterSearch ?? null,
+    'industries'       => $industries ?? [],
+    'spaces'           => $spaces ?? [],
+    'solutions'        => $solutions ?? [],
+    'productions'      => $productions ?? [],
+    'hashes'           => $hashes ?? [],
+]) ?>

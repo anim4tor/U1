@@ -1,181 +1,170 @@
 /**
- * Molecule: Project Search with Minimal Autocomplete Tags and AJAX Filtering
+ * Molecule: Project Filter Section, Autocomplete & AJAX Form Handling
  */
 
-class ProjectSearch {
-	constructor(container) {
-		this.container   = container;
-		this.wrapper     = container.closest('[data-search-panel-wrapper]') || container;
-		const section    = container.closest('section') || document;
-		this.trigger     = section.querySelector('[data-search-trigger]');
-		this.form        = container.querySelector('form');
-		this.input       = container.querySelector('.project-search__input');
-		this.clearBtn    = container.querySelector('.project-search__clear');
-		this.list        = container.querySelector('[data-search-list]');
-		this.apiUrl      = container.dataset.apiUrl || '/ajax/projects/search';
+class ProjectFilter {
+	constructor(panel) {
+		this.panel     = panel;
+		this.form      = panel.querySelector('form') || panel;
+		this.input     = panel.querySelector('input[name="search"]');
+		this.clearBtn  = panel.querySelector('.project-filter__clear, .project-search__clear');
+		this.list      = panel.querySelector('[data-search-list]');
+		this.apiUrl    = panel.querySelector('[data-api-url]')?.dataset.apiUrl || '/ajax/projects/search';
 
 		this.debounceTimer = null;
 		this.cache         = {};
 		this.selectedIndex = -1;
 		this.currentItems  = [];
-		this.isOpen        = this.wrapper.classList.contains('is-open');
 
 		this.init();
 	}
 
 	init() {
-		if (!this.input || !this.form) return;
+		// 1. Dropdown Form Mode Option Selection
+		this.panel.addEventListener('click', (e) => {
+			const optionBtn = e.target.closest('[data-form-filter-option]');
+			if (!optionBtn) return;
 
-		// 1. Toggle Trigger
-		if (this.trigger) {
-			this.trigger.addEventListener('click', (e) => {
+			e.preventDefault();
+			e.stopPropagation();
+
+			const slug      = optionBtn.dataset.formFilterOption;
+			const label     = optionBtn.dataset.formFilterLabel || slug;
+			const baseLabel = optionBtn.dataset.formFilterBaseLabel || 'Filtr';
+			const dropdown  = optionBtn.closest('.custom-dropdown');
+			if (!dropdown) return;
+
+			const param     = dropdown.dataset.filterParam;
+			const hiddenInp = dropdown.querySelector(`[data-form-filter-input="${param}"]`);
+			const toggleBtn = dropdown.querySelector('.dropdown-toggle span[aria-label], .dropdown-toggle');
+			const isCurrentlyActive = optionBtn.classList.contains('is-active');
+
+			// Deselect other options in this dropdown
+			dropdown.querySelectorAll('[data-form-filter-option]').forEach(btn => {
+				btn.classList.remove('is-active');
+				btn.setAttribute('theme', 'light');
+				const span = btn.querySelector('span');
+				if (span) {
+					span.textContent = btn.dataset.formFilterLabel;
+				}
+			});
+
+			if (isCurrentlyActive) {
+				// Toggle OFF
+				if (hiddenInp) hiddenInp.value = '';
+				if (toggleBtn) {
+					toggleBtn.textContent = baseLabel + ' ▾';
+					const toggleAtom = dropdown.querySelector('.dropdown-toggle');
+					if (toggleAtom) toggleAtom.setAttribute('theme', 'ghost');
+				}
+			} else {
+				// Toggle ON
+				optionBtn.classList.add('is-active');
+				optionBtn.setAttribute('theme', 'dark');
+				const span = optionBtn.querySelector('span');
+				if (span) {
+					span.textContent = '✓ ' + label;
+				}
+				if (hiddenInp) hiddenInp.value = slug;
+				if (toggleBtn) {
+					toggleBtn.textContent = baseLabel + ' (' + label + ') ▾';
+					const toggleAtom = dropdown.querySelector('.dropdown-toggle');
+					if (toggleAtom) toggleAtom.setAttribute('theme', 'dark');
+				}
+			}
+
+			// Close dropdown menu
+			dropdown.querySelector('.dropdown-menu')?.classList.remove('is-open');
+			dropdown.querySelector('.dropdown-toggle')?.setAttribute('aria-expanded', 'false');
+		});
+
+		// 2. Form Submit
+		if (this.form) {
+			this.form.addEventListener('submit', (e) => {
 				e.preventDefault();
-				this.toggle();
+				this.submitFilterForm();
 			});
 		}
 
-		// 2. Form Submit (AJAX search)
-		this.form.addEventListener('submit', (e) => {
-			e.preventDefault();
-			const query = this.input.value.trim();
-			this.applySearch(query);
-		});
+		// 3. Search Input Autocomplete
+		if (this.input) {
+			this.input.addEventListener('input', () => {
+				const query = this.input.value.trim();
+				this.toggleClearBtn(query.length > 0);
 
-		// 3. Input typing with debounce
-		this.input.addEventListener('input', () => {
-			const query = this.input.value.trim();
-			this.toggleClearBtn(query.length > 0);
+				clearTimeout(this.debounceTimer);
+				this.debounceTimer = setTimeout(() => {
+					this.fetchResults(query);
+				}, 150);
+			});
 
-			clearTimeout(this.debounceTimer);
-			this.debounceTimer = setTimeout(() => {
-				this.fetchResults(query);
-			}, 150);
-		});
+			this.input.addEventListener('keydown', (e) => {
+				const itemsCount = this.currentItems.length;
+
+				if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
+					if (itemsCount > 0) {
+						e.preventDefault();
+						this.selectedIndex = (this.selectedIndex + 1) % itemsCount;
+						this.updateSelection();
+					}
+				} else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
+					if (itemsCount > 0) {
+						e.preventDefault();
+						this.selectedIndex = (this.selectedIndex - 1 + itemsCount) % itemsCount;
+						this.updateSelection();
+					}
+				} else if (e.key === 'Enter') {
+					if (this.selectedIndex >= 0 && this.currentItems[this.selectedIndex]) {
+						e.preventDefault();
+						const selectedWord = this.currentItems[this.selectedIndex].title;
+						if (selectedWord) {
+							this.input.value = selectedWord;
+							this.toggleClearBtn(true);
+							if (this.list) this.list.innerHTML = '';
+						}
+					}
+				}
+			});
+		}
 
 		// 4. Clear button
-		if (this.clearBtn) {
+		if (this.clearBtn && this.input) {
 			this.clearBtn.addEventListener('click', (e) => {
 				e.preventDefault();
 				this.input.value = '';
 				this.toggleClearBtn(false);
 				this.input.focus();
 				if (this.list) this.list.innerHTML = '';
-				this.applySearch('');
 			});
-		}
-
-		// 5. Keyboard Navigation
-		this.input.addEventListener('keydown', (e) => {
-			if (!this.isOpen) return;
-
-			const itemsCount = this.currentItems.length;
-
-			if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
-				if (itemsCount > 0) {
-					e.preventDefault();
-					this.selectedIndex = (this.selectedIndex + 1) % itemsCount;
-					this.updateSelection();
-				}
-			} else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
-				if (itemsCount > 0) {
-					e.preventDefault();
-					this.selectedIndex = (this.selectedIndex - 1 + itemsCount) % itemsCount;
-					this.updateSelection();
-				}
-			} else if (e.key === 'Enter') {
-				if (this.selectedIndex >= 0 && this.currentItems[this.selectedIndex]) {
-					e.preventDefault();
-					const selectedWord = this.currentItems[this.selectedIndex].title;
-					if (selectedWord) {
-						this.input.value = selectedWord;
-						this.toggleClearBtn(true);
-						this.applySearch(selectedWord);
-					}
-				}
-			} else if (e.key === 'Escape') {
-				e.preventDefault();
-				this.close();
-			}
-		});
-
-		// Global Escape key
-		document.addEventListener('keydown', (e) => {
-			if (e.key === 'Escape' && this.isOpen) {
-				this.close();
-			}
-		});
-	}
-
-	applySearch(query) {
-		let targetUrl = new URL(this.form.action || window.location.href, window.location.origin);
-		const ind = this.form.querySelector('input[name="industry"]')?.value;
-		const sp  = this.form.querySelector('input[name="space"]')?.value;
-		if (ind) targetUrl.searchParams.set('industry', ind);
-		if (sp)  targetUrl.searchParams.set('space', sp);
-
-		if (query) {
-			targetUrl.searchParams.set('search', query);
-		} else {
-			targetUrl.searchParams.delete('search');
-			targetUrl.searchParams.delete('q');
-		}
-
-		if (window.filterAjaxNavigate) {
-			window.filterAjaxNavigate(targetUrl.toString());
-		} else {
-			window.location.href = targetUrl.toString();
-		}
-	}
-
-	toggle() {
-		if (this.isOpen) {
-			this.close();
-		} else {
-			this.open();
-		}
-	}
-
-	open() {
-		this.isOpen = true;
-		this.wrapper.classList.add('is-open');
-		if (this.trigger) {
-			this.trigger.classList.add('is-active');
-			this.trigger.setAttribute('aria-expanded', 'true');
-		}
-
-		setTimeout(() => {
-			this.input.focus();
-			if (this.input.value) {
-				this.input.select();
-			}
-		}, 80);
-
-		const currentVal = this.input.value.trim();
-		this.toggleClearBtn(currentVal.length > 0);
-		if (currentVal.length > 0) {
-			this.fetchResults(currentVal);
-		} else if (this.list) {
-			this.list.innerHTML = '';
-		}
-	}
-
-	close() {
-		this.isOpen = false;
-		this.wrapper.classList.remove('is-open');
-		if (this.trigger) {
-			this.trigger.classList.remove('is-active');
-			this.trigger.setAttribute('aria-expanded', 'false');
-			this.trigger.focus();
-		}
-		this.selectedIndex = -1;
-		if (this.list) {
-			this.list.innerHTML = '';
 		}
 	}
 
 	toggleClearBtn(show) {
 		if (this.clearBtn) {
 			this.clearBtn.classList.toggle('is-visible', show);
+		}
+	}
+
+	submitFilterForm() {
+		const targetUrl = new URL(this.form.action || window.location.href, window.location.origin);
+		const formData = new FormData(this.form);
+
+		// Clear existing search parameters on target
+		['industry', 'space', 'solution', 'production', 'hash', 'tag', 'filter', 'search', 'q'].forEach(p => {
+			targetUrl.searchParams.delete(p);
+		});
+
+		for (const [key, value] of formData.entries()) {
+			const trimmed = String(value).trim();
+			if (trimmed !== '') {
+				targetUrl.searchParams.set(key, trimmed);
+			}
+		}
+
+		if (window.filterAjaxNavigate) {
+			window.filterAjaxNavigate(targetUrl.toString());
+		} else {
+			window.location.href = targetUrl.toString();
 		}
 	}
 
@@ -187,30 +176,24 @@ class ProjectSearch {
 			return;
 		}
 
-		let searchUrl = `${this.apiUrl}?q=${encodeURIComponent(query)}`;
-		const ind = this.form.querySelector('input[name="industry"]')?.value;
-		const sp  = this.form.querySelector('input[name="space"]')?.value;
-		if (ind) searchUrl += `&industry=${encodeURIComponent(ind)}`;
-		if (sp)  searchUrl += `&space=${encodeURIComponent(sp)}`;
-
-		const cacheKey = `${query}|${ind || ''}|${sp || ''}`;
-		if (this.cache[cacheKey]) {
-			this.renderResults(this.cache[cacheKey], query);
+		const searchUrl = `${this.apiUrl}?q=${encodeURIComponent(query)}`;
+		if (this.cache[query]) {
+			this.renderResults(this.cache[query], query);
 			return;
 		}
 
-		this.container.classList.add('is-loading');
+		this.panel.classList.add('is-loading');
 
 		try {
 			const res = await fetch(searchUrl);
 			if (!res.ok) throw new Error('Network response failed');
 			const data = await res.json();
-			this.cache[cacheKey] = data;
+			this.cache[query] = data;
 			this.renderResults(data, query);
 		} catch (err) {
-			console.warn('Search error:', err);
+			console.warn('Search autocomplete error:', err);
 		} finally {
-			this.container.classList.remove('is-loading');
+			this.panel.classList.remove('is-loading');
 		}
 	}
 
@@ -218,31 +201,24 @@ class ProjectSearch {
 		this.currentItems = results || [];
 		this.selectedIndex = -1;
 
-		if (!query || !query.trim()) {
+		if (!query || !query.trim() || !this.list) {
 			if (this.list) this.list.innerHTML = '';
 			return;
 		}
 
-		const noResultsText = this.container.dataset.i18nNoResults || 'Žádné tagy nenalezeny';
-
 		if (!this.currentItems.length) {
-			if (query) {
-				this.list.innerHTML = `
-					<div class="project-search__empty op__5 font__size__small">
-						${this.escapeHtml(noResultsText)} pro „<strong>${this.escapeHtml(query)}</strong>“
-					</div>
-				`;
-			} else {
-				this.list.innerHTML = '';
-			}
+			this.list.innerHTML = `
+				<div class="project-filter__empty op__5 font__size__small">
+					Žádné tagy pro „<strong>${this.escapeHtml(query)}</strong>“
+				</div>
+			`;
 			return;
 		}
 
 		const html = this.currentItems.map((item, index) => {
 			const highlightedTitle = this.highlightMatch(item.title, query);
-
 			return `
-				<button type="button" class="button --small project-search__tag-pill" theme="ghost" hover="dark" role="option" data-index="${index}" data-word="${this.escapeHtml(item.title)}">
+				<button type="button" class="button --small project-filter__tag-pill" theme="ghost" hover="dark" role="option" data-index="${index}" data-word="${this.escapeHtml(item.title)}">
 					<span>${highlightedTitle}</span>
 				</button>
 			`;
@@ -250,15 +226,15 @@ class ProjectSearch {
 
 		this.list.innerHTML = html;
 
-		// Attach click and mouse hover handlers to tag pills
-		this.list.querySelectorAll('.project-search__tag-pill').forEach((btn, idx) => {
+		this.list.querySelectorAll('.project-filter__tag-pill').forEach((btn, idx) => {
 			btn.addEventListener('click', (e) => {
 				e.preventDefault();
 				const word = btn.dataset.word;
-				if (word) {
+				if (word && this.input) {
 					this.input.value = word;
 					this.toggleClearBtn(true);
-					this.applySearch(word);
+					this.list.innerHTML = '';
+					this.input.focus();
 				}
 			});
 
@@ -270,16 +246,13 @@ class ProjectSearch {
 	}
 
 	updateSelection() {
-		const items = this.list.querySelectorAll('.project-search__tag-pill');
+		const items = this.list?.querySelectorAll('.project-filter__tag-pill');
+		if (!items) return;
 		items.forEach((item, idx) => {
 			const isSelected = idx === this.selectedIndex;
 			item.classList.toggle('is-selected', isSelected);
 			item.setAttribute('aria-selected', isSelected ? 'true' : 'false');
-			if (isSelected) {
-				item.setAttribute('theme', 'dark');
-			} else {
-				item.setAttribute('theme', 'ghost');
-			}
+			item.setAttribute('theme', isSelected ? 'dark' : 'ghost');
 		});
 	}
 
@@ -301,16 +274,49 @@ class ProjectSearch {
 	}
 }
 
-function initProjectSearch() {
-	document.querySelectorAll('[data-project-search]').forEach(el => {
-		if (el._projectSearch) return;
-		el._projectSearch = new ProjectSearch(el);
+// Global Filter Trigger setup (persisting across morphs)
+function setupFilterTrigger() {
+	document.addEventListener('click', (e) => {
+		const trigger = e.target.closest('[data-filter-trigger], [data-search-trigger]');
+		if (!trigger) return;
+
+		e.preventDefault();
+		const panel = document.querySelector('[data-ajax-filter-panel], [data-search-panel-wrapper]');
+		if (!panel) return;
+
+		const isOpen = panel.classList.contains('is-open');
+		if (isOpen) {
+			panel.classList.remove('is-open');
+			trigger.classList.remove('is-active');
+			trigger.setAttribute('aria-expanded', 'false');
+		} else {
+			panel.classList.add('is-open');
+			trigger.classList.add('is-active');
+			trigger.setAttribute('aria-expanded', 'true');
+			const input = panel.querySelector('input[name="search"]');
+			if (input) {
+				setTimeout(() => input.focus(), 80);
+			}
+		}
 	});
 }
 
-// Auto init on DOMContentLoaded
-if (document.readyState === 'loading') {
-	document.addEventListener('DOMContentLoaded', initProjectSearch);
-} else {
-	initProjectSearch();
+function initProjectFilter() {
+	document.querySelectorAll('[data-ajax-filter-panel]').forEach(panel => {
+		if (panel._projectFilter) return;
+		panel._projectFilter = new ProjectFilter(panel);
+	});
 }
+
+// Global initialization
+if (typeof window._filterTriggerInitialized === 'undefined') {
+	window._filterTriggerInitialized = true;
+	setupFilterTrigger();
+}
+
+if (document.readyState === 'loading') {
+	document.addEventListener('DOMContentLoaded', initProjectFilter);
+} else {
+	initProjectFilter();
+}
+

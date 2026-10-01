@@ -103,6 +103,18 @@ if (!empty($isFiltered)) {
 								</h1>
 							<?php endforeach ?>
 						</div>
+					<?php elseif (!empty($activeTokens)) : ?>
+						<h1 class="flex flex__wrap align__center gap__05 font__size__1" data-scroll data-reveal-text>
+							<?php foreach ($activeTokens as $index => $token) : ?>
+								<?php if ($index > 0) : ?>
+									<span class="filter-token__divider op__4 font__weight__light">/</span>
+								<?php endif ?>
+								<span class="filter-token inline-flex align__start relative">
+									<span class="filter-token__text"><?= esc($token['label']) ?></span>
+									<a href="<?= esc($token['removeUrl']) ?>" class="filter-token__remove" data-ajax-filter="true" title="Zrušit <?= esc($token['label']) ?>" aria-label="Zrušit <?= esc($token['label']) ?>">&times;</a>
+								</span>
+							<?php endforeach ?>
+						</h1>
 					<?php elseif ($activeHeading) : ?>
 						<?= snippet('atoms/Heading', [
 							'text'   => $activeHeading, 
@@ -134,7 +146,7 @@ if (!empty($isFiltered)) {
 			<div class="span__1 flex justify__end gap__02 align__center" data-scroll>
 				<?php if (isset($controls)) : ?>
 					<?= $controls ?>
-				<?php elseif (!empty($industries) || !empty($spaces)) : ?>
+				<?php elseif (!empty($searchable) || !empty($industries) || !empty($spaces)) : ?>
 					<div class="flex align__center gap__02 flex__wrap">
 						<?php if (!empty($isFiltered)) : ?>
 							<?= snippet('atoms/Button', [ 
@@ -145,24 +157,6 @@ if (!empty($isFiltered)) {
 								'node'    => 'data-ajax-filter-reset'
 							]) ?>
 						<?php endif ?>
-						<?php if (!empty($industries)) : ?>
-							<?= snippet('molecules/Dropdown/filter', [ 
-								'label'   => 'Odvětví', 
-								'param'   => 'industry',
-								'options' => $industries,
-								'active'  => $filterIndustry ?? null,
-								'theme'   => 'ghost'
-							]) ?> 
-						<?php endif ?>
-						<?php if (!empty($spaces)) : ?>
-							<?= snippet('molecules/Dropdown/filter', [ 
-								'label'   => 'Prostory', 
-								'param'   => 'space',
-								'options' => $spaces,
-								'active'  => $filterSpace ?? null,
-								'theme'   => 'ghost'
-							]) ?> 
-						<?php endif ?>
 						<?php if (!empty($searchable)) : ?>
 							<button 
 								type="button" 
@@ -170,6 +164,7 @@ if (!empty($isFiltered)) {
 								theme="<?= ($theme === 'dark') ? 'invert-ghost' : 'ghost' ?>" 
 								hover="dark"
 								data-search-trigger
+								data-filter-trigger
 								aria-label="<?= esc(t('search-projects', 'Hledat prostor, odvětví...')) ?>" 
 								aria-expanded="<?= !empty($filterSearch) ? 'true' : 'false' ?>"
 								title="<?= esc(t('search-projects', 'Hledat prostor, odvětví...')) ?>"
@@ -190,15 +185,5 @@ if (!empty($isFiltered)) {
 				<?php endif ?>
 			</div>
 		</div>
-
-		<?php if (!empty($searchable)) : ?>
-			<div class="span__4 project-search__panel-wrapper <?= !empty($filterSearch) ? 'is-open' : '' ?>" data-search-panel-wrapper>
-				<?= snippet('molecules/Search', [
-					'theme' => ($theme === 'dark') ? 'dark' : 'light',
-					'url'   => isset($page) ? $page->url() : url('projects'),
-					'query' => $filterSearch ?? '',
-				]) ?>
-			</div>
-		<?php endif ?>
 	</div>
 </section>
