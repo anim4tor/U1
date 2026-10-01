@@ -3,6 +3,10 @@ import './vendor/lenis.min.js';
 import './vendor/splitting.min.js';
 import './vendor/gsap.min.js';
 
+if (typeof gsap !== 'undefined') {
+    window.gsap = gsap;
+}
+
 // Component scripts
 import '../../components/atoms/Scroll/index.js';
 import '../../components/atoms/Reveal/index.js';

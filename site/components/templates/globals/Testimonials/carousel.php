@@ -31,99 +31,112 @@
 </div>
 
 <script type="text/javascript">
-	document.addEventListener("DOMContentLoaded", () => {
-	    const slider = document.querySelector(".testimonials__carousel");
-	    const track = document.querySelector(".carsousel__track");
+(function() {
+    function initTestimonialsCarousel() {
+        const slider = document.querySelector(".testimonials__carousel");
+        const track = document.querySelector(".carsousel__track");
+        if (!slider || !track) return;
+        const g = window.gsap || (typeof gsap !== 'undefined' ? gsap : null);
+        if (!g) {
+            setTimeout(initTestimonialsCarousel, 50);
+            return;
+        }
 
-	    let isDown = false;
-	    let startX;
-	    let startProgress = 0;
-	    
-	    let lastX = 0;
-	    let lastTime = 0;
-	    let velocity = 0;
+        let isDown = false;
+        let startX;
+        let startProgress = 0;
+        let lastX = 0;
+        let lastTime = 0;
+        let velocity = 0;
+        let inertia = 2;
 
-	    const groupWidth = track.scrollWidth / 2;
-	    const duration = 25;
+        const groupWidth = track.scrollWidth / 2;
+        if (!groupWidth) return;
+        const duration = 25;
 
-	    let autoPlayTween = gsap.to(track, {
-	        x: `-=${groupWidth}`,
-	        duration: duration,
-	        ease: "none",
-	        repeat: -1,
-	        modifiers: {
-	            x: gsap.utils.unitize(x => parseFloat(x) % groupWidth)
-	        }
-	    });
+        let autoPlayTween = g.to(track, {
+            x: `-=${groupWidth}`,
+            duration: duration,
+            ease: "none",
+            repeat: -1,
+            modifiers: {
+                x: g.utils.unitize(x => parseFloat(x) % groupWidth)
+            }
+        });
 
-	    const pointerDown = (e) => {
-	        isDown = true;
-	        slider.classList.add("is-dragging");
-	        
-	        gsap.killTweensOf(autoPlayTween);
-	        autoPlayTween.pause();
+        const pointerDown = (e) => {
+            isDown = true;
+            slider.classList.add("is-dragging");
+            
+            g.killTweensOf(autoPlayTween);
+            autoPlayTween.pause();
 
-	        startX = e.type.includes("mouse") ? e.pageX : e.touches[0].clientX;
-	        startProgress = autoPlayTween.time();
-	        
-	        lastX = startX;
-	        lastTime = performance.now();
-	        velocity = 0;
-	        inertia = 2;
-	    };
+            startX = e.type.includes("mouse") ? e.pageX : e.touches[0].clientX;
+            startProgress = autoPlayTween.time();
+            
+            lastX = startX;
+            lastTime = performance.now();
+            velocity = 0;
+            inertia = 2;
+        };
 
-	    const pointerMove = (e) => {
-	        if (!isDown) return;
-	        e.preventDefault();
+        const pointerMove = (e) => {
+            if (!isDown) return;
+            e.preventDefault();
 
-	        const x = e.type.includes("mouse") ? e.pageX : e.touches[0].clientX;
-	        const now = performance.now();
-	        
-	        const dt = now - lastTime;
-	        if (dt > 0) {
-	            velocity = (x - lastX) / dt;
-	        }
-	        
-	        lastX = x;
-	        lastTime = now;
+            const x = e.type.includes("mouse") ? e.pageX : e.touches[0].clientX;
+            const now = performance.now();
+            
+            const dt = now - lastTime;
+            if (dt > 0) {
+                velocity = (x - lastX) / dt;
+            }
+            
+            lastX = x;
+            lastTime = now;
 
-	        const walk = (x - startX) * 1.2;
-	        let timeChange = (-walk / groupWidth) * duration;
-	        let newTime = (startProgress + timeChange) % duration;
-	        if (newTime < 0) newTime += duration;
+            const walk = (x - startX) * 1.2;
+            let timeChange = (-walk / groupWidth) * duration;
+            let newTime = (startProgress + timeChange) % duration;
+            if (newTime < 0) newTime += duration;
 
-	        autoPlayTween.time(newTime);
-	    };
+            autoPlayTween.time(newTime);
+        };
 
-	    const pointerUp = () => {
-	        if (!isDown) return;
-	        isDown = false;
-	        slider.classList.remove("is-dragging");
+        const pointerUp = () => {
+            if (!isDown) return;
+            isDown = false;
+            slider.classList.remove("is-dragging");
 
-	        // Reduced momentum (changed from 150 to 40 for a lighter throw)
-	        let momentumTimeChange = -velocity * inertia; 
-	        let targetTime = autoPlayTween.time() + momentumTimeChange;
+            let momentumTimeChange = -velocity * inertia; 
+            let targetTime = autoPlayTween.time() + momentumTimeChange;
 
-	        gsap.to(autoPlayTween, {
-	            time: targetTime,
-	            duration: 0.8, // Shorter glide duration (was 1.2)
-	            ease: "power2.out",
-	            modifiers: {
-	                time: gsap.utils.wrap(0, duration)
-	            },
-	            onComplete: () => {
-	                autoPlayTween.play();
-	            }
-	        });
-	    };
+            g.to(autoPlayTween, {
+                time: targetTime,
+                duration: 0.8,
+                ease: "power2.out",
+                modifiers: {
+                    time: g.utils.wrap(0, duration)
+                },
+                onComplete: () => {
+                    autoPlayTween.play();
+                }
+            });
+        };
 
-	    slider.addEventListener("mousedown", pointerDown);
-	    slider.addEventListener("mousemove", pointerMove);
-	    slider.addEventListener("mouseup", pointerUp);
+        slider.addEventListener("mousedown", pointerDown);
+        slider.addEventListener("mousemove", pointerMove);
+        slider.addEventListener("mouseup", pointerUp);
 
-	    slider.addEventListener("touchstart", pointerDown, { passive: true });
-	    slider.addEventListener("touchmove", pointerMove, { passive: false });
-	    slider.addEventListener("touchend", pointerUp);
-	});
+        slider.addEventListener("touchstart", pointerDown, { passive: true });
+        slider.addEventListener("touchmove", pointerMove, { passive: false });
+        slider.addEventListener("touchend", pointerUp);
+    }
 
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initTestimonialsCarousel);
+    } else {
+        initTestimonialsCarousel();
+    }
+})();
 </script>
