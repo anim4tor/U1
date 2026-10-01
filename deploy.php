@@ -251,11 +251,10 @@ if ($zip->open($tempZip) !== true) {
     exit;
 }
 
-// GitHub zipballs have a root directory (e.g. anim4tor-U1-abc1234/)
-$rootPrefix = $zip->getNameIndex(0);
-if (!str_ends_with($rootPrefix, '/')) {
-    $rootPrefix = '';
-}
+// GitHub zipballs have a root directory prefix (e.g. anim4tor-U1-abc1234/...)
+$firstEntry = (string)$zip->getNameIndex(0);
+$slashPos   = strpos($firstEntry, '/');
+$rootPrefix = ($slashPos !== false) ? substr($firstEntry, 0, $slashPos + 1) : '';
 
 $extractedCount = 0;
 $skippedCount   = 0;
@@ -338,6 +337,17 @@ $cacheDirs = [
 ];
 foreach ($cacheDirs as $cDir) {
     $flushDirectory($cDir);
+}
+
+// Clean up any stray root prefix subfolders from previous extractions
+$dirItems = @scandir($projectDir);
+if ($dirItems) {
+    foreach ($dirItems as $it) {
+        if (str_starts_with($it, 'anim4tor-U1-') && is_dir($projectDir . '/' . $it)) {
+            $flushDirectory($projectDir . '/' . $it);
+            @rmdir($projectDir . '/' . $it);
+        }
+    }
 }
 
 $duration = round((microtime(true) - $startTime) * 1000, 2);
