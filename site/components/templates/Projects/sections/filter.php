@@ -64,7 +64,7 @@ if (empty($spaces) && empty($industries)) {
 				<div class="project-filter__autocomplete inner-t__05" data-search-list></div>
 			</div>
 
-			<!-- Row 2: Filter Dropdowns linked to blueprint fields -->
+			<!-- Row 2: Filter Dropdowns and Submit Button -->
 			<div class="project-filter__dropdowns-row flex align__center gap__05 flex__wrap" data-scroll>
 				<?php if (!empty($spaces)) : ?>
 					<?= snippet('molecules/Dropdown/filter', [ 
@@ -120,27 +120,25 @@ if (empty($spaces) && empty($industries)) {
 						'formMode' => true
 					]) ?> 
 				<?php endif ?>
-			</div>
 
-			<!-- Row 3: Footer with Reset (left) and Submit (right) -->
-			<div class="project-filter__footer-row flex justify__space-between align__center">
-				<div>
-					<?php if (!empty($isFiltered)) : ?>
-						<?= snippet('atoms/Button', [
-							'url'    => $targetUrl,
-							'label'  => 'Resetovat filtry',
-							'theme'  => 'ghost',
-							'node'   => 'data-ajax-filter-reset'
-						]) ?>
-					<?php endif ?>
-				</div>
-
-				<div class="flex align__center gap__1">
-					<button type="submit" class="button upper" theme="dark" hover="acc">
+				<div class="project-filter__submit-wrap">
+					<button type="submit" class="button upper justify__center" theme="dark" hover="acc">
 						<span>Filtrovat</span>
 					</button>
 				</div>
 			</div>
+
+			<!-- Row 3: Footer with Reset (left) -->
+			<?php if (!empty($isFiltered)) : ?>
+				<div class="project-filter__footer-row flex justify__start align__center">
+					<?= snippet('atoms/Button', [
+						'url'    => $targetUrl,
+						'label'  => 'Resetovat filtry',
+						'theme'  => 'ghost',
+						'node'   => 'data-ajax-filter-reset'
+					]) ?>
+				</div>
+			<?php endif ?>
 
 		</form>
 	</div>

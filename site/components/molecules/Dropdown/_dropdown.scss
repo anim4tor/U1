@@ -40,6 +40,7 @@
   list-style: none;
   display: none;
   z-index: 1000;
+  background: #ffffff !important;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 
   &::-webkit-scrollbar {
@@ -50,6 +51,16 @@
 
   &.is-open {
     display: block;
+  }
+
+  .dropdown-checkmark {
+    color: var(--color-acc, #e5005a) !important;
+    font-weight: 700;
+    line-height: 1;
+
+    &.is-hidden {
+      display: none !important;
+    }
   }
 
   /* Reset button animation on dropdown items and use clean darkened hover */

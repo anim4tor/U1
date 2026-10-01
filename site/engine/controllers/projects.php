@@ -235,7 +235,7 @@ return function ($page, $kirby, $site) {
         $activeTokens[] = [
             'param'     => 'search',
             'slug'      => $filterSearch,
-            'label'     => '„' . $filterSearch . '“',
+            'label'     => Str::ucfirst($filterSearch),
             'removeUrl' => $baseUrl . (!empty($q) ? '?' . http_build_query($q) : '')
         ];
     }

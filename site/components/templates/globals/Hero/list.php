@@ -141,10 +141,6 @@ if (!empty($isFiltered)) {
 							'reveal' => true
 						]) ?>
 					<?php endif ?>
-
-					<?php if (empty($tabs) && $itemCount !== null) : ?>
-						<?= snippet('atoms/Label', ['text' => $itemCount]) ?>
-					<?php endif ?>
 				</div>
 			</div>
 			

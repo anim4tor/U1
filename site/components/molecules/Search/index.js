@@ -39,22 +39,17 @@ class ProjectFilter {
 			const toggleBtn = dropdown.querySelector('.dropdown-toggle span[aria-label], .dropdown-toggle');
 			const isCurrentlyActive = optionBtn.classList.contains('is-active');
 
+			const checkmark = optionBtn.querySelector('.dropdown-checkmark');
 			if (isCurrentlyActive) {
 				// Toggle OFF
 				optionBtn.classList.remove('is-active');
 				optionBtn.setAttribute('theme', 'light');
-				const span = optionBtn.querySelector('span');
-				if (span) {
-					span.textContent = label;
-				}
+				if (checkmark) checkmark.classList.add('is-hidden');
 			} else {
 				// Toggle ON
 				optionBtn.classList.add('is-active');
 				optionBtn.setAttribute('theme', 'dark');
-				const span = optionBtn.querySelector('span');
-				if (span) {
-					span.textContent = '✓ ' + label;
-				}
+				if (checkmark) checkmark.classList.remove('is-hidden');
 			}
 
 			// Gather all active options in this dropdown

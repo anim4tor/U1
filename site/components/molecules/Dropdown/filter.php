@@ -87,7 +87,10 @@ $hiddenValue = implode(',', $activeSlugs);
             data-form-filter-label="<?= esc($tag['text']) ?>"
             data-form-filter-base-label="<?= esc($label) ?>"
           >
-            <span aria-label="<?= esc($tag['text']) ?>"><?= ($isActive ? '✓ ' : '') . $tag['text'] ?></span>
+            <span aria-label="<?= esc($tag['text']) ?>" class="flex align__center gap__05">
+              <span class="dropdown-checkmark col__acc font__size__small <?= $isActive ? '' : 'is-hidden' ?>">✓</span>
+              <span class="dropdown-option-text"><?= esc($tag['text']) ?></span>
+            </span>
           </button>
         <?php else : ?>
           <?= snippet('atoms/Button', [ 
