@@ -1,13 +1,13 @@
 /**
- * Molecule: Project Search with Fullscreen Bar and Autocomplete
+ * Molecule: Project Search with Full-width H2 Input and Autocomplete
  */
 
 class ProjectSearch {
 	constructor(container) {
 		this.container   = container;
-		this.trigger     = container.querySelector('[data-search-trigger]');
-		this.overlay     = container.querySelector('[data-search-overlay]');
-		this.closeBtns   = container.querySelectorAll('[data-search-close]');
+		this.wrapper     = container.closest('[data-search-panel-wrapper]') || container;
+		const section    = container.closest('section') || document;
+		this.trigger     = section.querySelector('[data-search-trigger]');
 		this.form        = container.querySelector('form');
 		this.input       = container.querySelector('.project-search__input');
 		this.clearBtn    = container.querySelector('.project-search__clear');
@@ -19,31 +19,23 @@ class ProjectSearch {
 		this.cache         = {};
 		this.selectedIndex = -1;
 		this.currentItems  = [];
-		this.isOpen        = false;
+		this.isOpen        = this.wrapper.classList.contains('is-open');
 
 		this.init();
 	}
 
 	init() {
-		if (!this.input || !this.overlay) return;
+		if (!this.input) return;
 
-		// 1. Open Trigger
+		// 1. Toggle Trigger
 		if (this.trigger) {
 			this.trigger.addEventListener('click', (e) => {
 				e.preventDefault();
-				this.open();
+				this.toggle();
 			});
 		}
 
-		// 2. Close Buttons
-		this.closeBtns.forEach(btn => {
-			btn.addEventListener('click', (e) => {
-				e.preventDefault();
-				this.close();
-			});
-		});
-
-		// 3. Input typing with debounce
+		// 2. Input typing with debounce
 		this.input.addEventListener('input', () => {
 			const query = this.input.value.trim();
 			this.toggleClearBtn(query.length > 0);
@@ -54,7 +46,7 @@ class ProjectSearch {
 			}, 150);
 		});
 
-		// 4. Clear button
+		// 3. Clear button
 		if (this.clearBtn) {
 			this.clearBtn.addEventListener('click', (e) => {
 				e.preventDefault();
@@ -65,7 +57,7 @@ class ProjectSearch {
 			});
 		}
 
-		// 5. Keyboard Navigation
+		// 4. Keyboard Navigation
 		this.input.addEventListener('keydown', (e) => {
 			if (!this.isOpen) return;
 
@@ -103,6 +95,50 @@ class ProjectSearch {
 				this.close();
 			}
 		});
+
+		// If initially open with a value, prefetch results
+		if (this.isOpen && this.input.value.trim()) {
+			this.fetchResults(this.input.value.trim());
+		}
+	}
+
+	toggle() {
+		if (this.isOpen) {
+			this.close();
+		} else {
+			this.open();
+		}
+	}
+
+	open() {
+		this.isOpen = true;
+		this.wrapper.classList.add('is-open');
+		if (this.trigger) {
+			this.trigger.classList.add('is-active');
+			this.trigger.setAttribute('aria-expanded', 'true');
+		}
+
+		setTimeout(() => {
+			this.input.focus();
+			if (this.input.value) {
+				this.input.select();
+			}
+		}, 80);
+
+		const currentVal = this.input.value.trim();
+		this.toggleClearBtn(currentVal.length > 0);
+		this.fetchResults(currentVal);
+	}
+
+	close() {
+		this.isOpen = false;
+		this.wrapper.classList.remove('is-open');
+		if (this.trigger) {
+			this.trigger.classList.remove('is-active');
+			this.trigger.setAttribute('aria-expanded', 'false');
+			this.trigger.focus();
+		}
+		this.selectedIndex = -1;
 	}
 
 	toggleClearBtn(show) {
@@ -227,42 +263,6 @@ class ProjectSearch {
 			.replace(/>/g, '&gt;')
 			.replace(/"/g, '&quot;')
 			.replace(/'/g, '&#039;');
-	}
-
-	open() {
-		if (this.isOpen) return;
-		this.isOpen = true;
-
-		this.overlay.classList.add('is-open');
-		this.overlay.setAttribute('aria-hidden', 'false');
-		if (this.trigger) this.trigger.setAttribute('aria-expanded', 'true');
-		document.documentElement.style.overflow = 'hidden';
-
-		setTimeout(() => {
-			this.input.focus();
-			if (this.input.value) {
-				this.input.select();
-			}
-		}, 100);
-
-		const currentVal = this.input.value.trim();
-		this.toggleClearBtn(currentVal.length > 0);
-		this.fetchResults(currentVal);
-	}
-
-	close() {
-		if (!this.isOpen) return;
-		this.isOpen = false;
-
-		this.overlay.classList.remove('is-open');
-		this.overlay.setAttribute('aria-hidden', 'true');
-		if (this.trigger) this.trigger.setAttribute('aria-expanded', 'false');
-		document.documentElement.style.overflow = '';
-		this.selectedIndex = -1;
-
-		if (this.trigger) {
-			this.trigger.focus();
-		}
 	}
 }
 

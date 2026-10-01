@@ -137,10 +137,20 @@ if (!empty($isFiltered)) {
 							]) ?> 
 						<?php endif ?>
 						<?php if (!empty($searchable)) : ?>
-							<?= snippet('molecules/Search', [
-								'theme' => ($theme === 'dark') ? 'invert-ghost' : 'ghost',
-								'url'   => isset($page) ? $page->url() : url('projects'),
-							]) ?>
+							<button 
+								type="button" 
+								class="button circle project-search__trigger <?= !empty($filterSearch) ? 'is-active' : '' ?>" 
+								theme="<?= ($theme === 'dark') ? 'invert-ghost' : 'ghost' ?>" 
+								hover="dark"
+								data-search-trigger
+								aria-label="<?= esc(t('search-projects', 'Hledat prostor, odvětví...')) ?>" 
+								aria-expanded="<?= !empty($filterSearch) ? 'true' : 'false' ?>"
+								title="<?= esc(t('search-projects', 'Hledat prostor, odvětví...')) ?>"
+							>
+								<span class="icon">
+									<?= svg('public/assets/images/ui/ui_search.svg') ?>
+								</span>
+							</button>
 						<?php endif ?>
 					</div>
 				<?php elseif (!empty($nav)) : ?>
@@ -154,5 +164,15 @@ if (!empty($isFiltered)) {
 				<?php endif ?>
 			</div>
 		</div>
+
+		<?php if (!empty($searchable)) : ?>
+			<div class="span__4 project-search__panel-wrapper <?= !empty($filterSearch) ? 'is-open' : '' ?>" data-search-panel-wrapper>
+				<?= snippet('molecules/Search', [
+					'theme' => ($theme === 'dark') ? 'dark' : 'light',
+					'url'   => isset($page) ? $page->url() : url('projects'),
+					'query' => $filterSearch ?? '',
+				]) ?>
+			</div>
+		<?php endif ?>
 	</div>
 </section>
