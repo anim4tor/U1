@@ -196,10 +196,11 @@ return function ($page, $kirby, $site) {
         $slug = Str::slug($val);
         foreach ($items as $it) {
             if (($it['slug'] ?? '') === $slug || ($it['text'] ?? '') === $val) {
-                return $it['text'] ?? $it['name'] ?? $val;
+                $txt = $it['text'] ?? $it['name'] ?? $val;
+                return Str::ucfirst($txt);
             }
         }
-        return ucfirst(str_replace(['-', '_'], ' ', $val));
+        return Str::ucfirst(str_replace(['-', '_'], ' ', $val));
     };
 
     // Build token helper for multi-slug params

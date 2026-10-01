@@ -6,46 +6,45 @@
 @import "../../atoms/Animation/animation";
 @import "../../atoms/Theme/border";
 
-/* Filter Tokens in H1 with (x) dismiss button */
+/* Filter Tokens in H1 with (x) label dismiss button */
 .filter-token {
 	display: inline-flex;
 	align-items: flex-start;
 	position: relative;
 	line-height: inherit;
+	white-space: nowrap;
 
 	&__text {
 		display: inline-block;
+		white-space: nowrap;
 	}
 
 	&__remove {
 		display: inline-flex;
 		align-items: center;
-		justify-content: center;
-		font-size: 0.4em;
-		line-height: 1;
-		width: 1.4em;
-		height: 1.4em;
-		border-radius: 50%;
-		background: rgba(128, 128, 128, 0.2);
-		color: currentColor;
-		margin-left: 0.25em;
 		vertical-align: super;
-		text-decoration: none;
-		opacity: 0.6;
-		transition: opacity 0.2s ease, background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+		margin-left: 0.15em;
+		font-size: var(--font-size-small, 0.75rem);
+		line-height: 1;
 		cursor: pointer;
 
-		&:hover {
-			opacity: 1;
-			background: var(--color-acc, #e5005a);
-			color: #fff !important;
-			transform: scale(1.15);
+		a {
+			text-decoration: none;
+			color: currentColor;
+			transition: opacity 0.2s ease, color 0.2s ease;
+
+			&:hover {
+				opacity: 1;
+				color: var(--color-acc, #e5005a) !important;
+			}
 		}
 	}
 
 	&__divider {
-		margin: 0 0.15em;
+		margin: 0 0.25em;
 		font-weight: 300;
+		opacity: 0.4;
+		white-space: nowrap;
 	}
 }
 

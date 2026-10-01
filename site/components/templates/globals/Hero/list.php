@@ -104,14 +104,19 @@ if (!empty($isFiltered)) {
 							<?php endforeach ?>
 						</div>
 					<?php elseif (!empty($activeTokens)) : ?>
-						<h1 class="flex flex__wrap align__center gap__05 font__size__1" data-scroll data-reveal-text>
+						<h1 class="flex no__wrap align__start gap__05 font__size__1" data-scroll data-split-ignore>
 							<?php foreach ($activeTokens as $index => $token) : ?>
 								<?php if ($index > 0) : ?>
 									<span class="filter-token__divider op__4 font__weight__light">/</span>
 								<?php endif ?>
-								<span class="filter-token inline-flex align__start relative">
-									<span class="filter-token__text"><?= esc($token['label']) ?></span>
-									<a href="<?= esc($token['removeUrl']) ?>" class="filter-token__remove" data-ajax-filter="true" title="Zrušit <?= esc($token['label']) ?>" aria-label="Zrušit <?= esc($token['label']) ?>">&times;</a>
+								<span class="filter-token flex align__start no__wrap">
+									<span class="filter-token__text"><?= esc(\Kirby\Toolkit\Str::ucfirst($token['label'])) ?></span>
+									<?= snippet('atoms/Label', [
+										'text' => '×',
+										'url'  => $token['removeUrl'],
+										'css'  => 'filter-token__remove',
+										'node' => 'data-ajax-filter="true" title="Zrušit ' . esc($token['label']) . '"'
+									]) ?>
 								</span>
 							<?php endforeach ?>
 						</h1>

@@ -45,7 +45,7 @@ if (empty($spaces) && empty($industries)) {
 						placeholder="<?= esc(t('search-projects', 'Hledat prostor, odvětví, klienta...')) ?>" 
 						autocomplete="off" 
 						spellcheck="false"
-						class="project-filter__input font__size__2 smaller"
+						class="project-filter__input font__size__3"
 						aria-label="<?= esc(t('search-projects', 'Hledat prostor, odvětví, klienta...')) ?>"
 					>
 					<div class="project-filter__search-actions flex align__center gap__05">
