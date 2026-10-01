@@ -42,27 +42,7 @@ Place: Brno, komplex Titanium
 
 ----
 
-Industry: 
-
-----
-
-Solutions: 
-
-----
-
-Space: Openspace, Lobby, Kuchyně
-
-----
-
-Production: 
-
-----
-
 Size: 2 700 m²
-
-----
-
-Hash: 
 
 ----
 
@@ -71,6 +51,34 @@ Team:
 ----
 
 Photo: Ing. arch. Martina Pitáková
+
+----
+
+Custominfo:
+
+- 
+  label: Spolupráce
+  value: Studi ABC
+
+----
+
+Space: Openspace, Lobby, Kuchyně
+
+----
+
+Industry: 
+
+----
+
+Solutions: 
+
+----
+
+Production: 
+
+----
+
+Hash: 
 
 ----
 
