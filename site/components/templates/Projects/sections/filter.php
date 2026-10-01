@@ -11,8 +11,8 @@ $filterHash       = $filterHash ?? get('hash') ?? get('tag');
 $targetPage       = $page ?? (function_exists('page') && page() ? page() : null);
 $targetUrl        = $targetPage ? $targetPage->url() : url('projects');
 ?>
-<section id="project-filter-section" class="project-filter-section relative z__2" theme="light" data-ajax-filter-panel>
-	<div class="project-filter-inner inner__4 inner-y__4 border__bottom">
+<section id="project-filter-section" class="project-filter-section relative z__2 radius" theme="light" data-ajax-filter-panel>
+	<div class="project-filter-inner inner__4 inner-y__2">
 		<form action="<?= $targetUrl ?>" method="GET" class="project-filter__form grid gap__2" data-project-filter-form role="search">
 			
 			<!-- Row 1: Large Search Bar with autocomplete -->

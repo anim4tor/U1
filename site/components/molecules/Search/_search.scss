@@ -101,25 +101,26 @@
 /* Expandable Filter Section */
 .project-filter-section {
 	width: 100%;
-	display: grid;
-	grid-template-rows: 0fr;
-	opacity: 0;
-	transition: grid-template-rows 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
-	overflow: hidden;
+	display: none;
 
 	&.is-open {
-		grid-template-rows: 1fr;
-		opacity: 1;
-		overflow: visible;
+		display: block;
+		animation: filterFadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 	}
 
 	> .project-filter-inner {
-		min-height: 0;
-		overflow: hidden;
+		width: 100%;
 	}
+}
 
-	&.is-open > .project-filter-inner {
-		overflow: visible;
+@keyframes filterFadeIn {
+	from {
+		opacity: 0;
+		transform: translateY(-10px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
 	}
 }
 
