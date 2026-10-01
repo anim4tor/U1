@@ -33,7 +33,7 @@ if (empty($spaces) && empty($industries)) {
 ?>
 <section id="project-filter-section" class="project-filter-section relative z__2 radius" theme="light" data-ajax-filter-panel>
 	<div class="project-filter-inner inner__4 inner-y__2">
-		<form action="<?= $targetUrl ?>" method="GET" class="project-filter__form grid gap__2" data-project-filter-form role="search">
+		<form action="<?= $targetUrl ?>" method="GET" class="project-filter__form grid gap__1" data-project-filter-form role="search">
 			
 			<!-- Row 1: Large Search Bar with autocomplete -->
 			<div class="project-filter__search-row relative" data-project-search data-api-url="<?= url('ajax/projects/search') ?>">
@@ -65,7 +65,7 @@ if (empty($spaces) && empty($industries)) {
 			</div>
 
 			<!-- Row 2: Filter Dropdowns linked to blueprint fields -->
-			<div class="project-filter__dropdowns-row flex align__center gap__05 flex__wrap">
+			<div class="project-filter__dropdowns-row grid__5 align__center gap__05 flex__wrap" data-scroll>
 				<?php if (!empty($spaces)) : ?>
 					<?= snippet('molecules/Dropdown/filter', [ 
 						'label'    => 'Prostory', 
@@ -123,7 +123,7 @@ if (empty($spaces) && empty($industries)) {
 			</div>
 
 			<!-- Row 3: Footer with Reset (left) and Submit (right) -->
-			<div class="project-filter__footer-row flex justify__space-between align__center inner-t__1 border__top">
+			<div class="project-filter__footer-row flex justify__space-between align__center inner-t__1">
 				<div>
 					<?php if (!empty($isFiltered)) : ?>
 						<?= snippet('atoms/Button', [

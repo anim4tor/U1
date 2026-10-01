@@ -1,9 +1,16 @@
 <?php
 $param       = $param ?? 'filter';
-$activeValue = $active ?? get($param);
+$rawActive   = $active ?? get($param);
 $targetPage  = $page ?? (function_exists('page') && page() ? page() : null);
 $baseUrl     = $targetPage ? $targetPage->url() : url('projects');
 $formMode    = $formMode ?? false;
+
+// Parse active values into an array of slugs
+if (is_array($rawActive)) {
+    $activeSlugs = array_values(array_filter($rawActive));
+} else {
+    $activeSlugs = array_values(array_filter(explode(',', (string)$rawActive)));
+}
 
 // Gather current active query parameters
 $currentQuery = [];
@@ -16,26 +23,34 @@ if ($f      = get('filter'))     $currentQuery['filter']     = $f;
 if ($search = get('search'))     $currentQuery['search']     = $search;
 if ($q      = get('q'))          $currentQuery['q']          = $q;
 
-$activeLabel = null;
-if ($activeValue && !empty($options)) {
+$activeLabels = [];
+if (!empty($activeSlugs) && !empty($options)) {
     foreach ($options as $opt) {
-        if (($opt['slug'] ?? '') === $activeValue) {
-            $activeLabel = $opt['text'] ?? $opt['name'] ?? null;
-            break;
+        if (in_array($opt['slug'] ?? '', $activeSlugs)) {
+            $activeLabels[] = $opt['text'] ?? $opt['name'] ?? $opt['slug'];
         }
     }
 }
-$buttonLabel = $activeLabel ? $label . ' (' . $activeLabel . ') ▾' : $label . ' ▾';
+
+$countActive = count($activeSlugs);
+if ($countActive === 0) {
+    $buttonLabel = $label . ' ▾';
+} elseif ($countActive === 1 && !empty($activeLabels)) {
+    $buttonLabel = $label . ' (' . $activeLabels[0] . ') ▾';
+} else {
+    $buttonLabel = $label . ' (' . $countActive . ') ▾';
+}
+$hiddenValue = implode(',', $activeSlugs);
 ?>
 <div class="custom-dropdown" data-filter-param="<?= esc($param) ?>">
   <div class="dropdown-container relative">
     <?php if ($formMode) : ?>
-      <input type="hidden" name="<?= esc($param) ?>" value="<?= esc($activeValue ?? '') ?>" data-form-filter-input="<?= esc($param) ?>">
+      <input type="hidden" name="<?= esc($param) ?>" value="<?= esc($hiddenValue) ?>" data-form-filter-input="<?= esc($param) ?>">
     <?php endif ?>
 
     <?= snippet('atoms/Button', [ 
       'label'   => $buttonLabel, 
-      'theme'   => $activeValue ? 'dark' : ($theme ?? 'ghost'), 
+      'theme'   => $countActive > 0 ? 'dark' : ($theme ?? 'ghost'), 
       'reveal'  => true,
       'css'     => 'dropdown-toggle',
       'node'    => 'type="button" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="dropdown-label"'
@@ -46,12 +61,18 @@ $buttonLabel = $activeLabel ? $label . ' (' . $activeLabel . ') ▾' : $label . 
         <?php
           $tagQuery = $currentQuery;
           unset($tagQuery['filter']);
-          $isActive = ($activeValue === $tag['slug']);
+          $isActive = in_array($tag['slug'], $activeSlugs);
 
           if ($isActive) {
-              unset($tagQuery[$param]);
+              $remaining = array_values(array_diff($activeSlugs, [$tag['slug']]));
+              if (!empty($remaining)) {
+                  $tagQuery[$param] = implode(',', $remaining);
+              } else {
+                  unset($tagQuery[$param]);
+              }
           } else {
-              $tagQuery[$param] = $tag['slug'];
+              $newSlugs = array_merge($activeSlugs, [$tag['slug']]);
+              $tagQuery[$param] = implode(',', $newSlugs);
           }
 
           $queryString = http_build_query($tagQuery);

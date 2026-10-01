@@ -3,8 +3,8 @@
 use Kirby\Toolkit\Str;
 
 return function ($page, $kirby, $site) {
-    $filterIndustry = get('industry');
-    $filterSpace    = get('space');
+    $filterIndustry   = get('industry');
+    $filterSpace      = get('space');
     $filterSolution   = get('solution') ?? get('solutions');
     $filterProduction = get('production');
     $filterHash       = get('hash') ?? get('tag');
@@ -44,6 +44,27 @@ return function ($page, $kirby, $site) {
         return $result;
     };
 
+    // Helper to parse parameter into array of slugs
+    $parseSlugs = function($val) {
+        if (empty($val)) return [];
+        if (is_array($val)) {
+            $slugs = [];
+            foreach ($val as $v) {
+                foreach (explode(',', (string)$v) as $sub) {
+                    $s = Str::slug(trim($sub));
+                    if ($s !== '') $slugs[] = $s;
+                }
+            }
+            return array_values(array_unique($slugs));
+        }
+        $slugs = [];
+        foreach (explode(',', (string)$val) as $sub) {
+            $s = Str::slug(trim($sub));
+            if ($s !== '') $slugs[] = $s;
+        }
+        return array_values(array_unique($slugs));
+    };
+
     // 2. Fetch available options from all projects and image tags
     $industries = $extractTags(
         $allProjects->pluck('industry', ',', true),
@@ -68,7 +89,14 @@ return function ($page, $kirby, $site) {
         $allImages->pluck('tags', ',', true)
     );
 
-    $hasTagFilter = !empty($filterIndustry) || !empty($filterSpace) || !empty($filterSolution) || !empty($filterProduction) || !empty($filterHash) || !empty($filterGeneric);
+    $filterIndustrySlugs   = $parseSlugs($filterIndustry);
+    $filterSpaceSlugs      = $parseSlugs($filterSpace);
+    $filterSolutionSlugs   = $parseSlugs($filterSolution);
+    $filterProductionSlugs = $parseSlugs($filterProduction);
+    $filterHashSlugs       = $parseSlugs($filterHash);
+    $genericSlugs         = $parseSlugs($filterGeneric);
+
+    $hasTagFilter = !empty($filterIndustrySlugs) || !empty($filterSpaceSlugs) || !empty($filterSolutionSlugs) || !empty($filterProductionSlugs) || !empty($filterHashSlugs) || !empty($genericSlugs);
     $hasSearch    = !empty($filterSearch);
     $isFiltered   = $hasTagFilter || $hasSearch;
     $filteredImages = null;
@@ -79,17 +107,10 @@ return function ($page, $kirby, $site) {
         $projects = $projects->search($filterSearch, 'title|industry|space|solutions|production|hash|architect|location|intro');
     }
 
-    // 3. Filter ONLY images matching the active tag(s) or search on the images themselves
+    // 3. Filter ONLY images matching active tags or search
     if ($isFiltered) {
-        $filterIndustrySlug   = !empty($filterIndustry) ? Str::slug($filterIndustry) : null;
-        $filterSpaceSlug      = !empty($filterSpace) ? Str::slug($filterSpace) : null;
-        $filterSolutionSlug   = !empty($filterSolution) ? Str::slug($filterSolution) : null;
-        $filterProductionSlug = !empty($filterProduction) ? Str::slug($filterProduction) : null;
-        $filterHashSlug       = !empty($filterHash) ? Str::slug($filterHash) : null;
-        $genericSlugs         = !empty($filterGeneric) ? array_map([Str::class, 'slug'], explode(',', $filterGeneric)) : [];
-
         $filteredImages = $allImages->filter(function ($image) use (
-            $filterIndustrySlug, $filterSpaceSlug, $filterSolutionSlug, $filterProductionSlug, $filterHashSlug, $genericSlugs, $filterSearch
+            $filterIndustrySlugs, $filterSpaceSlugs, $filterSolutionSlugs, $filterProductionSlugs, $filterHashSlugs, $genericSlugs, $filterSearch
         ) {
             $imageIndustries = array_map([Str::class, 'slug'], $image->industry()->split(','));
             $imageSpaces     = array_map([Str::class, 'slug'], $image->space()->split(','));
@@ -122,42 +143,35 @@ return function ($page, $kirby, $site) {
                 }
             }
 
-            // Industry filter
-            if ($filterIndustrySlug && !in_array($filterIndustrySlug, $allIndustries)) {
+            // Industry multiselect
+            if (!empty($filterIndustrySlugs) && empty(array_intersect($filterIndustrySlugs, $allIndustries))) {
                 return false;
             }
 
-            // Space filter
-            if ($filterSpaceSlug && !in_array($filterSpaceSlug, $allSpaces)) {
+            // Space multiselect
+            if (!empty($filterSpaceSlugs) && empty(array_intersect($filterSpaceSlugs, $allSpaces))) {
                 return false;
             }
 
-            // Solution filter
-            if ($filterSolutionSlug && !in_array($filterSolutionSlug, $allSolutions)) {
+            // Solution multiselect
+            if (!empty($filterSolutionSlugs) && empty(array_intersect($filterSolutionSlugs, $allSolutions))) {
                 return false;
             }
 
-            // Production filter
-            if ($filterProductionSlug && !in_array($filterProductionSlug, $allProductions)) {
+            // Production multiselect
+            if (!empty($filterProductionSlugs) && empty(array_intersect($filterProductionSlugs, $allProductions))) {
                 return false;
             }
 
-            // Hash filter
-            if ($filterHashSlug && !in_array($filterHashSlug, $allHashes)) {
+            // Hash multiselect
+            if (!empty($filterHashSlugs) && empty(array_intersect($filterHashSlugs, $allHashes))) {
                 return false;
             }
 
-            // Generic legacy filter check (e.g. ?filter=tag)
+            // Generic legacy filter
             if (!empty($genericSlugs)) {
-                $matchesGeneric = false;
                 $allCombined = array_merge($allIndustries, $allSpaces, $allSolutions, $allProductions, $allHashes);
-                foreach ($genericSlugs as $slug) {
-                    if (in_array($slug, $allCombined)) {
-                        $matchesGeneric = true;
-                        break;
-                    }
-                }
-                if (!$matchesGeneric) {
+                if (empty(array_intersect($genericSlugs, $allCombined))) {
                     return false;
                 }
             }
@@ -170,13 +184,13 @@ return function ($page, $kirby, $site) {
     $activeTokens = [];
     $baseUrl = $page ? $page->url() : url('projects');
     $currentQuery = [];
-    if ($filterIndustry)   $currentQuery['industry']   = $filterIndustry;
-    if ($filterSpace)      $currentQuery['space']      = $filterSpace;
-    if ($filterSolution)   $currentQuery['solution']   = $filterSolution;
-    if ($filterProduction) $currentQuery['production'] = $filterProduction;
-    if ($filterHash)       $currentQuery['hash']       = $filterHash;
-    if ($filterGeneric)    $currentQuery['filter']     = $filterGeneric;
-    if ($filterSearch)     $currentQuery['search']     = $filterSearch;
+    if (!empty($filterIndustrySlugs))   $currentQuery['industry']   = implode(',', $filterIndustrySlugs);
+    if (!empty($filterSpaceSlugs))      $currentQuery['space']      = implode(',', $filterSpaceSlugs);
+    if (!empty($filterSolutionSlugs))   $currentQuery['solution']   = implode(',', $filterSolutionSlugs);
+    if (!empty($filterProductionSlugs)) $currentQuery['production'] = implode(',', $filterProductionSlugs);
+    if (!empty($filterHashSlugs))       $currentQuery['hash']       = implode(',', $filterHashSlugs);
+    if (!empty($genericSlugs))         $currentQuery['filter']     = implode(',', $genericSlugs);
+    if ($filterSearch)                 $currentQuery['search']     = $filterSearch;
 
     $findLabel = function($items, $val) {
         $slug = Str::slug($val);
@@ -188,60 +202,38 @@ return function ($page, $kirby, $site) {
         return ucfirst(str_replace(['-', '_'], ' ', $val));
     };
 
-    if (!empty($filterSpace)) {
-        $q = $currentQuery; unset($q['space']);
-        $activeTokens[] = [
-            'param'     => 'space',
-            'label'     => $findLabel($spaces, $filterSpace),
-            'removeUrl' => $baseUrl . (!empty($q) ? '?' . http_build_query($q) : '')
-        ];
-    }
-    if (!empty($filterIndustry)) {
-        $q = $currentQuery; unset($q['industry']);
-        $activeTokens[] = [
-            'param'     => 'industry',
-            'label'     => $findLabel($industries, $filterIndustry),
-            'removeUrl' => $baseUrl . (!empty($q) ? '?' . http_build_query($q) : '')
-        ];
-    }
-    if (!empty($filterSolution)) {
-        $q = $currentQuery; unset($q['solution']); unset($q['solutions']);
-        $activeTokens[] = [
-            'param'     => 'solution',
-            'label'     => $findLabel($solutions, $filterSolution),
-            'removeUrl' => $baseUrl . (!empty($q) ? '?' . http_build_query($q) : '')
-        ];
-    }
-    if (!empty($filterProduction)) {
-        $q = $currentQuery; unset($q['production']);
-        $activeTokens[] = [
-            'param'     => 'production',
-            'label'     => $findLabel($productions, $filterProduction),
-            'removeUrl' => $baseUrl . (!empty($q) ? '?' . http_build_query($q) : '')
-        ];
-    }
-    if (!empty($filterHash)) {
-        $q = $currentQuery; unset($q['hash']); unset($q['tag']);
-        $lbl = $findLabel($hashes, $filterHash);
-        $activeTokens[] = [
-            'param'     => 'hash',
-            'label'     => str_starts_with($lbl, '#') ? $lbl : '#' . $lbl,
-            'removeUrl' => $baseUrl . (!empty($q) ? '?' . http_build_query($q) : '')
-        ];
-    }
-    if (!empty($filterGeneric)) {
-        $q = $currentQuery; unset($q['filter']);
-        $allTags = array_merge($industries, $spaces, $solutions, $productions, $hashes);
-        $activeTokens[] = [
-            'param'     => 'filter',
-            'label'     => $findLabel($allTags, $filterGeneric),
-            'removeUrl' => $baseUrl . (!empty($q) ? '?' . http_build_query($q) : '')
-        ];
-    }
+    // Build token helper for multi-slug params
+    $buildTokens = function($slugs, $paramName, $optionsList, $prefix = '') use (&$activeTokens, $currentQuery, $baseUrl, $findLabel) {
+        foreach ($slugs as $slug) {
+            $remaining = array_values(array_diff($slugs, [$slug]));
+            $q = $currentQuery;
+            if (!empty($remaining)) {
+                $q[$paramName] = implode(',', $remaining);
+            } else {
+                unset($q[$paramName]);
+            }
+            $lbl = $findLabel($optionsList, $slug);
+            $activeTokens[] = [
+                'param'     => $paramName,
+                'slug'      => $slug,
+                'label'     => $prefix . $lbl,
+                'removeUrl' => $baseUrl . (!empty($q) ? '?' . http_build_query($q) : '')
+            ];
+        }
+    };
+
+    $buildTokens($filterSpaceSlugs, 'space', $spaces);
+    $buildTokens($filterIndustrySlugs, 'industry', $industries);
+    $buildTokens($filterSolutionSlugs, 'solution', $solutions);
+    $buildTokens($filterProductionSlugs, 'production', $productions);
+    $buildTokens($filterHashSlugs, 'hash', $hashes, '#');
+    $buildTokens($genericSlugs, 'filter', array_merge($industries, $spaces, $solutions, $productions, $hashes));
+
     if (!empty($filterSearch)) {
         $q = $currentQuery; unset($q['search']); unset($q['q']);
         $activeTokens[] = [
             'param'     => 'search',
+            'slug'      => $filterSearch,
             'label'     => '„' . $filterSearch . '“',
             'removeUrl' => $baseUrl . (!empty($q) ? '?' . http_build_query($q) : '')
         ];
@@ -253,12 +245,12 @@ return function ($page, $kirby, $site) {
         'solutions'        => $solutions,
         'productions'      => $productions,
         'hashes'           => $hashes,
-        'filterIndustry'   => $filterIndustry,
-        'filterSpace'      => $filterSpace,
-        'filterSolution'   => $filterSolution,
-        'filterProduction' => $filterProduction,
-        'filterHash'       => $filterHash,
-        'filterGeneric'    => $filterGeneric,
+        'filterIndustry'   => !empty($filterIndustrySlugs) ? implode(',', $filterIndustrySlugs) : null,
+        'filterSpace'      => !empty($filterSpaceSlugs) ? implode(',', $filterSpaceSlugs) : null,
+        'filterSolution'   => !empty($filterSolutionSlugs) ? implode(',', $filterSolutionSlugs) : null,
+        'filterProduction' => !empty($filterProductionSlugs) ? implode(',', $filterProductionSlugs) : null,
+        'filterHash'       => !empty($filterHashSlugs) ? implode(',', $filterHashSlugs) : null,
+        'filterGeneric'    => !empty($genericSlugs) ? implode(',', $genericSlugs) : null,
         'filterSearch'     => $filterSearch,
         'isFiltered'       => $isFiltered,
         'activeTokens'     => $activeTokens,

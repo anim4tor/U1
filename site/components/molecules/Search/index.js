@@ -20,7 +20,7 @@ class ProjectFilter {
 	}
 
 	init() {
-		// 1. Dropdown Form Mode Option Selection
+		// 1. Dropdown Form Mode Option Selection (Multiselect)
 		this.panel.addEventListener('click', (e) => {
 			const optionBtn = e.target.closest('[data-form-filter-option]');
 			if (!optionBtn) return;
@@ -39,23 +39,13 @@ class ProjectFilter {
 			const toggleBtn = dropdown.querySelector('.dropdown-toggle span[aria-label], .dropdown-toggle');
 			const isCurrentlyActive = optionBtn.classList.contains('is-active');
 
-			// Deselect other options in this dropdown
-			dropdown.querySelectorAll('[data-form-filter-option]').forEach(btn => {
-				btn.classList.remove('is-active');
-				btn.setAttribute('theme', 'light');
-				const span = btn.querySelector('span');
-				if (span) {
-					span.textContent = btn.dataset.formFilterLabel;
-				}
-			});
-
 			if (isCurrentlyActive) {
 				// Toggle OFF
-				if (hiddenInp) hiddenInp.value = '';
-				if (toggleBtn) {
-					toggleBtn.textContent = baseLabel + ' ▾';
-					const toggleAtom = dropdown.querySelector('.dropdown-toggle');
-					if (toggleAtom) toggleAtom.setAttribute('theme', 'ghost');
+				optionBtn.classList.remove('is-active');
+				optionBtn.setAttribute('theme', 'light');
+				const span = optionBtn.querySelector('span');
+				if (span) {
+					span.textContent = label;
 				}
 			} else {
 				// Toggle ON
@@ -65,17 +55,28 @@ class ProjectFilter {
 				if (span) {
 					span.textContent = '✓ ' + label;
 				}
-				if (hiddenInp) hiddenInp.value = slug;
-				if (toggleBtn) {
-					toggleBtn.textContent = baseLabel + ' (' + label + ') ▾';
-					const toggleAtom = dropdown.querySelector('.dropdown-toggle');
-					if (toggleAtom) toggleAtom.setAttribute('theme', 'dark');
-				}
 			}
 
-			// Close dropdown menu
-			dropdown.querySelector('.dropdown-menu')?.classList.remove('is-open');
-			dropdown.querySelector('.dropdown-toggle')?.setAttribute('aria-expanded', 'false');
+			// Gather all active options in this dropdown
+			const activeBtns = Array.from(dropdown.querySelectorAll('[data-form-filter-option].is-active'));
+			const activeSlugs = activeBtns.map(b => b.dataset.formFilterOption).filter(Boolean);
+			const activeLabels = activeBtns.map(b => b.dataset.formFilterLabel || b.dataset.formFilterOption).filter(Boolean);
+
+			if (hiddenInp) {
+				hiddenInp.value = activeSlugs.join(',');
+			}
+
+			const toggleAtom = dropdown.querySelector('.dropdown-toggle');
+			if (activeSlugs.length === 0) {
+				if (toggleBtn) toggleBtn.textContent = baseLabel + ' ▾';
+				if (toggleAtom) toggleAtom.setAttribute('theme', 'ghost');
+			} else if (activeSlugs.length === 1) {
+				if (toggleBtn) toggleBtn.textContent = baseLabel + ' (' + activeLabels[0] + ') ▾';
+				if (toggleAtom) toggleAtom.setAttribute('theme', 'dark');
+			} else {
+				if (toggleBtn) toggleBtn.textContent = baseLabel + ' (' + activeSlugs.length + ') ▾';
+				if (toggleAtom) toggleAtom.setAttribute('theme', 'dark');
+			}
 		});
 
 		// 2. Form Submit
