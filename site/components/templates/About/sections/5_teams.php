@@ -3,7 +3,7 @@
 	<div class="grid gap__2 inner__4">
 		
 		<div class="grid__4 gap__2 relative" data-tabs="hoverable">
-			<div class="span__2 grid place__space-between-start gap__1 " >
+			<div class="span__2 grid place__start-start gap__2 " >
 				<div class="flex align__start gap__01 span__4" data-scroll>
 					<?= snippet('molecules/Header', ['header' => $page->teamsHeader(), 'type' => ['label']]) ?>
 					<?= snippet('molecules/Header', ['header' => $page->teamsHeader(), 'type' => ['heading']]) ?>

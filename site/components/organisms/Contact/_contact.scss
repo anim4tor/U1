@@ -31,15 +31,17 @@
 		padding: 0;
 		gap: 0;
 		text-decoration: none;
-		color: inherit;
-/*		clip-path: circle(45% at 50% 50%);		 */
+		color: var(--color-invert);
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		@include animation((clip-path, transform, width), 600ms);
+		@include animation((clip-path, transform, width, background-color), 600ms);
 		
-		svg path {
-			fill: var(--color-invert);
+		svg {
+			path {
+				fill: var(--color-invert);
+				transition: fill 200ms ease;
+			}
 		}
 
 		[icon] {
@@ -48,6 +50,7 @@
 
 			svg {
 				height: 80%;
+				width: auto;
 			}
 		}
 
@@ -61,13 +64,23 @@
 				min-width: 0;
 				opacity: 0;
 				@include animation;
-				transition-timing-function: cubic-bezier(0.190, 1.000, 0.220, 1.000);;
+				transition-timing-function: cubic-bezier(0.190, 1.000, 0.220, 1.000);
 				visibility: hidden;
 			}
 		}
+
 		&:hover {
 			transition-timing-function: linear(0, 0.011 1.1%, 0.041 2.2%, 0.161 4.6%, 0.323 6.9%, 0.806 13%, 1.028 16.5%, 1.109 18.2%, 1.171 19.9%, 1.214 21.6%, 1.239 23.3%, 1.248 25.8%, 1.228 28.5%, 1.187 31.2%, 1.059 37.7%, 1.005 40.9%, 0.963 44.5%, 0.942 48.1%, 0.943 53.7%, 0.998 65.9%, 1.014 72.6%, 1);
-/*			clip-path: circle(50% at 50% 50%);;*/
+
+			svg path {
+				fill: var(--color-acc) !important;
+			}
+		}
+
+		&:not(:hover) {
+			svg path {
+				fill: var(--color-invert) !important;
+			}
 		}
 	}
 
@@ -83,7 +96,6 @@
 			}
 		}
 	}
-
 }
 
 [data-contact] {

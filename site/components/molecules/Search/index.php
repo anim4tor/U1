@@ -5,7 +5,7 @@
 $query         = get('search') ?? get('q') ?? '';
 $placeholder   = $placeholder ?? t('search-projects', 'Hledat prostor, odvětví...');
 $targetUrl     = $url ?? (isset($page) ? $page->url() : url('projects'));
-$theme         = $theme ?? 'light';
+$theme         = $theme ?? 'ghost';
 ?>
 <div class="project-search" 
      data-project-search 
@@ -22,9 +22,6 @@ $theme         = $theme ?? 'light';
 		<?php endif ?>
 
 		<div class="project-search__pill" theme="<?= $theme ?>">
-			<span class="project-search__icon" aria-hidden="true">
-				<?= svg('public/assets/images/ui/ui_search.svg') ?>
-			</span>
 			<input 
 				type="text" 
 				name="search" 
@@ -47,6 +44,9 @@ $theme         = $theme ?? 'light';
 				&times;
 			</button>
 			<div class="project-search__spinner" aria-hidden="true"></div>
+			<span class="project-search__icon" aria-hidden="true">
+				<?= svg('public/assets/images/ui/ui_search.svg') ?>
+			</span>
 		</div>
 	</form>
 

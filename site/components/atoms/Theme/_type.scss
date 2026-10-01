@@ -108,7 +108,69 @@ $levels: 'small', 'default', 'large', 6, 5, 4, 3, 2, 1;
     }
 }
 
+/*
+    Modifiers: Smaller / Larger
+*/
+$size-modifiers: (
+    'smaller': 0.85,
+    'larger': 1.25
+);
 
+@each $modifier, $breakpoint in $map-grid-props {
+    @if($modifier == '') {
+        @each $mod-name, $mod-scale in $size-modifiers {
+            .#{$mod-name} {
+                --scale: #{$mod-scale};
+                font-size: calc(var(--output-size, 1em) * #{$mod-scale});
+
+                h1, h2, h3, h4, h5, h6, p, a, li, .ff__heading {
+                    font-size: calc(var(--output-size, 1em) * #{$mod-scale});
+                }
+            }
+
+            h1.#{$mod-name},
+            h2.#{$mod-name},
+            h3.#{$mod-name},
+            h4.#{$mod-name},
+            h5.#{$mod-name},
+            h6.#{$mod-name},
+            p.#{$mod-name},
+            a.#{$mod-name},
+            li.#{$mod-name},
+            .ff__heading.#{$mod-name} {
+                --scale: #{$mod-scale};
+                font-size: calc(var(--output-size, 1em) * #{$mod-scale});
+            }
+        }
+    } @else {
+        @include create-mq($breakpoint, 'max') {
+            @each $mod-name, $mod-scale in $size-modifiers {
+                .#{$modifier}\:#{$mod-name} {
+                    --scale: #{$mod-scale};
+                    font-size: calc(var(--output-size, 1em) * #{$mod-scale});
+
+                    h1, h2, h3, h4, h5, h6, p, a, li, .ff__heading {
+                        font-size: calc(var(--output-size, 1em) * #{$mod-scale});
+                    }
+                }
+
+                h1.#{$modifier}\:#{$mod-name},
+                h2.#{$modifier}\:#{$mod-name},
+                h3.#{$modifier}\:#{$mod-name},
+                h4.#{$modifier}\:#{$mod-name},
+                h5.#{$modifier}\:#{$mod-name},
+                h6.#{$modifier}\:#{$mod-name},
+                p.#{$modifier}\:#{$mod-name},
+                a.#{$modifier}\:#{$mod-name},
+                li.#{$modifier}\:#{$mod-name},
+                .ff__heading.#{$modifier}\:#{$mod-name} {
+                    --scale: #{$mod-scale};
+                    font-size: calc(var(--output-size, 1em) * #{$mod-scale});
+                }
+            }
+        }
+    }
+}
 
 /*
     Body

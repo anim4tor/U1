@@ -2,7 +2,7 @@
 
 	<div class="grid__3 gap__2 mobile:grid__1 inner__4 mobile:inner-x__1 relative z__1" data-carousel>
 		<div data-scroll class="flex align__start gap__01 span__2 relative">
-			<h3 class="strong"><?= t('related-articles') ?></h3>
+			<h2 class="smaller"><?= t('related-articles') ?></h2>
 		</div>
 		<div class="flex gap__02 justify__end align__end ">
 			<button data-carousel-prev class="button upper" theme="ghost" hover="dark"><span class="icon"><?= svg('public/assets/images/ui/ui_arrow-left.svg') ?></span></button>

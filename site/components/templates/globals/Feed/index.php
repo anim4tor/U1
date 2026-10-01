@@ -3,24 +3,29 @@
 
 	<div data-pane-container class="relative z__1">
 		<div class="grid__stack place__start-start inner__4 mobile:inner-x__1">
-			<div data-pane="blog" data-scroll data-scroll-ignore data-tab-reveal class="w__full">
-				<div data-carousel class="grid__3 gap-x__1 gap-y__2 mobile:grid__1">
-					<div data-scroll class="flex align__start gap__01 span__2 relative">
+			<div class="w__full z__2 pointer-events-none">
+				<div class="grid__3 gap-x__1 gap-y__2 mobile:grid__1">
+					<div data-scroll class="flex align__start gap__01 span__2 relative pointer-events-auto">
 						<div class="flex gap__1 align__center" data-scroll>
-							<h2 data-tab="blog" class="" data-reveal-text>Články</h2>
+							<h2 data-tab="blog" class="smaller cursor__pointer" data-reveal-text>Články</h2>
 							<div class="w__03 h__03 bg__text op__4"></div>
-							<h2 data-tab="socials" class="" data-reveal-text>Sítě</h2>
+							<h2 data-tab="socials" class="smaller cursor__pointer" data-reveal-text>Sítě</h2>
 							<div class="w__03 h__03 bg__text op__4"></div>
-							<h2 data-tab="media" class="" data-reveal-text>Média</h2>
+							<h2 data-tab="media" class="smaller cursor__pointer" data-reveal-text>Média</h2>
 						</div>
 					</div>
-					
+				</div>
+			</div>
+
+			<div data-pane="blog" data-scroll data-scroll-ignore data-tab-reveal class="w__full">
+				<div data-carousel class="grid__3 gap-x__1 gap-y__2 mobile:grid__1">
+					<div class="span__2"></div>
 					<div class="flex gap__02 justify__end align__end">
 						<button data-carousel-prev class="button upper" theme="ghost" hover="dark"><span class="icon"><?= svg('public/assets/images/ui/ui_arrow-left.svg') ?></span></button>
 						<button data-carousel-next class="button upper" theme="ghost" hover="dark"><span class="icon"><?= svg('public/assets/images/ui/ui_arrow-right.svg') ?></span></button>
 					</div>
 					<div class="span__3" data-carousel-scroll theme="light">
-						<ol class="flex justify__start align__start no__wrap gap__1 " data-carousel-slides >	
+						<ol class="flex justify__start align__start no__wrap gap__1" data-carousel-slides>	
 						<?php foreach (collection('Blog') as $feed) : ?>
 							<li data-slide class="vw__5">	
 								<?= snippet('molecules/Feed/list', ['item' => $feed, 'type' => 'blog']) ?>
@@ -32,21 +37,13 @@
 			</div>
 			<div data-pane="socials" data-scroll data-scroll-ignore data-tab-reveal class="w__full">
 				<div data-carousel class="grid__3 gap-x__1 gap-y__2 mobile:grid__1">
-					<div data-scroll class="flex align__start gap__01 span__2 relative">
-						<div class="flex gap__1 align__center" data-scroll>
-							<h2 data-tab="blog" class="" data-reveal-text>Články</h2>
-							<div class="w__03 h__03 bg__text op__4"></div>
-							<h2 data-tab="socials" class="" data-reveal-text>Sítě</h2>
-							<div class="w__03 h__03 bg__text op__4"></div>
-							<h2 data-tab="media" class="" data-reveal-text>Média</h2>
-						</div>
-					</div>
+					<div class="span__2"></div>
 					<div class="flex gap__02 justify__end align__end">
 						<button data-carousel-prev class="button upper" theme="ghost" hover="dark"><span class="icon"><?= svg('public/assets/images/ui/ui_arrow-left.svg') ?></span></button>
 						<button data-carousel-next class="button upper" theme="ghost" hover="dark"><span class="icon"><?= svg('public/assets/images/ui/ui_arrow-right.svg') ?></span></button>
 					</div>
 					<div class="span__3" data-carousel-scroll theme="light">
-						<ol class="flex justify__start align__start no__wrap gap__1 " data-carousel-slides >	
+						<ol class="flex justify__start align__start no__wrap gap__1" data-carousel-slides>	
 						<?php foreach (collection('Socials') as $post) : ?>
 							<li data-slide class="vw__5 aspect__1/1">	
 								<?= snippet('molecules/Feed/list', ['item' => $post, 'type' => 'social']) ?>
@@ -58,21 +55,13 @@
 			</div>
 			<div data-pane="media" data-scroll data-scroll-ignore data-tab-reveal class="w__full">
 				<div data-carousel class="grid__3 gap-x__1 gap-y__2 mobile:grid__1">
-					<div data-scroll class="flex align__start gap__01 span__2 relative">
-						<div class="flex gap__1 align__center" data-scroll>
-							<h2 data-tab="blog" class="" data-reveal-text>Články</h2>
-							<div class="w__03 h__03 bg__text op__4"></div>
-							<h2 data-tab="socials" class="" data-reveal-text>Sítě</h2>
-							<div class="w__03 h__03 bg__text op__4"></div>
-							<h2 data-tab="media" class="" data-reveal-text>Média</h2>
-						</div>
-					</div>
+					<div class="span__2"></div>
 					<div class="flex gap__02 justify__end align__end">
 						<button data-carousel-prev class="button upper" theme="ghost" hover="dark"><span class="icon"><?= svg('public/assets/images/ui/ui_arrow-left.svg') ?></span></button>
 						<button data-carousel-next class="button upper" theme="ghost" hover="dark"><span class="icon"><?= svg('public/assets/images/ui/ui_arrow-right.svg') ?></span></button>
 					</div>
 					<div class="span__3" data-carousel-scroll theme="light">
-						<ol class="flex justify__start align__start no__wrap gap__1 " data-carousel-slides >	
+						<ol class="flex justify__start align__start no__wrap gap__1" data-carousel-slides>	
 						<?php foreach (collection('Projects') as $feed) : ?>
 							<li data-slide class="vw__5 aspect__1/1">	
 								<?= snippet('molecules/Feed/list', ['item' => $feed, 'type' => 'media']) ?>

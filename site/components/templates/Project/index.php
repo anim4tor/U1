@@ -154,7 +154,7 @@
 
 <?= snippet('templates/globals/Projects/related', ['projects' => $similarProjects]) ?>
 
-<?php $next = $page->nextListed() ?? collection('Projects')->first(); ?>
+<!-- <?php $next = $page->nextListed() ?? collection('Projects')->first(); ?>
 <?php if ($next) : ?>
 	<section class="about radius" theme="invert">
 	<div class="grid__4 gap__2 place__stretch-stretch inner__4">
@@ -185,7 +185,7 @@
 
 	</div>
 </section>
-<?php endif; ?>
+<?php endif; ?> -->
 
 <?= snippet('templates/globals/Feed') ?>
 <?= snippet('templates/globals/Cta') ?>

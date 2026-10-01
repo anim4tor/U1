@@ -286,6 +286,10 @@ class Contact {
 
         this.DOM.dialog.setAttribute('aria-hidden', 'true');
 
+        if (document.activeElement && typeof document.activeElement.blur === 'function') {
+            document.activeElement.blur();
+        }
+
         if (this.tabs) {
             this.tabs.setActive(0, true);
         }

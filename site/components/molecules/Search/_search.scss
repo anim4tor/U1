@@ -4,6 +4,7 @@
 
 @import "../../atoms/Media/media";
 @import "../../atoms/Animation/animation";
+@import "../../atoms/Theme/border";
 
 .project-search {
 	position: relative;
@@ -18,14 +19,34 @@
 		display: flex;
 		align-items: center;
 		height: var(--button-size, 40px);
-		padding: 0 0.85rem 0 1rem;
+		padding: 0 1rem;
 		border-radius: var(--button-radius, 2em);
-		background: var(--background, #ffffff);
-		color: var(--col, var(--color-dark, #000000));
-		transition: border-color 0.25s ease, box-shadow 0.25s ease, width 0.3s ease, background-color 0.25s ease;
-		width: 220px;
+		background: var(--background, transparent);
+		color: var(--col, var(--color-text, currentColor));
+		transition: border-color 0.25s ease, box-shadow 0.25s ease, width 0.3s ease, background-color 0.25s ease, color 0.25s ease;
+		width: 200px;
 		position: relative;
 		box-sizing: border-box;
+
+		&[theme="ghost"] {
+			--background: transparent;
+			--col: var(--color-text);
+			@include border;
+
+			&:hover {
+				@include border('', 40%);
+			}
+		}
+
+		&[theme="invert-ghost"] {
+			--background: transparent;
+			--col: var(--color-invert);
+			@include border;
+
+			&:hover {
+				@include border('', 40%);
+			}
+		}
 
 		&[theme="dark"] {
 			--background: var(--color-dark);
@@ -40,8 +61,9 @@
 		}
 
 		&:focus-within {
-			width: 280px;
-			box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+			width: 260px;
+			box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+			@include border('', 60%);
 		}
 
 		@media (max-width: 768px) {
@@ -58,7 +80,8 @@
 		justify-content: center;
 		width: 16px;
 		height: 16px;
-		margin-right: 0.55rem;
+		margin-left: 0.55rem;
+		margin-right: 0;
 		flex-shrink: 0;
 		opacity: 0.6;
 		pointer-events: none;
