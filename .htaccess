@@ -33,6 +33,10 @@ RewriteRule ^content/(.*) index.php [L]
 RewriteRule ^kirby/(.*) index.php [L]
 
 # make site links work
+# Do not rewrite subfolder projects (e.g. /v1/, /v2/, /v3/, /v4/, /design/)
+RewriteCond %{REQUEST_URI} ^/projects/U1/(v[0-9]+|design)/ [NC]
+RewriteRule ^ - [L]
+
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*) index.php

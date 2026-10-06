@@ -367,6 +367,23 @@ if (!empty($subfolder) && $subfolder !== 'root') {
     if (file_exists($parentEnv) && !file_exists($targetEnv)) {
         @copy($parentEnv, $targetEnv);
     }
+
+    // Configure .htaccess in the subfolder so Kirby routes correctly within /projects/U1/{subfolder}/
+    $subHtaccess = <<<EOT
+<IfModule mod_rewrite.c>
+RewriteEngine on
+RewriteBase /projects/U1/{$subfolder}/
+
+RewriteRule (^|/)\.(?!well-known\/) index.php [L]
+RewriteRule ^content/(.*) index.php [L]
+RewriteRule ^kirby/(.*) index.php [L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*) index.php [L]
+</IfModule>
+EOT;
+    @file_put_contents($projectDir . '/.htaccess', $subHtaccess);
 }
 
 $duration = round((microtime(true) - $startTime) * 1000, 2);
