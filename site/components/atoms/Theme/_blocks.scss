@@ -1,0 +1,473 @@
+/* ==========================================================================
+   U1 DESIGN SYSTEM - BLOCKS & GRID FRAMEWORK
+   Document: "Systém bloků U1" (1. 10. 2026)
+   Reference viewport: 1440px
+   Scales proportionally for smaller and larger screens via clamp() / calc()
+   ========================================================================== */
+
+:root {
+  /* 12-column grid layout tokens (Reference 1440px) */
+  /* Margin: 80px */
+  --u1-margin-x: clamp(20px, calc(80 / 1440 * 100vw), 120px);
+  /* Column Gap: 40px */
+  --u1-gap: clamp(16px, calc(40 / 1440 * 100vw), 50px);
+  /* Block Padding Y: 100px */
+  --u1-block-padding-y: clamp(48px, calc(100 / 1440 * 100vw), 140px);
+  /* Header -> Content Gap: 60px */
+  --u1-header-gap: clamp(32px, calc(60 / 1440 * 100vw), 80px);
+  /* Label -> H2 -> Perex Gap: 20px */
+  --u1-header-step: clamp(12px, calc(20 / 1440 * 100vw), 26px);
+  /* Photo aspect ratio: 4:3, border-radius: 10px */
+  --u1-photo-aspect: 4 / 3;
+  --u1-photo-radius: 10px;
+}
+
+/* Base U1 Block Container */
+.u1-block {
+  padding-top: var(--u1-block-padding-y);
+  padding-bottom: var(--u1-block-padding-y);
+  padding-left: var(--u1-margin-x);
+  padding-right: var(--u1-margin-x);
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+
+  /* Reset inner paddings on nested containers that might inherit older classes */
+  & > .grid,
+  & > .grid__12,
+  & > .u1-grid {
+    width: 100%;
+  }
+}
+
+/* 12-column Grid */
+.u1-grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--u1-gap);
+  row-gap: var(--u1-gap);
+  width: 100%;
+  box-sizing: border-box;
+
+  @media (max-width: 900px) {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+
+  @media (max-width: 600px) {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* Unified Photo Aspect & Radius */
+.u1-photo {
+  aspect-ratio: var(--u1-photo-aspect);
+  border-radius: var(--u1-photo-radius);
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+
+  img, video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--u1-photo-radius);
+    display: block;
+  }
+}
+
+/* Unified Block Header (Záhlaví) */
+.u1-header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--u1-header-step);
+  align-items: flex-start;
+  margin-bottom: var(--u1-header-gap);
+
+  .u1-label,
+  .label,
+  label {
+    font-family: var(--ff-body, 'Inter', sans-serif);
+    font-size: var(--font-size-small, var(--font-size-small-fluid));
+    line-height: var(--line-height-small, var(--line-height-small-fluid));
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: var(--ls-body, normal);
+    margin: 0;
+  }
+
+  h2,
+  .u1-h2 {
+    font-family: var(--ff-heading, 'ABCArizonaFlare', serif);
+    font-size: var(--font-size-2, var(--font-size-2-fluid));
+    line-height: var(--line-height-2, var(--line-height-2-fluid));
+    font-weight: 500;
+    margin: 0;
+  }
+
+  .u1-perex,
+  p.perex {
+    font-family: var(--ff-body, 'Inter', sans-serif);
+    font-size: var(--font-size-default, var(--font-size-default-fluid));
+    line-height: var(--line-height-default, var(--line-height-default-fluid));
+    margin: 0;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   TYP 1: Dělený blok (text 6 sloupců | fotka 6 sloupců)
+   - Smí se zrcadlit (.u1-type-1--reverse)
+   - Nahoře štítek, H2 a perex jako jedna skupina.
+   - Dole seznam, tlačítko nebo šipky, na spodní hraně fotky.
+   - Dvě hrany: horní hrana štítku = horní hrana fotky,
+     poslední prvek textu = spodní hrana fotky.
+   -------------------------------------------------------------------------- */
+.u1-type-1 {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--u1-gap);
+  align-items: stretch;
+
+  .u1-type-1__col-text {
+    grid-column: span 6;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+  }
+
+  .u1-type-1__col-media {
+    grid-column: span 6;
+    display: flex;
+    align-items: stretch;
+
+    .u1-photo {
+      height: 100%;
+      min-height: 100%;
+    }
+  }
+
+  &.u1-type-1--reverse {
+    .u1-type-1__col-text {
+      grid-column: 7 / span 6;
+      order: 2;
+    }
+    .u1-type-1__col-media {
+      grid-column: 1 / span 6;
+      order: 1;
+    }
+  }
+
+  .u1-type-1__top {
+    display: flex;
+    flex-direction: column;
+    gap: var(--u1-header-step);
+    align-items: flex-start;
+  }
+
+  .u1-type-1__bottom {
+    margin-top: auto;
+    padding-top: var(--u1-header-gap);
+  }
+
+  .u1-type-1__quote {
+    font-family: var(--ff-heading, 'ABCArizonaFlare', serif);
+    font-size: var(--font-size-3, var(--font-size-3-fluid));
+    line-height: var(--line-height-3, var(--line-height-3-fluid));
+  }
+
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr;
+    gap: var(--u1-gap);
+
+    .u1-type-1__col-text,
+    .u1-type-1__col-media,
+    &.u1-type-1--reverse .u1-type-1__col-text,
+    &.u1-type-1--reverse .u1-type-1__col-media {
+      grid-column: 1 / -1;
+      order: initial;
+    }
+  }
+}
+
+/* --------------------------------------------------------------------------
+   TYP 2: Záhlaví vlevo (6 sloupců) | Položky vpravo (2 sloupce = 6 sloupců)
+   - Položka: ikona 24px, název 24px, text 16px. Bez ikony jen text 16px.
+   -------------------------------------------------------------------------- */
+.u1-type-2 {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--u1-gap);
+  align-items: start;
+
+  .u1-type-2__header {
+    grid-column: span 6;
+    display: flex;
+    flex-direction: column;
+    gap: var(--u1-header-step);
+  }
+
+  .u1-type-2__items {
+    grid-column: span 6;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: var(--u1-gap);
+    row-gap: var(--u1-header-step);
+  }
+
+  .u1-type-2__item {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--u1-header-step) * 0.5);
+
+    .u1-type-2__item-icon {
+      width: 24px;
+      height: 24px;
+      flex-shrink: 0;
+
+      svg, img {
+        width: 100%;
+        height: 100%;
+        display: block;
+      }
+    }
+
+    .u1-type-2__item-title {
+      font-family: var(--ff-body, 'Inter', sans-serif);
+      font-size: var(--font-size-large, var(--font-size-large-fluid));
+      line-height: var(--line-height-large, var(--line-height-large-fluid));
+      font-weight: 500;
+      margin: 0;
+    }
+
+    .u1-type-2__item-text {
+      font-family: var(--ff-body, 'Inter', sans-serif);
+      font-size: var(--font-size-default, var(--font-size-default-fluid));
+      line-height: var(--line-height-default, var(--line-height-default-fluid));
+      margin: 0;
+    }
+  }
+
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr;
+    gap: var(--u1-gap);
+
+    .u1-type-2__header,
+    .u1-type-2__items {
+      grid-column: 1 / -1;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .u1-type-2__items {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+/* --------------------------------------------------------------------------
+   TYP 3: Mřížka karet (3 karty po 4 sloupcích nebo 4 karty po 3 sloupcích)
+   - Všechny karty stejně široké, stejná horní hrana, fotka 4:3.
+   - Pořadí pod fotkou: číslo / rok (36px Arizona nebo štítek) -> název 24px Inter -> text 16px Inter.
+   -------------------------------------------------------------------------- */
+.u1-type-3 {
+  width: 100%;
+
+  .u1-type-3__cards {
+    display: grid;
+    column-gap: var(--u1-gap);
+    row-gap: var(--u1-gap);
+    width: 100%;
+
+    &.u1-type-3__cards--3col {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    &.u1-type-3__cards--4col {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+  }
+
+  .u1-card {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--u1-header-step) * 0.75);
+
+    .u1-card__figure {
+      aspect-ratio: var(--u1-photo-aspect);
+      border-radius: var(--u1-photo-radius);
+      overflow: hidden;
+      width: 100%;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+    }
+
+    .u1-card__number {
+      font-family: var(--ff-heading, 'ABCArizonaFlare', serif);
+      font-size: var(--font-size-3, var(--font-size-3-fluid));
+      line-height: var(--line-height-3, var(--line-height-3-fluid));
+      margin: 0;
+    }
+
+    .u1-card__year {
+      font-family: var(--ff-body, 'Inter', sans-serif);
+      font-size: var(--font-size-small, var(--font-size-small-fluid));
+      text-transform: uppercase;
+      margin: 0;
+    }
+
+    .u1-card__title {
+      font-family: var(--ff-body, 'Inter', sans-serif);
+      font-size: var(--font-size-large, var(--font-size-large-fluid));
+      line-height: var(--line-height-large, var(--line-height-large-fluid));
+      font-weight: 500;
+      margin: 0;
+    }
+
+    .u1-card__text {
+      font-family: var(--ff-body, 'Inter', sans-serif);
+      font-size: var(--font-size-default, var(--font-size-default-fluid));
+      line-height: var(--line-height-default, var(--line-height-default-fluid));
+      margin: 0;
+    }
+  }
+
+  @media (max-width: 900px) {
+    .u1-type-3__cards.u1-type-3__cards--3col,
+    .u1-type-3__cards.u1-type-3__cards--4col {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 600px) {
+    .u1-type-3__cards.u1-type-3__cards--3col,
+    .u1-type-3__cards.u1-type-3__cards--4col {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+/* --------------------------------------------------------------------------
+   TYP 4: Celoplošná fotka (Hero / Naše hodnoty / CTA)
+   - Fotka přes celou šířku, ztmavená pro bílý text.
+   - Štítek vlevo nahoře, nadpis a text vlevo dole (sloupce 1-6).
+   - Tlačítko vpravo dole na stejné spodní hraně jako text.
+   -------------------------------------------------------------------------- */
+.u1-type-4 {
+  position: relative;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: var(--u1-block-padding-y) var(--u1-margin-x);
+  color: #FFFFFF;
+  overflow: hidden;
+
+  .u1-type-4__bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+
+    img, video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.45) 0%, rgba(0, 0, 0, 0.75) 100%);
+      z-index: 1;
+    }
+  }
+
+  .u1-type-4__top {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .u1-type-4__bottom {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    column-gap: var(--u1-gap);
+    align-items: end;
+
+    .u1-type-4__content {
+      grid-column: span 6;
+      display: flex;
+      flex-direction: column;
+      gap: var(--u1-header-step);
+    }
+
+    .u1-type-4__action {
+      grid-column: 7 / span 6;
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-end;
+    }
+  }
+
+  @media (max-width: 900px) {
+    .u1-type-4__bottom {
+      grid-template-columns: 1fr;
+      gap: var(--u1-gap);
+
+      .u1-type-4__content,
+      .u1-type-4__action {
+        grid-column: 1 / -1;
+        justify-content: flex-start;
+      }
+    }
+  }
+}
+
+/* --------------------------------------------------------------------------
+   TYP 5: Pás (Napsali o nás, Patička)
+   - Štítek ve sloupcích 1-3, obsah ve sloupcích 4-12.
+   - Nízký, oddělovací, bez nadpisu.
+   -------------------------------------------------------------------------- */
+.u1-type-5 {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--u1-gap);
+  align-items: center;
+  padding-top: calc(var(--u1-block-padding-y) * 0.4);
+  padding-bottom: calc(var(--u1-block-padding-y) * 0.4);
+  padding-left: var(--u1-margin-x);
+  padding-right: var(--u1-margin-x);
+
+  .u1-type-5__label {
+    grid-column: span 3;
+    font-family: var(--ff-body, 'Inter', sans-serif);
+    font-size: var(--font-size-small, var(--font-size-small-fluid));
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  .u1-type-5__content {
+    grid-column: 4 / span 9;
+    display: flex;
+    align-items: center;
+  }
+
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr;
+    gap: var(--u1-header-step);
+
+    .u1-type-5__label,
+    .u1-type-5__content {
+      grid-column: 1 / -1;
+    }
+  }
+}

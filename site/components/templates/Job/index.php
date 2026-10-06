@@ -45,27 +45,31 @@
 	</div>
 </section>
 
-<section class="benefits radius border__top" theme="invert">
-	<div data-scroll class="grid__4 gap__2 mobile:grid__1 inner__4 mobile:inner-x__1 " data-tabs="default">
-		<div class="span__2 grid gap__05 place__start-start">
-			<h2 data-tab="benefits">Benefity</h2>
-			<h2 data-tab="requirements">Požadujeme</h2>
+<section class="benefits u1-block border__top" theme="invert">
+	<div data-scroll class="u1-type-2" data-tabs="default">
+		<div class="u1-type-2__header">
+			<div class="u1-label"><?= t('benefits-requirements', 'BENEFITY / POŽADUJEME') ?></div>
+			<div class="flex gap__1 align__baseline">
+				<h2 data-tab="benefits" class="u1-h2 cursor__pointer">Benefity</h2>
+				<span class="op__4 font__size__3 ff__heading">/</span>
+				<h2 data-tab="requirements" class="u1-h2 cursor__pointer op__5">Požadujeme</h2>
+			</div>
 		</div>
-		<div data-pane-container class="span__2">
-			<div class="grid__stack">
-				<ul data-pane="benefits" class="grid__2 place__start-start gap__1 mobile:inner-x__0">
+		<div data-pane-container class="u1-type-2__items">
+			<div class="grid__stack span__2">
+				<ul data-pane="benefits" class="grid grid__2 gap__1 mobile:grid__1">
 					<?php foreach ($page->benefits()->toStructure() as $item) : ?>
-						<li class="flex align__start gap__05">
-							<div class=""><?= svg('site/assets/images/ui/list-checkmark.svg') ?></div>
-							<span class="font__size__default"><?= $item->text() ?></span>
+						<li class="flex align__start gap__05 u1-type-2__item">
+							<div class="flex-shrink__0 w__1 h__1 op__7"><?= svg('site/assets/images/ui/list-checkmark.svg') ?></div>
+							<span class="u1-type-2__item-text"><?= $item->text() ?></span>
 						</li>
 					<?php endforeach; ?>
 				</ul>
-				<ul data-pane="requirements" class="grid__2 place__start-start gap__1 mobile:inner-x__0">
+				<ul data-pane="requirements" class="grid grid__2 gap__1 mobile:grid__1">
 					<?php foreach ($page->requirements()->toStructure() as $item) : ?>
-						<li class="flex align__start gap__05">
-							<div class=""><?= svg('site/assets/images/ui/list-checkmark.svg') ?></div>
-							<span class="font__size__default"><?= $item->text() ?></span>
+						<li class="flex align__start gap__05 u1-type-2__item">
+							<div class="flex-shrink__0 w__1 h__1 op__7"><?= svg('site/assets/images/ui/list-checkmark.svg') ?></div>
+							<span class="u1-type-2__item-text"><?= $item->text() ?></span>
 						</li>
 					<?php endforeach; ?>
 				</ul>
@@ -79,38 +83,32 @@ $whyItems = null;
 try { $whyItems = $page->whyus()->toStructure(); } catch (\Throwable $e) {}
 ?>
 <?php if ($whyItems && $whyItems->isNotEmpty()) : ?>
-<section class="why-us radius" theme="light">
-	<style>
-		.why-us svg { width: 36px; height: 36px; display: block; flex-shrink: 0; }
-	</style>
-	<div class="grid__4 gap__2 place__stretch-stretch inner__4 mobile:grid__1 mobile:inner__2" data-scroll>
-		<div class="span__2">
-			<div data-scroll class="flex align__start gap__01 span__2">
+<section class="why-us u1-block" theme="light">
+	<div class="u1-type-2" data-scroll>
+		<div class="u1-type-2__header">
+			<div class="u1-header">
 				<?= snippet('molecules/Header', ['header' => $page->whyusHeader(), 'type' => ['label']]) ?>
 				<?= snippet('molecules/Header', ['header' => $page->whyusHeader(), 'type' => ['heading']]) ?>
 			</div>
-
 		</div>
-		<div class="span__2">
-			<div class="grid__2 gap__1 mobile:grid__1">
-				<?php foreach ($whyItems as $why) : ?>
-					<?php
-					$iconName = $why->icon()->value();
-					$svgPath  = 'site/assets/images/benefits/small/' . $iconName . '.svg';
-					$hasSvg   = $iconName && file_exists(kirby()->root('index') . '/' . $svgPath);
-					?>
-					<div class="flex align__center gap__05 inner-y__02">
-						<div class="flex align__center justify__center flex-shrink__0" style="width: 36px; height: 36px; min-width: 36px;">
-							<?php if ($hasSvg) : ?>
-								<?= svg($svgPath) ?>
-							<?php elseif ($img = $why->image()->toFile()) : ?>
-								<?= snippet('atoms/Image', ['img' => $img, 'reveal' => false]) ?>
-							<?php endif ?>
-						</div>
-						<span class="font__size__large ff__body"><?= $why->text() ?></span>
+		<div class="u1-type-2__items">
+			<?php foreach ($whyItems as $why) : ?>
+				<?php
+				$iconName = $why->icon()->value();
+				$svgPath  = 'site/assets/images/benefits/small/' . $iconName . '.svg';
+				$hasSvg   = $iconName && file_exists(kirby()->root('index') . '/' . $svgPath);
+				?>
+				<div class="u1-type-2__item flex flex-row align__start gap__05">
+					<div class="u1-type-2__item-icon">
+						<?php if ($hasSvg) : ?>
+							<?= svg($svgPath) ?>
+						<?php elseif ($img = $why->image()->toFile()) : ?>
+							<?= snippet('atoms/Image', ['img' => $img, 'reveal' => false]) ?>
+						<?php endif ?>
 					</div>
-				<?php endforeach ?>
-			</div>
+					<div class="u1-type-2__item-text"><?= $why->text() ?></div>
+				</div>
+			<?php endforeach ?>
 		</div>
 	</div>
 </section>
@@ -121,27 +119,19 @@ $processSteps = null;
 try { $processSteps = $page->process()->toStructure(); } catch (\Throwable $e) {}
 ?>
 <?php if ($processSteps && $processSteps->isNotEmpty()) : ?>
-<section class="hiring-process radius border__bottom" theme="dark">
-	<div class="grid gap__2 inner__4 mobile:inner__2" data-scroll>
-		<div>
+<section class="hiring-process u1-block border__bottom" theme="dark">
+	<div class="u1-type-3" data-scroll>
+		<div class="u1-header">
 			<?php if ($page->processHeader()->isNotEmpty() && $page->processHeader()->toBlocks()->isNotEmpty()) : ?>
-				<div data-scroll class="flex align__start gap__01 span__2">
-					<?= snippet('molecules/Header', ['header' => $page->processHeader(), 'type' => ['label']]) ?>
-					<?= snippet('molecules/Header', ['header' => $page->processHeader(), 'type' => ['heading']]) ?>
-				</div>
+				<?= snippet('molecules/Header', ['header' => $page->processHeader(), 'type' => ['label']]) ?>
+				<?= snippet('molecules/Header', ['header' => $page->processHeader(), 'type' => ['heading']]) ?>
 			<?php else : ?>
-
-				<div data-scroll class="flex align__start gap__01 span__2">
-					<div class="w__03 h__03 bg__acc"></div>
-					<h2 class="font__size__2 ff__heading wrap" data-reveal-text="lines">
-						Každá spolupráce<br>začíná kontaktem
-					</h2>
-				</div>
-				
+				<div class="u1-label"><?= t('recruitment-process', 'PRŮBĚH NÁBORU') ?></div>
+				<h2 class="u1-h2" data-reveal-text="lines">Každá spolupráce začíná kontaktem</h2>
 			<?php endif ?>
 		</div>
 
-		<div class="grid__3 gap__1 mobile:grid__1 place__stretch-stretch">
+		<div class="u1-type-3__cards u1-type-3__cards--3col">
 			<?php $idx = 1; ?>
 			<?php foreach ($processSteps as $step) : ?>
 				<?php 
@@ -149,21 +139,17 @@ try { $processSteps = $page->process()->toStructure(); } catch (\Throwable $e) {
 				$img = $step->image()->toFile();
 				$fallbackImg = 'site/assets/images/job/step_0' . $idx . '.png';
 				?>
-				<div class="grid gap__1 place__start-stretch" data-scroll>
-					<div class="img__radius overflow__hidden vh__8">
+				<div class="u1-card" data-scroll>
+					<div class="u1-card__figure">
 						<?php if ($img) : ?>
-							<?= snippet('atoms/Image', ['img' => $img, 'reveal' => true]) ?>
+							<?= snippet('atoms/Image', ['img' => $img, 'reveal' => true, 'css' => 'w__full h__full']) ?>
 						<?php elseif (file_exists(kirby()->root('index') . '/' . $fallbackImg)) : ?>
 							<img src="<?= url($fallbackImg) ?>" alt="<?= $step->title() ?>" class="is-loaded w__full h__full" style="object-fit: cover;">
 						<?php endif ?>
 					</div>
-					<div class="flex align__start gap__2">
-						<span class="color__acc font__size__1 ff__heading leading__none -wrap-t__02"><?= $num ?></span>
-						<div class="grid gap__05">
-							<h3 class="font__size__3 ff__heading"><?= $step->title() ?></h3>
-							<p class=""><?= $step->text() ?></p>
-						</div>
-					</div>
+					<div class="u1-card__number color__acc"><?= $num ?></div>
+					<h3 class="u1-card__title"><?= $step->title() ?></h3>
+					<p class="u1-card__text op__7"><?= $step->text() ?></p>
 				</div>
 				<?php $idx++; ?>
 			<?php endforeach ?>

@@ -73,14 +73,13 @@
     --btn-border:              1px;
 
     /* ==========================================================================
-       INDIVIDUAL TYPOGRAPHY OVERRIDES
+       INDIVIDUAL TYPOGRAPHY OVERRIDES (U1 System: Arizona Flare for H1/H2, Inter for rest)
        ========================================================================== */
-    --font-family-1:           'Inter';
+    --font-family-1:           'ABCArizonaFlare';
     --font-weight-1:           500;
-    --font-family-2:           'Inter';
-    --font-size-2:             max(1.5rem, 3.5vw);
+    --font-family-2:           'ABCArizonaFlare';
     --font-weight-2:           500;
-    --font-family-3:           'Inter';
+    --font-family-3:           'ABCArizonaFlare';
     --font-weight-3:           400;
     --letter-spacing-3:        0em;
     --font-family-4:           'Inter';

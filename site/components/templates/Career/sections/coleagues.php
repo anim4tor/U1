@@ -1,18 +1,26 @@
 <?php if ($page->coleagues()->isNotEmpty()) : ?>
-<section class="about radius" theme="light">
-	<div class="grid__4 gap__2 place__stretch-stretch inner-x__4 inner-y__4" data-scroll>
-		<div data-scroll class="flex align__start gap__01 span__2">
+<section class="colleagues u1-block" theme="light">
+	<div class="u1-type-3" data-scroll>
+		<div class="u1-header">
 			<?= snippet('molecules/Header', ['header' => $page->coleaguesHeader(), 'type' => ['label']]) ?>
 			<?= snippet('molecules/Header', ['header' => $page->coleaguesHeader(), 'type' => ['heading']]) ?>
 		</div>
-		<div class="span__4 grid__3 gap__2">
-			<?php foreach ($page->coleagues()->toStructure() as $benefit) : ?>
-				<div class="grid gap__05">
-					<figure class="vh__8"><?= $benefit->image()->toFile() ?></figure>
-					<div class="flex justify__space-between align__start gap__2">
-						<h3 class=""><?= $benefit->title()->inline() ?></h3>
-						<p class="op__7"><?= $benefit->text()->inline() ?></p>
+
+		<div class="u1-type-3__cards u1-type-3__cards--3col">
+			<?php foreach ($page->coleagues()->toStructure() as $colleague) : ?>
+				<div class="u1-card" data-scroll>
+					<div class="u1-card__figure">
+						<?php if ($img = $colleague->image()->toFile()) : ?>
+							<?= snippet('atoms/Image', ['img' => $img, 'reveal' => true, 'css' => 'w__full h__full']) ?>
+						<?php endif ?>
 					</div>
+					<?php if ($colleague->title()->isNotEmpty()) : ?>
+						<h3 class="u1-card__number color__acc"><?= $colleague->title()->inline() ?></h3>
+					<?php endif ?>
+					<?php if ($colleague->name()->isNotEmpty()) : ?>
+						<h4 class="u1-card__title"><?= $colleague->name()->inline() ?></h4>
+					<?php endif ?>
+					<p class="u1-card__text op__7"><?= $colleague->text()->inline() ?></p>
 				</div>
 			<?php endforeach; ?>
 		</div>
