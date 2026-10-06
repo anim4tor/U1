@@ -1,27 +1,16 @@
 <?php if ($page->culture()->isNotEmpty()) : ?>
-<section class="benefits-icons u1-block" theme="invert">
-	<div class="u1-type-2" data-scroll>
-		<div class="u1-type-2__header">
-			<div class="u1-header">
-				<?= snippet('molecules/Header', ['header' => $page->cultureHeader(), 'type' => ['label']]) ?>
-				<?php if ($page->cultureHeader()->isNotEmpty() && $page->cultureHeader()->toBlocks()->filterBy('type', 'heading')->isNotEmpty()) : ?>
-					<?= snippet('molecules/Header', ['header' => $page->cultureHeader(), 'type' => ['heading']]) ?>
-				<?php else : ?>
-					<h2 class="u1-h2"><?= t('benefits', 'Benefity') ?></h2>
-				<?php endif ?>
-			</div>
+<section class="about radius" theme="invert">
+	<div class="grid__4 gap__2 place__stretch-stretch inner-x__4 inner-y__4" data-scroll>
+		<div data-scroll class="flex align__start gap__01 span__1">
+			<?= snippet('molecules/Header', ['header' => $page->cultureHeader(), 'type' => ['label']]) ?>
 		</div>
-
-		<div class="u1-type-2__items">
+		<div></div>
+		<div class="relative span__2 grid__2 gap__2 place__start-start" data-scroll >
 			<?php foreach ($page->culture()->toStructure() as $benefit) : ?>
-				<div class="u1-type-2__item">
-					<?php if ($img = $benefit->image()->toFile()) : ?>
-						<div class="u1-type-2__item-icon">
-							<img src="<?= $img->url() ?>" alt="<?= $benefit->label()->inline() ?>">
-						</div>
-					<?php endif ?>
-					<h3 class="u1-type-2__item-title"><?= $benefit->label()->inline() ?></h3>
-					<p class="u1-type-2__item-text op__7"><?= $benefit->text()->inline() ?></p>
+				<div class="grid gap__1">
+					<figure class="h__3 w__3"><?= $benefit->image()->toFile() ?></figure>
+					<h3 class="s"><?= $benefit->label()->inline() ?></h3>
+					<p class="op__7"><?= $benefit->text()->inline() ?></p>
 				</div>
 			<?php endforeach; ?>
 		</div>

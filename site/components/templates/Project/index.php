@@ -178,37 +178,38 @@
 
 <?= snippet('templates/globals/Projects/related', ['projects' => $similarProjects]) ?>
 
-<?php $next = $page->nextListed() ?? collection('Projects')->first(); ?>
+<!-- <?php $next = $page->nextListed() ?? collection('Projects')->first(); ?>
 <?php if ($next) : ?>
-<section class="next-project u1-block" theme="invert">
-	<div class="u1-type-1">
-		<!-- Left: Text (6 cols) -->
-		<div class="u1-type-1__col-text">
-			<div class="u1-type-1__top" data-scroll>
-				<div class="u1-header">
-					<div class="u1-label"><?= t('next-project', 'DALŠÍ PROJEKT') ?></div>
-					<h2 class="u1-h2"><?= $next->title()->inline() ?></h2>
-					<?php if ($next->intro()->isNotEmpty()) : ?>
-						<p class="u1-perex"><?= $next->intro()->inline() ?></p>
-					<?php endif ?>
+	<section class="about radius" theme="invert">
+	<div class="grid__4 gap__2 place__stretch-stretch inner__4">
+
+		<div class="relative grid gap__5 place__space-between-start" data-scroll >
+			<div class="grid place__start-stretch">
+				<div class="flex align__start gap__01 span__2">
+					<h2 data-reveal-text><?= t('next-project') ?></h2>
 				</div>
 			</div>
-			<div class="u1-type-1__bottom" data-scroll>
-				<a href="<?= $next->url() ?>" class="button upper" theme="ghost" hover="dark"><?= t('view-project', 'Zobrazit projekt') ?></a>
+			
+			<div class="grid gap__1 place__start-start">
+				<div data-scroll data-scroll-ignore class="grid gap__1 place__start-start">
+					<h3><?= $next->title()->inline() ?></h3>
+					<p class="op__7"><?= $next->intro()->inline() ?></p>
+					<a href="<?= $next->url() ?>" class="button upper" theme="ghost" hover="dark"><?= t('view-project') ?></a>
+				</div>
 			</div>
 		</div>
-
-		<!-- Right: Photo 4:3 (6 cols) -->
-		<div class="u1-type-1__col-media" data-scroll>
+		<div></div>
+		<div class="span__2" data-scroll>
 			<?php if ($img = $next->cover()->toFile()) : ?>
-				<div class="u1-photo" data-reveal-image>
-					<?= snippet('atoms/Image', ['img' => $img, 'reveal' => false, 'css' => 'w__full h__full']) ?>
+				<div class="grid" data-reveal-image>
+					<?= snippet('atoms/Image', ['img' => $img, 'reveal' => false, 'css' => 'aspect__5/4']) ?>
 				</div>
 			<?php endif ?>
 		</div>
+
 	</div>
 </section>
-<?php endif; ?>
+<?php endif; ?> -->
 
 <?= snippet('templates/globals/Feed') ?>
 <?= snippet('templates/globals/Cta') ?>

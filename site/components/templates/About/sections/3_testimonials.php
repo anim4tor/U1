@@ -1,59 +1,52 @@
 <?php $testimonials = collection('AboutTestimonials'); ?>
 <?php if ($testimonials && $testimonials->isNotEmpty()) : ?>
-<section class="testimonials u1-block" theme="light">
-	<div class="u1-type-1" data-tabs="default">
+<section class="about radius" theme="light">
+	<div class="grid__4 gap__2 place__stretch-stretch inner__4" data-tabs="default">
 		<div class="hidden absolute">
 			<?php foreach ($testimonials as $testimonial) : ?>
 				<div data-tab="testimonial-<?= $testimonial->indexOf($testimonials) ?>"></div>
 			<?php endforeach ?>
 		</div>
 
-		<!-- Left: Text (6 cols) -->
-		<div class="u1-type-1__col-text">
-			<div class="u1-type-1__top" data-scroll>
-				<div class="u1-header">
-					<div class="u1-label"><?= t('testimonials', 'REFERENCE') ?></div>
-					<div data-pane-container class="grid__stack">
-						<?php foreach ($testimonials as $testimonial) : ?>
-							<div data-scroll data-scroll-ignore data-tab-reveal data-pane="testimonial-<?= $testimonial->indexOf($testimonials) ?>" id="testimonial-<?= $testimonial->indexOf($testimonials) ?>">
-								<div class="u1-type-1__quote">“<?= $testimonial->testimonialQuote()->inline() ?>”</div>
-								<div class="u1-label op__7 inner-t__05">
-									<?= $testimonial->testimonialAuthor()->inline() . ($testimonial->testimonialPosition()->isNotEmpty() ? ', ' . $testimonial->testimonialPosition()->inline() : '') ?>
-								</div>
-							</div>
-						<?php endforeach ?>
-					</div>
+		<div class="relative grid gap__2 place__start-start" data-scroll>
+			<div class="grid place__start-stretch" data-reveal-text>
+				<div data-scroll class="flex align__start gap__01 span__2">
+					<?= snippet('atoms/Label', ['text' => t('testimonials')]) ?>
 				</div>
 			</div>
-
-			<div class="u1-type-1__bottom" data-scroll>
-				<div class="flex gap__02 justify__start align__center">
-					<button data-tab-prev class="button upper" theme="ghost" hover="dark" aria-label="Předchozí reference">
-						<span class="icon"><?= svg('public/assets/images/ui/ui_arrow-left.svg') ?></span>
-					</button>
-					<button data-tab-next class="button upper" theme="ghost" hover="dark" aria-label="Další reference">
-						<span class="icon"><?= svg('public/assets/images/ui/ui_arrow-right.svg') ?></span>
-					</button>
+			
+			<div class="grid gap__1 place__start-start">
+				<div data-pane-container class="grid__stack place__end-start" data-scroll>
+					<?php foreach ($testimonials as $testimonial) : ?>
+					<div data-scroll data-scroll-ignore data-tab-reveal data-pane="testimonial-<?= $testimonial->indexOf($testimonials) ?>" id="testimonial-<?= $testimonial->indexOf($testimonials) ?>" class="grid gap__1 place__start-start">
+						<p class="font__size__3 ff__heading">“<?= $testimonial->testimonialQuote()->inline() ?>”</p>
+						<?= snippet('atoms/Label', [
+							'text' => $testimonial->testimonialAuthor()->inline() . ($testimonial->testimonialPosition()->isNotEmpty() ? ', ' . $testimonial->testimonialPosition()->inline() : ''),
+							'css'  => 'op__7'
+						]) ?>
+					</div>
+					<?php endforeach ?>
+				</div>
+				<div class="flex gap__02 justify__start align__end">
+					<button data-tab-prev class="button upper" theme="ghost" hover="dark"><span class="icon"><?= svg('public/assets/images/ui/ui_arrow-left.svg') ?></span></button>
+					<button data-tab-next class="button upper" theme="ghost" hover="dark"><span class="icon"><?= svg('public/assets/images/ui/ui_arrow-right.svg') ?></span></button>
 				</div>
 			</div>
 		</div>
-
-		<!-- Right: Photo 4:3 (6 cols) -->
-		<div class="u1-type-1__col-media" data-pane-container data-scroll>
-			<div class="grid__stack no__overflow w__full">
-				<?php foreach ($testimonials as $testimonial) : ?>
-					<?php 
-						$img = $testimonial->testimonialImage()->toFile() ?? (page('about') ? page('about')->file($testimonial->testimonialImage()->value()) : null); 
-					?>
-					<?php if ($img) : ?>
-						<div data-scroll data-scroll-ignore data-tab-reveal data-pane="testimonial-<?= $testimonial->indexOf($testimonials) ?>" class="w__full h__full">
-							<div class="u1-photo" data-reveal-image>
-								<?= snippet('atoms/Image', ['img' => $img, 'reveal' => false, 'css' => 'w__full h__full']) ?>
-							</div>
+		<div></div>
+		<div data-pane-container class="span__2 grid__stack" data-scroll>
+			<?php foreach ($testimonials as $testimonial) : ?>
+				<?php 
+					$img = $testimonial->testimonialImage()->toFile() ?? (page('about') ? page('about')->file($testimonial->testimonialImage()->value()) : null); 
+				?>
+				<?php if ($img) : ?>
+					<div data-scroll data-scroll-ignore data-tab-reveal data-pane="testimonial-<?= $testimonial->indexOf($testimonials) ?>" id="testimonial-<?= $testimonial->indexOf($testimonials) ?>" class="grid">
+						<div class="grid" data-reveal-image>
+							<?= snippet('atoms/Image', ['img' => $img, 'reveal' => false, 'css' => 'aspect__5/4']) ?>
 						</div>
-					<?php endif ?>
-				<?php endforeach ?>
-			</div>
+					</div>
+				<?php endif ?>
+			<?php endforeach ?>
 		</div>
 	</div>
 </section>
