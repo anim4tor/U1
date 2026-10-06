@@ -86,6 +86,19 @@ if (isset($_GET['flush']) && isset($_GET['secret']) && hash_equals($secret, $_GE
     exit;
 }
 
+// If requesting directory inspection: ?secret=maiden37&inspect=1
+if (isset($_GET['inspect']) && isset($_GET['secret']) && hash_equals($secret, $_GET['secret'])) {
+    $parentScan = @scandir(__DIR__);
+    $subScan    = is_dir($projectDir) ? @scandir($projectDir) : false;
+    echo json_encode([
+        '__DIR__'     => __DIR__,
+        'projectDir'  => $projectDir,
+        'parentItems' => $parentScan ? array_slice($parentScan, 0, 30) : [],
+        'subItems'    => $subScan ? array_slice($subScan, 0, 30) : false,
+    ], JSON_PRETTY_PRINT);
+    exit;
+}
+
 // If requesting log view: ?secret=maiden37&log=1
 if (isset($_GET['log']) && isset($_GET['secret']) && hash_equals($secret, $_GET['secret'])) {
     if (file_exists($logFile)) {
