@@ -19,8 +19,16 @@ $repo         = 'anim4tor/U1';
 $activeBranch = (file_exists(__DIR__ . '/.current-branch') ? trim((string)@file_get_contents(__DIR__ . '/.current-branch')) : '') ?: 'v3';
 $targetBranch = $_REQUEST['branch'] ?? $activeBranch;
 $githubToken  = $_REQUEST['token'] ?? (file_exists(__DIR__ . '/.env') ? (@parse_ini_file(__DIR__ . '/.env')['GITHUB_TOKEN'] ?? null) : null) ?? (getenv('GITHUB_TOKEN') ?: null);
-$projectDir   = __DIR__;
-$logFile      = __DIR__ . '/deploy-log.json';
+
+// Optional subfolder target (e.g. ?target=v4 or ?target=v3 or ?target=design)
+$subfolderRaw = $_REQUEST['target'] ?? ($_REQUEST['folder'] ?? '');
+$subfolder    = preg_replace('/[^a-zA-Z0-9_\-]/', '', trim($subfolderRaw));
+$projectDir   = (!empty($subfolder) && $subfolder !== 'root') ? (__DIR__ . '/' . $subfolder) : __DIR__;
+$logFile      = __DIR__ . '/deploy-log' . (!empty($subfolder) ? '-' . $subfolder : '') . '.json';
+
+if (!is_dir($projectDir)) {
+    @mkdir($projectDir, 0755, true);
+}
 
 // Exclude these existing server paths from being overwritten
 $preservePaths = [
@@ -75,6 +83,19 @@ if (isset($_GET['flush']) && isset($_GET['secret']) && hash_equals($secret, $_GE
         $flushDirectory($cDir);
     }
     echo json_encode(['status' => 'success', 'message' => 'Caches flushed successfully.']);
+    exit;
+}
+
+// If requesting directory inspection: ?secret=maiden37&inspect=1
+if (isset($_GET['inspect']) && isset($_GET['secret']) && hash_equals($secret, $_GET['secret'])) {
+    $parentScan = @scandir(__DIR__);
+    $subScan    = is_dir($projectDir) ? @scandir($projectDir) : false;
+    echo json_encode([
+        '__DIR__'     => __DIR__,
+        'projectDir'  => $projectDir,
+        'parentItems' => $parentScan ? array_slice($parentScan, 0, 30) : [],
+        'subItems'    => $subScan ? array_slice($subScan, 0, 30) : false,
+    ], JSON_PRETTY_PRINT);
     exit;
 }
 
@@ -339,14 +360,12 @@ foreach ($cacheDirs as $cDir) {
     $flushDirectory($cDir);
 }
 
-// Clean up any stray root prefix subfolders from previous extractions
-$dirItems = @scandir($projectDir);
-if ($dirItems) {
-    foreach ($dirItems as $it) {
-        if (str_starts_with($it, 'anim4tor-U1-') && is_dir($projectDir . '/' . $it)) {
-            $flushDirectory($projectDir . '/' . $it);
-            @rmdir($projectDir . '/' . $it);
-        }
+// If deploying to a subfolder, copy .env and shared media from parent if not already present
+if (!empty($subfolder) && $subfolder !== 'root') {
+    $parentEnv = __DIR__ . '/.env';
+    $targetEnv = $projectDir . '/.env';
+    if (file_exists($parentEnv) && !file_exists($targetEnv)) {
+        @copy($parentEnv, $targetEnv);
     }
 }
 

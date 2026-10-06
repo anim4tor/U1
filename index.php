@@ -1,5 +1,10 @@
 <?php
-define('BASE_PROJECT_PATH', $_SERVER['HTTP_HOST'] !== 'u1.test' ? "/projects/U1" : "");
+$isLocalTest = isset($_SERVER['HTTP_HOST']) && $_SERVER['HTTP_HOST'] === 'u1.test';
+$folderName  = basename(__DIR__);
+$isSubfolder = !in_array($folderName, ['U1', 'www', 'public_html']);
+$basePath    = $isLocalTest ? ($isSubfolder ? "/{$folderName}" : "") : ($isSubfolder ? "/projects/U1/{$folderName}" : "/projects/U1");
+
+define('BASE_PROJECT_PATH', $basePath);
 require 'kirby/bootstrap.php';
 function formatNum($num) {
     return str_pad($num, 2, '0', STR_PAD_LEFT);
