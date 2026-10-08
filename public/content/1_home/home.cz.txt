@@ -34,7 +34,7 @@ Aboutfigures:
 
 ----
 
-Projects: [{"content":{"text":"Vybrané realizace","level":"h2","mod":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"db8e3663-cc26-4bb0-83bb-51fdc202c0e6","isHidden":false,"type":"heading"},{"content":{"text":"<p> </p>","mod":"","face":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"45b2c933-a2e4-485b-96f6-8bde671d2b92","isHidden":false,"type":"label"},{"content":{"href":"page://2KXhsd8bxkU6MDcP","target":"false","label":"Všechny projekty","counter":[],"theme":"invert-ghost","hover":"invert","size":"default","icon":"arrow-right","hasreveal":"false","bid":"","attr":"","css":"","node":""},"id":"47fd900f-ba4b-446f-9401-7f190c44af79","isHidden":false,"type":"button"}]
+Projects: [{"content":{"text":"<p> 5 z více než 200 projektů</p>","mod":"","face":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"45b2c933-a2e4-485b-96f6-8bde671d2b92","isHidden":false,"type":"label"},{"content":{"text":"Vybrané realizace","level":"h2","mod":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"db8e3663-cc26-4bb0-83bb-51fdc202c0e6","isHidden":false,"type":"heading"},{"content":{"href":"page://2KXhsd8bxkU6MDcP","target":"false","label":"Všechny projekty","counter":[],"theme":"invert-ghost","hover":"invert","size":"default","icon":"arrow-right","hasreveal":"false","bid":"","attr":"","css":"","node":""},"id":"47fd900f-ba4b-446f-9401-7f190c44af79","isHidden":false,"type":"button"}]
 
 ----
 
