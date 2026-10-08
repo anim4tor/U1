@@ -1,7 +1,7 @@
 <?php if ($page->featuredProjects()->isNotEmpty()) : ?>
 <section class="projects radius" theme="dark" >
-	<div class="grid__3 gap__2 mobile:grid__1 inner__4 mobile:inner-x__1 " data-carousel>
-		<div data-scroll class="flex align__start gap__01 span__2">
+	<div class="grid__3 gap__2 mobile:grid__1 inner__4 mobile:inner-x__1 " data-carousel data-per=4>
+		<div data-scroll class="grid gap__1 span__2">
 			<?= snippet('molecules/Header', ['header' => $page->projects(), 'type' => ['label']]) ?>
 			<?= snippet('molecules/Header', ['header' => $page->projects(), 'type' => ['heading']]) ?>
 		</div>
@@ -10,9 +10,9 @@
 			<button data-carousel-next class="button upper" theme="invert-ghost" hover="invert"><span class="icon"><?= svg('public/assets/images/ui/ui_arrow-right.svg') ?></span></button>
 		</div>
 		<div class="span__3" data-carousel-scroll>
-			<ol class="flex justify__start align__center no__wrap gap__1  " data-carousel-slides >	
+			<ol class="flex justify__start align__start no__wrap gap__2  " data-carousel-slides >	
 			<?php foreach ($page->featuredProjects()->toPages() as $project) : ?>
-				<li data-slide class="project__wrapper vw__4">	
+				<li data-slide class="project__wrapper">	
 					<?= snippet('molecules/Project', compact('project')) ?>
 				</li>
 			<?php endforeach ?>

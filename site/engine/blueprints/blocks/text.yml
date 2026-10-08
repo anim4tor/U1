@@ -15,18 +15,13 @@ tabs:
         label: Modify size
         type: toggles
         options:
-          - value: xl
-            text: Extra
-          - value: l
+          - value: font-size-large
             text: Large
-          - value: m
-            text: Medium
-          - value: default
+          - value: font-size-default
             text: Default
-          - value: s
+          - value: font-size-small
             text: Small
-          - value: xs
-            text: Tiny
+
       
       face:
         label: Override font

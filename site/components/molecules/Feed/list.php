@@ -39,7 +39,7 @@ $isVideo   = $isSocial && $item->content()->has('media_type') && ($item->media_t
 ?>
 
 <div class="item --feed --feed-<?= esc($type) ?>" data-scroll>
-	<a href="<?= esc($url) ?>" <?= $target ? 'target="' . esc($target) . '"' : '' ?> <?= $rel ? 'rel="' . esc($rel) . '"' : '' ?> class="grid gap__05 relative">
+	<a href="<?= esc($url) ?>" <?= $target ? 'target="' . esc($target) . '"' : '' ?> <?= $rel ? 'rel="' . esc($rel) . '"' : '' ?> class="grid gap__1 relative">
 		<?php if ($coverFile || $mediaUrl) : ?>
 			<div class="item__figure grid img__radius no__overflow relative <?= $isSocial ? 'color__invert' : '' ?>">
 				<?= snippet('atoms/Image', [
@@ -60,13 +60,11 @@ $isVideo   = $isSocial && $item->content()->has('media_type') && ($item->media_t
 			</div>
 		<?php endif ?>
 
-		<div class="item__meta relative flex justify__space-between align__start gap__2">
-			<div class="flex gap__05 upper">
-				<h3 class="font__size__4 wrap <?= $type === 'media' ? 'ff__body' : '' ?>" data-reveal-text="lines"><?= $title ?></h3>
-			</div>
-			<?php if ($dateText) : ?>
+		<div class="item__meta relative grid gap__05">
+			<?php if (!empty($dateText)) : ?>
 				<?= snippet('atoms/Label', ['text' => $dateText]) ?>
 			<?php endif ?>
+			<h3 class="font-size-4 wrap inner-r__2"><?= $title ?></h3>
 		</div>
 	</a>
 </div>

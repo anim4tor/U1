@@ -174,15 +174,9 @@ section.process {
   max-height: 100dvh;
   overflow: hidden;
   box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
 
-  @media (max-height: 800px) {
-    padding-top: calc(2 * var(--spacing)) !important;
-    padding-bottom: calc(2 * var(--spacing)) !important;
-    gap: calc(1.5 * var(--spacing));
-  }
+
+  @media (max-height: 800px) {}
 }
 
 .process__header {
@@ -200,8 +194,8 @@ section.process {
 
 .process__grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: 1fr var(--process-title-height) var(--process-detail-height);
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 1fr var(--process-title-height);
   height: 100%;
   min-height: 0;
   position: relative;
@@ -235,14 +229,13 @@ section.process {
 }
 
 .process-card {
-  display: flex;
-  flex-direction: column;
+
   height: 100%;
   min-height: 0;
   position: relative;
 
   @supports (grid-template-rows: subgrid) {
-    grid-row: span 3;
+    grid-row: span 2;
     display: grid;
     grid-template-rows: subgrid;
     row-gap: 0;
@@ -258,7 +251,6 @@ section.process {
   position: relative;
   overflow: hidden;
   border-radius: var(--radius-img, 8px);
-  margin-bottom: calc(0.75 * var(--spacing));
 
   figure {
     width: 100%;
@@ -285,9 +277,6 @@ section.process {
   max-height: var(--process-title-height);
   display: flex;
   align-items: center;
-  gap: calc(0.3 * var(--spacing));
-  padding-top: calc(0.5 * var(--spacing));
-  padding-bottom: calc(0.75 * var(--spacing));
   overflow: hidden;
 
   h3 {
@@ -298,13 +287,17 @@ section.process {
   }
 }
 
-.process-card__detail {
-  grid-row: 3;
+.process__cards-detail {
   flex-shrink: 0;
-  height: var(--process-detail-height);
-  min-height: var(--process-detail-height);
-  max-height: var(--process-detail-height);
-  padding-top: calc(1.25 * var(--spacing));
+  // height: var(--process-detail-height);
+  // min-height: var(--process-detail-height);
+  // max-height: var(--process-detail-height);
+  position: relative;
+}
+
+.process-card__detail {
+  height: 100%;
+  padding-top: calc(0.75 * var(--spacing));
   overflow-y: auto;
   scrollbar-width: none;
 
@@ -323,7 +316,7 @@ section.process {
   position: absolute;
   left: 0;
   right: 0;
-  bottom: var(--process-detail-height);
+  bottom: 0;
   z-index: 2;
   pointer-events: none;
 }

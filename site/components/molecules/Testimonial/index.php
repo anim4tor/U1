@@ -1,22 +1,17 @@
-<div class="grid gap__3 img__radius inner__1 border" theme="dark">
+<div class="grid gap__2 place__space-between-start img__radius inner__2 border" theme="dark">
 	<div class="grid gap__1">
-		<div class="grid gap__4 place__space-between-start">
-			<div class="grid place__start-stretch gap__1">
-				<!-- Quote is already formatted as inline string -->
-				<p class="font__size__4 ff__heading wrap" data-reveal-text="lines" data-split-ignore>"<?= $testimonial->testimonialQuote()->inline() ?>"</p>
-			</div>
-		</div>
+		<p class="font__size__4 ff__heading wrap" data-reveal-text="lines" data-split-ignore>"<?= $testimonial->testimonialQuote()->inline() ?>"</p>
 	</div>
-	<div class="flex justify__space-between gap__05 align__end">
+	<div class="flex gap__1 align__center">
 		<?php 
 		// Retrieve image file object from the structure's parent page
 		$image = $testimonial->testimonialImage()->toFile() ?? $testimonial->parent()->file($testimonial->testimonialImage()->value()); 
 		?>
 		<?php if ($image) : ?>
-			<div class="flex justify__space-between">
+			<div class="flex gap__1">
 				<div class="no__overflow">
-					<div class="figure" data-reveal-image>
-						<?= snippet('atoms/Image', ['img' => $image, 'parallax' => false, 'css' => 'max-w__4 max-h__5']) ?>
+					<div class="figure grid place__center-center circle w__3 h__3 img__radius" data-reveal-image>
+						<?= snippet('atoms/Image', ['img' => $image, 'parallax' => false, 'css' => '']) ?>
 					</div>
 				</div>
 			</div>

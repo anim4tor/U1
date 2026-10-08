@@ -45,6 +45,42 @@ carousel {
 		}
 	}
 
+[data-per] {
+	--per: 1;
+
+	@for $i from 1 through 12 {
+		&[data-per="#{$i}"] {
+			--per: #{$i};
+		}
+		&[data-per="#{$i}.5"] {
+			--per: #{$i}.5;
+		}
+	}
+
+	@each $modifier, $breakpoint in $map-grid-props {
+		@if ($modifier != '') {
+			@include create-mq($breakpoint, 'max') {
+				@for $i from 1 through 12 {
+					&[#{$modifier}\:data-per="#{$i}"],
+					&[data-per-#{$modifier}="#{$i}"] {
+						--per: #{$i};
+					}
+					&[#{$modifier}\:data-per="#{$i}.5"],
+					&[data-per-#{$modifier}="#{$i}.5"] {
+						--per: #{$i}.5;
+					}
+				}
+			}
+		}
+	}
+
+	[data-slide] {
+		flex: 0 0 calc((100% - (var(--per) - 1) * var(--gap-x, var(--gap, var(--grid-gap-x, calc(0.5 * var(--spacing, 0px)))))) / var(--per));
+		width: calc((100% - (var(--per) - 1) * var(--gap-x, var(--gap, var(--grid-gap-x, calc(0.5 * var(--spacing, 0px)))))) / var(--per));
+		min-width: 0;
+	}
+}
+
 .carousel__arrows {
 	--size: 0.6rem;
 	--inset: 2;

@@ -3,11 +3,11 @@
 		<!-- Odstraníme případné nečíselné znaky z hodnoty -->
 		<?php $targetNumber = preg_replace('/[^0-9]/', '', $figure->feature()); ?>
 		<div class="flex align__start" data-scroll>
-			<h2 class="font__size__1 m outlined lighter carousel-counter" 
+			<div class="font__size__figure outlined lighter carousel-counter" 
 			     
 			    data-target="<?= $targetNumber ?>">
 				<!-- JS sem vygeneruje rotující pásy pro každou číslici -->
-			</h2>
+			</div>
 			<?= snippet('atoms/Label', ['text' => $figure->label()]) ?>
 		</div>
 	<?php endforeach ?>

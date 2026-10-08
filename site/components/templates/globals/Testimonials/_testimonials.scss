@@ -3,21 +3,20 @@
     GLOBALS: Testimonials
 
 */
-:root {
-    
-}
+:root {}
 
 .testimonials__carousel {
     overflow: hidden;
     width: 100%;
     cursor: grab;
-    position: relative; /* Required for absolute gradient overlays */
+    position: relative;
 
     &.is-dragging {
         cursor: grabbing;
     }
 
-    &:before, &:after {
+    &:before,
+    &:after {
         content: '';
         display: block;
         z-index: 1;
@@ -25,12 +24,14 @@
         position: absolute;
         top: 0;
         bottom: 0;
-        pointer-events: none; /* Crucial: lets clicks/drags pass right through the gradients */
+        pointer-events: none;
     }
+
     &:before {
         left: 0;
         background: linear-gradient(to right, var(--background), transparent);
     }
+
     &:after {
         right: 0;
         background: linear-gradient(to left, var(--background), transparent);
@@ -40,16 +41,21 @@
 .carsousel__track {
     width: max-content;
     user-select: none;
-    /* Removed the CSS animation rule here so GSAP has total control */
+}
+
+.carousel__group {
+    align-items: stretch;
 }
 
 .carousel__item {
     display: flex;
     flex-direction: column;
+    align-self: stretch;
+    height: auto;
 
     & > * {
         flex: 1 1 auto;
-        display: flex;
-        flex-direction: column;
+        height: 100%;
+        box-sizing: border-box;
     }
 }

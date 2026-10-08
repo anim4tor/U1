@@ -13,39 +13,44 @@
 <section class="process relative" >
 	<div class="radius absolute inset__stretch" <?= $theme ? 'theme="'.$theme.'"' : null ?>></div>
 	<div class="grid__stack gap__2 relative" data-tabs="scrollable" >
-		<div class="process__fullscreen-sticky sticky top__0 inner__4 radius gap__2" >
-			<div class="process__header relative z__1 grid gap__2">
-				<div class="inner-b__0 flex align__start gap__01 span__4 <?= $color ?>" data-scroll>
+		<div class="process__fullscreen-sticky sticky top__0 grid__4 inner__4 radius gap__2" >
+			<div class="process__header relative z__1 grid place__start-start gap__2">
+				<div class="inner-b__0 grid gap__1 span__4 <?= $color ?>" data-scroll>
 					<?= snippet('molecules/Header', ['header' => page('Home')->process(), 'type' => ['label']]) ?>
 					<?= snippet('molecules/Header', ['header' => page('Home')->process(), 'type' => ['heading']]) ?>
 				</div>
 			</div>
-			<div class="process__cards-wrapper relative z__1">
-				<div class="process__grid" data-scroll >
+			<div class="process__cards-wrapper span__4 relative z__1">
+				<div class="process__grid gap__2" data-scroll >
 					<?php foreach (collection('Process') as $step) : ?>
-						<div data-tab="step-<?= $step->step()?>" class="process-card relative <?= $color ?>" >
+						<div data-tab="step-<?= $step->step()?>" class="process-card grid gap__1 relative <?= $color ?>" >
 							<?php if ($img = $step->figure()->toFile()) : ?>
 								<div class="process-card__figure relative no__overflow img__radius" data-reveal-image>
 									<?= snippet('atoms/Image', ['img' => $img, 'reveal' => false, 'css' => 'radius overlay__bottom']) ?>
 								</div>
 							<?php endif ?>
-							<div class="process-card__title flex no__wrap align__center relative z__1 inner-y__05">
+							<div class="process-card__title flex gap__02 no__wrap align__center relative z__1 inner-y__05">
 								<?= snippet('atoms/Heading', [ 'level' => 'h3', 'text' => $step->label(), 'reveal' => true, 'css' => '', 'node' => 'data-split-ignore' ]) ?>
 								<div class="-wrap-t__02">
 									<?= snippet('atoms/Label', ['text' => $step->step()]) ?>
 								</div>
 							</div>
-							<div class="process-card__detail" data-tab-reveal data-pane="step-<?= $step->step() ?>" id="trigger-<?= $step->step() ?>">
-								<div class="op__7">
-									<p data-reveal-text="lines" data-split-ignore ><?= $step->detail()->inline() ?></p>
-								</div>
-							</div>
 						</div>
+						
 					<?php endforeach ?>
 				</div>
 				<div class="process__progress-line border__top absolute left__0 right__0">
 					<div data-tabs-progress-line class="progress__line"></div>
 				</div>
+			</div>
+			<div class="process__cards-detail grid__stack span__2">
+				<?php foreach (collection('Process') as $step) : ?>
+					<div class="process-card__detail" data-tab-reveal data-pane="step-<?= $step->step() ?>" id="trigger-<?= $step->step() ?>">
+						<div class="op__7">
+							<p data-reveal-text="lines" data-split-ignore ><?= $step->detail()->inline() ?></p>
+						</div>
+					</div>
+				<?php endforeach ?>
 			</div>
 		</div>
 		

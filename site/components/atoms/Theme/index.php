@@ -102,6 +102,43 @@
 				</button>
 			</div>
 
+			<!-- Figure / XXL (~2x H1) -->
+			<div class="typo-section-header">Figure (Velká čísla / ~2x H1)</div>
+			<div class="grid span__2">
+				<label class="ff__body op__4 font__size__small">Font Family</label>
+				<select name="font-family-figure" data-theme-setup data-override data-font-select data-has-inherit="var(--ff-heading)"></select>
+			</div>
+			<div class="theme-panel-row span__2">
+				<div class="grid">
+					<label class="ff__body op__4 font__size__small">Size</label>
+					<input type="text" name="font-size-figure" data-theme-setup data-override>
+				</div>
+				<div class="grid">
+					<label class="ff__body op__4 font__size__small">Weight</label>
+					<input type="number" name="font-weight-figure" step="100" min="100" max="900" data-theme-setup data-override>
+				</div>
+			</div>
+			<div class="theme-panel-row span__2">
+				<div class="grid">
+					<label class="ff__body op__4 font__size__small">Line Height</label>
+					<input type="number" name="line-height-figure" step="0.01" min="0.5" max="2.5" data-theme-setup data-override>
+				</div>
+				<div class="grid">
+					<label class="ff__body op__4 font__size__small">Letter Spacing</label>
+					<input type="number" name="letter-spacing-figure" step="0.01" placeholder="0" data-theme-setup data-override data-unit="em">
+				</div>
+			</div>
+			<div class="grid span__2" style="margin-bottom: 0.25rem;">
+				<label class="ff__body op__4 font__size__small">Transform</label>
+				<select name="text-transform-figure" data-theme-setup data-override>
+					<option value="">Auto (none)</option>
+					<option value="none">None</option>
+					<option value="uppercase">Uppercase</option>
+					<option value="lowercase">Lowercase</option>
+					<option value="capitalize">Capitalize</option>
+				</select>
+			</div>
+
 			<!-- Display / H1 -->
 			<div class="typo-section-header">Display / H1</div>
 			<div class="grid span__2">
@@ -852,6 +889,10 @@
 			const h1Vw = hStartVw * Math.pow(hScale, 4) * scale;
 			const h1Lh = h2Lh - (0.04 * hScale);
 
+			const figureRem = h1Rem * 2;
+			const figureVw = h1Vw * 2;
+			const figureLh = Math.max(0.9, h1Lh - 0.1);
+
 			const h6Rem = hStartRem * 0.85 * scale;
 			const h6Vw = hStartVw * 0.85 * scale;
 			const h6Lh = baseLh;
@@ -869,6 +910,13 @@
 			const perexLh = bodyLh - (0.04 * bScale);
 
 			return {
+				'font-family-figure': 'var(--ff-heading)',
+				'font-size-figure': formatSize(figureRem, figureVw),
+				'font-weight-figure': fwHeading || '500',
+				'line-height-figure': formatLh(figureLh),
+				'letter-spacing-figure': lsHeading || '0',
+				'text-transform-figure': ttHeading || 'none',
+
 				'font-family-1': 'var(--ff-heading)',
 				'font-size-1': formatSize(h1Rem, h1Vw),
 				'font-weight-1': fwHeading || '500',

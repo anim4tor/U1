@@ -22,6 +22,10 @@
 :root {
     --vw-scale: calc(100vw / 1440);
 
+    /* ~162px - 200px at 1440px - Figure (~2x H1 / velké číslice) */
+    --font-size-figure-fluid: clamp(60px, calc(162 / 1440 * 100vw), 220px);
+    --line-height-figure-fluid: 1.0;
+
     /* 122px at 1440px - H1 Hero */
     --font-size-hero-fluid: clamp(48px, calc(122 / 1440 * 100vw), 160px);
     --line-height-hero-fluid: 1.05;
@@ -67,7 +71,7 @@
     Levels
 */
 
-$levels: 'small', 'default', 'large', 6, 5, 4, 3, 2, 1;
+$levels: 'figure', 'small', 'default', 'large', 6, 5, 4, 3, 2, 1;
 
 @each $modifier , $breakpoint in $map-grid-props {
     @if($modifier =='') {
@@ -140,13 +144,22 @@ $size-modifiers: (
 );
 
 @each $modifier, $breakpoint in $map-grid-props {
-    @if($modifier == '') {
+    @if($modifier =='') {
         @each $mod-name, $mod-scale in $size-modifiers {
             .#{$mod-name} {
                 --scale: #{$mod-scale};
                 font-size: calc(var(--output-size, 1em) * #{$mod-scale});
 
-                h1, h2, h3, h4, h5, h6, p, a, li, .ff__heading {
+                h1,
+                h2,
+                h3,
+                h4,
+                h5,
+                h6,
+                p,
+                a,
+                li,
+                .ff__heading {
                     font-size: calc(var(--output-size, 1em) * #{$mod-scale});
                 }
             }
@@ -165,14 +178,25 @@ $size-modifiers: (
                 font-size: calc(var(--output-size, 1em) * #{$mod-scale});
             }
         }
-    } @else {
+    }
+
+    @else {
         @include create-mq($breakpoint, 'max') {
             @each $mod-name, $mod-scale in $size-modifiers {
                 .#{$modifier}\:#{$mod-name} {
                     --scale: #{$mod-scale};
                     font-size: calc(var(--output-size, 1em) * #{$mod-scale});
 
-                    h1, h2, h3, h4, h5, h6, p, a, li, .ff__heading {
+                    h1,
+                    h2,
+                    h3,
+                    h4,
+                    h5,
+                    h6,
+                    p,
+                    a,
+                    li,
+                    .ff__heading {
                         font-size: calc(var(--output-size, 1em) * #{$mod-scale});
                     }
                 }
@@ -246,8 +270,9 @@ p {
 }
 
 
-.intro__header p {
-    opacity: 1;
+.intro__header p,
+.font-size-large {
+    opacity: 1 !important;
 }
 
 .ff__mono {

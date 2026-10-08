@@ -7,8 +7,8 @@
 
 <div class="testimonials" theme="<?= $theme ?>">
 	<div class="testimonials__carousel innex-x__1 inner-y__2">
-		<div class="carsousel__track flex align__center gap__1">
-			<div class="carousel__group flex align__center gap__1">
+		<div class="carsousel__track flex align__stretch gap__2">
+			<div class="carousel__group flex align__stretch gap__2">
 				<?php foreach ($testimonials as $testimonial) : ?>
 					<?php if($testimonial->testimonialQuote()->isNotEmpty()) : ?>
 					<div data-scroll class="carousel__item vw__<?= $width ?>">
@@ -17,7 +17,7 @@
 					<?php endif; ?>
 				<?php endforeach ?>
 			</div>
-			<div class="carousel__group flex align__center gap__1" aria-hidden="true">
+			<div class="carousel__group flex align__stretch gap__2" aria-hidden="true">
 				<?php foreach ($testimonials as $testimonial) : ?>
 					<?php if($testimonial->testimonialQuote()->isNotEmpty()) : ?>
 					<div data-scroll class="carousel__item vw__<?= $width ?>">

@@ -3,13 +3,10 @@
     MOLECULES: Project
 
 */
-:root {
-    
-}
+:root {}
 
 .item {
     [href] {
-        row-gap: calc(0.5 * var(--spacing));
 
         .item__figure {
             overflow: hidden;
@@ -17,8 +14,8 @@
             clip-path: inset(0% 0% 0% 0%);
 
             figure,
-            & > figure,
-            & > img,
+            &>figure,
+            &>img,
             [data-reveal-image] {
                 @include animation((opacity, clip-path, filter, transform, visibility), 600ms);
                 transform: scale(1.1);
@@ -31,14 +28,16 @@
             .item__figure {
                 clip-path: inset(0% 0% 0% 0%);
                 transform: none;
+
                 figure,
-                & > figure,
-                & > img,
+                &>figure,
+                &>img,
                 [data-reveal-image] {
                     transform: scale(1);
                     filter: blur(0) brightness(1.0);
                 }
             }
+
             .item__meta {
                 clip-path: inset(0% 0% 0% 0%);
             }
@@ -56,8 +55,8 @@
         clip-path: inset(100% 0% 0% 100%);
 
         [data-reveal-text] {
-          @include reveal-text-line;
-          --in-delay: 500ms;
+            @include reveal-text-line;
+            --in-delay: 500ms;
         }
     }
 
@@ -67,7 +66,7 @@
             clip-path: inset(0% 0% 0% 0%);
 
             [data-reveal-text] {
-              @include reveal-text-in;
+                @include reveal-text-in;
             }
         }
     }
@@ -77,14 +76,17 @@
 [data-carousel-scroll].is-dragged [data-slide] .item.--project {
     .item__figure {
         clip-path: inset(10% 10% 10% 10%);
+
         figure {
             transform: scale(0.9);
             filter: blur(0) brightness(1.0);
         }
     }
+
     .item__meta {
         clip-path: inset(0% 0% 100% 0%);
     }
+
     .item__hover {
         clip-path: inset(100% 0% 0% 100%);
     }
