@@ -66,7 +66,7 @@ Services: [{"content":{"text":"<p>13 služeb pod jednou střechou</p>","mod":"",
 
 ----
 
-Teams: [{"content":{"text":"Naše týmy","level":"h2","mod":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"6c933fdb-011d-4082-897c-b1e1a91ac4fa","isHidden":false,"type":"heading"},{"content":{"text":"","mod":"","face":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"8b6f5c95-80b9-448c-9a58-85d55d8a5888","isHidden":false,"type":"label"}]
+Teams: [{"content":{"text":"<p>15 lidí v 5 týmech</p>","mod":"","face":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"8b6f5c95-80b9-448c-9a58-85d55d8a5888","isHidden":false,"type":"label"},{"content":{"text":"Naše týmy","level":"h2","mod":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"6c933fdb-011d-4082-897c-b1e1a91ac4fa","isHidden":false,"type":"heading"}]
 
 ----
 
