@@ -58,7 +58,7 @@ Featuredtestimonials:
 
 ----
 
-Process: [{"content":{"text":"Náš proces","level":"h2","mod":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"bfc31f89-1668-4d5b-a89a-c0f9441b1a0a","isHidden":false,"type":"heading"},{"content":{"text":"","mod":"","face":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"e8c2499c-44d8-40c9-aa87-df8a34fc2b07","isHidden":false,"type":"label"}]
+Process: [{"content":{"text":"<p>5 kroků od zadání po provoz</p>","mod":"","face":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"e8c2499c-44d8-40c9-aa87-df8a34fc2b07","isHidden":false,"type":"label"},{"content":{"text":"Náš proces","level":"h2","mod":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"bfc31f89-1668-4d5b-a89a-c0f9441b1a0a","isHidden":false,"type":"heading"}]
 
 ----
 
