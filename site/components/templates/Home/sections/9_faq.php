@@ -13,8 +13,10 @@
 							<span class="icon font__size__3 color__acc">+</span>
 						</summary>
 						<detail collapsible-detail>
-							<div class="inner-b__1 op__7">
-								<p><?= $item->answer()->inline() ?></p>
+							<div>
+								<div class="inner-b__1 op__7">
+									<p><?= $item->answer()->inline() ?></p>
+								</div>
 							</div>
 						</detail>
 					</collapsible>
@@ -25,4 +27,3 @@
 	</div>
 </section>
 <?php endif ?>
-

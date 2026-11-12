@@ -54,8 +54,6 @@ Order:
 - 
   label: 3_process
 - 
-  label: 4_faq
-- 
   label: global/Feed/index
 - 
   label: global/Cta/index
@@ -224,30 +222,6 @@ Membership:
 ----
 
 Benefits: [{"content":{"text":"Výhody členství","level":"h3","mod":"","attr=data-scroll":"false","attr=data-reveal":"","attr=data-reveal-children":"false","attr=data-reveal-words":"false","attr=data-reveal-section":"false","bid":"","attr":"","href":"","node":""},"id":"00998dbf-6d65-48b4-b61f-1cc1fe8b517f","isHidden":false,"type":"heading"},{"content":{"text":"<ul><li>neomezený vstup na všechny lekce a kurzy</li><li>slevy na nákup zboží ve studiu i v online obchodu (připravujeme)</li><li>další speciální výhody pro tebe i přátele (připravujeme, více informací již brzy)</li></ul>","mod":"m","attr=data-scroll":"false","attr=data-reveal":"","attr=data-reveal-children":"false","attr=data-reveal-words":"false","attr=data-reveal-section":"false","bid":"","attr":"","href":"","node":""},"id":"a76274c2-c1f8-4b4a-b184-b23d141c0fae","isHidden":false,"type":"list"},{"content":{"text":"<p>Na recepci přijímáme platby v hotovosti i platebními kartami. Lekce, kurzy, workshopy, permanentky i členství lze také zakoupit online v rezervačním systému s platební bránou. Přijímáme benefitní poukázky a karty od společnosti Pluxee. Přijímáme platby v rámci benefitních programů společností Benefit Plus, Benefity, Edenred a Up Česká republika.<br><br>Na vybrané lekce v délce 60 minut přijímáme benefitní program Multisport. Tento program nelze využít na jiné typy lekcí či kurzů. Rezervace prostřednictvím benefitních programů je povinná.<br><br>Na rezervace se vztahují platné storno podmínky.</p>","mod":"","face":"","attr=data-scroll":"false","attr=data-reveal":"","attr=data-reveal-children":"false","attr=data-reveal-words":"false","attr=data-reveal-section":"false","bid":"","attr":"","href":"","node":""},"id":"9f8f4963-e271-453f-8f3e-58975e6b2468","isHidden":false,"type":"text"}]
-
-----
-
-Faqheading: Časté otázky
-
-----
-
-Faq:
-
-- 
-  question: Co znamená kancelář na klíč?
-  answer: Navrhneme, postavíme a vybavíme kanceláře na základě jedné smlouvy. Za návrh, stavbu, projektové řízení i nábytek odpovídáme my, takže nemusíte koordinovat několik dodavatelů.
-- 
-  question: Postavíte kanceláře i podle návrhu jiného architekta?
-  answer: Ano. Kanceláře postavíme i podle projektu externího architekta, takto jsme realizovali kanceláře v CTParku Borská pole v Plzni. Autorství návrhu zůstává jeho tvůrci.
-- 
-  question: Kde kanceláře stavíte?
-  answer: Sídlo a showroom máme v Brně. Kanceláře navrhujeme a stavíme po celé České republice a na Slovensku.
-- 
-  question: Jak dlouho trvá fit-out kanceláří?
-  answer: Záleží na rozsahu a výchozím stavu prostoru. Kanceláře v CTParku Borská pole jsme od holého betonu realizovali za pět měsíců. Termín pro váš projekt stanovíme po prohlídce prostor.
-- 
-  question: Kdo nábytek na míru vyrábí?
-  answer: Ověření truhláři, se kterými dlouhodobě spolupracujeme. Návrh, detaily, koordinaci a montáž řídíme my, za výsledek odpovídáme jako jeden partner. Vlastní nábytkové řady U1. Only2 získala na Designbloku 2018 cenu Nejlepší novinka výrobce.
 
 ----
 
