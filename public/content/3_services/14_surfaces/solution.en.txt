@@ -2,6 +2,10 @@ Title: Povrchy a materiály
 
 ----
 
+Category: Stavba a technika
+
+----
+
 Hero: [{"content":{"text":"Povrchy a materiály","level":"h1","mod":"l","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-1dkxv03n","isHidden":false,"type":"heading"},{"content":{"image":["file://B3qzowr055hl3ljC"],"hasparallax":"false","parallax":0,"hasreveal":"false","reveal":"","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-7g0edafo","isHidden":false,"type":"cover"},{"content":{"text":"Kvalitní stěnové obklady, akustické panely a designové povrchy, které dodají interiéru jedinečnou atmosféru.","mod":"l","face":"","case":"lower","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-sj0a77ia","isHidden":false,"type":"text"}]
 
 ----

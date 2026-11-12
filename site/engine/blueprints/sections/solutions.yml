@@ -2,7 +2,7 @@ type: pages
 headline: Solutions
 parent: site.find("services")
 size: large
-info: "{{ page.images.count }} image(s)"
+info: "{{ page.category }}"
 layout: cards
 template: solution
 empty: Add solution

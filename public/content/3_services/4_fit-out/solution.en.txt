@@ -2,6 +2,10 @@ Title: Fit-out a stavební úpravy
 
 ----
 
+Category: Celý projekt
+
+----
+
 Hero: [{"content":{"text":"Fit-out a stavební úpravy","level":"h1","mod":"l","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-6aoh0r1v","isHidden":false,"type":"heading"},{"content":{"image":["file://B3qzowr055hl3ljC"],"hasparallax":"false","parallax":0,"hasreveal":"false","reveal":"","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-1cvy6rlu","isHidden":false,"type":"cover"},{"content":{"text":"Kompletní realizace stavebních úprav komerčních prostor na klíč – od bouracích prací až po finální detaily.","mod":"l","face":"","case":"lower","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-vjqhow4k","isHidden":false,"type":"text"}]
 
 ----

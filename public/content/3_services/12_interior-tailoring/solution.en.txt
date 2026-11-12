@@ -2,6 +2,10 @@ Title: Atypická výroba a truhlářství
 
 ----
 
+Category: Nábytek a vybavení
+
+----
+
 Hero: [{"content":{"text":"Atypická výroba a truhlářství","level":"h1","mod":"l","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-q9s5p8pn","isHidden":false,"type":"heading"},{"content":{"image":["file://B3qzowr055hl3ljC"],"hasparallax":"false","parallax":0,"hasreveal":"false","reveal":"","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-niramipq","isHidden":false,"type":"cover"},{"content":{"text":"Vlastní truhlářská a atypická výroba prvků na míru, které dají vašemu prostoru originální charakter a dokonalý detail.","mod":"l","face":"","case":"lower","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-bqoxiu93","isHidden":false,"type":"text"}]
 
 ----

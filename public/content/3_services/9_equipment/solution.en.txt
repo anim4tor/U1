@@ -2,6 +2,10 @@ Title: Vybavení interiérů
 
 ----
 
+Category: Nábytek a vybavení
+
+----
+
 Hero: [{"content":{"text":"Vybavení interiérů","level":"h1","mod":"l","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-sw7v65pe","isHidden":false,"type":"heading"},{"content":{"image":["file://B3qzowr055hl3ljC"],"hasparallax":"false","parallax":0,"hasreveal":"false","reveal":"","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-s5d7hssw","isHidden":false,"type":"cover"},{"content":{"text":"Kompletní dodávka doplňků, technologického vybavení a prvků, které dotvářejí funkční a příjemné pracoviště.","mod":"l","face":"","case":"lower","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-iz3jenm9","isHidden":false,"type":"text"}]
 
 ----

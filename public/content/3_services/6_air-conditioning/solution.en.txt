@@ -2,6 +2,10 @@ Title: Vzduchotechnika a chlazení
 
 ----
 
+Category: Stavba a technika
+
+----
+
 Hero: [{"content":{"text":"Vzduchotechnika a chlazení","level":"h1","mod":"l","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-wh2sz8fz","isHidden":false,"type":"heading"},{"content":{"image":["file://WJ9efU3ipU0wnamB"],"hasparallax":"false","parallax":0,"hasreveal":"false","reveal":"","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-af418125","isHidden":false,"type":"cover"},{"content":{"text":"Zajišťujeme optimální klima, větrání i rekuperaci pro zdravé a produktivní pracovní prostředí po celý rok.","mod":"l","face":"","case":"lower","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-vd8xjlu7","isHidden":false,"type":"text"}]
 
 ----
