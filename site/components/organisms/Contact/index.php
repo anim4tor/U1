@@ -16,27 +16,27 @@ $showFab         = ($templateName !== 'job');
 					<div icon class="grid__stack place__center-center color__invert ">
 						<div class="grid place__center-center -wrap-l__01"><?= svg('public/assets/images/ui/ui_contact.svg') ?></div>
 					</div>
-					<label class="upper color__invert"><div>
+					<div class="upper color__invert"><div>
 						<span class="flex inner-r__1">Volné pozice (<?= $jobsCount ?>)</span>
-					</div></label>
+					</div></div>
 				</a>
 			<?php elseif ($isJobsContext): ?>
 				<button class="button bg__acc " theme="acc" hover="dark" data-contact-toggle="inquiry" >
 					<div icon class="grid__stack place__center-center color__invert ">
 						<div class="grid place__center-center -wrap-l__01"><?= svg('public/assets/images/ui/ui_contact.svg') ?></div>
 					</div>
-					<label class="upper color__invert"><div>
+					<div class="upper color__invert"><div>
 						<span class="flex inner-r__1">Mám zájem o pozici</span>
-					</div></label>
+					</div></div>
 				</button>
 			<?php else: ?>
-				<button class="button bg__acc " theme="acc" hover="dark" data-contact-toggle >
+				<button class="button bg__acc " theme="acc" hover="dark" data-contact-toggle="inquiry" type="button">
 					<div icon class="grid__stack place__center-center color__invert ">
 						<div class="grid place__center-center -wrap-l__01"><?= svg('public/assets/images/ui/ui_contact.svg') ?></div>
 					</div>
-					<label class="upper color__invert"><div>
+					<div class="upper color__invert"><div>
 						<span class="flex inner-r__1">Poptat projekt</span>
-					</div></label>
+					</div></div>
 				</button>
 			<?php endif ?>
 		</div>

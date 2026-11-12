@@ -22,8 +22,21 @@
 [fab] {
 	z-index: 1000;
 	display: block;
-	pointer-events: all;
-	cursor: pointer !important;
+	pointer-events: none;
+	opacity: 0;
+	visibility: hidden;
+	transform: translateY(20px) scale(0.92);
+	transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
+	            transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
+	            visibility 0.3s;
+
+	&[active],
+	&[collapsed] {
+		opacity: 1;
+		visibility: visible;
+		pointer-events: all;
+		transform: translateY(0) scale(1);
+	}
 
 	button, a.button {
 		height: var(--fab-size);
@@ -96,6 +109,20 @@
 			}
 		}
 	}
+}
+
+html[header-collapsed] [fab] {
+	opacity: 1;
+	visibility: visible;
+	pointer-events: all;
+	transform: translateY(0) scale(1);
+}
+
+html[navbar-open] [fab],
+html[data-contact-open] [fab] {
+	opacity: 0 !important;
+	visibility: hidden !important;
+	pointer-events: none !important;
 }
 
 [data-contact] {

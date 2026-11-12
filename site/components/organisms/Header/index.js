@@ -75,8 +75,31 @@ class Navbar {
     }
 }
 
+function initHeaderCollapse() {
+    const header = document.querySelector('[data-header]');
+    const fab = document.querySelector('[fab]');
+    if (!header && !fab) return;
+
+    const checkCollapse = () => {
+        const y = window.scrollY || document.documentElement.scrollTop || 0;
+        if (y > 60) {
+            if (header) header.setAttribute('collapsed', 'true');
+            if (fab) fab.setAttribute('collapsed', 'true');
+            document.documentElement.setAttribute('header-collapsed', 'true');
+        } else {
+            if (header) header.removeAttribute('collapsed');
+            if (fab) fab.removeAttribute('collapsed');
+            document.documentElement.removeAttribute('header-collapsed');
+        }
+    };
+
+    window.addEventListener('scroll', checkCollapse, { passive: true });
+    checkCollapse();
+}
+
 function initNavbar() {
     document.querySelector('[navbar]') ? 
         new Navbar(document.querySelector('[navbar]')) 
-    : null
+    : null;
+    initHeaderCollapse();
 }
