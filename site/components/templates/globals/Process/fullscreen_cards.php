@@ -10,7 +10,7 @@
 ?>
 
 <?php if (collection('Process')->isNotEmpty()) : ?>
-<section class="process relative" >
+<section class="process relative" <?= $theme ? 'theme="'.$theme.'"' : null ?>>
 	<div class="radius absolute inset__stretch" <?= $theme ? 'theme="'.$theme.'"' : null ?>></div>
 	<div class="grid__stack gap__2 relative" data-tabs="scrollable" >
 		<div class="process__fullscreen-sticky sticky top__0 inner-x__4 mobile:inner-x__1 radius gap__2" >

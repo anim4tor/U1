@@ -269,22 +269,19 @@ section.process {
 .process-card__progress {
   flex: 0 0 1px;
   height: 1px;
+  min-height: 1px;
   max-height: 1px;
   width: 100%;
   margin-top: calc(0.75 * var(--spacing));
-  background: rgba(0, 0, 0, 0.12);
+  background: #d4d4d4;
   position: relative;
   overflow: hidden;
-
-  [theme="dark"] & {
-    background: rgba(255, 255, 255, 0.2);
-  }
 
   .progress__line {
     position: absolute;
     left: 0;
     top: 0;
-    height: 1px;
+    height: 100%;
     width: 100%;
     background: var(--color-acc);
     transform-origin: left;
@@ -294,11 +291,7 @@ section.process {
 }
 
 .process-card:hover .process-card__progress {
-  background: rgba(0, 0, 0, 0.22);
-
-  [theme="dark"] & {
-    background: rgba(255, 255, 255, 0.35);
-  }
+  background: #a8a8a8;
 }
 
 .process-card__title {
