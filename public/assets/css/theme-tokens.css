@@ -89,4 +89,6 @@
     --font-size-large:         max(1.4rem, 2.5vw);
     --font-weight-large:       400;
     --line-height-large:       1.2;
+    --font-weight-small:       600;
+    --letter-spacing-small:    0.05em;
 }
