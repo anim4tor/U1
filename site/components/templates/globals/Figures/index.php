@@ -1,9 +1,9 @@
-<div class="span__2 flex justify__space-between">
+<div class="grid__3 gap__2">
 	<?php foreach (page('home')->aboutFigures()->toStructure() as $figure) : ?>
 		<!-- Odstraníme případné nečíselné znaky z hodnoty -->
 		<?php $targetNumber = preg_replace('/[^0-9]/', '', $figure->feature()); ?>
-		<div class="flex align__start" data-scroll>
-			<div class="font__size__figure outlined lighter carousel-counter" 
+		<div class="grid gap__2 align__start inner-y__1 border__top" data-scroll>
+			<div class="font__size__1 outlined lighter carousel-counter" 
 			     
 			    data-target="<?= $targetNumber ?>">
 				<!-- JS sem vygeneruje rotující pásy pro každou číslici -->

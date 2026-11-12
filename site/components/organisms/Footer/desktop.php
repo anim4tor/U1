@@ -1,87 +1,110 @@
-<footer id="footer" class="radius" theme="invert" data-footer data-scroll>
-	<div class="bg radius absolute inset__stretch"></div>
+<?php
+$featuredServices = [
+	'services/offices' => 'Kanceláře na klíč',
+	'services/interior-design' => 'Návrh interiéru',
+	'services/fit-out' => 'Fit-out a refit',
+	'services/interior-tailoring' => 'Nábytek na míru',
+	'services/realizace-pro-architekty' => 'Pro architekty',
+];
+?>
+<footer id="footer" class="footer radius" theme="dark" data-footer data-scroll>
+	<div class="inner-x__4 inner-y__5 mobile:inner-x__1 mobile:inner-y__3">
+		
+		<div class="footer__grid">
+			
+			<!-- Značka -->
+			<div class="footer__brand">
+				<a class="footer__logo" href="<?= page('home')->url() ?>" aria-label="U1 Space Design, úvodní stránka">
+					<?= svg('public/assets/images/fig_logo.svg') ?>
+					<span class="footer__brand-text upper ff__heading">space design</span>
+				</a>
+				<p class="perex font__size__small op__7">
+					Dobrý design.<br>Dobrý byznys.
+				</p>
+			</div>
 
-	<div class="grid__4 gap__2 inner-x__4 inner-y__5 mobile:inner-x__1 mobile:inner-y__3">
-		<div class="span__1 grid gap__1">
-			<a class="footer__logo" href="<?= page('home')->url() ?>">
-				<span data-reveal><?= svg('public/assets/images/fig_logo_invert.svg') ?></span>
-			</a>
-			<p class="font__size__small op__7">Dobrý design.<br>Dobrý byznys.</p>
+			<!-- Web -->
+			<div class="footer__col">
+				<h3 class="footer__title label upper font__size__small">Web</h3>
+				<ul class="footer__list font__size__small">
+					<?php foreach ($pages->listed()->not('home') as $p): ?>
+						<li>
+							<a href="<?= $p->url() ?>" class="footer__link <?= $p->isActive() || $page->parents()->has($p) ? 'active' : '' ?>">
+								<?= $p->title() ?>
+							</a>
+						</li>
+					<?php endforeach ?>
+				</ul>
+			</div>
+
+			<!-- Služby -->
+			<div class="footer__col">
+				<h3 class="footer__title label upper font__size__small">Služby</h3>
+				<ul class="footer__list font__size__small">
+					<?php foreach ($featuredServices as $slug => $label): ?>
+						<?php 
+						$targetPage = page($slug);
+						$url = $targetPage ? $targetPage->url() : url('services');
+						$isActive = $targetPage ? ($targetPage->isActive() || $page->id() === $targetPage->id()) : false;
+						?>
+						<li>
+							<a href="<?= $url ?>" class="footer__link <?= $isActive ? 'active' : '' ?>">
+								<?= $label ?>
+							</a>
+						</li>
+					<?php endforeach ?>
+				</ul>
+			</div>
+
+			<!-- Kde nás najdete -->
+			<div class="footer__col">
+				<h3 class="footer__title label upper font__size__small">Kde nás najdete</h3>
+				<div class="font__size__small">
+					<address class="footer__address">
+						<span class="strong op__10">Brno, sídlo</span>
+						<span class="op__7">Nejedlého 373/1<br>638 00 Brno-Lesná</span>
+					</address>
+					<address class="footer__address">
+						<span class="strong op__10">Praha</span>
+						<span class="op__7">Na Valentince 3336/4<br>150 00 Praha 5</span>
+					</address>
+				</div>
+			</div>
+
+			<!-- Kontakt -->
+			<div class="footer__col">
+				<h3 class="footer__title label upper font__size__small">Kontakt</h3>
+				<ul class="footer__list font__size__small">
+					<li><a href="mailto:info@u1.cz" class="footer__link">info@u1.cz</a></li>
+					<li><a href="mailto:sales@u1.cz" class="footer__link">sales@u1.cz</a></li>
+					<?php if ($site->social()->isNotEmpty()): ?>
+						<?php foreach ($site->social()->toStructure() as $s): ?>
+							<li>
+								<a href="<?= $s->link()->url() ?>" target="_blank" rel="noopener noreferrer" class="footer__link">
+									<?= $s->platform() ?>
+								</a>
+							</li>
+						<?php endforeach ?>
+					<?php else: ?>
+						<li><a href="https://www.linkedin.com/company/u1spacedesign" target="_blank" rel="noopener noreferrer" class="footer__link">LinkedIn</a></li>
+						<li><a href="https://www.instagram.com/u1space_design/" target="_blank" rel="noopener noreferrer" class="footer__link">Instagram</a></li>
+						<li><a href="https://www.facebook.com/u1spacedesign" target="_blank" rel="noopener noreferrer" class="footer__link">Facebook</a></li>
+					<?php endif ?>
+				</ul>
+			</div>
+
 		</div>
 
-		<nav class="span__3 footer__nav flex wrap align__center gap__02 ff__heading">
-			<?php foreach ($pages->listed() as $p): ?>
-				<?php if(!$p->isFirst()) : ?>
-					<span class="ff__body op__2">/</span>
-				<?php endif ?>
-				<?= snippet('atoms/Link', ['url' => $p->url(), 'label' => $p->title(), 'icon' => false, 'css' => !$p->isActive() ? 'op__4 font__size__3' : 'font__size__3', 'node' => 'data-reveal-text data-split-ignore']) ?>
-			<?php endforeach ?>
-		</nav>
-
-		<div class="relative span__4 grid__4 gap__2 inner-t__4 border__top">	
-			
-			<div class="grid place__space-between-start gap__2">
-				<div class="grid gap__05">
-					<div class="label upper font__size__small op__4">(Kde nás najdete)</div>
-					<div class="font__size__small">
-						<p class="strong">Brno, sídlo</p>
-						<p class="op__7">Nejedlého 373/1<br>638 00 Brno-Lesná</p>
-					</div>
-					<div class="font__size__small inner-t__02">
-						<p class="strong">Praha</p>
-						<p class="op__7">Na Valentince 3336/4<br>150 00 Praha 5</p>
-					</div>
-				</div>
-			</div>	
-
-			<div class="grid place__space-between-start gap__2">
-				<div class="grid gap__05">
-					<div class="label upper font__size__small op__4">(Služby)</div>
-					<nav class="grid gap__02 font__size__small">
-						<?= snippet('atoms/Link', ['url' => url('services'), 'label' => 'Kanceláře na klíč', 'icon' => false, 'css' => 'op__7']) ?>
-						<?= snippet('atoms/Link', ['url' => url('services'), 'label' => 'Návrh interiéru', 'icon' => false, 'css' => 'op__7']) ?>
-						<?= snippet('atoms/Link', ['url' => url('services'), 'label' => 'Fit-out a refit', 'icon' => false, 'css' => 'op__7']) ?>
-						<?= snippet('atoms/Link', ['url' => url('services'), 'label' => 'Nábytek na míru', 'icon' => false, 'css' => 'op__7']) ?>
-						<?= snippet('atoms/Link', ['url' => url('services'), 'label' => 'Pro architekty', 'icon' => false, 'css' => 'op__7']) ?>
-					</nav>
-				</div>
+		<!-- Právní informace -->
+		<div class="footer__bottom font__size__small">
+			<div class="footer__copy">
+				<p>© <?= date('Y') ?> U1 s.r.o., dříve U1 Interiors · IČO 26273179</p>
 			</div>
-
-			<div class="grid place__space-between-start gap__2">
-				<div class="grid gap__05">
-					<div class="label upper font__size__small op__4">(Kontakt)</div>
-					<div class="grid gap__02 font__size__small">
-						<a class="op__7" href="mailto:info@u1.cz">info@u1.cz</a>
-						<a class="op__7" href="mailto:sales@u1.cz">sales@u1.cz</a>
-					</div>
-				</div>
-				<div class="grid gap__05 inner-t__05">
-					<div class="label upper font__size__small op__4">(Sociální sítě)</div>
-					<nav class="flex gap__02">
-						<?php foreach ($site->social()->toStructure() as $s): ?>
-							<?php if(!$s->isFirst()) : ?>
-								<span class="light ff__body op__2">/</span>
-							<?php endif ?>
-							<?= snippet('atoms/Link', ['url' => $s->link()->url(), 'label' => $s->platform(), 'icon' => false, 'node' => 'data-reveal="simple" data-split-ignore']) ?>
-						<?php endforeach ?>
-					</nav>
-				</div>
-			</div>
-
-			<div class="grid place__space-between-start gap__2">
-				<div class="grid gap__05">
-					<div class="label upper font__size__small op__4">(Firma)</div>
-					<p class="font__size__small op__7">© 2026 U1 s.r.o.<br>dříve U1 Interiors<br>IČO 26273179</p>
-				</div>
-				<div class="grid">
-					<nav data-reveal-text="words" class="flex flex__flow-column gap__02 op__5 font__size__small">
-						<?= snippet('atoms/Link', ['url' => 'privacy', 'label' => 'Ochrana osobních údajů', 'icon' => false]) ?>
-						<?= snippet('atoms/Link', ['url' => 'cookies', 'label' => 'Cookies', 'icon' => false]) ?>
-						<?= snippet('atoms/Link', ['url' => 'terms', 'label' => 'Obchodní podmínky', 'icon' => false]) ?>
-					</nav>
-				</div>
-			</div>	
-			
+			<nav class="footer__legal" aria-label="Právní informace">
+				<a href="<?= url('privacy') ?>" class="footer__legal-link">Ochrana osobních údajů</a>
+				<a href="<?= url('cookies') ?>" class="footer__legal-link">Cookies</a>
+				<a href="<?= url('terms') ?>" class="footer__legal-link">Obchodní podmínky</a>
+			</nav>
 		</div>
 
 	</div>
