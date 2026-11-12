@@ -15,8 +15,7 @@ $featuredServices = [
 			<!-- Značka -->
 			<div class="grid gap__1">
 				<a class="footer__logo" href="<?= page('home')->url() ?>" aria-label="U1 Space Design, úvodní stránka">
-					<?= svg('public/assets/images/fig_logo.svg') ?>
-					<span class="footer__brand-text upper ff__heading">space design</span>
+					<?= svg('public/assets/images/fig_logo_type.svg') ?>
 				</a>
 				<h3 class="">
 					Dobrý design.<br>Dobrý byznys.
