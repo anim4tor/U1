@@ -2,7 +2,7 @@
 	<div class="bg radius absolute inset__stretch" theme="light"></div>
 
 	<div data-pane-container class="relative z__1">
-		<div class="grid__stack place__start-start inner__4 mobile:inner-x__1">
+		<div class="grid__stack place__start-start inner-x__4 inner-y__5 mobile:inner-x__1 mobile:inner-y__3">
 			<div class="w__full z__2 pointer-events-none">
 				<div class="grid__3 gap-x__1 gap-y__2 mobile:grid__1">
 					<div data-scroll class="grid gap__1 span__2 relative pointer-events-auto">

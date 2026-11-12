@@ -75,6 +75,8 @@ Order:
 - 
   label: 1_hero
 - 
+  label: 3_spoluprace
+- 
   label: 2_about
 - 
   label: 3_projects

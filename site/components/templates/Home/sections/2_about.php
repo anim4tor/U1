@@ -1,6 +1,6 @@
 <?php if ($page->about()->isNotEmpty()) : ?>
 <section class="about radius" theme="invert">
-	<div class="grid__4 place__start-stretch gap__2 mobile:grid__1 inner__4 mobile:inner-x__1">
+	<div class="grid__4 place__start-stretch gap__2 mobile:grid__1 inner-x__4 inner-y__5 mobile:inner-x__1 mobile:inner-y__3">
 		<div class="grid span__3 gap__4 place__space-between-start mobile:inner-x__0">
 			<div class="grid gap__1">
 				<?= snippet('molecules/Header', ['header' => $page->about(), 'type' => ['label']]) ?>

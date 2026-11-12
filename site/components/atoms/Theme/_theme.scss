@@ -47,12 +47,13 @@
     --base-body-line-height:   1.52;
 
     /* ==========================================================================
-       LAYOUT PADDING & GRID SPACING TOKENS
+       LAYOUT PADDING & GRID SPACING TOKENS (U1 V65: u = 20px na 1440)
        ========================================================================== */
+    --u:                       clamp(14px, calc(20 / 1440 * 100vw), 24px);
     --scale-min:               1;
-    --scale-fluid:             2;
+    --scale-fluid:             1.389;
     --scale:                   1;
-    --spacing:                 clamp(14px, calc(var(--amount, 1) * var(--scale-fluid) * 1vw * var(--scale)), 28px);
+    --spacing:                 var(--u);
 
     /* ==========================================================================
        GLOBAL INTERACTIVE ANIMATIONS TOKENS

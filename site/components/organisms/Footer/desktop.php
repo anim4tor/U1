@@ -1,7 +1,7 @@
 <footer id="footer" class="radius" theme="invert" data-footer data-scroll>
 	<div class="bg radius absolute inset__stretch"></div>
 
-	<div class="grid__4 gap__2 inner-x__4 inner-y__4">
+	<div class="grid__4 gap__2 inner-x__4 inner-y__5 mobile:inner-x__1 mobile:inner-y__3">
 		<div class="span__1 grid gap__1">
 			<a class="footer__logo" href="<?= page('home')->url() ?>">
 				<span data-reveal><?= svg('public/assets/images/fig_logo_invert.svg') ?></span>

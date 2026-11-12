@@ -167,90 +167,75 @@ section.process {
   --process-meta-height: calc(var(--process-title-height) + var(--process-detail-height));
 }
 
-.process__fullscreen-sticky {
-  height: 100vh;
-  height: 100dvh;
-  max-height: 100vh;
-  max-height: 100dvh;
-  overflow: hidden;
-  box-sizing: border-box;
-
-
-  @media (max-height: 800px) {}
-}
-
 .process__header {
   flex-shrink: 0;
 }
 
 .process__cards-wrapper {
-  flex: 1 1 0;
-  min-height: 0;
-  height: 100%;
   position: relative;
-  display: flex;
-  flex-direction: column;
+  width: 100%;
 }
 
 .process__grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: 1fr var(--process-title-height);
-  height: 100%;
-  min-height: 0;
+  grid-template-columns: repeat(5, 1fr);
+  gap: calc(1 * var(--spacing));
+  width: 100%;
   position: relative;
   @include animation;
   transition-duration: 400ms;
+
+  @include create-mq('mobile', 'max') {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: calc(0.5 * var(--spacing));
+  }
 }
 
 /* 
   When a specific column has data-active, we dynamically shift 
-  the 5-column track definition so that the active column takes 2.5fr 
+  the 5-column track definition so that the active column takes 2.2fr 
   and the rest remain 1fr.
 */
 .process__grid:has([data-tab]:nth-child(1)[data-active]) {
-  grid-template-columns: 2.5fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 2.2fr 1fr 1fr 1fr 1fr;
 }
 
 .process__grid:has([data-tab]:nth-child(2)[data-active]) {
-  grid-template-columns: 1fr 2.5fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 2.2fr 1fr 1fr 1fr;
 }
 
 .process__grid:has([data-tab]:nth-child(3)[data-active]) {
-  grid-template-columns: 1fr 1fr 2.5fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 2.2fr 1fr 1fr;
 }
 
 .process__grid:has([data-tab]:nth-child(4)[data-active]) {
-  grid-template-columns: 1fr 1fr 1fr 2.5fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 2.2fr 1fr;
 }
 
 .process__grid:has([data-tab]:nth-child(5)[data-active]) {
-  grid-template-columns: 1fr 1fr 1fr 1fr 2.5fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 2.2fr;
 }
 
 .process-card {
-
-  height: 100%;
-  min-height: 0;
+  display: flex;
+  flex-direction: column;
   position: relative;
+  min-width: 0;
 
-  @supports (grid-template-rows: subgrid) {
-    grid-row: span 2;
-    display: grid;
-    grid-template-rows: subgrid;
-    row-gap: 0;
+  @include create-mq('mobile', 'max') {
+    flex: 0 0 75vw;
+    scroll-snap-align: start;
   }
 }
 
 .process-card__figure {
-  grid-row: 1;
-  flex: 1 1 0;
-  min-height: 0;
-  height: 100%;
   width: 100%;
+  aspect-ratio: 4 / 3;
   position: relative;
   overflow: hidden;
-  border-radius: var(--radius-img, 8px);
+  border-radius: calc(var(--img-radius, 0.75) * var(--spacing));
 
   figure {
     width: 100%;
@@ -266,18 +251,20 @@ section.process {
     height: 100%;
     object-fit: cover;
     display: block;
+    transition: transform 600ms cubic-bezier(0.4, 0, 0.2, 1);
   }
 }
 
+.process-card:hover .process-card__figure img,
+.process-card[data-active] .process-card__figure img {
+  transform: scale(1.03);
+}
+
 .process-card__title {
-  grid-row: 2;
-  flex-shrink: 0;
-  height: var(--process-title-height);
-  min-height: var(--process-title-height);
-  max-height: var(--process-title-height);
   display: flex;
-  align-items: center;
-  overflow: hidden;
+  justify-content: space-between;
+  align-items: baseline;
+  padding-top: calc(0.5 * var(--spacing));
 
   h3 {
     margin: 0;
@@ -287,36 +274,37 @@ section.process {
   }
 }
 
-.process__cards-detail {
-  flex-shrink: 0;
-  // height: var(--process-detail-height);
-  // min-height: var(--process-detail-height);
-  // max-height: var(--process-detail-height);
+.process-card__progress {
+  width: 100%;
+  height: 2px;
+  background: rgba(var(--color-text), 0.12);
   position: relative;
+  margin-top: calc(0.4 * var(--spacing));
+  overflow: hidden;
+
+  .progress__line {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 0%;
+    background: var(--color-acc);
+    transition: width 350ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
 }
 
-.process-card__detail {
-  height: 100%;
-  padding-top: calc(0.75 * var(--spacing));
-  overflow-y: auto;
-  scrollbar-width: none;
+.process-card[data-active] .process-card__progress .progress__line,
+.process-card:hover .process-card__progress .progress__line {
+  width: 100%;
+}
 
-  &::-webkit-scrollbar {
-    display: none;
-  }
+.process__cards-detail {
+  padding-top: calc(0.75 * var(--spacing));
+  min-height: 4em;
 
   p {
     margin: 0;
-    max-width: 100%;
+    max-width: 65ch;
     line-height: var(--base-body-line-height, 1.52);
   }
-}
-
-.process__progress-line {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 2;
-  pointer-events: none;
 }
