@@ -65,13 +65,21 @@
     /* 12px at 1440px - Small (štítky, roky) */
     --font-size-small-fluid: clamp(10px, calc(12 / 1440 * 100vw), 14px);
     --line-height-small-fluid: 1.4;
+
+    /* Label typo (štítky, metadata, tagy) */
+    --font-size-label-fluid: clamp(10px, calc(12 / 1440 * 100vw), 14px);
+    --line-height-label-fluid: 1.4;
+
+    /* Button typo (tlačítka, CTA) */
+    --font-size-button-fluid: clamp(11px, calc(12 / 1440 * 100vw), 14px);
+    --line-height-button-fluid: 1.2;
 }
 
 /*
     Levels
 */
 
-$levels: 'figure', 'small', 'default', 'large', 6, 5, 4, 3, 2, 1;
+$levels: 'figure', 'label', 'button', 'small', 'default', 'large', 6, 5, 4, 3, 2, 1;
 
 @each $modifier , $breakpoint in $map-grid-props {
     @if($modifier =='') {
@@ -87,7 +95,7 @@ $levels: 'figure', 'small', 'default', 'large', 6, 5, 4, 3, 2, 1;
             .text-#{$level} {
                 --output-size: var(--font-size-#{$level}, var(--font-size-#{$level}-fluid));
 
-                @if ($level =='small' or $level =='default' or $level =='large') {
+                @if ($level =='small' or $level =='default' or $level =='large' or $level =='label' or $level =='button') {
                     font-family: var(--font-family-#{$level}, var(--ff-body, sans-serif));
                     font-weight: var(--font-weight-#{$level}, var(--fw-body, 400));
                     letter-spacing: var(--letter-spacing-#{$level}, var(--ls-body, inherit));
@@ -110,6 +118,10 @@ $levels: 'figure', 'small', 'default', 'large', 6, 5, 4, 3, 2, 1;
 
                 @if ($level =='small') {
                     opacity: var(--opacity-small, 1);
+                }
+
+                @if ($level =='label') {
+                    opacity: var(--opacity-label, 1);
                 }
             }
         }
@@ -325,9 +337,6 @@ p {
     font-weight: bolder;
 }
 
-.label,
-label,
-.block__label,
 .font__size__small,
 .font-size-small,
 .text-small {
@@ -335,8 +344,30 @@ label,
     line-height: var(--line-height-small, var(--line-height-small-fluid, 1.44));
 }
 
-.label {
-    font-weight: var(--font-weight-small, var(--fw-body, 400));
+.label,
+label,
+.block__label,
+.font__size__label,
+.font-size-label,
+.text-label {
+    font-family: var(--font-family-label, var(--ff-body, sans-serif));
+    font-size: var(--font-size-label, var(--font-size-label-fluid, var(--font-size-small-fluid, 12px)));
+    line-height: var(--line-height-label, var(--line-height-label-fluid, var(--line-height-small-fluid, 1.44)));
+    font-weight: var(--font-weight-label, var(--font-weight-small, 500));
+    letter-spacing: var(--letter-spacing-label, var(--letter-spacing-small, var(--ls-body, inherit)));
+    text-transform: var(--text-transform-label, uppercase);
+}
+
+.button,
+button,
+.font__size__button,
+.font-size-button,
+.text-button {
+    font-family: var(--font-family-button, var(--ff-body, sans-serif));
+    font-size: var(--font-size-button, var(--font-size-button-fluid, var(--font-size-small-fluid, 12px)));
+    line-height: var(--line-height-button, var(--line-height-button-fluid, 1.2));
+    font-weight: var(--font-weight-button, 500);
+    letter-spacing: var(--letter-spacing-button, var(--ls-body, inherit));
 }
 
 .hyphens {

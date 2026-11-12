@@ -78,19 +78,48 @@ Faq:
 
 - 
   question: Co znamená kancelář na klíč?
-  answer: Navrhneme, postavíme a vybavíme kanceláře na základě jedné smlouvy. Za návrh, stavbu, projektové řízení i nábytek odpovídáme my, takže nemusíte koordinovat několik dodavatelů.
+  answer: >
+    Navrhneme, postavíme a vybavíme
+    kanceláře na základě jedné smlouvy.
+    Za návrh, stavbu, projektové řízení
+    i nábytek odpovídáme my, takže
+    nemusíte koordinovat několik
+    dodavatelů.
 - 
-  question: Postavíte kanceláře i podle návrhu jiného architekta?
-  answer: Ano. Kanceláře postavíme i podle projektu externího architekta, takto jsme realizovali kanceláře v CTParku Borská pole v Plzni. Autorství návrhu zůstává jeho tvůrci.
+  question: >
+    Postavíte kanceláře i podle návrhu
+    jiného architekta?
+  answer: >
+    Ano. Kanceláře postavíme i podle
+    projektu externího architekta, takto
+    jsme realizovali kanceláře v CTParku
+    Borská pole v Plzni. Autorství návrhu
+    zůstává jeho tvůrci.
 - 
   question: Kde kanceláře stavíte?
-  answer: Sídlo a showroom máme v Brně. Kanceláře navrhujeme a stavíme po celé České republice a na Slovensku.
+  answer: >
+    Sídlo a showroom máme v Brně.
+    Kanceláře navrhujeme a stavíme po
+    celé České republice a na Slovensku.
 - 
   question: Jak dlouho trvá fit-out kanceláří?
-  answer: Záleží na rozsahu a výchozím stavu prostoru. Kanceláře v CTParku Borská pole jsme od holého betonu realizovali za pět měsíců. Termín pro váš projekt stanovíme po prohlídce prostor.
+  answer: >
+    Záleží na rozsahu a výchozím stavu
+    prostoru. Kanceláře v CTParku Borská
+    pole jsme od holého betonu realizovali
+    za pět měsíců. Termín pro váš
+    projekt stanovíme po prohlídce
+    prostor.
 - 
   question: Kdo nábytek na míru vyrábí?
-  answer: Ověření truhláři, se kterými dlouhodobě spolupracujeme. Návrh, detaily, koordinaci a montáž řídíme my, za výsledek odpovídáme jako jeden partner. Vlastní nábytkové řady U1. Only2 získala na Designbloku 2018 cenu Nejlepší novinka výrobce.
+  answer: >
+    Ověření truhláři, se kterými
+    dlouhodobě spolupracujeme. Návrh,
+    detaily, koordinaci a montáž řídíme
+    my, za výsledek odpovídáme jako jeden
+    partner. Vlastní nábytkové řady U1.
+    Only2 získala na Designbloku 2018 cenu
+    Nejlepší novinka výrobce.
 
 ----
 
@@ -100,6 +129,8 @@ Order:
   label: 1_hero
 - 
   label: 2_about
+- 
+  label: 10_spoluprace
 - 
   label: 3_projects
 - 
@@ -116,6 +147,10 @@ Order:
   label: global/Feed/index
 - 
   label: global/Cta/index
+
+----
+
+Cta: 
 
 ----
 

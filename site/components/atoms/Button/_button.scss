@@ -11,9 +11,9 @@
 	--circle-size: 50px;
 	--button-radius: 2em;
 	--button-spacing: 1.0em;
-	--button-family: var(--ff-body);
-	--button-font-size: 12px;
-	--button-font-weight: 500;
+	--button-family: var(--font-family-button, var(--ff-body));
+	--button-font-size: var(--font-size-button, var(--font-size-button-fluid, var(--font-size-small, 12px)));
+	--button-font-weight: var(--font-weight-button, 500);
 	--checkbox-radius: 1rem;
 }
 .button {

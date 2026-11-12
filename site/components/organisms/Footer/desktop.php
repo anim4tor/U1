@@ -13,20 +13,20 @@ $featuredServices = [
 		<div class="footer__grid">
 			
 			<!-- Značka -->
-			<div class="footer__brand">
+			<div class="grid gap__1">
 				<a class="footer__logo" href="<?= page('home')->url() ?>" aria-label="U1 Space Design, úvodní stránka">
 					<?= svg('public/assets/images/fig_logo.svg') ?>
 					<span class="footer__brand-text upper ff__heading">space design</span>
 				</a>
-				<p class="perex font__size__small op__7">
+				<h3 class="">
 					Dobrý design.<br>Dobrý byznys.
-				</p>
+				</h3>
 			</div>
 
 			<!-- Web -->
 			<div class="footer__col">
-				<h3 class="footer__title label upper font__size__small">Web</h3>
-				<ul class="footer__list font__size__small">
+				<h3 class="footer__title label upper ">Web</h3>
+				<ul class="footer__list ">
 					<?php foreach ($pages->listed()->not('home') as $p): ?>
 						<li>
 							<a href="<?= $p->url() ?>" class="footer__link <?= $p->isActive() || $page->parents()->has($p) ? 'active' : '' ?>">
@@ -39,8 +39,8 @@ $featuredServices = [
 
 			<!-- Služby -->
 			<div class="footer__col">
-				<h3 class="footer__title label upper font__size__small">Služby</h3>
-				<ul class="footer__list font__size__small">
+				<h3 class="footer__title label upper ">Služby</h3>
+				<ul class="footer__list ">
 					<?php foreach ($featuredServices as $slug => $label): ?>
 						<?php 
 						$targetPage = page($slug);
@@ -58,8 +58,8 @@ $featuredServices = [
 
 			<!-- Kde nás najdete -->
 			<div class="footer__col">
-				<h3 class="footer__title label upper font__size__small">Kde nás najdete</h3>
-				<div class="font__size__small">
+				<h3 class="footer__title label upper ">Kde nás najdete</h3>
+				<div class="">
 					<address class="footer__address">
 						<span class="strong op__10">Brno, sídlo</span>
 						<span class="op__7">Nejedlého 373/1<br>638 00 Brno-Lesná</span>
@@ -73,8 +73,8 @@ $featuredServices = [
 
 			<!-- Kontakt -->
 			<div class="footer__col">
-				<h3 class="footer__title label upper font__size__small">Kontakt</h3>
-				<ul class="footer__list font__size__small">
+				<h3 class="footer__title label upper ">Kontakt</h3>
+				<ul class="footer__list ">
 					<li><a href="mailto:info@u1.cz" class="footer__link">info@u1.cz</a></li>
 					<li><a href="mailto:sales@u1.cz" class="footer__link">sales@u1.cz</a></li>
 					<?php if ($site->social()->isNotEmpty()): ?>
@@ -98,7 +98,7 @@ $featuredServices = [
 		<!-- Právní informace -->
 		<div class="footer__bottom font__size__small">
 			<div class="footer__copy">
-				<p>© <?= date('Y') ?> U1 s.r.o., dříve U1 Interiors · IČO 26273179</p>
+				<p class="font__size__small">© <?= date('Y') ?> U1 s.r.o., dříve U1 Interiors · IČO 26273179</p>
 			</div>
 			<nav class="footer__legal" aria-label="Právní informace">
 				<a href="<?= url('privacy') ?>" class="footer__legal-link">Ochrana osobních údajů</a>

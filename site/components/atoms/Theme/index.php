@@ -549,6 +549,49 @@
 					<input type="number" name="opacity-small" step="0.05" min="0.1" max="1" placeholder="1" data-theme-setup data-override>
 				</div>
 			</div>
+
+			<!-- Štítek / Metadata (Label) -->
+			<div class="typo-section-header">Štítek / Metadata (Label)</div>
+			<div class="grid span__2">
+				<label class="ff__body op__4 font__size__small">Font Family</label>
+				<select name="font-family-label" data-theme-setup data-override data-font-select data-has-inherit="var(--ff-body)"></select>
+			</div>
+			<div class="theme-panel-row span__2">
+				<div class="grid">
+					<label class="ff__body op__4 font__size__small">Size</label>
+					<input type="text" name="font-size-label" data-theme-setup data-override>
+				</div>
+				<div class="grid">
+					<label class="ff__body op__4 font__size__small">Weight</label>
+					<input type="number" name="font-weight-label" step="100" min="100" max="900" data-theme-setup data-override>
+				</div>
+			</div>
+			<div class="theme-panel-row span__2" style="margin-bottom: 0.25rem;">
+				<div class="grid">
+					<label class="ff__body op__4 font__size__small">Line Height</label>
+					<input type="number" name="line-height-label" step="0.01" min="0.5" max="2.5" data-theme-setup data-override>
+				</div>
+				<div class="grid">
+					<label class="ff__body op__4 font__size__small">Tracking (LS)</label>
+					<input type="number" name="letter-spacing-label" step="0.01" placeholder="0" data-theme-setup data-override data-unit="em">
+				</div>
+			</div>
+			<div class="theme-panel-row span__2" style="margin-bottom: 0.25rem;">
+				<div class="grid">
+					<label class="ff__body op__4 font__size__small">Transform</label>
+					<select name="text-transform-label" data-theme-setup data-override>
+						<option value="">Auto (uppercase)</option>
+						<option value="none">None</option>
+						<option value="uppercase">Uppercase</option>
+						<option value="lowercase">Lowercase</option>
+						<option value="capitalize">Capitalize</option>
+					</select>
+				</div>
+				<div class="grid">
+					<label class="ff__body op__4 font__size__small">Opacity</label>
+					<input type="number" name="opacity-label" step="0.05" min="0.1" max="1" placeholder="1" data-theme-setup data-override>
+				</div>
+			</div>
 		</div>
 
 		<div id="tab-spacing" class="theme-tab-content grid__2 gap__1 span__2 is-hidden">
@@ -636,6 +679,7 @@
 		</div>
 
 		<div id="tab-buttons" class="theme-tab-content grid__2 gap__1 span__2 is-hidden">
+		    <div class="typo-section-header">Tvary a rámečky</div>
 		    <div class="grid">
 		        <label class="ff__body op__4 font__size__small">Btn Padding</label>
 		        <input type="text" name="btn-padding" placeholder="0.5rem 1rem" data-theme-setup>
@@ -647,6 +691,42 @@
 		    <div class="grid span__2">
 		        <label class="ff__body op__4 font__size__small">Btn Border Width</label>
 		        <input type="number" name="btn-border" step="1" min="0" max="10" data-theme-setup data-unit="px">
+		    </div>
+
+		    <div class="typo-section-header">Typografie tlačítek (Button Typography)</div>
+		    <div class="grid span__2">
+		        <label class="ff__body op__4 font__size__small">Font Family</label>
+		        <select name="font-family-button" data-theme-setup data-override data-font-select data-has-inherit="var(--ff-body)"></select>
+		    </div>
+		    <div class="theme-panel-row span__2">
+		        <div class="grid">
+		            <label class="ff__body op__4 font__size__small">Size</label>
+		            <input type="text" name="font-size-button" data-theme-setup data-override>
+		        </div>
+		        <div class="grid">
+		            <label class="ff__body op__4 font__size__small">Weight</label>
+		            <input type="number" name="font-weight-button" step="100" min="100" max="900" data-theme-setup data-override>
+		        </div>
+		    </div>
+		    <div class="theme-panel-row span__2" style="margin-bottom: 0.25rem;">
+		        <div class="grid">
+		            <label class="ff__body op__4 font__size__small">Line Height</label>
+		            <input type="number" name="line-height-button" step="0.01" min="0.5" max="2.5" data-theme-setup data-override>
+		        </div>
+		        <div class="grid">
+		            <label class="ff__body op__4 font__size__small">Tracking (LS)</label>
+		            <input type="number" name="letter-spacing-button" step="0.01" placeholder="0" data-theme-setup data-override data-unit="em">
+		        </div>
+		    </div>
+		    <div class="grid span__2" style="margin-bottom: 0.25rem;">
+		        <label class="ff__body op__4 font__size__small">Transform</label>
+		        <select name="text-transform-button" data-theme-setup data-override>
+		            <option value="">Auto (uppercase)</option>
+		            <option value="none">None</option>
+		            <option value="uppercase">Uppercase</option>
+		            <option value="lowercase">Lowercase</option>
+		            <option value="capitalize">Capitalize</option>
+		        </select>
 		    </div>
 		</div>
 
@@ -980,7 +1060,22 @@
 				'line-height-small': formatLh(capLh),
 				'letter-spacing-small': lsBody || '-0.035em',
 				'text-transform-small': ttBody || 'none',
-				'opacity-small': '1'
+				'opacity-small': '1',
+
+				'font-family-label': 'var(--ff-body)',
+				'font-size-label': formatSize(capRem, capVw),
+				'font-weight-label': fwBody || '500',
+				'line-height-label': formatLh(capLh),
+				'letter-spacing-label': lsBody || '-0.01em',
+				'text-transform-label': 'uppercase',
+				'opacity-label': '1',
+
+				'font-family-button': 'var(--ff-body)',
+				'font-size-button': formatSize(capRem, capVw),
+				'font-weight-button': '500',
+				'line-height-button': '1.2',
+				'letter-spacing-button': lsBody || '-0.01em',
+				'text-transform-button': 'uppercase'
 			};
 		}
 

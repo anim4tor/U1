@@ -1,3 +1,10 @@
+<?php
+$meta = array_filter([
+	$project->industry()->isNotEmpty() ? implode(', ', $project->industry()->split()) : null,
+	$project->place()->isNotEmpty() ? $project->place()->value() : null,
+	$project->date()->isNotEmpty() ? $project->date()->toDate('Y') : null,
+]);
+?>
 <div class="item --project relative" data-scroll>
 	<a href="<?= $project->url() ?>" class="grid gap__1 relative">	
 		<div class="relative">
@@ -6,7 +13,7 @@
 			<?php endif ?>
 		</div>
 		<div class="item__meta relative grid gap__05">
-			<?= snippet('atoms/Label', ['text' => $project->date()->toDate('Y')]) ?>
+			<?= snippet('atoms/Label', ['text' => implode(' · ', $meta)]) ?>
 			<h3 class=" wrap "><?= $project->title() ?></h3>
 		</div>
 	</a>

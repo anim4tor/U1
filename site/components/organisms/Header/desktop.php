@@ -15,7 +15,7 @@
 			<?php if ($headerLinks->isNotEmpty()): ?>
 			<nav class="header__seg header__nav flex gap__2 align__center inner-x__2 font__size__small hide--mobile" aria-label="Hlavní menu">
 				<?php foreach ($headerLinks as $navItem): ?>
-					<a href="<?= $navItem->url() ?>" class="header__nav-link link <?= $navItem->isActive() || $page->parents()->has($navItem) ? 'active' : 'op__6' ?>" data-split-ignore>
+					<a href="<?= $navItem->url() ?>" class="upper font__size__small op__8 <?= $navItem->isActive() || $page->parents()->has($navItem) ? 'active' : 'op__6' ?>" data-split-ignore>
 						<?= $navItem->title() ?>
 					</a>
 				<?php endforeach ?>
@@ -23,9 +23,9 @@
 			<?php endif ?>
 
 			<div class="header__seg header__toggle flex gap__1 inner-x__1 align__center" navbar-toggle role="button" aria-label="Menu" tabindex="0">
-				<div class="grid__stack place__center-center upper font__size__small op__8" data-on-navbar-toggle>
-					<span data-default>Menu</span>
-					<span>Close</span>
+				<div class="grid__stack place__center-center" data-on-navbar-toggle>
+					<?= snippet('atoms/Label', ['text' => 'Menu', 'node' => 'data-default', 'css' => 'op__8']) ?>
+					<?= snippet('atoms/Label', ['text' => 'Close', 'css' => 'op__8']) ?>
 				</div>
 				<div class="grid__stack place__center-end" data-on-navbar-toggle>
 					<?= snippet('atoms/Button', [ 'label' => false, 'icon' => 'menu', 'node' => 'data-navbar-toggle data-default', 'theme' => 'transparent', 'css' => 'circle' ]) ?>
@@ -34,9 +34,12 @@
 			</div>
 
 			<div class="header__seg header__cta flex align__center inner-l__05">
-				<button class="button inner-x__1 font__size__small bold" theme="acc" data-contact-toggle="inquiry" aria-label="Poptat projekt" type="button">
-					Poptat projekt
-				</button>
+				<?= snippet('atoms/Button', [
+					'label' => 'Poptat projekt',
+					'theme' => 'acc',
+					'css'   => 'inner-x__1 font__size__small bold',
+					'node'  => 'data-contact-toggle="inquiry" type="button"'
+				]) ?>
 			</div>
 		</div>
 		<div navbar-widget class="" data-scroll data-scroll-ignore >
