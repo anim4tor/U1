@@ -1,10 +1,10 @@
 <header class="header grid place__start-center inner__05" data-header>
 	<div navbar class="grid bg__dark/60 color__invert bg__blur img__radius">
-		<div navbar-header data-scroll class="flex align__center inner-x__02">
-			<div class="header__seg header__logo flex justify__start align__center">
+		<div navbar-header data-scroll class="flex gap__0 align__center inner-x__02">
+			<div class="header__seg header__logo flex justify__start align__center" data-reveal>
 				<a class="button flex justify__center align__center" href="<?= page('home')->url() ?>" aria-label="U1 Space Design">
-					<div class="header__logo-full flex align__center wrap-b__01" data-reveal><?= svg('public/assets/images/fig_logo_type.svg') ?></div>
-					<div class="header__logo-compact flex align__center" data-reveal><?= svg('public/assets/images/fig_logo.svg') ?></div>
+					<div class="header__logo-full flex align__center wrap-b__01"><?= svg('public/assets/images/fig_logo_type.svg') ?></div>
+					<div class="header__logo-compact flex align__center wrap-b__01"><?= svg('public/assets/images/fig_logo.svg') ?></div>
 				</a>	
 			</div>
 

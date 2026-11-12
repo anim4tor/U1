@@ -66,9 +66,11 @@ class Scroll {
         if (top > 60) {
             header.setAttribute('collapsed', 'true');
             if (fab) fab.setAttribute('collapsed', 'true');
+            document.documentElement.setAttribute('header-collapsed', 'true');
         } else {
             header.removeAttribute('collapsed');
             if (fab) fab.removeAttribute('collapsed');
+            document.documentElement.removeAttribute('header-collapsed');
         }
     }
 
