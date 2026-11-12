@@ -245,7 +245,7 @@ html[navbar-open] {
 				cursor: pointer;
 				height: calc(var(--header-height) - 18px);
 				padding: 0 1.25em;
-				border-radius: 999px;
+				border-radius: var(--button-radius);
 				font-weight: 600;
 				letter-spacing: 0.02em;
 				white-space: nowrap;
