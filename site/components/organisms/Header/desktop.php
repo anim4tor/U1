@@ -28,10 +28,10 @@
 			<?php endif ?>
 
 			<div class="header__seg header__toggle flex gap__02 inner-x__1 align__center" navbar-toggle role="button" aria-label="Menu" tabindex="0">
-				<div class="header__toggle-text grid__stack place__center-center" data-on-navbar-toggle>
+				<!-- <div class="header__toggle-text grid__stack place__center-center" data-on-navbar-toggle>
 					<?= snippet('atoms/Label', ['text' => 'Menu', 'node' => 'data-default', 'css' => 'op__8', 'reveal' => false]) ?>
 					<?= snippet('atoms/Label', ['text' => 'Close', 'css' => 'op__8', 'reveal' => false]) ?>
-				</div>
+				</div> -->
 				<div class="header__toggle-icon grid__stack place__center-end" data-on-navbar-toggle>
 					<?= snippet('atoms/Button', [ 'label' => false, 'icon' => 'menu', 'node' => 'data-navbar-toggle data-default', 'theme' => 'transparent', 'css' => 'circle' ]) ?>
 					<?= snippet('atoms/Button', [ 'label' => false, 'icon' => 'close', 'node' => 'data-navbar-toggle', 'theme' => 'transparent', 'css' => 'circle' ]) ?>
