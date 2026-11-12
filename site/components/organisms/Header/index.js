@@ -29,6 +29,13 @@ class Navbar {
     init() {
         this.DOM.triggers.forEach(btn => btn.addEventListener('click', (e) => this.toggle(e)));
         this.DOM.closeBtns.forEach(btn => btn.addEventListener('click', () => this.close()));
+
+        if (typeof Splitting === 'function') {
+            const menuTargets = this.DOM.navbar.querySelectorAll('[navbar-menu] [data-reveal-text]');
+            if (menuTargets.length) {
+                Splitting({ target: menuTargets, by: 'chars' });
+            }
+        }
     }
 
     toggle(e) {

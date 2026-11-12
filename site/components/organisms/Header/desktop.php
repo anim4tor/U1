@@ -55,7 +55,7 @@
 						<nav navbar-menu class="grid upper no__wrap">
 							<?php foreach ($pages->listed() as $p): ?>
 								<div class="grid place__center-center">
-									<a href="<?= $p->url() ?>" class="<?= ($p->isActive() || $page->parents()->has($p)) ? '' : 'op__4' ?>">
+									<a href="<?= $p->url() ?>" class="link <?= ($p->isActive() || $page->parents()->has($p)) ? '' : 'op__4' ?>">
 										<h3 class="larger" data-reveal-text data-reveal-on-navbar data-split-ignore><?= $p->title() ?></h3>
 									</a>
 								</div>
