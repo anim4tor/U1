@@ -13,11 +13,14 @@
 				: $pages->listed()->limit(4);
 			?>
 			<?php if ($headerLinks->isNotEmpty()): ?>
-			<nav class="header__seg header__nav flex gap__2 align__center inner-x__2 font__size__small hide--mobile" aria-label="Hlavní menu">
+			<nav class="header__seg header__nav flex gap__2 align__center inner-x__2 font__size__label hide--mobile" aria-label="Hlavní menu">
 				<?php foreach ($headerLinks as $navItem): ?>
-					<a href="<?= $navItem->url() ?>" class="upper font__size__small op__8 <?= $navItem->isActive() || $page->parents()->has($navItem) ? 'active' : 'op__6' ?>" data-split-ignore>
-						<?= $navItem->title() ?>
-					</a>
+					<?= snippet('atoms/Label', [
+						'url'  => $navItem->url(),
+						'text' => $navItem->title(),
+						'css'  => 'header__nav-link ' . (($navItem->isActive() || $page->parents()->has($navItem)) ? 'active op__10' : 'op__8'),
+						'node' => 'data-split-ignore'
+					]) ?>
 				<?php endforeach ?>
 			</nav>
 			<?php endif ?>

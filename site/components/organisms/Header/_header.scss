@@ -71,7 +71,8 @@ html[navbar-open] {
 				display: none !important;
 			}
 
-			.header__nav-link {
+			.header__nav-link,
+			a {
 				text-decoration: none;
 				transition: opacity 0.2s ease, color 0.2s ease;
 				white-space: nowrap;
