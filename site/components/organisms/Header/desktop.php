@@ -33,7 +33,7 @@
 				</div>
 			</div>
 
-			<div class="header__seg header__cta flex align__center inner-l__05">
+			<div class="header__seg header__cta flex align__center inner-x__05">
 				<?= snippet('atoms/Button', [
 					'label' => 'Poptat projekt',
 					'theme' => 'acc',

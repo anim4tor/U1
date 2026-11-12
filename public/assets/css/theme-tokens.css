@@ -92,4 +92,6 @@
     --line-height-large:       1.2;
     --font-weight-small:       500;
     --letter-spacing-small:    0em;
+    --font-family-button:      'Manrope';
+    --font-weight-button:      600;
 }

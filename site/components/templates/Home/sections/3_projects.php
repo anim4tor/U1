@@ -6,13 +6,13 @@
 				<?= snippet('molecules/Header', ['header' => $page->projects(), 'type' => ['label']]) ?>
 				<?= snippet('molecules/Header', ['header' => $page->projects(), 'type' => ['heading']]) ?>
 			</div>
-			<div class="flex gap__1 align__center no__wrap">
+			<div class="flex gap__02 align__center no__wrap">
 				<div class="flex align__center">
 					<?= snippet('molecules/Header', ['header' => $page->projects(), 'type' => ['button']]) ?>
 				</div>
 				<div class="flex gap__02 align__center no__wrap">
-					<button data-carousel-prev class="button upper circle" theme="invert-ghost" hover="invert" aria-label="Předchozí"><span class="icon"><?= svg('public/assets/images/ui/ui_arrow-left.svg') ?></span></button>
-					<button data-carousel-next class="button upper circle" theme="invert-ghost" hover="invert" aria-label="Další"><span class="icon"><?= svg('public/assets/images/ui/ui_arrow-right.svg') ?></span></button>
+					<button data-carousel-prev class="button upper" theme="invert-ghost" hover="invert" aria-label="Předchozí"><span class="icon"><?= svg('public/assets/images/ui/ui_arrow-left.svg') ?></span></button>
+					<button data-carousel-next class="button upper" theme="invert-ghost" hover="invert" aria-label="Další"><span class="icon"><?= svg('public/assets/images/ui/ui_arrow-right.svg') ?></span></button>
 				</div>
 			</div>
 		</div>

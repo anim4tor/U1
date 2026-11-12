@@ -19,7 +19,7 @@
 ?>
 
 <?php if ($url) : ?>
-	<a href="<?= $url ?>" <?= $target ? 'target="_blank" rel="noopener"' : null ?> class="button upper <?= $css ?>" <?= $theme ? 'theme="'.$theme.'"' : null ?> <?= $hover ? 'hover="'.$hover.'"' : null ?> <?= $reveal ? 'data-reveal-text' : '' ?> <?= $node ?>>
+	<a href="<?= $url ?>" <?= $target ? 'target="_blank" rel="noopener"' : null ?> class="button font__size__button <?= $css ?>" <?= $theme ? 'theme="'.$theme.'"' : null ?> <?= $hover ? 'hover="'.$hover.'"' : null ?> <?= $reveal ? 'data-reveal-text' : '' ?> <?= $node ?>>
 		<?php if ($label) : ?>
 			<span aria-label="<?= $label ?><?= $counter !== false ? ' (' . $counter . ')' : '' ?>">
 				<?= $label ?><?= $counter !== false ? ' (' . $counter . ')' : '' ?>
@@ -30,7 +30,7 @@
 		<?php endif ?>
 	</a>
 <?php else: ?>
-	<button class="button upper <?= $css ?>" <?= $node ?> <?= $theme ? 'theme="'.$theme.'"' : null ?> <?= $hover ? 'hover="'.$hover.'"' : null ?> <?= $reveal ? 'data-reveal="simple"' : '' ?>>
+	<button class="button font__size__button <?= $css ?>" <?= $node ?> <?= $theme ? 'theme="'.$theme.'"' : null ?> <?= $hover ? 'hover="'.$hover.'"' : null ?> <?= $reveal ? 'data-reveal="simple"' : '' ?>>
 		<?php if ($label) : ?>
 			<span aria-label="<?= $label ?><?= $counter !== false ? ' (' . $counter . ')' : '' ?>">
 				<?= $label ?><?= $counter !== false ? ' (' . $counter . ')' : '' ?>

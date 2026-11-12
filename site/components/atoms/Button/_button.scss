@@ -9,11 +9,16 @@
 :root {
 	--button-size: 40px;
 	--circle-size: 50px;
-	--button-radius: 2em;
+	--button-radius: var(--btn-radius, 2em);
 	--button-spacing: 1.0em;
-	--button-family: var(--font-family-button, var(--ff-body));
-	--button-font-size: var(--font-size-button, var(--font-size-button-fluid, var(--font-size-small, 12px)));
+	--button-padding: var(--btn-padding, 0 var(--button-spacing));
+	--button-border-width: var(--btn-border, 1px);
+	--button-family: var(--font-family-button, var(--ff-body, sans-serif));
+	--button-font-size: var(--font-size-button, var(--font-size-button-fluid, var(--font-size-small-fluid, 12px)));
 	--button-font-weight: var(--font-weight-button, 500);
+	--button-line-height: var(--line-height-button, var(--line-height-button-fluid, 1.2));
+	--button-letter-spacing: var(--letter-spacing-button, var(--ls-body, normal));
+	--button-text-transform: var(--text-transform-button, uppercase);
 	--checkbox-radius: 1rem;
 }
 .button {
@@ -27,14 +32,21 @@
 	gap: 0.5em;
 	flex-shrink: 0;
 
+	font-family: var(--button-family);
+	font-weight: var(--button-font-weight);
+	font-size: var(--button-font-size);
+	line-height: var(--button-line-height);
+	letter-spacing: var(--button-letter-spacing);
+	text-transform: var(--button-text-transform);
+
 	height: var(--button-size);
 	min-width: var(--button-size);
-	padding: 0 Var(--button-spacing);
+	padding: var(--button-padding);
 	border-radius: var(--button-radius);
 	white-space: nowrap;
-	font-size: var(--button-font-size);
 /*	color: currentColor;*/
 	&.border {
+		border-width: var(--button-border-width);
   		@include border;
 	}
 	icon, .icon {
@@ -135,6 +147,7 @@ button, .button {
 	    --background: transparent;
 	    --col: var(--color-text);
 	    @include border;
+	    border-width: var(--button-border-width);
 	}
 	&[theme="acc"] {
 	    --background: var(--color-acc);
@@ -144,6 +157,7 @@ button, .button {
 	    --background: transparent;
 	    --col: var(--color-invert);
 	    @include border;
+	    border-width: var(--button-border-width);
 	}
 }
 .button:hover, button:hover {

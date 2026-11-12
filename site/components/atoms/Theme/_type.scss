@@ -356,6 +356,7 @@ label,
     font-weight: var(--font-weight-label, var(--font-weight-small, 500));
     letter-spacing: var(--letter-spacing-label, var(--letter-spacing-small, var(--ls-body, inherit)));
     text-transform: var(--text-transform-label, uppercase);
+    opacity: var(--opacity-label, 0.7);
 }
 
 .button,
