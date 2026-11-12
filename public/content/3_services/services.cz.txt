@@ -45,6 +45,35 @@ Process:
 
 ----
 
+Contractheading: Vše pod jednou smlouvou
+
+----
+
+Contracttext: Od architektonického návrhu po vybavení jednáte s jedním odpovědným partnerem. Celý dohodnutý rozsah zastřešujeme my.
+
+----
+
+Contractsteps:
+
+- 
+  number: "01"
+  title: Návrh
+  text: Navrhneme interiér podle toho, jak vaše firma pracuje a co od prostoru potřebuje.
+- 
+  number: "02"
+  title: Stavba a technologie
+  text: Zajistíme stavební realizaci a koordinaci technických profesí v dohodnutém rozsahu.
+- 
+  number: "03"
+  title: Nábytek Only1, Only2 a atypy na míru
+  text: Atypický a kancelářský nábytek připravujeme s ověřenými truhláři pro konkrétní interiér.
+- 
+  number: "04"
+  title: Předání a péče
+  text: Hotový interiér vám předáme s potvrzenou dokumentací a nastaveným rozsahem následné péče.
+
+----
+
 Order:
 
 - 
@@ -52,7 +81,9 @@ Order:
 - 
   label: 2_solutions
 - 
-  label: 3_process
+  label: 3_contract
+- 
+  label: 4_process
 - 
   label: global/Feed/index
 - 
