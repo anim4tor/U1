@@ -1,16 +1,38 @@
 :root {
     /* ==========================================================================
-       TYPOGRAPHY BRANDING FRAMEWORK TOKENS
+       U1 TYPOGRAPHY V65 / PRAVIDLA SAZBY V02 & V03 (VARIANTA A)
        ========================================================================== */
-    --ff-heading:              'Inter';
-    --fw-heading:              500;
+    --u:                       max(14px, 1.389vw);            /* 20px na 1440 */
+    --m:                       calc(4 * var(--u));            /* okraj */
+    --gap:                     calc(2 * var(--u));            /* mezera sloupců */
+    --sec:                     calc(5 * var(--u));            /* sekce nahoře a dole */
+    --col:                     calc((100vw - 2 * var(--m) - 11 * var(--gap)) / 12);
+
+    --f-nadpis:                max(36px, 3.75vw);            /* 54px na 1440 */
+    --f-vyrok:                 max(26px, 2.5vw);             /* 36px na 1440 */
+    --f-perex:                 max(19px, 1.667vw);           /* 24px na 1440 */
+    --f-text:                  max(15px, 1.111vw);           /* 16px na 1440 */
+    --f-male:                  max(11px, .833vw);            /* 12px na 1440 */
+    --f-malé:                  var(--f-male);
+
+    --font:                    "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --ff-heading:              var(--font);
+    --fw-heading:              600;
     --tt-heading:              none;
-    --ls-heading:              -0.035em;
-    --ff-body:                 'Inter';
-    --fw-body:                 400;
-    --tt-body:                 uppercase;
-    --ls-body:                 -0.035em;
-    --ff-mono:                 'Inter';
+    --ls-heading:              -0.02em;
+    --ff-body:                 var(--font);
+    --fw-body:                 500;
+    --tt-body:                 none;
+    --ls-body:                 0;
+    --ff-mono:                 var(--font);
+
+    --white:                   #FFFFFF;
+    --warm:                    #EDECE7;
+    --black:                   #0B0A0A;
+    --ink:                     #151314;
+    --acc:                     #ED1359;
+    --r:                       calc(.5 * var(--u));
+    --r-sec:                   var(--u);
 
     /* ==========================================================================
        FLUID RESPONSIVE SCALE ENGINE TOKENS
@@ -48,9 +70,9 @@
        ========================================================================== */
     --color-acc:               #ED1359;
     --color-light:             #EDECE7;
-    --color-dark:              #000000;
+    --color-dark:              #0B0A0A;
     --color-text:              #151314;
-    --color-black:             #000000;
+    --color-black:             #0B0A0A;
     --color-white:             #FFFFFF;
     --color-invert:            #FFFFFF;
     --color-delay:             300ms;

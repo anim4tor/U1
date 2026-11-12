@@ -46,47 +46,47 @@ Values:
 
 ----
 
-Teamsheader: [{"content":{"text":"Naše týmy","level":"h2","mod":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"f03be291-c643-469a-9ef5-f40ca637a67c","isHidden":false,"type":"heading"},{"content":{"text":"","mod":"","face":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"c8834fc3-d256-4850-a845-43326249b8af","isHidden":false,"type":"label"}]
+Teamsheader: [{"content":{"text":"Týmy","level":"h2","mod":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"f03be291-c643-469a-9ef5-f40ca637a67c","isHidden":false,"type":"heading"},{"content":{"text":"","mod":"","face":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"c8834fc3-d256-4850-a845-43326249b8af","isHidden":false,"type":"label"}]
 
 ----
 
 Teams:
 
 - 
-  name: Vedení
-  details: '<p>Strategické řízení společnosti, rozvoj firemní vize a dlouhodobých partnerství.</p>'
-  figure:
-    - file://HXa9UZqdtbPdhTUQ
-  leader:
-    - page://B16gOIE45vW4gRog
-- 
   name: Obchodní oddělení
-  details: '<p>Péče o klienty, analýza potřeb a hledání optimálních řešení pro vaše prostory.</p>'
+  details: '<p>S vámi projdeme zadání a domluvíme rozsah spolupráce. Pro váš projekt zajistíme kanceláře na klíč, samostatný návrh nebo stavbu.</p>'
   figure:
     - file://LIAFLCCTEOYkZ0tC
   leader:
     - page://FHQvOe3o8GYV6EL7
 - 
-  name: 'Design & Architektura'
-  details: '<p>Kreativní koncepty, dispoziční řešení a do detailu promyšlené interiéry.</p>'
+  name: 'Architektura a design'
+  details: '<p>Navrhujeme uspořádání a podobu interiéru. Pracujeme s materiály, barvami a nábytkem v návaznosti na stavební realizaci.</p>'
   figure:
     - file://EvzC0b5nfuTdhNrI
   leader:
     - page://SGCtsAHVoB3rp6GJ
 - 
   name: Projektové řízení
-  details: '<p>Kompletní koordinace realizace, dohled nad rozpočtem, dodavateli a termíny.</p>'
+  details: '<p>Propojujeme návrh, stavbu a dodávky vybavení. Kompletní koordinace realizace, dohled nad rozpočtem, dodavateli a termíny.</p>'
   figure:
     - file://Hzplof4PlkodvbqM
   leader:
     - page://B16gOIE45vW4gRog
 - 
-  name: Provozní podpora
-  details: '<p>Zajištění hladkého chodu kanceláří, back office a administrativní zázemí.</p>'
+  name: Stavební realizace
+  details: '<p>Provádíme fit-out a rekonstrukce interiérů. Stavíme podle vlastních návrhů i projektů externích architektonických studií.</p>'
   figure:
     - file://BRZLiXm4VlnbLheE
   leader:
     - page://FHQvOe3o8GYV6EL7
+- 
+  name: Vývoj nábytku a servis
+  details: '<p>Vývoj atypického nábytku ve spolupráci s ověřenými truhláři. Vlastní nábytkové řady Only1 a Only2, záruční i pozáruční servis.</p>'
+  figure:
+    - file://HXa9UZqdtbPdhTUQ
+  leader:
+    - page://B16gOIE45vW4gRog
 
 ----
 

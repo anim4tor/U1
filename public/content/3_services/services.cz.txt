@@ -14,34 +14,34 @@ Process:
 
 - 
   step: 1
-  label: Dialog
+  label: Zadání a audit
   figure:
     - file://zFyM7mkR8tJn9ji8
-  detail: '<p>Dialog je platformou pro hloubkovou analýzu, vytvoření strategie a návrhu. Osobní rozhovor nám dává možnost poznat vaši firmu a přesně specifikovat zadání projektu. Výsledkem je interiér, který vám umožní fungovat efektivněji.</p>'
+  detail: '<p>Probereme s vámi, jak pracujete a co má nové zázemí umožnit. Zjistíme, jak vaše firma funguje, kolik lidí v kanceláři reálně je a co v prostoru chybí.</p>'
 - 
   step: 2
-  label: Studie
+  label: Koncept a rozpočet
   figure:
     - file://j3hFwcIS8Jjjr2Hj
-  detail: '<p>Vytvoříme architektonickou studii a prostorový koncept na míru vašim potřebám, firemní kultuře a pracovním procesům.</p>'
+  detail: '<p>Navrhneme dispozici, materiály a odhadneme náklady. Propojíme uspořádání prostoru, materiály a nábytek. Žádná překvapení v průběhu stavby.</p>'
 - 
   step: 3
-  label: Realizace
+  label: Projekt a povolení
   figure:
     - file://Ya6rkpReR0jAZkEn
-  detail: '<p>Oblečeme vaši budovu zevnitř. Pro realizaci našich interiérů včetně stavebních úprav používáme pojem „fit-out“. Dohlížíme na dodavatele, řemeslníky, termíny a rozpočet. Postaráme se o vše.</p>'
+  detail: '<p>Připravíme dokumentaci pro stavební úřad i řemeslníky. Vyřešíme akustiku, světlo i vzduchotechniku. Projektové řízení propojí práci jednotlivých profesí.</p>'
 - 
   step: 4
-  label: Vybavení
+  label: Výroba a stavba
   figure:
     - file://HlaVcAy9a1rVT91c
-  detail: '<p>Nábytek a doplňky, které do vašeho interiéru navrhujeme, vám zjednoduší každodenní práci. Vybíráme a skládáme je do funkčních celků pro týmy od deseti po tisíce zaměstnanců.</p>'
+  detail: '<p>Koordinujeme fit-out, stavební úpravy a výrobu atypického nábytku na míru s ověřenými truhláři. Vlastní nábytkové řady Only1 a Only2.</p>'
 - 
   step: 5
-  label: Výzkum
+  label: Předání a servis
   figure:
     - file://RvRLiFTVFPUCkOzq
-  detail: '<p>Naše práce začíná výzkumem, ale realizací interiéru rozhodně nekončí. Provádíme dlouhodobé měření a analýzu kvality pracovního prostředí s jasným cílem jeho neustálého zlepšování.</p>'
+  detail: '<p>Prostor otestujeme, předáme v dohodnutém termínu a zůstáváme k dispozici pro úpravy v běžném provozu.</p>'
 
 ----
 
