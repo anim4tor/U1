@@ -69,7 +69,7 @@
        BUTTON COMPONENTS TOKENS
        ========================================================================== */
     --btn-padding:             0.5rem 1rem;
-    --btn-radius:              4px;
+    --btn-radius:              25px;
     --btn-border:              1px;
 
     /* ==========================================================================
@@ -92,6 +92,10 @@
     --line-height-large:       1.2;
     --font-weight-small:       500;
     --letter-spacing-small:    0em;
+    --font-weight-label:       600;
+    --letter-spacing-label:    0.05em;
+    --opacity-label:           0.7;
     --font-family-button:      'Manrope';
     --font-weight-button:      600;
+    --letter-spacing-button:   0.1em;
 }

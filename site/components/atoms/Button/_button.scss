@@ -121,9 +121,9 @@
 }
 
 button, .button {
-	font-size: 12px;
+	font-size: var(--button-font-size);
 	font-weight: var(--button-font-weight, 500);
-	letter-spacing: 0;
+	letter-spacing: var(--button-letter-spacing);
 	@include animation(transform);
 	transition-delay: 0ms;
 	transition-duration: 300ms;
@@ -195,12 +195,14 @@ button, .button {
 	overflow: hidden;
 	> [aria-label] {
 		position: relative;
+		letter-spacing: inherit;
 		@include animation(transform, 600ms);
 		&:after {
 			content: attr(aria-label);
 			position: absolute;
 			top: 200%;
 			left: 0;
+			letter-spacing: inherit;
 		}
 	}
 	
