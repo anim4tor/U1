@@ -176,9 +176,10 @@ section.process {
   box-sizing: border-box;
   display: flex !important;
   flex-direction: column;
-  justify-content: space-between;
-  padding-top: calc(2.5 * var(--spacing)) !important;
-  padding-bottom: calc(2.5 * var(--spacing)) !important;
+  justify-content: center;
+  gap: calc(1.5 * var(--spacing));
+  padding-top: calc(2 * var(--spacing)) !important;
+  padding-bottom: calc(2 * var(--spacing)) !important;
 }
 
 .process__header {
@@ -187,9 +188,8 @@ section.process {
 }
 
 .process__cards-wrapper {
-  flex: 1 1 0;
+  flex: 0 1 auto;
   min-height: 0;
-  height: 100%;
   width: 100%;
   position: relative;
   display: flex;
@@ -199,7 +199,7 @@ section.process {
 .process__grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  height: 100%;
+  height: auto;
   min-height: 0;
   width: 100%;
   position: relative;
@@ -232,7 +232,7 @@ section.process {
 }
 
 .process-card {
-  height: 100%;
+  height: auto;
   min-height: 0;
   position: relative;
   display: flex;
@@ -241,9 +241,9 @@ section.process {
 }
 
 .process-card__figure {
-  flex: 1 1 0;
+  flex: 0 0 auto;
   min-height: 0;
-  height: 100%;
+  height: clamp(240px, 36vh, 380px);
   width: 100%;
   position: relative;
   overflow: hidden;
@@ -267,19 +267,24 @@ section.process {
 }
 
 .process-card__progress {
-  flex: 0 0 2px;
+  flex: 0 0 1px;
   height: 1px;
+  max-height: 1px;
   width: 100%;
   margin-top: calc(0.75 * var(--spacing));
-  background: rgba(var(--color-text), 0.15);
+  background: rgba(0, 0, 0, 0.12);
   position: relative;
   overflow: hidden;
+
+  [theme="dark"] & {
+    background: rgba(255, 255, 255, 0.2);
+  }
 
   .progress__line {
     position: absolute;
     left: 0;
     top: 0;
-    height: 100%;
+    height: 1px;
     width: 100%;
     background: var(--color-acc);
     transform-origin: left;
@@ -289,7 +294,11 @@ section.process {
 }
 
 .process-card:hover .process-card__progress {
-  background: rgba(var(--color-text), 0.3);
+  background: rgba(0, 0, 0, 0.22);
+
+  [theme="dark"] & {
+    background: rgba(255, 255, 255, 0.35);
+  }
 }
 
 .process-card__title {
