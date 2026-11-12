@@ -67,7 +67,13 @@ collapsible[open] detail[collapsible-detail] {
 }
 
 [collapsible-icon] {
+  display: inline-grid;
+  place-items: center;
+  width: 1.2rem;
+  height: 1.2rem;
+
   span {
+    grid-area: 1 / 1;
     display: block;
     width: 1.2rem;
     height: 1px;

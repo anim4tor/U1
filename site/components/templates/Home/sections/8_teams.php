@@ -1,5 +1,5 @@
 <?php if (collection('Team')->isNotEmpty()) : ?>
-<section class="team radius" theme="invert" data-tabs="hoverable">
+<section class="team radius" theme="light" data-tabs="hoverable">
 	<div class="grid__4 gap__2 mobile:grid__1 inner-x__4 inner-y__5 mobile:inner-x__1 mobile:inner-y__3">
 		<div class="grid span__2 gap__4 place__space-between-stretch mobile:inner-x__0">
 			<div class="grid gap__1">
