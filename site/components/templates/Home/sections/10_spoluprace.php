@@ -43,11 +43,20 @@ $items = [
 						</div>
 					</div>    
 					<div class="flex justify__end align__center inner-t__05">
-						<span class="icon"><?= svg('public/assets/images/ui/ui_arrow-right.svg') ?></span>
+						<?= snippet('atoms/Button', [
+							'label' => false,
+							'icon'  => 'arrow-right',
+							'css'   => 'circle',
+							'theme' => $item['main'] ? 'invert-ghost' : 'ghost',
+							'hover' => $item['main'] ? 'invert' : 'dark',
+							'tag'   => 'span',
+							'node'  => 'tabindex="-1" aria-hidden="true"'
+						]) ?>
 					</div>
 				</a>
 			<?php endforeach ?>
 		</div>
 	</div>
 </section>
+
 

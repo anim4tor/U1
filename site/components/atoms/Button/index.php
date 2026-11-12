@@ -7,6 +7,7 @@
     $css     = (!isset($css)     || trim($css)     === '') ? ''       : $css;
     $node    = (!isset($node)    || trim($node)    === '') ? ''       : $node;
     $icon    = (!isset($icon)    || trim($icon)    === '') ? false    : $icon;
+    $tag     = (!isset($tag)     || trim($tag)     === '') ? false    : $tag;
     
     // Counter Sanitization
     $counter = (!isset($counter) || trim((string)$counter) === '') ? false : $counter;
@@ -30,7 +31,8 @@
 		<?php endif ?>
 	</a>
 <?php else: ?>
-	<button class="button font__size__button <?= $css ?>" <?= $node ?> <?= $theme ? 'theme="'.$theme.'"' : null ?> <?= $hover ? 'hover="'.$hover.'"' : null ?> <?= $reveal ? 'data-reveal="simple"' : '' ?>>
+	<?php $btnTag = $tag ? $tag : 'button'; ?>
+	<<?= $btnTag ?> class="button font__size__button <?= $css ?>" <?= $node ?> <?= $theme ? 'theme="'.$theme.'"' : null ?> <?= $hover ? 'hover="'.$hover.'"' : null ?> <?= $reveal ? 'data-reveal="simple"' : '' ?>>
 		<?php if ($label) : ?>
 			<span aria-label="<?= $label ?><?= $counter !== false ? ' (' . $counter . ')' : '' ?>">
 				<?= $label ?><?= $counter !== false ? ' (' . $counter . ')' : '' ?>
@@ -39,5 +41,5 @@
 		<?php if ($icon) : ?>
 			<?= snippet('atoms/Icon', ['name' => $icon]) ?>
 		<?php endif ?>
-	</button>
+	</<?= $btnTag ?>>
 <?php endif ?>

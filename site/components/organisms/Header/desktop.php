@@ -53,7 +53,9 @@
 						<nav navbar-menu class="grid upper ff__heading font__size__4 no__wrap">
 							<?php foreach ($pages->listed() as $p): ?>
 								<div class="grid place__center-center">
-									<?= snippet('atoms/Link', ['url' => $p->url(), 'label' => $p->title(), 'icon' => false, 'css' => $p->isActive() || $page->parents()->has($p) ? '' : 'op__4', 'node' => 'data-reveal-text data-reveal-on-navbar data-split-ignore']) ?>
+									<a href="<?= $p->url() ?>" class="link <?= ($p->isActive() || $page->parents()->has($p)) ? '' : 'op__4' ?>">
+										<h3 data-reveal-text data-reveal-on-navbar data-split-ignore><?= $p->title() ?></h3>
+									</a>
 								</div>
 							<?php endforeach ?>
 						</nav>
@@ -66,19 +68,24 @@
 									<?php endif ?>
 									<?= snippet('atoms/Link', ['url' => $s->link()->url(), 'label' => '('.$s->platform().')', 'icon' => false, 'node' => 'data-reveal-text data-split-ignore']) ?>
 								<?php endforeach ?>
-
 							</nav>
 						</div>
 					</div>
 					<div class="grid gap__02">
 						<!-- <div class="label upper xs op__4">(Contact)</div> -->
 						<div class="grid__2 gap__02">
-							<button class="img__radius flex inner__05 gap__02 justify__center align__center" theme="invert-ghost" data-scroll data-contact-toggle="contact" type="button">
-								<label class="upper">Kontakt</label>
-							</button>
-							<button class="img__radius flex inner__05 gap__02 justify__center align__center" theme="acc" data-scroll data-contact-toggle="inquiry" type="button">
-								<label class="upper">Poptat projekt</label>
-							</button>
+							<?= snippet('atoms/Button', [
+								'label' => 'Domluvit schůzku',
+								'theme' => 'invert-ghost',
+								'css'   => 'justify__center',
+								'node'  => 'data-scroll data-contact-toggle="contact" type="button"'
+							]) ?>
+							<?= snippet('atoms/Button', [
+								'label' => 'Poptat projekt',
+								'theme' => 'acc',
+								'css'   => 'justify__center',
+								'node'  => 'data-scroll data-contact-toggle="inquiry" type="button"'
+							]) ?>
 						</div>
 					</div>
 				</div>

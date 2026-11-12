@@ -160,7 +160,7 @@ button, .button {
 	    border-width: var(--button-border-width);
 	}
 }
-.button:hover, button:hover {
+.button:hover, button:hover, [href]:hover .button {
 	&[hover="dark"] {
 		--background: var(--color-dark);
 		--col: var(--color-invert);
