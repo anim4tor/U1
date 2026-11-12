@@ -13,6 +13,14 @@ tabs:
           hero:
             extends: fields/hero
 
+          category:
+            label: Kategorie služby
+            type: select
+            options:
+              - Celý projekt
+              - Stavba a technika
+              - Nábytek a vybavení
+
           excerpt:
             type: writer
           intro:

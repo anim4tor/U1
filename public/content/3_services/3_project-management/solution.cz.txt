@@ -1,4 +1,8 @@
-Title: Projektový management
+Title: Projektové řízení
+
+----
+
+Category: Celý projekt
 
 ----
 
@@ -6,11 +10,9 @@ Hero: [{"content":{"text":"Projektový management","level":"h1","mod":"l","hasre
 
 ----
 
-Excerpt: 
+Excerpt: <p>Koordinujeme práci profesí, které váš interiér staví a vybavují.</p>
 
-----
-
-Intro: <p>Koordinujeme všechny profese, harmonogram i rozpočet tak, aby realizace probíhala hladce, včas a v požadované kvalitě.</p>
+Intro: <p>Návrh, stavební realizace a dodávky nábytku se potkávají v jednom projektu. Projektovým řízením propojujeme jejich provedení.</p>
 
 ----
 

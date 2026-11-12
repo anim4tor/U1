@@ -2,15 +2,19 @@ Title: Návrh interiérů
 
 ----
 
+Category: Celý projekt
+
+----
+
 Hero: [{"content":{"text":"Návrh interiérů","level":"h1","mod":"l","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-ijr6frvk","isHidden":false,"type":"heading"},{"content":{"image":["file://B3qzowr055hl3ljC"],"hasparallax":"false","parallax":0,"hasreveal":"false","reveal":"","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-gvo8ap5s","isHidden":false,"type":"cover"},{"content":{"text":"Vytváříme architektonické koncepty a návrhy interiérů, které propojují identitu značky, ergonomii a praktické potřeby týmu.","mod":"l","face":"","case":"lower","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-dsgp0k1l","isHidden":false,"type":"text"}]
 
 ----
 
-Excerpt: <p>Vytváříme architektonické koncepty a návrhy interiérů, které propojují identitu značky, ergonomii a praktické potřeby týmu.</p>
+Excerpt: <p>Navrhneme, jak bude vaše kancelář uspořádaná a jak bude vypadat.</p>
 
 ----
 
-Intro: <p>Pouze promyšlené prostorové plánování a koncepce dokáže plně využít potenciál vašeho prostoru bez nutnosti brzkých dodatečných úprav.</p>
+Intro: <p>Vycházíme z práce, pro kterou prostor vzniká. Společné jednání, soustředění a každodenní provoz mají v návrhu své místo.</p>
 
 ----
 

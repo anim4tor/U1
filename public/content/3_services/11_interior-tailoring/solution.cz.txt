@@ -1,4 +1,8 @@
-Title: Atypická výroba a truhlářství
+Title: Nábytek Only1, Only2 a atypy na míru
+
+----
+
+Category: Nábytek a vybavení
 
 ----
 
@@ -6,11 +10,9 @@ Hero: [{"content":{"text":"Atypická výroba a truhlářství","level":"h1","mod
 
 ----
 
-Excerpt: 
+Excerpt: <p>Nábytek na míru pro konkrétní prostor, od pracovních míst po recepci.</p>
 
-----
-
-Intro: <p>Vlastní truhlářská a atypická výroba prvků na míru, které dají vašemu prostoru originální charakter a dokonalý detail.</p>
+Intro: <p>Atypický nábytek připravujeme s ověřenými truhláři, se kterými dlouhodobě spolupracujeme. Návrh, technické detaily, výrobu i montáž hlídáme sami, takže nábytek sedí na stavbu i na rozpočet.</p>
 
 ----
 

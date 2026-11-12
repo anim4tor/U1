@@ -1,0 +1,33 @@
+Title: Realizace pro architekty
+
+----
+
+Category: Celý projekt
+
+----
+
+Hero: [{"content":{"text":"Realizace pro architekty","level":"h1","mod":"l","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-arch01","isHidden":false,"type":"heading"},{"content":{"text":"Postavíme interiér podle vašeho návrhu. Autorství zůstává vašemu studiu.","mod":"l","face":"","case":"lower","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-arch02","isHidden":false,"type":"text"}]
+
+----
+
+Excerpt: <p>Postavíme interiér podle vašeho návrhu. Autorství zůstává vašemu studiu.</p>
+
+----
+
+Intro: <p>Můžete nám svěřit čistě stavební realizaci nebo ji rozšířit o nábytek na míru. Rozsah spolupráce vymezíme podle vašeho projektu.</p>
+
+----
+
+Details: <p>Kanceláře postavíme i podle projektu externího architekta, takto jsme realizovali kanceláře v CTParku Borská pole v Plzni. Autorství návrhu zůstává jeho tvůrci.</p>
+
+----
+
+Gallery: 
+
+----
+
+Relatedprojects: 
+
+----
+
+Cover: 

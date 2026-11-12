@@ -2,15 +2,17 @@ Title: Podlahy a krytiny
 
 ----
 
+Category: Stavba a technika
+
+----
+
 Hero: [{"content":{"text":"Podlahy a krytiny","level":"h1","mod":"l","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-bl1ccb12","isHidden":false,"type":"heading"},{"content":{"image":["file://B3qzowr055hl3ljC"],"hasparallax":"false","parallax":0,"hasreveal":"false","reveal":"","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-tx2inwrv","isHidden":false,"type":"cover"},{"content":{"text":"Výběr a pokládka odolných podlahových krytin, kobercových čtverců a vinylů s důrazem na akustiku a dlouhou životnost.","mod":"l","face":"","case":"lower","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-ipiuiepq","isHidden":false,"type":"text"}]
 
 ----
 
-Excerpt: 
+Excerpt: <p>Podlahy dodáváme jako součást realizace kanceláří i dalších interiérů.</p>
 
-----
-
-Intro: <p>Výběr a pokládka odolných podlahových krytin, kobercových čtverců a vinylů s důrazem na akustiku a dlouhou životnost.</p>
+Intro: <p>Podlahy dodáváme také při spolupráci s architektonickým studiem. Navazujeme na jeho návrh a dohodnutý rozsah realizace.</p>
 
 ----
 

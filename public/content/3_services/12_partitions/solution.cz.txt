@@ -2,15 +2,17 @@ Title: Příčky a prosklené stěny
 
 ----
 
+Category: Stavba a technika
+
+----
+
 Hero: [{"content":{"text":"Příčky a prosklené stěny","level":"h1","mod":"l","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-n9xz3ylk","isHidden":false,"type":"heading"},{"content":{"image":["file://B3qzowr055hl3ljC"],"hasparallax":"false","parallax":0,"hasreveal":"false","reveal":"","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-u7zacu6x","isHidden":false,"type":"cover"},{"content":{"text":"Skleněné i plné dělicí příčky s vysokým akustickým útlumem pro flexibilní členění kancelářského prostoru.","mod":"l","face":"","case":"lower","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-6xded6i3","isHidden":false,"type":"text"}]
 
 ----
 
-Excerpt: 
+Excerpt: <p>Příčky začleňujeme do stavební realizace podle návrhu kanceláře.</p>
 
-----
-
-Intro: <p>Skleněné i plné dělicí příčky s vysokým akustickým útlumem pro flexibilní členění kancelářského prostoru.</p>
+Intro: <p>K zadání patří rozmístění místností a požadavky na soukromí. Podle projektu pak řešíme provedení příček.</p>
 
 ----
 

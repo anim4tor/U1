@@ -2,15 +2,17 @@ Title: Stropy a akustické podhledy
 
 ----
 
+Category: Stavba a technika
+
+----
+
 Hero: [{"content":{"text":"Stropy a akustické podhledy","level":"h1","mod":"l","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-dvrcb0pl","isHidden":false,"type":"heading"},{"content":{"image":["file://7TuExEOVK0Da25GC"],"hasparallax":"false","parallax":0,"hasreveal":"false","reveal":"","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-cz4lsgr8","isHidden":false,"type":"cover"},{"content":{"text":"Navrhujeme a instalujeme akustické i designové podhledy, které krotí hluk a integrují moderní osvětlení i technologie.","mod":"l","face":"","case":"lower","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-9f1lvz0b","isHidden":false,"type":"text"}]
 
 ----
 
-Excerpt: 
+Excerpt: <p>Realizujeme akustické podhledy a atypické stropy podle návrhu interiéru.</p>
 
-----
-
-Intro: <p>Navrhujeme a instalujeme akustické i designové podhledy, které krotí hluk a integrují moderní osvětlení i technologie.</p>
+Intro: <p>Atypické stropní prvky na míru. U původních podhledů s vámi probereme možnost dalšího využití.</p>
 
 ----
 

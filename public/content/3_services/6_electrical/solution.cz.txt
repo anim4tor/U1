@@ -2,15 +2,17 @@ Title: Elektroinstalace a osvětlení
 
 ----
 
+Category: Stavba a technika
+
+----
+
 Hero: [{"content":{"text":"Elektroinstalace a osvětlení","level":"h1","mod":"l","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-6cxpa6gf","isHidden":false,"type":"heading"},{"content":{"image":["file://B3qzowr055hl3ljC"],"hasparallax":"false","parallax":0,"hasreveal":"false","reveal":"","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-oowo3ao0","isHidden":false,"type":"cover"},{"content":{"text":"Komplexní řešení slaboproudých i silnoproudých rozvodů a inteligentního osvětlení přizpůsobeného modernímu provozu kanceláří.","mod":"l","face":"","case":"lower","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-5l748425","isHidden":false,"type":"text"}]
 
 ----
 
-Excerpt: 
+Excerpt: <p>Elektromontáže zajišťujeme v rámci realizace interiéru podle projektu.</p>
 
-----
-
-Intro: <p>Komplexní řešení slaboproudých i silnoproudých rozvodů a inteligentního osvětlení přizpůsobeného modernímu provozu kanceláří.</p>
+Intro: <p>Elektromontáže můžeme propojit s dodávkou nábytku a podlah. Rozsah spolupráce vymezíme podle vašeho projektu.</p>
 
 ----
 

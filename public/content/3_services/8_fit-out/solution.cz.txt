@@ -2,15 +2,17 @@ Title: Fit-out a stavební úpravy
 
 ----
 
+Category: Celý projekt
+
+----
+
 Hero: [{"content":{"text":"Fit-out a stavební úpravy","level":"h1","mod":"l","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-6aoh0r1v","isHidden":false,"type":"heading"},{"content":{"image":["file://B3qzowr055hl3ljC"],"hasparallax":"false","parallax":0,"hasreveal":"false","reveal":"","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-1cvy6rlu","isHidden":false,"type":"cover"},{"content":{"text":"Kompletní realizace stavebních úprav komerčních prostor na klíč – od bouracích prací až po finální detaily.","mod":"l","face":"","case":"lower","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-vjqhow4k","isHidden":false,"type":"text"}]
 
 ----
 
-Excerpt: 
+Excerpt: <p>Postavíme nové kanceláře nebo přestavíme stávající. Pracujeme podle vlastního i externího návrhu.</p>
 
-----
-
-Intro: <p>Kompletní realizace stavebních úprav komerčních prostor na klíč – od bouracích prací až po finální detaily.</p>
+Intro: <p>Fit-out zajistíme samostatně nebo jako součást kanceláří na klíč. Rozsah stavební realizace vychází z projektu a stavu prostoru.</p>
 
 ----
 

@@ -50,6 +50,22 @@ tabs:
               detail:
                 type: writer
 
+          faqHeading:
+            label: Nadpis sekce FAQ
+            type: text
+            default: Časté otázky
+
+          faq:
+            label: Časté otázky (FAQ)
+            type: structure
+            fields:
+              question:
+                label: Otázka
+                type: text
+              answer:
+                label: Odpověď
+                type: textarea
+
       - width: 1/4
         sticky: true
         fields:

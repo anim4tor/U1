@@ -2,15 +2,17 @@ Title: Kancelářský nábytek
 
 ----
 
+Category: Nábytek a vybavení
+
+----
+
 Hero: [{"content":{"text":"Kancelářský nábytek","level":"h1","mod":"l","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-3bbw26sm","isHidden":false,"type":"heading"},{"content":{"image":["file://B3qzowr055hl3ljC"],"hasparallax":"false","parallax":0,"hasreveal":"false","reveal":"","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-r8nyufkc","isHidden":false,"type":"cover"},{"content":{"text":"Ergonomický nábytek, výškově stavitelné stoly a sezení od předních evropských výrobců pro pohodlí a zdraví při práci.","mod":"l","face":"","case":"lower","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-e3dml71p","isHidden":false,"type":"text"}]
 
 ----
 
-Excerpt: 
+Excerpt: <p>Dodáváme kancelářský nábytek, atypy na míru s ověřenými truhláři a vlastní nábytkové řady Only1 a Only2.</p>
 
-----
-
-Intro: <p>Ergonomický nábytek, výškově stavitelné stoly a sezení od předních evropských výrobců pro pohodlí a zdraví při práci.</p>
+Intro: <p>Nábytkovou dodávku propojujeme s uspořádáním interiéru. Vedle vybavení pracovních míst řešíme také recepce a společné zázemí.</p>
 
 ----
 
