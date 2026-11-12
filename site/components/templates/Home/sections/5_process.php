@@ -1,1 +1,1 @@
-<?= snippet('templates/globals/Process/fullscreen_cards', ['theme' => 'light']) ?>
+<?= snippet('templates/globals/Process/fullscreen_cards', ['theme' => 'invert']) ?>

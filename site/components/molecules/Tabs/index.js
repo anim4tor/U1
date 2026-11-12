@@ -160,6 +160,9 @@ class Tabs {
 
         // --- NEW: Scroll Progress Calculation ---
         this._boundUpdateProgress = this.updateScrollProgress.bind(this);
+        if (window.SCROLL && window.SCROLL.engine) {
+            window.SCROLL.engine.on('scroll', this._boundUpdateProgress);
+        }
         window.addEventListener('scroll', this._boundUpdateProgress, { passive: true });
         this.updateScrollProgress(); // Initial check
     }
@@ -190,6 +193,24 @@ class Tabs {
         progress = Math.max(0, Math.min(1, progress)); // Clamp between 0 and 1
 
         this.DOM.widget.style.setProperty('--progress', progress.toFixed(3));
+
+        // Animate individual tab progress lines based on scroll position
+        const liveTabs = Array.from(this.DOM.widget.querySelectorAll('[data-tab], [data-async-tab]'))
+            .filter(tab => tab.closest('[data-tabs]') === this.DOM.widget);
+        const numTabs = liveTabs.length;
+
+        if (numTabs > 0) {
+            const slice = 1 / numTabs;
+            liveTabs.forEach((tab, i) => {
+                const tabStart = i * slice;
+                const tabProgress = Math.max(0, Math.min(1, (progress - tabStart) / slice));
+                tab.style.setProperty('--card-progress', tabProgress.toFixed(4));
+                const line = tab.querySelector('.progress__line');
+                if (line) {
+                    line.style.transform = `scaleX(${tabProgress})`;
+                }
+            });
+        }
     }
 
     setActive(index, force = false) {
@@ -553,6 +574,9 @@ class Tabs {
 
         // --- NEW: Remove progress listener ---
         if (this._boundUpdateProgress) {
+            if (window.SCROLL && window.SCROLL.engine) {
+                window.SCROLL.engine.off?.('scroll', this._boundUpdateProgress);
+            }
             window.removeEventListener('scroll', this._boundUpdateProgress);
         }
 

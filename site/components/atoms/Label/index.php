@@ -8,11 +8,11 @@ $url     = $url ?? ($href ?? null);
     <?php if ($hasText): ?>
         <?php if ($url): ?>
             <a href="<?= esc($url) ?>" data-reveal="simple">
-                (<?= $text ?>)
+                <?= $text ?>
             </a>
         <?php else: ?>
             <div class="" data-reveal="simple">
-                (<?= $text ?>)
+                <?= $text ?>
             </div>
         <?php endif; ?>
     <?php endif; ?>

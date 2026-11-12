@@ -14,34 +14,34 @@ Process:
 
 - 
   step: 1
-  label: Zadání a audit
+  label: Dialog
   figure:
     - file://zFyM7mkR8tJn9ji8
-  detail: '<p>Probereme s vámi, jak pracujete a co má nové zázemí umožnit. Zjistíme, jak vaše firma funguje, kolik lidí v kanceláři reálně je a co v prostoru chybí.</p>'
+  detail: '<p>Probereme s vámi, jak pracujete a co má nové zázemí umožnit. Ujasníme si rozsah spolupráce.</p>'
 - 
   step: 2
-  label: Koncept a rozpočet
+  label: Studie
   figure:
     - file://j3hFwcIS8Jjjr2Hj
-  detail: '<p>Navrhneme dispozici, materiály a odhadneme náklady. Propojíme uspořádání prostoru, materiály a nábytek. Žádná překvapení v průběhu stavby.</p>'
+  detail: '<p>Připravíme návrh interiéru podle společného zadání. Propojíme uspořádání prostoru, materiály a nábytek.</p>'
 - 
   step: 3
-  label: Projekt a povolení
+  label: Realizace
   figure:
     - file://Ya6rkpReR0jAZkEn
-  detail: '<p>Připravíme dokumentaci pro stavební úřad i řemeslníky. Vyřešíme akustiku, světlo i vzduchotechniku. Projektové řízení propojí práci jednotlivých profesí.</p>'
+  detail: '<p>Na návrh navážeme stavebními pracemi. Projektové řízení propojí práci jednotlivých profesí.</p>'
 - 
   step: 4
-  label: Výroba a stavba
+  label: Vybavení
   figure:
     - file://HlaVcAy9a1rVT91c
-  detail: '<p>Koordinujeme fit-out, stavební úpravy a výrobu atypického nábytku na míru s ověřenými truhláři. Vlastní nábytkové řady Only1 a Only2.</p>'
+  detail: '<p>Nábytek dodáme jako součást kanceláří na klíč, k projektu jiného architektonického studia, nebo samostatně.</p>'
 - 
   step: 5
-  label: Předání a servis
+  label: Výzkum
   figure:
     - file://RvRLiFTVFPUCkOzq
-  detail: '<p>Prostor otestujeme, předáme v dohodnutém termínu a zůstáváme k dispozici pro úpravy v běžném provozu.</p>'
+  detail: '<p>Po předání sledujeme, jak prostor funguje v běžném provozu, a navrhujeme úpravy. [OVĚŘIT, co výzkum v U1 skutečně zahrnuje]</p>'
 
 ----
 

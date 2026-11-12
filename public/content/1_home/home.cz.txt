@@ -2,7 +2,7 @@ Title: Domů
 
 ----
 
-Hero: [{"content":{"text":"Tvoříme<br>pracovní prostory,<br>které fungují","level":"h1","mod":"","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"e934aa95-0675-4342-ad98-7ee3b66d7952","isHidden":false,"type":"heading"}]
+Hero: [{"content":{"text":"Navrhujeme a stavíme kanceláře na klíč","level":"h1","mod":"","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"e934aa95-0675-4342-ad98-7ee3b66d7952","isHidden":false,"type":"heading"}]
 
 ----
 
@@ -16,7 +16,7 @@ Heroslider:
 
 ----
 
-About: [{"content":{"text":"<p>Studio U1, Brno a Praha</p>","mod":"","face":"body","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"595ea5ae-f026-4f67-a65f-10e823539288","isHidden":false,"type":"label"},{"content":{"text":"Nejdřív chceme vědět, jak u vás lidé pracují. Pak přijde návrh a realizace kanceláří a kancelářský nábytek na míru. Pracujeme z Brna po celém Česku.","mod":"font-size-large","face":"","case":"","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"bf0ad5f1-f487-47bc-a74c-281a83e90837","isHidden":false,"type":"text"},{"content":{"href":"","target":"false","label":"Více o nás","counter":[],"theme":"","hover":"","size":"default","icon":"","hasreveal":"false","bid":"","attr":"","css":"","node":""},"id":"01792c5c-a305-4450-8264-ed916e31e91e","isHidden":false,"type":"button"}]
+About: [{"content":{"text":"<p>Studio U1, Brno a Praha</p>","mod":"","face":"body","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"595ea5ae-f026-4f67-a65f-10e823539288","isHidden":true,"type":"label"},{"content":{"text":"Nejdřív chceme vědět, jak u vás lidé pracují. Pak přijde návrh a realizace kanceláří a kancelářský nábytek na míru. Pracujeme z Brna po celém Česku.","mod":"font-size-large","face":"","case":"","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"bf0ad5f1-f487-47bc-a74c-281a83e90837","isHidden":false,"type":"text"},{"content":{"href":"","target":"false","label":"Více o nás","counter":[],"theme":"ghost","hover":"dark","size":"default","icon":"arrow-right","hasreveal":"false","bid":"","attr":"","css":"","node":""},"id":"01792c5c-a305-4450-8264-ed916e31e91e","isHidden":false,"type":"button"}]
 
 ----
 
@@ -58,7 +58,7 @@ Featuredtestimonials:
 
 ----
 
-Process: [{"content":{"text":"<p>5 kroků od zadání po provoz</p>","mod":"","face":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"e8c2499c-44d8-40c9-aa87-df8a34fc2b07","isHidden":false,"type":"label"},{"content":{"text":"Proces","level":"h2","mod":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"bfc31f89-1668-4d5b-a89a-c0f9441b1a0a","isHidden":false,"type":"heading"}]
+Process: [{"content":{"text":"<p>5 kroků od zadání po provoz</p>","mod":"","face":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"e8c2499c-44d8-40c9-aa87-df8a34fc2b07","isHidden":true,"type":"label"},{"content":{"text":"Jak pracujeme","level":"h2","mod":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"bfc31f89-1668-4d5b-a89a-c0f9441b1a0a","isHidden":false,"type":"heading"}]
 
 ----
 
@@ -75,9 +75,9 @@ Order:
 - 
   label: 1_hero
 - 
-  label: 3_spoluprace
-- 
   label: 2_about
+- 
+  label: spoluprace
 - 
   label: 3_projects
 - 
