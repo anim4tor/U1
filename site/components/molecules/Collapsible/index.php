@@ -8,17 +8,17 @@ $hasCounter = isset($list) && $item->counter()->isNotEmpty() && $item->counter()
 $upper = $upper ?? false;
 ?>
 <collapsible>
-	<summary class="wrap__1 cursor__pointer" <?php e($isOpen, 'aria-current="page"') ?> <?php e($url, 'href="' . $url . '"') ?> collapsible-trigger>
+	<summary class="cursor__pointer" <?php e($isOpen, 'aria-current="page"') ?> <?php e($url, 'href="' . $url . '"') ?> collapsible-trigger>
 		<div class="<?= $grid ? 'grid__' . $grid : 'flex justify__space-between align__center' ?> inner-y__1 border__top gap__2">
 			<?php if($hasCounter): ?>
 				<div class="font__size__3 wrap-r__2"><?= str_pad($item->indexOf($list) + 1, 1, "0", STR_PAD_LEFT) ?></div>
 			<?php endif ?>
-			<h3 data-reveal-lines class="<?= $upper ? 'upper' : '' ?> font__size__default wrap-r__5"><?= $summary ? $summary->inline() : '' ?></h3>
+			<h3 data-reveal-lines class="<?= $upper ? 'upper' : '' ?> wrap-r__5"><?= $summary ? $summary->inline() : '' ?></h3>
 			<div class="plus flex flex__end shrink__0" ><div collapsible-icon class="color__acc"><span></span><span></span></div></div>
 		</div>
 	</summary>
 	<detail collapsible-detail>
-		<div class="wrap__1">
+		<div class="">
 			<div class="grid gap__1 inner-b__2 op__7" data-collapsible-reveal>
 				<?php if($detail && $detail->isNotEmpty()): ?>
 					<?= $detail ?>

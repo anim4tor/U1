@@ -183,4 +183,5 @@ tabs:
           password:
             type: text
 
+  cta: tabs/cta-subpage
   meta: tabs/meta/page

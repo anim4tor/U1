@@ -68,4 +68,5 @@ tabs:
             layout: cards
             size: full
 
+  cta: tabs/cta-subpage
   meta: tabs/meta/page

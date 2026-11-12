@@ -79,6 +79,31 @@ Kirby::plugin('yourname/snippet-options', [
                 'text'  => $item['text'],
                 'value' => $item['value']
             ], $merged);
+        },
+        'resolvedCta' => function (string $type = 'contact') {
+            // 1. Check if current page has CTA defined
+            if ($this->cta()->isNotEmpty()) {
+                // For subpages with ctaOverride toggle: only use if override is true
+                if (!$this->ctaOverride()->exists() || $this->ctaOverride()->toBool()) {
+                    return $this->cta();
+                }
+            }
+
+            // 2. Walk up parent pages
+            foreach ($this->parents() as $parent) {
+                if ($parent->cta()->isNotEmpty()) {
+                    return $parent->cta();
+                }
+            }
+
+            // 3. Fallback to site global CTA
+            $site = $this->site();
+            if ($type === 'career') {
+                if ($site->ctaCareer()->isNotEmpty()) {
+                    return $site->ctaCareer();
+                }
+            }
+            return $site->ctaContact();
         }
     ]
 ]);

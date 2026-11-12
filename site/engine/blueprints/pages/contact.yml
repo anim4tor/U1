@@ -10,4 +10,5 @@ tabs:
           intro:
             extends: fields/header
 
+  cta: tabs/cta
   meta: tabs/meta/page

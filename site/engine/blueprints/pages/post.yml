@@ -48,4 +48,5 @@ tabs:
         query: site.find('projects')
     
 
+  cta: tabs/cta-subpage
   meta: tabs/meta/page

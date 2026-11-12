@@ -52,4 +52,5 @@ tabs:
           hero:
             extends: fields/hero
 
+  cta: tabs/cta
   meta: tabs/meta/page

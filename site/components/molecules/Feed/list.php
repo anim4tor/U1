@@ -46,7 +46,7 @@ $isVideo   = $isSocial && $item->content()->has('media_type') && ($item->media_t
 					'img'    => $coverFile,
 					'url'    => $mediaUrl,
 					'reveal' => true, 
-					'css'    => 'vh__8 grid' . ($isSocial ? ' overlay__bottom' : ''), 
+					'css'    => 'vh__5 grid' . ($isSocial ? ' overlay__bottom' : ''), 
 					'node'   => 'data-reveal-image'
 				]) ?>
 				<?php if ($isSocial && $platform) : ?>
@@ -64,7 +64,7 @@ $isVideo   = $isSocial && $item->content()->has('media_type') && ($item->media_t
 			<?php if (!empty($dateText)) : ?>
 				<?= snippet('atoms/Label', ['text' => $dateText]) ?>
 			<?php endif ?>
-			<h3 class="font-size-4 wrap inner-r__2"><?= $title ?></h3>
+			<h3 class="wrap inner-r__2"><?= $title ?></h3>
 		</div>
 	</a>
 </div>

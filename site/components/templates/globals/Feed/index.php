@@ -6,13 +6,13 @@
 			<div class="w__full z__2 pointer-events-none">
 				<div class="grid__3 gap-x__1 gap-y__2 mobile:grid__1">
 					<div data-scroll class="grid gap__1 span__2 relative pointer-events-auto">
-						<?= snippet('atoms/Label', ['text' => 'Nejnovější z feedu']) ?>
+						
 						<div class="flex gap__1 align__center" data-scroll>
-							<h2 data-tab="blog" class="smaller cursor__pointer" data-reveal-text>Články</h2>
+							<h2 data-tab="blog" class=" cursor__pointer" data-reveal-text>Články</h2>
 							<div class="w__03 h__03 bg__text op__4"></div>
-							<h2 data-tab="socials" class="smaller cursor__pointer" data-reveal-text>Sítě</h2>
+							<h2 data-tab="socials" class=" cursor__pointer" data-reveal-text>Sítě</h2>
 							<div class="w__03 h__03 bg__text op__4"></div>
-							<h2 data-tab="media" class="smaller cursor__pointer" data-reveal-text>Média</h2>
+							<h2 data-tab="media" class="maller cursor__pointer" data-reveal-text>Média</h2>
 						</div>
 					</div>
 				</div>

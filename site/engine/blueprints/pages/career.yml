@@ -119,4 +119,5 @@ tabs:
                   text: "{{ item.text }}"
                   value: "{{ item.value }}"
 
+  cta: tabs/cta
   meta: tabs/meta/page

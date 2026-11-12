@@ -1,0 +1,9 @@
+label: CTA
+icon: bolt
+columns:
+  - width: 1/1
+    fields:
+      cta:
+        extends: fields/section
+        label: CTA Sekce
+        help: "Vlastní obsah CTA sekce pro tuto stránku a její podstránky. Pokud pole nevyplníte, použije se výchozí společné CTA z nastavení webu."

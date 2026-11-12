@@ -1,4 +1,7 @@
-<?php if ($site->ctaContact()->isNotEmpty()) : ?>
+<?php 
+$ctaData = $page->resolvedCta('contact');
+?>
+<?php if ($ctaData && $ctaData->isNotEmpty()) : ?>
 <section class="cta radius" theme="dark" data-scroll>
 	<div class="" data-contact-toggle="inquiry">
 		<div class="bg radius absolute inset__stretch" >
@@ -7,16 +10,16 @@
 		<div class="relative grid__4 gap__2 mobile:grid__1 inner-x__4 inner-y__5 mobile:inner-x__1 mobile:inner-y__3">
 			
 			<div class="cta__image-col grid place__stretch-stretch relative">
-				<?= snippet('molecules/Header', ['header' => $site->ctaContact(), 'type' => ['image']]) ?>
+				<?= snippet('molecules/Header', ['header' => $ctaData, 'type' => ['image']]) ?>
 			</div>
 			<div class="cta__content-col grid place__start-start gap__1 span__2">
-				<?= snippet('molecules/Header', ['header' => $site->ctaContact(), 'type' => ['label']]) ?>
+				<?= snippet('molecules/Header', ['header' => $ctaData, 'type' => ['label']]) ?>
 
-				<?= snippet('molecules/Header', ['header' => $site->ctaContact(), 'type' => ['heading']]) ?>
-				<?= snippet('molecules/Header', ['header' => $site->ctaContact(), 'type' => ['text']]) ?>
+				<?= snippet('molecules/Header', ['header' => $ctaData, 'type' => ['heading']]) ?>
+				<?= snippet('molecules/Header', ['header' => $ctaData, 'type' => ['text']]) ?>
 			</div>
 			<div class="cta__action-col grid place__end-end mobile:place__start-start">
-				<?= snippet('molecules/Header', ['header' => $site->ctaContact(), 'type' => ['button']]) ?>
+				<?= snippet('molecules/Header', ['header' => $ctaData, 'type' => ['button']]) ?>
 			</div>
 		</div>
 	</div>

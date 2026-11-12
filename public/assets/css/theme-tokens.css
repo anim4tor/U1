@@ -80,6 +80,7 @@
     --letter-spacing-figure:   -0.01em;
     --font-size-1:             max(3rem, 4.5vw);
     --font-weight-1:           600;
+    --font-size-2:             max(2.12rem, 3.75vw);
     --font-weight-2:           600;
     --font-size-3:             max(1.18rem, 1.7vw);
     --font-weight-3:           500;

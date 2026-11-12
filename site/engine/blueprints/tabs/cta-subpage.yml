@@ -1,0 +1,27 @@
+label: CTA
+icon: bolt
+columns:
+  - width: 1/1
+    fields:
+      ctaOverride:
+        label: Nastavení CTA
+        type: toggle
+        text:
+          - Dědit z nadřazené stránky
+          - Vlastní CTA pro tuto podstránku
+        default: false
+        help: "Ve výchozím stavu se obsah CTA sekce automaticky dědí z nadřazené stránky. Přepnutím můžete nastavit unikátní CTA pro tuto podstránku."
+
+      ctaInheritInfo:
+        type: info
+        theme: positive
+        text: "Tato podstránka automaticky přebírá CTA sekci z nadřazené stránky. Přepnutím volby výše můžete definovat vlastní obsah CTA."
+        when:
+          ctaOverride: false
+
+      cta:
+        extends: fields/section
+        label: Vlastní CTA sekce
+        help: "Vyplňte vlastní obsah CTA sekce pro tuto konkrétní stránku."
+        when:
+          ctaOverride: true
