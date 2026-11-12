@@ -9,7 +9,7 @@ $ctaData = $page->resolvedCta('contact');
 		</div>
 		<div class="relative grid__4 gap__2 mobile:grid__1 inner-x__4 inner-y__5 mobile:inner-x__1 mobile:inner-y__3">
 			
-			<div class="cta__image-col grid place__stretch-stretch relative">
+			<div class="cta__image-col vh__8 grid place__stretch-stretch relative">
 				<?= snippet('molecules/Header', ['header' => $ctaData, 'type' => ['image']]) ?>
 			</div>
 			<div class="cta__content-col grid place__start-start gap__1 span__2">

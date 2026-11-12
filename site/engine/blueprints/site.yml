@@ -58,9 +58,9 @@ tabs:
         fields:
           menuHeader:
             label: Horní lišta hlavičky
-            help: "Odkazy zobrazené přímo v navigační liště hlavičky (výchozí: Projekty, Služby, Kariéra, Feed)"
+            help: "Odkazy zobrazené přímo v navigační liště hlavičky (výchozí: Projekty, Služby, Feed)"
             type: pages
-            query: site.children.listed
+            query: site.index.filterBy('isListed', true)
             layout: list
 
           menuMain:

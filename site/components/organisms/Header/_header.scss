@@ -54,6 +54,74 @@ html[navbar-open] {
 	[navbar-header] {
 		height: var(--header-height);
 		width: 100%;
+		align-items: center;
+
+		.header__seg {
+			display: flex;
+			align-items: center;
+			height: 100%;
+
+			& + .header__seg {
+				border-left: 1px solid rgba(255, 255, 255, 0.12);
+			}
+		}
+
+		.header__nav {
+			@include sm-screen {
+				display: none !important;
+			}
+
+			.header__nav-link {
+				text-decoration: none;
+				transition: opacity 0.2s ease, color 0.2s ease;
+				white-space: nowrap;
+
+				&.active {
+					opacity: 1;
+					font-weight: 600;
+					color: var(--color-acc);
+				}
+
+				&:hover {
+					opacity: 1;
+					color: var(--color-acc);
+				}
+			}
+		}
+
+		.header__toggle {
+			cursor: pointer;
+			user-select: none;
+			white-space: nowrap;
+			transition: opacity 0.2s ease;
+
+			svg path {
+				stroke: currentColor;
+			}
+
+			&:hover {
+				opacity: 1;
+			}
+		}
+
+		.header__cta {
+			.button[theme="acc"] {
+				cursor: pointer;
+				height: calc(var(--header-height) - 18px);
+				padding: 0 1.25em;
+				border-radius: 999px;
+				font-weight: 600;
+				letter-spacing: 0.02em;
+				transition: filter 0.2s ease, transform 0.15s ease;
+
+				&:hover {
+					filter: brightness(1.12);
+				}
+				&:active {
+					transform: scale(0.98);
+				}
+			}
+		}
 	}
 
 	[navbar-widget] {

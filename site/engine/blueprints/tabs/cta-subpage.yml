@@ -25,3 +25,4 @@ columns:
         help: "Vyplňte vlastní obsah CTA sekce pro tuto konkrétní stránku."
         when:
           ctaOverride: true
+
