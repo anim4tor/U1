@@ -2,7 +2,7 @@ Title: Domů
 
 ----
 
-Hero: [{"content":{"text":"Tvoříme<br>pracovní prostory,<br>které fungují","level":"h1","mod":"","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"e934aa95-0675-4342-ad98-7ee3b66d7952","isHidden":false,"type":"heading"}]
+Hero: [{"content":{"text":"Navrhujeme a stavíme kanceláře na klíč","level":"h1","mod":"","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"e934aa95-0675-4342-ad98-7ee3b66d7952","isHidden":false,"type":"heading"},{"content":{"href":"page://2KXhsd8bxkU6MDcP","target":"false","label":"Prohlédnout realizace","counter":[],"theme":"invert-ghost","hover":"invert","size":"default","icon":"arrow-right","hasreveal":"false","bid":"","attr":"","css":"","node":""},"id":"584f29d6-40e7-4a88-986d-0ccbc5ad9cf1","isHidden":false,"type":"button"}]
 
 ----
 
@@ -16,7 +16,7 @@ Heroslider:
 
 ----
 
-About: [{"content":{"text":"<p>Naše studio, Brno a Praha</p>","mod":"","face":"body","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"595ea5ae-f026-4f67-a65f-10e823539288","isHidden":false,"type":"label"},{"content":{"text":"Dvacet pět let zkušeností promítnutých do ucelených architektonických a designových řešení. Vytváříme prostředí, které podporuje radost ze společných okamžiků.","mod":"font-size-large","face":"","case":"","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"bf0ad5f1-f487-47bc-a74c-281a83e90837","isHidden":false,"type":"text"},{"content":{"href":"","target":"false","label":"Více o nás","counter":[],"theme":"","hover":"","size":"default","icon":"","hasreveal":"false","bid":"","attr":"","css":"","node":""},"id":"01792c5c-a305-4450-8264-ed916e31e91e","isHidden":false,"type":"button"}]
+About: [{"content":{"text":"<p>Studio U1, Brno a Praha</p>","mod":"","face":"body","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"595ea5ae-f026-4f67-a65f-10e823539288","isHidden":true,"type":"label"},{"content":{"text":"Nejdřív chceme vědět, jak u vás lidé pracují. Pak přijde návrh a realizace kanceláří a kancelářský nábytek na míru. Pracujeme z Brna po celém Česku.","mod":"font-size-large","face":"","case":"","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"bf0ad5f1-f487-47bc-a74c-281a83e90837","isHidden":false,"type":"text"},{"content":{"href":"","target":"false","label":"Více o nás","counter":[],"theme":"ghost","hover":"dark","size":"default","icon":"arrow-right","hasreveal":"false","bid":"","attr":"","css":"","node":""},"id":"01792c5c-a305-4450-8264-ed916e31e91e","isHidden":false,"type":"button"}]
 
 ----
 
@@ -29,12 +29,12 @@ Aboutfigures:
   feature: "90"
   label: +LIDÍ
 - 
-  feature: "12"
+  feature: "25"
   label: +LET
 
 ----
 
-Projects: [{"content":{"text":"<p> 5 z více než 200 projektů</p>","mod":"","face":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"45b2c933-a2e4-485b-96f6-8bde671d2b92","isHidden":false,"type":"label"},{"content":{"text":"Vybrané realizace","level":"h2","mod":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"db8e3663-cc26-4bb0-83bb-51fdc202c0e6","isHidden":false,"type":"heading"},{"content":{"href":"page://2KXhsd8bxkU6MDcP","target":"false","label":"Všechny projekty","counter":[],"theme":"invert-ghost","hover":"invert","size":"default","icon":"arrow-right","hasreveal":"false","bid":"","attr":"","css":"","node":""},"id":"47fd900f-ba4b-446f-9401-7f190c44af79","isHidden":false,"type":"button"}]
+Projects: [{"content":{"text":"<p> 5 z více než 200 projektů</p>","mod":"","face":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"45b2c933-a2e4-485b-96f6-8bde671d2b92","isHidden":true,"type":"label"},{"content":{"text":"Vybrané realizace","level":"h2","mod":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"db8e3663-cc26-4bb0-83bb-51fdc202c0e6","isHidden":false,"type":"heading"},{"content":{"href":"page://2KXhsd8bxkU6MDcP","target":"false","label":"Všechny realizace","counter":[],"theme":"invert-ghost","hover":"invert","size":"default","icon":"arrow-right","hasreveal":"false","bid":"","attr":"","css":"","node":""},"id":"47fd900f-ba4b-446f-9401-7f190c44af79","isHidden":false,"type":"button"}]
 
 ----
 
@@ -58,15 +58,68 @@ Featuredtestimonials:
 
 ----
 
-Process: [{"content":{"text":"<p>5 kroků od zadání po provoz</p>","mod":"","face":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"e8c2499c-44d8-40c9-aa87-df8a34fc2b07","isHidden":false,"type":"label"},{"content":{"text":"Náš proces","level":"h2","mod":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"bfc31f89-1668-4d5b-a89a-c0f9441b1a0a","isHidden":false,"type":"heading"}]
+Process: [{"content":{"text":"<p>5 kroků od zadání po provoz</p>","mod":"","face":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"e8c2499c-44d8-40c9-aa87-df8a34fc2b07","isHidden":true,"type":"label"},{"content":{"text":"Jak pracujeme","level":"h2","mod":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"bfc31f89-1668-4d5b-a89a-c0f9441b1a0a","isHidden":false,"type":"heading"}]
 
 ----
 
-Services: [{"content":{"text":"<p>13 služeb pod jednou střechou</p>","mod":"","face":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"41cb03b8-cf03-4250-9e09-a213f938fca7","isHidden":false,"type":"label"},{"content":{"text":"Naše řešení","level":"h2","mod":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"9aca17ea-deba-43ba-acfb-02217445476f","isHidden":false,"type":"heading"}]
+Services: [{"content":{"text":"<p>13 služeb pod jednou střechou</p>","mod":"","face":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"41cb03b8-cf03-4250-9e09-a213f938fca7","isHidden":true,"type":"label"},{"content":{"text":"Služby","level":"h2","mod":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"9aca17ea-deba-43ba-acfb-02217445476f","isHidden":false,"type":"heading"},{"content":{"href":"","target":"false","label":"Všechny služby","counter":[],"theme":"invert-ghost","hover":"invert","size":"default","icon":"arrow-right","hasreveal":"false","bid":"","attr":"","css":"","node":""},"id":"9f1d5b6b-4564-48e2-9e6a-70418163277b","isHidden":false,"type":"button"}]
 
 ----
 
-Teams: [{"content":{"text":"<p>15 lidí v 5 týmech</p>","mod":"","face":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"8b6f5c95-80b9-448c-9a58-85d55d8a5888","isHidden":false,"type":"label"},{"content":{"text":"Naše týmy","level":"h2","mod":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"6c933fdb-011d-4082-897c-b1e1a91ac4fa","isHidden":false,"type":"heading"}]
+Teams: [{"content":{"text":"<p>15 lidí v 5 týmech</p>","mod":"","face":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"8b6f5c95-80b9-448c-9a58-85d55d8a5888","isHidden":true,"type":"label"},{"content":{"text":"Týmy","level":"h2","mod":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"6c933fdb-011d-4082-897c-b1e1a91ac4fa","isHidden":false,"type":"heading"},{"content":{"text":"","level":"h2","mod":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"16580f84-ecc6-473c-a55c-2061f8c5739f","isHidden":false,"type":"heading"},{"content":{"text":"Pod jednou střechou máme obchod, architekturu a design, projektové řízení a stavební realizaci. Nábytek na míru zajišťujeme s ověřenými truhláři. Každá profese přináší do projektu svou zkušenost. Návrh tak propojujeme s tím, jak interiér postavíme a vybavíme. Za celý dohodnutý rozsah vám odpovídáme jako jeden partner.","mod":"","face":"","case":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"7d7f490b-0ee6-41f4-aade-327adc1b5179","isHidden":false,"type":"text"},{"content":{"href":"","target":"false","label":"Poznejte náš tým","counter":[],"theme":"ghost","hover":"dark","size":"default","icon":"arrow-right","hasreveal":"false","bid":"","attr":"","css":"","node":""},"id":"e236da1b-ac1f-4988-9a35-c40eb622b516","isHidden":false,"type":"button"}]
+
+----
+
+Faqheading: Časté otázky
+
+----
+
+Faq:
+
+- 
+  question: Co znamená kancelář na klíč?
+  answer: >
+    Navrhneme, postavíme a vybavíme
+    kanceláře na základě jedné smlouvy.
+    Za návrh, stavbu, projektové řízení
+    i nábytek odpovídáme my, takže
+    nemusíte koordinovat několik
+    dodavatelů.
+- 
+  question: >
+    Postavíte kanceláře i podle návrhu
+    jiného architekta?
+  answer: >
+    Ano. Kanceláře postavíme i podle
+    projektu externího architekta, takto
+    jsme realizovali kanceláře v CTParku
+    Borská pole v Plzni. Autorství návrhu
+    zůstává jeho tvůrci.
+- 
+  question: Kde kanceláře stavíte?
+  answer: >
+    Sídlo a showroom máme v Brně.
+    Kanceláře navrhujeme a stavíme po
+    celé České republice a na Slovensku.
+- 
+  question: Jak dlouho trvá fit-out kanceláří?
+  answer: >
+    Záleží na rozsahu a výchozím stavu
+    prostoru. Kanceláře v CTParku Borská
+    pole jsme od holého betonu realizovali
+    za pět měsíců. Termín pro váš
+    projekt stanovíme po prohlídce
+    prostor.
+- 
+  question: Kdo nábytek na míru vyrábí?
+  answer: >
+    Ověření truhláři, se kterými
+    dlouhodobě spolupracujeme. Návrh,
+    detaily, koordinaci a montáž řídíme
+    my, za výsledek odpovídáme jako jeden
+    partner. Vlastní nábytkové řady U1.
+    Only2 získala na Designbloku 2018 cenu
+    Nejlepší novinka výrobce.
 
 ----
 
@@ -77,21 +130,27 @@ Order:
 - 
   label: 2_about
 - 
+  label: 10_spoluprace
+- 
   label: 3_projects
-- 
-  label: 4_testimonials
-- 
-  label: global/Process/index
-- 
-  label: 6_services
 - 
   label: 7_recognition
 - 
+  label: 5_process
+- 
+  label: 6_services
+- 
   label: 8_teams
 - 
-  label: global/Feed/index
+  label: 9_faq
 - 
-  label: global/Cta/index
+  label: ""
+- 
+  label: ""
+
+----
+
+Cta: 
 
 ----
 
@@ -139,7 +198,7 @@ Robots-snippet:
 
 ----
 
-Intro: [{"content":{"text":"<p>(NAŠE STUDIO)</p>","mod":"","face":"body","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"ce0ab77f-7ee9-4922-960d-81f836a0cbde","isHidden":false,"type":"label"},{"content":{"text":"Dvacet pět let zkušeností promítnutých do ucelených architektonických a designových řešení. Vytváříme prostředí, které podporuje radost ze společných okamžiků.","level":"h3","mod":"xs","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"7196bce0-bdfc-40d3-99c8-81950bf23875","isHidden":false,"type":"heading"},{"content":{"text":"<p>Rozvoj návrhu od estetiky po funkčnost v souladu s nejnovějšími technologiemi, stavebními aspekty projektů – konstrukcemi, materiály, udržitelnými postupy a koordinací mezi týmy inženýrů a stavbařů.</p>","mod":"","face":"","case":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"acde31ea-6c4b-4f2b-9c8a-766553205da8","isHidden":false,"type":"text"},{"content":{"href":"","target":"false","label":"Více o nás","counter":[],"theme":"","hover":"","size":"default","icon":"","hasreveal":"false","bid":"","attr":"","css":"","node":""},"id":"cdda7ed8-0e05-463c-9ae6-d5637b13a258","isHidden":false,"type":"button"}]
+Intro: [{"content":{"text":"<p>(STUDIO U1)</p>","mod":"","face":"body","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"ce0ab77f-7ee9-4922-960d-81f836a0cbde","isHidden":false,"type":"label"},{"content":{"text":"Dvacet pět let zkušeností promítnutých do ucelených architektonických a designových řešení. Vytváříme prostředí, které podporuje radost ze společných okamžiků.","level":"h3","mod":"xs","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"7196bce0-bdfc-40d3-99c8-81950bf23875","isHidden":false,"type":"heading"},{"content":{"text":"<p>Rozvoj návrhu od estetiky po funkčnost v souladu s nejnovějšími technologiemi, stavebními aspekty projektů – konstrukcemi, materiály, udržitelnými postupy a koordinací mezi týmy inženýrů a stavbařů.</p>","mod":"","face":"","case":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"acde31ea-6c4b-4f2b-9c8a-766553205da8","isHidden":false,"type":"text"},{"content":{"href":"","target":"false","label":"Více o nás","counter":[],"theme":"","hover":"","size":"default","icon":"","hasreveal":"false","bid":"","attr":"","css":"","node":""},"id":"cdda7ed8-0e05-463c-9ae6-d5637b13a258","isHidden":false,"type":"button"}]
 
 ----
 
