@@ -144,9 +144,9 @@ Order:
 - 
   label: 9_faq
 - 
-  label: sections/Feed/related
+  label: sections/Feed/index
 - 
-  label: sections/Cta/career
+  label: sections/Cta/index
 
 ----
 
