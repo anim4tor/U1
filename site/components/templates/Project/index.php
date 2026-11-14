@@ -5,7 +5,7 @@
 	}
 ?>
 
-<?= snippet('templates/globals/Hero/project') ?>
+<?= snippet('sections/Hero/project') ?>
 
 <section class="about" theme="invert">
 	<div data-scroll class="grid__4 gap__2 mobile:grid__1 inner__4 mobile:inner-x__1 ">
@@ -176,7 +176,7 @@
 	</div>
 </section>
 
-<?= snippet('templates/globals/Projects/related', ['projects' => $similarProjects]) ?>
+<?= snippet('sections/Projects/related', ['projects' => $similarProjects]) ?>
 
 <!-- <?php $next = $page->nextListed() ?? collection('Projects')->first(); ?>
 <?php if ($next) : ?>
@@ -211,5 +211,5 @@
 </section>
 <?php endif; ?> -->
 
-<?= snippet('templates/globals/Feed') ?>
-<?= snippet('templates/globals/Cta') ?>
+<?= snippet('sections/Feed') ?>
+<?= snippet('sections/Cta') ?>

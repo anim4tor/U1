@@ -53,5 +53,5 @@
 	</div>
 </section>
 
-<?= snippet('templates/globals/Feed/related') ?>
-<?= snippet('templates/globals/Cta') ?>
+<?= snippet('sections/Feed/related') ?>
+<?= snippet('sections/Cta') ?>

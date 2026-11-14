@@ -1,2 +1,2 @@
-<?= snippet('templates/globals/Hero/list', ['count' => $jobs->count()]) ?>
+<?= snippet('sections/Hero/list', ['count' => $jobs->count()]) ?>
 

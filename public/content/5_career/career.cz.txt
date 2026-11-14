@@ -141,7 +141,7 @@ Order:
 - 
   label: quote
 - 
-  label: global/Feed/index
+  label: sections/Feed/index
 - 
   label: cta
 
@@ -223,7 +223,7 @@ Sections:
   label: Careers
 - 
   _id: 261f9aeb-d8fc-475d-afa3-0bd7be6c033f
-  label: global/Feed
+  label: sections/Feed
 - 
   _id: 98c6f6cf-e2c6-4833-8594-0aa86b31c61b
-  label: global/Cta
+  label: sections/Cta

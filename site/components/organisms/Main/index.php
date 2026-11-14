@@ -39,7 +39,7 @@ if ($structure->isNotEmpty()) {
     }
 
     // 3. Append the global fallbacks to the trailing tail end
-    $globalsPath = kirby()->root('snippets') . '/templates/globals';
+    $globalsPath = kirby()->root('snippets') . '/sections';
     foreach (['Feed', 'Cta'] as $globalName) {
         if (is_dir($globalsPath)) {
             $subfolders = array_diff(scandir($globalsPath), ['.', '..', '.DS_Store']);
@@ -49,7 +49,7 @@ if ($structure->isNotEmpty()) {
 
                 $cleanSub = preg_replace('/^\d+_(.*)$/', '$1', $sub);
                 if (strtolower($cleanSub) === strtolower($globalName) && file_exists($globalsPath . '/' . $sub . '/index.php')) {
-                    $sectionsOrder[] = 'global/' . $sub . '/index';
+                    $sectionsOrder[] = 'sections/' . $sub . '/index';
                     break;
                 }
             }
@@ -64,9 +64,25 @@ if (!is_array($ctrlData)) $ctrlData = [];
 <?php # 4. Render the output list ?>
 <?php foreach ($sectionsOrder as $label) : ?>
     <?php 
-    $isGlobal = str_starts_with($label, 'global/');
-    $dir = $isGlobal ? 'templates/globals' : 'templates/' . ucfirst($page->intendedTemplate()->name()) . '/sections';
-    $file = $isGlobal ? substr($label, 7) : $label;
+    $isGlobal = str_starts_with($label, 'global/') || str_starts_with($label, 'sections/');
+    if (str_starts_with($label, 'global/')) {
+        $dir = 'sections';
+        $file = substr($label, 7);
+    } elseif (str_starts_with($label, 'sections/')) {
+        $dir = 'sections';
+        $file = substr($label, 9);
+    } else {
+        $dir = 'templates/' . ucfirst($page->intendedTemplate()->name()) . '/sections';
+        $file = $label;
+    }
+
+    if ($dir === 'sections') {
+        if (str_starts_with($file, 'FAQ/') && !file_exists(kirby()->root('snippets') . '/sections/' . $file . '.php')) {
+            $file = 'FAQs/' . substr($file, 4);
+        } elseif (str_starts_with($file, 'FAQs/') && !file_exists(kirby()->root('snippets') . '/sections/' . $file . '.php')) {
+            $file = 'FAQ/' . substr($file, 5);
+        }
+    }
 
     snippet($dir . '/' . $file, $ctrlData);
     ?>

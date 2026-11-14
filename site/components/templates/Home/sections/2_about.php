@@ -7,7 +7,7 @@
 			</div>
 		</div>
 		<div class="span__2">
-			<?= snippet('templates/globals/Figures') ?>
+			<?= snippet('sections/Figures') ?>
 		</div>
 	</div>
 </section>

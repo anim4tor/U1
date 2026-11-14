@@ -138,9 +138,74 @@ $pos: (
 		}
 	}
 
+	// Decimals 0.1 to 0.9 (support __05, __0.5, __0_5)
 	@for $i from 1 through 9 {
-		&__0#{$i} {
+		&__0#{$i},
+		&__0\.#{$i},
+		&__0_#{$i} {
 			--gap: calc(#{$i/10} * var(--spacing));
+			--grid-gap-x: var(--gap);
+			--grid-gap-y: var(--gap);
+			gap: var(--gap);
+			row-gap: var(--gap);
+			column-gap: var(--gap);
+		}
+	}
+
+	// Quarters 0.25, 0.75
+	&__0\.25, &__0_25 {
+		--gap: calc(0.25 * var(--spacing));
+		--grid-gap-x: var(--gap);
+		--grid-gap-y: var(--gap);
+		gap: var(--gap);
+		row-gap: var(--gap);
+		column-gap: var(--gap);
+	}
+	&__0\.75, &__0_75 {
+		--gap: calc(0.75 * var(--spacing));
+		--grid-gap-x: var(--gap);
+		--grid-gap-y: var(--gap);
+		gap: var(--gap);
+		row-gap: var(--gap);
+		column-gap: var(--gap);
+	}
+
+	// Decimals 1 to 5 (all tenths: 1.1 - 5.9, including 1.5, 2.5, etc.)
+	@for $i from 1 through 5 {
+		@for $d from 1 through 9 {
+			&__#{$i}\.#{$d},
+			&__#{$i}_#{$d} {
+				--gap: calc(#{$i + $d/10} * var(--spacing));
+				--grid-gap-x: var(--gap);
+				--grid-gap-y: var(--gap);
+				gap: var(--gap);
+				row-gap: var(--gap);
+				column-gap: var(--gap);
+			}
+		}
+		&__#{$i}\.25, &__#{$i}_25 {
+			--gap: calc(#{$i + 0.25} * var(--spacing));
+			--grid-gap-x: var(--gap);
+			--grid-gap-y: var(--gap);
+			gap: var(--gap);
+			row-gap: var(--gap);
+			column-gap: var(--gap);
+		}
+		&__#{$i}\.75, &__#{$i}_75 {
+			--gap: calc(#{$i + 0.75} * var(--spacing));
+			--grid-gap-x: var(--gap);
+			--grid-gap-y: var(--gap);
+			gap: var(--gap);
+			row-gap: var(--gap);
+			column-gap: var(--gap);
+		}
+	}
+
+	// Halves 6.5 to 19.5
+	@for $i from 6 through 19 {
+		&__#{$i}\.5,
+		&__#{$i}_5 {
+			--gap: calc(#{$i + 0.5} * var(--spacing));
 			--grid-gap-x: var(--gap);
 			--grid-gap-y: var(--gap);
 			gap: var(--gap);
@@ -176,8 +241,59 @@ $pos: (
 		}
 
 		@for $i from 1 through 9 {
-			&#{$label}__0#{$i} {
+			&#{$label}__0#{$i},
+			&#{$label}__0\.#{$i},
+			&#{$label}__0_#{$i} {
 				--gap#{$label}: calc(#{$i/10} * var(--spacing));
+				#{$attr}: var(--gap#{$label});
+				@if($label == '-x') {
+					--grid-gap-x: var(--gap#{$label});
+				} @else {
+					--grid-gap-y: var(--gap#{$label});
+				}
+			}
+		}
+
+		&#{$label}__0\.25, &#{$label}__0_25 {
+			--gap#{$label}: calc(0.25 * var(--spacing));
+			#{$attr}: var(--gap#{$label});
+			@if($label == '-x') { --grid-gap-x: var(--gap#{$label}); } @else { --grid-gap-y: var(--gap#{$label}); }
+		}
+		&#{$label}__0\.75, &#{$label}__0_75 {
+			--gap#{$label}: calc(0.75 * var(--spacing));
+			#{$attr}: var(--gap#{$label});
+			@if($label == '-x') { --grid-gap-x: var(--gap#{$label}); } @else { --grid-gap-y: var(--gap#{$label}); }
+		}
+
+		@for $i from 1 through 5 {
+			@for $d from 1 through 9 {
+				&#{$label}__#{$i}\.#{$d},
+				&#{$label}__#{$i}_#{$d} {
+					--gap#{$label}: calc(#{$i + $d/10} * var(--spacing));
+					#{$attr}: var(--gap#{$label});
+					@if($label == '-x') {
+						--grid-gap-x: var(--gap#{$label});
+					} @else {
+						--grid-gap-y: var(--gap#{$label});
+					}
+				}
+			}
+			&#{$label}__#{$i}\.25, &#{$label}__#{$i}_25 {
+				--gap#{$label}: calc(#{$i + 0.25} * var(--spacing));
+				#{$attr}: var(--gap#{$label});
+				@if($label == '-x') { --grid-gap-x: var(--gap#{$label}); } @else { --grid-gap-y: var(--gap#{$label}); }
+			}
+			&#{$label}__#{$i}\.75, &#{$label}__#{$i}_75 {
+				--gap#{$label}: calc(#{$i + 0.75} * var(--spacing));
+				#{$attr}: var(--gap#{$label});
+				@if($label == '-x') { --grid-gap-x: var(--gap#{$label}); } @else { --grid-gap-y: var(--gap#{$label}); }
+			}
+		}
+
+		@for $i from 6 through 19 {
+			&#{$label}__#{$i}\.5,
+			&#{$label}__#{$i}_5 {
+				--gap#{$label}: calc(#{$i + 0.5} * var(--spacing));
 				#{$attr}: var(--gap#{$label});
 				@if($label == '-x') {
 					--grid-gap-x: var(--gap#{$label});

@@ -129,6 +129,6 @@ img {
 }
 
 .img__radius {
-  --radius: var(--img-radius);
+  --radius: var(--radius-card);
   @include radius;
 }

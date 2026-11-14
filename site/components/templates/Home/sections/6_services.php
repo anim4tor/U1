@@ -7,11 +7,9 @@ if ($solutions->isEmpty()) {
 <?php if ($page->services()->isNotEmpty() && $solutions->isNotEmpty()) : ?>
 <section class="solutions radius" theme="dark" data-tabs="hoverable">
 	<div class="grid__4 gap__2 mobile:grid__1 inner-x__4 inner-y__5 mobile:inner-x__1 mobile:inner-y__3">
-		<div class="grid span__2 gap__4 place__space-between-start mobile:inner-x__0">
+		<div class="grid span__2 gap__3 place__start-stretch mobile:inner-x__0">
 			<div class="grid gap__1">
-				<?= snippet('molecules/Header', ['header' => $page->services(), 'type' => ['label']]) ?>
-				<?= snippet('molecules/Header', ['header' => $page->services(), 'type' => ['heading']]) ?>
-				<?= snippet('molecules/Header', ['header' => $page->services(), 'type' => ['text']]) ?>
+				<?= snippet('molecules/Header', ['header' => $page->services(), 'type' => ['label', 'heading', 'text']]) ?>
 				<div class="grid__stack place__start-start " data-pane-container data-scroll data-reveal-image >
 					<?php foreach ($solutions as $solution) : ?>
 						<div data-pane="service-<?= $solution->slug() ?>" class="" data-scroll data-scroll-ignore data-tab-reveal>
@@ -33,7 +31,7 @@ if ($solutions->isEmpty()) {
 				</ol>
 			</div>
 		</div>
-		<div class="span__2 grid">
+		<div class="span__2 solutions__media">
 			<div class="grid__stack place__stretch-stretch no__overflow img__radius" data-pane-container data-scroll data-reveal-image >
 				<?php foreach ($solutions as $solution) : ?>
 					<div data-pane="service-<?= $solution->slug() ?>" class="grid place__stretch-stretch" data-scroll data-scroll-ignore data-tab-reveal>

@@ -19,11 +19,11 @@ Order:
 - 
   label: 3_list
 - 
-  label: global/Testimonials/index
+  label: sections/Testimonials/index
 - 
-  label: global/Feed/index
+  label: sections/Feed/index
 - 
-  label: global/Cta/index
+  label: sections/Cta/index
 
 ----
 

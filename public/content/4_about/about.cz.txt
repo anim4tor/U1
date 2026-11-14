@@ -106,9 +106,9 @@ Order:
 - 
   label: 6_people
 - 
-  label: global/Feed/index
+  label: sections/Feed/index
 - 
-  label: global/Cta/index
+  label: sections/Cta/index
 
 ----
 

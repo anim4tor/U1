@@ -17,9 +17,9 @@
 			</div>
 		<?php endif ?>
 		<div class="grid">
-			<?= snippet('atoms/Label', ['text' => $testimonial->testimonialAuthor()->or($testimonial->parent()->client())]) ?>
+			<p><?= $testimonial->testimonialAuthor()->or($testimonial->parent()->client()) ?></p>
 			<?php if ($testimonial->testimonialPosition()->isNotEmpty()) : ?>
-				<?= snippet('atoms/Label', ['text' => $testimonial->testimonialPosition()]) ?>
+				<div class="font__size__small op__7"><?= $testimonial->testimonialPosition() ?></div>
 			<?php endif ?>
 		</div>
 	</div>

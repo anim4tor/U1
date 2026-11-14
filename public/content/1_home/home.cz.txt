@@ -2,7 +2,7 @@ Title: Domů
 
 ----
 
-Hero: [{"content":{"text":"Navrhujeme a stavíme kanceláře na klíč","level":"h1","mod":"","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"e934aa95-0675-4342-ad98-7ee3b66d7952","isHidden":false,"type":"heading"}]
+Hero: [{"content":{"text":"Navrhujeme a stavíme kanceláře na klíč","level":"h1","mod":"","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"e934aa95-0675-4342-ad98-7ee3b66d7952","isHidden":false,"type":"heading"},{"content":{"href":"page://2KXhsd8bxkU6MDcP","target":"false","label":"Prohlédnout realizace","counter":[],"theme":"invert-ghost","hover":"invert","size":"default","icon":"arrow-right","hasreveal":"false","bid":"","attr":"","css":"","node":""},"id":"584f29d6-40e7-4a88-986d-0ccbc5ad9cf1","isHidden":false,"type":"button"}]
 
 ----
 
@@ -66,7 +66,7 @@ Services: [{"content":{"text":"<p>13 služeb pod jednou střechou</p>","mod":"",
 
 ----
 
-Teams: [{"content":{"text":"<p>15 lidí v 5 týmech</p>","mod":"","face":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"8b6f5c95-80b9-448c-9a58-85d55d8a5888","isHidden":true,"type":"label"},{"content":{"text":"Týmy","level":"h2","mod":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"6c933fdb-011d-4082-897c-b1e1a91ac4fa","isHidden":false,"type":"heading"},{"content":{"text":"","level":"h2","mod":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"16580f84-ecc6-473c-a55c-2061f8c5739f","isHidden":false,"type":"heading"},{"content":{"text":"Pod jednou střechou máme obchod, architekturu a design, projektové řízení a stavební realizaci. Nábytek na míru zajišťujeme s ověřenými truhláři. Každá profese přináší do projektu svou zkušenost. Návrh tak propojujeme s tím, jak interiér postavíme a vybavíme. Za celý dohodnutý rozsah vám odpovídáme jako jeden partner.","mod":"","face":"","case":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"7d7f490b-0ee6-41f4-aade-327adc1b5179","isHidden":false,"type":"text"},{"content":{"href":"","target":"false","label":"Poznejte náš tým","counter":[],"theme":"ghost","hover":"dark","size":"default","icon":"arrow-right","hasreveal":"false","bid":"","attr":"","css":"","node":""},"id":"e236da1b-ac1f-4988-9a35-c40eb622b516","isHidden":false,"type":"button"}]
+Teams: [{"content":{"text":"<p>15 lidí v 5 týmech</p>","mod":"","face":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"8b6f5c95-80b9-448c-9a58-85d55d8a5888","isHidden":true,"type":"label"},{"content":{"text":"Týmy","level":"h2","mod":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"6c933fdb-011d-4082-897c-b1e1a91ac4fa","isHidden":false,"type":"heading"},{"content":{"text":"Pod jednou střechou máme obchod, architekturu a design, projektové řízení a stavební realizaci. Nábytek na míru zajišťujeme s ověřenými truhláři. Každá profese přináší do projektu svou zkušenost. Návrh tak propojujeme s tím, jak interiér postavíme a vybavíme. Za celý dohodnutý rozsah vám odpovídáme jako jeden partner.","mod":"","face":"","case":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"7d7f490b-0ee6-41f4-aade-327adc1b5179","isHidden":false,"type":"text"},{"content":{"href":"","target":"false","label":"Poznejte náš tým","counter":[],"theme":"ghost","hover":"dark","size":"default","icon":"arrow-right","hasreveal":"false","bid":"","attr":"","css":"","node":""},"id":"e236da1b-ac1f-4988-9a35-c40eb622b516","isHidden":false,"type":"button"}]
 
 ----
 
@@ -144,9 +144,9 @@ Order:
 - 
   label: 9_faq
 - 
-  label: global/Feed/index
+  label: sections/Feed/index
 - 
-  label: global/Cta/index
+  label: sections/Cta/index
 
 ----
 

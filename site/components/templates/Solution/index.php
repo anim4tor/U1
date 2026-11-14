@@ -1,4 +1,4 @@
-<?= snippet('templates/globals/Hero') ?>
+<?= snippet('sections/Hero') ?>
 
 
 <section class="about radius" theme="invert">
@@ -30,6 +30,6 @@
 </section>
 <?php endif ?>
 
-<?= snippet('templates/globals/Projects/related', ['projects' => $page->relatedProjects()]) ?>
-<?= snippet('templates/globals/Feed/related') ?>
-<?= snippet('templates/globals/Cta') ?>
+<?= snippet('sections/Projects/related', ['projects' => $page->relatedProjects()]) ?>
+<?= snippet('sections/Feed/related') ?>
+<?= snippet('sections/Cta') ?>

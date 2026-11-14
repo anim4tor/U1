@@ -23,56 +23,48 @@
     --vw-scale: calc(100vw / 1440);
 
     /* ~162px - 200px at 1440px - Figure (~2x H1 / velké číslice) */
-    --font-size-figure-fluid: clamp(60px, calc(162 / 1440 * 100vw), 220px);
+    --font-size-figure-fluid: max(60px, 7vw);
     --line-height-figure-fluid: 1.0;
 
-    /* 122px at 1440px - H1 Hero */
-    --font-size-hero-fluid: clamp(48px, calc(122 / 1440 * 100vw), 160px);
-    --line-height-hero-fluid: 1.05;
+    /* 1. NADPIS (54px na 1440px): h1, h2, font__size__1, font__size__2 */
+    --font-size-1-fluid: max(36px, 3.75vw);
+    --line-height-1-fluid: 1.12;
 
-    /* 81px at 1440px - Level 1 (velká čísla, hlavní nadpisy) */
-    --font-size-1-fluid: clamp(38px, calc(81 / 1440 * 100vw), 110px);
-    --line-height-1-fluid: 1.1;
+    --font-size-2-fluid: max(36px, 3.75vw);
+    --line-height-2-fluid: 1.12;
 
-    /* 54px at 1440px - Level 2 (H2) */
-    --font-size-2-fluid: clamp(28px, calc(54 / 1440 * 100vw), 72px);
-    --line-height-2-fluid: 1.15;
+    /* 2. VÝROK (36px na 1440px): font__size__large */
+    --font-size-large-fluid: max(26px, 2.5vw);
+    --line-height-large-fluid: 1.2;
 
-    /* 36px at 1440px - Level 3 (citace, čísla v kartách, záložky) */
-    --font-size-3-fluid: clamp(22px, calc(36 / 1440 * 100vw), 48px);
-    --line-height-3-fluid: 1.25;
+    /* 3. PEREX (24px na 1440px): h3, font__size__3 */
+    --font-size-3-fluid: max(19px, 1.667vw);
+    --line-height-3-fluid: 1.3;
 
-    /* 28px - Level 4 fallback */
-    --font-size-4-fluid: clamp(18px, calc(28 / 1440 * 100vw), 36px);
+    /* Fallback levely 4, 5, 6 */
+    --font-size-4-fluid: max(19px, 1.667vw);
     --line-height-4-fluid: 1.3;
 
-    /* 20px - Level 5 fallback */
-    --font-size-5-fluid: clamp(16px, calc(20 / 1440 * 100vw), 24px);
-    --line-height-5-fluid: 1.35;
+    --font-size-5-fluid: max(15px, 1.111vw);
+    --line-height-5-fluid: 1.5;
 
-    /* 16px - Level 6 fallback */
-    --font-size-6-fluid: clamp(14px, calc(16 / 1440 * 100vw), 20px);
-    --line-height-6-fluid: 1.4;
+    --font-size-6-fluid: max(15px, 1.111vw);
+    --line-height-6-fluid: 1.5;
 
-    /* 24px at 1440px - Large (názvy položek a karet, seznamy s linkami) */
-    --font-size-large-fluid: clamp(18px, calc(24 / 1440 * 100vw), 32px);
-    --line-height-large-fluid: 1.3;
+    /* 4. TEXT (16px na 1440px): font__size__default, p */
+    --font-size-default-fluid: max(15px, 1.111vw);
+    --line-height-default-fluid: 1.5;
 
-    /* 16px at 1440px - Default (text, popisky, dlouhé seznamy) */
-    --font-size-default-fluid: clamp(14px, calc(16 / 1440 * 100vw), 19px);
-    --line-height-default-fluid: 1.45;
+    /* 5. ŠTÍTEK (12px verzálky na 1440px): button, label */
+    --font-size-button-fluid: max(11px, 0.833vw);
+    --line-height-button-fluid: 1.5;
 
-    /* 12px at 1440px - Small (štítky, roky) */
-    --font-size-small-fluid: clamp(10px, calc(12 / 1440 * 100vw), 14px);
-    --line-height-small-fluid: 1.4;
+    --font-size-label-fluid: max(11px, 0.833vw);
+    --line-height-label-fluid: 1.5;
 
-    /* Label typo (štítky, metadata, tagy) */
-    --font-size-label-fluid: clamp(10px, calc(12 / 1440 * 100vw), 14px);
-    --line-height-label-fluid: 1.4;
-
-    /* Button typo (tlačítka, CTA) */
-    --font-size-button-fluid: clamp(11px, calc(12 / 1440 * 100vw), 14px);
-    --line-height-button-fluid: 1.2;
+    /* 6. POPISEK (12px na 1440px): font__size__small */
+    --font-size-small-fluid: max(11px, 0.833vw);
+    --line-height-small-fluid: 1.5;
 }
 
 /*
@@ -95,24 +87,36 @@ $levels: 'figure', 'label', 'button', 'small', 'default', 'large', 6, 5, 4, 3, 2
             .text-#{$level} {
                 --output-size: var(--font-size-#{$level}, var(--font-size-#{$level}-fluid));
 
-                @if ($level =='small' or $level =='default' or $level =='large' or $level =='label' or $level =='button') {
+                @if ($level =='label' or $level =='button') {
                     font-family: var(--font-family-#{$level}, var(--ff-body, sans-serif));
-                    font-weight: var(--font-weight-#{$level}, var(--fw-body, 400));
+                    font-weight: var(--font-weight-#{$level}, 600);
+                    letter-spacing: var(--letter-spacing-#{$level}, 0.08em);
+                    text-transform: var(--text-transform-#{$level}, uppercase);
+                }
+
+                @else if ($level =='small' or $level =='default' or $level =='large') {
+                    font-family: var(--font-family-#{$level}, var(--ff-body, sans-serif));
+                    font-weight: var(--font-weight-#{$level}, var(--fw-body, 500));
                     letter-spacing: var(--letter-spacing-#{$level}, var(--ls-body, inherit));
                     text-transform: var(--text-transform-#{$level}, var(--tt-body, inherit));
                 }
 
                 @else {
                     font-family: var(--font-family-#{$level}, var(--ff-heading, sans-serif));
-                    font-weight: var(--font-weight-#{$level}, var(--fw-heading, 500));
-                    letter-spacing: var(--letter-spacing-#{$level}, var(--ls-heading, inherit));
+                    font-weight: var(--font-weight-#{$level}, var(--fw-heading, 600));
+                    letter-spacing: var(--letter-spacing-#{$level}, var(--ls-heading, -0.02em));
                     text-transform: var(--text-transform-#{$level}, var(--tt-heading, inherit));
                 }
 
                 font-size: var(--output-size);
                 line-height: var(--line-height-#{$level}, var(--line-height-#{$level}-fluid));
 
+                @if ($level == 1 or $level == 2) {
+                    text-wrap: balance;
+                }
+
                 @if ($level =='large') {
+                    text-wrap: pretty;
                     opacity: var(--opacity-large, 1);
                 }
 
@@ -121,7 +125,7 @@ $levels: 'figure', 'label', 'button', 'small', 'default', 'large', 6, 5, 4, 3, 2
                 }
 
                 @if ($level =='label') {
-                    opacity: var(--opacity-label, 1);
+                    opacity: var(--opacity-label, 0.7);
                 }
             }
         }
@@ -340,8 +344,11 @@ p {
 .font__size__small,
 .font-size-small,
 .text-small {
-    font-size: var(--font-size-small, var(--font-size-small-fluid, 12px));
-    line-height: var(--line-height-small, var(--line-height-small-fluid, 1.44));
+    font-size: var(--font-size-small, var(--font-size-small-fluid, 11px));
+    line-height: var(--line-height-small, var(--line-height-small-fluid, 1.5));
+    font-weight: var(--font-weight-small, 500);
+    letter-spacing: var(--letter-spacing-small, 0em);
+    text-transform: var(--text-transform-small, none);
 }
 
 .label,
@@ -351,10 +358,10 @@ label,
 .font-size-label,
 .text-label {
     font-family: var(--font-family-label, var(--ff-body, sans-serif));
-    font-size: var(--font-size-label, var(--font-size-label-fluid, var(--font-size-small-fluid, 12px)));
-    line-height: var(--line-height-label, var(--line-height-label-fluid, var(--line-height-small-fluid, 1.44)));
-    font-weight: var(--font-weight-label, var(--font-weight-small, 500));
-    letter-spacing: var(--letter-spacing-label, var(--letter-spacing-small, var(--ls-body, inherit)));
+    font-size: var(--font-size-label, var(--font-size-label-fluid, 11px));
+    line-height: var(--line-height-label, var(--line-height-label-fluid, 1.5));
+    font-weight: var(--font-weight-label, 600);
+    letter-spacing: var(--letter-spacing-label, 0.08em);
     text-transform: var(--text-transform-label, uppercase);
     opacity: var(--opacity-label, 0.7);
 }
@@ -365,10 +372,11 @@ button,
 .font-size-button,
 .text-button {
     font-family: var(--font-family-button, var(--ff-body, sans-serif));
-    font-size: var(--font-size-button, var(--font-size-button-fluid, var(--font-size-small-fluid, 12px)));
-    line-height: var(--line-height-button, var(--line-height-button-fluid, 1.2));
-    font-weight: var(--font-weight-button, 500);
-    letter-spacing: var(--letter-spacing-button, var(--ls-body, inherit));
+    font-size: var(--font-size-button, var(--font-size-button-fluid, 11px));
+    line-height: var(--line-height-button, var(--line-height-button-fluid, 1.5));
+    font-weight: var(--font-weight-button, 600);
+    letter-spacing: var(--letter-spacing-button, 0.08em);
+    text-transform: var(--text-transform-button, uppercase);
 }
 
 .hyphens {

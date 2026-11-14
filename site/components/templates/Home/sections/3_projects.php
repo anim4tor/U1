@@ -1,6 +1,6 @@
 <?php if ($page->featuredProjects()->isNotEmpty()) : ?>
 <section class="projects radius" theme="dark" >
-	<div class="grid__3 gap__2 mobile:grid__1 inner-x__4 inner-y__5 mobile:inner-x__1 mobile:inner-y__3" data-carousel data-per=4>
+	<div class="grid__3 gap__3 mobile:grid__1 inner-x__4 inner-y__5 mobile:inner-x__1 mobile:inner-y__3" data-carousel data-per=4>
 		<div data-scroll class="span__3 flex justify__space-between align__center mobile:flex__flow-column mobile:align__start gap__2">
 			<div class="grid gap__05">
 				<?= snippet('molecules/Header', ['header' => $page->projects(), 'type' => ['label']]) ?>
@@ -25,8 +25,8 @@
 			<?php endforeach ?>
 			</ol>
 		</div>
-		<div class="span__3">
-			<?= snippet('templates/globals/Testimonials/carousel') ?>
+		<div class="span__3 inner-t__1">
+			<?= snippet('sections/Testimonials/carousel') ?>
 		</div>
 	</div>
 </section>

@@ -25,10 +25,53 @@ $target   = $isSocial ? '_blank' : null;
 $rel      = $isSocial ? 'noopener noreferrer' : null;
 $title    = $isSocial ? $item->title()->excerpt(200) : $item->title();
 
-// 3. Date / Meta
-$dateText = null;
-if (!$isSocial && $item->content()->has('date') && $item->date()->isNotEmpty()) {
-    $dateText = $type === 'media' ? $item->date()->toDate('Y') : $item->date()->toDate('Y-m-d');
+// 3. Meta data (similar to Project molecule)
+$meta = [];
+
+if ($type === 'media' || $item->intendedTemplate()->name() === 'project') {
+    $meta = array_filter([
+        $item->industry()->isNotEmpty() ? implode(', ', $item->industry()->split()) : null,
+        $item->place()->isNotEmpty() ? $item->place()->value() : null,
+        $item->date()->isNotEmpty() ? $item->date()->toDate('Y') : null,
+    ]);
+} elseif ($isSocial) {
+    $socialDate = null;
+    if ($item->content()->has('date') && $item->date()->isNotEmpty()) {
+        $socialDate = $item->date()->toDate('j. n. Y');
+    } elseif ($item->content()->has('timestamp') && $item->timestamp()->isNotEmpty()) {
+        $socialDate = date('j. n. Y', strtotime($item->timestamp()->value()));
+    }
+    $meta = array_filter([
+        $item->content()->has('platform') && $item->platform()->isNotEmpty() ? ucfirst($item->platform()->value()) : null,
+        $socialDate,
+    ]);
+} else {
+    // Blog / Post
+    $category = null;
+    if ($item->content()->has('category') && $item->category()->isNotEmpty()) {
+        $category = $item->category()->value();
+    } elseif ($item->content()->has('topic') && $item->topic()->isNotEmpty()) {
+        $category = $item->topic()->value();
+    } elseif ($item->content()->has('tags') && $item->tags()->isNotEmpty()) {
+        $category = implode(', ', $item->tags()->split());
+    }
+
+    $authorName = null;
+    if ($item->content()->has('author') && $item->author()->isNotEmpty()) {
+        $author = $item->author()->toUser();
+        $authorName = $author ? $author->name() : $item->author()->value();
+    }
+
+    $dateVal = null;
+    if ($item->content()->has('date') && $item->date()->isNotEmpty()) {
+        $dateVal = $item->date()->toDate('j. n. Y');
+    }
+
+    $meta = array_filter([
+        $category,
+        $authorName,
+        $dateVal,
+    ]);
 }
 
 // 4. Figure & Media
@@ -36,6 +79,7 @@ $coverFile = $item->cover()->toFile();
 $mediaUrl  = $isSocial && $item->content()->has('media_url') ? $item->media_url()->value() : null;
 $platform  = $isSocial && $item->content()->has('platform') ? $item->platform()->value() : null;
 $isVideo   = $isSocial && $item->content()->has('media_type') && ($item->media_type()->value() === 'VIDEO');
+
 ?>
 
 <div class="item --feed --feed-<?= esc($type) ?>" data-scroll>
@@ -46,7 +90,7 @@ $isVideo   = $isSocial && $item->content()->has('media_type') && ($item->media_t
 					'img'    => $coverFile,
 					'url'    => $mediaUrl,
 					'reveal' => true, 
-					'css'    => 'vh__5 grid' . ($isSocial ? ' overlay__bottom' : ''), 
+					'css'    => 'aspect__4/3' . ($isSocial ? ' overlay__bottom' : ''), 
 					'node'   => 'data-reveal-image'
 				]) ?>
 				<?php if ($isSocial && $platform) : ?>
@@ -59,10 +103,9 @@ $isVideo   = $isSocial && $item->content()->has('media_type') && ($item->media_t
 				<?php endif ?>
 			</div>
 		<?php endif ?>
-
 		<div class="item__meta relative grid gap__05">
-			<?php if (!empty($dateText)) : ?>
-				<?= snippet('atoms/Label', ['text' => $dateText]) ?>
+			<?php if (!empty($meta)) : ?>
+				<div class="font__size__small op__7"><?= implode(' · ', $meta) ?></div>
 			<?php endif ?>
 			<h3 class="wrap inner-r__2"><?= $title ?></h3>
 		</div>

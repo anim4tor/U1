@@ -1,0 +1,78 @@
+<section class="events" data-tabs="default">
+	<div class="bg radius absolute inset__stretch" theme="light"></div>
+
+	<div data-pane-container class="relative z__1">
+		<div class="grid__stack place__start-start inner-x__4 inner-y__5 mobile:inner-x__1 mobile:inner-y__3">
+			<div class="w__full z__2 pointer-events-none">
+				<div class="grid__3 gap-x__1 gap-y__2 mobile:grid__1">
+					<div data-scroll class="grid gap__1 span__2 relative pointer-events-auto">
+						
+						<div class="flex gap__1 align__center" data-scroll>
+							<h2 data-tab="blog" class=" cursor__pointer" data-reveal-text>Články</h2>
+							<div class="w__03 h__03 bg__text op__4"></div>
+							<h2 data-tab="socials" class=" cursor__pointer" data-reveal-text>Sítě</h2>
+							<div class="w__03 h__03 bg__text op__4"></div>
+							<h2 data-tab="media" class="maller cursor__pointer" data-reveal-text>Média</h2>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div data-pane="blog" data-scroll data-scroll-ignore data-tab-reveal class="w__full">
+				<div data-carousel data-per="4" class="grid__3 inner-t__2 gap-x__2 gap-y__2 mobile:grid__1">
+					<div class="span__2"></div>
+					<div class="flex gap__02 justify__end align__end">
+						<button data-carousel-prev class="button upper" theme="ghost" hover="dark"><span class="icon"><?= svg('public/assets/images/ui/ui_arrow-left.svg') ?></span></button>
+						<button data-carousel-next class="button upper" theme="ghost" hover="dark"><span class="icon"><?= svg('public/assets/images/ui/ui_arrow-right.svg') ?></span></button>
+					</div>
+					<div class="span__3" data-carousel-scroll theme="light">
+						<ol class="flex justify__start align__start no__wrap gap__2" data-carousel-slides>	
+						<?php foreach (collection('Blog') as $feed) : ?>
+							<li data-slide class="vw__5">	
+								<?= snippet('molecules/Feed/list', ['item' => $feed, 'type' => 'blog']) ?>
+							</li>
+						<?php endforeach ?>
+						</ol>
+					</div>
+				</div>
+			</div>
+			<div data-pane="socials" data-scroll data-scroll-ignore data-tab-reveal class="w__full">
+				<div data-carousel data-per="4" class="grid__3 inner-t__2 gap-x__2 gap-y__2 mobile:grid__1">
+					<div class="span__2"></div>
+					<div class="flex gap__02 justify__end align__end">
+						<button data-carousel-prev class="button upper" theme="ghost" hover="dark"><span class="icon"><?= svg('public/assets/images/ui/ui_arrow-left.svg') ?></span></button>
+						<button data-carousel-next class="button upper" theme="ghost" hover="dark"><span class="icon"><?= svg('public/assets/images/ui/ui_arrow-right.svg') ?></span></button>
+					</div>
+					<div class="span__3" data-carousel-scroll theme="light">
+						<ol class="flex justify__start align__start no__wrap gap__2" data-carousel-slides>	
+						<?php foreach (collection('Socials') as $post) : ?>
+							<li data-slide class="vw__5 aspect__1/1">	
+								<?= snippet('molecules/Feed/list', ['item' => $post, 'type' => 'social']) ?>
+							</li>
+						<?php endforeach ?>
+						</ol>
+					</div>
+				</div>
+			</div>
+			<div data-pane="media" data-scroll data-scroll-ignore data-tab-reveal class="w__full">
+				<div data-carousel data-per="4" class="grid__3 inner-t__2 gap-x__2 gap-y__2 mobile:grid__1">
+					<div class="span__2"></div>
+					<div class="flex gap__02 justify__end align__end">
+						<button data-carousel-prev class="button upper" theme="ghost" hover="dark"><span class="icon"><?= svg('public/assets/images/ui/ui_arrow-left.svg') ?></span></button>
+						<button data-carousel-next class="button upper" theme="ghost" hover="dark"><span class="icon"><?= svg('public/assets/images/ui/ui_arrow-right.svg') ?></span></button>
+					</div>
+					<div class="span__3" data-carousel-scroll theme="light">
+						<ol class="flex justify__start align__start no__wrap gap__2" data-carousel-slides>	
+						<?php foreach (collection('Projects') as $feed) : ?>
+							<li data-slide class="vw__5 aspect__1/1">	
+								<?= snippet('molecules/Feed/list', ['item' => $feed, 'type' => 'media']) ?>
+							</li>
+						<?php endforeach ?>
+						</ol>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</section>

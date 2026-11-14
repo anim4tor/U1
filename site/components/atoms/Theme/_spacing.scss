@@ -21,44 +21,126 @@ $dirs: (
 
 @mixin spacing_scale($props, $var: spacing, $min: 0, $max: $limit) {
   @each $label, $dir in $dirs {
-    @if($label == '') {
-      $neg: 1;
-      @for $i from $min through $max {
-        @if($i < 0) {
-          $neg: -1;
-        } 
-        &__#{$neg*$i} {
+    $neg: 1;
+    @if ($min < 0) {
+      $neg: -1;
+    }
+
+    // 1. Integers
+    @for $i from $min through $max {
+      $val: $neg * $i;
+      @if ($label == '') {
+        &__#{$val} {
           @each $prop in $props {
             #{$prop}: calc(#{$i} * var(--#{$var}));
           }
         }
-      } 
-      @for $j from 1 through 9 {
-        &__0#{$j} {
+      } @else {
+        &-#{$label}__#{$val} {
           @each $prop in $props {
-            #{$prop}: calc(#{$neg*$j/10} * var(--#{$var}));
+            #{$prop}-#{$dir}: calc(#{$i} * var(--#{$var}));
           }
         }
-      } 
+      }
+    }
+
+    // 2. Decimals 0.1 to 0.9 (support __05, __0.5, __0_5)
+    @for $j from 1 through 9 {
+      $val-dec: $j / 10;
+      @if ($label == '') {
+        &__0#{$j},
+        &__0\.#{$j},
+        &__0_#{$j} {
+          @each $prop in $props {
+            #{$prop}: calc(#{$neg * $val-dec} * var(--#{$var}));
+          }
+        }
+      } @else {
+        &-#{$label}__0#{$j},
+        &-#{$label}__0\.#{$j},
+        &-#{$label}__0_#{$j} {
+          @each $prop in $props {
+            #{$prop}-#{$dir}: calc(#{$neg * $val-dec} * var(--#{$var}));
+          }
+        }
+      }
+    }
+
+    // 3. Quarters 0.25, 0.75
+    @if ($label == '') {
+      &__0\.25, &__0_25 {
+        @each $prop in $props { #{$prop}: calc(#{$neg * 0.25} * var(--#{$var})); }
+      }
+      &__0\.75, &__0_75 {
+        @each $prop in $props { #{$prop}: calc(#{$neg * 0.75} * var(--#{$var})); }
+      }
     } @else {
-      $neg: 1;
-      @for $i from $min through $max {
-        @if($i < 0) {
-          $neg: -1;
-        } 
-        &-#{$label}__#{$neg*$i} {
-          @each $prop in $props {
-              #{$prop}-#{$dir}: calc(#{$i} * var(--#{$var}));
+      &-#{$label}__0\.25, &-#{$label}__0_25 {
+        @each $prop in $props { #{$prop}-#{$dir}: calc(#{$neg * 0.25} * var(--#{$var})); }
+      }
+      &-#{$label}__0\.75, &-#{$label}__0_75 {
+        @each $prop in $props { #{$prop}-#{$dir}: calc(#{$neg * 0.75} * var(--#{$var})); }
+      }
+    }
+
+    // 4. Decimals 1 to 5 (all tenths: 1.1 - 5.9, including 1.5, 2.5, etc.)
+    @for $i from 1 through 5 {
+      @for $d from 1 through 9 {
+        $step-val: $i + ($d / 10);
+        @if ($label == '') {
+          &__#{$i}\.#{$d},
+          &__#{$i}_#{$d} {
+            @each $prop in $props {
+              #{$prop}: calc(#{$neg * $step-val} * var(--#{$var}));
+            }
+          }
+        } @else {
+          &-#{$label}__#{$i}\.#{$d},
+          &-#{$label}__#{$i}_#{$d} {
+            @each $prop in $props {
+              #{$prop}-#{$dir}: calc(#{$neg * $step-val} * var(--#{$var}));
+            }
           }
         }
-      } 
-      @for $j from 1 through 9 {
-        &-#{$label}__0#{$j} {
+      }
+      // Quarters .25, .75
+      $q25-val: $i + 0.25;
+      $q75-val: $i + 0.75;
+      @if ($label == '') {
+        &__#{$i}\.25, &__#{$i}_25 {
+          @each $prop in $props { #{$prop}: calc(#{$neg * $q25-val} * var(--#{$var})); }
+        }
+        &__#{$i}\.75, &__#{$i}_75 {
+          @each $prop in $props { #{$prop}: calc(#{$neg * $q75-val} * var(--#{$var})); }
+        }
+      } @else {
+        &-#{$label}__#{$i}\.25, &-#{$label}__#{$i}_25 {
+          @each $prop in $props { #{$prop}-#{$dir}: calc(#{$neg * $q25-val} * var(--#{$var})); }
+        }
+        &-#{$label}__#{$i}\.75, &-#{$label}__#{$i}_75 {
+          @each $prop in $props { #{$prop}-#{$dir}: calc(#{$neg * $q75-val} * var(--#{$var})); }
+        }
+      }
+    }
+
+    // 5. Halves 6.5 to 19.5
+    @for $i from 6 through 19 {
+      $half-val: $i + 0.5;
+      @if ($label == '') {
+        &__#{$i}\.5,
+        &__#{$i}_5 {
           @each $prop in $props {
-            #{$prop}-#{$dir}: calc(#{$neg*$j/10} * var(--#{$var}));
+            #{$prop}: calc(#{$neg * $half-val} * var(--#{$var}));
           }
         }
-      } 
+      } @else {
+        &-#{$label}__#{$i}\.5,
+        &-#{$label}__#{$i}_5 {
+          @each $prop in $props {
+            #{$prop}-#{$dir}: calc(#{$neg * $half-val} * var(--#{$var}));
+          }
+        }
+      }
     }
   }
 }

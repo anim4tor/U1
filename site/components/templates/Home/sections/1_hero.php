@@ -1,1 +1,1 @@
-<?= snippet('templates/globals/Hero/home') ?>
+<?= snippet('sections/Hero/home') ?>

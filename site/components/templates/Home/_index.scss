@@ -4,6 +4,7 @@
 	
 */
 @import "../../atoms/Animation/animation";
+@import "../../atoms/Media/media";
 
 :root {}
 
@@ -177,7 +178,7 @@ section.process {
   display: flex !important;
   flex-direction: column;
   justify-content: center;
-  gap: calc(1.5 * var(--spacing));
+
   padding-top: calc(2 * var(--spacing)) !important;
   padding-bottom: calc(2 * var(--spacing)) !important;
 }
@@ -272,7 +273,6 @@ section.process {
   min-height: 1px;
   max-height: 1px;
   width: 100%;
-  margin-top: calc(0.75 * var(--spacing));
   background: #d4d4d4;
   position: relative;
   overflow: hidden;
@@ -336,5 +336,120 @@ section.process {
     margin: 0;
     max-width: 100%;
     line-height: var(--base-body-line-height, 1.52);
+  }
+}
+
+section.solutions,
+section.team {
+  > .grid__4 {
+    align-items: stretch;
+
+    > .span__2:last-child,
+    > .solutions__media,
+    > .team__media {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      min-height: 0;
+
+      .grid__stack {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        min-height: 0;
+        max-height: 100%;
+        grid-template-rows: minmax(0, 1fr);
+
+        [data-pane] {
+          width: 100%;
+          height: 100%;
+          min-height: 0;
+          max-height: 100%;
+          display: flex;
+          flex-direction: column;
+
+          > div,
+          [data-reveal-image] {
+            width: 100%;
+            height: 100%;
+            min-height: 0;
+            max-height: 100%;
+            display: flex;
+            flex-direction: column;
+          }
+
+          figure {
+            width: 100%;
+            height: 100%;
+            min-height: 0;
+            max-height: 100%;
+            margin: 0;
+            aspect-ratio: auto;
+
+            img {
+              width: 100%;
+              height: 100%;
+              min-height: 0;
+              max-height: 100%;
+              object-fit: cover;
+              display: block;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @include sm-screen {
+    > .grid__4 > .span__2:last-child,
+    > .grid__4 > .solutions__media,
+    > .grid__4 > .team__media {
+      position: relative;
+      height: auto;
+
+      .grid__stack {
+        position: relative;
+        inset: auto;
+        height: auto;
+        max-height: none;
+        grid-template-rows: 1fr;
+
+        figure {
+          aspect-ratio: 4/3;
+          height: auto;
+          max-height: none;
+        }
+      }
+    }
+  }
+}
+
+section.team {
+  [data-team-intro] {
+    grid-column: 1;
+    grid-row: 1;
+    transition: opacity 300ms ease, visibility 300ms ease;
+    opacity: 1;
+    visibility: visible;
+    z-index: 2;
+  }
+
+  &[data-has-active] [data-team-intro] {
+    opacity: 0;
+    visibility: hidden;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  &[data-tabs-reset]:not([data-has-active]) {
+    .span__2:last-child [data-pane]:first-child {
+      z-index: 1;
+
+      [data-reveal-image] {
+        visibility: visible;
+        opacity: 1;
+      }
+    }
   }
 }

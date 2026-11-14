@@ -51,6 +51,7 @@ class Tabs {
         this.is_hoverable = el.getAttribute('data-tabs') === 'hoverable';
         this.is_scrollable = el.getAttribute('data-tabs') === 'scrollable';
         this.is_noinit = el.getAttribute('data-tabs') === 'noinit';
+        this.is_reset = el.hasAttribute('data-tabs-reset') || el.dataset.tabs === 'hoverable-reset';
         this.is_fluid = el.hasAttribute('data-fluid'); // Detect fluid setting toggle
 
         this._boundHandleKeydown = this.handleKeydown.bind(this);
@@ -77,22 +78,31 @@ class Tabs {
 
         const datasetTabsValue = this.DOM.widget.dataset.tabs;
 
-        // Handle parsing correctly if first active tab is designated string value or digit index
-        if (datasetTabsValue === 'hoverable') {
-            this.data.active = 0;
-        } else if (datasetTabsValue && isNaN(datasetTabsValue)) {
-            const parsedIndex = this.getTabIndexByPaneValue(datasetTabsValue);
-            this.data.active = parsedIndex !== -1 ? parsedIndex : 0;
+        if (this.is_reset) {
+            this.data.active = -1;
+            this.data.next = -1;
+            this.DOM.widget.removeAttribute('data-init');
+            this.DOM.widget.removeAttribute('data-has-active');
         } else {
-            this.data.active = parseInt(datasetTabsValue) || 0;
+            // Handle parsing correctly if first active tab is designated string value or digit index
+            if (datasetTabsValue === 'hoverable') {
+                this.data.active = 0;
+            } else if (datasetTabsValue && isNaN(datasetTabsValue)) {
+                const parsedIndex = this.getTabIndexByPaneValue(datasetTabsValue);
+                this.data.active = parsedIndex !== -1 ? parsedIndex : 0;
+            } else {
+                this.data.active = parseInt(datasetTabsValue) || 0;
+            }
         }
 
         this.setupA11y();
         this.initEvents();
         this.initScrollTriggers();
 
-        this.updateZIndices(this.data.active);
-        if (!this.is_noinit) this.setActive(this.data.active);
+        if (this.data.active >= 0) {
+            this.updateZIndices(this.data.active);
+            if (!this.is_noinit) this.setActive(this.data.active);
+        }
 
     }
 
@@ -120,6 +130,38 @@ class Tabs {
             pane.setAttribute('role', 'tabpanel');
             if (tabId) pane.setAttribute('aria-labelledby', tabId);
         });
+
+        if (this.is_reset) {
+            this.DOM.tabs.forEach((tab) => {
+                tab.removeAttribute('data-active');
+                tab.setAttribute('aria-selected', 'false');
+            });
+            this.DOM.panes.forEach((pane) => {
+                pane.removeAttribute('data-active');
+            });
+        }
+    }
+
+    clearActive() {
+        this.data.active = -1;
+        this.data.next = -1;
+        this.activeCustomPane = null;
+
+        const liveTabs = Array.from(this.DOM.widget.querySelectorAll('[data-tab], [data-async-tab]'))
+            .filter(tab => tab.closest('[data-tabs]') === this.DOM.widget);
+
+        liveTabs.forEach(tab => {
+            tab.removeAttribute('data-active');
+            tab.setAttribute('aria-selected', 'false');
+            tab.setAttribute('tabindex', '-1');
+        });
+
+        this.DOM.panes.forEach(p => {
+            p.removeAttribute('data-active');
+        });
+
+        this.DOM.widget.removeAttribute('data-has-active');
+        this.onTabChange();
     }
 
     initScrollTriggers() {
@@ -279,6 +321,9 @@ class Tabs {
 
         // Nastavíme příznak inicializace
         this.DOM.widget.setAttribute('data-init', 'true');
+        if (this.data.next !== -1) {
+            this.DOM.widget.setAttribute('data-has-active', 'true');
+        }
 
         // ONLY grab live tabs that directly belong to THIS component level
         const liveTabs = Array.from(this.DOM.widget.querySelectorAll('[data-tab], [data-async-tab]'))
@@ -633,6 +678,16 @@ class Tabs {
                 });
             };
             setupHoverListeners();
+
+            if (this.is_reset) {
+                const tabList = this.DOM.widget.querySelector('ol, ul, [role="tablist"]');
+                if (tabList) {
+                    tabList.addEventListener('mouseleave', () => {
+                        clearTimeout(this.hover_timeout);
+                        this.clearActive();
+                    });
+                }
+            }
         }
 
         this.DOM.widget.addEventListener("click", e => {

@@ -19,6 +19,8 @@ Thumbs.db
 
 # Legacy / Editor files
 prepros.config
+.prepros*
+*.prepros*
 *.sublime-workspace
 
 # Environment & secrets

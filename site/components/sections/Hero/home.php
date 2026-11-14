@@ -1,0 +1,49 @@
+<?php if ($page->hero()->isNotEmpty()) : ?>
+<section class="intro radius" theme="dark" data-tabs="" data-autoplay="10000">
+	<div class="hidden">
+		<?php foreach ($page->heroSlider()->toPages() as $project) : ?>
+			<div data-tab="project-<?= $project->indexOf($page->heroSlider()->toPages()) ?>"></div>
+		<?php endforeach ?>
+	</div>
+	<div data-pane-container class="grid__stack absolute inset__stretch overlay__harder" >
+		<?php $heroProjects = $page->heroSlider()->toPages(); ?>
+		<?php foreach ($heroProjects as $index => $project) : ?>
+			<?php if ($cover = $project->cover()->toFile()) : ?>
+			<div data-tab-reveal data-pane="project-<?= $project->indexOf($heroProjects) ?>" >
+				<div class="intro__cover grid " data-reveal-image><?= snippet('atoms/Image', [
+					'img' => $cover, 
+					'parallax' => 2, 
+					'reveal' => false, 
+					'css' => ' h__100v',
+					'priority' => $project->indexOf($heroProjects) === 0
+				]) ?></div>
+			</div>
+			<?php endif ?>
+		<?php endforeach ?>
+	</div>
+	<div class="z__1 intro__header grid__4 place__stretch-stretch mobile:grid__1 h__100v intro__rows mobile:h__auto  mobile:inner-t__10 mobile:gap__2 relative color__invert">
+		<div class="h__1"></div>
+		<div class="span__4 grid__4 place__space-between-stretch">
+			<div class="span__4 grid__4 inner-t__05 relative flex justify__space-between align__start border__top inner-x__4" data-scroll data-scroll-ignore>
+				<div data-tabs-autoplay-line class="autoplay__line absolute left__0 right__0"></div>
+				<?= snippet('atoms/Label', ['text' => t('hover-prev', 'Předchozí'), 'css' => 'justify__start cursor__pointer', 'node' => 'data-tab-prev']) ?>
+				<div class="span__2 grid__stack" data-pane-container>
+					<?php foreach ($page->heroSlider()->toPages() as $project) : ?>
+						<?php if ($cover = $project->cover()->toFile()) : ?>
+						<div data-pane="project-<?= $project->indexOf($page->heroSlider()->toPages()) ?>" class="grid__2" data-tab-reveal>
+							<a href="<?= $project->url() ?>"><div data-reveal-text="words" data-split-ignore class="label "><?= $project->title() ?></div></a>
+							<?= snippet('atoms/Label', ['text' => $project->date()->toDate('Y'), 'css' => 'justify__end', 'node'=>'data-reveal-text="words" data-split-ignore']) ?>
+						</div>	
+						<?php endif ?>
+					<?php endforeach ?>
+				</div>
+				<?= snippet('atoms/Label', ['text' => t('hover-next', 'Další'), 'css' => 'justify__end cursor__pointer', 'node' => 'data-tab-next']) ?>
+			</div>
+			<div class="intro__title grid gap__1 relative place__end-start span__3 mobile:span__1 inner__4" style="--in-delay: 0ms">
+				<?= snippet('molecules/Header', ['header' => $page->hero(), 'type' => ['heading','text','button']]) ?>
+			</div>
+		</div>
+	</div>
+</section>
+<?php endif ?>
+

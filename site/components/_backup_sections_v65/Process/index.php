@@ -1,0 +1,1 @@
+<?= snippet('sections/Process/fullscreen_cards', [ 'theme' => $theme ?? null ]) ?>

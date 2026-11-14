@@ -1,1 +1,1 @@
-<?= snippet('templates/globals/Cta/career') ?>
+<?= snippet('sections/Cta/career') ?>

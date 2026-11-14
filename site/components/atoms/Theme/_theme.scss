@@ -49,11 +49,14 @@
     /* ==========================================================================
        LAYOUT PADDING & GRID SPACING TOKENS (U1 V65: u = 20px na 1440)
        ========================================================================== */
-    --u:                       clamp(14px, calc(20 / 1440 * 100vw), 24px);
-    --scale-min:               1;
+    --scale-min:               0.875;
     --scale-fluid:             1.389;
     --scale:                   1;
-    --spacing:                 var(--u);
+    --spacing:                 max(14px, 1.389vw);
+    --u:                       max(14px, 1.389vw);
+    --m:                       calc(4 * var(--spacing));
+    --gap:                     calc(2 * var(--spacing));
+    --sec:                     calc(5 * var(--spacing));
 
     /* ==========================================================================
        GLOBAL INTERACTIVE ANIMATIONS TOKENS
@@ -79,16 +82,21 @@
     --color-delay:             300ms;
 
     /* ==========================================================================
-       IMAGE STYLING TOKENS
+       IMAGE & RADIUS TOKENS (Nastaveno podle klienta: karty/fotky 0.5u = 10px, sekce 1u = 20px)
        ========================================================================== */
-    --img-radius:              0.75;
-    --radius:                  1.5;
+    --img-radius:              0.5;
+    --radius:                  calc(0.5 * var(--spacing));
+    --r:                       calc(0.5 * var(--spacing));
+    --r-sec:                   var(--spacing);
+    --radius-card:             calc(0.5 * var(--spacing));
+    --radius-section:          var(--spacing);
 
     /* ==========================================================================
-       BUTTON COMPONENTS TOKENS
+       BUTTON COMPONENTS TOKENS (Podle klienta výška 2.4u, rádius pilulka 999px)
        ========================================================================== */
-    --btn-padding:             0.5rem 1rem;
-    --btn-radius:              4px;
+    --btn-padding:             0 calc(1.2 * var(--spacing));
+    --btn-radius:              999px;
+    --button-radius:           999px;
     --btn-border:              1px;
 }
 

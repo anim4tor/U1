@@ -20,6 +20,7 @@ if (typeof gsap !== 'undefined') {
 // @prepros-prepend '../../components/organisms/Header/index.js'
 // @prepros-prepend '../../components/organisms/Carousel/index.js'
 // @prepros-prepend '../../components/organisms/Contact/index.js'
+// @prepros-prepend './sections-v65.js'
 
 // Reliable & Modern Device Detection
 const isMobile = window.matchMedia("(max-width: 768px)").matches || 

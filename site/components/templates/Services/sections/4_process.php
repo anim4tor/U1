@@ -1,1 +1,1 @@
-<?= snippet('templates/globals/Process', ['theme' => 'invert']) ?>
+<?= snippet('sections/Process', ['theme' => 'invert']) ?>

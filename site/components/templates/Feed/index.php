@@ -1,5 +1,5 @@
 <div class="feed-page" data-tabs="default" theme="light">
-	<?= snippet('templates/globals/Hero/list', [
+	<?= snippet('sections/Hero/list', [
 		'theme' => 'light',
 		'tabs'  => [
 			['id' => 'blog',    'label' => 'Články', 'count' => collection('Blog')->count()],
@@ -44,4 +44,4 @@
 	</div>
 </div>
 
-<?= snippet('templates/globals/Cta') ?>
+<?= snippet('sections/Cta') ?>

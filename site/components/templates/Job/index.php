@@ -172,7 +172,7 @@ try { $processSteps = $page->process()->toStructure(); } catch (\Throwable $e) {
 </section>
 <?php endif ?>
 
-<?= snippet('templates/globals/Cta/career') ?>
+<?= snippet('sections/Cta/career') ?>
 
 <?php
 $ctaImage = null;

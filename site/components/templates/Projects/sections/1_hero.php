@@ -2,7 +2,7 @@
 $projectsPage = $page ?? page('projects');
 $ctrlData = ($projectsPage && method_exists($projectsPage, 'controller')) ? $projectsPage->controller() : [];
 ?>
-<?= snippet('templates/globals/Hero/list', array_merge($ctrlData, array_filter([
+<?= snippet('sections/Hero/list', array_merge($ctrlData, array_filter([
     'isFiltered'       => $isFiltered ?? null,
     'filterIndustry'   => $filterIndustry ?? null,
     'filterSpace'      => $filterSpace ?? null,

@@ -61,17 +61,7 @@
 								</div>
 							<?php endforeach ?>
 						</nav>
-						<div class="grid gap__02">
-							<!-- <div class="label upper xs op__4">(Socials)</div> -->
-							<nav class="flex justify__center gap__02 op__4 ">
-								<?php foreach ($site->social()->toStructure() as $s): ?>
-									<?php if(!$s->isFirst()) : ?>
-										<span class="light ff__body op__2">/</span>
-									<?php endif ?>
-									<?= snippet('atoms/Link', ['url' => $s->link()->url(), 'label' => '('.$s->platform().')', 'icon' => false, 'node' => 'data-reveal-text data-split-ignore']) ?>
-								<?php endforeach ?>
-							</nav>
-						</div>
+						
 					</div>
 					<div class="grid gap__02">
 						<!-- <div class="label upper xs op__4">(Contact)</div> -->

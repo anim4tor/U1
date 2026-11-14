@@ -1,3 +1,3 @@
-<?= snippet('templates/globals/Hero/list', [
+<?= snippet('sections/Hero/list', [
     'count' => collection('Solutions')->count()
 ]) ?>

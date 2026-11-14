@@ -4,24 +4,25 @@
 
 */
 @import "../Media/media";
-:root {
-	
-}
+
+:root {}
 
 @mixin opacity {
-  @for $i from 0 through 10 {
-	&__#{$i} {
-	  opacity: calc(#{$i}/10);
+	@for $i from 0 through 10 {
+		&__#{$i} {
+			opacity: calc(#{$i}/10);
+		}
 	}
-  } 
 }
 
 @each $modifier , $breakpoint in $map-grid-props {
-	@if($modifier == '') {
+	@if($modifier =='') {
 		.op {
 			@include opacity;
 		}
-	} @else {
+	}
+
+	@else {
 		@include create-mq($breakpoint, 'max') {
 			.#{$modifier}\:op {
 				@include opacity;
@@ -36,4 +37,8 @@
 
 .blend__darken {
 	mix-blend-mode: darken;
+}
+
+.blend__lighten {
+	mix-blend-mode: lighten;
 }

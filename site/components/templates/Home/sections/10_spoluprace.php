@@ -31,7 +31,7 @@ $items = [
 		</div>
 		<div class="grid__3 gap__2 span__4 mobile:grid__1" data-scroll>
 			<?php foreach ($items as $item): ?>
-				<a href="<?= $item['url'] ?>" class="grid place__space-between-stretch gap__1 inner__2 radius border__subtle" <?= $item['main'] ? 'theme="dark"' : 'theme="invert"' ?>>
+				<a href="<?= $item['url'] ?>" class="grid place__space-between-stretch gap__1 inner__1.5 img__radius border__subtle" <?= $item['main'] ? 'theme="dark"' : 'theme="invert"' ?>>
 					<div class="grid gap__2">
 						<?= snippet('atoms/Label', [
 							'text' => $item['badge'],

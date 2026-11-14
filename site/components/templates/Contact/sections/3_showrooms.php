@@ -17,7 +17,7 @@ $showrooms = [
 ];
 ?>
 
-<?= snippet('templates/globals/Testimonials/fullscreen', [
+<?= snippet('sections/Testimonials/fullscreen', [
 	'items'   => $showrooms,
 	'snippet' => 'molecules/Showroom/featured',
 	'theme'   => 'dark'
