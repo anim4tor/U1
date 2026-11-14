@@ -24,8 +24,9 @@ if ($solutions->isEmpty()) {
 			<div class="grid">
 				<ol class="grid place__start-stretch gap-y__0 gap-x__1" data-scroll >
 					<?php foreach ($solutions as $solution) : ?>
-						<a href="<?= $solution->url() ?>" class="flex align__start border__top inner-y__05" data-tab="service-<?= $solution->slug() ?>">
+						<a href="<?= $solution->url() ?>" class="flex justify__space-between align__center border__top inner-y__05 gap__02" data-tab="service-<?= $solution->slug() ?>">
 							<h3 data-reveal-text data-split-ignore class=""><?= $solution->title() ?></h3>
+							<?= snippet('atoms/Icon', ['name' => 'arrow-right', 'css' => 'service__arrow']) ?>
 						</a>
 					<?php endforeach ?>
 				</ol>

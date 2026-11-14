@@ -425,6 +425,41 @@ section.team {
   }
 }
 
+section.solutions,
+section.team {
+  .service__arrow,
+  .team__arrow {
+    opacity: 0;
+    visibility: hidden;
+    color: var(--color-acc);
+    align-self: center;
+    flex-shrink: 0;
+    transform: translateX(-8px);
+    transition: opacity 250ms ease, transform 250ms ease, visibility 250ms ease, color 250ms ease;
+    pointer-events: none;
+
+    svg {
+      width: 24px;
+      height: 24px;
+      display: block;
+
+      path {
+        fill: none;
+        stroke: currentColor;
+      }
+    }
+  }
+
+  [data-tab]:hover .service__arrow,
+  [data-tab][data-active] .service__arrow,
+  [data-tab]:hover .team__arrow,
+  [data-tab][data-active] .team__arrow {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+  }
+}
+
 section.team {
   [data-team-intro] {
     grid-column: 1;

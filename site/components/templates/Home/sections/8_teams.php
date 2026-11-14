@@ -23,9 +23,9 @@
 				<ol class="grid place__start-stretch gap-y__0 gap-x__1" data-scroll >
 					<?php foreach (collection('Team') as $team) : ?>
 						<?php $employees = collection('Employees')->filterBy('team', '*=', $team->name())->count(); ?>
-						<a href="<?= $pages->find('about')->url() ?>/#<?= $team->name()->slug() ?>" class="flex justify__space-between align__start border__top inner-y__05 gap__02" data-tab="team-<?= $team->indexOf(collection('Team')) ?>">
+						<a href="<?= $pages->find('about')->url() ?>/#<?= $team->name()->slug() ?>" class="flex justify__space-between align__center border__top inner-y__05 gap__02" data-tab="team-<?= $team->indexOf(collection('Team')) ?>">
 							<h3 data-reveal-text data-split-ignore class=""><?= $team->name() ?></h3>
-							<div data-reveal-text="" data-split-ignore style="--in-delay: 800ms" class="-wrap-t__01 font__size__small op__5">(<?= $employees ?>)</div>
+							<?= snippet('atoms/Icon', ['name' => 'arrow-right', 'css' => 'team__arrow']) ?>
 						</a>
 					<?php endforeach ?>
 				</ol>
