@@ -73,6 +73,83 @@ $flushDirectory = function ($dir) use (&$flushDirectory) {
     }
 };
 
+$cleanContent = function () use ($projectDir, $flushDirectory) {
+    $contentDir = $projectDir . '/public/content';
+    $cleaned = [];
+    if (is_dir($contentDir)) {
+        // 1. Remove all instagram- items in root contentDir
+        $items = @scandir($contentDir);
+        foreach (array_diff($items ?: [], ['.', '..']) as $item) {
+            if (str_starts_with($item, 'instagram-')) {
+                $p = $contentDir . '/' . $item;
+                if (is_dir($p)) {
+                    $flushDirectory($p);
+                    @rmdir($p);
+                } else {
+                    @unlink($p);
+                }
+                $cleaned[] = 'deleted root/' . $item;
+            }
+        }
+
+        // 2. Remove all instagram- items in 6_feed
+        $feedDir = $contentDir . '/6_feed';
+        if (is_dir($feedDir)) {
+            $feedItems = @scandir($feedDir);
+            foreach (array_diff($feedItems ?: [], ['.', '..']) as $fItem) {
+                if (str_starts_with($fItem, 'instagram-')) {
+                    $p = $feedDir . '/' . $fItem;
+                    if (is_dir($p)) {
+                        $flushDirectory($p);
+                        @rmdir($p);
+                    } else {
+                        @unlink($p);
+                    }
+                    $cleaned[] = 'deleted 6_feed/' . $fItem;
+                }
+            }
+        }
+
+        // 3. Fix contact page status: ensure 7_contact is listed and unlisted contact is cleaned up
+        $contactUnlisted = $contentDir . '/contact';
+        $contactListed   = $contentDir . '/7_contact';
+        if (is_dir($contactUnlisted)) {
+            if (is_dir($contactListed)) {
+                $flushDirectory($contactUnlisted);
+                @rmdir($contactUnlisted);
+                $cleaned[] = 'removed unlisted contact (7_contact kept)';
+            } else {
+                @rename($contactUnlisted, $contactListed);
+                $cleaned[] = 'renamed contact to 7_contact (published)';
+            }
+        }
+
+        // 4. Clean career obsolete copies
+        $careerObsolete = [
+            $contentDir . '/5_career/positions/2_project-manager-copy',
+            $contentDir . '/5_career/positions/3_project-manager-copy-copy'
+        ];
+        foreach ($careerObsolete as $cDir) {
+            if (is_dir($cDir)) {
+                $flushDirectory($cDir);
+                @rmdir($cDir);
+                $cleaned[] = 'deleted career/' . basename($cDir);
+            }
+        }
+    }
+
+    // Flush Kirby cache
+    $cacheDirs = [
+        $projectDir . '/site/cache',
+        $projectDir . '/site/store/cache'
+    ];
+    foreach ($cacheDirs as $cDir) {
+        $flushDirectory($cDir);
+    }
+
+    return $cleaned;
+};
+
 // If requesting cache flush: ?secret=maiden37&flush=1
 if (isset($_GET['flush']) && isset($_GET['secret']) && hash_equals($secret, $_GET['secret'])) {
     $cacheDirs = [
@@ -88,26 +165,31 @@ if (isset($_GET['flush']) && isset($_GET['secret']) && hash_equals($secret, $_GE
 
 // If requesting obsolete content cleanup: ?secret=maiden37&clean_content=1
 if (isset($_GET['clean_content']) && isset($_GET['secret']) && hash_equals($secret, $_GET['secret'])) {
-    $obsoleteDirs = [
-        $projectDir . '/public/content/5_career/positions/2_project-manager-copy',
-        $projectDir . '/public/content/5_career/positions/3_project-manager-copy-copy'
-    ];
-    $cleaned = [];
-    foreach ($obsoleteDirs as $oDir) {
-        if (is_dir($oDir)) {
-            $flushDirectory($oDir);
-            @rmdir($oDir);
-            $cleaned[] = basename($oDir);
+    $cleaned = $cleanContent();
+    echo json_encode(['status' => 'success', 'cleaned' => $cleaned]);
+    exit;
+}
+
+// Inspect content tree: ?secret=maiden37&inspect_content=1
+if (isset($_GET['inspect_content']) && isset($_GET['secret']) && hash_equals($secret, $_GET['secret'])) {
+    $contentDir = $projectDir . '/public/content';
+    $results = [];
+    if (is_dir($contentDir)) {
+        $dirs = @scandir($contentDir);
+        foreach (array_diff($dirs ?: [], ['.', '..']) as $item) {
+            $path = $contentDir . '/' . $item;
+            $entry = [
+                'name' => $item,
+                'is_dir' => is_dir($path)
+            ];
+            if (is_dir($path)) {
+                $sub = @scandir($path);
+                $entry['subitems'] = $sub ? array_slice(array_diff($sub, ['.', '..']), 0, 15) : [];
+            }
+            $results[] = $entry;
         }
     }
-    $cacheDirs = [
-        $projectDir . '/site/cache',
-        $projectDir . '/site/store/cache'
-    ];
-    foreach ($cacheDirs as $cDir) {
-        $flushDirectory($cDir);
-    }
-    echo json_encode(['status' => 'success', 'cleaned' => $cleaned]);
+    echo json_encode(['contentDir' => $contentDir, 'items' => $results], JSON_PRETTY_PRINT);
     exit;
 }
 
@@ -124,22 +206,9 @@ if (isset($_GET['upload_content']) && isset($_GET['secret']) && hash_equals($sec
             $zip->close();
             @unlink($tmp);
             
-            // Clean up obsolete folders
-            $obsoleteDirs = [
-                $projectDir . '/public/content/5_career/positions/2_project-manager-copy',
-                $projectDir . '/public/content/5_career/positions/3_project-manager-copy-copy'
-            ];
-            foreach ($obsoleteDirs as $oDir) {
-                if (is_dir($oDir)) {
-                    $flushDirectory($oDir);
-                    @rmdir($oDir);
-                }
-            }
-            
-            // Flush cache
-            $cacheDirs = [$projectDir . '/site/cache', $projectDir . '/site/store/cache'];
-            foreach ($cacheDirs as $cDir) { $flushDirectory($cDir); }
-            echo json_encode(['status' => 'success', 'message' => 'Content uploaded and extracted successfully.']);
+            // Clean content & flush cache
+            $cleaned = $cleanContent();
+            echo json_encode(['status' => 'success', 'message' => 'Content uploaded and extracted successfully.', 'cleaned' => $cleaned]);
             exit;
         }
     }
@@ -407,17 +476,8 @@ for ($i = 0; $i < $zip->numFiles; $i++) {
 $zip->close();
 @unlink($tempZip);
 
-// Clean up obsolete directories
-$knownObsolete = [
-    $projectDir . '/public/content/5_career/positions/2_project-manager-copy',
-    $projectDir . '/public/content/5_career/positions/3_project-manager-copy-copy'
-];
-foreach ($knownObsolete as $kDir) {
-    if (is_dir($kDir)) {
-        $flushDirectory($kDir);
-        @rmdir($kDir);
-    }
-}
+// Clean up obsolete directories & files
+$cleaned = $cleanContent();
 
 // Record active branch
 @file_put_contents($projectDir . '/.current-branch', $targetBranch);
