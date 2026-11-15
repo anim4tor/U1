@@ -163,6 +163,155 @@ if (isset($_GET['flush']) && isset($_GET['secret']) && hash_equals($secret, $_GE
     exit;
 }
 
+// Inspect via Kirby CMS: ?secret=maiden37&kirby_inspect=1
+if (isset($_GET['kirby_inspect']) && isset($_GET['secret']) && hash_equals($secret, $_GET['secret'])) {
+    require_once $projectDir . '/kirby/bootstrap.php';
+    $kirby = new Kirby([
+        'roots' => [
+            'site'       => $projectDir . '/site',
+            'snippets'   => $projectDir . '/site/components',
+            'templates'  => $projectDir . '/site/components/views',
+            'admin'      => $projectDir . '/site/admin',
+            'config'     => $projectDir . '/site/config',
+            'engine'     => $projectDir . '/site/engine',
+            'blueprints' => $projectDir . '/site/engine/blueprints',
+            'collections'=> $projectDir . '/site/engine/collections',
+            'controllers'=> $projectDir . '/site/engine/controllers',
+            'models'     => $projectDir . '/site/engine/models',
+            'plugins'    => $projectDir . '/site/engine/plugins',
+            'store'      => $projectDir . '/site/store',
+            'cache'      => $projectDir . '/site/store/cache',
+            'logs'       => $projectDir . '/site/store/logs',
+            'safe'       => $projectDir . '/site/store/safe',
+            'accounts'   => $projectDir . '/site/store/safe/accounts',
+            'sessions'   => $projectDir . '/site/store/safe/sessions',
+            'public'     => $projectDir . '/public',
+            'content'    => $projectDir . '/public/content',
+            'assets'     => $projectDir . '/public/assets',
+            'media'      => $projectDir . '/public/media',
+        ]
+    ]);
+    
+    $pages = [];
+    foreach ($kirby->site()->childrenAndDrafts() as $p) {
+        $pages[] = [
+            'id'       => $p->id(),
+            'slug'     => $p->slug(),
+            'title'    => $p->title()->value(),
+            'status'   => $p->status(),
+            'num'      => $p->num(),
+            'dir'      => basename($p->root()),
+            'template' => $p->intendedTemplate()->name()
+        ];
+    }
+    
+    $feedPages = [];
+    if ($feed = $kirby->page('feed')) {
+        foreach ($feed->childrenAndDrafts() as $fp) {
+            $feedPages[] = [
+                'id'     => $fp->id(),
+                'slug'   => $fp->slug(),
+                'title'  => $fp->title()->value(),
+                'status' => $fp->status(),
+            ];
+        }
+    }
+    
+    echo json_encode([
+        'site_pages' => $pages,
+        'feed_pages' => $feedPages
+    ], JSON_PRETTY_PRINT);
+    exit;
+}
+
+// Fix pages in Kirby: ?secret=maiden37&kirby_fix=1
+if (isset($_GET['kirby_fix']) && isset($_GET['secret']) && hash_equals($secret, $_GET['secret'])) {
+    require_once $projectDir . '/kirby/bootstrap.php';
+    $kirby = new Kirby([
+        'roots' => [
+            'site'       => $projectDir . '/site',
+            'snippets'   => $projectDir . '/site/components',
+            'templates'  => $projectDir . '/site/components/views',
+            'admin'      => $projectDir . '/site/admin',
+            'config'     => $projectDir . '/site/config',
+            'engine'     => $projectDir . '/site/engine',
+            'blueprints' => $projectDir . '/site/engine/blueprints',
+            'collections'=> $projectDir . '/site/engine/collections',
+            'controllers'=> $projectDir . '/site/engine/controllers',
+            'models'     => $projectDir . '/site/engine/models',
+            'plugins'    => $projectDir . '/site/engine/plugins',
+            'store'      => $projectDir . '/site/store',
+            'cache'      => $projectDir . '/site/store/cache',
+            'logs'       => $projectDir . '/site/store/logs',
+            'safe'       => $projectDir . '/site/store/safe',
+            'accounts'   => $projectDir . '/site/store/safe/accounts',
+            'sessions'   => $projectDir . '/site/store/safe/sessions',
+            'public'     => $projectDir . '/public',
+            'content'    => $projectDir . '/public/content',
+            'assets'     => $projectDir . '/public/assets',
+            'media'      => $projectDir . '/public/media',
+        ]
+    ]);
+    $kirby->impersonate('kirby');
+    
+    $actions = [];
+    
+    // 1. Delete any instagram- pages across site and feed
+    foreach ($kirby->site()->childrenAndDrafts() as $p) {
+        if (str_starts_with($p->slug(), 'instagram-') || str_starts_with($p->id(), 'instagram-')) {
+            $id = $p->id();
+            try {
+                $p->delete(true);
+                $actions[] = "Deleted page: {$id}";
+            } catch (Exception $e) {
+                $actions[] = "Error deleting {$id}: " . $e->getMessage();
+            }
+        }
+    }
+    if ($feed = $kirby->page('feed')) {
+        foreach ($feed->childrenAndDrafts() as $fp) {
+            if (str_starts_with($fp->slug(), 'instagram-') || str_starts_with($fp->id(), 'instagram-')) {
+                $id = $fp->id();
+                try {
+                    $fp->delete(true);
+                    $actions[] = "Deleted feed page: {$id}";
+                } catch (Exception $e) {
+                    $actions[] = "Error deleting feed page {$id}: " . $e->getMessage();
+                }
+            }
+        }
+    }
+    
+    // 2. Make contact page public (listed)
+    $contact = $kirby->page('contact');
+    if ($contact) {
+        if ($contact->status() !== 'listed') {
+            try {
+                $contact->changeStatus('listed', 7);
+                $actions[] = "Changed contact status to listed (7)";
+            } catch (Exception $e) {
+                $actions[] = "Error changing contact status: " . $e->getMessage();
+            }
+        } else {
+            $actions[] = "Contact is already listed";
+        }
+    } else {
+        $actions[] = "Warning: contact page not found by id 'contact'";
+    }
+    
+    // Flush Kirby cache
+    $cacheDirs = [
+        $projectDir . '/site/cache',
+        $projectDir . '/site/store/cache'
+    ];
+    foreach ($cacheDirs as $cDir) {
+        $flushDirectory($cDir);
+    }
+    
+    echo json_encode(['status' => 'success', 'actions' => $actions], JSON_PRETTY_PRINT);
+    exit;
+}
+
 // If requesting obsolete content cleanup: ?secret=maiden37&clean_content=1
 if (isset($_GET['clean_content']) && isset($_GET['secret']) && hash_equals($secret, $_GET['secret'])) {
     $cleaned = $cleanContent();
