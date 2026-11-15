@@ -1,0 +1,10 @@
+/* v53 (26. 10. 2026): osa s tečkami (z web_v15) jako ol, varianta 4 kroky pro „Vše pod jednou smlouvou“; pozice PM jako textová stránka */
+ol.osa{list-style:none;margin:0;padding-left:0;padding-right:0;padding-bottom:0}
+.osa--4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.osa .krok .perex{margin-top:calc(.5*var(--u))}
+.cerna .osa::before{background:rgba(255,255,255,.2)}
+.checklist--1{grid-template-columns:minmax(0,1fr);row-gap:calc(.6*var(--u))}
+.dok__text .checklist{padding-left:0;list-style:none}
+.dok__text h2.vyrok + .checklist{margin-top:calc(1.2*var(--u))}
+.pozice .dok__bok .btn{margin-top:calc(2*var(--u))}
+@media (max-width:760px){.osa--4{grid-template-columns:minmax(0,1fr)}}

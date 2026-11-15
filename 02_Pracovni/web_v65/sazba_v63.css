@@ -1,0 +1,6 @@
+/* v63 (30. 10. 2026, Claude Opus 5.5): jasná logika velikostí podle 00_Info/PRAVIDLA_VELIKOSTI_v03.md.
+   Položka, kterou čtenář vybírá nebo rozklikává (služba, tým, otázka FAQ, krok, karta), má vždy roli Perex 24. Popis pod ní Text 16. */
+.faq summary,.faq summary.text{font-size:var(--f-perex);line-height:1.3;font-weight:500}
+.faq summary::after{font-size:var(--f-perex)}
+[data-blok="caste-otazky"] .faq summary,[data-blok="caste-otazky"] .faq summary::after{font-size:var(--f-perex)}
+.faq details p,.faq .faq__odp{font-size:var(--f-text);line-height:1.5}

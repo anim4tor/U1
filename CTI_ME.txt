@@ -1,0 +1,14 @@
+U1: podklady k sazbě webu, finální verze v65, 2. 11. 2026
+
+1. Rozbalte celý ZIP a zachovejte strukturu složek.
+2. Otevřete OTEVRIT.html. Hlavní návrh: 02_Pracovni/web_v65/index.html.
+3. Zadání a stav schválení: DOKUMENTY/ZADANI_PRO_KLUSAKA_v01.md.
+
+Pokud prohlížeč omezuje místní soubory, spusťte ve složce balíčku:
+python3 -m http.server 8768 --bind 127.0.0.1
+Pak otevřete http://127.0.0.1:8768/OTEVRIT.html
+
+Pro internetová písma, externí odkazy a přetahování v Laboratoři je potřeba internet.
+Použité lokální obrázky, styly a skripty jsou přibalené. Fotky jsou pracovní webové podklady, ne archiv originálů.
+Kontakty, formuláře a právní texty nejsou předáním schválené k publikaci.
+Na řadě stránek jsou ještě nevyplněné placeholdery (např. reference a citace klientů) – nejde o chybu, jen o neuzavřený obsah.

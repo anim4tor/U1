@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>U1 | Prototyp v65</title>
+<style>
+  * { box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; line-height: 1.6; max-width: 900px; margin: 40px auto; padding: 24px; color: #151314; background: #EDECE7; }
+  h1 { font-size: 32px; font-weight: 600; margin: 12px 0 6px; color: #0B0A0A; letter-spacing: -0.02em; }
+  p.lead { color: #555; margin-bottom: 28px; font-size: 16px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; margin: 24px 0 36px; }
+  .card { background: #fff; padding: 20px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.04); text-decoration: none; color: inherit; display: flex; flex-direction: column; gap: 6px; transition: transform 0.15s ease, box-shadow 0.15s ease; border: 1px solid rgba(0,0,0,0.06); }
+  .card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.08); border-color: rgba(237, 19, 89, 0.4); }
+  .card strong { font-size: 17px; color: #0B0A0A; }
+  .card span { font-size: 13px; color: #777; }
+  .badge { display: inline-block; background: #ED1359; color: #fff; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; padding: 3px 8px; border-radius: 4px; }
+  .docs-list { background: #fff; padding: 20px 24px; border-radius: 12px; border: 1px solid rgba(0,0,0,0.06); }
+  ul { padding-left: 20px; margin: 8px 0; }
+  li { margin: 8px 0; }
+  a.link { color: #ED1359; text-decoration: none; font-weight: 500; }
+  a.link:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+  <span class="badge">Klient v65</span>
+  <h1>U1 Space Design · Prototyp v65</h1>
+  <p class="lead">Referenční prototyp a sazba webu předaná klientem (v65, 2. 11. 2026).</p>
+  
+  <div class="grid">
+    <a class="card" href="02_Pracovni/web_v65/index.html">
+      <strong>Úvodní stránka (Homepage)</strong>
+      <span>Prototyp homepage v65</span>
+    </a>
+    <a class="card" href="02_Pracovni/web_v65/sluzby.html">
+      <strong>Služby (Services)</strong>
+      <span>Prototyp podstránky služeb s novou hero sekcí</span>
+    </a>
+    <a class="card" href="02_Pracovni/web_v65/realizace.html">
+      <strong>Projekty (Realizace)</strong>
+      <span>Prototyp výpisu realizací a filtrů</span>
+    </a>
+    <a class="card" href="02_Pracovni/web_v65/o-nas.html">
+      <strong>O nás</strong>
+      <span>Prototyp stránky O nás</span>
+    </a>
+    <a class="card" href="02_Pracovni/web_v65/kariera.html">
+      <strong>Kariéra</strong>
+      <span>Prototyp kariérní podstránky</span>
+    </a>
+    <a class="card" href="02_Pracovni/web_v65/feed.html">
+      <strong>Feed</strong>
+      <span>Prototyp článků a novinek</span>
+    </a>
+    <a class="card" href="02_Pracovni/web_v65/kontakt.html">
+      <strong>Kontakt</strong>
+      <span>Prototyp kontaktní stránky a panelu</span>
+    </a>
+    <a class="card" href="OTEVRIT.html">
+      <strong>Původní rozcestník (OTEVRIT.html)</strong>
+      <span>Rozcestník klienta a dokumenty</span>
+    </a>
+  </div>
+
+  <div class="docs-list">
+    <h3 style="margin-top:0">Dokumentace a zadání</h3>
+    <ul>
+      <li><a class="link" href="DOKUMENTY/ZADANI_PRO_KLUSAKA_v01.md">ZADANI_PRO_KLUSAKA_v01.md</a> — Záměr, pravidla a otevřené body</li>
+      <li><a class="link" href="CTI_ME.txt">CTI_ME.txt</a> — Návod k otevření a technické poznámky</li>
+    </ul>
+  </div>
+</body>
+</html>

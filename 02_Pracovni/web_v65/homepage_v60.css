@@ -1,0 +1,12 @@
+/* Web v60: zaklad v59, upravy homepage podle Jakuba 29. 10. 2026. */
+/* 1. Samostatny bezovy blok tri zpusobu spoluprace. */
+.spoluprace .cesty__h{margin-top:0}
+.spoluprace .cesta:not(.cesta--hlavni){background:var(--white)}
+/* 2. Vypis sluzeb bez horni delici cary. */
+[data-blok="sluzby"] .seznam--2{border-top:0;padding-top:0}
+[data-blok="sluzby"] .seznam--2 li:nth-child(-n+2){border-top:0}
+/* 3. Tym pouziva existujici komponentu .odkaz.text, bez tlacitka. */
+/* 4. Otazky maji roli text (16 px na 1440), pevne misto pro plus a klidnejsi radkovani. */
+[data-blok="caste-otazky"] .faq summary{align-items:center;padding-block:var(--u);min-height:calc(3*var(--u));gap:calc(1.5*var(--u))}
+[data-blok="caste-otazky"] .faq summary::after{font-size:var(--f-text);flex:0 0 1em;text-align:right}
+[data-blok="caste-otazky"] .faq details p{max-width:65ch;padding-right:calc(2.5*var(--u));padding-bottom:calc(1.5*var(--u))}

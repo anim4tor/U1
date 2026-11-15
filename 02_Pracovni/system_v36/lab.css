@@ -1,0 +1,115 @@
+/* LABORATOŘ web_v44 (22. 10. 2026, JARVIS): přepínání variant přes třídy na <html>. Jen pro zkoušení, ne pro ostrý web. */
+/* ---------- původní logo „space u1 design“ (proporce z originálu: x-výška 0,556 em, znak 4,59 x, u 0,82 x pod účařím) */
+.o-lock{display:none;align-items:baseline;line-height:1;color:#fff;position:relative;font-size:var(--o-f,15px);top:var(--o-posun,-13.7px)}
+.o-t{font-family:var(--font);font-weight:700;letter-spacing:-.02em;white-space:nowrap}
+.o-znak{height:calc(4.59 * .556em);width:auto;position:relative;top:calc(.82 * .556em);margin:0 calc(.29 * .556em) 0 calc(.88 * .556em)}
+html.logo-orig .o-lock{display:inline-flex}
+html.logo-orig .nav__znak{display:none}
+html.logo-znak .nav__jmeno{display:none}
+/* výška lišty */
+html.lista-50 .nav__bar{height:50px}
+html.lista-60 .nav__bar{height:60px}
+html.lista-70 .nav__bar{height:70px}
+html.lista-70 .nav__cta,html.lista-60 .nav__cta{height:40px}
+/* zarovnání původního loga v liště 70 px (změřeno): na účaří odkazů / stejné okraje nahoře a dole */
+html.zar-ucari .o-lock{--o-posun:-13.7px}
+html.zar-okraje .o-lock{--o-posun:-5.25px}
+html.odkazy-na-logo .nav__links a,html.odkazy-na-logo .nav__seg--cta{position:relative;top:8.45px}
+/* pozadí lišty */
+html.pozadi-cerna .nav__bar,html.pozadi-cerna .nav__panel{background:#151314;-webkit-backdrop-filter:none;backdrop-filter:none}
+html.pozadi-bila .nav__bar,html.pozadi-bila .nav__panel{background:#fff;color:var(--ink);box-shadow:0 12px 32px -14px rgba(0,0,0,.28);border:1px solid rgba(21,19,20,.08)}
+html.pozadi-bila .nav__seg + .nav__seg{border-left-color:rgba(21,19,20,.09)}
+html.pozadi-bila .nav__toggle span{background:var(--ink)}
+html.pozadi-bila .nav__jmeno,html.pozadi-bila .o-lock{color:var(--ink)}
+html.pozadi-bila .nav__logo path[fill="white"],html.pozadi-bila .o-znak path[fill="white"]{fill:var(--ink)}
+html.bez-linek .nav__seg + .nav__seg{border-left-color:transparent}
+html.bez-odkazu .nav__links{display:none}
+html.cta-obrys .nav__cta{background:transparent;border:1px solid var(--acc);color:inherit}
+html.cta-pilulka .nav__cta{border-radius:999px}
+html.cta-skryt .nav__seg--cta{display:none}
+html.fab-skryt .fab{display:none!important}
+html.fab-ukaz .fab{display:block!important}
+html.mrizka-skryt .gridbtn{display:none}
+/* ---------- záhlaví podstránek */
+html.hlava-velky .uvod--vypis .zahlavi__nadpis .nadpis,html.hlava-velky .uvod .uvod__h1,html.hlava-velky .hero--foto .nadpis{font-size:clamp(64px,8.4vw,128px);line-height:.95;letter-spacing:-.045em}
+html.hlava-stred .uvod--vypis .zahlavi__nadpis{grid-column:1/13;text-align:center}
+html.hlava-stred .uvod--vypis .zahlavi__vpravo{display:none}
+html.hlava-stred .uvod--vypis .zahlavi__nadpis .nadpis{white-space:normal}
+html.bez-perexu .uvod--vypis .zahlavi__nadpis .text,html.bez-perexu .uvod__perex,html.bez-perexu .hero__perex{display:none}
+html.bez-cary .linka-g{display:none}
+html.foto-vysoka .hero--foto{height:72vh;height:72svh}
+html.foto-skryt .hero--foto > img{display:none}
+html.drobky-ukaz .drobky-obal{position:static!important;width:auto!important;height:auto!important;clip:auto!important;overflow:visible!important;margin-bottom:var(--u)}
+/* ---------- barevnost bloků podstránek (homepage beze změny) */
+html.barvy-bt .stranka main > section.sek:not(.vyzva){background:var(--white);color:var(--ink);--muted:rgba(21,19,20,.62);--line:rgba(21,19,20,.14)}
+html.barvy-bt .stranka main > section.sek:not(.vyzva):nth-of-type(even){background:var(--warm)}
+html.barvy-b .stranka main > section.sek:not(.vyzva){background:var(--white);color:var(--ink);--muted:rgba(21,19,20,.62);--line:rgba(21,19,20,.14)}
+html.barvy-b .stranka main > section + section{margin-top:calc(.4*var(--u))}
+html.barvy-karty body.stranka{background:var(--warm)}
+html.barvy-karty .stranka main > section.sek:not(.vyzva){background:var(--white);color:var(--ink);--muted:rgba(21,19,20,.62);--line:rgba(21,19,20,.14);margin:calc(.6*var(--u)) var(--m) 0;border-radius:var(--r-sec)}
+html.barvy-bt .stranka .ref,html.barvy-b .stranka .ref,html.barvy-karty .stranka .ref{background:var(--black);color:#fff;--line:rgba(255,255,255,.18);--muted:rgba(255,255,255,.66)}
+/* ---------- skrývání sekcí */
+html.skryt-recenze section[aria-labelledby="refs-h"],html.skryt-recenze .refs{display:none}
+html.skryt-clanky section[aria-labelledby="feed-h"]{display:none}
+html.skryt-vyzva .vyzva{display:none}
+html.skryt-proces section.proc{display:none}
+/* ---------- panel laboratoře */
+.lab-btn{position:fixed;left:16px;bottom:16px;z-index:90;all:unset;position:fixed;left:16px;bottom:16px;z-index:90;cursor:pointer;background:var(--acc);color:#fff;font:600 12px/1 var(--font);letter-spacing:.08em;text-transform:uppercase;padding:12px 16px;border-radius:999px;box-shadow:0 10px 30px -10px rgba(0,0,0,.5)}
+.lab{position:fixed;left:16px;bottom:64px;z-index:90;width:340px;max-height:calc(100vh - 100px);overflow:auto;background:#151314;color:#fff;border-radius:14px;padding:16px;font:500 13px/1.4 var(--font);box-shadow:0 20px 50px -20px rgba(0,0,0,.6)}
+.lab[hidden]{display:none}
+.lab h3{font:600 11px/1.4 var(--font);letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.55);margin:14px 0 6px}
+.lab h3:first-child{margin-top:0}
+.lab label{display:flex;justify-content:space-between;align-items:center;gap:10px;margin:4px 0}
+.lab select{font:inherit;background:#2a2727;color:#fff;border:1px solid rgba(255,255,255,.15);border-radius:6px;padding:4px 6px;max-width:190px}
+.lab .lab-presety{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.lab .lab-presety button{all:unset;cursor:pointer;text-align:center;padding:8px 4px;border-radius:8px;background:#2a2727;font-weight:600}
+.lab .lab-presety button[aria-pressed="true"]{background:var(--acc)}
+.lab .lab-pozn{color:rgba(255,255,255,.55);font-size:12px;margin-top:6px}
+.lab .lab-reset{all:unset;cursor:pointer;margin-top:12px;display:inline-block;color:rgba(255,255,255,.7);text-decoration:underline}
+/* ===== v45: šest odlišných rozložení menu (D1 až D6), barva záhlaví, nová záhlaví ===== */
+.nav__menu-t{display:none;margin-right:10px}
+/* D2: tři samostatné plovoucí části */
+html.rozl-d2 .nav,html.rozl-d4 .nav{align-items:stretch}
+html.rozl-d2 .nav__bar,html.rozl-d4 .nav__bar{width:100%;background:transparent;box-shadow:none;-webkit-backdrop-filter:none;backdrop-filter:none;overflow:visible;gap:10px}
+html.rozl-d2 .nav__seg,html.rozl-d4 .nav__seg{background:rgba(18,16,16,.55);-webkit-backdrop-filter:blur(16px) saturate(140%);backdrop-filter:blur(16px) saturate(140%);border-radius:calc(.5*var(--u));border-left:0!important;box-shadow:0 10px 30px -12px rgba(0,0,0,.35)}
+html.rozl-d2 .nav__links{margin-inline:auto}
+html.rozl-d2 .nav__panel,html.rozl-d4 .nav__panel{align-self:flex-end}
+/* D3: lišta přes celou šířku */
+html.rozl-d3 .nav{align-items:stretch}
+html.rozl-d3 .nav__bar{width:100%}
+html.rozl-d3 .nav__links{margin-inline:auto;border-left:0!important}
+html.rozl-d3 .nav__panel{align-self:flex-end}
+/* D4: minimalistické, logo a Menu */
+html.rozl-d4 .nav__links,html.rozl-d4 .nav__seg--cta{display:none}
+html.rozl-d4 .nav__seg--toggle{margin-left:auto;padding-inline:18px}
+html.rozl-d4 .nav__menu-t{display:inline}
+/* D5: logo uprostřed, odkazy vlevo, menu a výzva vpravo */
+html.rozl-d5 .nav{align-items:stretch}
+html.rozl-d5 .nav__bar{width:100%;position:relative}
+html.rozl-d5 .nav__links{order:1;margin-right:auto;border-left:0!important}
+html.rozl-d5 .nav__home{order:2;position:absolute;left:50%;top:0;bottom:0;transform:translateX(-50%);border-left:0!important}
+html.rozl-d5 .nav__seg--toggle{order:3}
+html.rozl-d5 .nav__seg--cta{order:4}
+html.rozl-d5 .nav__panel{align-self:flex-end}
+/* D6: malá pilulka, jen znak */
+html.rozl-d6 .nav__links{display:none}
+html.rozl-d6 .nav__jmeno,html.rozl-d6 .o-lock{display:none!important}
+html.rozl-d6 .nav__znak{display:inline-flex!important}
+html.rozl-d6 .nav__bar{border-radius:999px}
+html.rozl-d6 .nav__seg--cta{padding-inline:7px}
+html.rozl-d6 .nav__cta{border-radius:999px}
+/* barva záhlaví podstránek (bílý úvodní blok výpisů a stránek bez fotky) */
+html.hlava-cerna .stranka main > section.uvod{background:var(--black);color:#fff;--muted:rgba(255,255,255,.66);--line:rgba(255,255,255,.18)}
+html.hlava-cerna .stranka main > section.uvod .filtr[aria-pressed="true"]{background:#fff;color:var(--ink)}
+html.hlava-bezova .stranka main > section.uvod{background:var(--warm)}
+/* záhlaví: čára nad nadpisem a dvousloupcové (jako Klusák /projects s popisem vpravo) */
+html.hlava-klusak .uvod--vypis .zahlavi{border-top:1px solid var(--line);padding-top:calc(1.2*var(--u))}
+html.hlava-klusak .uvod--vypis .zahlavi__nadpis{grid-column:1/8}
+html.hlava-klusak .uvod--vypis .zahlavi__nadpis .text{position:absolute;right:var(--m);width:calc(4*var(--col) + 3*var(--gap));bottom:0;text-align:right}
+html.hlava-klusak .uvod--vypis .zahlavi{position:relative}
+html.hlava-klusak .uvod--vypis .linka-g{display:none}
+/* Agnos: nadpis na střed bez perexu a čáry */
+html.hlava-agnos .uvod--vypis .zahlavi__nadpis{grid-column:1/13;text-align:center}
+html.hlava-agnos .uvod--vypis .zahlavi__nadpis .nadpis{font-size:clamp(64px,7vw,110px);white-space:normal}
+html.hlava-agnos .uvod--vypis .zahlavi__nadpis .text,html.hlava-agnos .uvod--vypis .linka-g,html.hlava-agnos .uvod--vypis .zahlavi__vpravo{display:none}
+html.hlava-agnos .uvod--vypis .zahlavi + *{margin-top:calc(3*var(--u))}

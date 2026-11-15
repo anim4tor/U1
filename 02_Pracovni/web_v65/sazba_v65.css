@@ -1,0 +1,6 @@
+/* v65, 1. 11. 2026: delsi texty v mobilnim uvodu nesmi prekryvat nadpis. */
+@media (max-width:760px){
+ .hero--text-v65{height:auto;min-height:58svh}
+ .hero--text-v65 .hero__in{position:relative;inset:auto;min-height:58svh;display:flex;flex-direction:column;justify-content:flex-end;gap:var(--u);padding:calc(8*var(--u)) var(--m) calc(3*var(--u));box-sizing:border-box}
+ .hero--text-v65 .hero__main,.hero--text-v65 .hero__perex{position:static;width:auto;margin:0}
+}

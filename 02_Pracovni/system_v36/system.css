@@ -1,0 +1,721 @@
+/* ==========================================================================
+   U1 · SYSTÉM SAZBY v09 (podstránky: barvy, nadpisy, vyhledávání, detail projektu, ocenění, klienti, kariéra), dříve v08 (řádkování a prostrkání nadpisů pro češtinu), dříve v07 (panel smlouvy, tlačítko Všechny projekty, stín úvodu), dříve v06 (bez přichytávání karet na počítači), dříve v05 (touchpad, panel smlouvy), dříve v04 (oprava useknutého textu v děleném bloku), dříve v03 (21. 10. 2026): základ v01 (web_v04) + jen schválené úpravy homepage podle 00_Info/PRAVIDLA_SAZBY_v02.md
+   ZÁSADA: velikost, řádkování a řez písma nastavuje JEN šest tříd rolí
+   (.nadpis .vyrok .perex .text .stitek .popisek). Komponenty řeší jen
+   rozložení, mezery a barvu. Žádné inline styly.
+   ========================================================================== */
+
+/* ---------- 1. Tokeny */
+:root{
+  --u: max(14px, 1.389vw);            /* 20 px na 1440 */
+  --m: calc(4 * var(--u));            /* okraj */
+  --gap: calc(2 * var(--u));          /* mezera sloupců */
+  --sec: calc(5 * var(--u));          /* sekce nahoře a dole */
+  --col: calc((100vw - 2 * var(--m) - 11 * var(--gap)) / 12);
+
+  --f-nadpis: max(36px, 3.75vw);      /* 54 */
+  --f-vyrok:  max(26px, 2.5vw);       /* 36 */
+  --f-perex:  max(19px, 1.667vw);     /* 24 */
+  --f-text:   max(15px, 1.111vw);     /* 16 */
+  --f-malé:   max(11px, .833vw);      /* 12 */
+
+  --font: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --white:#FFFFFF; --warm:#EDECE7; --black:#0B0A0A; --ink:#151314; --acc:#ED1359;
+  --r: calc(.5 * var(--u)); --r-sec: var(--u);
+}
+
+/* ---------- 2. Role písma (jediné místo s font-size) */
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--warm);color:var(--ink);font-family:var(--font);-webkit-font-smoothing:antialiased}
+body,.text{font-size:var(--f-text);line-height:1.5;font-weight:500;letter-spacing:0}
+/* v08: 1,12 a -0,015em, aby háčky a čárky (á, ř, í, ě) měly místo a písmena se neslepovala */
+/* v09: řez 600, nadpisy působí jasněji (Jakub 21. 10.) */
+.nadpis{font-size:var(--f-nadpis);line-height:1.12;font-weight:600;letter-spacing:-.02em;text-wrap:balance}
+.vyrok{font-size:var(--f-vyrok);line-height:1.2;font-weight:500;letter-spacing:-.01em;text-wrap:pretty}
+.perex{font-size:var(--f-perex);line-height:1.3;font-weight:500;letter-spacing:-.01em}
+.stitek{font-size:var(--f-malé);line-height:1.5;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+.popisek{font-size:var(--f-malé);line-height:1.5;font-weight:500;letter-spacing:0;text-transform:none}
+strong,b{font-weight:700}
+.nadpis b,.vyrok b,.perex b{font-weight:inherit}
+.muted{color:var(--muted)}
+.acc{color:var(--acc)}
+
+*{box-sizing:border-box}
+img{display:block;max-width:100%}
+h1,h2,h3,h4,p,ul,ol,figure,blockquote,dl,dd{margin:0;padding:0}
+ul,ol{list-style:none}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit}
+.sr-only{position:absolute!important;width:1px;height:1px;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+/* ---------- 3. Sekce, témata, mřížka */
+.sek{position:relative;padding-block:var(--sec);border-radius:var(--r-sec);overflow:hidden}
+.bila{background:var(--white);color:var(--ink);--muted:rgba(21,19,20,.62);--line:rgba(21,19,20,.14)}
+.tepla{background:var(--warm);color:var(--ink);--muted:rgba(21,19,20,.62);--line:rgba(21,19,20,.16)}
+.cerna{background:var(--black);color:#fff;--muted:rgba(255,255,255,.66);--line:rgba(255,255,255,.18)}
+.g{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gap);padding-inline:var(--m);position:relative}
+.g > *{min-width:0}
+/* povolené šířky: 12 | 8+4 | 7+5 | 6+6 | 4 | 3 */
+.c12{grid-column:1/13}.c1-7{grid-column:1/8}.c8-12{grid-column:8/13}.c1-6{grid-column:1/7}.c7-12{grid-column:7/13}
+.c1-4{grid-column:1/5}.c6-11{grid-column:6/12}.c1-5{grid-column:1/6}.c1-8{grid-column:1/9}.c9-12{grid-column:9/13}.c1-3{grid-column:1/4}.c4-12{grid-column:4/13}
+
+/* ---------- 4. Mezery mezi prvky (jen násobky u) */
+.mt-05{margin-top:calc(.5*var(--u))}.mt-1{margin-top:var(--u)}.mt-3{margin-top:calc(3*var(--u))}.mt-4{margin-top:calc(4*var(--u))}
+
+/* ---------- 5. Záhlaví sekce: (štítek) · H2 1–7 · perex nebo šipky 8–12 na účaří */
+.zahlavi{align-items:end}
+.zahlavi__nadpis{grid-column:1/8}
+.zahlavi__nadpis .stitek + .nadpis{margin-top:var(--u)}
+.zahlavi__vpravo{grid-column:8/13;justify-self:end;max-width:calc(4*var(--col) + 3*var(--gap));padding-bottom:.35em}
+.zahlavi__vpravo.text{color:var(--muted)}
+.zahlavi + *{margin-top:calc(3*var(--u))}
+.sipky{display:flex;gap:calc(.5*var(--u))}
+.kruh{all:unset;box-sizing:border-box;width:calc(2.6*var(--u));height:calc(2.6*var(--u));border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;cursor:pointer}
+.kruh:hover{border-color:currentColor}.kruh[disabled]{opacity:.3;cursor:default}
+.kruh svg{width:calc(.9*var(--u));height:calc(.9*var(--u))}
+.kruh:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
+.stitek-sek{display:flex;align-items:center;gap:.6em;color:var(--muted)}
+.ctverec{display:inline-block;width:7px;height:7px;background:var(--acc)}
+
+/* ---------- 6. Tlačítka a odkazy */
+.btn{all:unset;box-sizing:border-box;cursor:pointer;display:inline-flex;align-items:center;gap:calc(.6*var(--u));height:calc(2.4*var(--u));padding-inline:calc(1.2*var(--u));border-radius:999px;background:var(--acc);color:#fff;white-space:nowrap}
+.btn--obrys{background:transparent;color:inherit;border:1px solid var(--line)}
+.btn:focus-visible,.odkaz:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
+.arrow{width:1em;height:1em;flex:none}
+.odkaz{display:inline-flex;align-items:center;gap:calc(.4*var(--u));padding-bottom:4px;border-bottom:1px solid currentColor}
+.filtr{all:unset;box-sizing:border-box;cursor:pointer;height:calc(2*var(--u));display:inline-flex;align-items:center;padding-inline:var(--u);border-radius:999px;border:1px solid var(--line)}
+.filtr[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.cerna .filtr[aria-pressed="true"]{background:#fff;color:var(--ink)}
+
+/* ---------- 7. Fotky: jen 4:3, 3:4, 2:1 */
+.ph{position:relative;overflow:hidden;border-radius:var(--r);aspect-ratio:4/3;background:#cfcac2}
+.ph--34{aspect-ratio:3/4}.ph--21{aspect-ratio:2/1}
+.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .45s ease,transform .6s ease}
+.ph img[hidden]{display:block!important;opacity:0}
+a:hover .ph img{transform:scale(1.03)}
+
+/* ---------- 8. Menu (beze změny proti v07) */
+.nav{position:fixed;z-index:40;top:calc(.75*var(--u));left:0;right:0;padding-inline:var(--m);display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gap);pointer-events:none}
+.nav__bar,.nav__panel{grid-column:4/10;pointer-events:auto;background:rgba(18,16,16,.55);-webkit-backdrop-filter:blur(16px) saturate(140%);backdrop-filter:blur(16px) saturate(140%);color:#fff;border-radius:calc(.8*var(--u))}
+.nav__bar{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:calc(2.8*var(--u));padding-inline:calc(.5*var(--u))}
+.nav__home{display:grid;place-items:center;width:calc(2*var(--u));height:calc(2*var(--u))}
+.nav__logo{height:calc(1.2*var(--u));width:auto}
+.nav__links{display:flex;gap:calc(2*var(--u))}
+.nav__links a:hover{text-decoration:underline;text-underline-offset:4px}
+.nav__toggle{all:unset;justify-self:end;width:calc(2*var(--u));height:calc(2*var(--u));display:grid;place-content:center;gap:5px;cursor:pointer}
+.nav__toggle span{display:block;width:calc(1.2*var(--u));height:1.5px;background:#fff;transition:transform .25s ease}
+.nav__toggle[aria-expanded="true"] span:first-child{transform:translateY(3.25px) rotate(45deg)}
+.nav__toggle[aria-expanded="true"] span:last-child{transform:translateY(-3.25px) rotate(-45deg)}
+.nav__panel[hidden]{display:none}
+.nav__panel{margin-top:calc(.4*var(--u));padding:calc(1.2*var(--u));display:grid;gap:calc(.6*var(--u));justify-items:start}
+.nav__panel .btn{margin-top:calc(.6*var(--u))}
+.nav a:focus-visible,.nav__toggle:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
+
+/* ---------- 9. Úvod homepage */
+.hero{position:relative;height:100vh;height:100svh;min-height:620px;background:#0b0a0a;color:#fff;overflow:hidden;border-radius:0 0 var(--r-sec) var(--r-sec)}
+.hero__slides img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.02);transition:opacity 1.4s ease,transform 7.5s linear}
+.hero__slides img.is-on{opacity:1;transform:scale(1.08)}
+.hero::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(180deg,rgba(0,0,0,.55) 0%,rgba(0,0,0,.08) 22%,rgba(0,0,0,.18) 40%,rgba(0,0,0,.3) 60%,rgba(0,0,0,.82) 100%),linear-gradient(90deg,rgba(0,0,0,.4) 0%,rgba(0,0,0,0) 55%)}
+.hero__in{position:absolute;inset:0;z-index:2;text-shadow:0 1px 18px rgba(0,0,0,.35)}
+.hero__bar{position:absolute;top:40%;left:0;right:0;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gap);padding:calc(.55*var(--u)) var(--m) 0}
+.hero__bar::before,.hero__bar::after{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:rgba(255,255,255,.25)}
+.hero__bar::after{background:#fff;transform:scaleX(0);transform-origin:left}
+.hero__bar.is-filling::after{animation:fill var(--slide,6s) linear forwards}
+@keyframes fill{to{transform:scaleX(1)}}
+.hero__bar .c1-3{grid-column:1/4}.hero__cur{grid-column:4/10;display:flex;justify-content:space-between;gap:var(--u)}
+.hero__next{all:unset;cursor:pointer;grid-column:10/13;justify-self:end}
+.hero__next:focus-visible{outline:2px solid var(--acc);outline-offset:5px}
+.hero__main{position:absolute;left:var(--m);bottom:calc(4*var(--u));width:calc(7*var(--col) + 6*var(--gap))}
+.hero__main .odkaz{margin-top:var(--u)}
+
+/* ---------- 10. Úvod podstránky: drobečky · H1 1–7 · perex 8–12 na účaří · fotka 2:1 */
+.uvod{padding-top:calc(9*var(--u))}
+.uvod .g{align-items:end;row-gap:var(--u)}
+.drobky{grid-column:1/13;display:flex;flex-wrap:wrap;gap:.5em;color:var(--muted)}
+.drobky li + li::before{content:"/";margin-right:.5em;opacity:.5}
+.drobky a:hover{color:inherit}
+.uvod__h1{grid-column:1/8}
+.uvod__perex{grid-column:8/13;color:var(--muted);padding-bottom:.35em}
+.uvod__foto{grid-column:1/13;margin-top:calc(2*var(--u))}
+
+/* ---------- 11. TYP 1 · dělený blok: text 6 | fotka 6 */
+.del .g{align-items:stretch}
+.del__text{grid-column:1/7;display:flex;flex-direction:column;justify-content:space-between;gap:calc(3*var(--u));padding-right:var(--gap)}
+.del__text .text{color:var(--muted);max-width:calc(5*var(--col) + 4*var(--gap));margin-top:var(--u)}
+.del__text .odkaz{margin-top:var(--u)}
+.del__foto{grid-column:7/13;aspect-ratio:auto}
+.del__foto::before{content:"";display:block;padding-top:75%}
+.del--zrcadlo .del__text{grid-column:7/13;padding:0 0 0 var(--gap)}.del--zrcadlo .del__foto{grid-column:1/7;grid-row:1}
+.seznam{border-bottom:1px solid var(--line)}
+.seznam li{border-top:1px solid var(--line)}
+.seznam a,.seznam button{all:unset;box-sizing:border-box;width:100%;display:flex;justify-content:space-between;align-items:baseline;gap:var(--u);padding-block:calc(.45*var(--u));cursor:pointer}
+.seznam .perex,.seznam .text{opacity:.45;transition:opacity .25s,color .25s}
+.cerna .seznam .perex,.cerna .seznam .text{opacity:.62}
+.seznam [aria-selected="true"] .perex,.seznam [aria-selected="true"] .text{opacity:1;color:var(--acc)}
+.seznam a:hover .perex,.seznam a:hover .text{opacity:.85}
+.seznam .go{width:1em;height:1em;opacity:0;color:var(--acc);align-self:center;flex:none}
+.seznam [aria-selected="true"] .go{opacity:1}
+.seznam--2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:var(--gap);border:0}
+.seznam--2 li{border-top:0;border-bottom:1px solid var(--line)}
+.seznam--2 li:nth-child(-n+2){border-top:1px solid var(--line)}
+.seznam a:focus-visible,.seznam button:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
+
+/* ---------- 12. TYP 2 · položky: záhlaví 1–5 | 2 × 3 sloupce v 7–12 */
+.pol__hlava{grid-column:1/6}
+.pol__hlava .text{color:var(--muted);margin-top:var(--u)}
+.pol__mrizka{grid-column:7/13;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:var(--gap);row-gap:calc(3*var(--u))}
+.pol__mrizka .popisek{color:var(--acc)}
+.pol__mrizka .perex{margin-top:calc(.5*var(--u))}
+.pol__mrizka .text{margin-top:calc(.5*var(--u));color:var(--muted)}
+
+/* ---------- 13. TYP 3 · karty 3 × 4 a karusel (stejná anatomie karty) */
+.karty{grid-column:1/13;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));column-gap:var(--gap);row-gap:calc(3*var(--u))}
+.karty [hidden]{display:none!important}
+.karta a{display:block}
+.karta .popisek{margin-top:var(--u);color:var(--muted)}
+.karta .perex{margin-top:calc(.5*var(--u))}
+.karta .text{margin-top:calc(.5*var(--u));color:var(--muted)}
+.karta a:hover .perex{color:var(--acc)}
+.rail{display:flex;gap:var(--gap);overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:var(--m);padding-inline:var(--m);scrollbar-width:none;overscroll-behavior-x:contain}
+.rail::-webkit-scrollbar{display:none}
+.rail::after{content:"";flex:0 0 calc(var(--m) - var(--gap))}
+.rail > .karta,.rail > .ref{flex:0 0 calc(3*var(--col) + 2*var(--gap));scroll-snap-align:start}
+.filtry{grid-column:1/13;display:flex;flex-wrap:wrap;gap:calc(.4*var(--u));align-items:center}
+.filtry .popisek{color:var(--muted);margin-right:calc(.3*var(--u))}
+.filtry .popisek + .filtr{margin-left:0}
+.filtry .filtr + .popisek{margin-left:var(--u)}
+.filtry + .karty{margin-top:calc(2*var(--u))}
+
+/* reference: karta s citací (perex), jméno (text tučně), role (popisek) */
+.refs{grid-column:1/13;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));column-gap:var(--gap)}
+.ref{border:1px solid var(--line);border-radius:var(--r);padding:calc(1.5*var(--u));display:flex;flex-direction:column;justify-content:space-between;gap:calc(3*var(--u))}
+.ref .popisek{color:var(--muted)}
+.ref__kdo b{display:block}
+
+/* ---------- 14. TYP 4 · celoplošná fotka se záložkami */
+.full{color:#fff;min-height:max(620px,50vw);display:grid;overflow:hidden}
+.full > .bg{position:absolute;inset:0}
+.full > .bg img{width:100%;height:100%;object-fit:cover}
+.full > .bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,7,7,.55) 0%,rgba(8,7,7,.15) 35%,rgba(8,7,7,.3) 55%,rgba(8,7,7,.85) 100%)}
+.full .g{grid-template-rows:auto 1fr auto;z-index:1}
+.full .stitek{color:rgba(255,255,255,.8)}
+.zalozky{grid-column:1/13;grid-row:3;align-self:end}
+.zalozky__rada{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));column-gap:var(--gap);border-bottom:1px solid rgba(255,255,255,.3)}
+.zalozky button{all:unset;cursor:pointer;display:flex;align-items:baseline;gap:calc(.5*var(--u));padding-bottom:var(--u)}
+.zalozky button .vyrok{opacity:.45;transition:opacity .25s}
+.zalozky button[aria-selected="true"] .vyrok{opacity:1}
+.zalozky button:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
+.zalozky__text{margin-top:var(--u);max-width:calc(5*var(--col) + 4*var(--gap));min-height:4.5em;color:rgba(255,255,255,.86)}
+
+/* ---------- 15. TYP 5 · pás */
+.pas{padding-block:calc(2.5*var(--u))}
+.pas .g{align-items:center}
+.pas__stitek{grid-column:1/4;color:var(--muted)}
+.pas__obsah{grid-column:4/13;display:flex;justify-content:space-between;align-items:center;gap:var(--gap);flex-wrap:wrap}
+.pas__obsah img{height:calc(1.4*var(--u));width:auto;opacity:.55;filter:grayscale(1)}
+
+/* ---------- 16. Textová stránka: levý sloupec 1–4 | text 6–11 */
+.dok .g{align-items:start}
+.dok__bok{grid-column:1/5;position:sticky;top:calc(5*var(--u))}
+.dok__text{grid-column:6/12}
+.dok__text > * + *{margin-top:var(--u)}
+.dok__text > h2{margin-top:calc(3*var(--u))}
+.dok__text > h2:first-child{margin-top:0}
+.dok__text > h3{margin-top:calc(2*var(--u))}
+.dok__text ul,.dok__text ol{padding-left:1.2em}
+.dok__text ul{list-style:disc}.dok__text ol{list-style:decimal}
+.dok__text li + li{margin-top:calc(.35*var(--u))}
+.dok__text li p{margin:0}
+.dok__text a{text-decoration:underline;text-decoration-color:var(--acc);text-underline-offset:3px}
+.dok__text table{width:100%;border-collapse:collapse}
+.dok__text th,.dok__text td{text-align:left;vertical-align:top;padding:calc(.5*var(--u)) calc(.5*var(--u)) calc(.5*var(--u)) 0;border-top:1px solid var(--line)}
+.dok__text th{color:var(--muted)}
+.dok__text tbody tr:last-child td{border-bottom:1px solid var(--line)}
+.dok__text figure img{width:100%;border-radius:var(--r)}
+.dok__text figcaption{margin-top:var(--u);color:var(--muted)}
+.dok__fotky{grid-column:1/13;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--gap)}
+.dok__fotky--1{grid-template-columns:minmax(0,1fr)}
+.dok__fotky--1 .ph{aspect-ratio:2/1}
+.dok .g + .g{margin-top:calc(4*var(--u))}
+.obsahclanku a{display:block;padding-block:calc(.35*var(--u));color:var(--muted)}
+.obsahclanku a:hover{color:var(--acc)}
+
+/* tabulka parametrů: popisek | text, linky */
+.param{border-bottom:1px solid var(--line)}
+.param div{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,3fr);gap:var(--u);border-top:1px solid var(--line);padding-block:calc(.6*var(--u));align-items:baseline}
+.param dt{color:var(--muted)}
+.param + .btn,.param + p{margin-top:calc(2*var(--u))}
+
+/* ---------- 17. Řádky (pozice, ocenění) */
+.radky{grid-column:1/13;border-bottom:1px solid var(--line)}
+.radky li{border-top:1px solid var(--line)}
+.radky a,.radky div{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gap);align-items:baseline;padding-block:var(--u)}
+.radky .perex{grid-column:1/7}
+.radky .popisek{grid-column:7/11;color:var(--muted)}
+.radky .vpravo{grid-column:12/13;justify-self:end}
+.radky a:hover .perex{color:var(--acc)}
+
+/* ---------- 18. FAQ: otázky v 6–11 */
+.faq{grid-column:6/12;border-bottom:1px solid var(--line)}
+.faq details{border-top:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:baseline;gap:var(--u);padding-block:calc(.8*var(--u))}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";color:var(--acc);font-size:var(--f-perex);line-height:1}
+.faq details[open] summary::after{content:"−"}
+.faq details p{padding-bottom:var(--u);color:var(--muted)}
+.faq summary:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
+.faq__hlava{grid-column:1/5}
+
+/* ---------- 19. Výzva */
+.vyzva{padding-bottom:0;background:var(--black) url("../homepage_v08/img/h/02144e700a.png") right center/cover no-repeat}
+.vyzva .g{align-items:end}
+.vyzva__foto{grid-column:1/4}
+.vyzva__foto img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:top}
+.vyzva__nadpis{grid-column:4/10;padding-bottom:var(--sec)}
+.vyzva__btn{grid-column:10/13;justify-self:end;padding-bottom:var(--sec)}
+
+/* ---------- 20. Kontakty, showroomy (stránka Kontakt) */
+.kontakty{grid-column:1/13;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:calc(3*var(--u)) var(--gap)}
+.kontakt{border-top:1px solid var(--line);padding-top:var(--u);display:grid;gap:calc(.5*var(--u));align-content:start}
+.kontakt a{width:max-content}.kontakt a:hover{color:var(--acc)}
+.mista{grid-column:1/13;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--gap)}
+.misto .perex{margin-top:var(--u)}
+.misto address{font-style:normal;margin-top:calc(.5*var(--u))}
+.misto .popisek{margin-top:calc(.5*var(--u));color:var(--muted)}
+.misto .btn{margin-top:var(--u);margin-right:calc(.4*var(--u))}
+
+/* ---------- 21. Čísla (Studio, O nás) */
+.cisla{grid-column:1/13;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));column-gap:var(--gap)}
+.cisla div{border-top:1px solid var(--line);padding-top:var(--u);display:grid;gap:calc(.5*var(--u))}
+.cisla .popisek{color:var(--muted)}
+
+/* ---------- 22. Proces (5 kroků): aktivní 4 sloupce, ostatní 2 */
+.proc{container-type:inline-size}
+.proc__rada{--c:calc((100cqw - 2*var(--m) - 11*var(--gap)) / 12);display:grid;column-gap:var(--gap);padding-inline:var(--m);transition:grid-template-columns .6s cubic-bezier(.4,0,.2,1)}
+.proc__krok{all:unset;box-sizing:border-box;cursor:pointer;min-width:0;display:block}
+.proc__krok .ph{aspect-ratio:auto;height:calc((4*var(--c) + 3*var(--gap)) * .75)}
+.proc__krok .ph img{filter:grayscale(1) brightness(1.05);opacity:.75}
+.proc__krok[aria-selected="true"] .ph img{filter:none;opacity:1}
+.proc__meta{display:flex;align-items:baseline;gap:calc(.4*var(--u));margin-top:var(--u);padding-top:var(--u);border-top:1px solid var(--line);white-space:nowrap}
+.proc__meta .perex{opacity:.45;transition:opacity .25s,color .25s}
+.proc__krok[aria-selected="true"] .proc__meta .perex{opacity:1;color:var(--acc)}
+.proc__meta .popisek{color:var(--muted)}
+.proc__krok:focus-visible{outline:2px solid var(--acc);outline-offset:4px;border-radius:var(--r)}
+.proc__text{grid-column:1/6;margin-top:calc(1.5*var(--u));min-height:4.5em;color:var(--muted)}
+
+/* ---------- 23. Kontaktní panel */
+.cpop{position:fixed;inset:0;z-index:80;display:grid;place-items:end;padding:var(--u);pointer-events:none}
+.cpop[hidden]{display:none}
+.cpop__clona{position:absolute;inset:0;background:rgba(10,9,9,.35);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);pointer-events:auto}
+.cpop__box{position:relative;width:min(calc(25*var(--u)),100%);max-height:calc(100svh - 2*var(--u));overflow:auto;background:var(--black);color:#fff;--muted:rgba(255,255,255,.62);--line:rgba(255,255,255,.18);border-radius:var(--u);pointer-events:auto}
+.cpop__box.is-wide{width:min(calc(36*var(--u)),100%)}
+.cpop__nav{position:sticky;top:0;z-index:2;display:flex;align-items:center;gap:var(--u);padding:calc(.8*var(--u)) var(--u);border-bottom:1px solid var(--line);background:var(--black)}
+.cpop__tab{all:unset;cursor:pointer;color:var(--muted)}
+.cpop__tab[aria-selected="true"]{color:#fff}
+.cpop__zavrit{all:unset;cursor:pointer;margin-left:auto;width:calc(1.8*var(--u));height:calc(1.8*var(--u));border-radius:50%;background:rgba(255,255,255,.14);display:grid;place-items:center}
+.cpop__tab:focus-visible,.cpop__zavrit:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
+.cpop__pane{padding:var(--u);display:grid;gap:var(--u);align-content:start}
+.cpop__pane[hidden]{display:none}
+.cpop__pane > .btn{justify-self:start}
+.pilulky{display:flex;flex-wrap:wrap;gap:calc(.3*var(--u))}
+.pilulka{display:inline-flex;align-items:center;height:calc(1.8*var(--u));padding-inline:calc(.7*var(--u));border-radius:999px;border:1px solid var(--line)}
+a.pilulka:hover{border-color:currentColor}
+.form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--u) var(--gap);border-top:1px solid var(--line);padding-top:var(--u)}
+.form__cela{grid-column:1/-1}
+.form label{display:grid;gap:calc(.3*var(--u));color:var(--muted)}
+.form input,.form select,.form textarea{font:inherit;color:#fff;background:transparent;border:0;border-bottom:1px solid var(--line);padding:calc(.35*var(--u)) 0;border-radius:0}
+.form select option{color:var(--ink)}
+.form textarea{min-height:calc(5*var(--u));resize:vertical}
+.form input:focus,.form select:focus,.form textarea:focus{outline:none;border-bottom-color:var(--acc)}
+.form .btn{justify-self:start}
+.form .popisek{color:var(--muted)}.form .popisek a{text-decoration:underline}
+body.cpop-open{overflow:hidden}
+
+/* plovoucí tlačítko poptávky */
+.fab{position:fixed;right:var(--m);bottom:calc(4*var(--u));z-index:60;transition:bottom .35s ease}
+.fab[data-collapsed]{bottom:max(24px,env(safe-area-inset-bottom))}
+.fab__btn{all:unset;box-sizing:border-box;cursor:pointer;display:flex;align-items:center;height:calc(2.8*var(--u));border-radius:999px;background:var(--acc);color:#fff}
+.fab__ikona{width:calc(2.8*var(--u));height:calc(2.8*var(--u));display:grid;place-items:center;flex:none}
+.fab__ikona svg{width:42%;height:42%}
+.fab__text{display:grid;grid-template-columns:0fr;transition:grid-template-columns .5s cubic-bezier(.19,1,.22,1);overflow:hidden}
+.fab__text span{min-width:0;white-space:nowrap;opacity:0;transition:opacity .3s}
+.fab:not([data-collapsed]) .fab__text,.fab:hover .fab__text{grid-template-columns:1fr;padding-right:calc(1.1*var(--u))}
+.fab:not([data-collapsed]) .fab__text span,.fab:hover .fab__text span{opacity:1}
+.fab__btn:focus-visible{outline:2px solid var(--ink);outline-offset:4px}
+
+/* ---------- 24. Patička: černá, logo a claim 1–4 | 4 × 2 sloupce | právní řádek */
+.pata{background:var(--black);color:#fff;--muted:rgba(255,255,255,.62);--line:rgba(255,255,255,.18);border-radius:var(--r-sec) var(--r-sec) 0 0;padding-block:calc(4*var(--u)) calc(2*var(--u));margin-top:2px}
+.pata .g{row-gap:calc(3*var(--u));align-items:start}
+.pata__znacka{grid-column:1/5}
+.pata__znacka .nav__logo{height:calc(1.8*var(--u))}
+.pata__znacka .perex{margin-top:var(--u);max-width:calc(3*var(--col) + 2*var(--gap))}
+.pata__sloupec{grid-column:span 2}
+.pata__sloupec .stitek{color:var(--muted);margin-bottom:var(--u)}
+.pata__sloupec li + li{margin-top:calc(.35*var(--u))}
+.pata__sloupec address{font-style:normal}
+.pata__sloupec address + address{margin-top:var(--u)}
+.pata__sloupec a:hover{color:var(--acc)}
+.pata__pravni{grid-column:1/13;display:flex;flex-wrap:wrap;justify-content:space-between;gap:var(--u);border-top:1px solid var(--line);padding-top:var(--u);color:var(--muted)}
+.pata__pravni nav{display:flex;gap:var(--u)}
+.pata__pravni a:hover{color:#fff}
+
+/* ---------- 25. K doplnění */
+.todo{outline:1px dashed var(--acc);outline-offset:3px;border-radius:2px}
+.todo-pozn{color:var(--acc)}
+
+/* ---------- 26. Mřížka a pravidla (tlačítko vlevo dole) */
+.spec{display:none}
+body.show-grid .g::before{content:"";position:absolute;inset:calc(-1*var(--sec)) var(--m);pointer-events:none;z-index:5;background:repeating-linear-gradient(90deg,rgba(237,19,89,.08) 0 calc((100% - 11*var(--gap))/12),transparent calc((100% - 11*var(--gap))/12) calc((100% - 11*var(--gap))/12 + var(--gap)))}
+body.show-grid .spec{display:block;position:absolute;top:calc(.6*var(--u));right:var(--m);z-index:6;background:var(--acc);color:#fff;padding:5px 9px;border-radius:4px;max-width:46ch;text-align:right}
+.gridbtn{position:fixed;left:16px;bottom:16px;z-index:50;background:var(--ink);color:#fff;border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:10px 16px;cursor:pointer}
+
+/* ---------- 27. Telefon (do 760 px): vše do jednoho sloupce */
+@media (max-width:760px){
+  :root{--m:20px;--gap:16px;--sec:64px}
+  .g{grid-template-columns:minmax(0,1fr)}
+  .g > *{grid-column:1/-1!important}
+  .nav__bar,.nav__panel{grid-column:1/-1}.nav__links{display:none}.nav__bar{grid-template-columns:1fr 1fr}
+  .hero__main{width:calc(100% - 2*var(--m));bottom:calc(7*var(--u))}
+  .hero__bar{grid-template-columns:1fr auto;gap:12px 16px}.hero__bar .c1-3{grid-column:1}.hero__next{grid-column:2}.hero__cur{grid-column:1/-1;grid-row:2}
+  .zahlavi__vpravo{justify-self:start;margin-top:var(--u);max-width:none}
+  .uvod{padding-top:calc(6*var(--u))}
+  .del__text,.del--zrcadlo .del__text{padding:0}.del__foto,.del--zrcadlo .del__foto{grid-row:auto;margin-top:calc(2*var(--u))}
+  .seznam--2,.pol__mrizka,.karty,.refs,.kontakty,.mista,.cisla,.dok__fotky,.zalozky__rada{grid-template-columns:minmax(0,1fr)}
+  .pol__mrizka{margin-top:calc(2.5*var(--u))}
+  .rail > .karta,.rail > .ref{flex-basis:78%}
+  .dok__bok{position:static;margin-bottom:calc(2*var(--u))}
+  .radky a,.radky div{grid-template-columns:1fr auto}.radky .perex{grid-column:1}.radky .popisek{grid-column:1;grid-row:2}.radky .vpravo{grid-column:2;grid-row:1/3}
+  .proc__rada{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:var(--gap)}.proc__krok{flex:0 0 78%;scroll-snap-align:start}.proc__krok .ph{height:auto;aspect-ratio:4/3}
+  .vyzva__nadpis,.vyzva__btn{padding-bottom:0}.vyzva__btn{justify-self:start;margin-top:calc(1.5*var(--u))}.vyzva__foto{width:60%;margin-top:calc(2*var(--u));grid-row:3}
+  .form{grid-template-columns:minmax(0,1fr)}
+  .fab{bottom:max(24px,env(safe-area-inset-bottom))}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}.hero__slides img{transform:none!important}}
+
+/* ==========================================================================
+   v03 · schválené úpravy homepage (připomínky Jakuba 21. 10. 2026)
+   Dělený blok zůstává podle pravidla dvou hran (fotka dorovná výšku textu).
+   ========================================================================== */
+/* úvod: střed plovoucího tlačítka na ose řádku „Prohlédnout realizace“ */
+.home .fab:not([data-collapsed]){bottom:calc(4*var(--u) - (2.8*var(--u) - 1.5*var(--f-text) - 5px) / 2)}
+/* dělený blok: text pevné výšky (4 řádky), aby se blok při přepínání položek nenatahoval a fotky neskákaly */
+/* výšku textu nastaví skript podle nejdelší položky, aby se nic neuseklo a fotka neskákala */
+.del__text [data-text]{min-height:3em}
+.del__text .btn{margin-top:calc(1.5*var(--u))}
+/* reference: logo nebo fotka u autora */
+.ref__kdo{display:flex;align-items:center;gap:calc(.8*var(--u))}
+.ref__kdo img{width:calc(2.4*var(--u));height:calc(2.4*var(--u));border-radius:50%;object-fit:cover;flex:none;background:#222}
+.ref__kdo > span{display:grid}
+/* karusely: posun tažením myší */
+.rail{cursor:grab}.rail.is-drag{cursor:grabbing;scroll-snap-type:none}.rail.is-drag a{pointer-events:none}
+.rail img{-webkit-user-drag:none;user-select:none}
+.proc__rada{touch-action:pan-y}
+/* jedna smlouva: TYP 2 s nadpisem ve stylu nadpis a položkami s akcentní linkou */
+.smlouva .pol__mrizka > div{border-top:1px solid var(--acc);padding-top:var(--u)}
+
+/* v05 · touchpad: přichytávání karet jen „blízko“, aby plynulý posun touchpadem neodskakoval zpět */
+.rail{scroll-snap-type:x proximity}
+/* v05 · malý panel s větou (Vše pod jednou smlouvou) */
+.panelek{display:inline-flex;align-items:center;gap:calc(.6*var(--u));margin-top:calc(1.5*var(--u));padding:calc(.7*var(--u)) calc(1.2*var(--u));border-radius:999px;background:var(--warm)}
+.cerna .panelek{background:rgba(255,255,255,.08)}
+.panelek .acc{font-weight:inherit}
+
+/* v06 · na počítači (myš, touchpad) karusel jede plynule bez přichytávání; přichytávání jen na dotykových zařízeních */
+@media (hover:hover) and (pointer:fine){.rail{scroll-snap-type:none}}
+
+/* v07 · panel Vše pod jednou smlouvou: karta s ikonou, nadpis perex, vysvětlení text */
+.panel-smlouva{display:inline-grid;grid-template-columns:auto auto;align-items:center;column-gap:var(--u);margin-top:calc(2*var(--u));padding:var(--u) calc(1.5*var(--u)) var(--u) var(--u);border-radius:var(--r);background:var(--warm)}
+.panel-smlouva__ikona{width:calc(2.6*var(--u));height:calc(2.6*var(--u));border-radius:50%;background:var(--acc);color:#fff;display:grid;place-items:center}
+.panel-smlouva__ikona svg{width:45%;height:45%}
+.panel-smlouva .text{color:var(--muted)}
+.studio__odkaz{display:block;margin-top:calc(2*var(--u))}
+.studio__odkaz .odkaz{display:inline-flex}
+/* v07 · tlačítka nesmí zmáčknout mřížka: šířka podle obsahu */
+.g > .btn,.btn{justify-self:start;width:max-content;flex:none}
+/* v07 · odkaz v záhlaví vedle šipek karuselu */
+.zahlavi__vpravo.sipky{align-items:center}
+.zahlavi__odkaz{margin-right:var(--u)}
+/* v07 · poslední karta karuselu „Všechny projekty“: stejný rozměr jako karta s fotkou */
+.karta--vse a{display:flex;flex-direction:column}
+.karta--vse .ph{display:grid;place-items:center;background:transparent;border:1px solid var(--line)}
+.karta--vse .ph span{display:inline-flex;align-items:center;gap:calc(.6*var(--u))}
+.karta--vse a:hover .ph{border-color:currentColor}
+
+/* ==========================================================================
+   v09 · PODSTRÁNKY (připomínky Jakuba 21. 10. 2026)
+   Barvy: podstránky bílá a černá, béžová jen jednou (karusel Článků).
+   ========================================================================== */
+/* drobečky skryté, zůstávají pro čtečky a vyhledávače (BreadcrumbList v datech) */
+.drobky-obal{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
+
+/* ---------- úvod detailu projektu: fotka přes celou obrazovku, text v ní */
+.phero{position:relative;height:100vh;height:100svh;min-height:620px;color:#fff;background:#0b0a0a;overflow:hidden;border-radius:0 0 var(--r-sec) var(--r-sec)}
+.phero > img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.phero::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(180deg,rgba(0,0,0,.55) 0%,rgba(0,0,0,.08) 22%,rgba(0,0,0,.18) 45%,rgba(0,0,0,.82) 100%),linear-gradient(90deg,rgba(0,0,0,.35) 0%,rgba(0,0,0,0) 55%)}
+.phero__in{position:absolute;inset:0;z-index:2;text-shadow:0 1px 18px rgba(0,0,0,.35)}
+.phero__bar{position:absolute;top:40%;left:0;right:0;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gap);padding:calc(.55*var(--u)) var(--m) 0}
+.phero__bar::before{content:"";position:absolute;top:0;left:var(--m);right:var(--m);height:1px;background:rgba(255,255,255,.35)}
+.phero__bar span:first-child{grid-column:1/4}.phero__bar span + span{grid-column:4/10}
+.phero__main{position:absolute;left:var(--m);bottom:calc(4*var(--u));width:calc(7*var(--col) + 6*var(--gap))}
+.phero__main .text{margin-top:var(--u);max-width:calc(5*var(--col) + 4*var(--gap));color:rgba(255,255,255,.88)}
+
+/* ---------- úvodní blok detailu: štítek 1 až 6 | perex a parametry 7 až 12 */
+.intro .g{align-items:start}
+.intro__stitek{grid-column:1/7;color:var(--muted)}
+.intro__telo{grid-column:7/13;display:grid;gap:calc(1.5*var(--u))}
+
+/* ---------- oddíly detailu jako u Klusáka: mezititulek 1 až 5 | text 7 až 12, fotky 6 | 6 nebo přes 12 */
+.oddil{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gap);padding-inline:var(--m);align-items:start}
+.oddil__h{grid-column:1/6}
+.oddil__t{grid-column:7/13}
+.oddil__t > * + *{margin-top:var(--u)}
+.oddil__t ul{padding-left:1.2em;list-style:disc}.oddil__t li + li{margin-top:calc(.35*var(--u))}
+.fotky{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--gap);padding-inline:var(--m)}
+.fotky--1{grid-template-columns:minmax(0,1fr)}.fotky--1 .ph{aspect-ratio:2/1}
+.oddil + .fotky,.fotky + .oddil,.fotky + .fotky,.oddil + .oddil{margin-top:calc(4*var(--u))}
+.citace{grid-column:7/13}
+.citace .popisek{margin-top:var(--u);color:var(--muted)}
+
+/* ---------- vyhledávání a filtry (Projekty): ikona v záhlaví otevře panel */
+.hledani{grid-column:1/13;display:grid;gap:var(--u);padding-block:calc(1.5*var(--u)) 0}
+.hledani[hidden]{display:none}
+.hledani__pole{display:flex;align-items:center;gap:var(--u);border-bottom:1px solid var(--line)}
+.hledani__pole input{flex:1;font-family:inherit;border:0;background:transparent;padding:calc(.6*var(--u)) 0;color:inherit}
+.hledani__pole input:focus{outline:none}
+.hledani__pole:focus-within{border-bottom-color:var(--acc)}
+.hledani__filtry{display:flex;flex-wrap:wrap;gap:calc(.5*var(--u));align-items:center}
+.vyber{appearance:none;-webkit-appearance:none;font-family:inherit;cursor:pointer;height:calc(2*var(--u));padding:0 calc(2*var(--u)) 0 var(--u);border-radius:999px;border:1px solid var(--line);background:transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23151314' fill='none' stroke-width='1.4'/%3E%3C/svg%3E") no-repeat right var(--u) center/10px;color:inherit}
+.vyber:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
+.hledani__pocet{margin-left:auto;color:var(--muted)}
+.karty .karta[hidden]{display:none}
+.nic{grid-column:1/13;color:var(--muted)}
+
+/* ---------- reference jako tmavé karty v karuselu */
+.rail > .ref--tmava{background:var(--black);color:#fff;--line:rgba(255,255,255,.18);--muted:rgba(255,255,255,.66);border:0}
+
+/* ---------- ocenění: tmavé karty se zlatým akcentem */
+:root{--zlata:#C9A55C}
+.oceneni{grid-column:1/13;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--gap)}
+.cena{border:1px solid rgba(201,165,92,.35);border-radius:var(--r);padding:calc(1.5*var(--u));display:grid;gap:calc(.6*var(--u));align-content:start;background:linear-gradient(160deg,rgba(201,165,92,.10),rgba(201,165,92,0) 55%)}
+.cena svg{width:calc(2.4*var(--u));height:calc(2.4*var(--u));color:var(--zlata)}
+.cena .nadpis{color:var(--zlata)}
+.cena .popisek{color:var(--muted)}
+.cena--vitez{grid-column:span 2;border-color:var(--zlata)}
+
+/* ---------- klienti: nekonečný pás jmen (později loga) */
+.klienti{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.klienti__pas{display:flex;gap:calc(3*var(--u));width:max-content;animation:pas 45s linear infinite}
+.klienti:hover .klienti__pas{animation-play-state:paused}
+.klienti__pas span{white-space:nowrap;color:var(--muted)}
+.klienti__pas span::after{content:"";display:inline-block;width:6px;height:6px;background:var(--acc);margin-left:calc(3*var(--u));vertical-align:middle}
+@keyframes pas{to{transform:translateX(-50%)}}
+
+/* ---------- kariéra: proč u nás (karty s ikonou) a výběr (časová osa) */
+.duvody{grid-column:1/13;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--gap)}
+.duvod{border-top:2px solid var(--acc);padding-top:var(--u);display:grid;gap:calc(.6*var(--u));align-content:start}
+.duvod svg{width:calc(1.8*var(--u));height:calc(1.8*var(--u));color:var(--acc)}
+.duvod .text{color:var(--muted)}
+.osa{grid-column:1/13;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--gap);position:relative;padding-top:calc(2.5*var(--u))}
+.osa::before{content:"";position:absolute;top:calc(.6*var(--u));left:0;right:0;height:1px;background:var(--line)}
+.krok{position:relative;display:grid;gap:calc(.5*var(--u));align-content:start}
+.krok::before{content:"";position:absolute;top:calc(-2.5*var(--u) + .6*var(--u) - 7px);left:0;width:14px;height:14px;border-radius:50%;background:var(--acc);box-shadow:0 0 0 6px var(--white)}
+.cerna .krok::before{box-shadow:0 0 0 6px var(--black)}
+.krok .nadpis{color:var(--acc)}
+.krok .text{color:var(--muted)}
+
+@media (max-width:760px){
+  .phero__main{width:calc(100% - 2*var(--m));bottom:calc(7*var(--u))}
+  .intro__stitek,.intro__telo,.oddil__h,.oddil__t,.citace{grid-column:1/-1}
+  .oddil,.fotky,.oceneni,.duvody,.osa{grid-template-columns:minmax(0,1fr)}
+  .oddil__t{margin-top:var(--u)}.cena--vitez{grid-column:auto}
+}
+@media (prefers-reduced-motion:reduce){.klienti__pas{animation:none}}
+
+/* v09b · O projektu (obrázek 4, obráceně): popis 1 až 5 vlevo | tabulka údajů 7 až 12 vpravo */
+.intro__popis{grid-column:1/6;display:grid;gap:var(--u);align-content:start}
+.intro__popis .btn{margin-top:var(--u)}
+.intro__udaje{grid-column:7/13}
+.intro__udaje div{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media (max-width:760px){.intro__popis,.intro__udaje{grid-column:1/-1}.intro__udaje{margin-top:calc(2*var(--u))}}
+
+/* v20 (21. 10. 2026, JARVIS Claude Opus 5.5): každá sekce je vlastní blok na teplém pozadí jako na homepage (zrušena bílá stránka z v14),
+   pásy Ocenění a Pro koho pracujeme jako Napsali o nás, pozice podle Klusáka (záložky, benefity, kroky s fotkou). */
+.tepla .krok::before{box-shadow:0 0 0 6px var(--warm)}
+.fakturace{margin-top:calc(4*var(--u));padding-top:calc(2*var(--u));border-top:1px solid var(--line);align-items:baseline}
+ul.pas__obsah{list-style:none;margin:0;padding:0}
+.oceneni-pas{align-items:start}
+.oceneni-pas li{display:grid;gap:calc(.2*var(--u));align-content:start}
+.oceneni-pas .popisek{color:var(--muted)}
+.oceneni-pas li:first-child .popisek:first-child{color:var(--acc)}
+.pas__obsah.klienti{display:block;min-width:0;overflow:hidden}
+.pas .klienti__pas span{color:var(--muted)}
+.pas .klienti__pas span::after{display:none}
+[data-zalozky] .g{align-items:start}
+.zalozky__nav{grid-column:1/6;display:grid;justify-items:start;gap:calc(.3*var(--u))}
+.zalozky__tab{appearance:none;-webkit-appearance:none;background:none;border:0;padding:0;margin:0;font-family:inherit;color:var(--muted);cursor:pointer;text-align:left;transition:color .2s}
+.zalozky__tab[aria-selected="true"],.zalozky__tab:hover{color:var(--ink)}
+.zalozky__obsah{grid-column:7/13}
+.checklist{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:var(--gap);row-gap:var(--u)}
+.checklist[hidden]{display:none}
+.checklist li{position:relative;padding-left:calc(1.3*var(--u))}
+.checklist li::before{content:"";position:absolute;left:2px;top:.42em;width:.6em;height:.32em;border-left:2px solid var(--acc);border-bottom:2px solid var(--acc);transform:rotate(-45deg)}
+.benefity__h{grid-column:1/6}
+.benefity{grid-column:7/13;list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:var(--gap);row-gap:calc(1.2*var(--u))}
+.benefity li{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:calc(.6*var(--u));align-items:start}
+.benefity svg{width:calc(1.2*var(--u));height:calc(1.2*var(--u));margin-top:.2em;color:var(--muted)}
+.krok-foto__meta{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:var(--u);margin-top:var(--u);align-items:start}
+.krok-foto__meta .nadpis{color:var(--acc)}
+.krok-foto__meta .text{color:var(--muted);margin-top:calc(.5*var(--u))}
+@media (max-width:760px){
+  .zalozky__nav,.zalozky__obsah,.benefity__h,.benefity{grid-column:1/-1}
+  .zalozky__nav{display:flex;flex-wrap:wrap;column-gap:var(--u)}
+  .zalozky__obsah,.benefity{margin-top:calc(2*var(--u))}
+  .checklist,.benefity{grid-template-columns:minmax(0,1fr)}
+}
+
+/* v21 (22. 10. 2026, JARVIS Claude Opus 5.5): tři cesty spolupráce, velká citace, výpis služeb jako řádky s náhledem (inspirace Framer) */
+.cesty__h{grid-column:1/13;margin-top:calc(4*var(--u));color:var(--muted)}
+.cesty{grid-column:1/13;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--gap);margin-top:var(--u)}
+.cesta{position:relative;display:grid;grid-template-rows:auto 1fr auto;gap:calc(2*var(--u));min-height:calc(14*var(--u));padding:calc(1.5*var(--u));border-radius:var(--r);background:var(--warm);color:var(--ink);transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s}
+.cesta:hover{transform:translateY(-4px);box-shadow:0 18px 40px -24px rgba(0,0,0,.35)}
+.cesta .stitek{color:var(--muted)}
+.cesta .text{margin-top:calc(.5*var(--u));color:var(--muted)}
+.cesta__sipka{justify-self:end;display:inline-grid;place-items:center;width:calc(2.6*var(--u));height:calc(2.6*var(--u));border-radius:50%;border:1px solid rgba(21,19,20,.2);transition:background .3s,color .3s,border-color .3s}
+.cesta:hover .cesta__sipka{background:var(--acc);border-color:var(--acc);color:#fff}
+.cesta--hlavni{background:var(--black);color:#fff}
+.cesta--hlavni .stitek{color:var(--acc)}
+.cesta--hlavni .text{color:rgba(255,255,255,.7)}
+.cesta--hlavni .cesta__sipka{border-color:rgba(255,255,255,.3)}
+.citat{grid-column:1/9;margin:0}
+.citat blockquote{margin:0}
+.citat__kdo{display:flex;align-items:center;gap:var(--u);margin-top:calc(2*var(--u))}
+.citat__kdo img{width:calc(3*var(--u));height:calc(3*var(--u));border-radius:50%;object-fit:cover}
+.citat__kdo > span{display:grid}
+.citat__kdo .popisek{color:var(--muted)}
+.citat__kdo a{text-decoration:underline;text-underline-offset:2px}
+.srady-obal{grid-column:1/13}
+.srady{list-style:none;margin:var(--u) 0 0;padding:0;border-bottom:1px solid var(--line)}
+.srady li{border-top:1px solid var(--line)}
+.srady a{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gap);align-items:baseline;padding-block:calc(1.1*var(--u));transition:color .25s}
+.srady .popisek{grid-column:1/2;color:var(--muted)}
+.srady .perex{grid-column:2/7;transition:transform .35s cubic-bezier(.2,.7,.2,1)}
+.srady .text{grid-column:7/12;color:var(--muted)}
+.srady .vpravo{grid-column:12/13;justify-self:end;transition:transform .35s}
+.srady a:hover .perex{color:var(--acc);transform:translateX(6px)}
+.srady a:hover .vpravo{transform:translateX(4px);color:var(--acc)}
+.nahled{position:fixed;left:0;top:0;z-index:30;width:calc(14*var(--u));margin:0;pointer-events:none;opacity:0;transform:translate3d(-999px,-999px,0) scale(.92);transition:opacity .25s,transform .12s linear;box-shadow:0 24px 60px -28px rgba(0,0,0,.5)}
+.nahled.is-on{opacity:1}
+.smlouva.cerna .pol__hlava .text{color:var(--muted)}
+@media (hover:none),(max-width:760px){.nahled{display:none}}
+@media (max-width:760px){
+  .cesty{grid-template-columns:minmax(0,1fr)}
+  .cesta{min-height:0}
+  .citat{grid-column:1/-1}
+  .srady a{grid-template-columns:auto minmax(0,1fr) auto;row-gap:calc(.4*var(--u))}
+  .srady .popisek{grid-column:1}.srady .perex{grid-column:2}.srady .vpravo{grid-column:3}.srady .text{grid-column:2/4}
+}
+
+/* v24 (22. 10. 2026): mezery z v23 zrušeny, bloky odděluje vždy barva. Úvod podstránek je černý blok. */
+.cerna .zalozky__tab[aria-selected="true"],.cerna .zalozky__tab:hover{color:#fff}
+.cerna .krok-foto__meta .text{color:var(--muted)}
+
+/* v26 (22. 10. 2026): výpisy (Projekty, Služby, Feed) v jednom bílém bloku, nadpis oddělený linkou jako jiriklusak.cz/projects/U1/projects */
+.linka-g{margin-top:calc(2*var(--u))}
+.linka{grid-column:1/13;border-top:1px solid var(--line)}
+.linka-g + .g,.linka-g + form + .g{margin-top:calc(2.4*var(--u))}
+.uvod--vypis .srady{margin-top:0}
+.uvod--vypis .srady-obal > .stitek:first-child{margin-top:0}
+
+/* v30: vyhledávání na Realizacích se otevírá pod linkou, nad kartami */
+.uvod--vypis .hledani{padding-block:0 calc(2.4*var(--u))}
+
+/* v31 (22. 10. 2026): fotopás podstránek (varianta B), filtry nad výpisem */
+.hero--pas{height:72vh;height:72svh;min-height:540px}
+.hero__perex{position:absolute;right:var(--m);bottom:calc(4*var(--u));width:calc(4*var(--col) + 3*var(--gap));margin:0;color:rgba(255,255,255,.88)}
+.vypis{padding-top:calc(3*var(--u))}
+.v-lista{align-items:center}
+.v-chips{grid-column:1/11;display:flex;flex-wrap:wrap;gap:calc(.5*var(--u))}
+.v-vpravo{grid-column:11/13;justify-self:end}
+.v-lista + .linka-g{margin-top:calc(1.6*var(--u))}
+.vypis > .g:first-of-type .srady-obal > .stitek:first-child,.vypis .filtry:first-child{margin-top:0}
+.vypis .hledani{padding-block:0 calc(2.4*var(--u))}
+@media (max-width:760px){
+  .hero--pas{height:78svh}
+  .hero--pas .hero__main{bottom:calc(10*var(--u))}
+  .hero__perex{left:var(--m);right:var(--m);width:auto;bottom:calc(3*var(--u))}
+  .v-chips,.v-vpravo{grid-column:1/-1}.v-vpravo{justify-self:start;margin-top:var(--u)}
+}
+
+/* v32: úvod podstránky jedna statická fotka */
+.hero--foto > img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+
+/* v32: úvod O nás, Kariéra, Kontakt jedna statická fotka; nadpis výpisů větší (mezi 54 a 140 px z návrhu A) */
+.hero--foto > img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.uvod--vypis .zahlavi__nadpis .nadpis{font-size:clamp(54px,6.2vw,96px);line-height:1;letter-spacing:-.035em}
+
+/* v33: nadpis výpisů má místo přes 1 až 10, aby byl vždy na jeden řádek (Feed se ve v32 zalomil) */
+.uvod--vypis .zahlavi__nadpis{grid-column:1/11}
+.uvod--vypis .zahlavi__nadpis .nadpis{white-space:nowrap}
+@media (max-width:760px){.uvod--vypis .zahlavi__nadpis .nadpis{white-space:normal}}
+
+/* v34 (22. 10. 2026): menu jako kompaktní lišta uprostřed podle agnos-wbs.framer.website/blog (logo | odkazy | menu | výzva), barva U1 zůstává */
+.nav{display:flex;flex-direction:column;align-items:center;top:calc(1.2*var(--u))}
+.nav__bar{display:flex;align-items:stretch;height:calc(2.7*var(--u));padding:0;border-radius:calc(.5*var(--u));box-shadow:0 10px 30px -12px rgba(0,0,0,.35);overflow:hidden}
+.nav__seg{display:flex;align-items:center;padding-inline:calc(.9*var(--u))}
+.nav__seg + .nav__seg{border-left:1px solid rgba(255,255,255,.14)}
+.nav__home{width:auto;height:auto;gap:calc(.5*var(--u))}
+.nav__jmeno{white-space:nowrap;color:rgba(255,255,255,.92)}
+.nav__links{gap:calc(1.4*var(--u))}
+.nav__seg--toggle{padding-inline:calc(.6*var(--u))}
+.nav__seg--cta{padding-inline:calc(.35*var(--u))}
+.nav__cta{all:unset;box-sizing:border-box;cursor:pointer;height:calc(2*var(--u));display:inline-flex;align-items:center;padding-inline:calc(.9*var(--u));border-radius:calc(.35*var(--u));background:var(--acc);color:#fff;transition:filter .2s}
+.nav__cta:hover{filter:brightness(1.08)}
+.nav__cta:focus-visible{outline:2px solid #fff;outline-offset:2px}
+.nav__panel{width:calc(26*var(--u));max-width:calc(100vw - 2*var(--m))}
+/* úvod s fotkou stejně vysoký jako bílý úvod podstránky (verze 04) */
+.hero--foto{height:calc(23*var(--u));min-height:420px}
+@media (max-width:760px){
+  .nav__bar{width:100%}.nav__seg--cta,.nav__links{display:none}.nav__home{flex:1}
+  .hero--foto{height:auto;min-height:62svh}
+}
+
+/* v35: lupa výpisu na úrovni nadpisu; plovoucí Poptat projekt jen na mobilu (na počítači je výzva v menu) */
+.uvod--vypis .zahlavi__vpravo{grid-column:11/13}
+@media (min-width:761px){.fab{display:none}}
+
+/* v36: logo v menu = znak u1 + „space design“ (Manrope 700, malá písmena, bílá; růžová jen 1 ve znaku).
+   Výška písmen x odpovídá tělu „u“, účaří textu = spodek „u“. */
+.nav__znak{display:inline-flex;align-items:baseline;gap:.28em;font-size:21px;line-height:1}
+.nav__znak .nav__logo{height:1.02em;width:auto;align-self:baseline}
+.nav__jmeno{font-family:var(--font);font-weight:700;font-size:1em;letter-spacing:-.035em;color:#fff;white-space:nowrap}
+
+/* v37: znak u1 opticky k tučnému textu (tělo u o něco vyšší než x-výška), výzva v menu ve stylu štítek */
+.nav__znak{gap:.3em}
+.nav__znak .nav__logo{height:1.16em}
+.nav__cta{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;line-height:1.5}
+
+/* v38: spodek „u“ přesně na účaří „space design“ (ve v37 o 1 px výš) */
+.nav__znak .nav__logo{position:relative;top:.05em}
+
+/* v39: logo v menu varianta D z navrhy_logo_v01: u1 1,7× výšky písma, text na střed těla u */
+.nav__znak{align-items:flex-end}
+.nav__znak .nav__logo{height:1.7em;top:0}
+.nav__znak .nav__jmeno{margin-bottom:.22em}
+
+/* v40: v patičce stejné logo jako v menu (varianta D), větší */
+.pata__logo{display:inline-block}
+.pata__logo .nav__znak{font-size:30px}
+.pata__znacka .pata__logo .nav__logo{height:1.7em}
+.pata__logo + .perex{margin-top:var(--u)}
+
+/* v42: menu proporce B (navrhy_menu_v01) a jedno účaří: velká písmena odkazů na středu lišty (účaří 29,3 px z 50),
+   popisek loga i text tlačítka na stejném účaří (změřeno merit_ucari.mjs: předtím 33,7 / 29 / 25 px). */
+.nav__bar{height:50px}
+.nav__seg{padding-inline:16px}
+.nav__seg--toggle{padding-inline:12px}
+.nav__seg--cta{padding-inline:8px}
+.nav__znak{font-size:17px;position:relative;top:-4.4px}
+.nav__cta{height:34px;padding:8.6px 16px 0;line-height:1}
+
+/* v43: text tlačítka bez korekce z v42 (měření uvnitř tlačítka bylo chybné, ověřeno pixely: bez korekce leží na účaří odkazů) */
+.nav__cta{padding:0 16px;line-height:1.5}

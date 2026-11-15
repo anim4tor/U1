@@ -1,0 +1,5 @@
+/* v62 (30. 10. 2026, Claude Opus 5.5): úvod s fotkou plynule přechází do černého bloku pod ním.
+   Jakub: „ať je to propojené, stín jde do té černé, bez těch okrajů z boku“. Platí jen pro dvojici fotka + černá. */
+main > .hero:has(+ .sek.cerna),main > .phero:has(+ .sek.cerna){border-radius:0}
+main > .hero + .sek.cerna,main > .phero + .sek.cerna{border-top-left-radius:0;border-top-right-radius:0;margin-top:0}
+main > .hero:has(+ .sek.cerna)::after,main > .phero:has(+ .sek.cerna)::after{background:linear-gradient(180deg,rgba(11,10,10,.55) 0%,rgba(11,10,10,.08) 22%,rgba(11,10,10,.25) 45%,rgba(11,10,10,.7) 78%,#0B0A0A 100%),linear-gradient(90deg,rgba(11,10,10,.35) 0%,rgba(11,10,10,0) 55%)}

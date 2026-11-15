@@ -1,0 +1,48 @@
+/* U1 v61, 30. 10. 2026. Spolecna sazba vsech stranek. Role 54 / 36 / 24 / 16 / 12. */
+/* FAQ: jedna komponenta napric celym webem. Nadpis sekce zustava 54, otazky a odpovedi Text 16. */
+.faq summary.text{align-items:center;gap:calc(1.5*var(--u));padding-block:var(--u);min-height:calc(3*var(--u));font-size:var(--f-text);line-height:1.5;font-weight:500;letter-spacing:0}
+.faq summary::after{font-size:var(--f-text);flex:0 0 1em;text-align:right;align-self:center}
+.faq details p{max-width:65ch;padding-right:calc(2.5*var(--u));padding-bottom:calc(1.5*var(--u))}
+/* Prehledy a proces: cisla jsou orientacni stitky, nikoliv dalsi velke nadpisy. */
+.osa,.osa.osa--4{padding-top:0;row-gap:calc(2*var(--u))}
+.osa::before,.osa .krok::before{display:none}
+.osa .krok{border-top:1px solid var(--line);padding-top:var(--u);gap:calc(.6*var(--u));align-content:start}
+.osa .krok__cislo{color:var(--acc);margin-bottom:calc(.5*var(--u))}
+.osa .krok .perex{margin-top:0}
+.smlouva .zahlavi__nadpis{grid-column:1/-1}
+.smlouva .zahlavi__vpravo{grid-column:1/9;justify-self:start;max-width:calc(34*var(--u));margin-top:var(--u);padding-bottom:0}
+/* Karty duvodu: stejna linka a stejna velikost ikon jako ostatni obsahove komponenty. */
+.duvod{border-top:1px solid var(--line)}
+.duvod svg{width:calc(1.2*var(--u));height:calc(1.2*var(--u))}
+/* Benefity: prehled pres sirku bloku, bez prazdne poloviny stranky a bez velkych nazvu. */
+.benefity__h{grid-column:1/-1}
+.benefity{grid-column:1/-1;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:calc(3*var(--u));row-gap:0}
+.benefity li{border-top:1px solid var(--line);padding-block:var(--u);grid-template-columns:1.2em minmax(0,1fr);column-gap:calc(.6*var(--u));align-items:start}
+.benefity svg{width:1.2em;height:1.2em;margin-top:.15em}
+/* Dotykove radky i na uzkem telefonu. */
+.seznam a,.seznam button{min-height:44px}
+/* Clanek: zadny levy panel. Vlastni mrizka dovoluje tabulkam a fotkam celou sirku. */
+.clanek-v61 .dok__text{grid-column:1/-1;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gap)}
+.clanek-v61 .dok__text>*{grid-column:3/11;min-width:0;width:100%;max-width:calc(34*var(--u));justify-self:center}
+.clanek-v61 .dok__text>.tabulka-rolovani,.clanek-v61 .dok__text>figure{grid-column:1/-1;max-width:none}
+.clanek-v61 .dok__text>figure img{width:100%;aspect-ratio:2/1;object-fit:cover}
+.tabulka-rolovani{overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:thin}
+.tabulka-rolovani:focus-visible{outline:2px solid var(--acc);outline-offset:4px}
+.tabulka-rolovani table{width:100%;table-layout:fixed}
+.tabulka-rolovani th,.tabulka-rolovani td{padding:var(--u);overflow-wrap:break-word}
+.tabulka-rolovani th:first-child,.tabulka-rolovani td:first-child{padding-left:0}
+.tabulka-rolovani th:last-child,.tabulka-rolovani td:last-child{padding-right:0}
+.clanek-v61 .dok__text>.tabulka-rolovani+h2{margin-top:calc(3*var(--u))}
+@media(max-width:1050px){
+ .duvody,.osa--4,.benefity{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .clanek-v61 .dok__text>*{grid-column:2/12}
+}
+@media(max-width:760px){
+ .duvody,.osa,.osa--4,.benefity{grid-template-columns:minmax(0,1fr)}
+ .benefity{margin-top:calc(2*var(--u))}
+ .faq{margin-top:calc(2*var(--u))}
+ .clanek-v61 .dok__text{grid-template-columns:minmax(0,1fr)}
+ .clanek-v61 .dok__text>*{grid-column:1/-1}
+ .tabulka-rolovani table{min-width:640px}
+ .smlouva .zahlavi__vpravo{max-width:none}
+}
