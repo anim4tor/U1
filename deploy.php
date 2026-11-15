@@ -86,6 +86,65 @@ if (isset($_GET['flush']) && isset($_GET['secret']) && hash_equals($secret, $_GE
     exit;
 }
 
+// If requesting obsolete content cleanup: ?secret=maiden37&clean_content=1
+if (isset($_GET['clean_content']) && isset($_GET['secret']) && hash_equals($secret, $_GET['secret'])) {
+    $obsoleteDirs = [
+        $projectDir . '/public/content/5_career/positions/2_project-manager-copy',
+        $projectDir . '/public/content/5_career/positions/3_project-manager-copy-copy'
+    ];
+    $cleaned = [];
+    foreach ($obsoleteDirs as $oDir) {
+        if (is_dir($oDir)) {
+            $flushDirectory($oDir);
+            @rmdir($oDir);
+            $cleaned[] = basename($oDir);
+        }
+    }
+    $cacheDirs = [
+        $projectDir . '/site/cache',
+        $projectDir . '/site/store/cache'
+    ];
+    foreach ($cacheDirs as $cDir) {
+        $flushDirectory($cDir);
+    }
+    echo json_encode(['status' => 'success', 'cleaned' => $cleaned]);
+    exit;
+}
+
+// Direct content zip upload: ?secret=maiden37&upload_content=1
+if (isset($_GET['upload_content']) && isset($_GET['secret']) && hash_equals($secret, $_GET['secret'])) {
+    $zipData = file_get_contents('php://input');
+    if (!empty($zipData)) {
+        $tmp = tempnam(sys_get_temp_dir(), 'content_zip_');
+        file_put_contents($tmp, $zipData);
+        $zip = new ZipArchive();
+        if ($zip->open($tmp) === true) {
+            $contentDir = $projectDir . '/public/content';
+            $zip->extractTo($contentDir);
+            $zip->close();
+            @unlink($tmp);
+            
+            // Clean up obsolete folders
+            $obsoleteDirs = [
+                $projectDir . '/public/content/5_career/positions/2_project-manager-copy',
+                $projectDir . '/public/content/5_career/positions/3_project-manager-copy-copy'
+            ];
+            foreach ($obsoleteDirs as $oDir) {
+                if (is_dir($oDir)) {
+                    $flushDirectory($oDir);
+                    @rmdir($oDir);
+                }
+            }
+            
+            // Flush cache
+            $cacheDirs = [$projectDir . '/site/cache', $projectDir . '/site/store/cache'];
+            foreach ($cacheDirs as $cDir) { $flushDirectory($cDir); }
+            echo json_encode(['status' => 'success', 'message' => 'Content uploaded and extracted successfully.']);
+            exit;
+        }
+    }
+}
+
 // If requesting directory inspection: ?secret=maiden37&inspect=1
 if (isset($_GET['inspect']) && isset($_GET['secret']) && hash_equals($secret, $_GET['secret'])) {
     $parentScan = @scandir(__DIR__);
@@ -347,6 +406,18 @@ for ($i = 0; $i < $zip->numFiles; $i++) {
 
 $zip->close();
 @unlink($tempZip);
+
+// Clean up obsolete directories
+$knownObsolete = [
+    $projectDir . '/public/content/5_career/positions/2_project-manager-copy',
+    $projectDir . '/public/content/5_career/positions/3_project-manager-copy-copy'
+];
+foreach ($knownObsolete as $kDir) {
+    if (is_dir($kDir)) {
+        $flushDirectory($kDir);
+        @rmdir($kDir);
+    }
+}
 
 // Record active branch
 @file_put_contents($projectDir . '/.current-branch', $targetBranch);
