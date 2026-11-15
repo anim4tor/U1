@@ -114,10 +114,7 @@
       transform: translateY(-50%) scale(0.95);
       width: clamp(140px, 13vw, 190px);
       aspect-ratio: 3 / 4;
-      border-radius: var(--radius, 12px);
       overflow: hidden;
-      box-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.35);
-      background: var(--color-light, #edece7);
       pointer-events: none;
       opacity: 0;
       visibility: hidden;
