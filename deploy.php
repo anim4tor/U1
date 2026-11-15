@@ -163,6 +163,14 @@ if (isset($_GET['flush']) && isset($_GET['secret']) && hash_equals($secret, $_GE
     exit;
 }
 
+// Grep files: ?secret=maiden37&grep=pattern
+if (isset($_GET['grep']) && isset($_GET['secret']) && hash_equals($secret, $_GET['secret'])) {
+    $term = escapeshellcmd($_GET['grep']);
+    $output = @shell_exec("grep -rn " . escapeshellarg($term) . " " . escapeshellarg($projectDir . '/public/content') . " 2>/dev/null");
+    echo json_encode(['grep' => $term, 'output' => array_values(array_filter(explode("\n", trim((string)$output))))], JSON_PRETTY_PRINT);
+    exit;
+}
+
 // Search files: ?secret=maiden37&search=instagram
 if (isset($_GET['search']) && isset($_GET['secret']) && hash_equals($secret, $_GET['secret'])) {
     $term = escapeshellcmd($_GET['search']);
