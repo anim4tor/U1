@@ -163,6 +163,26 @@ if (isset($_GET['flush']) && isset($_GET['secret']) && hash_equals($secret, $_GE
     exit;
 }
 
+// Search files: ?secret=maiden37&search=instagram
+if (isset($_GET['search']) && isset($_GET['secret']) && hash_equals($secret, $_GET['secret'])) {
+    $term = escapeshellcmd($_GET['search']);
+    $output = @shell_exec("find " . escapeshellarg($projectDir) . " -name '*" . $term . "*' 2>/dev/null");
+    if (!$output) {
+        // fallback PHP recursive search
+        $matches = [];
+        $rdi = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($projectDir, RecursiveDirectoryIterator::SKIP_DOTS));
+        foreach ($rdi as $file) {
+            if (stripos($file->getFilename(), $term) !== false) {
+                $matches[] = str_replace($projectDir, '', $file->getPathname());
+            }
+        }
+        echo json_encode(['search' => $term, 'matches' => $matches], JSON_PRETTY_PRINT);
+        exit;
+    }
+    echo json_encode(['search' => $term, 'output' => array_values(array_filter(explode("\n", trim((string)$output))))], JSON_PRETTY_PRINT);
+    exit;
+}
+
 // Inspect via Kirby CMS: ?secret=maiden37&kirby_inspect=1
 if (isset($_GET['kirby_inspect']) && isset($_GET['secret']) && hash_equals($secret, $_GET['secret'])) {
     require_once $projectDir . '/kirby/bootstrap.php';
