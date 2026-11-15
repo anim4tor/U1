@@ -26,3 +26,7 @@ prepros.config
 # Environment & secrets
 .env
 .env.*
+
+# Kirby locks
+.lock
+*.lock

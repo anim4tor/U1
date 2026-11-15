@@ -6,6 +6,89 @@ Hero: [{"content":{"text":"Contact","level":"h1","mod":"l","hasreveal":"true","b
 
 ----
 
+Departmentsheading: Department Contacts
+
+----
+
+Departmentssubtitle: You can also send an inquiry via our form by clicking the Inquire a project button.
+
+----
+
+Departments:
+
+- 
+  name: Sales & New Projects
+  email: sales@u1.cz
+  phone: ""
+- 
+  name: General Inquiries
+  email: info@u1.cz
+  phone: ""
+- 
+  name: Design & Architecture
+  email: design@u1.cz
+  phone: "+420 737 758 528"
+- 
+  name: Marketing & Media
+  email: marketing@u1.cz
+  phone: "+420 725 020 888"
+- 
+  name: Career & HR
+  email: hr@u1.cz
+  phone: ""
+- 
+  name: Accounting
+  email: accountant@u1.cz
+  phone: "+420 720 834 765"
+
+----
+
+Locationsheading: Where to find us
+
+----
+
+Locations:
+
+- 
+  title: "Brno, Headquarters & Showroom"
+  address: "Nejedlého 373/1, 638 00 Brno-Lesná"
+  note: Former post office building.
+  mapurl: "https://maps.google.com/?q=Nejedl%C3%A9ho+373/1,+Brno"
+  image:
+    - showroom_brno.png
+- 
+  title: Prague
+  address: "Na Valentince 3336/4, 150 00 Praha 5, Smíchov"
+  note: Prague Showroom
+  mapurl: "https://maps.google.com/?q=Na+Valentince+3336/4,+Praha"
+  image:
+    - showroom_praha.jpg
+
+----
+
+Billinglabel: Billing details
+
+----
+
+Billingtext: U1 s.r.o. · Nejedlého 373/1, 638 00 Brno-Lesná · ID 26273179 · VAT CZ26273179 · Regional Court in Brno, section C, file 41126
+
+----
+
+Order:
+
+- 
+  label: 1_hero
+- 
+  label: 2_departments
+- 
+  label: 3_locations
+- 
+  label: sections/Feed/index
+- 
+  label: sections/Cta/index
+
+----
+
 Cover: contact_hero.jpg
 
 ----

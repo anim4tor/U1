@@ -6,25 +6,74 @@ Category: Stavba a technika
 
 ----
 
-Hero: [{"content":{"text":"Povrchy a materiály","level":"h1","mod":"l","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-1dkxv03n","isHidden":false,"type":"heading"},{"content":{"image":["file://B3qzowr055hl3ljC"],"hasparallax":"false","parallax":0,"hasreveal":"false","reveal":"","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-7g0edafo","isHidden":false,"type":"cover"},{"content":{"text":"Kvalitní stěnové obklady, akustické panely a designové povrchy, které dodají interiéru jedinečnou atmosféru.","mod":"l","face":"","case":"lower","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-sj0a77ia","isHidden":false,"type":"text"}]
+Excerpt: <p>Stěrky, tapety, obklady a dřevo. Vybíráme materiály, které vydrží každodenní intenzivní provoz.</p>
 
 ----
 
-Excerpt: <p>Materiály a povrchy řešíme jako součást návrhu i realizace interiéru.</p>
-
-Intro: <p>Barvy, obklady a nábytek skládáme do společného řešení. Pracujeme s jejich barevností, strukturou a návazností na vybavení.</p>
+Intro: <p>Materiály a povrchy řešíme jako součást návrhu i realizace interiéru. Barvy, obklady a nábytek skládáme do společného řešení.</p>
 
 ----
 
-Details: 
+Details: <p>V Direct pojišťovně jsme plechovou recepci doplnili terakotovým obkladem. Zelenou firemní barvu v interiéru doprovází přírodní dřevo a rostliny. Barevnost značky tak získala konkrétní fyzickou podobu v prostoru.</p><p>V Restauraci Evropa jsme při rekonstrukci v historickém prostředí vytvořili bar z trapézového plechu a kazetový podhled. Podobné prvky propojujeme s truhlářskou výrobou na míru.</p>
 
 ----
 
-Gallery: 
+Includesheadline: Co zahrnuje
 
 ----
 
-Relatedprojects: 
+Includes:
+- 
+  title: Pohledové betonové a designové stěrky
+  text: Pandomo, mikrocement a stěrky s industriálním i sametovým finišem pro reprezentativní plochy.
+
+- 
+  title: Dřevěné a akustické obklady stěn
+  text: Dýhované panely, laťování z masivu a perforované akustické desky pro vizuální teplo a tlumení hluku.
+
+- 
+  title: Keramické obklady a plechové detaily
+  text: Mozaiky, velkoformátové dlažby, trapézové plechy a lakované kovové prvky pro specifický styl interiéru.
+
+- 
+  title: Odolné malby a omyvatelné nátěry
+  text: Prémiové otěruvzdorné barvy a tapety testované pro vysokou frekvenci pohybu osob v chodbách a open-space.
+
+
+----
+
+Faqheadline: Časté otázky
+
+----
+
+Faq:
+- 
+  question: Můžete do interiéru zapracovat firemní barvy?
+  answer: Ano, firemní identitu a barvy převádíme do materiálů přirozeným způsobem – od stěrek a látek až po práškově lakované kovy či obklady.
+
+- 
+  question: Vyrobíte i atypický prvek z navrženého materiálu?
+  answer: Ano, máme zkušenosti s netradičními materiály, jako jsou trapézové plechy, pivní sudy, plechovky, surová ocel či terakota.
+
+- 
+  question: Můžeme si předem prohlédnout vzorky materiálů?
+  answer: Samozřejmě. Pro každý projekt připravujeme fyzický vzorkovník (moodboard) materiálů, textilií a povrchů, který si společně odsouhlasíme před objednáním.
+
+
+----
+
+Workmodel: Design & Build nebo samostatně
+
+----
+
+Location: Celá Česká republika a Slovensko
+
+----
+
+Relatedprojects:
+- projects/direct-pojistovna
+- projects/ortho-dent
+- projects/volareza-restaurace-evropa
 
 ----
 
@@ -32,47 +81,7 @@ Cover: - file://B3qzowr055hl3ljC
 
 ----
 
-Meta-description: 
-
-----
-
-Meta-title: 
-
-----
-
-Meta-canonical-url: 
-
-----
-
-Og-title: 
-
-----
-
-Og-description: 
-
-----
-
-Og-image: 
-
-----
-
-Robots-index: 
-
-----
-
-Robots-follow: 
-
-----
-
-Robots-archive: 
-
-----
-
-Robots-imageindex: 
-
-----
-
-Robots-snippet: 
+Hero: [{"content":{"text":"Povrchy a materiály","level":"h1","mod":"l","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-1dkxv03n","isHidden":false,"type":"heading"},{"content":{"image":["file://B3qzowr055hl3ljC"],"hasparallax":"false","parallax":0,"hasreveal":"false","reveal":"","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-7g0edafo","isHidden":false,"type":"cover"},{"content":{"text":"Kvalitní stěnové obklady, akustické panely a designové povrchy, které dodají interiéru jedinečnou atmosféru.","mod":"l","face":"","case":"lower","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-sj0a77ia","isHidden":false,"type":"text"}]
 
 ----
 

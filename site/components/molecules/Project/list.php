@@ -1,28 +1,20 @@
 <?php
-$project = $project ?? null;
-$img     = $img ?? $image ?? ($project ? $project->cover()->toFile() : null);
-$url     = $project ? $project->url() : '#';
-$title   = $project ? $project->title()->value() : '';
-$caption = $caption ?? ($img && $img->caption()->isNotEmpty() ? $img->caption()->value() : null);
-$date    = $project && $project->date()->isNotEmpty() ? $project->date()->toDate('Y') : null;
+$meta = array_filter([
+	$project->industry()->isNotEmpty() ? implode(', ', $project->industry()->split()) : null,
+	$project->place()->isNotEmpty() ? $project->place()->value() : null,
+	$project->date()->isNotEmpty() ? $project->date()->toDate('Y') : null,
+]);
 ?>
-<div class="item --project" data-scroll>
-	<a href="<?= $url ?>" class="grid gap__05 relative">	
-		<?php if ($img) : ?>
-			<div class="item__figure grid img__radius no__overflow">
-				<?= snippet('atoms/Image', ['img' => $img, 'reveal' => true, 'css' => 'vh__8 grid', 'node' => 'data-reveal-image']) ?>
-			</div>
-		<?php endif ?>
-		<div class="item__meta relative flex justify__space-between align__start gap__2">
-			<div class="flex gap__05 upper">
-				<h3 class="font__size__4 wrap"><?= $title ?></h3>
-				<?php if ($caption) : ?>
-					<span class="op__6 font__size__small">(<?= $caption ?>)</span>
-				<?php endif ?>
-			</div>
-			<?php if ($date) : ?>
-				<p class="font__size__small">(<?= $date ?>)</p>
+<div class="item --project relative" data-scroll>
+	<a href="<?= $project->url() ?>" class="grid gap__1 relative">	
+		<div class="relative">
+			<?php if ($cover = $project->cover()->toFile()) : ?>
+				<div class="item__figure grid img__radius"><?= snippet('atoms/Image', ['img' => $cover, 'reveal' => true, 'css' => 'aspect__4/3', 'node' => 'data-reveal-image']) ?></div>
 			<?php endif ?>
+		</div>
+		<div class="item__meta relative grid gap__05">
+			<div class="font__size__small op__7"><?= implode(' · ', $meta) ?></div>
+			<h3 class=" wrap "><?= $project->title() ?></h3>
 		</div>
 	</a>
 </div>

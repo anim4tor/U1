@@ -3,12 +3,90 @@ title: Contact
 tabs:
   content:
     columns:
-      - width: 1/1
+      - width: 3/4
         fields:
           hero:
             extends: fields/hero
           intro:
             extends: fields/header
+
+          departmentsHeading:
+            label: Nadpis sekce oddělení
+            type: text
+            default: Kontakty na oddělení
+          departmentsSubtitle:
+            label: Podtitul sekce oddělení
+            type: text
+            default: Poptávku můžete poslat i přes formulář, otevře ho tlačítko Poptat projekt.
+          departments:
+            label: Kontakty na oddělení
+            type: structure
+            fields:
+              name:
+                label: Název oddělení
+                type: text
+                width: 1/3
+              email:
+                label: E-mail
+                type: email
+                width: 1/3
+              phone:
+                label: Telefon
+                type: text
+                width: 1/3
+
+          locationsHeading:
+            label: Nadpis showroomů a poboček
+            type: text
+            default: Kde nás najdete
+          locations:
+            label: Pobočky a showroomy
+            type: structure
+            fields:
+              title:
+                label: Město / Název
+                type: text
+                width: 1/2
+              address:
+                label: Adresa
+                type: text
+                width: 1/2
+              note:
+                label: Poznámka (např. budova)
+                type: text
+                width: 1/2
+              mapUrl:
+                label: Odkaz na mapu
+                type: url
+                width: 1/2
+              image:
+                label: Fotografie
+                type: files
+                max: 1
+
+          billingLabel:
+            label: Popisek fakturačních údajů
+            type: text
+            default: Fakturační údaje
+          billingText:
+            label: Text fakturačních údajů
+            type: textarea
+            default: U1 s.r.o. · Nejedlého 373/1, 638 00 Brno-Lesná · IČO 26273179 · DIČ CZ26273179 · Krajský soud v Brně, oddíl C, vložka 41126
+
+      - width: 1/4
+        sticky: true
+        fields:
+          order:
+            type: structure 
+            fields:
+              label:
+                label: Choose Section Layout
+                type: select
+                options: query
+                query:
+                  fetch: page.getCurrentAndGlobalSnippets
+                  text: "{{ item.text }}"
+                  value: "{{ item.value }}"
 
   cta: tabs/cta
   meta: tabs/meta/page

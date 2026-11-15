@@ -1,7 +1,58 @@
-:root {
-	
-}
+/*
+	TEMPLATE: Post / Article (Detail článku dle v65)
+*/
 
-.grid__post {
-	grid-template-columns: 0.8fr 1.2fr;
+.post-article {
+  position: relative;
+
+  .post-body {
+    max-width: 780px;
+    margin-inline: auto;
+
+    h2 {
+      margin-top: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    h3 {
+      margin-top: 2rem;
+      margin-bottom: 0.75rem;
+    }
+
+    p {
+      line-height: 1.7;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-block: 2rem;
+
+      th,
+      td {
+        padding: 0.75rem 1rem;
+        border-top: 1px solid rgba(0, 0, 0, 0.12);
+        text-align: left;
+      }
+
+      th {
+        font-weight: 600;
+        font-size: 0.875rem;
+        text-transform: uppercase;
+        opacity: 0.6;
+      }
+    }
+
+    figure {
+      margin-block: 2.5rem;
+      border-radius: var(--radius, 12px);
+      overflow: hidden;
+
+      figcaption {
+        margin-top: 0.5rem;
+        font-size: 0.8125rem;
+        opacity: 0.6;
+      }
+    }
+  }
 }

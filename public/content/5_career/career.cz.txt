@@ -6,7 +6,7 @@ Slug: career
 
 ----
 
-Hero: [{"content":{"text":"Neustále se posouváme kupředu","level":"h1","mod":"xs","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"b184f43d-31ab-419a-8c6c-0430dbdf4156","isHidden":false,"type":"heading"},{"content":{"text":"U nás dostaneš prostor pracovat na smysluplných projektech, rozvíjet se v tom, co tě baví a spolupracovat s inspirativními lidmi. Vyvíjíme řešení, která každý den pomáhají firmám fungovat lépe – ať už jde o malé podniky, nebo velké korporace. Přidej se k nám a buď u toho!","mod":"m","face":"","case":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"3ff9902c-8a26-481b-b274-80976cc59bcd","isHidden":false,"type":"text"},{"content":{"href":"page://VdrNcpDJpzhLQIxA","target":"false","label":"Volné pozice","counter":["page://VdrNcpDJpzhLQIxA"],"theme":"invert-ghost","hover":"invert","size":"default","icon":"arrow-right","hasreveal":"true","bid":"","attr":"","css":"","node":""},"id":"e74109fd-5569-469b-bc56-18bf9bed5be2","isHidden":false,"type":"button"},{"content":{"image":["file://rKxIYd1om9PSKV7H"],"hasparallax":"false","parallax":0,"hasreveal":"false","reveal":"","bid":"","attr":"","css":"overlay__bottom","href":"","target":"false","node":""},"id":"5b02c2ca-0422-40b4-b898-9db7469f43ce","isHidden":false,"type":"cover"}]
+Hero: [{"content":{"text":"Kariéra v U1","level":"h1","mod":"xs","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"b184f43d-31ab-419a-8c6c-0430dbdf4156","isHidden":false,"type":"heading"},{"content":{"text":"U nás se potkává návrh interiéru, stavba a projektové řízení.","mod":"","face":"","case":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"3ff9902c-8a26-481b-b274-80976cc59bcd","isHidden":false,"type":"text"},{"content":{"href":"page://VdrNcpDJpzhLQIxA","target":"false","label":"Volné pozice","counter":["page://VdrNcpDJpzhLQIxA"],"theme":"invert-ghost","hover":"invert","size":"default","icon":"arrow-right","hasreveal":"true","bid":"","attr":"","css":"","node":""},"id":"e74109fd-5569-469b-bc56-18bf9bed5be2","isHidden":true,"type":"button"},{"content":{"image":["file://rKxIYd1om9PSKV7H"],"hasparallax":"false","parallax":0,"hasreveal":"false","reveal":"","bid":"","attr":"","css":"overlay__bottom","href":"","target":"false","node":""},"id":"5b02c2ca-0422-40b4-b898-9db7469f43ce","isHidden":false,"type":"cover"}]
 
 ----
 
@@ -98,11 +98,108 @@ Projects:
 
 ----
 
+Positionsheading: Volné pozice
+
+----
+
+Positionssubtitle: Vhodnou pozici nevidíte? Pošlete nám životopis na hr@u1.cz.
+
+----
+
+Positionslist:
+
+- 
+  title: Projektový manažer
+  location: Brno · plný úvazek
+  url: /kariera/positions/project-manager
+- 
+  title: Rozpočtář stavební části interiéru
+  location: Brno
+  url: /kariera/positions/rozpoctar-stavebni-casti-interieru
+- 
+  title: Obchodní manažer
+  location: Brno
+  url: /kariera/positions/obchodni-manazer
+- 
+  title: Kalkulant interiérů
+  location: Brno
+  url: /kariera/positions/kalkulant-interieru
+- 
+  title: Designér
+  location: Brno
+  url: /kariera/positions/designer
+
+----
+
+Benefitsheading: Proč pracovat u nás
+
+----
+
+Benefits:
+
+- 
+  title: Propojení profesí
+  text: >
+    Architektura, stavba a projektové
+    řízení jsou součástí jedné firmy.
+    Jejich práce se potkává na
+    společných projektech.
+- 
+  title: Od návrhu k realizaci
+  text: >
+    Zajišťujeme návrh interiéru i jeho
+    provedení. K našim projektům patří
+    také kompletní kanceláře na klíč.
+- 
+  title: Různé typy interiérů
+  text: >
+    Vedle kanceláří pracujeme na
+    klinikách a gastronomických
+    interiérech. Konkrétní práci
+    ukazujeme v realizacích.
+
+----
+
+Hiringprocessheading: Jak probíhá výběr
+
+----
+
+Hiringprocess:
+
+- 
+  step: "01"
+  title: Napíšeme si
+  text: >
+    Pošlete nám životopis a pár vět o
+    sobě na hr@u1.cz.
+- 
+  step: "02"
+  title: Zavoláme si
+  text: >
+    Online nebo po telefonu upřesníme
+    vaše zkušenosti a očekávání.
+- 
+  step: "03"
+  title: Potkáme se
+  text: >
+    Potkáte se s budoucím vedoucím i
+    kolegy a proberete vše důležité.
+
+----
+
+Ctaapplyheading: Máte o pozici zájem? Napište nám.
+
+----
+
+Ctaapplyemail: hr@u1.cz
+
+----
+
 Positions: [{"content":{"text":"Volné pozice","level":"h2","mod":"l","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"5358e90d-9029-4bcd-a24f-c159d2af4d52","isHidden":false,"type":"heading"}]
 
 ----
 
-About: [{"content":{"text":"Pojď dělat na zajímavých projektech","level":"h2","mod":"s","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"b38aeedd-197e-4b23-a624-b87bbbb4a38e","isHidden":false,"type":"heading"},{"content":{"text":"","mod":"","face":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"399d4bff-79e4-4edb-a748-c26ced040916","isHidden":false,"type":"label"},{"content":{"text":"Dvacet pět let zkušeností promítnutých do ucelených architektonických a designových řešení, která prohlubují radost ze společných okamžiků.","mod":"m","face":"","case":"lower","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"7ed68db6-be8e-4318-a06b-07b6fd61861c","isHidden":false,"type":"text"},{"content":{"href":"page://YASipJpnQrG05UlL","target":"false","label":"O nás","counter":[],"theme":"invert","hover":"dark","size":"default","icon":"arrow-right","hasreveal":"true","bid":"","attr":"","css":"","node":""},"id":"ee9fc54c-0d02-4d65-976f-2ce8da0d854f","isHidden":false,"type":"button"},{"content":{"image":["file://sZRbZagT6UU9Qxum"],"hasparallax":"true","parallax":2,"hasreveal":"true","reveal":"left","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"0192e1d6-7bc5-4dd1-a53e-56cf1127d30d","isHidden":false,"type":"image"}]
+About: [{"content":{"text":"Pojď dělat na zajímavých projektech","level":"h2","mod":"s","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"b38aeedd-197e-4b23-a624-b87bbbb4a38e","isHidden":false,"type":"heading"},{"content":{"text":"","mod":"","face":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"399d4bff-79e4-4edb-a748-c26ced040916","isHidden":false,"type":"label"},{"content":{"text":"Dvacet pět let zkušeností promítnutých do ucelených architektonických a designových řešení, která prohlubují radost ze společných okamžiků.","mod":"","face":"","case":"lower","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"7ed68db6-be8e-4318-a06b-07b6fd61861c","isHidden":false,"type":"text"},{"content":{"href":"page://YASipJpnQrG05UlL","target":"false","label":"O nás","counter":[],"theme":"invert","hover":"dark","size":"default","icon":"arrow-right","hasreveal":"true","bid":"","attr":"","css":"","node":""},"id":"ee9fc54c-0d02-4d65-976f-2ce8da0d854f","isHidden":false,"type":"button"},{"content":{"image":["file://sZRbZagT6UU9Qxum"],"hasparallax":"true","parallax":2,"hasreveal":"true","reveal":"left","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"0192e1d6-7bc5-4dd1-a53e-56cf1127d30d","isHidden":false,"type":"image"}]
 
 ----
 
@@ -129,21 +226,21 @@ Quotetext: Dvacet pět let zkušeností promítnutých do ucelených architekton
 Order:
 
 - 
-  label: hero
+  label: 1_hero
 - 
-  label: benefits
+  label: 2_positions
 - 
-  label: coleagues
+  label: 3_benefits
 - 
-  label: projects
-- 
-  label: life
-- 
-  label: quote
+  label: 4_process
 - 
   label: sections/Feed/index
 - 
-  label: cta
+  label: sections/Cta/index
+
+----
+
+Cta: 
 
 ----
 
@@ -191,11 +288,23 @@ Robots-snippet:
 
 ----
 
-Openpositions: - page://o0AFKfxL3P0xmeRN
+Openpositions:
+
+- page://o0AFKfxL3P0xmeRN
+- page://HdaMX7Uiij9g2iyp
+- page://nkKjdiSh5UjmQ1oi
+- page://klkntInt2026u1cz
+- page://dsgnrU1Job2026cz
 
 ----
 
-Opened: - page://o0AFKfxL3P0xmeRN
+Opened:
+
+- page://o0AFKfxL3P0xmeRN
+- page://HdaMX7Uiij9g2iyp
+- page://nkKjdiSh5UjmQ1oi
+- page://klkntInt2026u1cz
+- page://dsgnrU1Job2026cz
 
 ----
 

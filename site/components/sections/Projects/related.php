@@ -25,7 +25,7 @@ if (!isset($button)) {
 
 <?php if ($hasProj) : ?>
 <section class="projects radius" theme="<?= $theme ?>">
-	<div class="grid__3 gap-x__1 gap-y__2 mobile:grid__1 inner__4 mobile:inner-x__1 " data-carousel>
+	<div class="grid__3 gap__3 mobile:grid__1 inner__4 mobile:inner-x__1 " data-carousel>
 		<div data-scroll class="flex align__start gap__01 span__2 relative">
 			<h2 class="smaller"><?= $title ?></h2>
 		</div>
@@ -34,10 +34,10 @@ if (!isset($button)) {
 			<button data-carousel-next class="button upper" theme="<?= $btnTheme ?>" hover="<?= $btnHover ?>"><span class="icon"><?= svg('public/assets/images/ui/ui_arrow-right.svg') ?></span></button>
 		</div>
 		<div class="span__3" data-carousel-scroll>
-			<ol class="flex justify__start align__center no__wrap gap__1" data-carousel-slides>	
+			<ol class="flex justify__start align__center no__wrap gap__2" data-carousel-slides>	
 			<?php foreach ($projects as $project) : ?>
 				<li data-slide class="project__wrapper vw__5">	
-					<?= snippet('molecules/Project', compact('project')) ?>
+					<?= snippet('molecules/Project/list', compact('project')) ?>
 				</li>
 			<?php endforeach ?>
 			<?php if ($button) : ?>

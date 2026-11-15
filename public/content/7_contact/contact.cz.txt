@@ -2,7 +2,90 @@ Title: Kontakt
 
 ----
 
-Hero: [{"content":{"text":"Spojte se s námi","level":"h1","mod":"l","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"hero-head-contact-cz","isHidden":false,"type":"heading"},{"content":{"image":["file://Z4ALtoUPLP0eh9Fk"],"hasparallax":"false","parallax":0,"hasreveal":"false","reveal":"","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"hero-cover-contact-cz","isHidden":false,"type":"cover"},{"content":{"text":"Spojte se s námi přímo nebo nám na vás zanechte kontakt. Ozveme se.","mod":"l","face":"","case":"lower","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"hero-text-contact-cz","isHidden":false,"type":"text"}]
+Hero: [{"content":{"text":"Proberme váš projekt","level":"h1","mod":"l","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"hero-head-contact-cz","isHidden":false,"type":"heading"},{"content":{"image":["file://Z4ALtoUPLP0eh9Fk"],"hasparallax":"false","parallax":0,"hasreveal":"false","reveal":"","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"hero-cover-contact-cz","isHidden":false,"type":"cover"},{"content":{"text":"Napište nám, co připravujete a s čím vám máme pomoci.","mod":"l","face":"","case":"lower","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"hero-text-contact-cz","isHidden":false,"type":"text"}]
+
+----
+
+Departmentsheading: Kontakty na oddělení
+
+----
+
+Departmentssubtitle: Poptávku můžete poslat i přes formulář, otevře ho tlačítko Poptat projekt.
+
+----
+
+Departments:
+
+- 
+  name: Obchod a nové projekty
+  email: sales@u1.cz
+  phone: ""
+- 
+  name: Obecné dotazy
+  email: info@u1.cz
+  phone: ""
+- 
+  name: Design a architektura
+  email: design@u1.cz
+  phone: "+420 737 758 528"
+- 
+  name: Marketing a média
+  email: marketing@u1.cz
+  phone: "+420 725 020 888"
+- 
+  name: Kariéra a HR
+  email: hr@u1.cz
+  phone: ""
+- 
+  name: Účtárna
+  email: accountant@u1.cz
+  phone: "+420 720 834 765"
+
+----
+
+Locationsheading: Kde nás najdete
+
+----
+
+Locations:
+
+- 
+  title: "Brno, sídlo a showroom"
+  address: "Nejedlého 373/1, 638 00 Brno-Lesná"
+  note: Budova bývalé pošty.
+  mapurl: "https://maps.google.com/?q=Nejedl%C3%A9ho+373/1,+Brno"
+  image:
+    - showroom_brno.png
+- 
+  title: Praha
+  address: "Na Valentince 3336/4, 150 00 Praha 5, Smíchov"
+  note: Showroom Praha
+  mapurl: "https://maps.google.com/?q=Na+Valentince+3336/4,+Praha"
+  image:
+    - showroom_praha.jpg
+
+----
+
+Billinglabel: Fakturační údaje
+
+----
+
+Billingtext: U1 s.r.o. · Nejedlého 373/1, 638 00 Brno-Lesná · IČO 26273179 · DIČ CZ26273179 · Krajský soud v Brně, oddíl C, vložka 41126
+
+----
+
+Order:
+
+- 
+  label: 1_hero
+- 
+  label: 2_departments
+- 
+  label: 3_locations
+- 
+  label: sections/Feed/index
+- 
+  label: sections/Cta/index
 
 ----
 

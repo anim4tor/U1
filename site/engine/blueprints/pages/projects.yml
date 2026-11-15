@@ -29,6 +29,10 @@ tabs:
         fields:
           hero:
             extends: fields/hero
+
+          reference:
+            label: Reference
+            extends: fields/section
             
       - width: 1/4
         sticky: true

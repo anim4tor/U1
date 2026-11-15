@@ -44,6 +44,34 @@ tabs:
             extends: fields/header
             label: About
 
+          storyHeading:
+            label: Nadpis sekce Příběh
+            type: text
+            default: Příběh
+          storyText:
+            label: Text sekce Příběh
+            type: textarea
+          storyPhoto:
+            label: Fotografie k příběhu
+            type: files
+            max: 1
+          storyMilestones:
+            label: Klíčové milníky / údaje
+            type: structure
+            fields:
+              number:
+                label: Číslo / Hodnota
+                type: text
+                width: 1/3
+              label:
+                label: Popis
+                type: text
+                width: 2/3
+
+          valuesHeading:
+            label: Nadpis hodnot (Na čem stavíme)
+            type: text
+            default: Na čem stavíme
           values:
             type: structure
             label: Values
@@ -93,6 +121,35 @@ tabs:
           #   type: pages
           #   query: site.find('about')
           #   # width: 1/2
+
+          awardsHeading:
+            label: Nadpis ocenění
+            type: text
+            default: Ocenění a nominace
+          awards:
+            label: Ocenění a nominace
+            type: structure
+            fields:
+              year:
+                label: Rok
+                type: text
+                width: 1/4
+              title:
+                label: Soutěž / Ocenění
+                type: text
+                width: 2/4
+              detail:
+                label: Detail / Projekt
+                type: text
+                width: 1/4
+
+          clientsHeading:
+            label: Nadpis klientů
+            type: text
+            default: Pro koho pracujeme
+          clients:
+            label: Seznam klientů
+            type: tags
 
           career:
             extends: fields/section

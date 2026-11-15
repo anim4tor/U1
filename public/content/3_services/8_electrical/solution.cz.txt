@@ -6,25 +6,73 @@ Category: Stavba a technika
 
 ----
 
-Hero: [{"content":{"text":"Elektroinstalace a osvětlení","level":"h1","mod":"l","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-6cxpa6gf","isHidden":false,"type":"heading"},{"content":{"image":["file://B3qzowr055hl3ljC"],"hasparallax":"false","parallax":0,"hasreveal":"false","reveal":"","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-oowo3ao0","isHidden":false,"type":"cover"},{"content":{"text":"Komplexní řešení slaboproudých i silnoproudých rozvodů a inteligentního osvětlení přizpůsobeného modernímu provozu kanceláří.","mod":"l","face":"","case":"lower","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-5l748425","isHidden":false,"type":"text"}]
+Excerpt: <p>Od rozvodů v podlahách po svítidla na míru. Technologie sladěná s architekturou interiéru.</p>
 
 ----
 
-Excerpt: <p>Elektromontáže zajišťujeme v rámci realizace interiéru podle projektu.</p>
-
-Intro: <p>Elektromontáže můžeme propojit s dodávkou nábytku a podlah. Rozsah spolupráce vymezíme podle vašeho projektu.</p>
+Intro: <p>Elektromontáže zajišťujeme v rámci realizace interiéru podle projektu. Propojujeme silnoproud, slaboproud a designové osvětlení.</p>
 
 ----
 
-Details: 
+Details: <p>Elektromontáže můžeme propojit s dodávkou nábytku a podlah. Rozsah spolupráce vymezíme podle vašeho projektu.</p><p>Pro Ortho Dent v brněnské Vlněně jsme dodali elektromontáže, nábytek a podlahy ve spolupráci s HUA HUA Architects. Součástí interiéru jsou na míru vyráběná svítidla inspirovaná bavlnkou. Realizujeme také projekty externích studií s kompletní garancí revizí.</p>
 
 ----
 
-Gallery: 
+Includesheadline: Co zahrnuje
 
 ----
 
-Relatedprojects: 
+Includes:
+- 
+  title: Silnoproudé a slaboproudé rozvody
+  text: Kabeláže, podlahové krabice (florpoxy), datové sítě, serverovny a záložní zdroje UPS.
+
+- 
+  title: Návrh a dodávku designového osvětlení
+  text: Pracovní, nepřímé i akcentové osvětlení, LED profily na míru a chytré řízení osvětlení (DALI).
+
+- 
+  title: Chytré ovládání zasedaček a AV technika
+  text: Rezervační systémy místností, audio-video technika a automatizace scén osvětlení.
+
+- 
+  title: Výchozí revizní zprávy a dokumentace
+  text: Kompletní certifikace, revize elektroinstalací a předání dokumentace skutečného provedení stavby.
+
+
+----
+
+Faqheadline: Časté otázky
+
+----
+
+Faq:
+- 
+  question: Realizujete elektroinstalace i podle externího návrhu?
+  answer: Ano, elektroinstalace běžně provádíme podle projektové dokumentace zpracované externím projektantem či architektem.
+
+- 
+  question: Dodáváte také designová a atypická svítidla?
+  answer: Dodáváme kompletní portfolio technických i dekorativních svítidel renomovaných evropských značek a umíme zajistit i výrobu atypických svítidel na zakázku.
+
+- 
+  question: Zahrnuje dodávka kompletní revize a protokoly?
+  answer: Samozřejmostí každé naší zakázky je vystavení výchozí revizní zprávy nutné ke kolaudaci a bezpečnému provozu budovy.
+
+
+----
+
+Workmodel: Design & Build nebo samostatně
+
+----
+
+Location: Celá Česká republika a Slovensko
+
+----
+
+Relatedprojects:
+- projects/ortho-dent
+- projects/ctpark-borska-pole
 
 ----
 
@@ -32,47 +80,7 @@ Cover: - file://B3qzowr055hl3ljC
 
 ----
 
-Meta-description: 
-
-----
-
-Meta-title: 
-
-----
-
-Meta-canonical-url: 
-
-----
-
-Og-title: 
-
-----
-
-Og-description: 
-
-----
-
-Og-image: 
-
-----
-
-Robots-index: 
-
-----
-
-Robots-follow: 
-
-----
-
-Robots-archive: 
-
-----
-
-Robots-imageindex: 
-
-----
-
-Robots-snippet: 
+Hero: [{"content":{"text":"Elektroinstalace a osvětlení","level":"h1","mod":"l","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-6cxpa6gf","isHidden":false,"type":"heading"},{"content":{"image":["file://B3qzowr055hl3ljC"],"hasparallax":"false","parallax":0,"hasreveal":"false","reveal":"","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-oowo3ao0","isHidden":false,"type":"cover"},{"content":{"text":"Komplexní řešení slaboproudých i silnoproudých rozvodů a inteligentního osvětlení přizpůsobeného modernímu provozu kanceláří.","mod":"l","face":"","case":"lower","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-5l748425","isHidden":false,"type":"text"}]
 
 ----
 

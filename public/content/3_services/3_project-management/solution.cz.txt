@@ -6,25 +6,74 @@ Category: Celý projekt
 
 ----
 
-Hero: [{"content":{"text":"Projektový management","level":"h1","mod":"l","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-uao40ue4","isHidden":false,"type":"heading"},{"content":{"image":["file://81TkJRRnJucdYgfI"],"hasparallax":"false","parallax":0,"hasreveal":"false","reveal":"","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-98ttan7a","isHidden":false,"type":"cover"},{"content":{"text":"Koordinujeme všechny profese, harmonogram i rozpočet tak, aby realizace probíhala hladce, včas a v požadované kvalitě.","mod":"l","face":"","case":"lower","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-4vye50xn","isHidden":false,"type":"text"}]
+Excerpt: <p>Koordinujeme práci profesí, které váš interiér staví a vybavují. Od prvního výkresu po předání klíčů.</p>
 
 ----
-
-Excerpt: <p>Koordinujeme práci profesí, které váš interiér staví a vybavují.</p>
 
 Intro: <p>Návrh, stavební realizace a dodávky nábytku se potkávají v jednom projektu. Projektovým řízením propojujeme jejich provedení.</p>
 
 ----
 
-Details: 
+Details: <p>Na stavbě navazujeme práci jednotlivých profesí na návrh interiéru. Koordinaci propojujeme s dodávkami vybavení a nábytku na míru. V modelu kanceláří na klíč odpovídáme za celý dohodnutý rozsah.</p><p>V CTParku Borská pole jsme koordinovali dva projekty na jedné stavbě. Podle návrhu externího architekta vznikly kanceláře z holého betonu za pět měsíců. Realizace probíhala od května do října.</p>
 
 ----
 
-Gallery: 
+Includesheadline: Co zahrnuje
 
 ----
 
-Relatedprojects: 
+Includes:
+- 
+  title: Projektové řízení realizace interiéru
+  text: Jeden dedikovaný projektový manažer jako váš jediný kontaktní partner po celou dobu stavby.
+
+- 
+  title: Koordinaci stavebních profesí a subdodavatelů
+  text: Přesné řízení časových návazností stavebníků, sádrokartonářů, sklenářů, vzduchotechniků i elektrikářů.
+
+- 
+  title: Kontrolu harmonogramu a nákladů
+  text: Průběžné vyhodnocování prostavěnosti a důsledné hlídání schváleného rozpočtu bez nemilých překvapení.
+
+- 
+  title: Přejímací řízení a kolaudační součinnost
+  text: Odstranění drobných vad a nedodělků před předáním, kompletace revizních zpráv a dokumentace skutečného provedení.
+
+
+----
+
+Faqheadline: Časté otázky
+
+----
+
+Faq:
+- 
+  question: Je projektové řízení součástí kanceláří na klíč?
+  answer: Ano, v modelu kanceláří na klíč je kompletní projektový management automaticky zahrnut v ceně. Přebíráme veškerou koordinaci, takže vy nemusíte trávit čas na stavbě.
+
+- 
+  question: Koordinujete i realizaci podle externího návrhu?
+  answer: Určitě. Často řídíme realizace interiérů, které navrhlo jiné renomované architektonické studio. Hlídáme, aby výsledek do detailu odpovídal autorskému záměru.
+
+- 
+  question: Jak nás informujete o nákladech a změnách?
+  answer: Každý týden probíhají kontrolní dny s písemným zápisem a fotodokumentací. Jakékoliv klientské změny jsou předem naceněny a realizují se až po vašem schválení.
+
+
+----
+
+Workmodel: Design & Build nebo samostatně
+
+----
+
+Location: Celá Česká republika a Slovensko
+
+----
+
+Relatedprojects:
+- projects/ctpark-borska-pole
+- projects/direct-pojistovna
+- projects/hartmann-rico
 
 ----
 
@@ -32,47 +81,7 @@ Cover: - file://81TkJRRnJucdYgfI
 
 ----
 
-Meta-description: 
-
-----
-
-Meta-title: 
-
-----
-
-Meta-canonical-url: 
-
-----
-
-Og-title: 
-
-----
-
-Og-description: 
-
-----
-
-Og-image: 
-
-----
-
-Robots-index: 
-
-----
-
-Robots-follow: 
-
-----
-
-Robots-archive: 
-
-----
-
-Robots-imageindex: 
-
-----
-
-Robots-snippet: 
+Hero: [{"content":{"text":"Projektový management","level":"h1","mod":"l","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-uao40ue4","isHidden":false,"type":"heading"},{"content":{"image":["file://81TkJRRnJucdYgfI"],"hasparallax":"false","parallax":0,"hasreveal":"false","reveal":"","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-98ttan7a","isHidden":false,"type":"cover"},{"content":{"text":"Koordinujeme všechny profese, harmonogram i rozpočet tak, aby realizace probíhala hladce, včas a v požadované kvalitě.","mod":"l","face":"","case":"lower","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-4vye50xn","isHidden":false,"type":"text"}]
 
 ----
 

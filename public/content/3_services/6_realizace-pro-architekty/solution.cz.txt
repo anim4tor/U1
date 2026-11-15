@@ -6,11 +6,7 @@ Category: Celý projekt
 
 ----
 
-Hero: [{"content":{"text":"Realizace pro architekty","level":"h1","mod":"l","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-arch01","isHidden":false,"type":"heading"},{"content":{"text":"Postavíme interiér podle vašeho návrhu. Autorství zůstává vašemu studiu.","mod":"l","face":"","case":"lower","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-arch02","isHidden":false,"type":"text"}]
-
-----
-
-Excerpt: <p>Postavíme interiér podle vašeho návrhu. Autorství zůstává vašemu studiu.</p>
+Excerpt: <p>Postavíme interiér přesně podle vašeho návrhu. Vy držíte autorství, my držíme řemeslo a termín.</p>
 
 ----
 
@@ -18,19 +14,77 @@ Intro: <p>Můžete nám svěřit čistě stavební realizaci nebo ji rozšířit
 
 ----
 
-Details: <p>Kanceláře postavíme i podle projektu externího architekta, takto jsme realizovali kanceláře v CTParku Borská pole v Plzni. Autorství návrhu zůstává jeho tvůrci.</p>
+Details: <p>Na dodaný návrh navážeme fit-outem a koordinací stavebních profesí. Zajistíme také nábytek na míru s ověřenými truhláři pro atypické prvky. Při prezentaci projektu striktně oddělujeme autora návrhu od naší role v realizaci.</p><p>V CTParku Borská pole jsme postavili kanceláře podle externího návrhu. Pro Ortho Dent jsme ve spolupráci s HUA HUA Architects dodali nábytek, elektromontáže a podlahy s maximálním respektem k architektonickému detailu.</p>
 
 ----
 
-Gallery: 
+Includesheadline: Co zahrnuje
 
 ----
 
-Relatedprojects: 
+Includes:
+- 
+  title: Čistě stavební realizaci podle projektu studia
+  text: Spolehlivý generální dodavatel pro váš architektonický koncept bez kompromisů v kvalitě.
+
+- 
+  title: Koordinaci stavebních profesí a subdodávek
+  text: Přebíráme starosti s koordinací profesí, harmonogramem a technickými návaznostmi na stavbě.
+
+- 
+  title: Dodávku atypického nábytku na míru
+  text: Přesné technické rozkreslení a výroba vámi navržených atypických prvků s našimi prověřenými truhláři.
+
+- 
+  title: Respekt k autorství a férová prezentace
+  text: Plně ctíme vaše autorská práva – v referencích a médiích vždy uvádíme architektonické studio jako autora návrhu.
+
+
+----
+
+Faqheadline: Časté otázky
+
+----
+
+Faq:
+- 
+  question: Realizujete interiéry podle návrhu jiného studia?
+  answer: Ano, je to významná část naší práce. Fungujeme jako spolehlivý partner pro architektonická studia, která hledají generálního dodavatele schopného zrealizovat i ty nejnáročnější detaily.
+
+- 
+  question: Komu zůstává autorství návrhu?
+  answer: Autorství vždy a bezezbytku zůstává vám. My vystupujeme výhradně v roli dodavatele stavby a interiéru.
+
+- 
+  question: Můžete zajistit také nábytek na míru?
+  answer: Ano, máme bohaté zázemí konstruktérů a prověřených truhlářů, kteří přesně podle vašich výkresů vyrobí recepce, obklady i nábytkové solitérní kusy.
+
+- 
+  question: Zajistíte i technické dopracování návrhu?
+  answer: Ano, rádi vám pomůžeme s technickou proveditelností, výběrem stavebních materiálů, detaily návazností nebo optimalizací rozpočtu.
+
+
+----
+
+Workmodel: Dodavatel stavby a interiérů
+
+----
+
+Location: Celá Česká republika a Slovensko
+
+----
+
+Relatedprojects:
+- projects/ortho-dent
+- projects/ctpark-borska-pole
 
 ----
 
 Cover: - cover.webp
+
+----
+
+Hero: [{"content":{"text":"Realizace pro architekty","level":"h1","mod":"l","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-arch01","isHidden":false,"type":"heading"},{"content":{"text":"Postavíme interiér podle vašeho návrhu. Autorství zůstává vašemu studiu.","mod":"l","face":"","case":"lower","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-arch02","isHidden":false,"type":"text"}]
 
 ----
 

@@ -1,15 +1,7 @@
 <?php
-$projectsPage = $page ?? page('projects');
-$ctrlData = ($projectsPage && method_exists($projectsPage, 'controller')) ? $projectsPage->controller() : [];
-?>
-<?= snippet('templates/Projects/sections/filter', array_merge($ctrlData, array_filter([
-    'isFiltered'       => $isFiltered ?? null,
-    'filterIndustry'   => $filterIndustry ?? null,
-    'filterSpace'      => $filterSpace ?? null,
-    'filterSolution'   => $filterSolution ?? null,
-    'filterProduction' => $filterProduction ?? null,
-    'filterHash'       => $filterHash ?? null,
-    'filterYear'       => $filterYear ?? null,
-    'filterGeneric'    => $filterGeneric ?? null,
-    'filterSearch'     => $filterSearch ?? null,
-], fn($v) => $v !== null))) ?>
+/**
+ * Projects Filter Section
+ * 
+ * Note: The filter bar, trigger button, and expandable filter drawer
+ * are now integrated directly inside 3_list.php (opening under the trigger).
+ */

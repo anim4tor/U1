@@ -6,7 +6,7 @@ Slug: services
 
 ----
 
-Hero: [{"content":{"text":"Služby","level":"h1","mod":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"9aad427c-0306-47d7-8e74-f5361d9935fd","isHidden":false,"type":"heading"},{"content":{"text":"Kancelářské interiéry řešíme jako celek i po jednotlivých částech.","mod":"font-size-large","face":"","case":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"78fa0991-b3b4-4e20-804d-b8d90471b058","isHidden":false,"type":"text"}]
+Hero: [{"content":{"text":"Služby","level":"h1","mod":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"9aad427c-0306-47d7-8e74-f5361d9935fd","isHidden":false,"type":"heading"},{"content":{"text":"Kancelářské interiéry řešíme jako celek i po jednotlivých částech.","mod":"","face":"","case":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"78fa0991-b3b4-4e20-804d-b8d90471b058","isHidden":false,"type":"text"},{"content":{"image":["file://hpZivlSnzrAGErus"],"hasparallax":"false","parallax":0,"hasreveal":"false","reveal":"","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"34cf3fb4-d010-4e84-b268-7966d81b920a","isHidden":false,"type":"cover"}]
 
 ----
 
@@ -58,19 +58,31 @@ Contractsteps:
 - 
   number: "01"
   title: Návrh
-  text: Navrhneme interiér podle toho, jak vaše firma pracuje a co od prostoru potřebuje.
+  text: >
+    Navrhneme interiér podle toho, jak
+    vaše firma pracuje a co od prostoru
+    potřebuje.
 - 
   number: "02"
   title: Stavba a technologie
-  text: Zajistíme stavební realizaci a koordinaci technických profesí v dohodnutém rozsahu.
+  text: >
+    Zajistíme stavební realizaci a
+    koordinaci technických profesí v
+    dohodnutém rozsahu.
 - 
   number: "03"
   title: Nábytek Only1, Only2 a atypy na míru
-  text: Atypický a kancelářský nábytek připravujeme s ověřenými truhláři pro konkrétní interiér.
+  text: >
+    Atypický a kancelářský nábytek
+    připravujeme s ověřenými truhláři
+    pro konkrétní interiér.
 - 
   number: "04"
   title: Předání a péče
-  text: Hotový interiér vám předáme s potvrzenou dokumentací a nastaveným rozsahem následné péče.
+  text: >
+    Hotový interiér vám předáme s
+    potvrzenou dokumentací a nastaveným
+    rozsahem následné péče.
 
 ----
 
@@ -88,6 +100,10 @@ Order:
   label: sections/Feed/index
 - 
   label: sections/Cta/index
+
+----
+
+Cta: 
 
 ----
 

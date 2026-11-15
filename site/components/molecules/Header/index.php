@@ -3,7 +3,19 @@
 	$type ??= false;
 	$css ??= '';
 	$output = '';
-	foreach ($header->blocks()->toBlocks() as $block) {
+
+	$blocksCollection = [];
+	if ($header instanceof \Kirby\Cms\Blocks) {
+		$blocksCollection = $header;
+	} elseif ($header instanceof \Kirby\Cms\Field) {
+		$blocksCollection = $header->toBlocks();
+	} elseif (is_object($header) && method_exists($header, 'toBlocks')) {
+		$blocksCollection = $header->toBlocks();
+	} elseif (is_object($header) && method_exists($header, 'blocks')) {
+		$blocksCollection = $header->blocks()->toBlocks();
+	}
+
+	foreach ($blocksCollection as $block) {
 		if ($type) {
 			if (in_array($block->type(), $type)) {
 				$output .= (string)$block;

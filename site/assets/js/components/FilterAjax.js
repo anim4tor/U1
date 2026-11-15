@@ -126,6 +126,12 @@ class FilterAjax {
         } else {
           currentPanel.replaceWith(newPanel);
         }
+        if (wasPanelOpen) {
+          document.querySelectorAll('[data-filter-trigger], [data-search-trigger]').forEach(btn => {
+            btn.classList.add('is-active');
+            btn.setAttribute('aria-expanded', 'true');
+          });
+        }
       }
 
       // Morph or replace list

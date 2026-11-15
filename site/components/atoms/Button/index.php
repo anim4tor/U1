@@ -16,7 +16,7 @@
     $reveal  = (isset($reveal) && ($reveal === 'true' || $reveal === true)) ? true : false;
     
     // Explicit check for Target field/object setup
-    $target  = isset($target) ? (is_string($target) ? ($target === 'true') : $target->toBool()) : false;
+    $target  = isset($target) ? (is_bool($target) ? $target : (is_string($target) ? ($target === 'true' || $target === '1') : (is_object($target) && method_exists($target, 'toBool') ? $target->toBool() : (bool)$target))) : false;
 ?>
 
 <?php if ($url) : ?>

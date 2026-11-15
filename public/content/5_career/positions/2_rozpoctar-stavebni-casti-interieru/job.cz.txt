@@ -1,0 +1,245 @@
+Title: Rozpočtář stavební části interiéru
+
+----
+
+Hero: [{"content":{"text":"Rozpočtář stavební části interiéru","level":"h1","mod":"l","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-rozpoctar-h1","isHidden":false,"type":"heading"},{"content":{"image":["file://ySBFAutta9Zv23vK"],"hasparallax":"false","parallax":0,"hasreveal":"false","reveal":"","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-rozpoctar-cover","isHidden":false,"type":"cover"},{"content":{"text":"Příprava rozpočtů a kalkulací prémiových fit-out interiérů ve spolupráci s projektovými manažery a architekty.","mod":"l","face":"","case":"lower","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-rozpoctar-text","isHidden":false,"type":"text"}]
+
+----
+
+Excerpt: <p>Hledáme zkušeného rozpočtáře stavební části, který má cit pro detail, přehled v cenách materiálů a stavebních prací a chuť podílet se na prémiových fit-out projektech kanceláří.</p>
+
+----
+
+Details: <p>V U1 realizujeme prémiové komerční a kancelářské interiéry na klíč pro klienty jako Direct pojišťovna nebo Plzeňský Prazdroj. Jako rozpočtář stavební části budete klíčovým článkem mezi obchodním týmem, projektovými manažery a subdodavateli.</p><p>Budete připravovat položkové rozpočty, vyhodnocovat nabídky dodavatelů a podílet se na optimalizaci nákladů stavební části interiérů. Pracujete v čistém prostředí moderních budov a v úzké kooperaci s naším architektonickým studiem a týmem projektového řízení.</p>
+
+----
+
+Description:
+
+- 
+  text: Tvorba položkových rozpočtů a kalkulací stavebních prací pro fit-out interiérů
+- 
+  text: Poptávání subdodavatelů a vyhodnocování cenových nabídek
+- 
+  text: Spolupráce s projektovými manažery a architekty při optimalizaci nákladů
+- 
+  text: Kontrola projektové dokumentace z hlediska úplnosti a výměr
+- 
+  text: Příprava podkladů pro klientské nabídky a smlouvy o dílo
+- 
+  text: Evidence změn a příprava rozpočtů víceprací
+
+----
+
+Requirements:
+
+- 
+  text: SŠ nebo VŠ stavebního směru
+- 
+  text: Praxe v rozpočtování stavebních prací nebo přípravě staveb (ideálně interiéry / fit-out)
+- 
+  text: Výborná orientace v projektové dokumentaci a stavebních výkresech
+- 
+  text: Znalost rozpočtových programů (KROS, RTS) a MS Excel na pokročilé úrovni
+- 
+  text: Samostatnost, analytické myšlení a pečlivost
+- 
+  text: Řidičský průkaz skupiny B
+
+----
+
+Offers:
+
+- 
+  text: Práce na prestižních projektech pro přední společnosti na trhu
+- 
+  text: Motivující finanční ohodnocení s bonusovou složkou
+- 
+  text: Zázemí stabilní společnosti s více než dvacetiletou tradicí
+- 
+  text: Čisté interiérové prostředí bez hrubých venkovních staveb
+- 
+  text: Podpora profesního rozvoje a vzdělávání
+
+----
+
+Benefits:
+
+- 
+  text: Práce na prestižních projektech pro přední společnosti na trhu
+- 
+  text: Motivující finanční ohodnocení s bonusovou složkou
+- 
+  text: Zázemí stabilní společnosti s více než dvacetiletou tradicí
+- 
+  text: Čisté interiérové prostředí bez hrubých venkovních staveb
+- 
+  text: Podpora profesního rozvoje a vzdělávání
+
+----
+
+Whyusheader: [{"content":{"text":"Proč pracovat u nás?","level":"h2","mod":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"4f217ece-e1a7-4269-817c-dbd4b6fba9a5","isHidden":false,"type":"heading"},{"content":{"text":"","mod":"","face":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"2247bdaf-e71a-41f3-9372-d27d43842776","isHidden":false,"type":"label"}]
+
+----
+
+Whyus:
+
+- 
+  text: Bonusy/prémie
+  icon: shield-check
+  image: [ ]
+- 
+  text: Provize z prodeje
+  icon: users
+  image: [ ]
+- 
+  text: Mobilní telefon
+  icon: briefcase
+  image: [ ]
+- 
+  text: Sleva na firemní výrobky/služby
+  icon: heart
+  image: [ ]
+- 
+  text: Notebook
+  icon: sun
+  image: [ ]
+- 
+  text: Vzdělávací kurzy, školení
+  icon: users-1
+  image: [ ]
+- 
+  text: Občerstvení na pracovišti
+  icon: heart-1
+  image: [ ]
+- 
+  text: Zdravotní volno/sickdays
+  icon: sun-1
+  image: [ ]
+- 
+  text: Firemní akce
+  icon: users-2
+  image: [ ]
+- 
+  text: Možnost si napracovat hodiny
+  icon: users-3
+  image: [ ]
+
+----
+
+Processheader: [{"content":{"text":"Každá spolupráce začíná kontaktem","level":"h2","mod":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"e811c472-7934-45e0-82a8-a53239a5180e","isHidden":false,"type":"heading"},{"content":{"text":"","mod":"","face":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"fa7fe027-82cc-43b3-b58e-1d2d3d235d97","isHidden":false,"type":"label"}]
+
+----
+
+Process:
+
+- 
+  step: "1"
+  title: Napíšeme si
+  text: >
+    Odpověz nám prostřednictvím
+    kontaktního formuláře. Zajímá nás
+    jen pár věcí a tvůj životopis.
+  image:
+    - file://dWxYAuhpEqTZu9VK
+- 
+  step: "2"
+  title: Zavoláme si
+  text: >
+    Online nebo po telefonu se tě doptáme
+    na několik doplňujících otázek.
+  image:
+    - file://mhxn0hpLRYGSMGNr
+- 
+  step: "3"
+  title: Potkáme se
+  text: >
+    Potkáš se s náborářem i budoucím
+    manažerem, se kterými detailně
+    probereš vše důležité.
+  image:
+    - file://wvX3M4OSzD4dbPFG
+
+----
+
+Cover: - file://ySBFAutta9Zv23vK
+
+----
+
+Start: Dohodou
+
+----
+
+Location: Brno
+
+----
+
+Duration: Plný úvazek
+
+----
+
+Team: Příprava a rozpočty
+
+----
+
+Contactemail: hr@u1.cz
+
+----
+
+Contactphone: +420 601 088 517
+
+----
+
+Ctaoverride: false
+
+----
+
+Cta: 
+
+----
+
+Meta-description: 
+
+----
+
+Meta-title: 
+
+----
+
+Meta-canonical-url: 
+
+----
+
+Og-title: 
+
+----
+
+Og-description: 
+
+----
+
+Og-image: 
+
+----
+
+Robots-index: 
+
+----
+
+Robots-follow: 
+
+----
+
+Robots-archive: 
+
+----
+
+Robots-imageindex: 
+
+----
+
+Robots-snippet: 
+
+----
+
+Uuid: HdaMX7Uiij9g2iyp

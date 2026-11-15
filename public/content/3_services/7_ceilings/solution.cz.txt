@@ -6,25 +6,74 @@ Category: Stavba a technika
 
 ----
 
-Hero: [{"content":{"text":"Stropy a akustické podhledy","level":"h1","mod":"l","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-dvrcb0pl","isHidden":false,"type":"heading"},{"content":{"image":["file://7TuExEOVK0Da25GC"],"hasparallax":"false","parallax":0,"hasreveal":"false","reveal":"","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-cz4lsgr8","isHidden":false,"type":"cover"},{"content":{"text":"Navrhujeme a instalujeme akustické i designové podhledy, které krotí hluk a integrují moderní osvětlení i technologie.","mod":"l","face":"","case":"lower","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-9f1lvz0b","isHidden":false,"type":"text"}]
+Excerpt: <p>Akustická pohoda, designové podhledy i netradiční materiály – od plechovek po dřevěné lamely.</p>
 
 ----
 
-Excerpt: <p>Realizujeme akustické podhledy a atypické stropy podle návrhu interiéru.</p>
-
-Intro: <p>Atypické stropní prvky na míru. U původních podhledů s vámi probereme možnost dalšího využití.</p>
+Intro: <p>Realizujeme akustické podhledy a atypické stropy podle návrhu interiéru. U původních podhledů s vámi probereme možnost dalšího využití.</p>
 
 ----
 
-Details: 
+Details: <p>Atypické stropní prvky na míru. V Direct pojišťovně jsme repasovali původní akustické podhledy a znovu je začlenili do interiéru, čímž jsme ušetřili finance i životní prostředí.</p><p>Pro Plzeňský Prazdroj jsme zajistili originální podhledy z pivních plechovek. V Restauraci Evropa jsme uplatnili truhlářskou výrobu při provedení kazetového podhledu. Atypická řešení tak propojujeme s výrobou na míru a realizací interiéru.</p>
 
 ----
 
-Gallery: 
+Includesheadline: Co zahrnuje
 
 ----
 
-Relatedprojects: 
+Includes:
+- 
+  title: Akustické podhledy a prostorové absorbéry
+  text: Závěsné panely, basové pasti a podhledy z minerálních vláken pro snížení doby dozvuku v kanceláři.
+
+- 
+  title: Repase a upcycling původních podhledů
+  text: Ekologické a úsporné čištění, lakování a opětovné využití stávajících rastrových konstrukcí.
+
+- 
+  title: Atypické stropní instalace na míru
+  text: Lamelové stropy, tahokov, otevřené industriální stropy i unikátní designové instalace.
+
+- 
+  title: Integraci technologií a svítidel do stropů
+  text: Bezchybné zapuštění vzduchotechnických vyústek, sprinklerů, čidel a lineárních svítidel.
+
+
+----
+
+Faqheadline: Časté otázky
+
+----
+
+Faq:
+- 
+  question: Lze původní podhledy zachovat a repasovat?
+  answer: Ano, pokud je nosný rastr v pořádku, můžeme stávající minerální či kazetové desky repasovat, opatřit novým nástřikem nebo zkombinovat s novými akustickými panely, což výrazně šetří rozpočet.
+
+- 
+  question: Realizujete stropy také mimo kanceláře?
+  answer: Ano, akustické a atypické stropy realizujeme v restauracích (např. Restaurace Evropa), na klinikách, v showroomech i ve veřejných prostorech.
+
+- 
+  question: Mohou být podhledy součástí větší rekonstrukce?
+  answer: Běžně jsou stropy a podhledy klíčovou součástí komplexního fit-outu, kde je koordinujeme s rozvody vzduchotechniky, elektroinstalací a osvětlením.
+
+
+----
+
+Workmodel: Design & Build nebo samostatně
+
+----
+
+Location: Celá Česká republika a Slovensko
+
+----
+
+Relatedprojects:
+- projects/plzensky-prazdroj
+- projects/direct-pojistovna
+- projects/volareza-restaurace-evropa
 
 ----
 
@@ -32,47 +81,7 @@ Cover: - file://7TuExEOVK0Da25GC
 
 ----
 
-Meta-description: 
-
-----
-
-Meta-title: 
-
-----
-
-Meta-canonical-url: 
-
-----
-
-Og-title: 
-
-----
-
-Og-description: 
-
-----
-
-Og-image: 
-
-----
-
-Robots-index: 
-
-----
-
-Robots-follow: 
-
-----
-
-Robots-archive: 
-
-----
-
-Robots-imageindex: 
-
-----
-
-Robots-snippet: 
+Hero: [{"content":{"text":"Stropy a akustické podhledy","level":"h1","mod":"l","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-dvrcb0pl","isHidden":false,"type":"heading"},{"content":{"image":["file://7TuExEOVK0Da25GC"],"hasparallax":"false","parallax":0,"hasreveal":"false","reveal":"","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-cz4lsgr8","isHidden":false,"type":"cover"},{"content":{"text":"Navrhujeme a instalujeme akustické i designové podhledy, které krotí hluk a integrují moderní osvětlení i technologie.","mod":"l","face":"","case":"lower","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-9f1lvz0b","isHidden":false,"type":"text"}]
 
 ----
 

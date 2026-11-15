@@ -1,5 +1,5 @@
 <?php if ($page->hero()->isNotEmpty()) : ?>
-<section class="intro radius" theme="dark" data-tabs="" data-autoplay="10000">
+<section class="intro --home radius" theme="dark" data-tabs="" data-autoplay="10000">
 	<div class="hidden">
 		<?php foreach ($page->heroSlider()->toPages() as $project) : ?>
 			<div data-tab="project-<?= $project->indexOf($page->heroSlider()->toPages()) ?>"></div>

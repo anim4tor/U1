@@ -6,25 +6,77 @@ Category: Stavba a technika
 
 ----
 
-Hero: [{"content":{"text":"Vzduchotechnika a chlazení","level":"h1","mod":"l","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-wh2sz8fz","isHidden":false,"type":"heading"},{"content":{"image":["file://WJ9efU3ipU0wnamB"],"hasparallax":"false","parallax":0,"hasreveal":"false","reveal":"","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-af418125","isHidden":false,"type":"cover"},{"content":{"text":"Zajišťujeme optimální klima, větrání i rekuperaci pro zdravé a produktivní pracovní prostředí po celý rok.","mod":"l","face":"","case":"lower","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-vd8xjlu7","isHidden":false,"type":"text"}]
+Excerpt: <p>Čerstvý vzduch a stabilní klima. Koordinujeme profesi, která rozhoduje o komfortu lidí v kanceláři.</p>
 
 ----
 
-Excerpt: <p>Vzduchotechniku a chlazení zajišťujeme v rámci realizace interiéru podle projektu.</p>
-
-Intro: <p>Vzduchotechniku a chlazení koordinujeme v návaznosti na stavební úpravy a dispozici interiéru.</p>
+Intro: <p>Vzduchotechnika, chlazení a vytápění jsou klíčem ke spokojenosti zaměstnanců. Zajišťujeme jejich úpravy v návaznosti na nové dispozice interiéru.</p>
 
 ----
 
-Details: 
+Details: <p>Při změně dispozic kanceláří, vzniku nových zasedaček nebo uzavřených kanceláří je nutné přizpůsobit vzduchotechniku a chlazení. Zajišťujeme koordinaci s technickým vybavením budovy i přesné dimenzování pro počet osob v místnosti.</p><p>K zadání přiložte půdorys a popis plánovaného využití místností. Pokud máte dokumentaci stávajícího TZB budovy, připojte ji také. Zajišťujeme fit-out kanceláří podle vlastního i externího návrhu s garancí správné funkce.</p>
 
 ----
 
-Gallery: 
+Includesheadline: Co zahrnuje
 
 ----
 
-Relatedprojects: 
+Includes:
+- 
+  title: Úpravy a rozšíření rozvodů VZT a chlazení
+  text: Přesunutí vyústek, úpravy potrubních tras a instalace fan-coilových jednotek podle nových dispozic.
+
+- 
+  title: Větrání a chlazení zasedacích místností
+  text: Samostatná regulace přívodu vzduchu a chlazení v exponovaných jednacích a focus místnostech.
+
+- 
+  title: Koordinaci s technickým managementem budovy
+  text: Jednání se správcem budovy, respektování limitů centrálního TZB systému a tlakových poměrů.
+
+- 
+  title: Zaregulování soustavy, měření a předání revizí
+  text: Změření průtoků vzduchu, hlučnosti a předání protokolů o zaregulování pro bezproblémový provoz.
+
+
+----
+
+Faqheadline: Časté otázky
+
+----
+
+Faq:
+- 
+  question: Je vzduchotechnika součástí fit-outu kanceláří?
+  answer: Ano, úpravy VZT a chlazení tvoří podstatnou a kritickou část každé přestavby či fit-outu kanceláří.
+
+- 
+  question: Jaké podklady vám máme poslat?
+  answer: Ideální je výkres stávajícího stavu TZB v DWG od správy budovy a nový plánovaný dispoziční půdorys s počty lidí v místnostech.
+
+- 
+  question: Řešíte také chlazení a vytápění?
+  answer: Ano, vzduchotechniku koordinujeme společně s chlazením (fan-coily, VRV systémy) a otopnými tělesy do jednoho funkčního celku.
+
+- 
+  question: S kým koordinujete napojení na budovu?
+  answer: Veškerá napojení a technické parametry koordinujeme přímo s technickým dozorem a facility manažerem dané administrativní budovy.
+
+
+----
+
+Workmodel: Součást fit-outu nebo samostatně
+
+----
+
+Location: Celá Česká republika a Slovensko
+
+----
+
+Relatedprojects:
+- projects/ctpark-borska-pole
+- projects/fcc
 
 ----
 
@@ -32,47 +84,7 @@ Cover: - file://WJ9efU3ipU0wnamB
 
 ----
 
-Meta-description: 
-
-----
-
-Meta-title: 
-
-----
-
-Meta-canonical-url: 
-
-----
-
-Og-title: 
-
-----
-
-Og-description: 
-
-----
-
-Og-image: 
-
-----
-
-Robots-index: 
-
-----
-
-Robots-follow: 
-
-----
-
-Robots-archive: 
-
-----
-
-Robots-imageindex: 
-
-----
-
-Robots-snippet: 
+Hero: [{"content":{"text":"Vzduchotechnika a chlazení","level":"h1","mod":"l","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-wh2sz8fz","isHidden":false,"type":"heading"},{"content":{"image":["file://WJ9efU3ipU0wnamB"],"hasparallax":"false","parallax":0,"hasreveal":"false","reveal":"","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-af418125","isHidden":false,"type":"cover"},{"content":{"text":"Zajišťujeme optimální klima, větrání i rekuperaci pro zdravé a produktivní pracovní prostředí po celý rok.","mod":"l","face":"","case":"lower","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-vd8xjlu7","isHidden":false,"type":"text"}]
 
 ----
 

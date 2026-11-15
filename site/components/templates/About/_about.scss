@@ -1,0 +1,210 @@
+/*
+	TEMPLATE: About (U1 Design System)
+*/
+
+/* Sekce: Příběh / Story (Zarovnání spodku figures a textu se spodkem fotografie vlevo) */
+.story-section {
+  .story__grid {
+    align-items: stretch;
+  }
+
+  .story__col-photo {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .story__photo {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+
+    figure {
+      width: 100%;
+      height: 100%;
+      aspect-ratio: 4 / 3;
+      margin: 0;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        aspect-ratio: 4 / 3;
+      }
+    }
+  }
+
+  .story__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    min-height: 100%;
+
+    @media (max-width: 768px) {
+      height: auto;
+      gap: 2.5rem;
+    }
+  }
+
+  .story__text {
+    width: 100%;
+  }
+
+  .story__figures {
+    width: 100%;
+    margin-top: auto;
+
+    @media (max-width: 768px) {
+      margin-top: 0;
+    }
+  }
+}
+
+.people-section {
+  position: relative;
+
+  .people-group {
+    width: 100%;
+
+    &__header {
+      width: 100%;
+    }
+
+    &__list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  .people-item {
+    position: relative;
+    color: inherit;
+    transition: color 0.25s ease;
+
+    &:hover {
+      .people-item__name {
+        color: var(--color-acc, #ed1359);
+        transform: translateX(6px);
+      }
+
+      .people-item__photo {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(-50%) scale(1);
+      }
+    }
+
+    &__name {
+      margin: 0;
+      transition: transform 0.25s ease, color 0.25s ease;
+    }
+
+    &__role {
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    /* Fotografie vycentrovaná do řádku v posledním sloupci v absolutní pozici */
+    &__photo {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%) scale(0.95);
+      width: clamp(140px, 13vw, 190px);
+      aspect-ratio: 3 / 4;
+      border-radius: var(--radius, 12px);
+      overflow: hidden;
+      box-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.35);
+      background: var(--color-light, #edece7);
+      pointer-events: none;
+      opacity: 0;
+      visibility: hidden;
+      z-index: 10;
+      transition: opacity 0.25s ease, transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.25s;
+
+      figure,
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+    }
+  }
+}
+
+/* Klienti / Logo Ticker (Světlé i Tmavé pozadí) */
+.clients-section {
+  position: relative;
+  overflow: hidden;
+
+  .client-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    height: 40px;
+    padding: 0 1.25rem;
+    color: var(--color-dark, #1c1c1c);
+    opacity: 0.65;
+    transition: opacity 0.25s ease, filter 0.25s ease, color 0.25s ease;
+
+    svg {
+      height: 28px;
+      width: auto;
+      max-width: 150px;
+      fill: currentColor;
+    }
+
+    img {
+      height: 28px;
+      width: auto;
+      max-width: 150px;
+      object-fit: contain;
+      filter: brightness(0);
+    }
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  /* Na světlém pozadí (theme="light" nebo theme="invert") jsou loga tmavá */
+  &[theme="light"],
+  &[theme="invert"] {
+    .client-logo {
+      color: var(--color-dark, #1c1c1c);
+
+      svg {
+        fill: currentColor;
+      }
+
+      img {
+        filter: brightness(0);
+      }
+    }
+  }
+
+  /* Na tmavém pozadí (theme="dark") jsou loga invertovaná (bílá / světlé) */
+  &[theme="dark"],
+  &.theme--dark {
+    .client-logo {
+      color: var(--color-invert, #ffffff);
+      opacity: 0.75;
+
+      svg {
+        fill: currentColor;
+      }
+
+      img {
+        filter: brightness(0) invert(1);
+      }
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+}

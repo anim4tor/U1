@@ -1,76 +1,104 @@
-<div class="grid__3 gap__2">
-	<?php foreach (page('home')->aboutFigures()->toStructure() as $figure) : ?>
-		<!-- Odstraníme případné nečíselné znaky z hodnoty -->
-		<?php $targetNumber = preg_replace('/[^0-9]/', '', $figure->feature()); ?>
-		<div class="grid gap__2 align__start inner-t__1 border__top" data-scroll>
-			<div class="font__size__1 outlined lighter carousel-counter" 
-			     
-			    data-target="<?= $targetNumber ?>">
-				<!-- JS sem vygeneruje rotující pásy pro každou číslici -->
-			</div>
-			<?= snippet('atoms/Label', ['text' => $figure->label()]) ?>
+<?php
+/**
+ * Komponenta Figures / Carousel Counters
+ * Zobrazuje animovaná čísla s rotujícími pásy (carousel counters)
+ */
+$items = [];
+
+if (isset($figures) && !empty($figures)) {
+    $items = $figures;
+} elseif ($page->aboutFigures()->isNotEmpty()) {
+    $items = $page->aboutFigures()->toStructure();
+} elseif ($page->figures()->isNotEmpty()) {
+    $items = $page->figures()->toStructure();
+} elseif ($page->storyMilestones()->isNotEmpty()) {
+    $items = $page->storyMilestones()->toStructure();
+} elseif ($home = page('home')) {
+    $items = $home->aboutFigures()->toStructure();
+}
+?>
+
+<div class="grid__3 gap__2 mobile:grid__1 mobile:gap__1">
+	<?php foreach ($items as $figure) : ?>
+		<?php 
+		if (is_array($figure)) {
+			$rawNum = $figure['feature'] ?? $figure['number'] ?? '';
+			$label = $figure['label'] ?? '';
+		} else {
+			$rawNum = $figure->feature()->isNotEmpty() ? $figure->feature()->value() : $figure->number()->value();
+			$label = $figure->label()->value();
+		}
+		$targetNumber = preg_replace('/[^0-9]/', '', (string)$rawNum);
+		?>
+		<div class="grid gap__1 align__start inner-t__1 border__top mobile:gap__05" data-scroll>
+			<?php if (!empty($targetNumber)) : ?>
+				<div class="font__size__1 font__weight__600 carousel-counter" data-target="<?= esc($targetNumber) ?>"></div>
+			<?php else : ?>
+				<div class="font__size__1 font__weight__600"><?= esc($rawNum) ?></div>
+			<?php endif ?>
+			<?php if (!empty($label)) : ?>
+				<p class="font__size__small op__7"><?= esc($label) ?></p>
+			<?php endif ?>
 		</div>
 	<?php endforeach ?>
 </div>
+
 <script type="text/javascript">
-	document.addEventListener("DOMContentLoaded", () => {
-	    const counters = document.querySelectorAll('.carousel-counter');
+	(function() {
+		function initCarouselCounters() {
+			var counters = document.querySelectorAll('.carousel-counter:not([data-initialized])');
+			if (!counters.length) return;
 
-	    // Inicializace struktury (pásů) hned po načtení, aby se zabránilo skákání obsahu
-	    counters.forEach(counter => {
-	        const targetStr = counter.getAttribute('data-target');
-	        counter.innerHTML = ''; // Vyčištění původního obsahu
+			counters.forEach(function(counter) {
+				counter.setAttribute('data-initialized', 'true');
+				var targetStr = counter.getAttribute('data-target') || '';
+				counter.innerHTML = '';
 
-	        // Pro každou číslici v cílovém řetězci vytvoříme pás
-	        [...targetStr].forEach(() => {
-	            const ribbon = document.createElement('div');
-	            ribbon.classList.add('counter-ribbon');
+				for (var i = 0; i < targetStr.length; i++) {
+					var ribbon = document.createElement('div');
+					ribbon.classList.add('counter-ribbon');
 
-	            // Vygenerujeme číslice 0 až 9 uvnitř pásu
-	            for (let i = 0; i < 10; i++) {
-	                const digit = document.createElement('div');
-	                digit.classList.add('counter-digit');
-	                digit.textContent = i;
-	                ribbon.appendChild(digit);
-	            }
+					for (var d = 0; d < 10; d++) {
+						var digit = document.createElement('div');
+						digit.classList.add('counter-digit');
+						digit.textContent = d;
+						ribbon.appendChild(digit);
+					}
+					counter.appendChild(ribbon);
+				}
+			});
 
-	            counter.appendChild(ribbon);
-	        });
-	    });
+			var animateCarousel = function(counter) {
+				var targetStr = counter.getAttribute('data-target') || '';
+				var ribbons = counter.querySelectorAll('.counter-ribbon');
 
-	    // Funkce, která spustí rotaci na cílové hodnoty
-	    const animateCarousel = (counter) => {
-	        const targetStr = counter.getAttribute('data-target');
-	        const ribbons = counter.querySelectorAll('.counter-ribbon');
+				ribbons.forEach(function(ribbon, index) {
+					var targetDigit = parseInt(targetStr[index], 10);
+					if (isNaN(targetDigit)) return;
+					setTimeout(function() {
+						ribbon.style.transform = 'translateY(-' + (targetDigit * 10) + '%)';
+					}, index * 50);
+				});
+			};
 
-	        ribbons.forEach((ribbon, index) => {
-	            const targetDigit = parseInt(targetStr[index], 10);
-	            
-	            // Posuneme pás vertikálně nahoru na základě cílové číslice
-	            // Každá číslice zabírá přesně 10% výšky pásu (nebo -1em na číslici)
-	            setTimeout(() => {
-	                ribbon.style.transform = `translateY(-${targetDigit * 10}%)`;
-	            }, index * 50); // Mírné zpoždění (stagger efekt) pro ještě lepší vizuální dojem
-	        });
-	    };
+			var observer = new IntersectionObserver(function(entries, obs) {
+				entries.forEach(function(entry) {
+					if (entry.isIntersecting) {
+						animateCarousel(entry.target);
+						obs.unobserve(entry.target);
+					}
+				});
+			}, { threshold: 0.2 });
 
-	    // Nastavení Intersection Observeru
-	    const observerOptions = {
-	        root: null,
-	        threshold: 0.2
-	    };
+			counters.forEach(function(counter) {
+				observer.observe(counter);
+			});
+		}
 
-	    const observer = new IntersectionObserver((entries, observer) => {
-	        entries.forEach(entry => {
-	            if (entry.isIntersecting) {
-	                const counter = entry.target;
-	                animateCarousel(counter);
-	                observer.unobserve(counter); // Animaci pustíme pouze jednou
-	            }
-	        });
-	    }, observerOptions);
-
-	    counters.forEach(counter => observer.observe(counter));
-	});
-
+		if (document.readyState === 'loading') {
+			document.addEventListener('DOMContentLoaded', initCarouselCounters);
+		} else {
+			initCarouselCounters();
+		}
+	})();
 </script>

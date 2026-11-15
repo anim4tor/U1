@@ -6,7 +6,11 @@ Slug: projects
 
 ----
 
-Hero: [{"content":{"text":"Všechny realizace","level":"h1","mod":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"a09bb2ad-e5fe-48e9-996d-051def04a923","isHidden":false,"type":"heading"}]
+Hero: [{"content":{"text":"Realizace","level":"h1","mod":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"a09bb2ad-e5fe-48e9-996d-051def04a923","isHidden":false,"type":"heading"},{"content":{"image":["file://Dn6nshwm063gLT6A"],"hasparallax":"false","parallax":0,"hasreveal":"false","reveal":"","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"c5a368cd-21df-4ef3-a704-8625238371df","isHidden":false,"type":"cover"},{"content":{"text":"Prohlédněte si hotové interiéry a konkrétní práci, kterou jsme na nich odvedli.","mod":"","face":"","case":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"aa81822b-6901-4d41-9c10-6295e501edd5","isHidden":false,"type":"text"}]
+
+----
+
+Reference: [{"content":{"text":"Co říkají klienti","level":"h2","mod":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"cae66fac-dfac-42e1-a158-a90c8cbc1a18","isHidden":false,"type":"heading"}]
 
 ----
 
@@ -15,15 +19,17 @@ Order:
 - 
   label: 1_hero
 - 
-  label: 2_filter
-- 
   label: 3_list
 - 
-  label: sections/Testimonials/index
+  label: 4_reference
 - 
   label: sections/Feed/index
 - 
   label: sections/Cta/index
+
+----
+
+Cta: 
 
 ----
 

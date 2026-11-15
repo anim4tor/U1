@@ -1,0 +1,245 @@
+Title: Obchodní manažer
+
+----
+
+Hero: [{"content":{"text":"Obchodní manažer","level":"h1","mod":"l","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-obchodak-h1","isHidden":false,"type":"heading"},{"content":{"image":["file://ySBFAutta9Zv23vK"],"hasparallax":"false","parallax":0,"hasreveal":"false","reveal":"","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-obchodak-cover","isHidden":false,"type":"cover"},{"content":{"text":"Rozvoj obchodních příležitostí a péče o klienty v oblasti prémiových kancelářských interiérů na klíč.","mod":"l","face":"","case":"lower","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-obchodak-text","isHidden":false,"type":"text"}]
+
+----
+
+Excerpt: <p>Hledáme obchodního manažera s tahem na branku, který má vášeň pro moderní architekturu, interiéry a budování dlouhodobých vztahů s firemními klienty.</p>
+
+----
+
+Details: <p>U1 je lídrem v oblasti Design & Build kancelářských interiérů. Našimi klienty jsou přední technologické, finanční i mezinárodní korporace. Hledáme posilu, která bude reprezentovat naši značku a rozvíjet obchodní příležitosti.</p><p>Budete aktivně oslovovat nové klienty, analyzovat jejich potřeby a ve spolupráci s našimi architekty představovat ucelená řešení pracovního prostředí.</p>
+
+----
+
+Description:
+
+- 
+  text: Aktivní vyhledávání nových obchodních příležitostí v segmentu komerčních interiérů
+- 
+  text: Budování a rozvíjení dlouhodobých vztahů s klienty, architekty a developery
+- 
+  text: Vedení obchodních jednání, prezentace návrhů a řešení U1
+- 
+  text: Spolupráce s architektonickým a realizačním týmem na přípravě nabídek
+- 
+  text: Vyjednávání smluvních podmínek a dotažení projektů do podpisu smlouvy
+- 
+  text: Sledování trendů v oblasti pracovního prostředí a moderních kanceláří
+
+----
+
+Requirements:
+
+- 
+  text: Prokazatelná praxe v B2B obchodu (zkušenost v oblasti interiérů, stavebnictví či designu velkou výhodou)
+- 
+  text: Vynikající komunikační, prezentační a vyjednávací dovednosti
+- 
+  text: Profesionální vystupování a schopnost jednat s top managementem společností
+- 
+  text: Proaktivní přístup, orientace na výsledek a samostatnost
+- 
+  text: Uživatelská znalost práce s CRM a MS Office
+- 
+  text: Řidičský průkaz skupiny B (aktivní řidič)
+
+----
+
+Offers:
+
+- 
+  text: Atraktivní finanční ohodnocení s nadstandardní provizní složkou
+- 
+  text: Práce s prestižními značkami a klienty na trhu
+- 
+  text: Služební automobil i pro soukromé účely, telefon, notebook
+- 
+  text: Zázemí silné společnosti a podpora špičkového týmu architektů a techniků
+- 
+  text: Firemní benefity, neformální firemní kultura a pravidelné akce
+
+----
+
+Benefits:
+
+- 
+  text: Atraktivní finanční ohodnocení s nadstandardní provizní složkou
+- 
+  text: Práce s prestižními značkami a klienty na trhu
+- 
+  text: Služební automobil i pro soukromé účely, telefon, notebook
+- 
+  text: Zázemí silné společnosti a podpora špičkového týmu architektů a techniků
+- 
+  text: Firemní benefity, neformální firemní kultura a pravidelné akce
+
+----
+
+Whyusheader: [{"content":{"text":"Proč pracovat u nás?","level":"h2","mod":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"223b81a6-bc41-4f3f-8fb6-a23abb4f9433","isHidden":false,"type":"heading"},{"content":{"text":"","mod":"","face":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"805d04c8-633f-4349-bd79-05af32236e6f","isHidden":false,"type":"label"}]
+
+----
+
+Whyus:
+
+- 
+  text: Bonusy/prémie
+  icon: shield-check
+  image: [ ]
+- 
+  text: Provize z prodeje
+  icon: users
+  image: [ ]
+- 
+  text: Mobilní telefon
+  icon: briefcase
+  image: [ ]
+- 
+  text: Sleva na firemní výrobky/služby
+  icon: heart
+  image: [ ]
+- 
+  text: Notebook
+  icon: sun
+  image: [ ]
+- 
+  text: Vzdělávací kurzy, školení
+  icon: users-1
+  image: [ ]
+- 
+  text: Občerstvení na pracovišti
+  icon: heart-1
+  image: [ ]
+- 
+  text: Zdravotní volno/sickdays
+  icon: sun-1
+  image: [ ]
+- 
+  text: Firemní akce
+  icon: users-2
+  image: [ ]
+- 
+  text: Možnost si napracovat hodiny
+  icon: users-3
+  image: [ ]
+
+----
+
+Processheader: [{"content":{"text":"Každá spolupráce začíná kontaktem","level":"h2","mod":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"e811c472-7934-45e0-82a8-a53239a5180e","isHidden":false,"type":"heading"},{"content":{"text":"","mod":"","face":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"c68a1b30-c881-45d5-866e-e06d02ad3668","isHidden":false,"type":"label"}]
+
+----
+
+Process:
+
+- 
+  step: "1"
+  title: Napíšeme si
+  text: >
+    Odpověz nám prostřednictvím
+    kontaktního formuláře. Zajímá nás
+    jen pár věcí a tvůj životopis.
+  image:
+    - file://dWxYAuhpEqTZu9VK
+- 
+  step: "2"
+  title: Zavoláme si
+  text: >
+    Online nebo po telefonu se tě doptáme
+    na několik doplňujících otázek.
+  image:
+    - file://mhxn0hpLRYGSMGNr
+- 
+  step: "3"
+  title: Potkáme se
+  text: >
+    Potkáš se s náborářem i budoucím
+    manažerem, se kterými detailně
+    probereš vše důležité.
+  image:
+    - file://wvX3M4OSzD4dbPFG
+
+----
+
+Cover: - file://ySBFAutta9Zv23vK
+
+----
+
+Start: Dohodou
+
+----
+
+Location: Brno
+
+----
+
+Duration: Plný úvazek
+
+----
+
+Team: Obchodní tým
+
+----
+
+Contactemail: hr@u1.cz
+
+----
+
+Contactphone: +420 601 088 517
+
+----
+
+Ctaoverride: false
+
+----
+
+Cta: 
+
+----
+
+Meta-description: 
+
+----
+
+Meta-title: 
+
+----
+
+Meta-canonical-url: 
+
+----
+
+Og-title: 
+
+----
+
+Og-description: 
+
+----
+
+Og-image: 
+
+----
+
+Robots-index: 
+
+----
+
+Robots-follow: 
+
+----
+
+Robots-archive: 
+
+----
+
+Robots-imageindex: 
+
+----
+
+Robots-snippet: 
+
+----
+
+Uuid: nkKjdiSh5UjmQ1oi

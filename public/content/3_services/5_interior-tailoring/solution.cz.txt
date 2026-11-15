@@ -1,30 +1,79 @@
-Title: Nábytek na míru
+Title: Nábytek Only1, Only2 a atypy na míru
 
 ----
 
-Category: Celý projekt
+Category: Nábytek a vybavení
 
 ----
 
-Hero: [{"content":{"text":"Nábytek na míru","level":"h1","mod":"l","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-q9s5p8pn","isHidden":false,"type":"heading"},{"content":{"image":["evropa1008dse3948-2.webp"],"hasparallax":"false","parallax":0,"hasreveal":"false","reveal":"","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-niramipq","isHidden":false,"type":"cover"},{"content":{"text":"Nábytek na míru pro konkrétní prostor, od pracovních míst po recepci.","mod":"l","face":"","case":"lower","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-bqoxiu93","isHidden":false,"type":"text"}]
+Excerpt: <p>Navrhneme nábytek přesně pro váš prostor, od pracovních míst po recepci. Vlastní oceněné řady Only1 a Only2 i zakázková výroba.</p>
 
 ----
-
-Excerpt: <p>Nábytek na míru pro konkrétní prostor, od pracovních míst po recepci.</p>
 
 Intro: <p>Atypický nábytek připravujeme s ověřenými truhláři, se kterými dlouhodobě spolupracujeme. Návrh, technické detaily, výrobu i montáž hlídáme sami, takže nábytek sedí na stavbu i na rozpočet.</p>
 
 ----
 
-Details: 
+Details: <p>Nábytek dodáme jako součást kanceláří na klíč, k projektu jiného architektonického studia, nebo samostatně. Only1 a Only2 jsou vlastní nábytkové řady U1. Řada Only2 získala na Designbloku cenu Nejlepší novinka výrobce.</p><p>Pro Plzeňský Prazdroj jsme zajistili atypický nábytek, recepci s rozřezaným pivním kegem a designové podhledy. V Restauraci Evropa v Praze jsme vytvořili truhlářské obklady, kazetový podhled a bar z trapézového plechu. Nábytek jsme dodali i pro kliniku Ortho Dent ve spolupráci s HUA HUA Architects.</p>
 
 ----
 
-Gallery: 
+Includesheadline: Co zajistíme
 
 ----
 
-Relatedprojects: 
+Includes:
+- 
+  title: Atypický nábytek a recepce na míru
+  text: Výroba dominantních recepcí, barů, kuchyněk, skříňových stěn a akustických obkladů s prověřenými truhláři.
+
+- 
+  title: Autorské nábytkové řady Only1 a Only2
+  text: Designové stoly, kontejnery a doplňky oceněné na Designbloku, vyvinuté speciálně pro komerční interiéry.
+
+- 
+  title: Truhlářské prvky pro komerční interiéry
+  text: Kombinace masivu, dýhy, kovu, skla a moderních kompaktních desek s důrazem na extrémní odolnost.
+
+- 
+  title: Kompletní montáž a záruční servis
+  text: Vlastní zkušení montážníci, čisté předání a dlouhodobý servis vybavení.
+
+
+----
+
+Faqheadline: Časté otázky
+
+----
+
+Faq:
+- 
+  question: Kdo nábytek na míru vyrábí?
+  answer: Výrobu koordinujeme přímo my ve spolupráci s dlouhodobě prověřenými českými truhlářskými mistry a výrobci kovových konstrukcí. Na každý detail dohlíží naši konstruktéři.
+
+- 
+  question: Co umíte dodat na míru?
+  answer: Prakticky jakýkoliv atypický prvek – od monumentálních recepcí a barových pultů přes akustické obklady stěn, vestavěné kuchyňky až po atypické zasedací stoly s integrovanou kabeláží.
+
+- 
+  question: Co jsou Only1 a Only2?
+  answer: Jde o vlastní autorské nábytkové řady navržené v U1. Vyznačují se minimalistickou geometrií, vysokou odolností a flexibilitou. Řada Only2 získala prestižní cenu na Designbloku za Nejlepší novinku výrobce.
+
+
+----
+
+Workmodel: Design & Build nebo samostatně
+
+----
+
+Location: Celá Česká republika a Slovensko
+
+----
+
+Relatedprojects:
+- projects/volareza-restaurace-evropa
+- projects/plzensky-prazdroj
+- projects/ortho-dent
 
 ----
 
@@ -32,47 +81,7 @@ Cover: - evropa1008dse3948-2.webp
 
 ----
 
-Meta-description: 
-
-----
-
-Meta-title: 
-
-----
-
-Meta-canonical-url: 
-
-----
-
-Og-title: 
-
-----
-
-Og-description: 
-
-----
-
-Og-image: 
-
-----
-
-Robots-index: 
-
-----
-
-Robots-follow: 
-
-----
-
-Robots-archive: 
-
-----
-
-Robots-imageindex: 
-
-----
-
-Robots-snippet: 
+Hero: [{"content":{"text":"Nábytek na míru","level":"h1","mod":"l","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-q9s5p8pn","isHidden":false,"type":"heading"},{"content":{"image":["evropa1008dse3948-2.webp"],"hasparallax":"false","parallax":0,"hasreveal":"false","reveal":"","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-niramipq","isHidden":false,"type":"cover"},{"content":{"text":"Nábytek na míru pro konkrétní prostor, od pracovních míst po recepci.","mod":"l","face":"","case":"lower","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-bqoxiu93","isHidden":false,"type":"text"}]
 
 ----
 

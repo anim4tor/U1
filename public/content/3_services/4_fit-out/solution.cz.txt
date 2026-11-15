@@ -2,21 +2,106 @@ Title: Fit-out a stavební úpravy
 
 ----
 
+Hero: [{"content":{"text":"Fit-out kanceláří a rekonstrukce","level":"h1","mod":"l","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-6aoh0r1v","isHidden":false,"type":"heading"},{"content":{"image":["file://B3qzowr055hl3ljC"],"hasparallax":"false","parallax":0,"hasreveal":"false","reveal":"","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-1cvy6rlu","isHidden":false,"type":"cover"},{"content":{"text":"Postavíme nové kanceláře nebo přestavíme stávající. Pracujeme podle vlastního i externího návrhu.","mod":"","face":"","case":"lower","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-vjqhow4k","isHidden":false,"type":"text"}]
+
+----
+
 Category: Celý projekt
 
 ----
 
-Hero: [{"content":{"text":"Fit-out a stavební úpravy","level":"h1","mod":"l","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-6aoh0r1v","isHidden":false,"type":"heading"},{"content":{"image":["file://B3qzowr055hl3ljC"],"hasparallax":"false","parallax":0,"hasreveal":"false","reveal":"","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-1cvy6rlu","isHidden":false,"type":"cover"},{"content":{"text":"Kompletní realizace stavebních úprav komerčních prostor na klíč – od bouracích prací až po finální detaily.","mod":"l","face":"","case":"lower","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-vjqhow4k","isHidden":false,"type":"text"}]
+Excerpt: <p>Stavíme nové prostory a přestavujeme stávající. Samostatně nebo v rámci kanceláří na klíč.</p>
 
 ----
-
-Excerpt: <p>Postavíme nové kanceláře nebo přestavíme stávající. Pracujeme podle vlastního i externího návrhu.</p>
 
 Intro: <p>Fit-out zajistíme samostatně nebo jako součást kanceláří na klíč. Rozsah stavební realizace vychází z projektu a stavu prostoru.</p>
 
 ----
 
-Details: 
+Details: <p>Realizujeme kanceláře od holého betonu (shell &amp; core) i úpravy již používaných interiérů. Stavební práce propojujeme s projektovým řízením a koordinací profesí. Navazujeme na vlastní návrh nebo na projekt architektonického studia.</p><p>V CTParku Borská pole v Plzni jsme podle externího návrhu postavili kanceláře za pět měsíců. U Direct pojišťovny v Brně jsme spojili rekonstrukci a novostavbu do jednoho funkčního celku.</p>
+
+----
+
+Includesheadline: Co zahrnuje
+
+----
+
+Includes:
+
+- 
+  title: 'Fit-out nových prostor (Shell & Core)'
+  text: >
+    Kompletní vestavba kanceláří od
+    základních betonových konstrukcí
+    přes instalace až po finální
+    povrchy.
+- 
+  title: >
+    Refit a rekonstrukce stávajících
+    kanceláří
+  text: >
+    Modernizace dispozic, výměna podlah,
+    úpravy akustiky a osvětlení za
+    provozu či v etapách.
+- 
+  title: >
+    Stavební realizaci podle vlastního i
+    externího návrhu
+  text: >
+    Precizní provedení detailů s
+    respektem k autorskému záměru a
+    technickým normám budovy.
+- 
+  title: >
+    Inženýring a jednání se správou
+    budovy
+  text: >
+    Zajištění vstupů, požární
+    ochrany, koordinace s technickým
+    dozorem pronajímatele a revize.
+
+----
+
+Faqheadline: Časté otázky
+
+----
+
+Faq:
+
+- 
+  question: >
+    Jaký je rozdíl mezi fit-outem a
+    refitem?
+  answer: 'Fit-out je kompletní stavební dobudování nového surového prostoru (shell & core). Refit je přestavba a modernizace stávajících, již dříve využívaných kanceláří.'
+- 
+  question: >
+    Máte zkušenost s realizací od holého
+    betonu?
+  answer: >
+    Ano, máme desítky úspěšných
+    realizací ve špičkových
+    administrativních budovách a business
+    parcích po celé ČR (např. CTParky,
+    Vlněna, Titanium).
+- 
+  question: >
+    Realizujete fit-out i podle projektu
+    jiného architekta?
+  answer: >
+    Ano, velmi úzce a rádi spolupracujeme
+    s externími architekty a designovými
+    studii, kterým garantujeme přesné
+    dodržení jejich projektu.
+- 
+  question: >
+    Patří k fit-outu také návrh a
+    nábytek?
+  answer: >
+    Může i nemusí. Pokud máte zájem
+    pouze o stavební fit-out, zrealizujeme
+    jej samostatně. V rámci kanceláří
+    na klíč však zajistíme i návrh a
+    kompletní nábytkové vybavení.
 
 ----
 
@@ -24,11 +109,31 @@ Gallery:
 
 ----
 
-Relatedprojects: 
+Relatedprojects:
+
+- page://DFrA65LRGEbhv2uf
+- page://X5ZaG3cFKtoi7WTz
+- page://iw5wpXmSaoxIdHjj
 
 ----
 
 Cover: - file://B3qzowr055hl3ljC
+
+----
+
+Workmodel: Design & Build nebo samostatně
+
+----
+
+Location: Celá Česká republika a Slovensko
+
+----
+
+Ctaoverride: false
+
+----
+
+Cta: 
 
 ----
 

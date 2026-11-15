@@ -6,25 +6,73 @@ Category: Stavba a technika
 
 ----
 
-Hero: [{"content":{"text":"Příčky a prosklené stěny","level":"h1","mod":"l","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-n9xz3ylk","isHidden":false,"type":"heading"},{"content":{"image":["file://B3qzowr055hl3ljC"],"hasparallax":"false","parallax":0,"hasreveal":"false","reveal":"","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-u7zacu6x","isHidden":false,"type":"cover"},{"content":{"text":"Skleněné i plné dělicí příčky s vysokým akustickým útlumem pro flexibilní členění kancelářského prostoru.","mod":"l","face":"","case":"lower","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-6xded6i3","isHidden":false,"type":"text"}]
+Excerpt: <p>Oddělíme zasedačky i focus roomy s důrazem na akustiku a světlo v celém prostoru.</p>
 
 ----
 
-Excerpt: <p>Příčky začleňujeme do stavební realizace podle návrhu kanceláře.</p>
-
-Intro: <p>K zadání patří rozmístění místností a požadavky na soukromí. Podle projektu pak řešíme provedení příček.</p>
+Intro: <p>Příčky začleňujeme do stavební realizace podle návrhu kanceláře. K zadání patří rozmístění místností a požadavky na soukromí a akustiku.</p>
 
 ----
 
-Details: 
+Details: <p>V CTParku Borská pole jsme použili skleněné příčky LIKO-S s vysokým akustickým útlumem. Kanceláře jsme realizovali podle návrhu externího architekta z holého betonu.</p><p>Dodávku řešíme v rámci fit-outu kanceláří. Podle projektu kombinujeme bezrámové prosklené stěny, dvojskla, sádrokartonové mezibytové a kancelářské příčky s integrovanými hliníkovými či dřevěnými dveřmi.</p>
 
 ----
 
-Gallery: 
+Includesheadline: Co zahrnuje
 
 ----
 
-Relatedprojects: 
+Includes:
+- 
+  title: Jednoduše i dvojitě zasklené systémové příčky
+  text: Bezrámové i rastrové skleněné stěny s vysokou propustností světla a čistým minimalistickým detailem.
+
+- 
+  title: Špičkový akustický útlum až 49 dB
+  text: Spolehlivé odhlučnění jednacích místností a ředitelských kanceláří zabraňující úniku citlivých informací.
+
+- 
+  title: Sádrokartonové a akustické plné stěny
+  text: Masivní SDK konstrukce s minerální izolací pro technické místnosti, kuchyňky i hygienická zázemí.
+
+- 
+  title: Dveřní systémy a chytré doplňky
+  text: Skleněné, dýhované i laminované dveře s padacími prahy, magnetickými zámky a možností nalepení fólií.
+
+
+----
+
+Faqheadline: Časté otázky
+
+----
+
+Faq:
+- 
+  question: S jakými příčkami máte zkušenost?
+  answer: Pravidelně realizujeme systémy od předních výrobců jako LIKO-S, Dorma, Vertic i klasické SDK akustické stěny Knauf a Rigips.
+
+- 
+  question: Provedete příčky podle projektu našeho architekta?
+  answer: Ano, přesně dodržíme specifikaci profilů, barevnosti i typu zasklení navrženou vaším architektem.
+
+- 
+  question: Jaké akustické parametry příčky splňují?
+  answer: Standardní jednoduše zasklené příčky dosahují útlumu cca 32–36 dB, dvojitě zasklené stěny s akustickou fólií a padacím prahem dosahují útlumu 42 až 49 dB, což zaručuje absolutní diskrétnost.
+
+
+----
+
+Workmodel: Design & Build nebo samostatně
+
+----
+
+Location: Celá Česká republika a Slovensko
+
+----
+
+Relatedprojects:
+- projects/ctpark-borska-pole
+- projects/direct-pojistovna
 
 ----
 
@@ -32,47 +80,7 @@ Cover: - file://B3qzowr055hl3ljC
 
 ----
 
-Meta-description: 
-
-----
-
-Meta-title: 
-
-----
-
-Meta-canonical-url: 
-
-----
-
-Og-title: 
-
-----
-
-Og-description: 
-
-----
-
-Og-image: 
-
-----
-
-Robots-index: 
-
-----
-
-Robots-follow: 
-
-----
-
-Robots-archive: 
-
-----
-
-Robots-imageindex: 
-
-----
-
-Robots-snippet: 
+Hero: [{"content":{"text":"Příčky a prosklené stěny","level":"h1","mod":"l","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-n9xz3ylk","isHidden":false,"type":"heading"},{"content":{"image":["file://B3qzowr055hl3ljC"],"hasparallax":"false","parallax":0,"hasreveal":"false","reveal":"","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-u7zacu6x","isHidden":false,"type":"cover"},{"content":{"text":"Skleněné i plné dělicí příčky s vysokým akustickým útlumem pro flexibilní členění kancelářského prostoru.","mod":"l","face":"","case":"lower","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-6xded6i3","isHidden":false,"type":"text"}]
 
 ----
 

@@ -56,6 +56,11 @@ tabs:
           teamHeadline:
             type: headline
             label: Realizace a autoři
+          architect:
+            width: 1/1
+            label: Architektonický návrh / koncept
+            type: text
+            placeholder: "např. František Novák, U1 Space Design"
           team:
             width: 1/1
             type: multiselect

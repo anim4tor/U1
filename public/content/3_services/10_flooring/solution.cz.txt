@@ -6,25 +6,74 @@ Category: Stavba a technika
 
 ----
 
-Hero: [{"content":{"text":"Podlahy a krytiny","level":"h1","mod":"l","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-bl1ccb12","isHidden":false,"type":"heading"},{"content":{"image":["file://B3qzowr055hl3ljC"],"hasparallax":"false","parallax":0,"hasreveal":"false","reveal":"","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-tx2inwrv","isHidden":false,"type":"cover"},{"content":{"text":"Výběr a pokládka odolných podlahových krytin, kobercových čtverců a vinylů s důrazem na akustiku a dlouhou životnost.","mod":"l","face":"","case":"lower","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-ipiuiepq","isHidden":false,"type":"text"}]
+Excerpt: <p>Koberce, vinyl i stěrky vybrané s ohledem na provoz, zátěž a akustiku kanceláře.</p>
 
 ----
 
-Excerpt: <p>Podlahy dodáváme jako součást realizace kanceláří i dalších interiérů.</p>
-
-Intro: <p>Podlahy dodáváme také při spolupráci s architektonickým studiem. Navazujeme na jeho návrh a dohodnutý rozsah realizace.</p>
+Intro: <p>Podlahy dodáváme jako součást realizace kanceláří i dalších interiérů. Navazujeme na architektonický návrh a požadavky na provoz.</p>
 
 ----
 
-Details: 
+Details: <p>Podlahy dodáváme také při spolupráci s architektonickými studii. Navazujeme na jejich návrh a dohodnutý rozsah realizace.</p><p>V CTParku Borská pole jsme při realizaci kanceláří použili prémiové kobercové čtverce Shaw Contract. Podlahy jsme dodali také pro Ortho Dent v Brně, kde jsme spolupracovali s HUA HUA Architects. Vedle podlah jsme pro kliniku zajistili nábytek a elektromontáže.</p>
 
 ----
 
-Gallery: 
+Includesheadline: Co zahrnuje
 
 ----
 
-Relatedprojects: 
+Includes:
+- 
+  title: Zátěžové kobercové čtverce a role
+  text: Akustické koberce navržené speciálně pro kancelářský provoz s vysokou odolností proti opotřebení.
+
+- 
+  title: Vinylové dílce (LVT) a designové stěrky
+  text: Praktické a odolné podlahy do kuchyněk, chodeb a recepcí s věrnou texturou dřeva či betonu.
+
+- 
+  title: Příprava podkladu a samonivelační stěrky
+  text: Broušení, penetrace a nivelace podkladů pro dokonale rovný a stabilní povrch.
+
+- 
+  title: Zdvojené podlahy pro vedení instalací
+  text: Systémové zdvojené podlahy umožňující flexibilní vedení kabelů přímo pod pochozí vrstvou.
+
+
+----
+
+Faqheadline: Časté otázky
+
+----
+
+Faq:
+- 
+  question: Dodáváte podlahy také podle návrhu jiného studia?
+  answer: Ano, dodávku a pokládku podlah realizujeme přesně podle materiálové specifikace vašeho architekta.
+
+- 
+  question: Jaké podlahové krytiny do kanceláří doporučujete?
+  answer: Do kanceláří doporučujeme kombinaci zátěžových kobercových čtverců (pro akustiku a komfort v pracovních zónách) a vinylu LVT či litých stěrek (do chodeb a kuchyněk pro snadnou údržbu).
+
+- 
+  question: Lze podlahy řešit současně s ostatními pracemi?
+  answer: Ano, pokládku přesně časujeme v rámci harmonogramu stavby po dokončení prašných prací a malířských úprav.
+
+
+----
+
+Workmodel: Design & Build nebo samostatně
+
+----
+
+Location: Celá Česká republika a Slovensko
+
+----
+
+Relatedprojects:
+- projects/ctpark-borska-pole
+- projects/fcc
+- projects/ortho-dent
 
 ----
 
@@ -32,47 +81,7 @@ Cover: - file://B3qzowr055hl3ljC
 
 ----
 
-Meta-description: 
-
-----
-
-Meta-title: 
-
-----
-
-Meta-canonical-url: 
-
-----
-
-Og-title: 
-
-----
-
-Og-description: 
-
-----
-
-Og-image: 
-
-----
-
-Robots-index: 
-
-----
-
-Robots-follow: 
-
-----
-
-Robots-archive: 
-
-----
-
-Robots-imageindex: 
-
-----
-
-Robots-snippet: 
+Hero: [{"content":{"text":"Podlahy a krytiny","level":"h1","mod":"l","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-bl1ccb12","isHidden":false,"type":"heading"},{"content":{"image":["file://B3qzowr055hl3ljC"],"hasparallax":"false","parallax":0,"hasreveal":"false","reveal":"","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-tx2inwrv","isHidden":false,"type":"cover"},{"content":{"text":"Výběr a pokládka odolných podlahových krytin, kobercových čtverců a vinylů s důrazem na akustiku a dlouhou životnost.","mod":"l","face":"","case":"lower","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-ipiuiepq","isHidden":false,"type":"text"}]
 
 ----
 

@@ -22,11 +22,44 @@ tabs:
               - Nábytek a vybavení
 
           excerpt:
+            label: Krátký perex (v hrdle)
             type: writer
           intro:
+            label: Úvodní text
             type: writer
           details:
+            label: Hlavní text služby
             type: writer
+
+          includesHeadline:
+            label: Nadpis Co zahrnuje
+            type: text
+            placeholder: "Co zahrnuje"
+          includes:
+            label: Položky Co zahrnuje
+            type: structure
+            fields:
+              title:
+                label: Název položky
+                type: text
+              text:
+                label: Detailnější popis (volitelný)
+                type: textarea
+
+          faqHeadline:
+            label: Nadpis FAQ
+            type: text
+            placeholder: "Časté otázky"
+          faq:
+            label: Časté otázky k této službě
+            type: structure
+            fields:
+              question:
+                label: Otázka
+                type: text
+              answer:
+                label: Odpověď
+                type: textarea
 
           gallery:
             width: 1/1
@@ -44,7 +77,7 @@ tabs:
 
           relatedProjects:
             width: 1/1
-            label: Related Projects
+            label: Ukázkové realizace k této službě
             type: pages
             layout: cards
             size: small
@@ -67,6 +100,20 @@ tabs:
             max: 1
             layout: cards
             size: full
+
+          sidebarHeadline:
+            type: headline
+            label: Parametry služby
+
+          workModel:
+            label: Model spolupráce
+            type: text
+            placeholder: "např. Design & Build nebo samostatně"
+
+          location:
+            label: Kde působíme
+            type: text
+            placeholder: "např. Celá Česká republika a Slovensko"
 
   cta: tabs/cta-subpage
   meta: tabs/meta/page

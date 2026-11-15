@@ -14,7 +14,7 @@ if (isset($page) && $page->cover()->isNotEmpty()) {
 }
 ?>
 <?php if ($hasHero || $cover || (isset($page) && $page->title()->isNotEmpty())) : ?>
-<section class="intro radius" theme="dark" style="--in-delay: 500ms">
+<section class="intro --home radius" theme="dark" style="--in-delay: 500ms">
 	<div class="intro__cover absolute inset__stretch grid overlay__harder" data-scroll>
 		<?php if ($hasHero) : ?>
 			<?= snippet('molecules/Header', ['header' => $hero, 'type' => ['cover']]) ?>

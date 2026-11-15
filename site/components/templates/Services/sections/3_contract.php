@@ -4,7 +4,7 @@ $text = $page->contractText()->or('Od architektonického návrhu po vybavení je
 $steps = $page->contractSteps()->toStructure();
 ?>
 <section class="contract radius" theme="dark" data-scroll>
-	<div class="grid gap__4 inner-x__4 inner-y__5 mobile:inner-x__1 mobile:inner-y__3">
+	<div class="grid gap__3 inner-x__4 inner-y__5 mobile:inner-x__1 mobile:inner-y__3">
 		<div class="grid__4 gap__2 mobile:grid__1">
 			<div class="span__2 grid gap__1">
 				<h2 class="font__size__2" data-reveal-text><?= $heading ?></h2>

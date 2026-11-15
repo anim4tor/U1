@@ -6,25 +6,78 @@ Category: Nábytek a vybavení
 
 ----
 
-Hero: [{"content":{"text":"Kancelářský nábytek","level":"h1","mod":"l","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-3bbw26sm","isHidden":false,"type":"heading"},{"content":{"image":["file://B3qzowr055hl3ljC"],"hasparallax":"false","parallax":0,"hasreveal":"false","reveal":"","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-r8nyufkc","isHidden":false,"type":"cover"},{"content":{"text":"Ergonomický nábytek, výškově stavitelné stoly a sezení od předních evropských výrobců pro pohodlí a zdraví při práci.","mod":"l","face":"","case":"lower","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-e3dml71p","isHidden":false,"type":"text"}]
+Excerpt: <p>Pracovní stoly, ergonomické židle, akustické budky a úložné systémy prověřených značek.</p>
 
 ----
-
-Excerpt: <p>Dodáváme kancelářský nábytek, atypy na míru s ověřenými truhláři a vlastní nábytkové řady Only1 a Only2.</p>
 
 Intro: <p>Nábytkovou dodávku propojujeme s uspořádáním interiéru. Vedle vybavení pracovních míst řešíme také recepce a společné zázemí.</p>
 
 ----
 
-Details: 
+Details: <p>Nábytek na míru dodáváme s ověřenými truhláři. Nábytek můžeme zahrnout do celého projektu kanceláří nebo dodat samostatně. Konkrétní rozsah vychází z vašeho návrhu a zadání.</p><p>Pro Plzeňský Prazdroj jsme zajistili dodávku typového i atypického nábytku a recepci. Nábytek jsme dodali také pro kliniku Ortho Dent a desítky dalších prostor po celé republice.</p>
 
 ----
 
-Gallery: 
+Includesheadline: Co zahrnuje
 
 ----
 
-Relatedprojects: 
+Includes:
+- 
+  title: Výškově stavitelné a ergonomické stoly
+  text: Elektricky polohovatelné stoly umožňující střídání práce vsedě a vestoje pro zdraví zaměstnanců.
+
+- 
+  title: Prémiové ergonomické pracovní židle
+  text: Certifikované pracovní židle s širokými možnostmi nastavení a dlouhou zárukou.
+
+- 
+  title: Akustické budky a mikrokanceláře
+  text: Odhlučněné telefonní budky pro 1, 2 nebo 4 osoby s ventilací a elektrickými zásuvkami.
+
+- 
+  title: Úložné systémy, skříňky a lockery
+  text: Zamykatelné osobní skříňky (lockery) pro flexibilní kanceláře a systémové úložné stěny.
+
+
+----
+
+Faqheadline: Časté otázky
+
+----
+
+Faq:
+- 
+  question: Můžeme si objednat nábytek bez celé stavby?
+  answer: Ano, dodávku nového kancelářského nábytku, židlí nebo akustických budek realizujeme i samostatně pro již zařízené kanceláře.
+
+- 
+  question: Jaký kancelářský nábytek dodáváte?
+  answer: Dodáváme vlastní oceňované řady Only1 a Only2, zakázkový truhlářský nábytek na míru i typové produkty od předních evropských výrobců ergonomických židlí a akustických budek.
+
+- 
+  question: Nabízíte kancelářský nábytek také k pronájmu?
+  answer: Pro vybrané projekty a dočasné prostory nabízíme možnost operativního financování a pronájmu nábytkového vybavení.
+
+- 
+  question: Můžeme nábytek zahrnout do kanceláří na klíč?
+  answer: Ano, to je nejpřirozenější cesta – nábytek je pak od začátku navržen v souladu s dispozicemi a technologiemi prostoru.
+
+
+----
+
+Workmodel: Design & Build nebo samostatně
+
+----
+
+Location: Celá Česká republika a Slovensko
+
+----
+
+Relatedprojects:
+- projects/fcc
+- projects/direct-pojistovna
+- projects/plzensky-prazdroj
 
 ----
 
@@ -32,47 +85,7 @@ Cover: - file://B3qzowr055hl3ljC
 
 ----
 
-Meta-description: 
-
-----
-
-Meta-title: 
-
-----
-
-Meta-canonical-url: 
-
-----
-
-Og-title: 
-
-----
-
-Og-description: 
-
-----
-
-Og-image: 
-
-----
-
-Robots-index: 
-
-----
-
-Robots-follow: 
-
-----
-
-Robots-archive: 
-
-----
-
-Robots-imageindex: 
-
-----
-
-Robots-snippet: 
+Hero: [{"content":{"text":"Kancelářský nábytek","level":"h1","mod":"l","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-3bbw26sm","isHidden":false,"type":"heading"},{"content":{"image":["file://B3qzowr055hl3ljC"],"hasparallax":"false","parallax":0,"hasreveal":"false","reveal":"","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-r8nyufkc","isHidden":false,"type":"cover"},{"content":{"text":"Ergonomický nábytek, výškově stavitelné stoly a sezení od předních evropských výrobců pro pohodlí a zdraví při práci.","mod":"l","face":"","case":"lower","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-e3dml71p","isHidden":false,"type":"text"}]
 
 ----
 

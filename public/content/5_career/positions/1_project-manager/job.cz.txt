@@ -2,50 +2,67 @@ Title: Projektový manažer
 
 ----
 
-Excerpt: <p>Hledáme spolehlivého stavaře – projektového manažera pro realizaci fit-out projektů interiérů. Žádné core &amp; shell, čisté a moderní stavební prostředí.</p>
+Hero: [{"content":{"text":"Projektový manažer","level":"h1","mod":"l","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-pm-h1","isHidden":false,"type":"heading"},{"content":{"image":["file://ySBFAutta9Zv23vK"],"hasparallax":"false","parallax":0,"hasreveal":"false","reveal":"","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-pm-cover","isHidden":false,"type":"cover"},{"content":{"text":"Hledáme spolehlivého stavaře, který povede fit-out interiérů od převzetí prostor až po předání hotových kanceláří klientovi.","mod":"l","face":"","case":"lower","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-pm-text","isHidden":false,"type":"text"}]
 
 ----
 
-Details: <p>Naše společnost realizuje prémiové interiéry kancelářských a komerčních prostor. Mezi naše hlavní klienty patří IBM, Avast, Kentico, Miele, Konica-Minolta a další významné společnosti. Spolupracujeme s předními architekty a developery po celé republice.</p><p>Koordinace a plánování dávají věci do pohybu.</p><p>Každý, kdo chce převzít projekt a dotáhnout jej do úspěšného konce, bude u nás cenným kolegou. Realizace kancelářských interiérů probíhá v technologicky vyspělých budovách a dnešní kanceláře představují kvalitní prostor pro život. Během realizace řídíme celý proces – od spolupráce s klientem a týmem až po dodavatele. Máme přímý vliv na rozpočet, kvalitu i veškeré realizační procesy.</p><p>Stupeň vzdělání pro nás není rozhodující, ale talent pro plánování, předvídání a řízení stavebních zdrojů bude pro budoucího projektového manažera velkou výhodou. Jsme připraveni vás naše řemeslo od základů naučit.</p><p>Jsme technicky zaměření, ale všechny vztahy stavíme na lidské a otevřené komunikaci. Výsledkem je úspěšně předaný projekt – a to za to stojí.</p>
+Excerpt: <p>Hledáme spolehlivého stavaře, který povede fit-out interiérů od převzetí prostor až po předání hotových kanceláří klientovi. Žádné hrubé stavby, pracujete v čistém prostředí hotových budov.</p>
+
+----
+
+Details: <p>Kanceláře navrhujeme, stavíme a vybavujeme pro firmy jako Direct pojišťovna nebo Plzeňský Prazdroj. Jako projektový manažer máte stavbu na starosti od začátku do konce: koordinujete subdodavatele, hlídáte termíny, kvalitu a náklady a jste hlavním partnerem stavbyvedoucího i klienta.</p><p>Na projektu nejste sami. Návrh připravují naši architekti, nábytek zajišťujeme s ověřenými truhláři a s rozpočty vám pomůže tým projektového řízení.</p>
 
 ----
 
 Description: - 
-  text: Komunikace s dodavateli, řemeslníky a klientem
+  text: Vedení výstavby fit-out interiéru od A do Z
 - 
-  text: Řízení průběhu stavby a realizace
+  text: Koordinace subdodavatelů, BOZP, kontrola kvality a termínů
 - 
-  text: Plánování realizace a řízení zdrojů
+  text: Komunikace se stavbyvedoucím, dodavateli i klientem
 - 
-  text: Řešení případných překážek a koordinace profesí
+  text: Řešení změn, víceprací, podkladů pro fakturaci a předání díla
 - 
-  text: Předvídání a eliminace možných rizik
+  text: Vedení stavební dokumentace (stavební deník, smlouvy, protokoly)
+- 
+  text: Evidence dodávek výrobků a materiálů, logistika
 
 ----
 
 Requirements: - 
-  text: Skvělé komunikační a organizační schopnosti
+  text: Praxe na pozici projektového manažera nebo hlavního stavbyvedoucího
 - 
-  text: 'Předchozí zkušenosti nebo vzdělání v oboru – stavař, stavbyvedoucí či přípravář'
+  text: SŠ nebo VŠ stavebního směru, znalost norem a řízení stavby
 - 
-  text: Schopnost plánovat, předvídat a efektivně řešit problémy
+  text: Samostatnost, zodpovědnost a smysl pro detail
 - 
-  text: Znalost řízení stavebních kapacit a subdodavatelů
+  text: Řidičský průkaz skupiny B
 - 
-  text: Technické myšlení a smysl pro detail
+  text: Uživatelská znalost MS Office
+- 
+  text: Autorizace ČKAIT je výhodou
+
+----
+
+Offers: - 
+  text: Práce na zajímavých, často prestižních projektech
+- 
+  text: Práce v čistém interiérovém prostředí
+- 
+  text: Zázemí stabilní firmy, na trhu od roku 2001
+- 
+  text: Motivační systém odměňování
 
 ----
 
 Benefits: - 
-  text: Práce na prestižních projektech pro největší společnosti na českém trhu
+  text: Práce na zajímavých, často prestižních projektech
 - 
-  text: Férové finanční ohodnocení odpovídající zkušenostem s motivační bonusovou složkou
+  text: Práce v čistém interiérovém prostředí
 - 
-  text: Prostředí české společnosti, kde záleží na lidech a každém detailu
+  text: Zázemí stabilní firmy, na trhu od roku 2001
 - 
-  text: Podpora osobního rozvoje, vzdělávání a profesního růstu
-- 
-  text: Skvělý a spolehlivý tým (obchod, technická podpora, zázemí)
+  text: Motivační systém odměňování
 
 ----
 
@@ -133,7 +150,7 @@ Cover: - file://ySBFAutta9Zv23vK
 
 ----
 
-Start: Now
+Start: Dohodou
 
 ----
 
@@ -141,7 +158,19 @@ Location: Brno
 
 ----
 
-Duration: Full-time
+Duration: Plný úvazek
+
+----
+
+Team: Projektové řízení
+
+----
+
+Contactemail: hr@u1.cz
+
+----
+
+Contactphone: +420 601 088 517
 
 ----
 

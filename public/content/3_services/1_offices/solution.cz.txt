@@ -6,10 +6,6 @@ Category: Celý projekt
 
 ----
 
-Hero: [{"content":{"text":"Kanceláře","level":"h1","mod":"l","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-7rspjmoy","isHidden":false,"type":"heading"},{"content":{"image":["file://GQ11bD7Ux3WfiTJa"],"hasparallax":"false","parallax":0,"hasreveal":"false","reveal":"","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-k6px5mqc","isHidden":false,"type":"cover"},{"content":{"text":"Kancelářské interiéry nejsou jen o estetice a prvním dojmu. Propojují design, funkčnost a technologie.","mod":"l","face":"","case":"lower","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-rhl90bh4","isHidden":false,"type":"text"}]
-
-----
-
 Excerpt: <p>Navrhneme, postavíme a vybavíme vaše kanceláře. Za celý projekt odpovídáme my.</p>
 
 ----
@@ -18,15 +14,82 @@ Intro: <p>Design & Build u nás znamená návrh a realizaci kanceláří v jedn�
 
 ----
 
-Details: <p>Vybereme vhodný prostor, připravíme rozpočet, vyřešíme technické požadavky budovy, využijeme potenciál prostředí a pomůžeme podpořit výkonnost i spokojenost lidí prostřednictvím promyšleného uspořádání a strategie, která odpovídá dynamice růstu vaší firmy.</p>
+Details: <p>Začneme společným zadáním: jak vaše firma pracuje a k čemu má nový prostor sloužit. Náš návrh interiéru pak naváže na stavební realizaci a nábytek. Architekti, projektoví manažeři a stavební tým se na projektu podílejí pod jednou střechou.</p><p>Práci ukazujeme na konkrétních realizacích. Pro Direct pojišťovnu v Brně jsme navrhli a realizovali přibližně 2 700 m² kanceláří. Vzniklo 275 stálých míst, 35 sdílených pracovních míst a 24 zasedacích a focus místností. Projekt získal ocenění Kanceláře roku v kategorii Velké kanceláře.</p>
 
 ----
 
-Gallery: 
+Includesheadline: Co zahrnuje
 
 ----
 
-Relatedprojects: 
+Includes:
+- 
+  title: Architektonický návrh interiéru
+  text: Koncept, space planning, dispoziční uspořádání a 3D vizualizace přizpůsobené dynamice růstu firmy.
+
+- 
+  title: Stavební realizaci a fit-out
+  text: Přestavba od holého betonu i refit stávajících prostor, SDK příčky, sklo, podlahy i technické instalace.
+
+- 
+  title: Projektové řízení a koordinaci profesí
+  text: Kompletní dohled nad rozpočtem, harmonogramem a návazností jednotlivých stavebních a technických řemesel.
+
+- 
+  title: Dodávku vybavení a nábytku
+  text: Pracovní místa, zasedačky, recepce i relax zóny, včetně autorských řad Only1 a Only2 a zakázkových atypů.
+
+- 
+  title: Jednu smlouvu na celý rozsah
+  text: Jediný partner, který přebírá plnou právní i realizační garanci za termín, cenu a výslednou kvalitu.
+
+
+----
+
+Faqheadline: Časté otázky
+
+----
+
+Faq:
+- 
+  question: Co znamenají kanceláře na klíč?
+  answer: Kanceláře na klíč (model Design & Build) představují kompletní převzetí projektu jedním partnerem. Zajišťujeme vše od úvodní studie a architektonického návrhu přes stavební povolení, výběr materiálů a stavbu až po výrobu nábytku a finální nastěhování.
+
+- 
+  question: Kolik stojí kanceláře na klíč?
+  answer: Cena se odvíjí od výchozího stavu budovy (shell & core vs. rekonstrukce stávajících kanceláří) a standardu materiálů. Pohybuje se typicky od 15 000 do 35 000 Kč za m². Už v úvodní studii nastavujeme reálný rozpočtový strop, který je pro nás závazný.
+
+- 
+  question: Pro jak velké firmy kanceláře realizujete?
+  answer: Realizujeme kanceláře pro rostoucí firmy od cca 200 m² až po rozsáhlé korporátní centrály o rozloze 3 000+ m² pro stovky zaměstnanců.
+
+- 
+  question: Můžeme využít jen návrh nebo stavební realizaci?
+  answer: Ano. Ačkoliv největší úsporu času i nákladů přináší kompletní dodávka pod jednou smlouvou, rádi pro vás zajistíme i samostatný architektonický návrh nebo čistě stavební fit-out podle projektu vašeho architekta.
+
+- 
+  question: Jaký je rozdíl mezi Design & Build a klasickým postupem?
+  answer: V klasickém postupu najímáte zvlášť architekta a zvlášť generálního dodavatele, což často vede k prodlužování termínů, vícenákladům a přehazování odpovědnosti. V modelu Design & Build odpovídá za celý proces jeden tým od prvního náčrtu po předání klíčů.
+
+- 
+  question: Jak dlouho trvá realizace kanceláří na klíč?
+  answer: Celý proces od úvodního briefu po nastěhování obvykle trvá 4 až 8 měsíců v závislosti na ploše, technické náročnosti a nutnosti stavebního povolení.
+
+
+----
+
+Workmodel: Design & Build nebo samostatně
+
+----
+
+Location: Celá Česká republika a Slovensko
+
+----
+
+Relatedprojects:
+- projects/direct-pojistovna
+- projects/fcc
+- projects/hartmann-rico
 
 ----
 
@@ -34,47 +97,7 @@ Cover: - file://GQ11bD7Ux3WfiTJa
 
 ----
 
-Meta-description: 
-
-----
-
-Meta-title: 
-
-----
-
-Meta-canonical-url: 
-
-----
-
-Og-title: 
-
-----
-
-Og-description: 
-
-----
-
-Og-image: 
-
-----
-
-Robots-index: 
-
-----
-
-Robots-follow: 
-
-----
-
-Robots-archive: 
-
-----
-
-Robots-imageindex: 
-
-----
-
-Robots-snippet: 
+Hero: [{"content":{"text":"Kanceláře","level":"h1","mod":"l","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-7rspjmoy","isHidden":false,"type":"heading"},{"content":{"image":["file://GQ11bD7Ux3WfiTJa"],"hasparallax":"false","parallax":0,"hasreveal":"false","reveal":"","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-k6px5mqc","isHidden":false,"type":"cover"},{"content":{"text":"Kancelářské interiéry nejsou jen o estetice a prvním dojmu. Propojují design, funkčnost a technologie.","mod":"l","face":"","case":"lower","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-rhl90bh4","isHidden":false,"type":"text"}]
 
 ----
 

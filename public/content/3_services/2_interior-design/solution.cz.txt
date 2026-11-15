@@ -6,11 +6,7 @@ Category: Celý projekt
 
 ----
 
-Hero: [{"content":{"text":"Návrh interiérů","level":"h1","mod":"l","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-ijr6frvk","isHidden":false,"type":"heading"},{"content":{"image":["file://B3qzowr055hl3ljC"],"hasparallax":"false","parallax":0,"hasreveal":"false","reveal":"","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-gvo8ap5s","isHidden":false,"type":"cover"},{"content":{"text":"Vytváříme architektonické koncepty a návrhy interiérů, které propojují identitu značky, ergonomii a praktické potřeby týmu.","mod":"l","face":"","case":"lower","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-dsgp0k1l","isHidden":false,"type":"text"}]
-
-----
-
-Excerpt: <p>Navrhneme, jak bude vaše kancelář uspořádaná a jak bude vypadat.</p>
+Excerpt: <p>Navrhneme, jak bude vaše kancelář uspořádaná a jak bude vypadat. Vycházíme z toho, jak vaše firma doopravdy pracuje.</p>
 
 ----
 
@@ -18,13 +14,74 @@ Intro: <p>Vycházíme z práce, pro kterou prostor vzniká. Společné jednání
 
 ----
 
-Details: 
+Details: <p>S vámi projdeme potřeby týmu a podobu společného zázemí. Z nich vychází uspořádání pracovišť, místností i vybavení. Materiály a barvy řešíme společně s nábytkem a akustikou.</p><p>U Direct pojišťovny jsme zelenou firemní barvu spojili s terakotou, dřevem a živými rostlinami. Součástí kanceláří jsou zasedací i tiché focus místnosti. Návrh pro vás připravíme samostatně nebo na něj navážeme realizací v rámci kanceláří na klíč.</p>
 
 ----
 
-Gallery:
+Includesheadline: Co zahrnuje
 
-- file://qLrHqs7h7YPEnP0w
+----
+
+Includes:
+- 
+  title: Analýza pracovního prostředí a space planning
+  text: Zmapování týmových potřeb, ergonomie, toků pohybu a akustických zón pro klidnou i týmovou práci.
+
+- 
+  title: Architektonická studie a 3D vizualizace
+  text: Konceptuální návrh, prostorové modely a fotorealistické vizualizace klíčových zón a zasedaček.
+
+- 
+  title: Materiálové a barevné řešení interiéru
+  text: Vzorkování povrchů, podlah, stěrek, akustických prvků a textilií s ohledem na identitu značky.
+
+- 
+  title: Projektová dokumentace pro provedení stavby
+  text: Výkresy dispozic, návaznosti elektroinstalací, světel, příček a výrobní výkresy atypického nábytku.
+
+
+----
+
+Faqheadline: Časté otázky
+
+----
+
+Faq:
+- 
+  question: Můžete návrh také postavit?
+  answer: Ano, navrhování s vědomím stavební proveditelnosti je naší největší výhodou. Na vytvořený návrh plynule navážeme realizací vlastním stavebním týmem i výrobou nábytku.
+
+- 
+  question: Co si připravit pro zadání návrhu?
+  answer: Pro začátek nám stačí stavební půdorys v DWG nebo PDF, aktuální počet zaměstnanců, plánovaný růst firmy na další 2–3 roky a představa o fungování jednotlivých týmů.
+
+- 
+  question: Co je space planning?
+  answer: Space planning je strategické rozvržení prostoru tak, aby podporovalo efektivní komunikaci, eliminovalo rušivé vlivy a nabízelo vyvážený poměr mezi zónami pro soustředění a neformální setkávání.
+
+- 
+  question: Co obsahuje návrh interiéru kanceláře?
+  answer: Kompletní návrh zahrnuje dispoziční řešení, studii materiálů a barev, vizualizace, specifikaci osvětlení, akustiky a zařizovacích předmětů a prováděcí výkresy pro truhláře a stavbu.
+
+
+----
+
+Workmodel: Design & Build nebo samostatně
+
+----
+
+Location: Celá Česká republika a Slovensko
+
+----
+
+Relatedprojects:
+- projects/direct-pojistovna
+- projects/ortho-dent
+- projects/plzensky-prazdroj
+
+----
+
+Gallery: - file://qLrHqs7h7YPEnP0w
 - file://OTD9tnjm28JW5sgk
 - file://uFRpz9F2ba5jQIlv
 - file://lr5TdRmQ6sXHPsZh
@@ -34,67 +91,11 @@ Gallery:
 
 ----
 
-Relatedprojects:
-
-- page://DFrA65LRGEbhv2uf
-- page://4YelEyMbDu0MnevU
-- page://iw5wpXmSaoxIdHjj
-
-----
-
 Cover: - file://B3qzowr055hl3ljC
 
 ----
 
-Meta-description: 
-
-----
-
-Meta-title: 
-
-----
-
-Meta-canonical-url: 
-
-----
-
-Og-title: 
-
-----
-
-Og-description: 
-
-----
-
-Og-image: 
-
-----
-
-Robots-index: 
-
-----
-
-Robots-follow: 
-
-----
-
-Robots-archive: 
-
-----
-
-Robots-imageindex: 
-
-----
-
-Robots-snippet: 
-
-----
-
-Frelatedprojects:
-
-- page://X5ZaG3cFKtoi7WTz
-- page://DFrA65LRGEbhv2uf
-- page://iw5wpXmSaoxIdHjj
+Hero: [{"content":{"text":"Návrh interiérů","level":"h1","mod":"l","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-ijr6frvk","isHidden":false,"type":"heading"},{"content":{"image":["file://B3qzowr055hl3ljC"],"hasparallax":"false","parallax":0,"hasreveal":"false","reveal":"","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-gvo8ap5s","isHidden":false,"type":"cover"},{"content":{"text":"Vytváříme architektonické koncepty a návrhy interiérů, které propojují identitu značky, ergonomii a praktické potřeby týmu.","mod":"l","face":"","case":"lower","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-dsgp0k1l","isHidden":false,"type":"text"}]
 
 ----
 

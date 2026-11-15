@@ -6,25 +6,74 @@ Category: Nábytek a vybavení
 
 ----
 
-Hero: [{"content":{"text":"Vybavení interiérů","level":"h1","mod":"l","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-sw7v65pe","isHidden":false,"type":"heading"},{"content":{"image":["file://B3qzowr055hl3ljC"],"hasparallax":"false","parallax":0,"hasreveal":"false","reveal":"","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-s5d7hssw","isHidden":false,"type":"cover"},{"content":{"text":"Kompletní dodávka doplňků, technologického vybavení a prvků, které dotvářejí funkční a příjemné pracoviště.","mod":"l","face":"","case":"lower","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-iz3jenm9","isHidden":false,"type":"text"}]
+Excerpt: <p>Kompletní dodávka nábytku, svítidel i doplňků sladěná do jednoho funkčního celku.</p>
 
 ----
-
-Excerpt: <p>Vybavíme pracovní místa i prostory, které váš tým sdílí.</p>
 
 Intro: <p>Recepce, zasedací místnosti a společné zázemí mají každý svůj účel. Jejich vybavení propojujeme s návrhem celé kanceláře.</p>
 
 ----
 
-Details: 
+Details: <p>Vybavení kanceláří zahrnujeme do kanceláří na klíč. Návrh, stavbu a nábytek tak řešíme společně. Atypické prvky pro konkrétní interiér zajišťujeme s prověřenými truhláři.</p><p>Rozsah společného zázemí ukazuje Direct pojišťovna: čtyři kuchyňky, multifunkční místnost a 24 zasedacích a focus místností. Pro Hartmann Rico jsme modernizovali vstupní halu, recepci, zasedací místnost a jídelnu. Naše práce tak zahrnuje veškeré části firemního zázemí.</p>
 
 ----
 
-Gallery: 
+Includesheadline: Co zahrnuje
 
 ----
 
-Relatedprojects: 
+Includes:
+- 
+  title: Vybavení zasedacích místností a focus roomů
+  text: Reprezentativní stoly s kabelovými průchodkami, pohodlná konferenční křesla a tabule.
+
+- 
+  title: Kuchyňky, kavárny a jídelní zóny
+  text: Odolné kuchyňské linky, vestavěné spotřebiče, barové stoličky a jídelní sezení.
+
+- 
+  title: Relaxační zóny a telefonní budky
+  text: Modulární pohovky, křesla, akustické budky pro soukromé hovory a zeleň.
+
+- 
+  title: Doplňky, navigace a orientační systém
+  text: Závěsy, koberce, odpadkové koše na tříděný odpad a firemní branding v prostoru.
+
+
+----
+
+Faqheadline: Časté otázky
+
+----
+
+Faq:
+- 
+  question: Jak se liší vybavení interiéru od dodávky nábytku?
+  answer: Vybavení interiéru zahrnuje celistvé řešení – nejen stoly a židle, ale i akustické prvky, kuchyňské zázemí, vestavné skříně, osvětlení, stínění a doplňky potřebné k okamžitému užívání.
+
+- 
+  question: Umíte vybavit i reprezentativní recepci nebo jídelnu?
+  answer: Ano, máme bohaté zkušenosti s náročnými společnými zónami, jako jsou firemní restaurace, kavárny, reprezentativní recepce i eventové sály.
+
+- 
+  question: Lze vybavení zahrnout do jedné smlouvy se stavbou?
+  answer: Ano, v tom spočívá výhoda modelu na klíč. Získáte jednu smlouvu, jeden harmonogram a jedinou záruku na stavební práce i veškeré vybavení.
+
+
+----
+
+Workmodel: Design & Build nebo samostatně
+
+----
+
+Location: Celá Česká republika a Slovensko
+
+----
+
+Relatedprojects:
+- projects/volareza-restaurace-evropa
+- projects/direct-pojistovna
+- projects/hartmann-rico
 
 ----
 
@@ -32,47 +81,7 @@ Cover: - file://B3qzowr055hl3ljC
 
 ----
 
-Meta-description: 
-
-----
-
-Meta-title: 
-
-----
-
-Meta-canonical-url: 
-
-----
-
-Og-title: 
-
-----
-
-Og-description: 
-
-----
-
-Og-image: 
-
-----
-
-Robots-index: 
-
-----
-
-Robots-follow: 
-
-----
-
-Robots-archive: 
-
-----
-
-Robots-imageindex: 
-
-----
-
-Robots-snippet: 
+Hero: [{"content":{"text":"Vybavení interiérů","level":"h1","mod":"l","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-sw7v65pe","isHidden":false,"type":"heading"},{"content":{"image":["file://B3qzowr055hl3ljC"],"hasparallax":"false","parallax":0,"hasreveal":"false","reveal":"","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-s5d7hssw","isHidden":false,"type":"cover"},{"content":{"text":"Kompletní dodávka doplňků, technologického vybavení a prvků, které dotvářejí funkční a příjemné pracoviště.","mod":"l","face":"","case":"lower","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-iz3jenm9","isHidden":false,"type":"text"}]
 
 ----
 

@@ -1,264 +1,273 @@
-<section class="intro radius" theme="invert" style="--in-delay: 500ms">
-	<div data-scroll class="z__1 intro__header inner-b__3 place__stretch-stretch grid__4 mobile:grid__1 mobile:h__auto inner__1 mobile:inner-t__10 mobile:gap__2 relative">
-		<div class="h__10"></div>
-		<div class="span__4 grid place__stretch-stretch">
-			<div class="span__4 border__top inner-t__05 inner-x__3 grid__2 gap__2 ">
-				<div class="grid__2 gap__2">	
-					<span data-reveal-text="lines" class="upper font__size__small"><?= $page->duration() ?></span>
-					<span data-reveal-text="lines" class="upper font__size__small"><?= $page->location() ?></span>
+<?php
+/**
+ * Šablona: Detail Pozice / Job (podle v65 kariera-*.html s layoutem podle Solutions a design systému U1)
+ */
+$cover = $page->cover()->toFile() 
+    ?? site()->images()->filterBy('name', '*=', 'career')->first() 
+    ?? site()->images()->first();
+
+$location = $page->location()->or('Brno / Praha');
+$duration = $page->duration()->or('Plný úvazek (HPP)');
+$start = $page->start()->or('Ihned / dohodou');
+$team = $page->team()->or('Realizační tým U1');
+$email = $page->contactEmail()->or('hr@u1.cz');
+$phone = $page->contactPhone()->or('+420 601 088 517');
+
+$perex = $page->excerpt()->isNotEmpty() ? $page->excerpt()->inline() : null;
+
+// Strukturované položky
+$description = $page->description()->toStructure();
+$requirements = $page->requirements()->toStructure();
+$offers = $page->offers()->toStructure();
+if ($offers->isEmpty()) {
+    $offers = $page->benefits()->toStructure();
+}
+
+// Ostatní volné pozice pro pravý sloupec (obdoba "Další služby" v Solutions)
+$otherJobs = $page->siblings()->listed()->not($page)->limit(4);
+if ($otherJobs->isEmpty()) {
+    $careerPage = site()->find('career') ?? site()->find('5_career');
+    if ($careerPage) {
+        $otherJobs = $careerPage->index()->filterBy('intendedTemplate', 'job')->not($page)->limit(4);
+    }
+}
+
+// Ikony pro sekci Benefity podle v65
+$benefitIcons = [
+    'bonusy'      => '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width: 22px; height: 22px;"><circle cx="12" cy="12" r="8"></circle><path d="M12 8v8M9.5 10.5c0-1 1-1.5 2.5-1.5s2.5.6 2.5 1.6c0 2.3-5 1.2-5 3.4 0 1 1 1.6 2.5 1.6s2.5-.5 2.5-1.5"></path></svg>',
+    'provize'     => '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width: 22px; height: 22px;"><path d="M5 19L19 5"></path><circle cx="7" cy="7" r="2"></circle><circle cx="17" cy="17" r="2"></circle></svg>',
+    'telefon'     => '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width: 22px; height: 22px;"><rect x="7" y="3" width="10" height="18" rx="2"></rect><path d="M11 18h2"></path></svg>',
+    'notebook'    => '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width: 22px; height: 22px;"><rect x="5" y="5" width="14" height="10" rx="1"></rect><path d="M3 19h18"></path></svg>',
+    'sleva'       => '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width: 22px; height: 22px;"><path d="M3 12V4h8l10 10-8 8z"></path><circle cx="7.5" cy="8.5" r="1.2"></circle></svg>',
+    'kurzy'       => '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width: 22px; height: 22px;"><path d="M2 9l10-5 10 5-10 5z"></path><path d="M6 11v5c3 2 9 2 12 0v-5"></path></svg>',
+    'obcerstveni' => '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width: 22px; height: 22px;"><path d="M5 9h11v5a5 5 0 0 1-5 5h-1a5 5 0 0 1-5-5z"></path><path d="M16 10h2a2 2 0 0 1 0 4h-2M9 3v3M12 3v3"></path></svg>',
+    'volno'       => '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width: 22px; height: 22px;"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"></path></svg>',
+    'akce'        => '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width: 22px; height: 22px;"><rect x="4" y="5" width="16" height="15" rx="1"></rect><path d="M4 10h16M9 3v4M15 3v4"></path></svg>',
+    'hodiny'      => '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width: 22px; height: 22px;"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>',
+    'default'     => '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width: 22px; height: 22px;"><circle cx="12" cy="12" r="8"></circle><path d="M12 8v8M9.5 10.5c0-1 1-1.5 2.5-1.5s2.5.6 2.5 1.6c0 2.3-5 1.2-5 3.4 0 1 1 1.6 2.5 1.6s2.5-.5 2.5-1.5"></path></svg>'
+];
+
+function resolveBenefitIcon($text, $iconKey, $benefitIcons) {
+    $t = mb_strtolower($text);
+    if ($iconKey === 'shield-check' || str_contains($t, 'bonus') || str_contains($t, 'prémi')) return $benefitIcons['bonusy'];
+    if ($iconKey === 'users' || str_contains($t, 'proviz')) return $benefitIcons['provize'];
+    if ($iconKey === 'briefcase' || str_contains($t, 'telefon') || str_contains($t, 'mobil')) return $benefitIcons['telefon'];
+    if ($iconKey === 'sun' || str_contains($t, 'notebook') || str_contains($t, 'počítač')) return $benefitIcons['notebook'];
+    if ($iconKey === 'heart' || str_contains($t, 'slev')) return $benefitIcons['sleva'];
+    if ($iconKey === 'users-1' || str_contains($t, 'kurz') || str_contains($t, 'školen') || str_contains($t, 'vzděláv')) return $benefitIcons['kurzy'];
+    if ($iconKey === 'heart-1' || str_contains($t, 'občerstv') || str_contains($t, 'káv')) return $benefitIcons['obcerstveni'];
+    if ($iconKey === 'sun-1' || str_contains($t, 'volno') || str_contains($t, 'sick')) return $benefitIcons['volno'];
+    if ($iconKey === 'users-2' || str_contains($t, 'akce') || str_contains($t, 'teambuilding')) return $benefitIcons['akce'];
+    if ($iconKey === 'users-3' || str_contains($t, 'hodin') || str_contains($t, 'napracov') || str_contains($t, 'flexibil')) return $benefitIcons['hodiny'];
+    return $benefitIcons['default'];
+}
+
+$benefitsStructure = $page->whyus()->toStructure();
+$benefitsItems = [];
+
+if ($benefitsStructure->isNotEmpty()) {
+    foreach ($benefitsStructure as $item) {
+        $text = $item->text()->value();
+        $iconKey = $item->icon()->value();
+        $benefitsItems[] = [
+            'text' => $text,
+            'icon' => resolveBenefitIcon($text, $iconKey, $benefitIcons)
+        ];
+    }
+} else {
+    $fallbackList = [
+        ['text' => 'Bonusy a prémie', 'key' => 'bonusy'],
+        ['text' => 'Provize z prodeje', 'key' => 'provize'],
+        ['text' => 'Mobilní telefon', 'key' => 'telefon'],
+        ['text' => 'Notebook', 'key' => 'notebook'],
+        ['text' => 'Sleva na firemní výrobky a služby', 'key' => 'sleva'],
+        ['text' => 'Vzdělávací kurzy', 'key' => 'kurzy'],
+        ['text' => 'Občerstvení na pracovišti', 'key' => 'obcerstveni'],
+        ['text' => 'Zdravotní volno', 'key' => 'volno'],
+        ['text' => 'Firemní akce', 'key' => 'akce']
+    ];
+    foreach ($fallbackList as $fb) {
+        $benefitsItems[] = [
+            'text' => $fb['text'],
+            'icon' => $benefitIcons[$fb['key']]
+        ];
+    }
+}
+?>
+
+<!-- Hero sekce služby -->
+<?= snippet('sections/Hero/') ?>
+
+<!-- Hlavní sekce: O pozici & Parametry (layout podle Solutions a U1 Design System) -->
+<section class="about job-intro" theme="invert" aria-label="O pozici">
+	<div data-scroll class="grid__8 gap__3 place__start-stretch mobile:grid__1 inner-x__4 inner-y__5 mobile:inner-x__1 mobile:inner-y__3">
+
+		<!-- Pravý sloupec: Specifikace pozice & Další pozice (přesně podle Solutions) -->
+		<div class="span__3 sticky top__3 mobile:span__1 job-specs grid gap__2 align__start" data-scroll>
+			
+			<div class="grid">
+				
+				<div class="grid__2 gap__2 place__start-start border__top inner-y__05 mobile:gap__1">
+					<?= snippet('atoms/Label', ['text' => 'Místo']) ?>
+					<p class="font__size__default"><?= esc($location) ?></p>
 				</div>
-				<div class="">
-					<h1 class="font__size__2">
-						<div data-reveal-text=""><?= $page->title() ?></div>
-					</h1>
+
+				<div class="grid__2 gap__2 place__start-start border__top inner-y__05 mobile:gap__1">
+					<?= snippet('atoms/Label', ['text' => 'Úvazek']) ?>
+					<p class="font__size__default"><?= esc($duration) ?></p>
+				</div>
+
+				<div class="grid__2 gap__2 place__start-start border__top inner-y__05 mobile:gap__1">
+					<?= snippet('atoms/Label', ['text' => 'Nástup']) ?>
+					<p class="font__size__default"><?= esc($start) ?></p>
+				</div>
+
+				<div class="grid__2 gap__2 place__start-start border__top inner-y__05 mobile:gap__1">
+					<?= snippet('atoms/Label', ['text' => 'Tým']) ?>
+					<p class="font__size__default"><?= esc($team) ?></p>
+				</div>
+
+				<div class="grid__2 gap__2 place__start-start border__top inner-y__05 mobile:gap__1">
+					<?= snippet('atoms/Label', ['text' => 'Kontakt']) ?>
+					<div class="font__size__default grid gap__01">
+						<a href="mailto:<?= esc($email) ?>" class="link font__weight__600"><?= esc($email) ?></a>
+						<a href="tel:<?= esc(str_replace(' ', '', $phone)) ?>" class="link"><?= esc($phone) ?></a>
+					</div>
 				</div>
 			</div>
-		</div>
-	</div>
-	<div class="inner-x__1 grid">
-		<?php if ($cover = $page->cover()->toFile()) : ?>
-		<div class="intro__cover h__100v radius grid" data-scroll ><?= snippet('atoms/Image', ['img' => $cover, 'parallax' => 2, 'reveal' => false, 'css' => 'overlay__bottom']) ?></div>
-		<?php endif ?>
-	</div>
-</section>
 
-<section class="about radius" theme="invert">
-	<div data-scroll class="grid__4 gap__2 mobile:grid__1 inner__4 mobile:inner-x__1 ">
-		<div class="span__2">
-			<div class="flex gap__05 align__center upper font__size__small no__wrap" data-scroll ><div data-reveal-text>O pozici</div></div>	
-		</div>
-		<div class="span__2 grid place__start-start gap__3 mobile:inner-x__0">
-			<h3 data-reveal-text="lines" class=""><?= $page->excerpt()->inline() ?></h3>
+			<div class="">
+				<?= snippet('atoms/Button', [
+					'label' => 'Mám zájem o pozici',
+					'icon'  => 'arrow-right',
+					'theme' => 'acc',
+					'hover' => 'dark',
+					'node'  => 'data-contact-toggle="inquiry"'
+				]) ?>
+			</div>
+
+			<!-- Další volné pozice (přesně jako Další služby v Solutions) -->
+			<?php if ($otherJobs->isNotEmpty()): ?>
+				<div class="grid gap__1">
+					<?= snippet('atoms/Label', ['text' => 'Další volné pozice']) ?>
+					<div class="grid gap__0">
+						<?php foreach ($otherJobs as $otherJob): ?>
+							<a href="<?= $otherJob->url() ?>" class="flex justify__space-between align__center inner-y__05 border__bottom link">
+								<span class="font__size__default"><?= esc($otherJob->title()) ?></span>
+								<span class="color__acc font__size__small">→</span>
+							</a>
+						<?php endforeach ?>
+					</div>
+				</div>
+			<?php endif ?>
+
 		</div>
 		<div></div>
-		<div></div>
-		<ul class="span__2 grid__2 place__start-start gap__1 mobile:inner-x__0">
-			<?php foreach ($page->description()->toStructure() as $item) : ?>
+		<!-- Levý sloupec: Popis a rozsah pozice -->
+		<div class="span__4 mobile:span__1 flex flex__dir__col justify__space-between gap__3">
+			<div class="grid gap__3">
 				
-				<li class="flex align__start gap__05">
-					<div class=""><?= svg('site/assets/images/ui/list-checkmark.svg') ?></div>
-					<span class="font__size__default"><?= $item->text() ?></span>
-				</li>
-			<?php endforeach; ?>
-		</ul>
+				<div class="grid gap__1">
+					
+				<div class="grid gap__1 place__start-start">
+					<?php if ($perex): ?>
+						<div data-reveal-text="lines" class="font__size__3 font__weight__500">
+							<?= $perex ?>
+						</div>
+					<?php endif ?>
+				</div>
+
+				<?php if ($page->details()->isNotEmpty()): ?>
+					<div class="font__size__default op__8 leading__relaxed grid gap__1">
+						<?= $page->details() ?>
+					</div>
+				<?php endif ?>
+
+				</div>
+
+				<!-- Náplň práce -->
+				<?php if ($description->isNotEmpty()): ?>
+					<div class="job-group grid gap__1">
+						<h3 class="larger"><?= t('job.description', 'Náplň práce') ?></h3>
+						<ul class="grid gap__05 list-unstyled">
+							<?php foreach ($description as $item): ?>
+								<li class="flex gap__1 align__start">
+									<span class="color__acc font__size__small shrink__0">✓</span>
+									<span class="font__size__default op__8"><?= esc($item->text()) ?></span>
+								</li>
+							<?php endforeach ?>
+						</ul>
+					</div>
+				<?php endif ?>
+
+				<!-- Požadavky -->
+				<?php if ($requirements->isNotEmpty()): ?>
+					<div class="job-group grid gap__1">
+						<h3 class="larger"><?= t('job.requirements', 'Co od vás čekáme') ?></h3>
+						<ul class="grid gap__05 list-unstyled">
+							<?php foreach ($requirements as $item): ?>
+								<li class="flex gap__1 align__start">
+									<span class="color__acc font__size__small shrink__0">✓</span>
+									<span class="font__size__default op__8"><?= esc($item->text()) ?></span>
+								</li>
+							<?php endforeach ?>
+						</ul>
+					</div>
+				<?php endif ?>
+
+				<!-- Nabízíme -->
+				<?php if ($offers->isNotEmpty()): ?>
+					<div class="job-group grid gap__1">
+						<h3 class="larger"><?= t('job.offers', 'Co vám nabízíme') ?></h3>
+						<ul class="grid gap__05 list-unstyled">
+							<?php foreach ($offers as $item): ?>
+								<li class="flex gap__1 align__start">
+									<span class="color__acc font__size__small shrink__0">✓</span>
+									<span class="font__size__default op__8"><?= esc($item->text()) ?></span>
+								</li>
+							<?php endforeach ?>
+						</ul>
+					</div>
+				<?php endif ?>
+
+				
+
+			</div>
+		</div>
+
 		
 	</div>
 </section>
 
-<section class="benefits radius border__top" theme="invert">
-	<div data-scroll class="grid__4 gap__2 mobile:grid__1 inner__4 mobile:inner-x__1 " data-tabs="default">
-		<div class="span__2 grid gap__05 place__start-start">
-			<h2 data-tab="benefits">Benefity</h2>
-			<h2 data-tab="requirements">Požadujeme</h2>
-		</div>
-		<div data-pane-container class="span__2">
-			<div class="grid__stack">
-				<ul data-pane="benefits" class="grid__2 place__start-start gap__1 mobile:inner-x__0">
-					<?php foreach ($page->benefits()->toStructure() as $item) : ?>
-						<li class="flex align__start gap__05">
-							<div class=""><?= svg('site/assets/images/ui/list-checkmark.svg') ?></div>
-							<span class="font__size__default"><?= $item->text() ?></span>
-						</li>
-					<?php endforeach; ?>
-				</ul>
-				<ul data-pane="requirements" class="grid__2 place__start-start gap__1 mobile:inner-x__0">
-					<?php foreach ($page->requirements()->toStructure() as $item) : ?>
-						<li class="flex align__start gap__05">
-							<div class=""><?= svg('site/assets/images/ui/list-checkmark.svg') ?></div>
-							<span class="font__size__default"><?= $item->text() ?></span>
-						</li>
-					<?php endforeach; ?>
-				</ul>
+<!-- Sekce: Benefity (místo Proč pracovat u nás, podle v65) -->
+<section class="benefits-section radius relative z__2" theme="dark" aria-labelledby="benefits-heading">
+	<div class="inner-x__4 inner-y__5 mobile:inner-x__1 mobile:inner-y__3 grid gap__3">
+		
+		<div class="grid__4 gap__2 mobile:grid__1" data-scroll>
+			<div class="span__2">
+				<h2 id="benefits-heading" class="font__size__2" data-reveal-text>Benefity</h2>
 			</div>
 		</div>
-	</div>
-</section>
 
-<?php 
-$whyItems = null;
-try { $whyItems = $page->whyus()->toStructure(); } catch (\Throwable $e) {}
-?>
-<?php if ($whyItems && $whyItems->isNotEmpty()) : ?>
-<section class="why-us radius" theme="light">
-	<style>
-		.why-us svg { width: 36px; height: 36px; display: block; flex-shrink: 0; }
-	</style>
-	<div class="grid__4 gap__2 place__stretch-stretch inner__4 mobile:grid__1 mobile:inner__2" data-scroll>
-		<div class="span__2">
-			<div data-scroll class="flex align__start gap__01 span__2">
-				<?= snippet('molecules/Header', ['header' => $page->whyusHeader(), 'type' => ['label']]) ?>
-				<?= snippet('molecules/Header', ['header' => $page->whyusHeader(), 'type' => ['heading']]) ?>
-			</div>
-
-		</div>
-		<div class="span__2">
-			<div class="grid__2 gap__1 mobile:grid__1">
-				<?php foreach ($whyItems as $why) : ?>
-					<?php
-					$iconName = $why->icon()->value();
-					$svgPath  = 'site/assets/images/benefits/small/' . $iconName . '.svg';
-					$hasSvg   = $iconName && file_exists(kirby()->root('index') . '/' . $svgPath);
-					?>
-					<div class="flex align__center gap__05 inner-y__02">
-						<div class="flex align__center justify__center flex-shrink__0" style="width: 36px; height: 36px; min-width: 36px;">
-							<?php if ($hasSvg) : ?>
-								<?= svg($svgPath) ?>
-							<?php elseif ($img = $why->image()->toFile()) : ?>
-								<?= snippet('atoms/Image', ['img' => $img, 'reveal' => false]) ?>
-							<?php endif ?>
-						</div>
-						<span class="font__size__large ff__body"><?= $why->text() ?></span>
-					</div>
-				<?php endforeach ?>
-			</div>
-		</div>
-	</div>
-</section>
-<?php endif ?>
-
-<?php 
-$processSteps = null;
-try { $processSteps = $page->process()->toStructure(); } catch (\Throwable $e) {}
-?>
-<?php if ($processSteps && $processSteps->isNotEmpty()) : ?>
-<section class="hiring-process radius border__bottom" theme="dark">
-	<div class="grid gap__2 inner__4 mobile:inner__2" data-scroll>
-		<div>
-			<?php if ($page->processHeader()->isNotEmpty() && $page->processHeader()->toBlocks()->isNotEmpty()) : ?>
-				<div data-scroll class="flex align__start gap__01 span__2">
-					<?= snippet('molecules/Header', ['header' => $page->processHeader(), 'type' => ['label']]) ?>
-					<?= snippet('molecules/Header', ['header' => $page->processHeader(), 'type' => ['heading']]) ?>
-				</div>
-			<?php else : ?>
-
-				<div data-scroll class="flex align__start gap__01 span__2">
-					<div class="w__03 h__03 bg__acc"></div>
-					<h2 class="font__size__2 ff__heading wrap" data-reveal-text="lines">
-						Každá spolupráce<br>začíná kontaktem
-					</h2>
-				</div>
-				
-			<?php endif ?>
-		</div>
-
-		<div class="grid__3 gap__1 mobile:grid__1 place__stretch-stretch">
-			<?php $idx = 1; ?>
-			<?php foreach ($processSteps as $step) : ?>
-				<?php 
-				$num = $step->step()->isNotEmpty() ? $step->step()->value() : $idx;
-				$img = $step->image()->toFile();
-				$fallbackImg = 'site/assets/images/job/step_0' . $idx . '.png';
-				?>
-				<div class="grid gap__1 place__start-stretch" data-scroll>
-					<div class="img__radius overflow__hidden vh__8">
-						<?php if ($img) : ?>
-							<?= snippet('atoms/Image', ['img' => $img, 'reveal' => true]) ?>
-						<?php elseif (file_exists(kirby()->root('index') . '/' . $fallbackImg)) : ?>
-							<img src="<?= url($fallbackImg) ?>" alt="<?= $step->title() ?>" class="is-loaded w__full h__full" style="object-fit: cover;">
-						<?php endif ?>
-					</div>
-					<div class="flex align__start gap__2">
-						<span class="color__acc font__size__1 ff__heading leading__none -wrap-t__02"><?= $num ?></span>
-						<div class="grid gap__05">
-							<h3 class="font__size__3 ff__heading"><?= $step->title() ?></h3>
-							<p class=""><?= $step->text() ?></p>
-						</div>
-					</div>
-				</div>
-				<?php $idx++; ?>
+		<ul class="grid__3 gap-x__2 gap-y__0 mobile:grid__1 list-unstyled" data-scroll>
+			<?php foreach ($benefitsItems as $bItem) : ?>
+				<li class="flex align__center gap__1 border__top inner-y__1">
+					<span class="color__acc shrink__0 flex place__center-center" style="width: 28px; height: 28px;">
+						<?= $bItem['icon'] ?>
+					</span>
+					<span class="font__size__default font__weight__500"><?= esc($bItem['text']) ?></span>
+				</li>
 			<?php endforeach ?>
-		</div>
+		</ul>
+
 	</div>
 </section>
-<?php endif ?>
 
+<!-- Průběh výběrového řízení -->
+<?= snippet('templates/Career/sections/4_process') ?>
+
+<!-- Články ze života v U1 -->
+<?= snippet('sections/Feed/related') ?>
+
+<!-- CTA zápatí -->
 <?= snippet('sections/Cta/career') ?>
-
-<?php
-$ctaImage = null;
-$ctaHeading = 'Máš o pozici zájem? Dej nám vědět!';
-$ctaSub = 'Zuzana Lucková , HR Partner';
-$positionsPage = page('career/positions') ?? page('career')->find('positions');
-$positionsUrl = $positionsPage ? $positionsPage->url() : url('career/positions');
-
-if ($cta = $site->ctaCareer()) {
-	foreach ($cta->toBlocks() as $block) {
-		if ($block->type() === 'image' && $img = $block->image()->toFile()) {
-			$ctaImage = $img;
-		}
-		if ($block->type() === 'heading' && $block->text()->isNotEmpty()) {
-			$ctaHeading = strip_tags(str_replace('<br>', ' ', $block->text()->value()));
-		}
-		if ($block->type() === 'text' && $block->text()->isNotEmpty()) {
-			$ctaSub = strip_tags(html_entity_decode($block->text()->value()));
-		}
-		if ($block->type() === 'button' && $block->href()->isNotEmpty()) {
-			if ($targetPage = $block->href()->toPage()) {
-				$positionsUrl = $targetPage->url();
-			}
-		}
-	}
-}
-?>
-<div class="job-sticky-cta" data-job-sticky-cta>
-	<div class="job-sticky-cta__card" theme="dark">
-		<div class="job-sticky-cta__left">
-			<?php if ($ctaImage) : ?>
-				<div class="job-sticky-cta__avatar">
-					<img src="<?= $ctaImage->url() ?>" alt="<?= html($ctaSub) ?>">
-				</div>
-			<?php endif ?>
-			<div class="job-sticky-cta__content">
-				<span class="job-sticky-cta__title"><?= $ctaHeading ?></span>
-				<span class="job-sticky-cta__sub"><?= $ctaSub ?></span>
-			</div>
-		</div>
-		<div class="flex gap__02 align__center">
-			<?= snippet('atoms/Button', [
-				'url'   => $positionsUrl,
-				'label' => 'Volné pozice (' . collection('Jobs')->count() . ')',
-				'theme' => 'invert-ghost',
-				'hover' => 'invert',
-			]) ?>
-			<?= snippet('atoms/Button', [
-				'label' => 'Mám zájem o pozici',
-				'icon'  => 'arrow-right',
-				'theme' => 'acc',
-				'hover' => 'dark',
-				'node'  => 'data-contact-toggle="inquiry"'
-			]) ?>
-		</div>
-	</div>
-</div>
-
-<script>
-	(function() {
-		const initStickyCta = () => {
-			const bigCta = document.querySelector('section.cta');
-			const stickyCta = document.querySelector('[data-job-sticky-cta]');
-			if (!bigCta || !stickyCta) return;
-
-			const observer = new IntersectionObserver((entries) => {
-				entries.forEach(entry => {
-					if (entry.isIntersecting) {
-						stickyCta.classList.add('is-hidden');
-					} else {
-						stickyCta.classList.remove('is-hidden');
-					}
-				});
-			}, {
-				root: null,
-				rootMargin: '0px 0px 80px 0px',
-				threshold: 0
-			});
-
-			observer.observe(bigCta);
-		};
-
-		if (document.readyState === 'loading') {
-			document.addEventListener('DOMContentLoaded', initStickyCta);
-		} else {
-			initStickyCta();
-		}
-	})();
-</script>

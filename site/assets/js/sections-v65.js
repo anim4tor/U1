@@ -194,6 +194,56 @@
       }, true);
       r.addEventListener('dragstart', function(e) { e.preventDefault(); });
     });
+
+    // 5. PLOVOUCÍ NÁHLED SLUŽBY ([data-nahled])
+    if (window.matchMedia && window.matchMedia('(hover:hover) and (pointer:fine)').matches) {
+      $$('[data-nahled]').forEach(function(sekNahled) {
+        var box = $('.services-preview', sekNahled) || $('.people-preview', sekNahled) || $('.nahled', sekNahled);
+        var img = box && $('img', box);
+        if (!box || !img) return;
+
+        var x = 0, y = 0, raf = 0;
+        var pos = function() {
+          raf = 0;
+          var posX = x + 24;
+          var posY = y - (box.offsetHeight / 2);
+          var maxW = window.innerWidth - box.offsetWidth - 16;
+          var maxH = window.innerHeight - box.offsetHeight - 16;
+
+          if (posX > maxW) posX = x - box.offsetWidth - 24;
+          if (posY < 16) posY = 16;
+          if (posY > maxH) posY = maxH;
+
+          box.style.transform = 'translate3d(' + posX + 'px,' + posY + 'px,0)';
+        };
+
+        sekNahled.addEventListener('mousemove', function(e) {
+          x = e.clientX;
+          y = e.clientY;
+          if (!raf) raf = requestAnimationFrame(pos);
+        });
+
+        sekNahled.addEventListener('mouseleave', function() {
+          box.classList.remove('is-on');
+        });
+
+        $$('[data-foto]', sekNahled).forEach(function(a) {
+          a.addEventListener('mouseenter', function() {
+            var foto = a.dataset.foto;
+            if (foto) {
+              if (img.getAttribute('src') !== foto) {
+                img.src = foto;
+              }
+              img.removeAttribute('hidden');
+              box.classList.add('is-on');
+            }
+          });
+          a.addEventListener('mouseleave', function() {
+            box.classList.remove('is-on');
+          });
+        });
+      });
+    }
   }
 
   if (document.readyState === 'loading') {

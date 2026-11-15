@@ -1,0 +1,243 @@
+Title: Kalkulant interiérů
+
+----
+
+Hero: [{"content":{"text":"Kalkulant interiérů","level":"h1","mod":"l","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-kalkulant-h1","isHidden":false,"type":"heading"},{"content":{"image":["file://ySBFAutta9Zv23vK"],"hasparallax":"false","parallax":0,"hasreveal":"false","reveal":"","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-kalkulant-cover","isHidden":false,"type":"cover"},{"content":{"text":"Kalkulace nábytkového vybavení, atypické výroby a komplexních interiérů na míru.","mod":"l","face":"","case":"lower","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-kalkulant-text","isHidden":false,"type":"text"}]
+
+----
+
+Excerpt: <p>Hledáme pečlivého kalkulanta se znalostí truhlářské výroby a interiérového vybavení, který dokáže ocenit atypické prvky i komplexní dodávky interiérů.</p>
+
+----
+
+Details: <p>Naše interiéry kombinují typový designový nábytek předních evropských značek s atypickou zakázkovou výrobou z vlastních dílen i od prověřených partnerů.</p><p>Jako kalkulant interiérů budete analyzovat výkresovou dokumentaci, oceňovat materiály, kování a výrobní operace a spoluvytvářet cenovou strategii pro klientské nabídky.</p>
+
+----
+
+Description:
+
+- 
+  text: Tvorba cenových kalkulací pro atypický nábytek a vybavení interiérů
+- 
+  text: Poptávání a naceňování materiálů, desek, kování a subdodávek
+- 
+  text: Technické posuzování architektonických návrhů a výrobních detailů
+- 
+  text: Spolupráce s výrobou, nákupem, architekty a obchodními manažery
+- 
+  text: Vyhodnocování výrobních nákladů a sledování kalkulace v průběhu zakázky
+- 
+  text: Tvorba a správa položkových databází materiálů a prací
+
+----
+
+Requirements:
+
+- 
+  text: SŠ nebo VŠ vzdělání v oboru zpracování dřeva, nábytkářství nebo stavebnictví
+- 
+  text: Znalost materiálů, kování a technologií výroby nábytku
+- 
+  text: Schopnost číst technické a architektonické výkresy
+- 
+  text: Pokročilá práce v MS Excel, zkušenost s kalkulačními programy
+- 
+  text: Technické myšlení, pečlivost, smysl pro detail a zodpovědnost
+
+----
+
+Offers:
+
+- 
+  text: Zázemí stabilní společnosti s vlastním výrobním a projektovým zázemím
+- 
+  text: Práce na unikátních interiérech s důrazem na kvalitu a detail
+- 
+  text: Motivující platové ohodnocení odpovídající zkušenostem
+- 
+  text: Podpora zkušenějších kolegů a možnost profesního růstu
+- 
+  text: Příjemné pracovní prostředí, sick days, firemní akce a benefity
+
+----
+
+Benefits:
+
+- 
+  text: Zázemí stabilní společnosti s vlastním výrobním a projektovým zázemím
+- 
+  text: Práce na unikátních interiérech s důrazem na kvalitu a detail
+- 
+  text: Motivující platové ohodnocení odpovídající zkušenostem
+- 
+  text: Podpora zkušenějších kolegů a možnost profesního růstu
+- 
+  text: Příjemné pracovní prostředí, sick days, firemní akce a benefity
+
+----
+
+Whyusheader: [{"content":{"text":"Proč pracovat u nás?","level":"h2","mod":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"5a31bdf4-d2e1-4c55-a0bc-91696df060c4","isHidden":false,"type":"heading"},{"content":{"text":"","mod":"","face":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"773f328c-f09b-466d-aee1-249ee0795c47","isHidden":false,"type":"label"}]
+
+----
+
+Whyus:
+
+- 
+  text: Bonusy/prémie
+  icon: shield-check
+  image: [ ]
+- 
+  text: Provize z prodeje
+  icon: users
+  image: [ ]
+- 
+  text: Mobilní telefon
+  icon: briefcase
+  image: [ ]
+- 
+  text: Sleva na firemní výrobky/služby
+  icon: heart
+  image: [ ]
+- 
+  text: Notebook
+  icon: sun
+  image: [ ]
+- 
+  text: Vzdělávací kurzy, školení
+  icon: users-1
+  image: [ ]
+- 
+  text: Občerstvení na pracovišti
+  icon: heart-1
+  image: [ ]
+- 
+  text: Zdravotní volno/sickdays
+  icon: sun-1
+  image: [ ]
+- 
+  text: Firemní akce
+  icon: users-2
+  image: [ ]
+- 
+  text: Možnost si napracovat hodiny
+  icon: users-3
+  image: [ ]
+
+----
+
+Processheader: [{"content":{"text":"Každá spolupráce začíná kontaktem","level":"h2","mod":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"e811c472-7934-45e0-82a8-a53239a5180e","isHidden":false,"type":"heading"},{"content":{"text":"","mod":"","face":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"c70b4fa1-6677-44f2-95e2-e1ab924d5ea4","isHidden":false,"type":"label"}]
+
+----
+
+Process:
+
+- 
+  step: "1"
+  title: Napíšeme si
+  text: >
+    Odpověz nám prostřednictvím
+    kontaktního formuláře. Zajímá nás
+    jen pár věcí a tvůj životopis.
+  image:
+    - file://dWxYAuhpEqTZu9VK
+- 
+  step: "2"
+  title: Zavoláme si
+  text: >
+    Online nebo po telefonu se tě doptáme
+    na několik doplňujících otázek.
+  image:
+    - file://mhxn0hpLRYGSMGNr
+- 
+  step: "3"
+  title: Potkáme se
+  text: >
+    Potkáš se s náborářem i budoucím
+    manažerem, se kterými detailně
+    probereš vše důležité.
+  image:
+    - file://wvX3M4OSzD4dbPFG
+
+----
+
+Cover: - file://ySBFAutta9Zv23vK
+
+----
+
+Start: Dohodou
+
+----
+
+Location: Brno
+
+----
+
+Duration: Plný úvazek
+
+----
+
+Team: Příprava a realizace
+
+----
+
+Contactemail: hr@u1.cz
+
+----
+
+Contactphone: +420 601 088 517
+
+----
+
+Ctaoverride: false
+
+----
+
+Cta: 
+
+----
+
+Meta-description: 
+
+----
+
+Meta-title: 
+
+----
+
+Meta-canonical-url: 
+
+----
+
+Og-title: 
+
+----
+
+Og-description: 
+
+----
+
+Og-image: 
+
+----
+
+Robots-index: 
+
+----
+
+Robots-follow: 
+
+----
+
+Robots-archive: 
+
+----
+
+Robots-imageindex: 
+
+----
+
+Robots-snippet: 
+
+----
+
+Uuid: klkntInt2026u1cz

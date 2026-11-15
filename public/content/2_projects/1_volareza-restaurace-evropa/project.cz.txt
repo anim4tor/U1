@@ -2,7 +2,7 @@ Title: Volareza - Restaurace Evropa
 
 ----
 
-Hero: [{"content":{"text":"Volareza - Restaurace Evropa","level":"h1","mod":"l","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"hero-head-volareza-restaurace-evropa-cz","isHidden":false,"type":"heading"},{"content":{"image":["file://aLmmfjg8CobVdnq4"],"hasparallax":"false","parallax":0,"hasreveal":"false","reveal":"","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"hero-cover-volareza-restaurace-evropa-cz","isHidden":false,"type":"cover"},{"content":{"text":"(2025)","mod":"l","face":"","case":"upper","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"hero-text-volareza-restaurace-evropa-cz","isHidden":false,"type":"text"}]
+Hero: [{"content":{"text":"Volareza - Restaurace Evropa","level":"h1","mod":"l","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"hero-head-volareza-restaurace-evropa-cz","isHidden":false,"type":"heading"},{"content":{"image":["file://aLmmfjg8CobVdnq4"],"hasparallax":"false","parallax":0,"hasreveal":"false","reveal":"","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"hero-cover-volareza-restaurace-evropa-cz","isHidden":false,"type":"cover"},{"content":{"text":"(2025)","mod":"","face":"","case":"upper","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"hero-text-volareza-restaurace-evropa-cz","isHidden":false,"type":"text"}]
 
 ----
 
@@ -42,27 +42,11 @@ Place: Praha 10 - Vršovice
 
 ----
 
-Industry: Pohostinství
-
-----
-
-Solutions: 
-
-----
-
-Space: Kuchyně, Bar, Lobby
-
-----
-
-Production: 
-
-----
-
 Size: 500m2
 
 ----
 
-Hash: Test
+Architect: 
 
 ----
 
@@ -78,7 +62,27 @@ Custominfo:
 
 - 
   label: Koncept
-  value: Atelier Dimense 
+  value: Atelier Dimense
+
+----
+
+Space: Kuchyně, Bar, Lobby
+
+----
+
+Industry: Pohostinství
+
+----
+
+Solutions: services/offices, services/interior-design, services/project-management, services/fit-out, services/interior-tailoring
+
+----
+
+Production: 
+
+----
+
+Hash: Test
 
 ----
 
@@ -125,6 +129,14 @@ Extras: [{"content":{"text":"Test skryteho obsahu","level":"h2","mod":"","hasrev
 ----
 
 Password: test
+
+----
+
+Ctaoverride: false
+
+----
+
+Cta: 
 
 ----
 

@@ -1,0 +1,245 @@
+Title: Designér
+
+----
+
+Hero: [{"content":{"text":"Designér","level":"h1","mod":"l","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-designer-h1","isHidden":false,"type":"heading"},{"content":{"image":["file://ySBFAutta9Zv23vK"],"hasparallax":"false","parallax":0,"hasreveal":"false","reveal":"","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-designer-cover","isHidden":false,"type":"cover"},{"content":{"text":"Návrhy inspirativních interiérů kanceláří od prvotního konceptu až po realizaci.","mod":"l","face":"","case":"lower","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"block-designer-text","isHidden":false,"type":"text"}]
+
+----
+
+Excerpt: <p>Hledáme kreativního designéra / architekta se citem pro prostor, ergonomii a moderní pracovní prostředí, který promění představy klientů v inspirativní kanceláře.</p>
+
+----
+
+Details: <p>V U1 navrhujeme pracovní prostředí pro renomované české i mezinárodní firmy. Propojujeme architekturu, psychologii prostoru a moderní technologie.</p><p>Budete pracovat v tvůrčím ateliéru, podílet se na konceptech od prvotních skic a space planningu přes 3D vizualizace až po výběr materiálů a autorský dozor při realizaci.</p>
+
+----
+
+Description:
+
+- 
+  text: Tvorba architektonických studií a návrhů interiérů kanceláří a komerčních prostor
+- 
+  text: Zpracování space planningu, dispozičních řešení a funkčních schémat
+- 
+  text: Tvorba 3D modelů, fotorealistických vizualizací a náladových moodboardů
+- 
+  text: Výběr materiálů, barev, povrchů a typového i atypického nábytku
+- 
+  text: Prezentace návrhů klientům a obhajoba architektonických řešení
+- 
+  text: Autorský dozor na stavbách a koordinace s projektovými manažery
+
+----
+
+Requirements:
+
+- 
+  text: VŠ nebo SŠ vzdělání v oboru architektura nebo design interiéru
+- 
+  text: Znalost práce v CAD/BIM software (AutoCAD, ArchiCAD nebo Revit), 3D modelování a vizualizačních nástrojích
+- 
+  text: Cit pro detail, barvy, materiály a současné designové trendy
+- 
+  text: Schopnost srozumitelně prezentovat a argumentovat své návrhy
+- 
+  text: Kreativita, samostatnost, ale i týmový duch
+- 
+  text: Portfolio dosavadních prací a návrhů
+
+----
+
+Offers:
+
+- 
+  text: Práce na různorodých projektech pro špičkové klienty (kanceláře, kliniky, gastro)
+- 
+  text: Autorská volnost v rámci stanoveného konceptu a rozpočtu
+- 
+  text: Přímý kontakt s realizací – vidíte, jak vaše návrhy ožívají ve skutečnosti
+- 
+  text: Špičkové technické a softwarové vybavení
+- 
+  text: Přátelský, kreativní kolektiv a inspirativní prostředí
+
+----
+
+Benefits:
+
+- 
+  text: Práce na různorodých projektech pro špičkové klienty (kanceláře, kliniky, gastro)
+- 
+  text: Autorská volnost v rámci stanoveného konceptu a rozpočtu
+- 
+  text: Přímý kontakt s realizací – vidíte, jak vaše návrhy ožívají ve skutečnosti
+- 
+  text: Špičkové technické a softwarové vybavení
+- 
+  text: Přátelský, kreativní kolektiv a inspirativní prostředí
+
+----
+
+Whyusheader: [{"content":{"text":"Proč pracovat u nás?","level":"h2","mod":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"15c328db-d50c-44ae-b51c-6d8b6da4a5c0","isHidden":false,"type":"heading"},{"content":{"text":"","mod":"","face":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"b813d10c-30c1-4b72-97b4-6a6d65c36391","isHidden":false,"type":"label"}]
+
+----
+
+Whyus:
+
+- 
+  text: Bonusy/prémie
+  icon: shield-check
+  image: [ ]
+- 
+  text: Provize z prodeje
+  icon: users
+  image: [ ]
+- 
+  text: Mobilní telefon
+  icon: briefcase
+  image: [ ]
+- 
+  text: Sleva na firemní výrobky/služby
+  icon: heart
+  image: [ ]
+- 
+  text: Notebook
+  icon: sun
+  image: [ ]
+- 
+  text: Vzdělávací kurzy, školení
+  icon: users-1
+  image: [ ]
+- 
+  text: Občerstvení na pracovišti
+  icon: heart-1
+  image: [ ]
+- 
+  text: Zdravotní volno/sickdays
+  icon: sun-1
+  image: [ ]
+- 
+  text: Firemní akce
+  icon: users-2
+  image: [ ]
+- 
+  text: Možnost si napracovat hodiny
+  icon: users-3
+  image: [ ]
+
+----
+
+Processheader: [{"content":{"text":"Každá spolupráce začíná kontaktem","level":"h2","mod":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"e811c472-7934-45e0-82a8-a53239a5180e","isHidden":false,"type":"heading"},{"content":{"text":"","mod":"","face":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"134882df-e490-48e0-aeb3-228ea15a9956","isHidden":false,"type":"label"}]
+
+----
+
+Process:
+
+- 
+  step: "1"
+  title: Napíšeme si
+  text: >
+    Odpověz nám prostřednictvím
+    kontaktního formuláře. Zajímá nás
+    jen pár věcí a tvůj životopis.
+  image:
+    - file://dWxYAuhpEqTZu9VK
+- 
+  step: "2"
+  title: Zavoláme si
+  text: >
+    Online nebo po telefonu se tě doptáme
+    na několik doplňujících otázek.
+  image:
+    - file://mhxn0hpLRYGSMGNr
+- 
+  step: "3"
+  title: Potkáme se
+  text: >
+    Potkáš se s náborářem i budoucím
+    manažerem, se kterými detailně
+    probereš vše důležité.
+  image:
+    - file://wvX3M4OSzD4dbPFG
+
+----
+
+Cover: - file://ySBFAutta9Zv23vK
+
+----
+
+Start: Dohodou
+
+----
+
+Location: Brno
+
+----
+
+Duration: Plný úvazek
+
+----
+
+Team: Architektura a design
+
+----
+
+Contactemail: hr@u1.cz
+
+----
+
+Contactphone: +420 601 088 517
+
+----
+
+Ctaoverride: false
+
+----
+
+Cta: 
+
+----
+
+Meta-description: 
+
+----
+
+Meta-title: 
+
+----
+
+Meta-canonical-url: 
+
+----
+
+Og-title: 
+
+----
+
+Og-description: 
+
+----
+
+Og-image: 
+
+----
+
+Robots-index: 
+
+----
+
+Robots-follow: 
+
+----
+
+Robots-archive: 
+
+----
+
+Robots-imageindex: 
+
+----
+
+Robots-snippet: 
+
+----
+
+Uuid: dsgnrU1Job2026cz

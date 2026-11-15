@@ -6,7 +6,7 @@ Slug: about
 
 ----
 
-Hero: [{"content":{"text":"Inspirace je všude okolo nás.","level":"h1","mod":"l","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"41f626de-5f9f-4f54-b649-90101a671744","isHidden":false,"type":"heading"},{"content":{"image":["file://EvzC0b5nfuTdhNrI"],"hasparallax":"false","parallax":0,"hasreveal":"false","reveal":"","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"75c0a0cb-fb3d-4f88-99c6-f6524f71f498","isHidden":false,"type":"cover"},{"content":{"text":"V U1 každý den pracujeme na tom, abychom zlepšovali své okolí silou know-how a designu.","mod":"","face":"","case":"lower","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"e411a841-0a89-452a-a500-7dbad5f6425c","isHidden":false,"type":"text"}]
+Hero: [{"content":{"text":"Jsme U1 Space Design","level":"h1","mod":"l","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"41f626de-5f9f-4f54-b649-90101a671744","isHidden":false,"type":"heading"},{"content":{"image":["file://EvzC0b5nfuTdhNrI"],"hasparallax":"false","parallax":0,"hasreveal":"false","reveal":"","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"75c0a0cb-fb3d-4f88-99c6-f6524f71f498","isHidden":false,"type":"cover"},{"content":{"text":"Propojujeme návrh, stavbu a projektové řízení. Nábytek dodáváme z vlastních řad Only1 a Only2 a na míru s ověřenými truhláři. Od roku 2001 navrhujeme a stavíme kanceláře a komerční interiéry.","mod":"","face":"","case":"lower","hasreveal":"true","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"e411a841-0a89-452a-a500-7dbad5f6425c","isHidden":false,"type":"text"}]
 
 ----
 
@@ -23,26 +23,56 @@ About: [{"content":{"text":"<p>Náš příběh</p>","mod":"","face":"","hasrevea
 
 ----
 
+Storyheading: Příběh
+
+----
+
+Storytext: Začali jsme v Brně v roce 2001. Dříve jsme vystupovali jako U1 Interiors, dnes nás najdete pod značkou U1 Space Design. Obě jména patří ke stejné firmě a její práci na interiérech.
+
+----
+
+Storyphoto: 
+
+----
+
+Storymilestones:
+
+- 
+  number: "2001"
+  label: založení v Brně
+- 
+  number: "4"
+  label: 'týmy pod jednou střechou: obchod, architektura a design, projektové řízení, realizace'
+- 
+  number: "2"
+  label: vlastní nábytkové řady Only1 a Only2
+
+----
+
+Valuesheading: Na čem stavíme
+
+----
+
 Values:
 
 - 
   step: 1
-  value: Integrita
+  value: Odpovědnost za celek
   figure:
     - file://Hzplof4PlkodvbqM
-  detail: '<p>Vývoj designu od estetiky po funkčnost v souladu s nejnovějšími technologiemi, stavebními aspekty, materiály, udržitelnými postupy a koordinací. Plynulý tok projektů od prvního konceptu až po dokončení.</p>'
+  detail: '<p>U kanceláří na klíč propojujeme návrh, stavbu a vybavení pod jednou smlouvou. Za dohodnutý rozsah odpovídáme jako jeden partner.</p>'
 - 
   step: 2
-  value: Inovace
+  value: Znalost provedení
   figure:
     - file://LIAFLCCTEOYkZ0tC
-  detail: '<p>Převádění návrhů a prototypů do finálních produktů – od materiálů a technologií přes kontrolu kvality až po plánování a logistiku. Dohlížíme na harmonogramy, rozpočty a zdroje.</p>'
+  detail: '<p>Máme vlastní architekty, projektové manažery a stavební tým. Jejich zkušenosti propojujeme při realizaci konkrétního interiéru.</p>'
 - 
   step: 3
-  value: Udržitelnost
+  value: Respekt k autorství
   figure:
     - file://HXa9UZqdtbPdhTUQ
-  detail: '<p>Kromě interního zaměření na udržitelnost provozu spolupracujeme s klienty a dodavateli na širším zavádění udržitelných postupů. Chceme nejen splňovat normy, ale být příkladem pro ostatní.</p>'
+  detail: '<p>Stavíme také podle projektů architektonických studií. Jejich autorství uvádíme a naši práci popisujeme podle skutečného rozsahu.</p>'
 
 ----
 
@@ -83,7 +113,44 @@ Teams:
 
 ----
 
-Peopleheader: [{"content":{"text":"Naši lidé","level":"h2","mod":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"7a1470d7-5e0e-47f5-ba88-9d46c7ed5577","isHidden":false,"type":"heading"},{"content":{"text":"","mod":"","face":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"9a0cdabd-7079-46f5-925f-2ab26f0d3f29","isHidden":false,"type":"label"}]
+Peopleheader: [{"content":{"text":"Naši lidé","level":"h2","mod":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"7a1470d7-5e0e-47f5-ba88-9d46c7ed5577","isHidden":false,"type":"heading"},{"content":{"text":"<p>Lidé, které znáte z našich realizací. [DOPLNIT portréty a další jména]</p>","mod":"","face":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"9a0cdabd-7079-46f5-925f-2ab26f0d3f29","isHidden":false,"type":"label"}]
+
+----
+
+Awardsheading: Ocenění a nominace
+
+----
+
+Awards:
+
+- 
+  year: "2025"
+  title: Kanceláře roku
+  detail: vítěz, Direct pojišťovna
+- 
+  year: "2023"
+  title: Grand Prix architektů
+  detail: nominace
+- 
+  year: "2022"
+  title: Interiér roku
+  detail: nominace
+- 
+  year: "2021"
+  title: Interiér roku, Kanceláře roku
+  detail: nominace
+- 
+  year: "2018"
+  title: Designblok
+  detail: Nejlepší novinka výrobce, ONLY2
+
+----
+
+Clientsheading: Pro koho pracujeme
+
+----
+
+Clients: Direct pojišťovna, Plzeňský Prazdroj, Siemens Healthineers, STRV, IBM, Kentico, Atlas Copco, Continental, Smurfit Westrock, CTP, Hartmann Rico, Konica Minolta, Miele, Grundfos, Phonexia, Purple Technology, Seyfor
 
 ----
 
@@ -96,19 +163,25 @@ Order:
 - 
   label: 1_hero
 - 
-  label: 2_about
+  label: 2_story
 - 
-  label: 3_testimonials
+  label: 3_values
 - 
-  label: 4_values
+  label: 4_teams
 - 
-  label: 5_teams
+  label: 5_people
 - 
-  label: 6_people
+  label: 7_clients
+- 
+  label: 6_awards
 - 
   label: sections/Feed/index
 - 
   label: sections/Cta/index
+
+----
+
+Cta: 
 
 ----
 
