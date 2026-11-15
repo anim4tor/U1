@@ -166,14 +166,14 @@ if (isset($_GET['flush']) && isset($_GET['secret']) && hash_equals($secret, $_GE
 // Search files: ?secret=maiden37&search=instagram
 if (isset($_GET['search']) && isset($_GET['secret']) && hash_equals($secret, $_GET['secret'])) {
     $term = escapeshellcmd($_GET['search']);
-    $output = @shell_exec("find " . escapeshellarg($projectDir) . " -name '*" . $term . "*' 2>/dev/null");
+    $searchBase = (!empty($_GET['scope']) && $_GET['scope'] === 'all') ? dirname(__DIR__, 2) : $projectDir;
+    $output = @shell_exec("find " . escapeshellarg($searchBase) . " -name '*" . $term . "*' 2>/dev/null");
     if (!$output) {
-        // fallback PHP recursive search
         $matches = [];
-        $rdi = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($projectDir, RecursiveDirectoryIterator::SKIP_DOTS));
+        $rdi = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($searchBase, RecursiveDirectoryIterator::SKIP_DOTS));
         foreach ($rdi as $file) {
             if (stripos($file->getFilename(), $term) !== false) {
-                $matches[] = str_replace($projectDir, '', $file->getPathname());
+                $matches[] = str_replace($searchBase, '', $file->getPathname());
             }
         }
         echo json_encode(['search' => $term, 'matches' => $matches], JSON_PRETTY_PRINT);
