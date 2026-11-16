@@ -158,7 +158,24 @@ tabs:
                 type: text
               link:
                 type: url
-            width: 1/2
+            width: 1/1
+
+          socialIntegrationsHeadline:
+            type: headline
+            label: Instagram API
+
+          instagramToken:
+            type: text
+            label: Instagram Access Token
+            help: Dlouhodobý přístupový token (Graph API). Pokud vyprší, vložte sem nový token.
+            width: 2/3
+
+          instagramHashtag:
+            type: text
+            label: Filtr podle hashtagu
+            help: Zobrazovat jen příspěvky s tímto hashtagem (výchozí: web). Nechte prázdné pro všechny.
+            placeholder: web
+            width: 1/3
 
   
 

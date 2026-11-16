@@ -14,7 +14,13 @@ return function ($kirby) {
     $mediaCacheDir = $kirby->root('public') . '/media/social';
     Dir::make($mediaCacheDir);
 
-    $getLocalMediaUrl = function ($remoteUrl, $filenamePrefix) use ($mediaCacheDir) {
+    // Persistent storage directory for social post snapshots & tokens
+    $storeDir = $kirby->root('store') . '/social';
+    Dir::make($storeDir);
+    $liFallbackFile = $storeDir . '/linkedin.json';
+    $igFallbackFile = $storeDir . '/instagram.json';
+
+    $getLocalMediaUrl = function ($remoteUrl, $filenamePrefix, $attemptDownload = false) use ($mediaCacheDir) {
         if (empty($remoteUrl)) {
             return '';
         }
@@ -23,12 +29,22 @@ return function ($kirby) {
         $filePath = $mediaCacheDir . '/' . $filename;
         $localUrl = url('public/media/social/' . $filename);
 
-        // If already downloaded and valid, return local URL
+        // If already downloaded and valid, return local URL immediately
         if (file_exists($filePath) && filesize($filePath) > 0) {
             return $localUrl;
         }
 
-        // Return CDN remote URL directly so page loads immediately without blocking HTTP downloads
+        // Only attempt HTTP download when explicitly permitted (e.g. on fresh API response)
+        if ($attemptDownload && !empty($remoteUrl) && (str_starts_with($remoteUrl, 'http://') || str_starts_with($remoteUrl, 'https://'))) {
+            try {
+                $imgResponse = Remote::get($remoteUrl, ['timeout' => 2]);
+                if ($imgResponse->code() === 200 && !empty($imgResponse->content())) {
+                    F::write($filePath, $imgResponse->content());
+                    return $localUrl;
+                }
+            } catch (\Throwable $e) {}
+        }
+
         return $remoteUrl;
     };
 
@@ -37,10 +53,22 @@ return function ($kirby) {
     // ----------------------------------------------------
     $cachedLinkedin = $cache->get('social.linkedin.posts');
 
-    if ($cachedLinkedin === null) {
+    $loadFallbackLinkedin = function () use ($liFallbackFile) {
+        if (file_exists($liFallbackFile)) {
+            $json = @file_get_contents($liFallbackFile);
+            $data = json_decode($json, true);
+            if (is_array($data) && !empty($data)) {
+                return $data;
+            }
+        }
+        return [];
+    };
+
+    if ($cachedLinkedin === null || empty($cachedLinkedin)) {
         $cachedLinkedin = [];
         $orgId = (string) option('linkedin.org_id');
         $token = trim((string) option('linkedin.token'));
+        $fetchedFreshLi = false;
 
         if (!empty($orgId) && !empty($token)) {
             if (!str_starts_with($orgId, 'urn:li:organization:')) {
@@ -61,7 +89,7 @@ return function ($kirby) {
 
                 if ($response->code() === 200) {
                     $rawPosts = $response->json()['elements'] ?? [];
-                    $cachedLinkedin = [];
+                    $freshLinkedin = [];
 
                     foreach ($rawPosts as $post) {
                         $postId     = $post['id'] ?? '';
@@ -101,17 +129,15 @@ return function ($kirby) {
                                         }
                                     }
                                     if (!empty($mediaUrl)) {
-                                        $cache->set($mediaCacheKey, $mediaUrl, 604800); // Cache image URL for 7 days
+                                        $cache->set($mediaCacheKey, $mediaUrl, 604800);
                                     }
-                                } catch (\Throwable $e) {
-                                    // If resolving media fails, continue without mediaUrl
-                                }
+                                } catch (\Throwable $e) {}
                             }
                         } elseif (!empty($content['article']['thumbnail'])) {
                             $mediaUrl = $content['article']['thumbnail'];
                         }
 
-                        $cachedLinkedin[] = [
+                        $freshLinkedin[] = [
                             'id'         => $postId,
                             'commentary' => $commentary,
                             'media_url'  => $mediaUrl,
@@ -119,17 +145,19 @@ return function ($kirby) {
                         ];
                     }
 
-                    $cache->set('social.linkedin.posts', $cachedLinkedin, 43200); // 12 hours
-                } else {
-                    // Cache empty response on API error (e.g. 401 token expired) to avoid stalling future page loads
-                    $cache->set('social.linkedin.posts', [], 7200); // 2 hours
+                    if (!empty($freshLinkedin)) {
+                        $cachedLinkedin = $freshLinkedin;
+                        $fetchedFreshLi = true;
+                        F::write($liFallbackFile, json_encode($freshLinkedin, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));
+                        $cache->set('social.linkedin.posts', $cachedLinkedin, 43200); // 12 hours
+                    }
                 }
-            } catch (\Throwable $e) {
-                // Timeout / network error -> cache empty for 1 hour
-                $cache->set('social.linkedin.posts', [], 3600);
-            }
-        } else {
-            $cache->set('social.linkedin.posts', [], 86400);
+            } catch (\Throwable $e) {}
+        }
+
+        if (!$fetchedFreshLi) {
+            $cachedLinkedin = $loadFallbackLinkedin();
+            $cache->set('social.linkedin.posts', $cachedLinkedin, 1800); // 30 min cooldown
         }
     }
 
@@ -138,7 +166,6 @@ return function ($kirby) {
         $commentary  = $post['commentary'] ?? '';
         $rawMediaUrl = $post['media_url'] ?? '';
         $mediaUrl    = !empty($rawMediaUrl) ? $getLocalMediaUrl($rawMediaUrl, 'linkedin-' . md5($postId)) : '';
-        // Convert timestamp (ms) or date string to Unix timestamp
         $timestamp   = isset($post['createdAt']) ? (int)($post['createdAt'] / 1000) : time();
 
         $content = [
@@ -173,33 +200,94 @@ return function ($kirby) {
     // ----------------------------------------------------
     // 2. FETCH & PROCESS INSTAGRAM POSTS
     // ----------------------------------------------------
-    $requiredHashtag = 'web';
+    $site = $kirby->site();
+    $requiredHashtag = trim((string)($site ? $site->instagramHashtag()->value() : ''));
+    if (empty($requiredHashtag)) {
+        $requiredHashtag = (string)option('instagram.hashtag', 'web');
+    }
+
+    // Token priority: 1) Panel site->instagramToken() 2) Stored token file 3) config.php
+    $token = trim((string)($site ? $site->instagramToken()->value() : ''));
+    $tokenFile = $storeDir . '/instagram_token.txt';
+    if (empty($token) && file_exists($tokenFile)) {
+        $token = trim((string)@file_get_contents($tokenFile));
+    }
+    if (empty($token)) {
+        $token = trim((string)option('instagram.token', ''));
+    }
+
     $cachedInstagram = $cache->get('social.instagram.posts');
 
-    if ($cachedInstagram === null) {
-        $token = option('instagram.token');
-        if ($token) {
+    $loadFallbackInstagram = function () use ($igFallbackFile) {
+        if (file_exists($igFallbackFile)) {
+            $json = @file_get_contents($igFallbackFile);
+            $data = json_decode($json, true);
+            if (is_array($data) && !empty($data)) {
+                return $data;
+            }
+        }
+        return [];
+    };
+
+    if ($cachedInstagram === null || empty($cachedInstagram)) {
+        $fetchedFreshIg = false;
+
+        if (!empty($token)) {
             $endpoint = "https://graph.instagram.com/me/media?fields=id,caption,media_type,media_url,permalink,timestamp,thumbnail_url&limit=50&access_token={$token}";
 
             try {
-                $response = Remote::get($endpoint, ['timeout' => 2]);
+                $response = Remote::get($endpoint, ['timeout' => 3]);
                 if ($response->code() === 200) {
-                    $cachedInstagram = $response->json()['data'] ?? [];
-                    $cache->set('social.instagram.posts', $cachedInstagram, 43200); // 12 hours
-                } else {
-                    $cachedInstagram = [];
-                    $cache->set('social.instagram.posts', [], 7200); // 2 hours
+                    $freshData = $response->json()['data'] ?? [];
+                    if (!empty($freshData)) {
+                        $cachedInstagram = $freshData;
+                        $fetchedFreshIg = true;
+
+                        // Download fresh images immediately to prevent CDN link expiration
+                        foreach ($cachedInstagram as $p) {
+                            $rawUrl = ($p['media_type'] === 'VIDEO' && isset($p['thumbnail_url']))
+                                ? $p['thumbnail_url']
+                                : ($p['media_url'] ?? '');
+                            if (!empty($rawUrl)) {
+                                $getLocalMediaUrl($rawUrl, 'instagram-' . $p['id'], true);
+                            }
+                        }
+
+                        // Save snapshot to persistent store
+                        F::write($igFallbackFile, json_encode($freshData, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));
+                        $cache->set('social.instagram.posts', $cachedInstagram, 43200); // 12 hours
+
+                        // Auto-refresh token if near 25 days
+                        $lastRefreshFile = $storeDir . '/instagram_token_refreshed.txt';
+                        $lastRefresh = file_exists($lastRefreshFile) ? (int)@file_get_contents($lastRefreshFile) : 0;
+                        if (time() - $lastRefresh > (25 * 86400)) {
+                            try {
+                                $refEndpoint = "https://graph.instagram.com/refresh_access_token?grant_type=ig_refresh_token&access_token={$token}";
+                                $refRes = Remote::get($refEndpoint, ['timeout' => 3]);
+                                if ($refRes->code() === 200) {
+                                    $refJson = $refRes->json();
+                                    if (!empty($refJson['access_token'])) {
+                                        F::write($tokenFile, $refJson['access_token']);
+                                        F::write($lastRefreshFile, (string)time());
+                                    }
+                                }
+                            } catch (\Throwable $e) {}
+                        }
+                    }
                 }
-            } catch (\Throwable $e) {
-                // Ignore network errors, fall back to empty array
-                $cachedInstagram = [];
-                $cache->set('social.instagram.posts', [], 3600); // 1 hour cooldown
-            }
-        } else {
-            $cachedInstagram = [];
-            $cache->set('social.instagram.posts', [], 86400);
+            } catch (\Throwable $e) {}
+        }
+
+        if (!$fetchedFreshIg) {
+            $cachedInstagram = $loadFallbackInstagram();
+            // 30 minute cooldown before trying API again
+            $cache->set('social.instagram.posts', $cachedInstagram, 1800);
         }
     }
+
+    // Process posts & apply hashtag filtering
+    $allProcessed = [];
+    $filteredProcessed = [];
 
     foreach ($cachedInstagram as $post) {
         $caption = $post['caption'] ?? '';
@@ -208,31 +296,52 @@ return function ($kirby) {
         preg_match_all('/#(\w+)/u', $caption, $matches);
         $hashtags = $matches[1] ?? [];
 
-        // FILTER: Skip post if it doesn't contain the required hashtag (case-insensitive)
-        $hasTag = in_array(strtolower($requiredHashtag), array_map('strtolower', $hashtags));
-        if (!$hasTag) {
-            continue;
-        }
-
         $rawImageUrl = ($post['media_type'] === 'VIDEO' && isset($post['thumbnail_url']))
             ? $post['thumbnail_url']
             : ($post['media_url'] ?? '');
 
-        $imageUrl = $getLocalMediaUrl($rawImageUrl, 'instagram-' . $post['id']);
+        // Use cached image or local image without blocking HTTP calls
+        $imageUrl = $getLocalMediaUrl($rawImageUrl, 'instagram-' . $post['id'], false);
 
         $cleanTitle = trim(preg_replace('/#\w+/u', '', $caption));
         $timestamp  = isset($post['timestamp']) ? strtotime($post['timestamp']) : time();
 
+        $postItem = [
+            'post'       => $post,
+            'cleanTitle' => $cleanTitle,
+            'imageUrl'   => $imageUrl,
+            'timestamp'  => $timestamp,
+            'hashtags'   => $hashtags
+        ];
+
+        $allProcessed[] = $postItem;
+
+        // Check hashtag filter if active
+        if (!empty($requiredHashtag) && $requiredHashtag !== '*' && strtolower($requiredHashtag) !== 'all') {
+            if (in_array(strtolower($requiredHashtag), array_map('strtolower', $hashtags))) {
+                $filteredProcessed[] = $postItem;
+            }
+        } else {
+            $filteredProcessed[] = $postItem;
+        }
+    }
+
+    // If hashtag-filtered set has posts, use it; otherwise fallback to all posts
+    $selectedPosts = !empty($filteredProcessed) ? $filteredProcessed : $allProcessed;
+
+    foreach ($selectedPosts as $item) {
+        $post = $item['post'];
+
         $content = [
             'uuid'       => 'social-ig-' . $post['id'],
-            'title'      => $cleanTitle,
-            'media_url'  => $imageUrl,
+            'title'      => $item['cleanTitle'],
+            'media_url'  => $item['imageUrl'],
             'social_url' => $post['permalink'] ?? '',
             'media_type' => $post['media_type'] ?? 'IMAGE',
             'platform'   => 'instagram',
-            'date'       => date('Y-m-d H:i:s', $timestamp),
-            'timestamp'  => $timestamp,
-            'hashtags'   => implode(', ', $hashtags)
+            'date'       => date('Y-m-d H:i:s', $item['timestamp']),
+            'timestamp'  => $item['timestamp'],
+            'hashtags'   => implode(', ', $item['hashtags'])
         ];
 
         $virtualPages[] = new Page([
