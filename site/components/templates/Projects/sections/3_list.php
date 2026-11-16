@@ -100,73 +100,65 @@ if (!empty($isFiltered)) {
 	
 	<!-- 1. Filtration Bar & Trigger (Morphed via [data-ajax-filter-hero]) -->
 	<div class="list__header intro inner__4 inner-y__1 border__bottom flex justify__space-between align__center mobile:gap__2 flex__wrap" data-ajax-filter-hero>
-		<div class="flex align__center gap__2">
-			<div class="flex align__start gap__02 inner-y__02">
-				<?php if (!empty($tabs)) : ?>
-					<div class="flex align__center gap__1">
-						<?php foreach ($tabs as $index => $tabItem) : ?>
-							<?php if ($index > 0) : ?>
-								<div class="w__03 h__03 bg__text op__4"></div>
-							<?php endif ?>
-							<h2 data-tab="<?= esc($tabItem['id']) ?>" class="cursor__pointer flex align__start gap__02 font__size__1">
-								<span><?= esc($tabItem['label']) ?></span>
-								<?php if (isset($tabItem['count']) && $tabItem['count'] !== null) : ?>
-									<span class="font__size__small op__6" data-projects-count>(<?= $tabItem['count'] ?>)</span>
-								<?php endif ?>
-							</h2>
-						<?php endforeach ?>
-					</div>
-				<?php else : ?>
-					<h2 class="flex align__start gap__02 font__size__1">
-						<span><?= esc(isset($title) && !empty($title) ? $title : (isset($page) ? $page->title()->value() : 'Realizace')) ?></span>
-						<?php if ($itemCount !== null) : ?>
-							<span class="font__size__small op__6" data-projects-count>(<?= $itemCount ?>)</span>
+		<!-- Left side: First 3 Filter Dropdowns (no heading) -->
+		<div class="flex align__center gap__05 flex__wrap">
+			<?php if (!empty($tabs)) : ?>
+				<div class="flex align__center gap__1">
+					<?php foreach ($tabs as $index => $tabItem) : ?>
+						<?php if ($index > 0) : ?>
+							<div class="w__03 h__03 bg__text op__4"></div>
 						<?php endif ?>
-					</h2>
+						<h2 data-tab="<?= esc($tabItem['id']) ?>" class="cursor__pointer flex align__start gap__02 font__size__1">
+							<span><?= esc($tabItem['label']) ?></span>
+							<?php if (isset($tabItem['count']) && $tabItem['count'] !== null) : ?>
+								<span class="font__size__small op__6" data-projects-count>(<?= $tabItem['count'] ?>)</span>
+							<?php endif ?>
+						</h2>
+					<?php endforeach ?>
+				</div>
+			<?php endif ?>
+
+			<div class="project-header__dropdowns flex align__center gap__05 flex__wrap">
+				<?php if (!empty($spaces)) : ?>
+					<?= snippet('molecules/Dropdown/filter', [ 
+						'label'    => 'Prostory', 
+						'param'    => 'space',
+						'options'  => $spaces,
+						'active'   => $filterSpace ?? null,
+						'theme'    => 'ghost',
+						'formMode' => false
+					]) ?> 
+				<?php endif ?>
+
+				<?php if (!empty($industries)) : ?>
+					<?= snippet('molecules/Dropdown/filter', [ 
+						'label'    => 'Odvětví', 
+						'param'    => 'industry',
+						'options'  => $industries,
+						'active'   => $filterIndustry ?? null,
+						'theme'    => 'ghost',
+						'formMode' => false
+					]) ?> 
+				<?php endif ?>
+
+				<?php if (!empty($solutions)) : ?>
+					<?= snippet('molecules/Dropdown/filter', [ 
+						'label'    => 'Služby', 
+						'param'    => 'solution',
+						'options'  => $solutions,
+						'active'   => $filterSolution ?? null,
+						'theme'    => 'ghost',
+						'formMode' => false
+					]) ?> 
 				<?php endif ?>
 			</div>
 		</div>
 		
-		<!-- Right side: First 3 Dropdowns directly next to Reset and Filter Trigger! -->
-		<div class="flex justify__end gap__05 align__center flex__wrap" data-scroll>
+		<!-- Right side: Reset and Filter Trigger Button -->
+		<div class="flex justify__end gap__02 align__center" data-scroll>
 			<?php if (isset($controls)) : ?>
 				<?= $controls ?>
 			<?php else : ?>
-				<div class="project-header__dropdowns flex align__center gap__05 flex__wrap">
-					<?php if (!empty($spaces)) : ?>
-						<?= snippet('molecules/Dropdown/filter', [ 
-							'label'    => 'Prostory', 
-							'param'    => 'space',
-							'options'  => $spaces,
-							'active'   => $filterSpace ?? null,
-							'theme'    => 'ghost',
-							'formMode' => false
-						]) ?> 
-					<?php endif ?>
-
-					<?php if (!empty($industries)) : ?>
-						<?= snippet('molecules/Dropdown/filter', [ 
-							'label'    => 'Odvětví', 
-							'param'    => 'industry',
-							'options'  => $industries,
-							'active'   => $filterIndustry ?? null,
-							'theme'    => 'ghost',
-							'formMode' => false
-						]) ?> 
-					<?php endif ?>
-
-					<?php if (!empty($solutions)) : ?>
-						<?= snippet('molecules/Dropdown/filter', [ 
-							'label'    => 'Služby', 
-							'param'    => 'solution',
-							'options'  => $solutions,
-							'active'   => $filterSolution ?? null,
-							'theme'    => 'ghost',
-							'formMode' => false
-						]) ?> 
-					<?php endif ?>
-				</div>
-
 				<div class="flex align__center gap__02">
 					<?php if (!empty($isFiltered)) : ?>
 						<a 
