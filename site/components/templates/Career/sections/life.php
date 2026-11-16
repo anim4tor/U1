@@ -31,18 +31,18 @@
 						<div class="grid place__end-start gap__1 inner-y__1">
 							<div data-tab="step-<?= $life->indexOf($page->life()->toStructure())?>" class="flex align__start gap__02" >
 								<?= snippet('atoms/Heading', [ 'level' => 'h2', 'text' => $life->title(), 'reveal' => true, 'css' => '', 'node' => 'data-split-ignore' ]) ?>
-								<div data-reveal-text="" class="font__size__small" data-split-ignore style="--in-delay: 800ms">(<?= $life->indexOf($page->life()->toStructure()) ?>)</div>
+								<div data-reveal-text="" class="font__size__small" data-split-ignore style="--in-delay: 800ms">(<?= $life->indexOf($page->life()->toStructure()) + 1 ?>)</div>
 							</div>
 						</div>
 
 					<?php endforeach ?>
 				</div>
-				<div class="border__top grid">
+				<div class="border__top grid op__5">
 					<div data-tabs-progress-line class="progress__line"></div>
 				</div>
 				<div data-pane-container class="grid__4" data-scroll>
 					<?php foreach ($page->life()->toStructure() as $life) : ?>
-						<div class="grid gap__1 inner-y__1" data-tab-reveal data-pane="step-<?= $life->indexOf($page->life()->toStructure()) ?>" id="trigger-<?= $life->indexOf($page->life()->toStructure()) ?>">
+						<div class="grid gap__1 inner-y__1" data-tab-reveal data-pane="step-<?= $life->indexOf($page->life()->toStructure()) ?>" id="trigger-<?= $life->indexOf($page->life()->toStructure()) + 1 ?>">
 							<p class="" data-reveal-text="lines" data-split-ignore ><?= $life->text()->inline() ?></p>
 						</div>
 

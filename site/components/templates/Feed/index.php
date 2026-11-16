@@ -11,7 +11,7 @@
 	<div data-pane-container class="grid__stack place__start-start relative z__1">
 		<!-- 1. Blog Tab -->
 		<div data-pane="blog" data-tab-reveal class="w__full">
-			<ol class="grid__3 gap__1 gap-y__2 inner__4 inner-t__2 mobile:grid__1">
+			<ol class="grid__3 gap__2 gap-y__3 inner__4 inner-y__5 mobile:grid__1">
 				<?php foreach (collection('Blog') as $feed) : ?>
 					<li class="">
 						<?= snippet('molecules/Feed/list', ['item' => $feed, 'type' => 'blog']) ?>
@@ -22,7 +22,7 @@
 
 		<!-- 2. Socials Tab -->
 		<div data-pane="socials" data-tab-reveal class="w__full">
-			<ol class="grid__3 gap__1 gap-y__2 inner__4 inner-t__2 mobile:grid__1">
+			<ol class="grid__3 gap__2 gap-y__3 inner__4 inner-y__5 mobile:grid__1">
 				<?php foreach (collection('Socials') as $post) : ?>
 					<li class="">
 						<?= snippet('molecules/Feed/list', ['item' => $post, 'type' => 'social']) ?>
@@ -33,7 +33,7 @@
 
 		<!-- 3. Media Tab -->
 		<div data-pane="media" data-tab-reveal class="w__full">
-			<ol class="grid__3 gap__1 gap-y__2 inner__4 inner-t__2 mobile:grid__1">
+			<ol class="grid__3 gap__2 gap-y__3 inner__4 inner-y__5 mobile:grid__1">
 				<?php foreach (collection('Projects') as $feed) : ?>
 					<li class="">
 						<?= snippet('molecules/Feed/list', ['item' => $feed, 'type' => 'media']) ?>

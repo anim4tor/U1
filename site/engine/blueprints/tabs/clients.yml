@@ -1,0 +1,45 @@
+label: Klienti
+icon: users
+columns:
+  - width: 2/3
+    fields:
+      clientsHeading:
+        label: Nadpis sekce
+        type: text
+        default: Pro koho pracujeme
+      clients:
+        label: Seznam klientů
+        type: structure
+        columns:
+          logo:
+            width: 1/4
+          name:
+            width: 3/4
+        fields:
+          name:
+            label: Název klienta
+            type: text
+            required: true
+            width: 1/2
+          logo:
+            label: Logo klienta
+            type: files
+            max: 1
+            multiple: false
+            uploads:
+              template: logo
+            image:
+              cover: false
+              back: white
+            width: 1/2
+  - width: 1/3
+    sections:
+      logos:
+        headline: Nahraná loga klientů
+        type: files
+        template: logo
+        layout: cards
+        image:
+          cover: false
+          back: white
+

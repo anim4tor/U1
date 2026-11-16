@@ -113,9 +113,12 @@ Positionslist:
   location: Brno · plný úvazek
   url: /kariera/positions/project-manager
 - 
-  title: Rozpočtář stavební části interiéru
+  title: >
+    Rozpočtář stavební části
+    interiéru
   location: Brno
-  url: /kariera/positions/rozpoctar-stavebni-casti-interieru
+  url: >
+    /kariera/positions/rozpoctar-stavebni-casti-interieru
 - 
   title: Obchodní manažer
   location: Brno
@@ -223,6 +226,33 @@ Quotetext: Dvacet pět let zkušeností promítnutých do ucelených architekton
 
 ----
 
+Testimonialsheading: Co o práci v U1 říkají kolegové
+
+----
+
+Testimonials:
+
+- 
+  testimonialquote: V U1 mě baví volnost a důvěra, kterou dostáváme. Každý projekt je jiný a máme možnost přinášet vlastní řešení od prvního konceptu až po předání hotového interiéru.
+  testimonialauthor: Michal Grof
+  testimonialposition: Architekt & Vedoucí studia
+  testimonialimage:
+    - image-36.webp
+- 
+  testimonialquote: Skvělý tým lidí, kteří táhnou za jeden provaz. Projektové řízení u nás není jen o tabulkách, ale o skutečné koordinaci na stavbě a partnerství s klienty i dodavateli.
+  testimonialauthor: Jaromír Popek
+  testimonialposition: Projektový manažer
+  testimonialimage:
+    - image-37.webp
+- 
+  testimonialquote: Spojení vlastního designu, výroby a realizace dává práci v U1 obrovský smysl. Vidět, jak se skica promění v reálný pracovní prostor, je ta nejlepší motivace.
+  testimonialauthor: David L.
+  testimonialposition: CEO & Partner
+  testimonialimage:
+    - david.webp
+
+----
+
 Order:
 
 - 
@@ -231,6 +261,10 @@ Order:
   label: 2_positions
 - 
   label: 3_benefits
+- 
+  label: life
+- 
+  label: 5_references
 - 
   label: 4_process
 - 

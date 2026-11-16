@@ -8,6 +8,7 @@ class FilterAjax {
     this.panelSelector = '[data-ajax-filter-panel]';
     this.listSelector  = '[data-ajax-filter-list]';
     this.abortController = null;
+    this.activeDropdownParam = null;
 
     this.init();
   }
@@ -30,11 +31,10 @@ class FilterAjax {
         e.stopImmediatePropagation();
         const url = filterLink.getAttribute('href');
         if (url) {
-          // Close parent dropdown menu
+          // Keep dropdown open: do NOT remove is-open
           const dropdown = filterLink.closest('.custom-dropdown');
           if (dropdown) {
-            dropdown.querySelector('.dropdown-menu')?.classList.remove('is-open');
-            dropdown.querySelector('.dropdown-toggle')?.setAttribute('aria-expanded', 'false');
+            this.activeDropdownParam = dropdown.dataset.filterParam || null;
           }
           this.navigate(url);
         }
@@ -74,6 +74,11 @@ class FilterAjax {
       listEl.style.pointerEvents = 'none';
     }
 
+    // Preserve open dropdown param if any
+    const openDropdownParam = this.activeDropdownParam || 
+      document.querySelector('.custom-dropdown .dropdown-menu.is-open')
+        ?.closest('.custom-dropdown')?.dataset.filterParam || null;
+
     try {
       const res = await fetch(url, {
         headers: { 'X-Requested-With': 'XMLHttpRequest' },
@@ -104,7 +109,17 @@ class FilterAjax {
         if (window.Idiomorph) {
           Idiomorph.morph(currentHero, newHero, {
             morphStyle: 'outerHTML',
-            ignoreActiveValue: true
+            ignoreActiveValue: true,
+            callbacks: {
+              beforeNodeMorphed: (fromEl, toEl) => {
+                if (fromEl.classList && fromEl.classList.contains('dropdown-menu') && fromEl.classList.contains('is-open')) {
+                  toEl.classList.add('is-open');
+                }
+                if (fromEl.classList && fromEl.classList.contains('dropdown-toggle') && fromEl.getAttribute('aria-expanded') === 'true') {
+                  toEl.setAttribute('aria-expanded', 'true');
+                }
+              }
+            }
           });
         } else {
           currentHero.replaceWith(newHero);
@@ -121,7 +136,17 @@ class FilterAjax {
         if (window.Idiomorph) {
           Idiomorph.morph(currentPanel, newPanel, {
             morphStyle: 'outerHTML',
-            ignoreActiveValue: true
+            ignoreActiveValue: true,
+            callbacks: {
+              beforeNodeMorphed: (fromEl, toEl) => {
+                if (fromEl.classList && fromEl.classList.contains('dropdown-menu') && fromEl.classList.contains('is-open')) {
+                  toEl.classList.add('is-open');
+                }
+                if (fromEl.classList && fromEl.classList.contains('dropdown-toggle') && fromEl.getAttribute('aria-expanded') === 'true') {
+                  toEl.setAttribute('aria-expanded', 'true');
+                }
+              }
+            }
           });
         } else {
           currentPanel.replaceWith(newPanel);
@@ -133,6 +158,16 @@ class FilterAjax {
           });
         }
       }
+
+      // Restore open dropdown if one was active
+      if (openDropdownParam) {
+        const matchingDropdown = document.querySelector(`.custom-dropdown[data-filter-param="${openDropdownParam}"]`);
+        if (matchingDropdown) {
+          matchingDropdown.querySelector('.dropdown-menu')?.classList.add('is-open');
+          matchingDropdown.querySelector('.dropdown-toggle')?.setAttribute('aria-expanded', 'true');
+        }
+      }
+      this.activeDropdownParam = null;
 
       // Morph or replace list
       const newList = newDoc.querySelector(this.listSelector);

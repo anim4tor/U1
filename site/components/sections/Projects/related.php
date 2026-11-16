@@ -37,7 +37,7 @@ if (!isset($button)) {
 			<ol class="flex justify__start align__center no__wrap gap__2" data-carousel-slides>	
 			<?php foreach ($projects as $project) : ?>
 				<li data-slide class="project__wrapper vw__5">	
-					<?= snippet('molecules/Project/list', compact('project')) ?>
+					<?= snippet('molecules/Project/', compact('project')) ?>
 				</li>
 			<?php endforeach ?>
 			<?php if ($button) : ?>

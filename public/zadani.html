@@ -1096,6 +1096,12 @@
       let activeType = null;
       let searchQuery = '';
 
+      // Determine correct API and JSON URLs regardless of subfolder or clean URL
+      const pathname = window.location.pathname;
+      const basePath = pathname.replace(/\/zadani(\.html)?\/?$/, '');
+      const apiUrl = basePath + '/zadani/state';
+      const jsonUrl = basePath + '/zadani_state.json';
+
       const rows = Array.from(document.querySelectorAll('.task-row'));
       const listItems = Array.from(document.querySelectorAll('#jakub-list li'));
       const allCheckables = [...rows, ...listItems];
@@ -1115,32 +1121,41 @@
       totalCountEl.textContent = rows.length;
       countAllEl.textContent = rows.length;
 
-      // 1. Initial State Load: Try server, fallback to localStorage
+      // 1. Initial State Load: Always prioritize localStorage, merge server defaults
       async function loadState() {
-        let serverLoaded = false;
+        // First load from localStorage immediately
         try {
-          const res = await fetch('zadani_state.json?t=' + Date.now());
-          if (res.ok) {
-            const data = await res.json();
-            if (data && data.checked) {
-              checkedItems = data.checked;
-              serverLoaded = true;
-            }
+          const saved = localStorage.getItem(STORAGE_KEY);
+          if (saved) {
+            checkedItems = JSON.parse(saved) || {};
           }
         } catch (e) {
-          console.warn('Server state load error, using local:', e);
+          console.warn('localStorage read error:', e);
         }
 
-        if (!serverLoaded) {
-          const local = localStorage.getItem(STORAGE_KEY);
-          if (local) {
-            try { checkedItems = JSON.parse(local); } catch(e){}
-          }
-        }
-
+        // Apply immediately so user never sees lag
         applyCheckedState();
         updateStats();
         filterItems();
+
+        // If localStorage was completely empty, fetch server defaults
+        if (Object.keys(checkedItems).length === 0) {
+          try {
+            const res = await fetch(jsonUrl + '?t=' + Date.now());
+            if (res.ok) {
+              const data = await res.json();
+              if (data && data.checked) {
+                checkedItems = data.checked;
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(checkedItems));
+                applyCheckedState();
+                updateStats();
+                filterItems();
+              }
+            }
+          } catch (e) {
+            console.warn('Server defaults fetch error:', e);
+          }
+        }
       }
 
       function applyCheckedState() {
@@ -1154,23 +1169,29 @@
         });
       }
 
-      // Save to localStorage and notify server if endpoint available
+      // Save to localStorage immediately and notify server
       let saveTimeout = null;
       function saveState() {
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(checkedItems));
+        // ALWAYS save to localStorage synchronously!
+        try {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(checkedItems));
+        } catch(e) {
+          console.error('Failed to save to localStorage:', e);
+        }
+
         syncDot.classList.add('is-saving');
         syncText.textContent = 'Ukládám...';
 
         clearTimeout(saveTimeout);
         saveTimeout = setTimeout(async () => {
           try {
-            const res = await fetch('zadani/state', {
+            const res = await fetch(apiUrl, {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify({ checked: checkedItems })
             });
             if (res.ok) {
-              syncText.textContent = 'Synchronizováno se serverem';
+              syncText.textContent = 'Uloženo na server i do paměti';
             } else {
               syncText.textContent = 'Uloženo v prohlížeči';
             }
@@ -1179,7 +1200,7 @@
           } finally {
             syncDot.classList.remove('is-saving');
           }
-        }, 600);
+        }, 300);
       }
 
       // Toggle check

@@ -99,8 +99,8 @@ if (!empty($isFiltered)) {
 <section <?= $id ? 'id="' . esc($id) . '"' : '' ?> class="list radius relative z__2" theme="<?= $theme ?>">
 	
 	<!-- 1. Filtration Bar & Trigger (Morphed via [data-ajax-filter-hero]) -->
-	<div class="list__header intro inner__4 inner-y__1 border__bottom flex justify__space-between align__end mobile:gap__2" data-ajax-filter-hero>
-		<div class="span__3">
+	<div class="list__header intro inner__4 inner-y__1 border__bottom flex justify__space-between align__center mobile:gap__2 flex__wrap" data-ajax-filter-hero>
+		<div class="flex align__center gap__2 flex__wrap">
 			<div class="flex align__start gap__02 inner-y__02">
 				<?php if (!empty($tabs)) : ?>
 					<div class="flex align__center gap__1" data-scroll>
@@ -111,51 +111,59 @@ if (!empty($isFiltered)) {
 							<h2 data-tab="<?= esc($tabItem['id']) ?>" class="cursor__pointer flex align__start gap__02 font__size__1" data-reveal-text>
 								<span><?= esc($tabItem['label']) ?></span>
 								<?php if (isset($tabItem['count']) && $tabItem['count'] !== null) : ?>
-									<span class="font__size__small op__6">(<?= $tabItem['count'] ?>)</span>
+									<span class="font__size__small op__6" data-projects-count>(<?= $tabItem['count'] ?>)</span>
 								<?php endif ?>
 							</h2>
 						<?php endforeach ?>
 					</div>
-				<?php elseif (!empty($activeTokens)) : ?>
-					<h2 class="flex no__wrap align__start gap__05 font__size__1" data-scroll data-split-ignore>
-						<?php foreach ($activeTokens as $index => $token) : ?>
-							<?php if ($index > 0) : ?>
-								<span class="filter-token__divider op__4 font__weight__light">/</span>
-							<?php endif ?>
-							<a href="<?= esc($token['removeUrl'] ?? '#') ?>" class="filter-token flex align__start no__wrap" data-ajax-filter title="<?= esc(t('remove-filter', 'Odebrat filtr: ')) ?><?= esc($token['label']) ?>">
-								<span class="filter-token__text"><?= esc(\Kirby\Toolkit\Str::ucfirst($token['label'])) ?></span>
-							</a>
-						<?php endforeach ?>
-						<?php if ($itemCount !== null) : ?>
-							<span class="font__size__small op__6 self__start">(<?= $itemCount ?>)</span>
-						<?php endif ?>
-					</h2>
-				<?php elseif ($activeHeading) : ?>
-					<h2 class="flex align__start gap__02 font__size__1" data-scroll>
-						<span><?= esc($activeHeading) ?></span>
-						<?php if ($itemCount !== null) : ?>
-							<span class="font__size__small op__6">(<?= $itemCount ?>)</span>
-						<?php endif ?>
-					</h2>
-				<?php elseif (isset($title) && !empty($title)) : ?>
-					<h2 class="flex align__start gap__02 font__size__1" data-reveal-text>
-						<span><?= esc($title) ?></span>
-						<?php if ($itemCount !== null) : ?>
-							<span class="font__size__small op__6">(<?= $itemCount ?>)</span>
-						<?php endif ?>
-					</h2>
 				<?php else : ?>
 					<h2 class="flex align__start gap__02 font__size__1" data-reveal-text>
-						<span><?= esc(isset($page) ? $page->title()->value() : 'Všechny projekty') ?></span>
+						<span><?= esc(isset($title) && !empty($title) ? $title : (isset($page) ? $page->title()->value() : 'Realizace')) ?></span>
 						<?php if ($itemCount !== null) : ?>
-							<span class="font__size__small op__6">(<?= $itemCount ?>)</span>
+							<span class="font__size__small op__6" data-projects-count>(<?= $itemCount ?>)</span>
 						<?php endif ?>
 					</h2>
 				<?php endif ?>
 			</div>
+
+			<!-- Top 3 Filter Dropdowns directly in the bar -->
+			<div class="project-header__dropdowns flex align__center gap__05 flex__wrap">
+				<?php if (!empty($spaces)) : ?>
+					<?= snippet('molecules/Dropdown/filter', [ 
+						'label'    => 'Prostory', 
+						'param'    => 'space',
+						'options'  => $spaces,
+						'active'   => $filterSpace ?? null,
+						'theme'    => 'ghost',
+						'formMode' => false
+					]) ?> 
+				<?php endif ?>
+
+				<?php if (!empty($industries)) : ?>
+					<?= snippet('molecules/Dropdown/filter', [ 
+						'label'    => 'Odvětví', 
+						'param'    => 'industry',
+						'options'  => $industries,
+						'active'   => $filterIndustry ?? null,
+						'theme'    => 'ghost',
+						'formMode' => false
+					]) ?> 
+				<?php endif ?>
+
+				<?php if (!empty($solutions)) : ?>
+					<?= snippet('molecules/Dropdown/filter', [ 
+						'label'    => 'Služby', 
+						'param'    => 'solution',
+						'options'  => $solutions,
+						'active'   => $filterSolution ?? null,
+						'theme'    => 'ghost',
+						'formMode' => false
+					]) ?> 
+				<?php endif ?>
+			</div>
 		</div>
 		
-		<div class="span__1 flex justify__end gap__02 align__center" data-scroll>
+		<div class="flex justify__end gap__02 align__center" data-scroll>
 			<?php if (isset($controls)) : ?>
 				<?= $controls ?>
 			<?php else : ?>
@@ -228,7 +236,7 @@ if (!empty($isFiltered)) {
 							'options'  => $spaces,
 							'active'   => $filterSpace ?? null,
 							'theme'    => 'ghost',
-							'formMode' => true
+							'formMode' => false
 						]) ?> 
 					<?php endif ?>
 
@@ -239,7 +247,7 @@ if (!empty($isFiltered)) {
 							'options'  => $industries,
 							'active'   => $filterIndustry ?? null,
 							'theme'    => 'ghost',
-							'formMode' => true
+							'formMode' => false
 						]) ?> 
 					<?php endif ?>
 
@@ -250,7 +258,7 @@ if (!empty($isFiltered)) {
 							'options'  => $solutions,
 							'active'   => $filterSolution ?? null,
 							'theme'    => 'ghost',
-							'formMode' => true
+							'formMode' => false
 						]) ?> 
 					<?php endif ?>
 
@@ -261,7 +269,7 @@ if (!empty($isFiltered)) {
 							'options'  => $productions,
 							'active'   => $filterProduction ?? null,
 							'theme'    => 'ghost',
-							'formMode' => true
+							'formMode' => false
 						]) ?> 
 					<?php endif ?>
 
@@ -272,7 +280,7 @@ if (!empty($isFiltered)) {
 							'options'  => $hashes,
 							'active'   => $filterHash ?? null,
 							'theme'    => 'ghost',
-							'formMode' => true
+							'formMode' => false
 						]) ?> 
 					<?php endif ?>
 
@@ -283,7 +291,7 @@ if (!empty($isFiltered)) {
 							'options'  => $years,
 							'active'   => $filterYear ?? null,
 							'theme'    => 'ghost',
-							'formMode' => true
+							'formMode' => false
 						]) ?> 
 					<?php endif ?>
 
@@ -301,10 +309,6 @@ if (!empty($isFiltered)) {
 								<?= snippet('atoms/Icon', ['name' => 'close', 'css' => 'icon-close']) ?>
 							</a>
 						<?php endif ?>
-
-						<button type="submit" class="button upper justify__center" theme="dark" hover="acc">
-							<span>Filtrovat</span>
-						</button>
 					</div>
 				</div>
 

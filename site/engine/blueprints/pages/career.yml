@@ -204,5 +204,6 @@ tabs:
                   text: "{{ item.text }}"
                   value: "{{ item.value }}"
 
+  testimonials: tabs/testimonials
   cta: tabs/cta
   meta: tabs/meta/page

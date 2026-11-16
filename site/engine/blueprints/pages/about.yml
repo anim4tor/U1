@@ -143,14 +143,6 @@ tabs:
                 type: text
                 width: 1/4
 
-          clientsHeading:
-            label: Nadpis klientů
-            type: text
-            default: Pro koho pracujeme
-          clients:
-            label: Seznam klientů
-            type: tags
-
           career:
             extends: fields/section
             label: Careers
@@ -171,5 +163,6 @@ tabs:
                   text: "{{ item.text }}"
                   value: "{{ item.value }}"
 
+  clients: tabs/clients
   cta: tabs/cta
   meta: tabs/meta/page

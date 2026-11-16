@@ -1,0 +1,57 @@
+label: Reference
+icon: quote
+columns:
+  - width: 2/3
+    fields:
+      testimonialsHeading:
+        label: Nadpis sekce referencí
+        type: text
+        default: Co o práci v U1 říkají kolegové
+      testimonials:
+        label: Reference zaměstnanců
+        type: structure
+        columns:
+          testimonialImage:
+            width: 1/6
+          testimonialAuthor:
+            width: 1/3
+          testimonialPosition:
+            width: 1/3
+          testimonialQuote:
+            width: 1/3
+        fields:
+          testimonialQuote:
+            label: Citace / Reference zaměstnance
+            type: textarea
+            required: true
+          testimonialAuthor:
+            label: Jméno zaměstnance
+            type: text
+            required: true
+            width: 1/2
+          testimonialPosition:
+            label: Pracovní pozice / Role
+            type: text
+            width: 1/2
+          testimonialImage:
+            label: Fotografie zaměstnance
+            type: files
+            max: 1
+            multiple: false
+            uploads:
+              template: image
+            image:
+              cover: true
+              ratio: 1/1
+            width: 1/2
+  - width: 1/3
+    sections:
+      photos:
+        headline: Nahrané fotografie
+        type: files
+        template: image
+        layout: cards
+        image:
+          cover: true
+          ratio: 1/1
+

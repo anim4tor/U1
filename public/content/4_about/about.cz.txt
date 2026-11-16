@@ -150,7 +150,76 @@ Clientsheading: Pro koho pracujeme
 
 ----
 
-Clients: Direct pojišťovna, Plzeňský Prazdroj, Siemens Healthineers, STRV, IBM, Kentico, Atlas Copco, Continental, Smurfit Westrock, CTP, Hartmann Rico, Konica Minolta, Miele, Grundfos, Phonexia, Purple Technology, Seyfor
+Clients:
+
+- 
+  name: Direct pojišťovna
+  logo:
+    - direct-pojistovna.svg
+- 
+  name: Plzeňský Prazdroj
+  logo:
+    - plzensky-prazdroj.svg
+- 
+  name: Siemens Healthineers
+  logo:
+    - siemens-healthineers.svg
+- 
+  name: STRV
+  logo:
+    - strv.svg
+- 
+  name: IBM
+  logo:
+    - ibm.svg
+- 
+  name: Kentico
+  logo:
+    - kentico.svg
+- 
+  name: Atlas Copco
+  logo:
+    - atlas-copco.svg
+- 
+  name: Continental
+  logo:
+    - continental.svg
+- 
+  name: Smurfit Westrock
+  logo:
+    - smurfit-westrock.svg
+- 
+  name: CTP
+  logo:
+    - ctp.svg
+- 
+  name: Hartmann Rico
+  logo:
+    - hartmann-rico.svg
+- 
+  name: Konica Minolta
+  logo:
+    - konica-minolta.svg
+- 
+  name: Miele
+  logo:
+    - miele.svg
+- 
+  name: Grundfos
+  logo:
+    - grundfos.svg
+- 
+  name: Phonexia
+  logo:
+    - phonexia.svg
+- 
+  name: Purple Technology
+  logo:
+    - purple-technology.svg
+- 
+  name: Seyfor
+  logo:
+    - seyfor.svg
 
 ----
 

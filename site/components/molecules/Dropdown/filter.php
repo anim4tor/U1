@@ -19,6 +19,7 @@ if ($sp     = get('space'))      $currentQuery['space']      = $sp;
 if ($sol    = get('solution'))   $currentQuery['solution']   = $sol;
 if ($prod   = get('production')) $currentQuery['production'] = $prod;
 if ($hash   = get('hash'))       $currentQuery['hash']       = $hash;
+if ($y      = get('year'))       $currentQuery['year']       = $y;
 if ($f      = get('filter'))     $currentQuery['filter']     = $f;
 if ($search = get('search'))     $currentQuery['search']     = $search;
 if ($q      = get('q'))          $currentQuery['q']          = $q;
@@ -93,14 +94,19 @@ $hiddenValue = implode(',', $activeSlugs);
             </span>
           </button>
         <?php else : ?>
-          <?= snippet('atoms/Button', [ 
-            'url'     => $url, 
-            'label'   => ($isActive ? '✓ ' : '') . $tag['text'], 
-            'theme'   => $isActive ? 'dark' : 'light',
-            'css'     => 'justify__start',
-            'reveal'  => true,
-            'node'    => 'data-ajax-filter="true"'
-          ]) ?>
+          <a 
+            href="<?= esc($url) ?>" 
+            class="button upper justify__start <?= $isActive ? 'is-active' : '' ?>" 
+            theme="<?= $isActive ? 'dark' : 'light' ?>" 
+            data-ajax-filter="true"
+            role="option"
+            aria-selected="<?= $isActive ? 'true' : 'false' ?>"
+          >
+            <span aria-label="<?= esc($tag['text']) ?>" class="flex align__center gap__05">
+              <span class="dropdown-checkmark col__acc font__size__small <?= $isActive ? '' : 'is-hidden' ?>">✓</span>
+              <span class="dropdown-option-text"><?= esc($tag['text']) ?></span>
+            </span>
+          </a>
         <?php endif ?>
       <?php endforeach ?>
     </ul>

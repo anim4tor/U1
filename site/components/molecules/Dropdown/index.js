@@ -1,44 +1,39 @@
 function initDropdowns() {
-  const dropdowns = document.querySelectorAll('.custom-dropdown');
+  if (window._dropdownDelegationInit) return;
+  window._dropdownDelegationInit = true;
 
-  dropdowns.forEach(dropdown => {
-    if (dropdown._dropdownInit) return;
-    dropdown._dropdownInit = true;
+  document.addEventListener('click', (e) => {
+    // 1. Toggle button clicked
+    const toggle = e.target.closest('.custom-dropdown .dropdown-toggle');
+    if (toggle) {
+      e.preventDefault();
+      e.stopPropagation();
+      const dropdown = toggle.closest('.custom-dropdown');
+      const menu = dropdown?.querySelector('.dropdown-menu');
+      if (!menu) return;
 
-    const toggle = dropdown.querySelector('.dropdown-toggle');
-    const menu = dropdown.querySelector('.dropdown-menu');
-    const selectedText = dropdown.querySelector('.dropdown-selected-text');
-    const items = dropdown.querySelectorAll('.dropdown-menu li');
+      const isCurrentlyOpen = menu.classList.contains('is-open');
 
-    if (!toggle || !menu) return;
-
-    // Toggle dropdown visibility
-    toggle.addEventListener('click', () => {
-      const expanded = toggle.getAttribute('aria-expanded') === 'true';
-      toggle.setAttribute('aria-expanded', !expanded);
-      menu.classList.toggle('is-open');
-    });
-
-    // Handle option selection
-    items.forEach(item => {
-      item.addEventListener('click', () => {
-        if (selectedText) selectedText.textContent = item.textContent;
-        toggle.setAttribute('aria-expanded', 'false');
-        menu.classList.remove('is-open');
-
-        // Access the custom data value
-        const value = item.dataset.value;
-        console.log('Selected value:', value);
+      // Close all OTHER dropdowns
+      document.querySelectorAll('.custom-dropdown .dropdown-menu.is-open').forEach(otherMenu => {
+        if (otherMenu !== menu) {
+          otherMenu.classList.remove('is-open');
+          otherMenu.closest('.custom-dropdown')?.querySelector('.dropdown-toggle')?.setAttribute('aria-expanded', 'false');
+        }
       });
-    });
 
-    // Close dropdown when clicking outside
-    window.addEventListener('click', e => {
-      if (!dropdown.contains(e.target)) {
-        toggle.setAttribute('aria-expanded', 'false');
+      menu.classList.toggle('is-open', !isCurrentlyOpen);
+      toggle.setAttribute('aria-expanded', !isCurrentlyOpen ? 'true' : 'false');
+      return;
+    }
+
+    // 2. Click outside all dropdowns -> close them
+    if (!e.target.closest('.custom-dropdown')) {
+      document.querySelectorAll('.custom-dropdown .dropdown-menu.is-open').forEach(menu => {
         menu.classList.remove('is-open');
-      }
-    });
+        menu.closest('.custom-dropdown')?.querySelector('.dropdown-toggle')?.setAttribute('aria-expanded', 'false');
+      });
+    }
   });
 }
 
