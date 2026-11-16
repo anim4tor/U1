@@ -99,7 +99,7 @@ if (!empty($isFiltered)) {
 <section <?= $id ? 'id="' . esc($id) . '"' : '' ?> class="list radius relative z__2" theme="<?= $theme ?>">
 	
 	<!-- 1. Filtration Bar & Trigger (Morphed via [data-ajax-filter-hero]) -->
-	<div class="list__header intro inner__4 inner-y__1 border__bottom flex justify__space-between align__center mobile:gap__2 flex__wrap" data-ajax-filter-hero>
+	<div class="list__header intro inner__4 inner-y__1 inner-t__3 border__bottom flex justify__space-between align__center mobile:gap__2 flex__wrap" data-ajax-filter-hero>
 		<!-- Left side: First 3 Filter Dropdowns (no heading) -->
 		<div class="flex align__center gap__05 flex__wrap">
 			<?php if (!empty($tabs)) : ?>
