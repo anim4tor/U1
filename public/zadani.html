@@ -1,0 +1,1301 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>U1 web – Zadání úprav z hovoru 2. 11. 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --font: 'Manrope', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --bg: #f8f8f6;
+      --card-bg: #ffffff;
+      --ink: #111111;
+      --muted: #666664;
+      --border: #e2e2de;
+      --border-dark: #111111;
+      --acc: #ED1359;
+      --acc-soft: rgba(237, 19, 89, 0.08);
+      --done-bg: #e6f7ec;
+      --done-border: #a3e0b5;
+      --done-text: #0f5132;
+      --done-green: #198754;
+      --radius: 12px;
+      --radius-sm: 8px;
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+      --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.07);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 32px 20px 80px;
+      font: 15px/1.6 var(--font);
+      color: var(--ink);
+      background-color: var(--bg);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Header */
+    .header {
+      margin-bottom: 24px;
+    }
+    .header__top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 8px;
+      flex-wrap: wrap;
+    }
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--acc);
+      background: var(--acc-soft);
+      padding: 6px 14px;
+      border-radius: 999px;
+    }
+    .brand svg { width: 14px; height: 16px; fill: currentColor; }
+    h1 {
+      font-size: clamp(24px, 4vw, 34px);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      margin: 12px 0 6px;
+      color: var(--ink);
+    }
+    .subtitle {
+      font-size: 15px;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    /* Sticky Dashboard / Controls */
+    .controls-wrapper {
+      position: sticky;
+      top: 16px;
+      z-index: 100;
+      margin: 24px 0 32px;
+    }
+    .controls-card {
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px 20px;
+      box-shadow: var(--shadow-md);
+    }
+    .progress-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+    .progress-stats {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--ink);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .progress-stats span.pct {
+      color: var(--done-green);
+      background: var(--done-bg);
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-size: 13px;
+    }
+    .sync-status {
+      font-size: 12px;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .sync-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--done-green);
+    }
+    .sync-dot.is-saving {
+      background: #f59e0b;
+      animation: pulse 1s infinite alternate;
+    }
+    @keyframes pulse { to { opacity: 0.3; } }
+
+    .progress-bar-bg {
+      width: 100%;
+      height: 10px;
+      background: #e5e5e0;
+      border-radius: 999px;
+      overflow: hidden;
+      margin-bottom: 16px;
+    }
+    .progress-bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #10b981, #059669);
+      width: 0%;
+      transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      border-radius: 999px;
+    }
+
+    .filters-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .filter-group {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .filter-btn {
+      appearance: none;
+      border: 1px solid var(--border);
+      background: #fff;
+      color: var(--ink);
+      font: 600 12px/1 var(--font);
+      padding: 7px 12px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .filter-btn:hover {
+      border-color: #999;
+      background: #f4f4f2;
+    }
+    .filter-btn.is-active {
+      background: var(--ink);
+      color: #fff;
+      border-color: var(--ink);
+    }
+    .filter-btn .count {
+      font-size: 11px;
+      opacity: 0.7;
+    }
+
+    .search-box {
+      flex: 1 1 200px;
+      max-width: 280px;
+      position: relative;
+    }
+    .search-input {
+      width: 100%;
+      font: 500 13px/1.4 var(--font);
+      padding: 7px 12px 7px 32px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: #fff;
+      outline: none;
+      transition: border-color 0.2s ease;
+    }
+    .search-input:focus {
+      border-color: var(--acc);
+      box-shadow: 0 0 0 3px var(--acc-soft);
+    }
+    .search-icon {
+      position: absolute;
+      left: 11px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 13px;
+      height: 13px;
+      fill: none;
+      stroke: var(--muted);
+      stroke-width: 2;
+      pointer-events: none;
+    }
+
+    /* Box */
+    .box {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--ink);
+      border-radius: var(--radius-sm);
+      padding: 16px 20px;
+      margin: 20px 0;
+      box-shadow: var(--shadow-sm);
+    }
+    .box p { margin: 6px 0; font-size: 14px; }
+
+    /* Legend */
+    .legend-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 14px 18px;
+      margin: 16px 0 28px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      align-items: center;
+      font-size: 13px;
+    }
+    .legend-title { font-weight: 700; margin-right: 4px; }
+    .badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      padding: 3px 8px;
+      border-radius: 6px;
+      white-space: nowrap;
+    }
+    .badge--uprava { background: #e0f2fe; color: #0369a1; }
+    .badge--varianta { background: #f3e8ff; color: #7e22ce; }
+    .badge--nazor { background: #fef3c7; color: #b45309; }
+    .badge--pozdeji { background: #f1f5f9; color: #64748b; }
+
+    /* Quick jump navigation */
+    .nav-pills {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin: 16px 0 24px;
+    }
+    .nav-pill {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--muted);
+      background: #eee;
+      padding: 4px 10px;
+      border-radius: 999px;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .nav-pill:hover {
+      background: var(--ink);
+      color: #fff;
+    }
+
+    /* Section Headings */
+    h2 {
+      font-size: 18px;
+      font-weight: 800;
+      margin: 40px 0 12px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--ink);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      letter-spacing: -0.01em;
+    }
+    .section-counter {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--muted);
+    }
+
+    /* Tables */
+    .table-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 24px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+    th, td {
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: middle;
+    }
+    th {
+      background: #fafaf8;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+    }
+    tr:last-child td { border-bottom: none; }
+
+    /* Checkable Table Row */
+    tr.task-row {
+      transition: background-color 0.25s ease, border-color 0.25s ease;
+      cursor: pointer;
+    }
+    tr.task-row:hover {
+      background-color: #f5f5f3;
+    }
+
+    /* COMPLETED ROW - GREEN BG! */
+    tr.task-row.is-done {
+      background-color: var(--done-bg) !important;
+    }
+    tr.task-row.is-done td {
+      border-bottom-color: var(--done-border);
+      color: var(--done-text);
+    }
+    tr.task-row.is-done .task-text {
+      color: #14532d;
+    }
+    tr.task-row.is-done td.c {
+      color: #15803d;
+      font-weight: 700;
+    }
+
+    /* Checkbox cell */
+    td.cb-cell {
+      width: 44px;
+      text-align: center;
+      padding-right: 4px;
+    }
+    .custom-checkbox {
+      width: 20px;
+      height: 20px;
+      border: 2px solid #cbd5e1;
+      border-radius: 6px;
+      background: #fff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+      vertical-align: middle;
+      cursor: pointer;
+    }
+    .custom-checkbox svg {
+      width: 12px;
+      height: 12px;
+      fill: none;
+      stroke: #fff;
+      stroke-width: 3;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      opacity: 0;
+      transform: scale(0.5);
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    tr.task-row:hover .custom-checkbox {
+      border-color: #94a3b8;
+    }
+    tr.task-row.is-done .custom-checkbox {
+      background-color: var(--done-green);
+      border-color: var(--done-green);
+    }
+    tr.task-row.is-done .custom-checkbox svg {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    td.c {
+      width: 44px;
+      text-align: center;
+      font-size: 13px;
+      font-weight: 600;
+      color: #64748b;
+    }
+    td.t {
+      width: 120px;
+      text-align: right;
+      white-space: nowrap;
+    }
+    .task-text {
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    /* Checkable Lists */
+    .checkable-list {
+      list-style: none;
+      padding: 0;
+      margin: 12px 0 24px;
+    }
+    .checkable-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 10px 14px;
+      border-radius: var(--radius-sm);
+      margin-bottom: 6px;
+      background: #fff;
+      border: 1px solid var(--border);
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+    .checkable-list li:hover {
+      background: #f5f5f3;
+    }
+    .checkable-list li.is-done {
+      background-color: var(--done-bg) !important;
+      border-color: var(--done-border);
+      color: var(--done-text);
+    }
+    .checkable-list li.is-done .custom-checkbox {
+      background-color: var(--done-green);
+      border-color: var(--done-green);
+    }
+    .checkable-list li.is-done .custom-checkbox svg {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    /* Info cards for other sections */
+    .info-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px 20px;
+      margin-bottom: 24px;
+    }
+    .info-card ul {
+      margin: 8px 0;
+      padding-left: 20px;
+    }
+    .info-card li { margin: 6px 0; }
+
+    /* Floating Quick Actions */
+    .quick-actions {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 99;
+      display: flex;
+      gap: 10px;
+    }
+    .floating-btn {
+      appearance: none;
+      border: none;
+      background: var(--ink);
+      color: #fff;
+      font: 700 13px/1 var(--font);
+      padding: 10px 16px;
+      border-radius: 999px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.2);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+    .floating-btn:hover {
+      background: var(--acc);
+      transform: translateY(-2px);
+    }
+
+    /* Print styles */
+    @media print {
+      body { background: #fff; padding: 0; }
+      .controls-wrapper, .quick-actions, .nav-pills { display: none !important; }
+      .table-card, .box, .legend-card, .info-card { box-shadow: none; border-color: #ccc; }
+      tr.task-row.is-done { background-color: #e6f7ec !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    }
+
+    @media (max-width: 640px) {
+      body { padding: 20px 12px 60px; }
+      .controls-card { padding: 12px 14px; }
+      .search-box { max-width: 100%; flex-basis: 100%; }
+      th, td { padding: 8px 10px; }
+      td.t { width: 90px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <div class="header__top">
+      <div class="brand">
+        <svg viewBox="0 0 24 28"><path d="M22.89 0.11C22.62-0.01 22.31-0.03 22.02 0.04 21.57 0.14 21.15 0.33 20.76 0.58 16.96 3.65 15.24 4.96 14.16 5.89 13.09 6.82 11.67 8.21 12.12 8.81 13.48 10.61 15.37 7.92 17.4 6.3 18.2 5.66 19.29 4.95 20.12 4.3 19.49 6.84 18.62 11.47 18.25 13.09 17.54 16.24 17.11 18.95 18.9 18.74 20.2 18.57 19.99 18.12 20.9 13.77 22.49 6.26 22.98 4.26 23.1 3.71 23.65 1.3 23.61 0.21 22.89 0.11zM0.04 24.53C-0.23 20.98 0.83 15.72 1.48 14.15L1.49 14.13C2.1 12.15 3.1 11.05 4.32 11.05 4.8 11.05 5.1 11.15 5.26 11.35 5.44 11.58 5.46 12.01 5.33 12.6 4.6 14.92 2.3 22.57 3.18 24.02 3.32 24.25 3.55 24.56 3.93 24.59 4.55 24.64 5.44 23.88 7.46 21.47 10.63 17.74 11.49 16.19 12.85 13.55 13.91 11.48 14.3 10.97 15.16 11.04L15.16 11.04C15.66 11.07 15.98 11.19 16.14 11.41 16.33 11.66 16.33 12.1 16.16 12.86 16.07 13.25 15.95 13.68 15.81 14.19 15.63 14.83 15.43 15.55 15.25 16.34 13.94 22.16 14.29 23.61 14.94 25.02 15.27 25.75 15.32 26.42 15.06 26.83 14.82 27.22 14.3 27.41 13.53 27.41 12.42 27.41 11.15 25.81 11.19 21.31L11.19 20.65 8.38 24.11C6.49 26.44 4.59 27.62 2.76 27.62 1.13 27.62 0.16 26.07 0.04 24.53z"/></svg>
+        U1 Space Design
+      </div>
+      <a href="/" style="font-size: 13px; font-weight: 600; color: var(--muted); text-decoration: none;">← Zpět na web</a>
+    </div>
+    <h1>U1 web – zadání úprav z hovoru 2. 11. 2026</h1>
+    <p class="subtitle">Jakub Boháček → Jiří Klusák. Sestaveno z doslovného přepisu hodinového hovoru.</p>
+  </header>
+
+  <!-- Sticky Controls Bar -->
+  <div class="controls-wrapper">
+    <div class="controls-card">
+      <div class="progress-row">
+        <div class="progress-stats">
+          Hotovo: <span id="done-count">0</span> z <span id="total-count">56</span> úkolů
+          <span class="pct" id="done-pct">0 %</span>
+        </div>
+        <div class="sync-status">
+          <span class="sync-dot" id="sync-dot"></span>
+          <span id="sync-text">Uloženo v paměti</span>
+        </div>
+      </div>
+      <div class="progress-bar-bg">
+        <div class="progress-bar-fill" id="progress-bar"></div>
+      </div>
+
+      <div class="filters-row">
+        <div class="filter-group">
+          <button class="filter-btn is-active" data-filter="all">Všechny <span class="count" id="count-all">56</span></button>
+          <button class="filter-btn" data-filter="pending">K řešení <span class="count" id="count-pending">0</span></button>
+          <button class="filter-btn" data-filter="done">Hotovo <span class="count" id="count-done">0</span></button>
+          <button class="filter-btn" data-type="Úprava">Úprava</button>
+          <button class="filter-btn" data-type="Varianta">Varianta</button>
+          <button class="filter-btn" data-type="Váš názor">Váš názor</button>
+          <button class="filter-btn" data-type="Později">Později</button>
+        </div>
+
+        <div class="search-box">
+          <svg class="search-icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <input type="text" class="search-input" id="search-input" placeholder="Hledat v úkolech...">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="box">
+    <p><b>Termíny (domluvené):</b> první verze po 9. 11. → vyjádřím se k ní → finální verze 12. 11.</p>
+    <p><b>Výchozí stav:</b> co není v tomto seznamu, zůstává podle vaší poslední verze. Pro porovnání slouží můj návrh v65.</p>
+    <p><b>Hlavní cíl:</b> sazba textu a bloky, které spolu sedí (písmo, mřížka, zarovnání). Animace a elegantní tlačítka z vaší verze chci zachovat.</p>
+  </div>
+
+  <div class="legend-card">
+    <span class="legend-title">Typ úkolu:</span>
+    <span><span class="badge badge--uprava">Úprava</span> = udělat.</span>
+    <span><span class="badge badge--varianta">Varianta</span> = připravit víc možností, vybereme spolu.</span>
+    <span><span class="badge badge--nazor">Váš názor</span> = navrhněte řešení nebo řekněte, co si myslíte.</span>
+    <span><span class="badge badge--pozdeji">Později</span> = do budoucna, teď ne.</span>
+  </div>
+
+  <div class="nav-pills">
+    <span style="font-size: 12px; font-weight: 700; color: var(--muted); align-self: center;">Přejít na sekci:</span>
+    <a href="#sec-a" class="nav-pill">A. Menu & logo</a>
+    <a href="#sec-b" class="nav-pill">B. Homepage</a>
+    <a href="#sec-c" class="nav-pill">C. Realizace</a>
+    <a href="#sec-d" class="nav-pill">D. Služby</a>
+    <a href="#sec-e" class="nav-pill">E. O nás</a>
+    <a href="#sec-f" class="nav-pill">F. Kariéra</a>
+    <a href="#sec-g" class="nav-pill">G. Feed</a>
+    <a href="#sec-h" class="nav-pill">H. Kontakt & patička</a>
+  </div>
+
+  <!-- A. Menu, logo, tlačítka -->
+  <h2 id="sec-a">A. Menu, logo, tlačítka (celý web) <span class="section-counter" data-sec="A"></span></h2>
+  <div class="table-card">
+    <table>
+      <thead>
+        <tr><th style="width: 44px; text-align: center;">✓</th><th style="width: 44px; text-align: center;">č.</th><th>Co udělat</th><th style="width: 120px; text-align: right;">Typ</th></tr>
+      </thead>
+      <tbody>
+        <tr class="task-row" data-id="1" data-type="Varianta">
+          <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
+          <td class="c">1</td>
+          <td class="task-text">Logo v menu: animace přechodu z „Space design“ na „U1“. Dvě varianty: animuje se jen logo / celé menu.</td>
+          <td class="t"><span class="badge badge--varianta">Varianta</span></td>
+        </tr>
+        <tr class="task-row" data-id="2" data-type="Varianta">
+          <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
+          <td class="c">2</td>
+          <td class="task-text">Tlačítko Poptat projekt zůstává v menu (ne vpravo dole). Zachovat vaši animaci tlačítka. Dvě varianty, jak to spojit.</td>
+          <td class="t"><span class="badge badge--varianta">Varianta</span></td>
+        </tr>
+        <tr class="task-row" data-id="3" data-type="Úprava">
+          <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
+          <td class="c">3</td>
+          <td class="task-text">V otevřeném menu dole dvě tlačítka: Domluvit hovor + Poptat projekt (teď je jen jedno).</td>
+          <td class="t"><span class="badge badge--uprava">Úprava</span></td>
+        </tr>
+        <tr class="task-row" data-id="4" data-type="Úprava">
+          <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
+          <td class="c">4</td>
+          <td class="task-text">Menu se otevírá shora dolů od hamburgeru (ne posun panelu doprava). Platí, když zůstane jedno menu bez členění: Projekty, Služby, O nás, Kariéra, Feed, Kontakt.</td>
+          <td class="t"><span class="badge badge--uprava">Úprava</span></td>
+        </tr>
+        <tr class="task-row" data-id="5" data-type="Váš názor">
+          <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
+          <td class="c">5</td>
+          <td class="task-text">Sjednotit tvar tlačítek. Teď jsou většinou kulatá, v menu hranatá. Vybrat jeden tvar pro celý web.</td>
+          <td class="t"><span class="badge badge--nazor">Váš názor</span></td>
+        </tr>
+        <tr class="task-row" data-id="6" data-type="Váš názor">
+          <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
+          <td class="c">6</td>
+          <td class="task-text">Odkazy se šipkou (Všechny projekty, Všechny služby, Poznejte náš tým) jsou schválně jednoduché. Pokud je umíte udělat zajímavěji, klidně.</td>
+          <td class="t"><span class="badge badge--nazor">Váš názor</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- B. Homepage -->
+  <h2 id="sec-b">B. Homepage <span class="section-counter" data-sec="B"></span></h2>
+  <p style="font-size: 14px; color: var(--muted); margin: -4px 0 12px;">Pořadí bloků ještě není konečné. Bloky prosím stavte tak, aby šly přeházet.</p>
+  <div class="table-card">
+    <table>
+      <thead>
+        <tr><th style="width: 44px; text-align: center;">✓</th><th style="width: 44px; text-align: center;">č.</th><th>Co udělat</th><th style="width: 120px; text-align: right;">Typ</th></tr>
+      </thead>
+      <tbody>
+        <tr class="task-row" data-id="7" data-type="Úprava">
+          <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
+          <td class="c">7</td>
+          <td class="task-text">Úvod: linka zůstává. Místo textu „Vybraný projekt“ na ní bude „Předchozí / Další“ (listování doleva a doprava).</td>
+          <td class="t"><span class="badge badge--uprava">Úprava</span></td>
+        </tr>
+        <tr class="task-row" data-id="8" data-type="Varianta">
+          <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
+          <td class="c">8</td>
+          <td class="task-text">Úvod: varianta s linkou níž, úplně dole, aby měly fotky víc místa (přání designérů).</td>
+          <td class="t"><span class="badge badge--varianta">Varianta</span></td>
+        </tr>
+        <tr class="task-row" data-id="9" data-type="Váš názor">
+          <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
+          <td class="c">9</td>
+          <td class="task-text">Úvod: tlačítko „Prohlédnout realizace“ – nechat, nebo zrušit a dát větší text? V týmu 50 : 50.</td>
+          <td class="t"><span class="badge badge--nazor">Váš názor</span></td>
+        </tr>
+        <tr class="task-row" data-id="10" data-type="Varianta">
+          <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
+          <td class="c">10</td>
+          <td class="task-text">Text pod úvodem: čísla (200+ projektů atd.) dát vpravo od textu, podobně jako v sekci Příběh na O nás. Ne pod text.</td>
+          <td class="t"><span class="badge badge--varianta">Varianta</span></td>
+        </tr>
+        <tr class="task-row" data-id="11" data-type="Úprava">
+          <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
+          <td class="c">11</td>
+          <td class="task-text">Blok s hlavními službami (karty vedou přímo na službu). Zatím 3, konečný počet 2–4 dodám. Blok se možná posune pod Vybrané realizace.</td>
+          <td class="t"><span class="badge badge--uprava">Úprava</span></td>
+        </tr>
+        <tr class="task-row" data-id="12" data-type="Úprava">
+          <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
+          <td class="c">12</td>
+          <td class="task-text">Vybrané realizace: čtverce nechat. Chování slideru jako ve vaší verzi. Nově u karty obor · město · rok (u vás jen rok). Odkaz Všechny projekty vpravo v záhlaví sekce. Karta Všechny projekty na konci slideru může zůstat. Realizací bude 30–40.</td>
+          <td class="t"><span class="badge badge--uprava">Úprava</span></td>
+        </tr>
+        <tr class="task-row" data-id="13" data-type="Úprava">
+          <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
+          <td class="c">13</td>
+          <td class="task-text">Slider realizací musí jít posouvat touchpadem do stran.</td>
+          <td class="t"><span class="badge badge--uprava">Úprava</span></td>
+        </tr>
+        <tr class="task-row" data-id="14" data-type="Úprava">
+          <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
+          <td class="c">14</td>
+          <td class="task-text">Reference: design podle schváleného návrhu. U autora žádné kolečko – průhledné logo firmy, případně fotka člověka.</td>
+          <td class="t"><span class="badge badge--uprava">Úprava</span></td>
+        </tr>
+        <tr class="task-row" data-id="15" data-type="Úprava">
+          <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
+          <td class="c">15</td>
+          <td class="task-text">Napsali o nás zůstává. Navíc připravit blok s jedoucími logy firem (Pro koho pracujeme) pro O nás, možná i na homepage.</td>
+          <td class="t"><span class="badge badge--uprava">Úprava</span></td>
+        </tr>
+        <tr class="task-row" data-id="16" data-type="Úprava">
+          <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
+          <td class="c">16</td>
+          <td class="task-text">Jak pracujeme: při scrollu se sekce zastaví a kroky se projíždějí kolečkem myši – tedy tak, jak to máte ve své poslední verzi vy, ne volný scroll s hoverem jako v mém návrhu. Kroků bude 4 nebo 5, texty dodám.</td>
+          <td class="t"><span class="badge badge--uprava">Úprava</span></td>
+        </tr>
+        <tr class="task-row" data-id="17" data-type="Úprava">
+          <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
+          <td class="c">17</td>
+          <td class="task-text">Služby na homepage: jen hlavní služby, zbytek pod odkazem Všechny služby.</td>
+          <td class="t"><span class="badge badge--uprava">Úprava</span></td>
+        </tr>
+        <tr class="task-row" data-id="18" data-type="Varianta">
+          <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
+          <td class="c">18</td>
+          <td class="task-text">Služby a Týmy nesmí být dva stejné bloky pod sebou. Dvě možnosti: prohodit strany, nebo mezi ně dát Napsali o nás.</td>
+          <td class="t"><span class="badge badge--varianta">Varianta</span></td>
+        </tr>
+        <tr class="task-row" data-id="19" data-type="Úprava">
+          <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
+          <td class="c">19</td>
+          <td class="task-text">Časté otázky: zarovnat podle mřížky s fotkou, jak jste navrhoval. Velikost písma nechat.</td>
+          <td class="t"><span class="badge badge--uprava">Úprava</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- C. Realizace -->
+  <h2 id="sec-c">C. Realizace – výpis a detail <span class="section-counter" data-sec="C"></span></h2>
+  <div class="table-card">
+    <table>
+      <thead>
+        <tr><th style="width: 44px; text-align: center;">✓</th><th style="width: 44px; text-align: center;">č.</th><th>Co udělat</th><th style="width: 120px; text-align: right;">Typ</th></tr>
+      </thead>
+      <tbody>
+        <tr class="task-row" data-id="20" data-type="Úprava">
+          <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
+          <td class="c">20</td>
+          <td class="task-text">Filtr na výpisu realizací je vidět pořád (aspoň hlavní kategorie), ne schovaný za lupou.</td>
+          <td class="t"><span class="badge badge--uprava">Úprava</span></td>
+        </tr>
+        <tr class="task-row" data-id="21" data-type="Úprava">
+          <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
+          <td class="c">21</td>
+          <td class="task-text">Štítky u fotek: když vyberu např. kuchyň, zobrazí se / zvýrazní se kuchyně.</td>
+          <td class="t"><span class="badge badge--uprava">Úprava</span></td>
+        </tr>
+        <tr class="task-row" data-id="22" data-type="Váš názor">
+          <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
+          <td class="c">22</td>
+          <td class="task-text">Podoba filtru: váš nápad se záložkami jako na Feedu + rozbalovací filtry + vpravo „rozšířené filtry“. Pozor, aby menu nebylo miniaturní.</td>
+          <td class="t"><span class="badge badge--nazor">Váš názor</span></td>
+        </tr>
+        <tr class="task-row" data-id="23" data-type="Úprava">
+          <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
+          <td class="c">23</td>
+          <td class="task-text">Detail realizace: posuvný panel zůstává. Nově tlačítko Chci podobný projekt a služby použité na projektu. Kategorie jde libovolně přidat i skrýt (multiselect v adminu už je).</td>
+          <td class="t"><span class="badge badge--uprava">Úprava</span></td>
+        </tr>
+        <tr class="task-row" data-id="24" data-type="Varianta">
+          <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
+          <td class="c">24</td>
+          <td class="task-text">Údaje projektu (rok, klient, lokalita, obor): zkusit malé písmo (jako teď) a štítek verzálkami (jako v levém sloupci).</td>
+          <td class="t"><span class="badge badge--varianta">Varianta</span></td>
+        </tr>
+        <tr class="task-row" data-id="25" data-type="Úprava">
+          <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
+          <td class="c">25</td>
+          <td class="task-text">Fotky na výšku: pravidlo, aby portrétní fotka nebyla přes celou výšku obrazovky a nevznikla prázdná místa. Doladíme na konkrétních projektech.</td>
+          <td class="t"><span class="badge badge--uprava">Úprava</span></td>
+        </tr>
+        <tr class="task-row" data-id="26" data-type="Úprava">
+          <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
+          <td class="c">26</td>
+          <td class="task-text">Prezentace projektu: posuvník před / po.</td>
+          <td class="t"><span class="badge badge--uprava">Úprava</span></td>
+        </tr>
+        <tr class="task-row" data-id="27" data-type="Později">
+          <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
+          <td class="c">27</td>
+          <td class="task-text">Prezentace projektu: animace, karusely, video. Pošlu ukázkové video na test.</td>
+          <td class="t"><span class="badge badge--pozdeji">Později</span></td>
+        </tr>
+        <tr class="task-row" data-id="28" data-type="Úprava">
+          <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
+          <td class="c">28</td>
+          <td class="task-text">Další realizace na konci detailu: ne čtverce, ale na výšku jako ve vaší verzi (menší). Nesmí to vypadat stejně jako blok článků pod tím.</td>
+          <td class="t"><span class="badge badge--uprava">Úprava</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- D. Služby -->
+  <h2 id="sec-d">D. Služby – výpis a detail <span class="section-counter" data-sec="D"></span></h2>
+  <div class="table-card">
+    <table>
+      <thead>
+        <tr><th style="width: 44px; text-align: center;">✓</th><th style="width: 44px; text-align: center;">č.</th><th>Co udělat</th><th style="width: 120px; text-align: right;">Typ</th></tr>
+      </thead>
+      <tbody>
+        <tr class="task-row" data-id="29" data-type="Varianta">
+          <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
+          <td class="c">29</td>
+          <td class="task-text">Výpis služeb: 3 varianty v laboratoři (řádky s náhledem u kurzoru / karty s fotkami / řádky se stálou fotkou). Zatím se nejvíc líbí karty s fotkami.</td>
+          <td class="t"><span class="badge badge--varianta">Varianta</span></td>
+        </tr>
+        <tr class="task-row" data-id="30" data-type="Úprava">
+          <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
+          <td class="c">30</td>
+          <td class="task-text">Konec stránky Služby: Vše pod jednou smlouvou → Jak pracujeme → Články.</td>
+          <td class="t"><span class="badge badge--uprava">Úprava</span></td>
+        </tr>
+        <tr class="task-row" data-id="31" data-type="Úprava">
+          <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
+          <td class="c">31</td>
+          <td class="task-text">Vše pod jednou smlouvou: sjednotit červená čísla a linku nahoře s ostatními bloky.</td>
+          <td class="t"><span class="badge badge--uprava">Úprava</span></td>
+        </tr>
+        <tr class="task-row" data-id="32" data-type="Úprava">
+          <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
+          <td class="c">32</td>
+          <td class="task-text">Detail služby: u dlouhého textu vzniká vlevo pod „Co zahrnuje“ velké prázdné místo. Použít model z detailu realizace, klidně s prohozenou levou a pravou stranou.</td>
+          <td class="t"><span class="badge badge--uprava">Úprava</span></td>
+        </tr>
+        <tr class="task-row" data-id="33" data-type="Úprava">
+          <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
+          <td class="c">33</td>
+          <td class="task-text">Detail služby: ostatní služby vlevo jako kategorie, které jde přidat i ubrat (stejně jako u článků). Tlačítko Poptat službu. Dole realizace s touto službou.</td>
+          <td class="t"><span class="badge badge--uprava">Úprava</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- E. O nás -->
+  <h2 id="sec-e">E. O nás <span class="section-counter" data-sec="E"></span></h2>
+  <div class="table-card">
+    <table>
+      <thead>
+        <tr><th style="width: 44px; text-align: center;">✓</th><th style="width: 44px; text-align: center;">č.</th><th>Co udělat</th><th style="width: 120px; text-align: right;">Typ</th></tr>
+      </thead>
+      <tbody>
+        <tr class="task-row" data-id="34" data-type="Úprava">
+          <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
+          <td class="c">34</td>
+          <td class="task-text">Úvod: text, nová fotka, kratší příběh. Tři údaje možná zmizí (budou jen na homepage).</td>
+          <td class="t"><span class="badge badge--uprava">Úprava</span></td>
+        </tr>
+        <tr class="task-row" data-id="35" data-type="Úprava">
+          <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
+          <td class="c">35</td>
+          <td class="task-text">Reference od zaměstnanců (ne od klientů). Např. „Franta, designér: díky U1 jsem se dostal k projektům jako Direct pojišťovna.“</td>
+          <td class="t"><span class="badge badge--uprava">Úprava</span></td>
+        </tr>
+        <tr class="task-row" data-id="36" data-type="Varianta">
+          <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
+          <td class="c">36</td>
+          <td class="task-text">Naše hodnoty s překlikávaným textem (z vaší verze, teď na Kariéře) zkusit i na O nás.</td>
+          <td class="t"><span class="badge badge--varianta">Varianta</span></td>
+        </tr>
+        <tr class="task-row" data-id="37" data-type="Úprava">
+          <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
+          <td class="c">37</td>
+          <td class="task-text">Lidé: zatím na O nás (možná se přesunou do Kontaktu). Bude 25–30 lidí, fotky dodám.</td>
+          <td class="t"><span class="badge badge--uprava">Úprava</span></td>
+        </tr>
+        <tr class="task-row" data-id="38" data-type="Úprava">
+          <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
+          <td class="c">38</td>
+          <td class="task-text">Fotka člověka při najetí myší nesmí zakrýt text. Fotka na pevném místě, ne pod kurzorem. Např. posunout Obchod / pozice na 4.–5. sloupec mřížky. Stejný problém je u Služeb.</td>
+          <td class="t"><span class="badge badge--uprava">Úprava</span></td>
+        </tr>
+        <tr class="task-row" data-id="39" data-type="Váš názor">
+          <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
+          <td class="c">39</td>
+          <td class="task-text">Ocenění a nominace: teď moc slabé. Navrhněte výraznější řešení.</td>
+          <td class="t"><span class="badge badge--nazor">Váš názor</span></td>
+        </tr>
+        <tr class="task-row" data-id="40" data-type="Úprava">
+          <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
+          <td class="c">40</td>
+          <td class="task-text">Pro koho pracujeme: jen loga, bez vypsaných názvů firem.</td>
+          <td class="t"><span class="badge badge--uprava">Úprava</span></td>
+        </tr>
+        <tr class="task-row" data-id="41" data-type="Váš názor">
+          <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
+          <td class="c">41</td>
+          <td class="task-text">Týmy a Lidé jsou pod sebou dva stejné bloky. Rozbít to (vložit něco mezi nebo jiné rozložení).</td>
+          <td class="t"><span class="badge badge--nazor">Váš názor</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- F. Kariéra -->
+  <h2 id="sec-f">F. Kariéra a pozice <span class="section-counter" data-sec="F"></span></h2>
+  <div class="table-card">
+    <table>
+      <thead>
+        <tr><th style="width: 44px; text-align: center;">✓</th><th style="width: 44px; text-align: center;">č.</th><th>Co udělat</th><th style="width: 120px; text-align: right;">Typ</th></tr>
+      </thead>
+      <tbody>
+        <tr class="task-row" data-id="42" data-type="Úprava">
+          <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
+          <td class="c">42</td>
+          <td class="task-text">Seznam pozic přímo na stránce Kariéra, ne na samostatné podstránce (stejně jako Služby a Projekty).</td>
+          <td class="t"><span class="badge badge--uprava">Úprava</span></td>
+        </tr>
+        <tr class="task-row" data-id="43" data-type="Úprava">
+          <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
+          <td class="c">43</td>
+          <td class="task-text">Opravit chybu: zbytečná mezera vlevo a překrývání u pozic.</td>
+          <td class="t"><span class="badge badge--uprava">Úprava</span></td>
+        </tr>
+        <tr class="task-row" data-id="44" data-type="Úprava">
+          <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
+          <td class="c">44</td>
+          <td class="task-text">Zarovnání textu a benefitů skáče – srovnat. Benefity budou 4 (ne 3), dodá HR.</td>
+          <td class="t"><span class="badge badge--uprava">Úprava</span></td>
+        </tr>
+        <tr class="task-row" data-id="45a" data-type="Úprava">
+          <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
+          <td class="c">45a</td>
+          <td class="task-text">Na Kariéře zůstává blok „jak to probíhá“ – tři kroky 1, 2, 3. Texty pozic píšou vedoucí jednotlivých týmů, dodám je.</td>
+          <td class="t"><span class="badge badge--uprava">Úprava</span></td>
+        </tr>
+        <tr class="task-row" data-id="45" data-type="Úprava">
+          <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
+          <td class="c">45</td>
+          <td class="task-text">Recenze zaměstnanců i na Kariéře a u pozice (jako na O nás).</td>
+          <td class="t"><span class="badge badge--uprava">Úprava</span></td>
+        </tr>
+        <tr class="task-row" data-id="46" data-type="Varianta">
+          <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
+          <td class="c">46</td>
+          <td class="task-text">Galerie ze života firmy (vaše slideshow) na O nás i Kariéře, aby nebyly všude jen komentáře zaměstnanců.</td>
+          <td class="t"><span class="badge badge--varianta">Varianta</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- G. Feed -->
+  <h2 id="sec-g">G. Feed a články <span class="section-counter" data-sec="G"></span></h2>
+  <div class="table-card">
+    <table>
+      <thead>
+        <tr><th style="width: 44px; text-align: center;">✓</th><th style="width: 44px; text-align: center;">č.</th><th>Co udělat</th><th style="width: 120px; text-align: right;">Typ</th></tr>
+      </thead>
+      <tbody>
+        <tr class="task-row" data-id="47" data-type="Úprava">
+          <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
+          <td class="c">47</td>
+          <td class="task-text">Filtr Feedu jako ve vaší verzi (články / sítě / média, klikací). Jen doladit písma a velikosti. Feed může mít jinou hlavičku než ostatní stránky.</td>
+          <td class="t"><span class="badge badge--uprava">Úprava</span></td>
+        </tr>
+        <tr class="task-row" data-id="48" data-type="Úprava">
+          <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
+          <td class="c">48</td>
+          <td class="task-text">Feed: nekonečný scroll, ne stránkování.</td>
+          <td class="t"><span class="badge badge--uprava">Úprava</span></td>
+        </tr>
+        <tr class="task-row" data-id="49" data-type="Úprava">
+          <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
+          <td class="c">49</td>
+          <td class="task-text">LinkedIn a Instagram se přestaly načítat (chybí fotky, Instagram vůbec). Vyřešit obnovu tokenu – tlačítko nebo připomínka.</td>
+          <td class="t"><span class="badge badge--uprava">Úprava</span></td>
+        </tr>
+        <tr class="task-row" data-id="50" data-type="Úprava">
+          <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
+          <td class="c">50</td>
+          <td class="task-text">Import starých článků: dodám export (tabulka nebo JSON), vy je hromadně naimportujete.</td>
+          <td class="t"><span class="badge badge--uprava">Úprava</span></td>
+        </tr>
+        <tr class="task-row" data-id="51" data-type="Úprava">
+          <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
+          <td class="c">51</td>
+          <td class="task-text">Detail článku: teď je text na střed, má být vlevo. U dlouhého článku nesmí vzniknout prázdné místo vlevo. Vhodné: obsah článku v postranním panelu, který jede se stránkou (váš návrh). Druhá možnost: model z detailu realizace.</td>
+          <td class="t"><span class="badge badge--uprava">Úprava</span></td>
+        </tr>
+        <tr class="task-row" data-id="52" data-type="Váš názor">
+          <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
+          <td class="c">52</td>
+          <td class="task-text">Hlavička článku – zatím nezadávám, doladíme spolu.</td>
+          <td class="t"><span class="badge badge--nazor">Váš názor</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- H. Kontakt & patička -->
+  <h2 id="sec-h">H. Kontakt, pás před patičkou, patička <span class="section-counter" data-sec="H"></span></h2>
+  <p style="font-size: 14px; color: var(--muted); margin: -4px 0 12px;"><b>Bez úprav:</b> Kontakt zůstává, jak je. Patička je v pořádku včetně servisních stránek (ochrana údajů, cookies, obchodní podmínky) – že v ní chybělo logo, byla jen chyba laboratoře u varianty menu 44, ne webu.</p>
+  <div class="table-card">
+    <table>
+      <thead>
+        <tr><th style="width: 44px; text-align: center;">✓</th><th style="width: 44px; text-align: center;">č.</th><th>Co udělat</th><th style="width: 120px; text-align: right;">Typ</th></tr>
+      </thead>
+      <tbody>
+        <tr class="task-row" data-id="54" data-type="Úprava">
+          <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
+          <td class="c">54</td>
+          <td class="task-text">Pás s výzvou před patičkou: na každé stránce vlastní text a fotka (člověk nebo něco k tématu). V administraci jako upravitelná sekce u každé stránky.</td>
+          <td class="t"><span class="badge badge--uprava">Úprava</span></td>
+        </tr>
+        <tr class="task-row" data-id="55" data-type="Úprava">
+          <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
+          <td class="c">55</td>
+          <td class="task-text">Vrátit růžová tlačítka a akcenty. V mém návrhu se hodně ztratily a právě ony spolu s animacemi dávají webu ten punc luxusu.</td>
+          <td class="t"><span class="badge badge--uprava">Úprava</span></td>
+        </tr>
+        <tr class="task-row" data-id="56" data-type="Váš názor">
+          <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
+          <td class="c">56</td>
+          <td class="task-text">Písmo: raději Manrope, klidně zkuste Inter (působí o trochu luxusněji).</td>
+          <td class="t"><span class="badge badge--nazor">Váš názor</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Co dodám já -->
+  <h2>Co dodám já (Jakub)</h2>
+  <ul class="checkable-list" id="jakub-list">
+    <li data-id="d1">
+      <span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+      <span>Tento souhrn – dnes.</span>
+    </li>
+    <li data-id="d2">
+      <span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+      <span>Export starých článků (tabulka nebo JSON) – k bodu 50.</span>
+    </li>
+    <li data-id="d3">
+      <span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+      <span>Fotky lidí, 25–30 – k bodu 37.</span>
+    </li>
+    <li data-id="d4">
+      <span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+      <span>Konečný počet hlavních služeb (2–4) – k bodu 11.</span>
+    </li>
+    <li data-id="d5">
+      <span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+      <span>Finální texty: Jak pracujeme (4 nebo 5 kroků), benefity od HR – k bodům 16 a 44.</span>
+    </li>
+    <li data-id="d6">
+      <span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+      <span>Ukázkové video – k bodu 27.</span>
+    </li>
+  </ul>
+
+  <!-- Termíny -->
+  <h2>Termíny</h2>
+  <div class="info-card">
+    <ul>
+      <li><b>Po 9. 11.</b> – pošlete první verzi s úpravami.</li>
+      <li><b>Do 12. 11.</b> – projdu ji, pošlu souhrn připomínek a vy uděláte finální verzi.</li>
+    </ul>
+  </div>
+
+  <!-- Otevřené otázky -->
+  <h2>Otevřené – rozhodneme spolu</h2>
+  <div class="info-card">
+    <ul>
+      <li>Počet hlavních služeb (bod 11).</li>
+      <li>Lidé na O nás, nebo v Kontaktu (bod 37).</li>
+      <li>Varianta výpisu služeb (bod 29).</li>
+      <li>Tvar tlačítek (bod 5).</li>
+      <li>Tlačítko Prohlédnout realizace (bod 9).</li>
+      <li>Podoba filtru realizací (bod 22).</li>
+      <li>Písmo Manrope / Inter (bod 56).</li>
+    </ul>
+  </div>
+
+  <div class="quick-actions">
+    <button class="floating-btn" id="btn-save" title="Uložit aktuální stav na server">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path><polyline points="17 21 17 13 7 13 7 21"></polyline><polyline points="7 3 7 8 15 8"></polyline></svg>
+      Uložit stav
+    </button>
+  </div>
+
+  <script>
+    (function() {
+      const STORAGE_KEY = 'u1_zadani_state_v1';
+      let checkedItems = {};
+      let activeFilter = 'all';
+      let activeType = null;
+      let searchQuery = '';
+
+      const rows = Array.from(document.querySelectorAll('.task-row'));
+      const listItems = Array.from(document.querySelectorAll('#jakub-list li'));
+      const allCheckables = [...rows, ...listItems];
+
+      const doneCountEl = document.getElementById('done-count');
+      const totalCountEl = document.getElementById('total-count');
+      const donePctEl = document.getElementById('done-pct');
+      const progressBar = document.getElementById('progress-bar');
+      const countAllEl = document.getElementById('count-all');
+      const countPendingEl = document.getElementById('count-pending');
+      const countDoneEl = document.getElementById('count-done');
+      const syncDot = document.getElementById('sync-dot');
+      const syncText = document.getElementById('sync-text');
+      const searchInput = document.getElementById('search-input');
+      const filterBtns = Array.from(document.querySelectorAll('.filter-btn'));
+
+      totalCountEl.textContent = rows.length;
+      countAllEl.textContent = rows.length;
+
+      // 1. Initial State Load: Try server, fallback to localStorage
+      async function loadState() {
+        let serverLoaded = false;
+        try {
+          const res = await fetch('zadani_state.json?t=' + Date.now());
+          if (res.ok) {
+            const data = await res.json();
+            if (data && data.checked) {
+              checkedItems = data.checked;
+              serverLoaded = true;
+            }
+          }
+        } catch (e) {
+          console.warn('Server state load error, using local:', e);
+        }
+
+        if (!serverLoaded) {
+          const local = localStorage.getItem(STORAGE_KEY);
+          if (local) {
+            try { checkedItems = JSON.parse(local); } catch(e){}
+          }
+        }
+
+        applyCheckedState();
+        updateStats();
+        filterItems();
+      }
+
+      function applyCheckedState() {
+        allCheckables.forEach(item => {
+          const id = item.dataset.id;
+          if (checkedItems[id]) {
+            item.classList.add('is-done');
+          } else {
+            item.classList.remove('is-done');
+          }
+        });
+      }
+
+      // Save to localStorage and notify server if endpoint available
+      let saveTimeout = null;
+      function saveState() {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(checkedItems));
+        syncDot.classList.add('is-saving');
+        syncText.textContent = 'Ukládám...';
+
+        clearTimeout(saveTimeout);
+        saveTimeout = setTimeout(async () => {
+          try {
+            const res = await fetch('zadani/state', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ checked: checkedItems })
+            });
+            if (res.ok) {
+              syncText.textContent = 'Synchronizováno se serverem';
+            } else {
+              syncText.textContent = 'Uloženo v prohlížeči';
+            }
+          } catch(e) {
+            syncText.textContent = 'Uloženo v prohlížeči';
+          } finally {
+            syncDot.classList.remove('is-saving');
+          }
+        }, 600);
+      }
+
+      // Toggle check
+      function toggleItem(item) {
+        const id = item.dataset.id;
+        const isDone = !item.classList.contains('is-done');
+        if (isDone) {
+          item.classList.add('is-done');
+          checkedItems[id] = true;
+        } else {
+          item.classList.remove('is-done');
+          delete checkedItems[id];
+        }
+        updateStats();
+        filterItems();
+        saveState();
+      }
+
+      // Click listener on all items
+      allCheckables.forEach(item => {
+        item.addEventListener('click', (e) => {
+          // If clicking a link or selecting text, ignore
+          if (e.target.tagName === 'A') return;
+          toggleItem(item);
+        });
+      });
+
+      // Update counters & progress bar
+      function updateStats() {
+        const doneRows = rows.filter(r => r.classList.contains('is-done')).length;
+        const total = rows.length;
+        const pct = Math.round((doneRows / total) * 100);
+
+        doneCountEl.textContent = doneRows;
+        donePctEl.textContent = pct + ' %';
+        progressBar.style.width = pct + '%';
+
+        countPendingEl.textContent = total - doneRows;
+        countDoneEl.textContent = doneRows;
+
+        // Section counters
+        const secLetters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
+        secLetters.forEach(sec => {
+          const el = document.querySelector(`.section-counter[data-sec="${sec}"]`);
+          if (el) {
+            const tableCard = el.closest('h2').nextElementSibling;
+            const secRows = tableCard ? Array.from(tableCard.querySelectorAll('.task-row')) : [];
+            const secDone = secRows.filter(r => r.classList.contains('is-done')).length;
+            el.textContent = `${secDone} / ${secRows.length} hotovo`;
+          }
+        });
+      }
+
+      // Filter rows
+      function filterItems() {
+        const q = searchQuery.toLowerCase().trim();
+
+        rows.forEach(row => {
+          const isDone = row.classList.contains('is-done');
+          const type = row.dataset.type;
+          const text = row.querySelector('.task-text')?.textContent.toLowerCase() || '';
+          const num = row.querySelector('.c')?.textContent.toLowerCase() || '';
+
+          let matchFilter = true;
+          if (activeFilter === 'pending' && isDone) matchFilter = false;
+          if (activeFilter === 'done' && !isDone) matchFilter = false;
+
+          let matchType = true;
+          if (activeType && type !== activeType) matchType = false;
+
+          let matchSearch = true;
+          if (q && !text.includes(q) && !num.includes(q)) matchSearch = false;
+
+          if (matchFilter && matchType && matchSearch) {
+            row.style.display = '';
+          } else {
+            row.style.display = 'none';
+          }
+        });
+      }
+
+      // Filter button clicks
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          if (btn.dataset.filter) {
+            filterBtns.forEach(b => { if (b.dataset.filter) b.classList.remove('is-active'); });
+            btn.classList.add('is-active');
+            activeFilter = btn.dataset.filter;
+          } else if (btn.dataset.type) {
+            if (activeType === btn.dataset.type) {
+              activeType = null;
+              btn.classList.remove('is-active');
+            } else {
+              filterBtns.forEach(b => { if (b.dataset.type) b.classList.remove('is-active'); });
+              btn.classList.add('is-active');
+              activeType = btn.dataset.type;
+            }
+          }
+          filterItems();
+        });
+      });
+
+      // Search input
+      searchInput.addEventListener('input', (e) => {
+        searchQuery = e.target.value;
+        filterItems();
+      });
+
+      // Save button manual trigger
+      document.getElementById('btn-save')?.addEventListener('click', () => {
+        saveState();
+      });
+
+      loadState();
+    })();
+  </script>
+</body>
+</html>
+

@@ -111,6 +111,55 @@ return [
     'routes' => function ($kirby) {
       return [
           [
+              'pattern' => ['zadani', 'zadani-z-hovoru'],
+              'action'  => function () {
+                  $file = kirby()->root('index') . '/public/zadani.html';
+                  if (!file_exists($file)) {
+                      $file = kirby()->root('index') . '/zadani.html';
+                  }
+                  if (!file_exists($file)) {
+                      $file = dirname(kirby()->root('site')) . '/public/zadani.html';
+                  }
+                  if (file_exists($file)) {
+                      return new \Kirby\Http\Response(file_get_contents($file), 'text/html');
+                  }
+                  return site()->errorPage();
+              }
+          ],
+          [
+              'pattern' => 'zadani/state',
+              'method'  => 'GET|POST',
+              'action'  => function () {
+                  $file = kirby()->root('index') . '/public/zadani_state.json';
+                  if (!file_exists($file)) {
+                      $file = kirby()->root('index') . '/zadani_state.json';
+                  }
+                  if (!file_exists($file)) {
+                      $file = dirname(kirby()->root('site')) . '/public/zadani_state.json';
+                  }
+
+                  if (kirby()->request()->is('POST')) {
+                      $raw = file_get_contents('php://input');
+                      $body = json_decode($raw, true);
+                      if (!is_array($body)) {
+                          $body = kirby()->request()->body()->data();
+                      }
+                      $data = [
+                          'updated_at' => date('c'),
+                          'checked'    => $body['checked'] ?? []
+                      ];
+                      @file_put_contents($file, json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+                      return \Kirby\Http\Response::json(['status' => 'success', 'data' => $data]);
+                  }
+
+                  if (file_exists($file)) {
+                      $data = json_decode(file_get_contents($file), true);
+                      return \Kirby\Http\Response::json($data);
+                  }
+                  return \Kirby\Http\Response::json(['checked' => []]);
+              }
+          ],
+          [
               'pattern' => 'theme/save',
               'method' => 'POST',
               'action' => function () {
