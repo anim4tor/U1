@@ -6,33 +6,11 @@ Slug: feed
 
 ----
 
-Teams:
+Hero: [{"content":{"text":"Návody s čísly z našich realizací, novinky ze studia a co o nás napsali jinde.","mod":"","face":"","case":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"6572c16d-dbdc-40d3-9665-173b7abd0ee6","isHidden":false,"type":"text"}]
 
-- 
-  name: Leadership
-  details: '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>'
-  leader:
-    - page://B16gOIE45vW4gRog
-- 
-  name: Sales management
-  details: '<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>'
-  leader:
-    - page://FHQvOe3o8GYV6EL7
-- 
-  name: Design
-  details: '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>'
-  leader:
-    - page://SGCtsAHVoB3rp6GJ
-- 
-  name: Project Management
-  details: '<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>'
-  leader:
-    - page://B16gOIE45vW4gRog
-- 
-  name: Business Support
-  details: '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>'
-  leader:
-    - page://B16gOIE45vW4gRog
+----
+
+Cta: 
 
 ----
 
@@ -77,6 +55,36 @@ Robots-imageindex:
 ----
 
 Robots-snippet: 
+
+----
+
+Teams:
+
+- 
+  name: Leadership
+  details: '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>'
+  leader:
+    - page://B16gOIE45vW4gRog
+- 
+  name: Sales management
+  details: '<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>'
+  leader:
+    - page://FHQvOe3o8GYV6EL7
+- 
+  name: Design
+  details: '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>'
+  leader:
+    - page://SGCtsAHVoB3rp6GJ
+- 
+  name: Project Management
+  details: '<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>'
+  leader:
+    - page://B16gOIE45vW4gRog
+- 
+  name: Business Support
+  details: '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>'
+  leader:
+    - page://B16gOIE45vW4gRog
 
 ----
 
