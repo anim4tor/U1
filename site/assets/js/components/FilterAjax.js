@@ -31,7 +31,6 @@ class FilterAjax {
         e.stopImmediatePropagation();
         const url = filterLink.getAttribute('href');
         if (url) {
-          // Keep dropdown open: do NOT remove is-open
           const dropdown = filterLink.closest('.custom-dropdown');
           if (dropdown) {
             this.activeDropdownParam = dropdown.dataset.filterParam || null;
@@ -54,14 +53,7 @@ class FilterAjax {
   }
 
   async navigate(url, pushState = true) {
-    const heroEl  = document.querySelector(this.heroSelector);
-    const panelEl = document.querySelector(this.panelSelector);
-    const listEl  = document.querySelector(this.listSelector);
-
-    if (!heroEl && !listEl) {
-      window.location.href = url;
-      return;
-    }
+    const listEl = document.querySelector(this.listSelector);
 
     if (this.abortController) {
       this.abortController.abort();
@@ -74,9 +66,9 @@ class FilterAjax {
       listEl.style.pointerEvents = 'none';
     }
 
-    // Preserve open dropdown param if any
+    // Preserve open dropdown param
     const openDropdownParam = this.activeDropdownParam || 
-      document.querySelector('.custom-dropdown .dropdown-menu.is-open')
+      document.querySelector('.project-header__dropdowns .custom-dropdown .dropdown-menu.is-open')
         ?.closest('.custom-dropdown')?.dataset.filterParam || null;
 
     try {
@@ -99,69 +91,56 @@ class FilterAjax {
         document.title = newDoc.title;
       }
 
-      // Preserve filter panel open state
-      const wasPanelOpen = panelEl && panelEl.classList.contains('is-open');
-
-      // Morph or replace hero
-      const newHero = newDoc.querySelector(this.heroSelector);
-      const currentHero = document.querySelector(this.heroSelector);
-      if (newHero && currentHero) {
-        if (window.Idiomorph) {
-          Idiomorph.morph(currentHero, newHero, {
-            morphStyle: 'outerHTML',
-            ignoreActiveValue: true,
-            callbacks: {
-              beforeNodeMorphed: (fromEl, toEl) => {
-                if (fromEl.classList && fromEl.classList.contains('dropdown-menu') && fromEl.classList.contains('is-open')) {
-                  toEl.classList.add('is-open');
-                }
-                if (fromEl.classList && fromEl.classList.contains('dropdown-toggle') && fromEl.getAttribute('aria-expanded') === 'true') {
-                  toEl.setAttribute('aria-expanded', 'true');
-                }
-              }
-            }
-          });
-        } else {
-          currentHero.replaceWith(newHero);
-        }
+      // 1. Update Projects Count
+      const newCount = newDoc.querySelector('[data-projects-count]');
+      const currentCount = document.querySelector('[data-projects-count]');
+      if (newCount && currentCount) {
+        currentCount.textContent = newCount.textContent;
       }
 
-      // Morph or replace filter panel
+      // 2. Morph Dropdowns in top bar with innerHTML
+      const newDropdowns = newDoc.querySelector('.project-header__dropdowns');
+      const currentDropdowns = document.querySelector('.project-header__dropdowns');
+      if (newDropdowns && currentDropdowns && window.Idiomorph) {
+        Idiomorph.morph(currentDropdowns, newDropdowns, {
+          morphStyle: 'innerHTML',
+          ignoreActiveValue: true,
+          callbacks: {
+            beforeNodeMorphed: (fromEl, toEl) => {
+              if (fromEl.classList && fromEl.classList.contains('dropdown-menu') && fromEl.classList.contains('is-open')) {
+                toEl.classList.add('is-open');
+              }
+              if (fromEl.classList && fromEl.classList.contains('dropdown-toggle') && fromEl.getAttribute('aria-expanded') === 'true') {
+                toEl.setAttribute('aria-expanded', 'true');
+              }
+            }
+          }
+        });
+      }
+
+      // 3. Sync Reset Button
+      const newReset = newDoc.querySelector('.project-filter__reset');
+      const currentReset = document.querySelector('.project-filter__reset');
+      if (newReset && !currentReset) {
+        const trigger = document.querySelector('.project-search__trigger');
+        if (trigger) trigger.insertAdjacentElement('beforebegin', newReset.cloneNode(true));
+      } else if (!newReset && currentReset) {
+        currentReset.remove();
+      }
+
+      // 4. Morph Filter Drawer Panel with innerHTML
       const newPanel = newDoc.querySelector(this.panelSelector);
       const currentPanel = document.querySelector(this.panelSelector);
-      if (newPanel && currentPanel) {
-        if (wasPanelOpen) {
-          newPanel.classList.add('is-open');
-        }
-        if (window.Idiomorph) {
-          Idiomorph.morph(currentPanel, newPanel, {
-            morphStyle: 'outerHTML',
-            ignoreActiveValue: true,
-            callbacks: {
-              beforeNodeMorphed: (fromEl, toEl) => {
-                if (fromEl.classList && fromEl.classList.contains('dropdown-menu') && fromEl.classList.contains('is-open')) {
-                  toEl.classList.add('is-open');
-                }
-                if (fromEl.classList && fromEl.classList.contains('dropdown-toggle') && fromEl.getAttribute('aria-expanded') === 'true') {
-                  toEl.setAttribute('aria-expanded', 'true');
-                }
-              }
-            }
-          });
-        } else {
-          currentPanel.replaceWith(newPanel);
-        }
-        if (wasPanelOpen) {
-          document.querySelectorAll('[data-filter-trigger], [data-search-trigger]').forEach(btn => {
-            btn.classList.add('is-active');
-            btn.setAttribute('aria-expanded', 'true');
-          });
-        }
+      if (newPanel && currentPanel && window.Idiomorph) {
+        Idiomorph.morph(currentPanel, newPanel, {
+          morphStyle: 'innerHTML',
+          ignoreActiveValue: true
+        });
       }
 
-      // Restore open dropdown if one was active
+      // 5. Keep the open dropdown open
       if (openDropdownParam) {
-        const matchingDropdown = document.querySelector(`.custom-dropdown[data-filter-param="${openDropdownParam}"]`);
+        const matchingDropdown = document.querySelector(`.project-header__dropdowns .custom-dropdown[data-filter-param="${openDropdownParam}"]`);
         if (matchingDropdown) {
           matchingDropdown.querySelector('.dropdown-menu')?.classList.add('is-open');
           matchingDropdown.querySelector('.dropdown-toggle')?.setAttribute('aria-expanded', 'true');
@@ -169,7 +148,7 @@ class FilterAjax {
       }
       this.activeDropdownParam = null;
 
-      // Morph or replace list
+      // 6. Morph Project Cards List
       const newList = newDoc.querySelector(this.listSelector);
       const currentList = document.querySelector(this.listSelector);
       if (newList && currentList) {
@@ -182,43 +161,7 @@ class FilterAjax {
         }
       }
 
-      // Re-initialize interactive components on the morphed DOM
-      if (typeof initDropdowns === 'function') {
-        initDropdowns();
-      }
-      if (typeof initProjectFilter === 'function') {
-        initProjectFilter();
-      }
-      if (typeof initProjectSearch === 'function') {
-        initProjectSearch();
-      }
-      if (typeof initReveals === 'function') {
-        initReveals();
-      }
-      if (typeof REVEAL !== 'undefined' && REVEAL) {
-        try {
-          if (typeof REVEAL.init === 'function') REVEAL.init();
-          if (typeof REVEAL.refresh === 'function') REVEAL.refresh();
-          if (typeof REVEAL.initImages === 'function') REVEAL.initImages();
-          if (typeof REVEAL.enable === 'function') REVEAL.enable();
-        } catch (e) {
-          console.warn('[FilterAjax] REVEAL refresh error', e);
-        }
-      }
-
-      // Ensure newly morphed text and images are split and visible
-      document.querySelectorAll('[data-reveal-text]').forEach((el) => {
-        if (!el.classList.contains('is-split')) {
-          if (typeof REVEAL !== 'undefined' && REVEAL && typeof REVEAL._splitText === 'function') {
-            REVEAL._splitText(el);
-          } else if (typeof Splitting === 'function') {
-            Splitting({ target: el, by: el.getAttribute('data-reveal-text') || 'chars' });
-            el.classList.add('is-split', 'is-inview');
-          }
-        }
-        el.classList.add('is-inview');
-      });
-
+      // 7. Make newly loaded cards visible
       document.querySelectorAll('[data-ajax-filter-list] [data-reveal-image], [data-ajax-filter-list] [data-scroll]').forEach((el) => {
         el.classList.add('is-inview');
       });

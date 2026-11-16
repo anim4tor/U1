@@ -49,13 +49,15 @@ $hiddenValue = implode(',', $activeSlugs);
       <input type="hidden" name="<?= esc($param) ?>" value="<?= esc($hiddenValue) ?>" data-form-filter-input="<?= esc($param) ?>">
     <?php endif ?>
 
-    <?= snippet('atoms/Button', [ 
-      'label'   => $buttonLabel, 
-      'theme'   => $countActive > 0 ? 'dark' : ($theme ?? 'ghost'), 
-      'reveal'  => true,
-      'css'     => 'dropdown-toggle',
-      'node'    => 'type="button" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="dropdown-label"'
-    ]) ?>
+    <button 
+      type="button" 
+      class="button font__size__button dropdown-toggle" 
+      theme="<?= $countActive > 0 ? 'dark' : ($theme ?? 'ghost') ?>" 
+      aria-haspopup="listbox" 
+      aria-expanded="false"
+    >
+      <span><?= esc($buttonLabel) ?></span>
+    </button>
 
     <ul class="dropdown-menu" role="listbox" theme="light" data-lenis-prevent>
       <?php foreach ($options as $tag) : ?>
@@ -88,7 +90,7 @@ $hiddenValue = implode(',', $activeSlugs);
             data-form-filter-label="<?= esc($tag['text']) ?>"
             data-form-filter-base-label="<?= esc($label) ?>"
           >
-            <span aria-label="<?= esc($tag['text']) ?>" class="flex align__center gap__05">
+            <span class="flex align__center gap__05">
               <span class="dropdown-checkmark col__acc font__size__small <?= $isActive ? '' : 'is-hidden' ?>">✓</span>
               <span class="dropdown-option-text"><?= esc($tag['text']) ?></span>
             </span>
@@ -102,7 +104,7 @@ $hiddenValue = implode(',', $activeSlugs);
             role="option"
             aria-selected="<?= $isActive ? 'true' : 'false' ?>"
           >
-            <span aria-label="<?= esc($tag['text']) ?>" class="flex align__center gap__05">
+            <span class="flex align__center gap__05">
               <span class="dropdown-checkmark col__acc font__size__small <?= $isActive ? '' : 'is-hidden' ?>">✓</span>
               <span class="dropdown-option-text"><?= esc($tag['text']) ?></span>
             </span>

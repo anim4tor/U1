@@ -39,14 +39,8 @@ if (isset($count) && $count !== null && $count !== false) {
 ?>
 
 <section <?= $id ? 'id="' . esc($id) . '"' : '' ?> class="intro radius" theme="<?= $theme ?>" style="--in-delay: 500ms">
-	<div class="intro__cover absolute inset__stretch grid overlay__harder" data-scroll>
-		<?php if ($hasHero) : ?>
-			<?= snippet('molecules/Header', ['header' => $hero, 'type' => ['cover']]) ?>
-		<?php elseif ($cover) : ?>
-			<?= snippet('atoms/Image', ['img' => $cover, 'parallax' => 2, 'reveal' => false, 'css' => '']) ?>
-		<?php endif ?>
-	</div>
-	<div data-scroll class="z__1 intro__header place__end-stretch grid__6 gap__2 mobile:grid__1 mobile:h__auto inner__4 mobile:inner-t__10 mobile:gap__2 relative color__invert">
+	
+	<div data-scroll class="z__1 intro__header place__end-stretch grid__6 gap__2 mobile:grid__1 mobile:h__auto inner__4 mobile:inner-t__10 mobile:gap__2 relative">
 		<div class="span__3 grid gap__1 place__end-start mobile:span__1">
 			<?php if (!empty($tabs)) : ?>
 				<div class="flex align__center gap__1 flex__wrap hero-tabs" data-scroll>
