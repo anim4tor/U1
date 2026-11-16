@@ -30,7 +30,7 @@ if (isset($figures) && !empty($figures)) {
 		}
 		$targetNumber = preg_replace('/[^0-9]/', '', (string)$rawNum);
 		?>
-		<div class="grid gap__1 align__start inner-t__1 border__top mobile:gap__05" data-scroll>
+		<div class="grid gap__2 align__start inner-t__1 border__top mobile:gap__05" data-scroll>
 			<?php if (!empty($targetNumber)) : ?>
 				<div class="font__size__1 font__weight__600 carousel-counter" data-target="<?= esc($targetNumber) ?>"></div>
 			<?php else : ?>

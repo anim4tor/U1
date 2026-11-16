@@ -9382,10 +9382,8 @@ section.team > .grid__4 {
       -ms-flex-align: stretch;
           align-items: stretch;
 }
-section.solutions > .grid__4 > .span__2:last-child,
 section.solutions > .grid__4 > .solutions__media,
 section.solutions > .grid__4 > .team__media,
-section.team > .grid__4 > .span__2:last-child,
 section.team > .grid__4 > .solutions__media,
 section.team > .grid__4 > .team__media {
   position: relative;
@@ -9393,10 +9391,8 @@ section.team > .grid__4 > .team__media {
   height: 100%;
   min-height: 0;
 }
-section.solutions > .grid__4 > .span__2:last-child .grid__stack,
 section.solutions > .grid__4 > .solutions__media .grid__stack,
 section.solutions > .grid__4 > .team__media .grid__stack,
-section.team > .grid__4 > .span__2:last-child .grid__stack,
 section.team > .grid__4 > .solutions__media .grid__stack,
 section.team > .grid__4 > .team__media .grid__stack {
   position: absolute;
@@ -9408,10 +9404,8 @@ section.team > .grid__4 > .team__media .grid__stack {
   -ms-grid-rows: minmax(0, 1fr);
   grid-template-rows: minmax(0, 1fr);
 }
-section.solutions > .grid__4 > .span__2:last-child .grid__stack [data-pane],
 section.solutions > .grid__4 > .solutions__media .grid__stack [data-pane],
 section.solutions > .grid__4 > .team__media .grid__stack [data-pane],
-section.team > .grid__4 > .span__2:last-child .grid__stack [data-pane],
 section.team > .grid__4 > .solutions__media .grid__stack [data-pane],
 section.team > .grid__4 > .team__media .grid__stack [data-pane] {
   width: 100%;
@@ -9426,14 +9420,10 @@ section.team > .grid__4 > .team__media .grid__stack [data-pane] {
       -ms-flex-direction: column;
           flex-direction: column;
 }
-section.solutions > .grid__4 > .span__2:last-child .grid__stack [data-pane] > div,
-section.solutions > .grid__4 > .span__2:last-child .grid__stack [data-pane] [data-reveal-image],
 section.solutions > .grid__4 > .solutions__media .grid__stack [data-pane] > div,
 section.solutions > .grid__4 > .solutions__media .grid__stack [data-pane] [data-reveal-image],
 section.solutions > .grid__4 > .team__media .grid__stack [data-pane] > div,
 section.solutions > .grid__4 > .team__media .grid__stack [data-pane] [data-reveal-image],
-section.team > .grid__4 > .span__2:last-child .grid__stack [data-pane] > div,
-section.team > .grid__4 > .span__2:last-child .grid__stack [data-pane] [data-reveal-image],
 section.team > .grid__4 > .solutions__media .grid__stack [data-pane] > div,
 section.team > .grid__4 > .solutions__media .grid__stack [data-pane] [data-reveal-image],
 section.team > .grid__4 > .team__media .grid__stack [data-pane] > div,
@@ -9450,10 +9440,8 @@ section.team > .grid__4 > .team__media .grid__stack [data-pane] [data-reveal-ima
       -ms-flex-direction: column;
           flex-direction: column;
 }
-section.solutions > .grid__4 > .span__2:last-child .grid__stack [data-pane] figure,
 section.solutions > .grid__4 > .solutions__media .grid__stack [data-pane] figure,
 section.solutions > .grid__4 > .team__media .grid__stack [data-pane] figure,
-section.team > .grid__4 > .span__2:last-child .grid__stack [data-pane] figure,
 section.team > .grid__4 > .solutions__media .grid__stack [data-pane] figure,
 section.team > .grid__4 > .team__media .grid__stack [data-pane] figure {
   width: 100%;
@@ -9463,10 +9451,8 @@ section.team > .grid__4 > .team__media .grid__stack [data-pane] figure {
   margin: 0;
   aspect-ratio: auto;
 }
-section.solutions > .grid__4 > .span__2:last-child .grid__stack [data-pane] figure img,
 section.solutions > .grid__4 > .solutions__media .grid__stack [data-pane] figure img,
 section.solutions > .grid__4 > .team__media .grid__stack [data-pane] figure img,
-section.team > .grid__4 > .span__2:last-child .grid__stack [data-pane] figure img,
 section.team > .grid__4 > .solutions__media .grid__stack [data-pane] figure img,
 section.team > .grid__4 > .team__media .grid__stack [data-pane] figure img {
   width: 100%;

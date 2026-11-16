@@ -1,6 +1,17 @@
 <?php if (collection('Team')->isNotEmpty()) : ?>
 <section class="team radius" theme="light" data-tabs="hoverable" data-tabs-reset>
 	<div class="grid__4 gap__2 mobile:grid__1 inner-x__4 inner-y__5 mobile:inner-x__1 mobile:inner-y__3">
+		<div class="span__2 team__media">
+			<div class="grid__stack place__stretch-stretch no__overflow img__radius" data-pane-container data-scroll data-reveal-image >
+				<?php foreach (collection('Team') as $team) : ?>
+					<div data-pane="team-<?= $team->indexOf(collection('Team')) ?>" class="grid place__stretch-stretch" data-scroll data-scroll-ignore data-tab-reveal>
+						<?php if ($img = $team->figure()->toFile()) : ?>
+							<div class="grid place__stretch-stretch" data-reveal-image><?= snippet('atoms/Image', ['img' => $img, 'reveal' => false, 'css' => 'img__radius']) ?></div>
+						<?php endif ?>
+					</div>
+				<?php endforeach ?>
+			</div>
+		</div>
 		<div class="grid span__2 gap__4 place__space-between-stretch mobile:inner-x__0">
 			<div class="grid gap__1">
 				<?= snippet('molecules/Header', ['header' => $page->teams(), 'type' => ['label']]) ?>
@@ -29,17 +40,6 @@
 						</a>
 					<?php endforeach ?>
 				</ol>
-			</div>
-		</div>
-		<div class="span__2 team__media">
-			<div class="grid__stack place__stretch-stretch no__overflow img__radius" data-pane-container data-scroll data-reveal-image >
-				<?php foreach (collection('Team') as $team) : ?>
-					<div data-pane="team-<?= $team->indexOf(collection('Team')) ?>" class="grid place__stretch-stretch" data-scroll data-scroll-ignore data-tab-reveal>
-						<?php if ($img = $team->figure()->toFile()) : ?>
-							<div class="grid place__stretch-stretch" data-reveal-image><?= snippet('atoms/Image', ['img' => $img, 'reveal' => false, 'css' => 'img__radius']) ?></div>
-						<?php endif ?>
-					</div>
-				<?php endforeach ?>
 			</div>
 		</div>
 	</div>
