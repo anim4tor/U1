@@ -113,9 +113,12 @@ Positionslist:
   location: Brno · plný úvazek
   url: /kariera/positions/project-manager
 - 
-  title: Rozpočtář stavební části interiéru
+  title: >
+    Rozpočtář stavební části
+    interiéru
   location: Brno
-  url: /kariera/positions/rozpoctar-stavebni-casti-interieru
+  url: >
+    /kariera/positions/rozpoctar-stavebni-casti-interieru
 - 
   title: Obchodní manažer
   location: Brno
@@ -231,6 +234,8 @@ Order:
   label: 2_positions
 - 
   label: 3_benefits
+- 
+  label: life
 - 
   label: 4_process
 - 
