@@ -144,9 +144,10 @@ class Tabs {
                         e.preventDefault()
                     }
                     var target = e.target.closest('[data-tab]');
-                    var parent = target.parentNode;
-                    var index = [].indexOf.call(parent.children, target);
-                    !_this.is_changing ? _this.setActive(index) : null
+                    var index = Array.from(_this.DOM.tabs).indexOf(target);
+                    if (index !== -1 && !_this.is_changing) {
+                        _this.setActive(index);
+                    }
 
                 });
 

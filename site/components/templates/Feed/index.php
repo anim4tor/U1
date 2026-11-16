@@ -1,6 +1,6 @@
 <div class="feed-page" data-tabs="default" theme="light">
 	<?= snippet('sections/Hero/list', [
-		'theme' => 'light',
+		'theme' => 'dark',
 		'tabs'  => [
 			['id' => 'blog',    'label' => 'Články', 'count' => collection('Blog')->count()],
 			['id' => 'socials', 'label' => 'Sítě',   'count' => collection('Socials')->count()],
