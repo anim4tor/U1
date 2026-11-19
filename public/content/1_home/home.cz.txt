@@ -23,14 +23,20 @@ About: [{"content":{"text":"<p>Studio U1, Brno a Praha</p>","mod":"","face":"bod
 Aboutfigures:
 
 - 
-  feature: "200"
-  label: +PROJEKTŮ
-- 
-  feature: "90"
-  label: +LIDÍ
-- 
   feature: "25"
-  label: +LET
+  label: >
+    let navrhujeme a stavíme interiéry, od
+    roku 2001
+- 
+  feature: "2"
+  label: >
+    vlastní nábytkové řady, Only1 a
+    Only2
+- 
+  feature: "1."
+  label: >
+    místo v soutěži Kanceláře roku 2025
+    za sídlo Direct pojišťovny
 
 ----
 
