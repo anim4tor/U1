@@ -68,7 +68,7 @@ Process: [{"content":{"text":"<p>5 kroků od zadání po provoz</p>","mod":"","f
 
 ----
 
-Services: [{"content":{"text":"<p>13 služeb pod jednou střechou</p>","mod":"","face":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"41cb03b8-cf03-4250-9e09-a213f938fca7","isHidden":true,"type":"label"},{"content":{"text":"Služby","level":"h2","mod":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"9aca17ea-deba-43ba-acfb-02217445476f","isHidden":false,"type":"heading"},{"content":{"href":"","target":"false","label":"Všechny služby","counter":[],"theme":"invert-ghost","hover":"invert","size":"default","icon":"arrow-right","hasreveal":"false","bid":"","attr":"","css":"","node":""},"id":"9f1d5b6b-4564-48e2-9e6a-70418163277b","isHidden":false,"type":"button"}]
+Services: [{"content":{"text":"Služby","level":"h2","mod":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"9aca17ea-deba-43ba-acfb-02217445476f","isHidden":false,"type":"heading"},{"content":{"text":"<p>Kancelářské interiéry řešíme jako celek i po jednotlivých částech.</p>","mod":"","face":"","case":"","hasreveal":"false","bid":"","attr":"","css":"","href":"","target":"false","node":""},"id":"41cb03b8-cf03-4250-9e09-a213f938fca7","isHidden":false,"type":"text"},{"content":{"href":"","target":"false","label":"Všechny služby","counter":[],"theme":"invert-ghost","hover":"invert","size":"default","icon":"arrow-right","hasreveal":"false","bid":"","attr":"","css":"","node":""},"id":"9f1d5b6b-4564-48e2-9e6a-70418163277b","isHidden":false,"type":"button"}]
 
 ----
 
