@@ -1124,9 +1124,49 @@
       totalCountEl.textContent = rows.length;
       countAllEl.textContent = rows.length;
 
-      // 1. Initial State Load: Always prioritize localStorage, merge server defaults
-      async function loadState() {
-        // First load from localStorage immediately
+      // 1. Initial State Load: Instant render from localStorage, then ALWAYS fetch fresh server state
+      async function fetchServerState() {
+        syncDot.classList.add('is-saving');
+        syncText.textContent = 'Synchronizuji...';
+        
+        const endpoints = [
+          apiUrl + '?t=' + Date.now(),
+          basePath + '/zadani_save.php?t=' + Date.now(),
+          jsonUrl + '?t=' + Date.now()
+        ];
+
+        let serverData = null;
+        for (const ep of endpoints) {
+          try {
+            const res = await fetch(ep, { cache: 'no-store' });
+            if (res.ok) {
+              const data = await res.json();
+              if (data && (data.checked || data.data?.checked)) {
+                serverData = data.checked || data.data?.checked;
+                break;
+              }
+            }
+          } catch(err) {}
+        }
+
+        syncDot.classList.remove('is-saving');
+
+        if (serverData && typeof serverData === 'object') {
+          checkedItems = serverData;
+          try {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(checkedItems));
+          } catch(e) {}
+          applyCheckedState();
+          updateStats();
+          filterItems();
+          syncText.textContent = 'Synchronizováno se serverem';
+        } else {
+          syncText.textContent = 'Aktivní lokální stav';
+        }
+      }
+
+      function loadState() {
+        // First load from localStorage immediately so user never sees lag
         try {
           const saved = localStorage.getItem(STORAGE_KEY);
           if (saved) {
@@ -1136,29 +1176,12 @@
           console.warn('localStorage read error:', e);
         }
 
-        // Apply immediately so user never sees lag
         applyCheckedState();
         updateStats();
         filterItems();
 
-        // If localStorage was completely empty, fetch server defaults
-        if (Object.keys(checkedItems).length === 0) {
-          try {
-            const res = await fetch(jsonUrl + '?t=' + Date.now());
-            if (res.ok) {
-              const data = await res.json();
-              if (data && data.checked) {
-                checkedItems = data.checked;
-                localStorage.setItem(STORAGE_KEY, JSON.stringify(checkedItems));
-                applyCheckedState();
-                updateStats();
-                filterItems();
-              }
-            }
-          } catch (e) {
-            console.warn('Server defaults fetch error:', e);
-          }
-        }
+        // ALWAYS fetch latest server state across all computers/browsers
+        fetchServerState();
       }
 
       function applyCheckedState() {
@@ -1175,7 +1198,6 @@
       // Save to localStorage immediately and notify server
       let saveTimeout = null;
       function saveState() {
-        // ALWAYS save to localStorage synchronously!
         try {
           localStorage.setItem(STORAGE_KEY, JSON.stringify(checkedItems));
         } catch(e) {
@@ -1183,27 +1205,38 @@
         }
 
         syncDot.classList.add('is-saving');
-        syncText.textContent = 'Ukládám...';
+        syncText.textContent = 'Ukládám na server...';
 
         clearTimeout(saveTimeout);
         saveTimeout = setTimeout(async () => {
-          try {
-            const res = await fetch(apiUrl, {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({ checked: checkedItems })
-            });
-            if (res.ok) {
-              syncText.textContent = 'Uloženo na server i do paměti';
-            } else {
-              syncText.textContent = 'Uloženo v prohlížeči';
-            }
-          } catch(e) {
-            syncText.textContent = 'Uloženo v prohlížeči';
-          } finally {
-            syncDot.classList.remove('is-saving');
+          const payload = JSON.stringify({ checked: checkedItems });
+          const endpoints = [
+            apiUrl,
+            basePath + '/zadani_save.php'
+          ];
+
+          let savedOk = false;
+          for (const ep of endpoints) {
+            try {
+              const res = await fetch(ep, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: payload
+              });
+              if (res.ok) {
+                savedOk = true;
+                break;
+              }
+            } catch(e) {}
           }
-        }, 300);
+
+          syncDot.classList.remove('is-saving');
+          if (savedOk) {
+            syncText.textContent = 'Uloženo na serveru (aktivní na všech zařízeních)';
+          } else {
+            syncText.textContent = 'Uloženo v prohlížeči';
+          }
+        }, 150);
       }
 
       // Toggle check
@@ -1315,6 +1348,16 @@
       // Save button manual trigger
       document.getElementById('btn-save')?.addEventListener('click', () => {
         saveState();
+      });
+
+      // Auto-sync when returning to tab or window focus
+      document.addEventListener('visibilitychange', () => {
+        if (document.visibilityState === 'visible') {
+          fetchServerState();
+        }
+      });
+      window.addEventListener('focus', () => {
+        fetchServerState();
       });
 
       loadState();

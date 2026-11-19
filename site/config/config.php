@@ -146,13 +146,14 @@ return [
               'pattern' => 'zadani/state',
               'method'  => 'GET|POST',
               'action'  => function () {
-                  $file = kirby()->root('index') . '/public/zadani_state.json';
-                  if (!file_exists($file)) {
-                      $file = kirby()->root('index') . '/zadani_state.json';
-                  }
-                  if (!file_exists($file)) {
-                      $file = dirname(kirby()->root('site')) . '/public/zadani_state.json';
-                  }
+                  $locations = array_unique(array_filter([
+                      kirby()->root('index') . '/public/zadani_state.json',
+                      kirby()->root('index') . '/zadani_state.json',
+                      dirname(kirby()->root('site')) . '/public/zadani_state.json',
+                      dirname(kirby()->root('site')) . '/zadani_state.json',
+                      __DIR__ . '/../../public/zadani_state.json',
+                      __DIR__ . '/../../zadani_state.json'
+                  ]));
 
                   if (kirby()->request()->is('POST')) {
                       $raw = file_get_contents('php://input');
@@ -164,13 +165,32 @@ return [
                           'updated_at' => date('c'),
                           'checked'    => $body['checked'] ?? []
                       ];
-                      @file_put_contents($file, json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+                      $json = json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+                      foreach ($locations as $loc) {
+                          $dir = dirname($loc);
+                          if (!is_dir($dir)) {
+                              @mkdir($dir, 0755, true);
+                          }
+                          @file_put_contents($loc, $json);
+                      }
                       return \Kirby\Http\Response::json(['status' => 'success', 'data' => $data]);
                   }
 
-                  if (file_exists($file)) {
-                      $data = json_decode(file_get_contents($file), true);
-                      return \Kirby\Http\Response::json($data);
+                  // GET: return newest valid file
+                  $newestData = null;
+                  $newestTime = 0;
+                  foreach ($locations as $loc) {
+                      if (file_exists($loc)) {
+                          $mtime = filemtime($loc);
+                          $data = json_decode(file_get_contents($loc), true);
+                          if (is_array($data) && isset($data['checked']) && $mtime >= $newestTime) {
+                              $newestData = $data;
+                              $newestTime = $mtime;
+                          }
+                      }
+                  }
+                  if ($newestData) {
+                      return \Kirby\Http\Response::json($newestData);
                   }
                   return \Kirby\Http\Response::json(['checked' => []]);
               }
