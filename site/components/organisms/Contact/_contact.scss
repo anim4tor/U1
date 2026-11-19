@@ -14,7 +14,7 @@
 	--fab-size: Max(var(--header-height), calc(var(--spacing)*1.75));
 
 	@include xs-screen {
-		--booking-width: 100vw;
+		--booking-width: calc(100vw - var(--spacing) * 2);
 	}
 }
 
@@ -130,26 +130,46 @@ html[data-contact-open] [fab] {
 }
 
 [data-contact] {
-	z-index: 1000;
+	z-index: 1002;
 	backdrop-filter: blur(0rem) brightness(1);
 	pointer-events: none;
+	position: fixed;
+	inset: 0;
+
+	.contact__container {
+		width: 100%;
+		height: 100%;
+		display: grid;
+		place-content: start center;
+		place-items: start center;
+		padding-top: calc(0.5 * var(--spacing));
+		padding-left: calc(0.5 * var(--spacing));
+		padding-right: calc(0.5 * var(--spacing));
+		box-sizing: border-box;
+	}
 
 	[data-contact-widget] {
 		pointer-events: all;
-		@include animation((clip-path), 400ms);
-		transition-delay: var(--delay);
-		min-width: var(--booking-width);
+		width: var(--navbar-width, 680px);
+		min-width: 0;
+		max-width: calc(100vw - var(--spacing) * 1.5);
+		box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.08);
 
-		clip-path: inset(100% 0% 0% 100%);
+		clip-path: inset(0% 0% 100% 0%);
+		transform: translate3d(0, -12px, 0);
+		opacity: 0;
+		transition: clip-path 450ms cubic-bezier(0.16, 1, 0.3, 1),
+		            transform 450ms cubic-bezier(0.16, 1, 0.3, 1),
+		            opacity 350ms ease;
 
 		&[data-career-widget] {
-			clip-path: inset(100% 100% 0% 0%);
+			clip-path: inset(0% 0% 100% 0%);
 		}
 
 		[data-pane-container] {
-			@include animation((height, width), 600ms);
-			max-height: var(--booking-height);
+			max-height: calc(100vh - calc(var(--spacing) * 2) - 30px);
 			overflow-y: auto;
+			width: 100%;
 
 			/* Hide scrollbar for Chrome, Safari and Opera */
 			&::-webkit-scrollbar {
@@ -159,11 +179,16 @@ html[data-contact-open] [fab] {
 			/* Hide scrollbar for IE, Edge and Firefox */
 			& {
 				-ms-overflow-style: none;
-				/* IE and Edge */
 				scrollbar-width: none;
-				/* Firefox */
 			}
 
+		}
+
+		[data-pane] {
+			width: 100% !important;
+			max-width: 100% !important;
+			min-width: 0 !important;
+			box-sizing: border-box;
 		}
 	}
 
@@ -179,20 +204,16 @@ html[data-contact-open] [fab] {
 	}
 
 	[data-pane] {
-		@include animation((transform, opacity), 600ms);
+		@include animation((transform, opacity), 400ms);
 		opacity: 0;
 		position: absolute;
-		transform: translateY(-1em);
-		width: var(--booking-width);
-
-		&.wider {
-			width: var(--booking-wider);
-		}
+		transform: translateY(-0.5em);
+		width: 100%;
 
 		&[data-active] {
 			opacity: 1;
 			position: relative;
-			transition-delay: 400ms;
+			transition-delay: 150ms;
 			transform: none;
 		}
 	}
@@ -257,6 +278,8 @@ html[contact-open] {
 		[data-contact-widget] {
 			transition-delay: 0ms;
 			clip-path: inset(0% 0% 0% 0%);
+			transform: translate3d(0, 0, 0);
+			opacity: 1;
 		}
 	}
 

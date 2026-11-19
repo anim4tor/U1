@@ -74,20 +74,20 @@
 
 /* Schovani meta udaju pokud je slider dragovan */
 [data-carousel-scroll].is-dragged [data-slide] .item.--project {
-    .item__figure {
-        clip-path: inset(10% 10% 10% 10%);
+    // .item__figure {
+    //     clip-path: inset(10% 10% 10% 10%);
 
-        figure {
-            transform: scale(0.9);
-            filter: blur(0) brightness(1.0);
-        }
-    }
+    //     figure {
+    //         transform: scale(0.9);
+    //         filter: blur(0) brightness(1.0);
+    //     }
+    // }
 
-    .item__meta {
-        clip-path: inset(0% 0% 100% 0%);
-    }
+    // .item__meta {
+    //     clip-path: inset(0% 0% 100% 0%);
+    // }
 
-    .item__hover {
-        clip-path: inset(100% 0% 0% 100%);
-    }
+    // .item__hover {
+    //     clip-path: inset(100% 0% 0% 100%);
+    // }
 }

@@ -56,13 +56,6 @@ Locations:
   mapurl: "https://maps.google.com/?q=Nejedl%C3%A9ho+373/1,+Brno"
   image:
     - showroom_brno.png
-- 
-  title: Prague
-  address: "Na Valentince 3336/4, 150 00 Praha 5, Smíchov"
-  note: Prague Showroom
-  mapurl: "https://maps.google.com/?q=Na+Valentince+3336/4,+Praha"
-  image:
-    - showroom_praha.jpg
 
 ----
 

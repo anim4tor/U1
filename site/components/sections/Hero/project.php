@@ -31,7 +31,7 @@ if (isset($page) && $page->cover()->isNotEmpty()) {
 					'css'  => 'span__2'
 				]) ?>
 				<div class="grid gap__1 place__start-start span__2">
-					<div class="font__size__small op__7">(<?= $page->date()->toDate('Y') ?>)</div>
+					<div class="label"><?= $page->date()->toDate('Y') ?></div>
 				</div>
 			</div>
 			<div class="intro__title relative place__end-stretch mobile:span__1 inner-y__05" style="--in-delay: 500ms">

@@ -124,7 +124,7 @@
 	}
 
 	&:not(button):not([data-active]) {
-		opacity: .62 !important;
+		opacity: .5 !important;
 
 		&:hover {
 			opacity: .75 !important;

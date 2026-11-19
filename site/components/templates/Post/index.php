@@ -17,52 +17,53 @@ $faqs = $page->faq()->toStructure();
 
 // Související realizace
 $relatedProjects = $page->related()->toPages();
+
+$info = $category . ($dateStr ? ' · ' . $dateStr : '') . ($readTime ? ' · ' . $readTime : '');
 ?>
 
 <!-- Hero sekce článku -->
-<section class="intro radius" theme="dark" style="--in-delay: 500ms">
-	<div class="intro__cover absolute inset__stretch grid overlay__harder" data-scroll>
-		<?php if ($cover) : ?>
-			<?= snippet('atoms/Image', ['img' => $cover, 'parallax' => 2, 'reveal' => false, 'css' => '']) ?>
-		<?php endif ?>
-	</div>
-	<div data-scroll class="z__1 intro__header place__stretch-stretch grid__4 intro__rows mobile:grid__1 h__100v mobile:h__auto inner-x__4 inner-y__5 mobile:inner-x__1 mobile:inner-t__10 mobile:gap__2 relative color__invert">
-		<div class=""></div>
-		<div class="span__4 grid__2 place__space-between-stretch mobile:grid__1">
-			<div class="span__2 h__5 place__start-start grid__4 gap__2 border__top inner-t__05 mobile:span__1">
-				<?= snippet('atoms/Label', [
-					'text' => $category . ($dateStr ? ' · ' . $dateStr : '') . ($readTime ? ' · ' . $readTime : ''),
-					'css'  => 'span__2'
-				]) ?>
-			</div>
-			<div class="intro__title relative place__end-stretch mobile:span__1 inner-y__05 grid gap__1" style="--in-delay: 500ms">
-				<h1 class="font__size__1" data-reveal-text><?= $page->title() ?></h1>
-				<?php if ($perex): ?>
-					<p class="font__size__default op__8 max-w__6" data-reveal-text="lines"><?= $perex ?></p>
-				<?php endif ?>
-			</div>
-		</div>
-	</div>
-</section>
+<?= snippet('sections/Hero', [
+	'text'      => $info,
+	'cover'     => $cover,
+	'titleSize' => 'font__size__2'
+]) ?>
 
 <!-- Tělo článku (Editorial bloky) -->
 <article class="post-article radius" theme="invert" aria-label="Text článku">
-	<div class="inner-x__4 inner-y__5 mobile:inner-x__1 mobile:inner-y__3">
-		<div class="post-body grid gap__2" data-scroll>
+	<div class="inner-x__4 inner-y__5 mobile:inner-y__3">
+		<div class="post-body grid gap__3">
 			
-			<!-- Editorial bloky -->
-			<?php if ($page->details()->isNotEmpty()): ?>
-				<?= snippet('molecules/Blocks', ['blocks' => $page->details()->toBlocks()]) ?>
-			<?php elseif ($perex): ?>
-				<div class="font__size__default leading__relaxed">
-					<p><?= $perex ?></p>
+			<?php if ($page->excerpt()->isNotEmpty()): ?>
+				<div class="post-block-content mobile:inner-x__1" data-scroll>
+					<p class="font__size__3 font__weight__500"><?= $perex ?></p>
 				</div>
 			<?php endif ?>
 
+			<div class="grid">
+				<!-- Editorial bloky -->
+				<?php if ($page->details()->isNotEmpty()): ?>
+					<?php foreach ($page->details()->toBlocks() as $block): ?>
+						<?php if ($block->type() === 'image'): ?>
+							<?php if ($block->image()->toFile()): ?>
+								<div class="post-block-bleed">
+									<?= $block ?>
+								</div>
+							<?php endif ?>
+						<?php else: ?>
+							<div class="post-block-content mobile:inner-x__1">
+								<?= $block ?>
+							</div>
+						<?php endif ?>
+					<?php endforeach ?>
+				<?php endif ?>
+			</div>
+
 			<!-- Poznámka pod čarou / Zdroje -->
 			<?php if ($page->footnote()->isNotEmpty()): ?>
-				<div class="post-footnote border__top inner-t__1 inner-b__1 font__size__small op__7">
-					<?= $page->footnote()->kt() ?>
+				<div class="post-block-content mobile:inner-x__1">
+					<div class="post-footnote border__top inner-t__1 inner-b__1 font__size__small op__7">
+						<?= $page->footnote()->kt() ?>
+					</div>
 				</div>
 			<?php endif ?>
 

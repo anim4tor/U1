@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>U1 web – Zadání úprav z hovoru 2. 11. 2026</title>
+  <title>U1 web – zadání úprav z hovoru 18. 11. 2026 (v6)</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -49,7 +49,13 @@
       align-items: center;
       justify-content: space-between;
       gap: 16px;
-      margin-bottom: 8px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+    .brand-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
       flex-wrap: wrap;
     }
     .brand {
@@ -66,6 +72,41 @@
       border-radius: 999px;
     }
     .brand svg { width: 14px; height: 16px; fill: currentColor; }
+    .branch-badge {
+      font-size: 12px;
+      font-weight: 700;
+      background: #111;
+      color: #fff;
+      padding: 4px 10px;
+      border-radius: 999px;
+      letter-spacing: 0.04em;
+    }
+    .header-links {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+    .header-link {
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .header-link:hover {
+      color: var(--acc);
+    }
+    .header-link--primary {
+      color: var(--ink);
+      background: #fff;
+      padding: 5px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+    }
+    .header-link--primary:hover {
+      border-color: var(--acc);
+      color: var(--acc);
+    }
     h1 {
       font-size: clamp(24px, 4vw, 34px);
       font-weight: 800;
@@ -239,6 +280,12 @@
     }
     .box p { margin: 6px 0; font-size: 14px; }
 
+    .box--alert {
+      border-left-color: #dc2626;
+      background: #fff8f8;
+      border-color: #fecaca;
+    }
+
     /* Legend */
     .legend-card {
       background: var(--card-bg);
@@ -263,10 +310,10 @@
       border-radius: 6px;
       white-space: nowrap;
     }
-    .badge--uprava { background: #e0f2fe; color: #0369a1; }
-    .badge--varianta { background: #f3e8ff; color: #7e22ce; }
-    .badge--nazor { background: #fef3c7; color: #b45309; }
-    .badge--pozdeji { background: #f1f5f9; color: #64748b; }
+    .badge--uprava { background: #eff8ff; color: #0969da; border: 1px solid #c8e1fb; }
+    .badge--zachovat { background: #dafbe1; color: #1a7f37; border: 1px solid #a8e7b7; }
+    .badge--doda { background: #fbefff; color: #8250df; border: 1px solid #ebd0fb; }
+    .badge--nazor { background: #fff8c5; color: #9a6700; border: 1px solid #f6e07a; }
 
     /* Quick jump navigation */
     .nav-pills {
@@ -348,7 +395,7 @@
       background-color: #f5f5f3;
     }
 
-    /* COMPLETED ROW - GREEN BG! */
+    /* COMPLETED ROW */
     tr.task-row.is-done {
       background-color: var(--done-bg) !important;
     }
@@ -415,7 +462,7 @@
       color: #64748b;
     }
     td.t {
-      width: 120px;
+      width: 130px;
       text-align: right;
       white-space: nowrap;
     }
@@ -459,19 +506,20 @@
       transform: scale(1);
     }
 
-    /* Info cards for other sections */
+    /* Info cards */
     .info-card {
       background: #fff;
       border: 1px solid var(--border);
       border-radius: var(--radius);
       padding: 16px 20px;
       margin-bottom: 24px;
+      box-shadow: var(--shadow-sm);
     }
     .info-card ul {
       margin: 8px 0;
       padding-left: 20px;
     }
-    .info-card li { margin: 6px 0; }
+    .info-card li { margin: 6px 0; font-size: 14px; }
 
     /* Floating Quick Actions */
     .quick-actions {
@@ -523,14 +571,20 @@
 
   <header class="header">
     <div class="header__top">
-      <div class="brand">
-        <svg viewBox="0 0 24 28"><path d="M22.89 0.11C22.62-0.01 22.31-0.03 22.02 0.04 21.57 0.14 21.15 0.33 20.76 0.58 16.96 3.65 15.24 4.96 14.16 5.89 13.09 6.82 11.67 8.21 12.12 8.81 13.48 10.61 15.37 7.92 17.4 6.3 18.2 5.66 19.29 4.95 20.12 4.3 19.49 6.84 18.62 11.47 18.25 13.09 17.54 16.24 17.11 18.95 18.9 18.74 20.2 18.57 19.99 18.12 20.9 13.77 22.49 6.26 22.98 4.26 23.1 3.71 23.65 1.3 23.61 0.21 22.89 0.11zM0.04 24.53C-0.23 20.98 0.83 15.72 1.48 14.15L1.49 14.13C2.1 12.15 3.1 11.05 4.32 11.05 4.8 11.05 5.1 11.15 5.26 11.35 5.44 11.58 5.46 12.01 5.33 12.6 4.6 14.92 2.3 22.57 3.18 24.02 3.32 24.25 3.55 24.56 3.93 24.59 4.55 24.64 5.44 23.88 7.46 21.47 10.63 17.74 11.49 16.19 12.85 13.55 13.91 11.48 14.3 10.97 15.16 11.04L15.16 11.04C15.66 11.07 15.98 11.19 16.14 11.41 16.33 11.66 16.33 12.1 16.16 12.86 16.07 13.25 15.95 13.68 15.81 14.19 15.63 14.83 15.43 15.55 15.25 16.34 13.94 22.16 14.29 23.61 14.94 25.02 15.27 25.75 15.32 26.42 15.06 26.83 14.82 27.22 14.3 27.41 13.53 27.41 12.42 27.41 11.15 25.81 11.19 21.31L11.19 20.65 8.38 24.11C6.49 26.44 4.59 27.62 2.76 27.62 1.13 27.62 0.16 26.07 0.04 24.53z"/></svg>
-        U1 Space Design
+      <div class="brand-wrap">
+        <div class="brand">
+          <svg viewBox="0 0 24 28"><path d="M22.89 0.11C22.62-0.01 22.31-0.03 22.02 0.04 21.57 0.14 21.15 0.33 20.76 0.58 16.96 3.65 15.24 4.96 14.16 5.89 13.09 6.82 11.67 8.21 12.12 8.81 13.48 10.61 15.37 7.92 17.4 6.3 18.2 5.66 19.29 4.95 20.12 4.3 19.49 6.84 18.62 11.47 18.25 13.09 17.54 16.24 17.11 18.95 18.9 18.74 20.2 18.57 19.99 18.12 20.9 13.77 22.49 6.26 22.98 4.26 23.1 3.71 23.65 1.3 23.61 0.21 22.89 0.11zM0.04 24.53C-0.23 20.98 0.83 15.72 1.48 14.15L1.49 14.13C2.1 12.15 3.1 11.05 4.32 11.05 4.8 11.05 5.1 11.15 5.26 11.35 5.44 11.58 5.46 12.01 5.33 12.6 4.6 14.92 2.3 22.57 3.18 24.02 3.32 24.25 3.55 24.56 3.93 24.59 4.55 24.64 5.44 23.88 7.46 21.47 10.63 17.74 11.49 16.19 12.85 13.55 13.91 11.48 14.3 10.97 15.16 11.04L15.16 11.04C15.66 11.07 15.98 11.19 16.14 11.41 16.33 11.66 16.33 12.1 16.16 12.86 16.07 13.25 15.95 13.68 15.81 14.19 15.63 14.83 15.43 15.55 15.25 16.34 13.94 22.16 14.29 23.61 14.94 25.02 15.27 25.75 15.32 26.42 15.06 26.83 14.82 27.22 14.3 27.41 13.53 27.41 12.42 27.41 11.15 25.81 11.19 21.31L11.19 20.65 8.38 24.11C6.49 26.44 4.59 27.62 2.76 27.62 1.13 27.62 0.16 26.07 0.04 24.53z"/></svg>
+          U1 Space Design
+        </div>
+        <span class="branch-badge">git: v6</span>
       </div>
-      <a href="/" style="font-size: 13px; font-weight: 600; color: var(--muted); text-decoration: none;">← Zpět na web</a>
+      <div class="header-links">
+        <a href="/zadani-v5" class="header-link">Staré zadání v5 (2. 11.)</a>
+        <a href="/" class="header-link header-link--primary">← Zpět na web</a>
+      </div>
     </div>
-    <h1>U1 web – zadání úprav z hovoru 2. 11. 2026</h1>
-    <p class="subtitle">Jakub Boháček → Jiří Klusák. Sestaveno z doslovného přepisu hodinového hovoru.</p>
+    <h1>U1 web – zadání úprav z hovoru 18. 11. 2026</h1>
+    <p class="subtitle">Jakub Boháček → Jiří Klusák | Sestaveno z doslovného přepisu hovoru (57,3 min, Antigravity nativní audio)</p>
   </header>
 
   <!-- Sticky Controls Bar -->
@@ -538,7 +592,7 @@
     <div class="controls-card">
       <div class="progress-row">
         <div class="progress-stats">
-          Hotovo: <span id="done-count">0</span> z <span id="total-count">56</span> úkolů
+          Hotovo: <span id="done-count">0</span> z <span id="total-count">43</span> úkolů
           <span class="pct" id="done-pct">0 %</span>
         </div>
         <div class="sync-status">
@@ -552,13 +606,13 @@
 
       <div class="filters-row">
         <div class="filter-group">
-          <button class="filter-btn is-active" data-filter="all">Všechny <span class="count" id="count-all">56</span></button>
-          <button class="filter-btn" data-filter="pending">K řešení <span class="count" id="count-pending">0</span></button>
+          <button class="filter-btn is-active" data-filter="all">Všechny <span class="count" id="count-all">43</span></button>
+          <button class="filter-btn" data-filter="pending">K řešení <span class="count" id="count-pending">43</span></button>
           <button class="filter-btn" data-filter="done">Hotovo <span class="count" id="count-done">0</span></button>
           <button class="filter-btn" data-type="Úprava">Úprava</button>
-          <button class="filter-btn" data-type="Varianta">Varianta</button>
-          <button class="filter-btn" data-type="Váš názor">Váš názor</button>
-          <button class="filter-btn" data-type="Později">Později</button>
+          <button class="filter-btn" data-type="Zachovat">Zachovat</button>
+          <button class="filter-btn" data-type="Dodá Jakub">Dodá Jakub</button>
+          <button class="filter-btn" data-type="Konzultace">Konzultace</button>
         </div>
 
         <div class="search-box">
@@ -570,533 +624,436 @@
   </div>
 
   <div class="box">
-    <p><b>Termíny (domluvené):</b> první verze po 9. 11. → vyjádřím se k ní → finální verze 12. 11.</p>
-    <p><b>Výchozí stav:</b> co není v tomto seznamu, zůstává podle vaší poslední verze. Pro porovnání slouží můj návrh v65.</p>
-    <p><b>Hlavní cíl:</b> sazba textu a bloky, které spolu sedí (písmo, mřížka, zarovnání). Animace a elegantní tlačítka z vaší verze chci zachovat.</p>
+    <p><b>Výchozí cíl:</b> Doladění sazby, layoutu a komponent webu U1 v Kirby verzi. Spojení čisté typografie a zarovnání z Jakubovy předlohy s elegantními animacemi, referencemi a interaktivními prvky z verze Jiřího Klusáka.</p>
+  </div>
+
+  <div class="box box--alert">
+    <p style="color:#b91c1c; font-weight:800; margin-bottom: 8px;">Harmonogram a termíny:</p>
+    <ul style="margin:0; padding-left:20px; font-size:14px;">
+      <li><b>Pátek 20. 11. 2026:</b> Dodání skoro finální verze webu (nutné pro páteční kvartální setkání U1).</li>
+      <li><b>Pondělí 23. 11. 2026:</b> Nejzazší konečný termín pro kompletní dotažení a uzavření všech úprav (projekt je již výrazně za původním plánem).</li>
+    </ul>
   </div>
 
   <div class="legend-card">
     <span class="legend-title">Typ úkolu:</span>
-    <span><span class="badge badge--uprava">Úprava</span> = udělat.</span>
-    <span><span class="badge badge--varianta">Varianta</span> = připravit víc možností, vybereme spolu.</span>
-    <span><span class="badge badge--nazor">Váš názor</span> = navrhněte řešení nebo řekněte, co si myslíte.</span>
-    <span><span class="badge badge--pozdeji">Později</span> = do budoucna, teď ne.</span>
+    <span><span class="badge badge--uprava">Úprava</span> = zapracovat v kódu / Kirby</span>
+    <span><span class="badge badge--zachovat">Zachovat</span> = schválené řešení z Klusákovy verze, neměnit</span>
+    <span><span class="badge badge--doda">Dodá Jakub</span> = podklady a grafika od Jakuba</span>
+    <span><span class="badge badge--nazor">Konzultace</span> = návrh technického provedení</span>
   </div>
 
   <div class="nav-pills">
     <span style="font-size: 12px; font-weight: 700; color: var(--muted); align-self: center;">Přejít na sekci:</span>
-    <a href="#sec-a" class="nav-pill">A. Menu & logo</a>
-    <a href="#sec-b" class="nav-pill">B. Homepage</a>
-    <a href="#sec-c" class="nav-pill">C. Realizace</a>
-    <a href="#sec-d" class="nav-pill">D. Služby</a>
-    <a href="#sec-e" class="nav-pill">E. O nás</a>
-    <a href="#sec-f" class="nav-pill">F. Kariéra</a>
-    <a href="#sec-g" class="nav-pill">G. Feed</a>
-    <a href="#sec-h" class="nav-pill">H. Kontakt & patička</a>
+    <a href="#sec-1" class="nav-pill">1. Menu & globální</a>
+    <a href="#sec-2" class="nav-pill">2. Homepage</a>
+    <a href="#sec-3" class="nav-pill">3. Projekty</a>
+    <a href="#sec-4" class="nav-pill">4. Služby</a>
+    <a href="#sec-5" class="nav-pill">5. O nás</a>
+    <a href="#sec-6" class="nav-pill">6. Kariéra</a>
+    <a href="#sec-7" class="nav-pill">7. Feed</a>
+    <a href="#sec-8" class="nav-pill">8. Kontakty & patička</a>
+    <a href="#sec-podklady" class="nav-pill">Podklady od Jakuba</a>
   </div>
 
-  <!-- A. Menu, logo, tlačítka -->
-  <h2 id="sec-a">A. Menu, logo, tlačítka (celý web) <span class="section-counter" data-sec="A"></span></h2>
+  <!-- 1. Menu, logo, tlačítka a globální prvky -->
+  <h2 id="sec-1">1. Menu, logo, tlačítka a globální prvky <span class="section-counter" data-sec="1"></span></h2>
   <div class="table-card">
     <table>
       <thead>
-        <tr><th style="width: 44px; text-align: center;">✓</th><th style="width: 44px; text-align: center;">č.</th><th>Co udělat</th><th style="width: 120px; text-align: right;">Typ</th></tr>
+        <tr><th style="width: 44px; text-align: center;">✓</th><th style="width: 44px; text-align: center;">č.</th><th>Co udělat</th><th style="width: 130px; text-align: right;">Typ</th></tr>
       </thead>
       <tbody>
-        <tr class="task-row" data-id="1" data-type="Varianta">
+        <tr class="task-row" data-id="1" data-type="Zachovat">
           <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
           <td class="c">1</td>
-          <td class="task-text">Logo v menu: animace přechodu z „Space design“ na „U1“. Dvě varianty: animuje se jen logo / celé menu.</td>
-          <td class="t"><span class="badge badge--varianta">Varianta</span></td>
+          <td class="task-text">Logo v menu: animace přechodu z „Space design“ na „U1“ uprostřed - zachovat současnou Klusákovu verzi.</td>
+          <td class="t"><span class="badge badge--zachovat">Zachovat</span></td>
         </tr>
-        <tr class="task-row" data-id="2" data-type="Varianta">
+        <tr class="task-row" data-id="2" data-type="Úprava">
           <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
           <td class="c">2</td>
-          <td class="task-text">Tlačítko Poptat projekt zůstává v menu (ne vpravo dole). Zachovat vaši animaci tlačítka. Dvě varianty, jak to spojit.</td>
-          <td class="t"><span class="badge badge--varianta">Varianta</span></td>
+          <td class="task-text">Tlačítko Poptat projekt: zůstává nahoře v menu. Plovoucí tlačítko vpravo dole zrušit. Rád by zachoval hezký efekt vyjíždění formuláře přímo nahoře z menu (vedle nebo s překrytím, zbytek stránky zašedne).</td>
+          <td class="t"><span class="badge badge--uprava">Úprava</span></td>
         </tr>
         <tr class="task-row" data-id="3" data-type="Úprava">
           <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
           <td class="c">3</td>
-          <td class="task-text">V otevřeném menu dole dvě tlačítka: Domluvit hovor + Poptat projekt (teď je jen jedno).</td>
+          <td class="task-text">Sjednocení tvaru tlačítek: ani plně oválná, ani ostré rohy - zvolit menší, jednotný jemný radius napříč celým webem.</td>
           <td class="t"><span class="badge badge--uprava">Úprava</span></td>
         </tr>
         <tr class="task-row" data-id="4" data-type="Úprava">
           <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
           <td class="c">4</td>
-          <td class="task-text">Menu se otevírá shora dolů od hamburgeru (ne posun panelu doprava). Platí, když zůstane jedno menu bez členění: Projekty, Služby, O nás, Kariéra, Feed, Kontakt.</td>
+          <td class="task-text">Hover efekt tlačítek: všude na interaktivních prvcích při najetí růžová barva (přechod z bílé do růžové).</td>
           <td class="t"><span class="badge badge--uprava">Úprava</span></td>
         </tr>
-        <tr class="task-row" data-id="5" data-type="Váš názor">
+        <tr class="task-row" data-id="5" data-type="Úprava">
           <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
           <td class="c">5</td>
-          <td class="task-text">Sjednotit tvar tlačítek. Teď jsou většinou kulatá, v menu hranatá. Vybrat jeden tvar pro celý web.</td>
-          <td class="t"><span class="badge badge--nazor">Váš názor</span></td>
+          <td class="task-text">Touchpad scroll: zkontrolovat a vyladit plynulost scrollování u sliderů (aby nebylo potřeba silné mávnutí rukou na touchpadu).</td>
+          <td class="t"><span class="badge badge--uprava">Úprava</span></td>
         </tr>
-        <tr class="task-row" data-id="6" data-type="Váš názor">
+        <tr class="task-row" data-id="6" data-type="Zachovat">
           <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
           <td class="c">6</td>
-          <td class="task-text">Odkazy se šipkou (Všechny projekty, Všechny služby, Poznejte náš tým) jsou schválně jednoduché. Pokud je umíte udělat zajímavěji, klidně.</td>
-          <td class="t"><span class="badge badge--nazor">Váš názor</span></td>
+          <td class="task-text">Časté otázky (FAQ): zachovat Klusákovu logiku akordeonu - otevření jedné otázky automaticky zavře ostatní.</td>
+          <td class="t"><span class="badge badge--zachovat">Zachovat</span></td>
         </tr>
       </tbody>
     </table>
   </div>
 
-  <!-- B. Homepage -->
-  <h2 id="sec-b">B. Homepage <span class="section-counter" data-sec="B"></span></h2>
-  <p style="font-size: 14px; color: var(--muted); margin: -4px 0 12px;">Pořadí bloků ještě není konečné. Bloky prosím stavte tak, aby šly přeházet.</p>
+  <!-- 2. Homepage (Úvod) -->
+  <h2 id="sec-2">2. Homepage (Úvod) <span class="section-counter" data-sec="2"></span></h2>
   <div class="table-card">
     <table>
       <thead>
-        <tr><th style="width: 44px; text-align: center;">✓</th><th style="width: 44px; text-align: center;">č.</th><th>Co udělat</th><th style="width: 120px; text-align: right;">Typ</th></tr>
+        <tr><th style="width: 44px; text-align: center;">✓</th><th style="width: 44px; text-align: center;">č.</th><th>Co udělat</th><th style="width: 130px; text-align: right;">Typ</th></tr>
       </thead>
       <tbody>
         <tr class="task-row" data-id="7" data-type="Úprava">
           <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
           <td class="c">7</td>
-          <td class="task-text">Úvod: linka zůstává. Místo textu „Vybraný projekt“ na ní bude „Předchozí / Další“ (listování doleva a doprava).</td>
+          <td class="task-text">Hero sekce: navigace „Předchozí / Další“ pro listování. Horní linku zatím nechat; přesun linky je až nejzazší varianta.</td>
           <td class="t"><span class="badge badge--uprava">Úprava</span></td>
         </tr>
-        <tr class="task-row" data-id="8" data-type="Varianta">
+        <tr class="task-row" data-id="8" data-type="Dodá Jakub">
           <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
           <td class="c">8</td>
-          <td class="task-text">Úvod: varianta s linkou níž, úplně dole, aby měly fotky víc místa (přání designérů).</td>
-          <td class="t"><span class="badge badge--varianta">Varianta</span></td>
+          <td class="task-text">Více o nás (čísla / figures): vpravo vedle textu doplnit blok klíčových čísel (25 let, 2 roky...). Jakub dodá grafické rozvržení.</td>
+          <td class="t"><span class="badge badge--doda">Dodá Jakub</span></td>
         </tr>
-        <tr class="task-row" data-id="9" data-type="Váš názor">
+        <tr class="task-row" data-id="9" data-type="Zachovat">
           <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
           <td class="c">9</td>
-          <td class="task-text">Úvod: tlačítko „Prohlédnout realizace“ – nechat, nebo zrušit a dát větší text? V týmu 50 : 50.</td>
-          <td class="t"><span class="badge badge--nazor">Váš názor</span></td>
+          <td class="task-text">Jak s námi spolupracovat: trojice bloků (Kanceláře na klíč, Návrh interiéru, Realizace pro architekty) ve čtvercích podle Klusákovy verze.</td>
+          <td class="t"><span class="badge badge--zachovat">Zachovat</span></td>
         </tr>
-        <tr class="task-row" data-id="10" data-type="Varianta">
+        <tr class="task-row" data-id="10" data-type="Úprava">
           <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
           <td class="c">10</td>
-          <td class="task-text">Text pod úvodem: čísla (200+ projektů atd.) dát vpravo od textu, podobně jako v sekci Příběh na O nás. Ne pod text.</td>
-          <td class="t"><span class="badge badge--varianta">Varianta</span></td>
+          <td class="task-text">Jak pracujeme: zašedlé fotky (opacita), když na nich není kurzor, aby byl posun svižný a nesekal se. Zarovnání textu podle Jakubovy předlohy.</td>
+          <td class="t"><span class="badge badge--uprava">Úprava</span></td>
         </tr>
-        <tr class="task-row" data-id="11" data-type="Úprava">
+        <tr class="task-row" data-id="11" data-type="Zachovat">
           <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
           <td class="c">11</td>
-          <td class="task-text">Blok s hlavními službami (karty vedou přímo na službu). Zatím 3, konečný počet 2–4 dodám. Blok se možná posune pod Vybrané realizace.</td>
-          <td class="t"><span class="badge badge--uprava">Úprava</span></td>
+          <td class="task-text">Služby na úvodu: zachovat efekt naskakování a sjíždění textu zezdola nahoru. Drobný úvodní text ponechat viditelný i v klidovém stavu.</td>
+          <td class="t"><span class="badge badge--zachovat">Zachovat</span></td>
         </tr>
-        <tr class="task-row" data-id="12" data-type="Úprava">
+        <tr class="task-row" data-id="12" data-type="Zachovat">
           <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
           <td class="c">12</td>
-          <td class="task-text">Vybrané realizace: čtverce nechat. Chování slideru jako ve vaší verzi. Nově u karty obor · město · rok (u vás jen rok). Odkaz Všechny projekty vpravo v záhlaví sekce. Karta Všechny projekty na konci slideru může zůstat. Realizací bude 30–40.</td>
-          <td class="t"><span class="badge badge--uprava">Úprava</span></td>
+          <td class="task-text">Reference / komentáře: zachovat Klusákovu verzi - plynulý posun, při najetí myší nebo dotyku prstem se pás zastaví.</td>
+          <td class="t"><span class="badge badge--zachovat">Zachovat</span></td>
         </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 3. Realizace a Projekty -->
+  <h2 id="sec-3">3. Realizace a Projekty <span class="section-counter" data-sec="3"></span></h2>
+  <div class="table-card">
+    <table>
+      <thead>
+        <tr><th style="width: 44px; text-align: center;">✓</th><th style="width: 44px; text-align: center;">č.</th><th>Co udělat</th><th style="width: 130px; text-align: right;">Typ</th></tr>
+      </thead>
+      <tbody>
         <tr class="task-row" data-id="13" data-type="Úprava">
           <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
           <td class="c">13</td>
-          <td class="task-text">Slider realizací musí jít posouvat touchpadem do stran.</td>
+          <td class="task-text">Vyhledávání a filtry: vyhledávací panel napevno viditelný na stránce (bez schovávání za lupu a bez horní dělící linky). Zobrazit přímo pilule/tagy (kuchyně, klient, prostor, obor).</td>
           <td class="t"><span class="badge badge--uprava">Úprava</span></td>
         </tr>
-        <tr class="task-row" data-id="14" data-type="Úprava">
+        <tr class="task-row" data-id="14" data-type="Konzultace">
           <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
           <td class="c">14</td>
-          <td class="task-text">Reference: design podle schváleného návrhu. U autora žádné kolečko – průhledné logo firmy, případně fotka člověka.</td>
-          <td class="t"><span class="badge badge--uprava">Úprava</span></td>
+          <td class="task-text">Našeptávač: do vyhledávacího pole doplnit vyjíždějící nápovědu / našeptávač podle tagů projektů.</td>
+          <td class="t"><span class="badge badge--nazor">Konzultace</span></td>
         </tr>
-        <tr class="task-row" data-id="15" data-type="Úprava">
+        <tr class="task-row" data-id="15" data-type="Dodá Jakub">
           <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
           <td class="c">15</td>
-          <td class="task-text">Napsali o nás zůstává. Navíc připravit blok s jedoucími logy firem (Pro koho pracujeme) pro O nás, možná i na homepage.</td>
-          <td class="t"><span class="badge badge--uprava">Úprava</span></td>
+          <td class="task-text">Posuvník Před a po: zapracovat do detailu realizace interaktivní srovnávač před/po s popisky dole. Jakub dodá vygenerované fotodvojice.</td>
+          <td class="t"><span class="badge badge--doda">Dodá Jakub</span></td>
         </tr>
-        <tr class="task-row" data-id="16" data-type="Úprava">
+        <tr class="task-row" data-id="16" data-type="Zachovat">
           <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
           <td class="c">16</td>
-          <td class="task-text">Jak pracujeme: při scrollu se sekce zastaví a kroky se projíždějí kolečkem myši – tedy tak, jak to máte ve své poslední verzi vy, ne volný scroll s hoverem jako v mém návrhu. Kroků bude 4 nebo 5, texty dodám.</td>
-          <td class="t"><span class="badge badge--uprava">Úprava</span></td>
+          <td class="task-text">Zobrazení realizací: velké reprezentativní fotky, rok bez závorky (potvrzeno jako správné).</td>
+          <td class="t"><span class="badge badge--zachovat">Zachovat</span></td>
         </tr>
         <tr class="task-row" data-id="17" data-type="Úprava">
           <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
           <td class="c">17</td>
-          <td class="task-text">Služby na homepage: jen hlavní služby, zbytek pod odkazem Všechny služby.</td>
+          <td class="task-text">Další projekt: na konci detailu realizace umístit velký, výrazný blok „Další projekt“.</td>
           <td class="t"><span class="badge badge--uprava">Úprava</span></td>
         </tr>
-        <tr class="task-row" data-id="18" data-type="Varianta">
+        <tr class="task-row" data-id="18" data-type="Zachovat">
           <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
           <td class="c">18</td>
-          <td class="task-text">Služby a Týmy nesmí být dva stejné bloky pod sebou. Dvě možnosti: prohodit strany, nebo mezi ně dát Napsali o nás.</td>
-          <td class="t"><span class="badge badge--varianta">Varianta</span></td>
+          <td class="task-text">Co říkají klienti: blok referencí v realizacích ponechat podle Klusákovy verze.</td>
+          <td class="t"><span class="badge badge--zachovat">Zachovat</span></td>
         </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 4. Služby -->
+  <h2 id="sec-4">4. Služby <span class="section-counter" data-sec="4"></span></h2>
+  <div class="table-card">
+    <table>
+      <thead>
+        <tr><th style="width: 44px; text-align: center;">✓</th><th style="width: 44px; text-align: center;">č.</th><th>Co udělat</th><th style="width: 130px; text-align: right;">Typ</th></tr>
+      </thead>
+      <tbody>
         <tr class="task-row" data-id="19" data-type="Úprava">
           <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
           <td class="c">19</td>
-          <td class="task-text">Časté otázky: zarovnat podle mřížky s fotkou, jak jste navrhoval. Velikost písma nechat.</td>
+          <td class="task-text">Přehled služeb: čtvercové zobrazení jednotlivých služeb v mřížce (shodně jako u realizací).</td>
+          <td class="t"><span class="badge badge--uprava">Úprava</span></td>
+        </tr>
+        <tr class="task-row" data-id="20" data-type="Úprava">
+          <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
+          <td class="c">20</td>
+          <td class="task-text">Detail služby: pojmout jako rozsáhlejší příběh/postup zakázky (od schůzky po realizaci fit-outu). Roztažený sloupec s textem (Lorem ipsum) a 2–4 fotkami.</td>
+          <td class="t"><span class="badge badge--uprava">Úprava</span></td>
+        </tr>
+        <tr class="task-row" data-id="21" data-type="Konzultace">
+          <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
+          <td class="c">21</td>
+          <td class="task-text">Sticky sloupec: prozkoumat možnost fixního levého sloupce a scrollujícího pravého obsahu (jako v Jobs v Kariéře).</td>
+          <td class="t"><span class="badge badge--nazor">Konzultace</span></td>
+        </tr>
+        <tr class="task-row" data-id="22" data-type="Úprava">
+          <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
+          <td class="c">22</td>
+          <td class="task-text">Úvodní text služby: doplnit drobný úvodní text k detailu služby (podobně jako u Týmu).</td>
+          <td class="t"><span class="badge badge--uprava">Úprava</span></td>
+        </tr>
+        <tr class="task-row" data-id="23" data-type="Úprava">
+          <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
+          <td class="c">23</td>
+          <td class="task-text">Vše pod jednou smlouvou: zachovat v jednom řádku, mezery a spacing držet podle Jakubovy předlohy.</td>
+          <td class="t"><span class="badge badge--uprava">Úprava</span></td>
+        </tr>
+        <tr class="task-row" data-id="24" data-type="Úprava">
+          <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
+          <td class="c">24</td>
+          <td class="task-text">Plovoucí fotky (iPhone efekt): nastavit efekt plovoucích fotek při scrollu plošně i do sekce Služeb.</td>
           <td class="t"><span class="badge badge--uprava">Úprava</span></td>
         </tr>
       </tbody>
     </table>
   </div>
 
-  <!-- C. Realizace -->
-  <h2 id="sec-c">C. Realizace – výpis a detail <span class="section-counter" data-sec="C"></span></h2>
+  <!-- 5. O nás -->
+  <h2 id="sec-5">5. O nás <span class="section-counter" data-sec="5"></span></h2>
   <div class="table-card">
     <table>
       <thead>
-        <tr><th style="width: 44px; text-align: center;">✓</th><th style="width: 44px; text-align: center;">č.</th><th>Co udělat</th><th style="width: 120px; text-align: right;">Typ</th></tr>
+        <tr><th style="width: 44px; text-align: center;">✓</th><th style="width: 44px; text-align: center;">č.</th><th>Co udělat</th><th style="width: 130px; text-align: right;">Typ</th></tr>
       </thead>
       <tbody>
-        <tr class="task-row" data-id="20" data-type="Úprava">
-          <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
-          <td class="c">20</td>
-          <td class="task-text">Filtr na výpisu realizací je vidět pořád (aspoň hlavní kategorie), ne schovaný za lupou.</td>
-          <td class="t"><span class="badge badge--uprava">Úprava</span></td>
-        </tr>
-        <tr class="task-row" data-id="21" data-type="Úprava">
-          <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
-          <td class="c">21</td>
-          <td class="task-text">Štítky u fotek: když vyberu např. kuchyň, zobrazí se / zvýrazní se kuchyně.</td>
-          <td class="t"><span class="badge badge--uprava">Úprava</span></td>
-        </tr>
-        <tr class="task-row" data-id="22" data-type="Váš názor">
-          <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
-          <td class="c">22</td>
-          <td class="task-text">Podoba filtru: váš nápad se záložkami jako na Feedu + rozbalovací filtry + vpravo „rozšířené filtry“. Pozor, aby menu nebylo miniaturní.</td>
-          <td class="t"><span class="badge badge--nazor">Váš názor</span></td>
-        </tr>
-        <tr class="task-row" data-id="23" data-type="Úprava">
-          <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
-          <td class="c">23</td>
-          <td class="task-text">Detail realizace: posuvný panel zůstává. Nově tlačítko Chci podobný projekt a služby použité na projektu. Kategorie jde libovolně přidat i skrýt (multiselect v adminu už je).</td>
-          <td class="t"><span class="badge badge--uprava">Úprava</span></td>
-        </tr>
-        <tr class="task-row" data-id="24" data-type="Varianta">
-          <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
-          <td class="c">24</td>
-          <td class="task-text">Údaje projektu (rok, klient, lokalita, obor): zkusit malé písmo (jako teď) a štítek verzálkami (jako v levém sloupci).</td>
-          <td class="t"><span class="badge badge--varianta">Varianta</span></td>
-        </tr>
         <tr class="task-row" data-id="25" data-type="Úprava">
           <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
           <td class="c">25</td>
-          <td class="task-text">Fotky na výšku: pravidlo, aby portrétní fotka nebyla přes celou výšku obrazovky a nevznikla prázdná místa. Doladíme na konkrétních projektech.</td>
+          <td class="task-text">Lidé / Tým: rozvržení podle Jakubovy verze - u každého člověka název projektu a stručný popis. Fotka přechází se stínem.</td>
           <td class="t"><span class="badge badge--uprava">Úprava</span></td>
         </tr>
         <tr class="task-row" data-id="26" data-type="Úprava">
           <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
           <td class="c">26</td>
-          <td class="task-text">Prezentace projektu: posuvník před / po.</td>
+          <td class="task-text">Scroll u většího počtu lidí: při větším počtu zaměstnanců (nad 8) zajistit plynulý scroll pravého panelu s obsahem dolů.</td>
           <td class="t"><span class="badge badge--uprava">Úprava</span></td>
         </tr>
-        <tr class="task-row" data-id="27" data-type="Později">
+        <tr class="task-row" data-id="27" data-type="Úprava">
           <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
           <td class="c">27</td>
-          <td class="task-text">Prezentace projektu: animace, karusely, video. Pošlu ukázkové video na test.</td>
-          <td class="t"><span class="badge badge--pozdeji">Později</span></td>
+          <td class="task-text">Ocenění a nominace: dynamické listování - při najetí na nominaci (např. Architekt roku 2023) se v levém panelu mění náhledový obrázek/projekt dané nominace.</td>
+          <td class="t"><span class="badge badge--uprava">Úprava</span></td>
         </tr>
         <tr class="task-row" data-id="28" data-type="Úprava">
           <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
           <td class="c">28</td>
-          <td class="task-text">Další realizace na konci detailu: ne čtverce, ale na výšku jako ve vaší verzi (menší). Nesmí to vypadat stejně jako blok článků pod tím.</td>
+          <td class="task-text">Označení výhry a nominace: přímo v textu položky jasně odlišit vítězství od nominace.</td>
           <td class="t"><span class="badge badge--uprava">Úprava</span></td>
+        </tr>
+        <tr class="task-row" data-id="29" data-type="Zachovat">
+          <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
+          <td class="c">29</td>
+          <td class="task-text">Výsledky soutěží: zarovnání výsledků soutěží sjednotit podle Klusákovy verze.</td>
+          <td class="t"><span class="badge badge--zachovat">Zachovat</span></td>
+        </tr>
+        <tr class="task-row" data-id="30" data-type="Dodá Jakub">
+          <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
+          <td class="c">30</td>
+          <td class="task-text">Na čem stavíme: Jakub dodá upřesňující grafický návrh pro sekci hodnot.</td>
+          <td class="t"><span class="badge badge--doda">Dodá Jakub</span></td>
         </tr>
       </tbody>
     </table>
   </div>
 
-  <!-- D. Služby -->
-  <h2 id="sec-d">D. Služby – výpis a detail <span class="section-counter" data-sec="D"></span></h2>
+  <!-- 6. Kariéra -->
+  <h2 id="sec-6">6. Kariéra <span class="section-counter" data-sec="6"></span></h2>
   <div class="table-card">
     <table>
       <thead>
-        <tr><th style="width: 44px; text-align: center;">✓</th><th style="width: 44px; text-align: center;">č.</th><th>Co udělat</th><th style="width: 120px; text-align: right;">Typ</th></tr>
+        <tr><th style="width: 44px; text-align: center;">✓</th><th style="width: 44px; text-align: center;">č.</th><th>Co udělat</th><th style="width: 130px; text-align: right;">Typ</th></tr>
       </thead>
       <tbody>
-        <tr class="task-row" data-id="29" data-type="Varianta">
-          <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
-          <td class="c">29</td>
-          <td class="task-text">Výpis služeb: 3 varianty v laboratoři (řádky s náhledem u kurzoru / karty s fotkami / řádky se stálou fotkou). Zatím se nejvíc líbí karty s fotkami.</td>
-          <td class="t"><span class="badge badge--varianta">Varianta</span></td>
-        </tr>
-        <tr class="task-row" data-id="30" data-type="Úprava">
-          <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
-          <td class="c">30</td>
-          <td class="task-text">Konec stránky Služby: Vše pod jednou smlouvou → Jak pracujeme → Články.</td>
-          <td class="t"><span class="badge badge--uprava">Úprava</span></td>
-        </tr>
         <tr class="task-row" data-id="31" data-type="Úprava">
           <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
           <td class="c">31</td>
-          <td class="task-text">Vše pod jednou smlouvou: sjednotit červená čísla a linku nahoře s ostatními bloky.</td>
+          <td class="task-text">Na čem stavíme / hodnoty: klasicky roztažené rozvržení podle Klusákovy verze. Nadbytečný nápis „Život v U1“ nad tím zrušit.</td>
           <td class="t"><span class="badge badge--uprava">Úprava</span></td>
         </tr>
-        <tr class="task-row" data-id="32" data-type="Úprava">
+        <tr class="task-row" data-id="32" data-type="Zachovat">
           <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
           <td class="c">32</td>
-          <td class="task-text">Detail služby: u dlouhého textu vzniká vlevo pod „Co zahrnuje“ velké prázdné místo. Použít model z detailu realizace, klidně s prohozenou levou a pravou stranou.</td>
-          <td class="t"><span class="badge badge--uprava">Úprava</span></td>
+          <td class="task-text">Loading animace: plynulé řešení z Klusákovy verze schváleno.</td>
+          <td class="t"><span class="badge badge--zachovat">Zachovat</span></td>
         </tr>
-        <tr class="task-row" data-id="33" data-type="Úprava">
+        <tr class="task-row" data-id="33" data-type="Zachovat">
           <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
           <td class="c">33</td>
-          <td class="task-text">Detail služby: ostatní služby vlevo jako kategorie, které jde přidat i ubrat (stejně jako u článků). Tlačítko Poptat službu. Dole realizace s touto službou.</td>
-          <td class="t"><span class="badge badge--uprava">Úprava</span></td>
+          <td class="task-text">Benefity a požadavky: rozklikávání do dvou záložek (tabů) ponechat.</td>
+          <td class="t"><span class="badge badge--zachovat">Zachovat</span></td>
         </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <!-- E. O nás -->
-  <h2 id="sec-e">E. O nás <span class="section-counter" data-sec="E"></span></h2>
-  <div class="table-card">
-    <table>
-      <thead>
-        <tr><th style="width: 44px; text-align: center;">✓</th><th style="width: 44px; text-align: center;">č.</th><th>Co udělat</th><th style="width: 120px; text-align: right;">Typ</th></tr>
-      </thead>
-      <tbody>
         <tr class="task-row" data-id="34" data-type="Úprava">
           <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
           <td class="c">34</td>
-          <td class="task-text">Úvod: text, nová fotka, kratší příběh. Tři údaje možná zmizí (budou jen na homepage).</td>
+          <td class="task-text">Recenze zaměstnanců: k citaci zaměstnance doplnit fotku projektu, na kterém pracoval (např. Direct pojišťovna), s proklikem na realizaci.</td>
           <td class="t"><span class="badge badge--uprava">Úprava</span></td>
         </tr>
         <tr class="task-row" data-id="35" data-type="Úprava">
           <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
           <td class="c">35</td>
-          <td class="task-text">Reference od zaměstnanců (ne od klientů). Např. „Franta, designér: díky U1 jsem se dostal k projektům jako Direct pojišťovna.“</td>
+          <td class="task-text">Sjednocení spacingu: sjednotit vertikální odsazení mezi odstavci a kroky výběru (01 Napíšeme si...) na jednotných 0,5x podle Klusákova návrhu.</td>
           <td class="t"><span class="badge badge--uprava">Úprava</span></td>
-        </tr>
-        <tr class="task-row" data-id="36" data-type="Varianta">
-          <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
-          <td class="c">36</td>
-          <td class="task-text">Naše hodnoty s překlikávaným textem (z vaší verze, teď na Kariéře) zkusit i na O nás.</td>
-          <td class="t"><span class="badge badge--varianta">Varianta</span></td>
-        </tr>
-        <tr class="task-row" data-id="37" data-type="Úprava">
-          <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
-          <td class="c">37</td>
-          <td class="task-text">Lidé: zatím na O nás (možná se přesunou do Kontaktu). Bude 25–30 lidí, fotky dodám.</td>
-          <td class="t"><span class="badge badge--uprava">Úprava</span></td>
-        </tr>
-        <tr class="task-row" data-id="38" data-type="Úprava">
-          <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
-          <td class="c">38</td>
-          <td class="task-text">Fotka člověka při najetí myší nesmí zakrýt text. Fotka na pevném místě, ne pod kurzorem. Např. posunout Obchod / pozice na 4.–5. sloupec mřížky. Stejný problém je u Služeb.</td>
-          <td class="t"><span class="badge badge--uprava">Úprava</span></td>
-        </tr>
-        <tr class="task-row" data-id="39" data-type="Váš názor">
-          <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
-          <td class="c">39</td>
-          <td class="task-text">Ocenění a nominace: teď moc slabé. Navrhněte výraznější řešení.</td>
-          <td class="t"><span class="badge badge--nazor">Váš názor</span></td>
-        </tr>
-        <tr class="task-row" data-id="40" data-type="Úprava">
-          <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
-          <td class="c">40</td>
-          <td class="task-text">Pro koho pracujeme: jen loga, bez vypsaných názvů firem.</td>
-          <td class="t"><span class="badge badge--uprava">Úprava</span></td>
-        </tr>
-        <tr class="task-row" data-id="41" data-type="Váš názor">
-          <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
-          <td class="c">41</td>
-          <td class="task-text">Týmy a Lidé jsou pod sebou dva stejné bloky. Rozbít to (vložit něco mezi nebo jiné rozložení).</td>
-          <td class="t"><span class="badge badge--nazor">Váš názor</span></td>
         </tr>
       </tbody>
     </table>
   </div>
 
-  <!-- F. Kariéra -->
-  <h2 id="sec-f">F. Kariéra a pozice <span class="section-counter" data-sec="F"></span></h2>
+  <!-- 7. Feed a články -->
+  <h2 id="sec-7">7. Feed a články <span class="section-counter" data-sec="7"></span></h2>
   <div class="table-card">
     <table>
       <thead>
-        <tr><th style="width: 44px; text-align: center;">✓</th><th style="width: 44px; text-align: center;">č.</th><th>Co udělat</th><th style="width: 120px; text-align: right;">Typ</th></tr>
+        <tr><th style="width: 44px; text-align: center;">✓</th><th style="width: 44px; text-align: center;">č.</th><th>Co udělat</th><th style="width: 130px; text-align: right;">Typ</th></tr>
       </thead>
       <tbody>
+        <tr class="task-row" data-id="36" data-type="Zachovat">
+          <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
+          <td class="c">36</td>
+          <td class="task-text">Záložky: přepínání Články / Sítě / Média ponechat funkční podle současné verze.</td>
+          <td class="t"><span class="badge badge--zachovat">Zachovat</span></td>
+        </tr>
+        <tr class="task-row" data-id="37" data-type="Dodá Jakub">
+          <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
+          <td class="c">37</td>
+          <td class="task-text">Hlavní fotka feedu: šedé pozadí nahradit fotografií (Jakub dodá fotku nového článku).</td>
+          <td class="t"><span class="badge badge--doda">Dodá Jakub</span></td>
+        </tr>
+        <tr class="task-row" data-id="38" data-type="Zachovat">
+          <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
+          <td class="c">38</td>
+          <td class="task-text">Délka čtení: prvek „5 minut čtení“ u článků zachovat.</td>
+          <td class="t"><span class="badge badge--zachovat">Zachovat</span></td>
+        </tr>
+        <tr class="task-row" data-id="39" data-type="Úprava">
+          <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
+          <td class="c">39</td>
+          <td class="task-text">Detail článku: text zúžit na optimální čitelnou šířku řádku, fotky zobrazovat velkoryse na celou šířku (fullscreen).</td>
+          <td class="t"><span class="badge badge--uprava">Úprava</span></td>
+        </tr>
+        <tr class="task-row" data-id="40" data-type="Úprava">
+          <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
+          <td class="c">40</td>
+          <td class="task-text">Obsah článku (TOC): umístit k perexu nebo do bočního sloupce tak, aby nepřekážel při čtení.</td>
+          <td class="t"><span class="badge badge--uprava">Úprava</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 8. Kontakty a Patička (Footer) -->
+  <h2 id="sec-8">8. Kontakty a Patička (Footer) <span class="section-counter" data-sec="8"></span></h2>
+  <div class="table-card">
+    <table>
+      <thead>
+        <tr><th style="width: 44px; text-align: center;">✓</th><th style="width: 44px; text-align: center;">č.</th><th>Co udělat</th><th style="width: 130px; text-align: right;">Typ</th></tr>
+      </thead>
+      <tbody>
+        <tr class="task-row" data-id="41" data-type="Úprava">
+          <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
+          <td class="c">41</td>
+          <td class="task-text">Pobočky: zrušit sekci / fotku Prahy; ponechat pouze jednu velkou reprezentativní fotografii centrály v Brně.</td>
+          <td class="t"><span class="badge badge--uprava">Úprava</span></td>
+        </tr>
         <tr class="task-row" data-id="42" data-type="Úprava">
           <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
           <td class="c">42</td>
-          <td class="task-text">Seznam pozic přímo na stránce Kariéra, ne na samostatné podstránce (stejně jako Služby a Projekty).</td>
+          <td class="task-text">Patička (barva a přechod): sjednotit do celočerné barvy a vyřešit plynulý přechod z obsahu stránky do patičky bez tvrdé hrany.</td>
           <td class="t"><span class="badge badge--uprava">Úprava</span></td>
         </tr>
         <tr class="task-row" data-id="43" data-type="Úprava">
           <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
           <td class="c">43</td>
-          <td class="task-text">Opravit chybu: zbytečná mezera vlevo a překrývání u pozic.</td>
+          <td class="task-text">Patička (proporce): zmenšit nepřirozeně obří fotku paní v patičce a upravit velikost písma tak, aby byla harmonická.</td>
           <td class="t"><span class="badge badge--uprava">Úprava</span></td>
-        </tr>
-        <tr class="task-row" data-id="44" data-type="Úprava">
-          <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
-          <td class="c">44</td>
-          <td class="task-text">Zarovnání textu a benefitů skáče – srovnat. Benefity budou 4 (ne 3), dodá HR.</td>
-          <td class="t"><span class="badge badge--uprava">Úprava</span></td>
-        </tr>
-        <tr class="task-row" data-id="45a" data-type="Úprava">
-          <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
-          <td class="c">45a</td>
-          <td class="task-text">Na Kariéře zůstává blok „jak to probíhá“ – tři kroky 1, 2, 3. Texty pozic píšou vedoucí jednotlivých týmů, dodám je.</td>
-          <td class="t"><span class="badge badge--uprava">Úprava</span></td>
-        </tr>
-        <tr class="task-row" data-id="45" data-type="Úprava">
-          <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
-          <td class="c">45</td>
-          <td class="task-text">Recenze zaměstnanců i na Kariéře a u pozice (jako na O nás).</td>
-          <td class="t"><span class="badge badge--uprava">Úprava</span></td>
-        </tr>
-        <tr class="task-row" data-id="46" data-type="Varianta">
-          <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
-          <td class="c">46</td>
-          <td class="task-text">Galerie ze života firmy (vaše slideshow) na O nás i Kariéře, aby nebyly všude jen komentáře zaměstnanců.</td>
-          <td class="t"><span class="badge badge--varianta">Varianta</span></td>
         </tr>
       </tbody>
     </table>
   </div>
 
-  <!-- G. Feed -->
-  <h2 id="sec-g">G. Feed a články <span class="section-counter" data-sec="G"></span></h2>
-  <div class="table-card">
-    <table>
-      <thead>
-        <tr><th style="width: 44px; text-align: center;">✓</th><th style="width: 44px; text-align: center;">č.</th><th>Co udělat</th><th style="width: 120px; text-align: right;">Typ</th></tr>
-      </thead>
-      <tbody>
-        <tr class="task-row" data-id="47" data-type="Úprava">
-          <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
-          <td class="c">47</td>
-          <td class="task-text">Filtr Feedu jako ve vaší verzi (články / sítě / média, klikací). Jen doladit písma a velikosti. Feed může mít jinou hlavičku než ostatní stránky.</td>
-          <td class="t"><span class="badge badge--uprava">Úprava</span></td>
-        </tr>
-        <tr class="task-row" data-id="48" data-type="Úprava">
-          <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
-          <td class="c">48</td>
-          <td class="task-text">Feed: nekonečný scroll, ne stránkování.</td>
-          <td class="t"><span class="badge badge--uprava">Úprava</span></td>
-        </tr>
-        <tr class="task-row" data-id="49" data-type="Úprava">
-          <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
-          <td class="c">49</td>
-          <td class="task-text">LinkedIn a Instagram se přestaly načítat (chybí fotky, Instagram vůbec). Vyřešit obnovu tokenu – tlačítko nebo připomínka.</td>
-          <td class="t"><span class="badge badge--uprava">Úprava</span></td>
-        </tr>
-        <tr class="task-row" data-id="50" data-type="Úprava">
-          <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
-          <td class="c">50</td>
-          <td class="task-text">Import starých článků: dodám export (tabulka nebo JSON), vy je hromadně naimportujete.</td>
-          <td class="t"><span class="badge badge--uprava">Úprava</span></td>
-        </tr>
-        <tr class="task-row" data-id="51" data-type="Úprava">
-          <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
-          <td class="c">51</td>
-          <td class="task-text">Detail článku: teď je text na střed, má být vlevo. U dlouhého článku nesmí vzniknout prázdné místo vlevo. Vhodné: obsah článku v postranním panelu, který jede se stránkou (váš návrh). Druhá možnost: model z detailu realizace.</td>
-          <td class="t"><span class="badge badge--uprava">Úprava</span></td>
-        </tr>
-        <tr class="task-row" data-id="52" data-type="Váš názor">
-          <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
-          <td class="c">52</td>
-          <td class="task-text">Hlavička článku – zatím nezadávám, doladíme spolu.</td>
-          <td class="t"><span class="badge badge--nazor">Váš názor</span></td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <!-- H. Kontakt & patička -->
-  <h2 id="sec-h">H. Kontakt, pás před patičkou, patička <span class="section-counter" data-sec="H"></span></h2>
-  <p style="font-size: 14px; color: var(--muted); margin: -4px 0 12px;"><b>Bez úprav:</b> Kontakt zůstává, jak je. Patička je v pořádku včetně servisních stránek (ochrana údajů, cookies, obchodní podmínky) – že v ní chybělo logo, byla jen chyba laboratoře u varianty menu 44, ne webu.</p>
-  <div class="table-card">
-    <table>
-      <thead>
-        <tr><th style="width: 44px; text-align: center;">✓</th><th style="width: 44px; text-align: center;">č.</th><th>Co udělat</th><th style="width: 120px; text-align: right;">Typ</th></tr>
-      </thead>
-      <tbody>
-        <tr class="task-row" data-id="54" data-type="Úprava">
-          <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
-          <td class="c">54</td>
-          <td class="task-text">Pás s výzvou před patičkou: na každé stránce vlastní text a fotka (člověk nebo něco k tématu). V administraci jako upravitelná sekce u každé stránky.</td>
-          <td class="t"><span class="badge badge--uprava">Úprava</span></td>
-        </tr>
-        <tr class="task-row" data-id="55" data-type="Úprava">
-          <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
-          <td class="c">55</td>
-          <td class="task-text">Vrátit růžová tlačítka a akcenty. V mém návrhu se hodně ztratily a právě ony spolu s animacemi dávají webu ten punc luxusu.</td>
-          <td class="t"><span class="badge badge--uprava">Úprava</span></td>
-        </tr>
-        <tr class="task-row" data-id="56" data-type="Váš názor">
-          <td class="cb-cell"><span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td>
-          <td class="c">56</td>
-          <td class="task-text">Písmo: raději Manrope, klidně zkuste Inter (působí o trochu luxusněji).</td>
-          <td class="t"><span class="badge badge--nazor">Váš názor</span></td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <!-- Co dodám já -->
-  <h2>Co dodám já (Jakub)</h2>
-  <ul class="checkable-list" id="jakub-list">
-    <li data-id="d1">
-      <span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
-      <span>Tento souhrn – dnes.</span>
-    </li>
-    <li data-id="d2">
-      <span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
-      <span>Export starých článků (tabulka nebo JSON) – k bodu 50.</span>
-    </li>
-    <li data-id="d3">
-      <span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
-      <span>Fotky lidí, 25–30 – k bodu 37.</span>
-    </li>
-    <li data-id="d4">
-      <span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
-      <span>Konečný počet hlavních služeb (2–4) – k bodu 11.</span>
-    </li>
-    <li data-id="d5">
-      <span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
-      <span>Finální texty: Jak pracujeme (4 nebo 5 kroků), benefity od HR – k bodům 16 a 44.</span>
-    </li>
-    <li data-id="d6">
-      <span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
-      <span>Ukázkové video – k bodu 27.</span>
-    </li>
-  </ul>
-
-  <!-- Termíny -->
-  <h2>Termíny</h2>
+  <!-- Podklady od Jakuba k odeslání -->
+  <h2 id="sec-podklady">Podklady od Jakuba k odeslání <span class="section-counter" data-sec="podklady"></span></h2>
   <div class="info-card">
-    <ul>
-      <li><b>Po 9. 11.</b> – pošlete první verzi s úpravami.</li>
-      <li><b>Do 12. 11.</b> – projdu ji, pošlu souhrn připomínek a vy uděláte finální verzi.</li>
+    <p style="margin-top:0; font-weight:700; color:var(--muted); font-size:13px; text-transform:uppercase; letter-spacing:0.04em;">Čeká se na dodání materiálů:</p>
+    <ul class="checkable-list" id="jakub-list">
+      <li data-id="d1">
+        <span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+        <div><b>Aktualizované Kirby podklady</b> – nejnovější export se všemi texty.</div>
+      </li>
+      <li data-id="d2">
+        <span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+        <div><b>Obrazové dvojice realizací</b> pro posuvník Před a po.</div>
+      </li>
+      <li data-id="d3">
+        <span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+        <div><b>Grafický návrh čísel</b> u Více o nás a sekce Na čem stavíme.</div>
+      </li>
+      <li data-id="d4">
+        <span class="custom-checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+        <div><b>Výběr fotografie</b> pro hlavní vizuál feedu.</div>
+      </li>
     </ul>
   </div>
 
-  <!-- Otevřené otázky -->
-  <h2>Otevřené – rozhodneme spolu</h2>
-  <div class="info-card">
-    <ul>
-      <li>Počet hlavních služeb (bod 11).</li>
-      <li>Lidé na O nás, nebo v Kontaktu (bod 37).</li>
-      <li>Varianta výpisu služeb (bod 29).</li>
-      <li>Tvar tlačítek (bod 5).</li>
-      <li>Tlačítko Prohlédnout realizace (bod 9).</li>
-      <li>Podoba filtru realizací (bod 22).</li>
-      <li>Písmo Manrope / Inter (bod 56).</li>
-    </ul>
-  </div>
-
+  <!-- Floating Quick Actions -->
   <div class="quick-actions">
-    <button class="floating-btn" id="btn-save" title="Uložit aktuální stav na server">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path><polyline points="17 21 17 13 7 13 7 21"></polyline><polyline points="7 3 7 8 15 8"></polyline></svg>
-      Uložit stav
+    <button class="floating-btn" id="btn-save" title="Okamžitě synchronizovat stav">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path><polyline points="17 21 17 13 7 13 7 21"></polyline><polyline points="7 3 7 8 15 8"></polyline></svg>
+      Uložit
     </button>
+    <a href="#" class="floating-btn" title="Zpět nahoru">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"></polyline></svg>
+      Nahoru
+    </a>
   </div>
 
   <script>
     (function() {
-      const STORAGE_KEY = 'u1_zadani_state_v1';
+      const STORAGE_KEY = 'u1_zadani_v6_checked';
       let checkedItems = {};
       let activeFilter = 'all';
       let activeType = null;
       let searchQuery = '';
 
-      // Determine correct API and JSON URLs regardless of subfolder or clean URL
       const pathname = window.location.pathname;
       const basePath = pathname.replace(/\/zadani(\.html)?\/?$/, '');
       const apiUrl = basePath + '/zadani/state';
@@ -1172,7 +1129,6 @@
       // Save to localStorage immediately and notify server
       let saveTimeout = null;
       function saveState() {
-        // ALWAYS save to localStorage synchronously!
         try {
           localStorage.setItem(STORAGE_KEY, JSON.stringify(checkedItems));
         } catch(e) {
@@ -1222,7 +1178,6 @@
       // Click listener on all items
       allCheckables.forEach(item => {
         item.addEventListener('click', (e) => {
-          // If clicking a link or selecting text, ignore
           if (e.target.tagName === 'A') return;
           toggleItem(item);
         });
@@ -1232,7 +1187,7 @@
       function updateStats() {
         const doneRows = rows.filter(r => r.classList.contains('is-done')).length;
         const total = rows.length;
-        const pct = Math.round((doneRows / total) * 100);
+        const pct = Math.round((doneRows / total) * 100) || 0;
 
         doneCountEl.textContent = doneRows;
         donePctEl.textContent = pct + ' %';
@@ -1242,8 +1197,8 @@
         countDoneEl.textContent = doneRows;
 
         // Section counters
-        const secLetters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
-        secLetters.forEach(sec => {
+        const secIds = ['1', '2', '3', '4', '5', '6', '7', '8'];
+        secIds.forEach(sec => {
           const el = document.querySelector(`.section-counter[data-sec="${sec}"]`);
           if (el) {
             const tableCard = el.closest('h2').nextElementSibling;
@@ -1252,6 +1207,12 @@
             el.textContent = `${secDone} / ${secRows.length} hotovo`;
           }
         });
+
+        const podkladyEl = document.querySelector('.section-counter[data-sec="podklady"]');
+        if (podkladyEl) {
+          const doneList = listItems.filter(li => li.classList.contains('is-done')).length;
+          podkladyEl.textContent = `${doneList} / ${listItems.length} dodáno`;
+        }
       }
 
       // Filter rows
@@ -1319,4 +1280,3 @@
   </script>
 </body>
 </html>
-

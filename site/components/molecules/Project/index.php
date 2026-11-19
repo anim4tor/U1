@@ -9,7 +9,7 @@ $meta = array_filter([
 	<a href="<?= $project->url() ?>" class="grid gap__1 relative">	
 		<div class="relative">
 			<?php if ($cover = $project->cover()->toFile()) : ?>
-				<div class="item__figure grid img__radius"><?= snippet('atoms/Image', ['img' => $cover, 'reveal' => true, 'css' => 'aspect__3/4', 'node' => 'data-reveal-image']) ?></div>
+				<div class="item__figure grid img__radius"><?= snippet('atoms/Image', ['img' => $cover, 'parallax' => 1,'reveal' => true, 'css' => 'aspect__3/4', 'node' => 'data-reveal-image']) ?></div>
 			<?php endif ?>
 		</div>
 		<div class="item__meta relative grid gap__05">

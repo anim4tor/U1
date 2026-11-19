@@ -144,10 +144,17 @@ button,
 button {
 	@include animation;
 	transition-duration: 300ms;
+	transition-property: background-color, color, border-color, transform, filter;
 
 	&[theme="dark"] {
 		--background: var(--color-dark);
 		--col: var(--color-invert);
+	}
+
+	&[theme="light"] {
+		--background: var(--color-light, #edece7);
+		--col: var(--color-text, #151314);
+		border-color: transparent;
 	}
 
 	&[theme="invert"] {
@@ -167,6 +174,11 @@ button {
 		--col: var(--color-invert);
 	}
 
+	&[theme="transparent"] {
+		--background: transparent;
+		--col: var(--color-invert);
+	}
+
 	&[theme="invert-ghost"] {
 		--background: transparent;
 		--col: var(--color-invert);
@@ -175,41 +187,21 @@ button {
 	}
 }
 
-.button:hover,
-button:hover,
-[href]:hover .button {
-	&[hover="dark"] {
-		--background: var(--color-dark);
-		--col: var(--color-invert);
-		border-color: transparent;
+.button:not([theme="transparent"]):not([hover="false"]):not([hover="none"]):hover,
+button:not([theme="transparent"]):not([hover="false"]):not([hover="none"]):hover,
+[href]:hover .button:not([theme="transparent"]):not([hover="false"]):not([hover="none"]) {
+	--background: var(--color-acc);
+	--col: var(--color-invert);
+	background-color: var(--color-acc) !important;
+	color: var(--color-invert) !important;
+	border-color: var(--color-acc) !important;
 
-		svg path {
-			fill: var(--color-acc);
-		}
+	svg path {
+		fill: currentColor;
 	}
 
-	&[hover="invert"] {
-		--background: var(--color-invert);
-		--col: var(--color-dark);
-		border-color: transparent;
-	}
-
-	&[hover="ghost"] {
-		--background: transparent;
-		--col: var(--color-text);
-		@include border;
-	}
-
-	&[hover="acc"] {
-		--background: var(--color-acc);
-		--col: var(--color-invert);
-		border-color: transparent;
-	}
-
-	&[hover="invert-ghost"] {
-		--background: transparent;
-		--col: var(--color-invert);
-		@include border;
+	&[theme="acc"] {
+		filter: brightness(1.12);
 	}
 }
 

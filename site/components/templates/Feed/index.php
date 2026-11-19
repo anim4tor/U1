@@ -1,6 +1,13 @@
+<?php
+$cover = $page->image('feed_hero.webp') 
+    ?? ((isset($page) && $page->cover()->isNotEmpty()) ? $page->cover()->toFile() : null) 
+    ?? site()->images()->filterBy('name', '*=', 'studio')->first() 
+    ?? site()->images()->first();
+?>
 <div class="feed-page" data-tabs="default" theme="invert">
 	<?= snippet('sections/Hero/list', [
-		'theme' => 'light',
+		'theme' => 'dark',
+		'cover' => $cover,
 		'tabs'  => [
 			['id' => 'blog',    'label' => 'Články', 'count' => collection('Blog')->count()],
 			['id' => 'socials', 'label' => 'Sítě',   'count' => collection('Socials')->count()],

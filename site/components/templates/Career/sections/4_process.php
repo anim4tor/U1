@@ -40,8 +40,10 @@ if ($steps->isEmpty()) {
 				?>
 				<li class="grid place__start-stretch gap__1 border__top inner-t__1">
 					<span class="label font__size__small color__acc"><?= esc($stepNum) ?></span>
-					<h3 class="font__size__3" data-reveal-text><?= esc($stepTitle) ?></h3>
-					<p class="font__size__default op__7" data-reveal-text="lines"><?= esc($stepText) ?></p>
+					<div class="grid gap__05">
+						<h3 class="font__size__3" data-reveal-text><?= esc($stepTitle) ?></h3>
+						<p class="font__size__default op__7" data-reveal-text="lines"><?= esc($stepText) ?></p>
+					</div>
 				</li>
 			<?php endforeach ?>
 		</ol>

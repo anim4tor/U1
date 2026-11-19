@@ -3,15 +3,15 @@ class Carousel {
         if (!el) return;
 
         this.carousel = el;
-        
+
         this.DOM = {
             navNext: Array.from(this.carousel.querySelectorAll('[data-carousel-next]')),
             navPrev: Array.from(this.carousel.querySelectorAll('[data-carousel-prev]')),
             // NOVÝ ELEMENT: Detektor dragování a klikání
             scrollArea: this.carousel.querySelector('[data-carousel-scroll]'),
             panes: this.carousel.querySelector('[data-carousel-slides]'),
-            items: this.carousel.querySelector('[data-carousel-slides]') 
-                ? Array.from(this.carousel.querySelector('[data-carousel-slides]').querySelectorAll('[data-slide]')) 
+            items: this.carousel.querySelector('[data-carousel-slides]')
+                ? Array.from(this.carousel.querySelector('[data-carousel-slides]').querySelectorAll('[data-slide]'))
                 : [],
             tabs: Array.from(this.carousel.querySelectorAll('[data-carousel-tab]'))
         };
@@ -22,16 +22,16 @@ class Carousel {
         this.active = 0;
         this.perPage = this.carousel.getAttribute('data-per-page') ? parseInt(this.carousel.getAttribute('data-per-page'), 10) : 1;
         this.dynamic = this.carousel.hasAttribute('dynamic');
-        
+
         // Rozměry a mezery
-        this.itemSizeWithGap = 0; 
+        this.itemSizeWithGap = 0;
         this.maxScroll = 0;
-        this.currentX = 0; 
+        this.currentX = 0;
 
         // Drag & Touch vnitřní stav
         this.isPressed = false;
         this.isDragged = false;
-        
+
         this.touch = {
             start: 0,
             dragStartOffset: 0,
@@ -43,7 +43,7 @@ class Carousel {
 
         // Konfigurace citlivosti
         this.config = {
-            flickMinSpeed: 0.6, 
+            flickMinSpeed: 0.6,
             mediumSwipeRatio: 0.4,
             longSwipeRatio: 1.2,
             slowDragThreshold: 40,
@@ -60,7 +60,7 @@ class Carousel {
         this.initEvents();
         window.requestAnimationFrame(() => this.resize());
         window.addEventListener('load', () => this.resize());
-        this.change(this.active, 0); 
+        this.change(this.active, 0);
     }
 
     resize() {
@@ -68,28 +68,28 @@ class Carousel {
 
         const firstItem = this.DOM.items[0];
         const lastItem = this.DOM.items[this.DOM.items.length - 1];
-        
+
         const computedStyle = window.getComputedStyle(firstItem);
         const parentStyle = window.getComputedStyle(this.DOM.panes);
-        
+
         const itemWidth = firstItem.offsetWidth;
         const marginRight = parseFloat(computedStyle.marginRight) || 0;
         const columnGap = parseFloat(parentStyle.columnGap) || parseFloat(parentStyle.gap) || 0;
         const gap = marginRight || columnGap;
 
         this.itemSizeWithGap = itemWidth + gap;
-        
+
         // Exact total track width relative to panes
         const totalSlidesWidth = (lastItem.offsetLeft + lastItem.offsetWidth) - firstItem.offsetLeft;
         const visibleWidth = this.DOM.scrollArea.clientWidth;
-        
+
         this.maxScroll = Math.max(0, totalSlidesWidth - visibleWidth);
-        
+
         const maxIndex = this.itemSizeWithGap > 0 ? Math.ceil(this.maxScroll / this.itemSizeWithGap) : 0;
         if (this.active > maxIndex) {
             this.active = maxIndex;
         }
-        
+
         this.change(this.active, 0);
     }
 
@@ -114,7 +114,7 @@ class Carousel {
         // POHYB a RELEASE hlídá window (pro bezchybné dokončení pohybu i mimo element)
         window.addEventListener('mousemove', e => this.drag(e));
         window.addEventListener('mouseup', e => this.release(e));
-        
+
         window.addEventListener('touchmove', e => this.drag(e), { passive: false });
         window.addEventListener('touchend', e => this.release(e));
 
@@ -162,9 +162,9 @@ class Carousel {
 
         const maxIndex = this.itemSizeWithGap > 0 ? Math.ceil(this.maxScroll / this.itemSizeWithGap) : 0;
         this.active = Math.max(0, Math.min(index, this.DOM.items.length - 1));
-        
+
         let targetX = this.itemSizeWithGap * this.active;
-        
+
         if (targetX >= this.maxScroll) {
             targetX = this.maxScroll;
         }
@@ -210,9 +210,9 @@ class Carousel {
 
     grab(e) {
         this.isPressed = true;
-        
+
         const clientX = e.touches ? e.touches[0].clientX : e.clientX;
-        
+
         this.touch.start = clientX;
         this.touch.lastX = clientX;
         this.touch.dragStartOffset = this.currentX;
@@ -233,24 +233,24 @@ class Carousel {
             // Třídu is-dragged přidáváme pro oba elementy
             this.DOM.scrollArea.classList.add('is-dragged');
             this.DOM.panes.classList.add('is-dragged');
-            
+
             let newX = this.touch.dragStartOffset - this.touch.distance;
 
             const now = performance.now();
             const elapsed = now - this.touch.lastTime;
-            
+
             if (elapsed > 0) {
                 const deltaX = currentClientX - this.touch.lastX;
-                this.touch.velocity = deltaX / elapsed; 
+                this.touch.velocity = deltaX / elapsed;
             }
-            
+
             this.touch.lastX = currentClientX;
             this.touch.lastTime = now;
 
             if (newX < 0) {
-                newX = newX * 0.25; 
+                newX = newX * 0.25;
             } else if (newX > this.maxScroll) {
-                newX = this.maxScroll + (newX - this.maxScroll) * 0.25; 
+                newX = this.maxScroll + (newX - this.maxScroll) * 0.25;
             }
 
             gsap.set(this.DOM.panes, { x: -newX });
@@ -259,7 +259,7 @@ class Carousel {
 
     release(e) {
         if (!this.isPressed) return;
-        
+
         this.isPressed = false;
 
         const maxIndex = this.itemSizeWithGap > 0 ? Math.ceil(this.maxScroll / this.itemSizeWithGap) : 0;
@@ -267,19 +267,19 @@ class Carousel {
         if (this.isDragged) {
             const speed = Math.abs(this.touch.velocity);
             const distanceAbs = Math.abs(this.touch.distance);
-            
+
             const mediumLimit = this.itemSizeWithGap * this.config.mediumSwipeRatio;
             const longLimit = this.itemSizeWithGap * this.config.longSwipeRatio;
 
             if (speed > this.config.flickMinSpeed) {
                 const direction = Math.sign(this.touch.distance);
-                
+
                 if (distanceAbs > longLimit) {
                     this.active = this.active - (3 * direction);
                 }
                 else if (distanceAbs > mediumLimit) {
                     this.active = this.active - (2 * direction);
-                } 
+                }
                 else {
                     this.active = this.active - (1 * direction);
                 }
@@ -302,7 +302,7 @@ class Carousel {
                     this.bounceBack();
                 }
             }
-            
+
             this.DOM.scrollArea.classList.remove('is-dragged');
 
             // --- FIXED: Keep isDragged active slightly longer to suppress subsequent clicks ---
@@ -312,7 +312,7 @@ class Carousel {
         } else {
             this.isDragged = false;
         }
-        
+
         this.touch.distance = 0;
         this.touch.velocity = 0;
     }

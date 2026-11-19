@@ -226,30 +226,42 @@ Quotetext: Dvacet pět let zkušeností promítnutých do ucelených architekton
 
 ----
 
-Testimonialsheading: Co o práci v U1 říkají kolegové
+Testimonialsheading: Recenze zaměstnanců
 
 ----
 
 Testimonials:
 
 - 
-  testimonialquote: V U1 mě baví volnost a důvěra, kterou dostáváme. Každý projekt je jiný a máme možnost přinášet vlastní řešení od prvního konceptu až po předání hotového interiéru.
-  testimonialauthor: Michal Grof
-  testimonialposition: Architekt & Vedoucí studia
-  testimonialimage:
-    - image-36.webp
-- 
   testimonialquote: Skvělý tým lidí, kteří táhnou za jeden provaz. Projektové řízení u nás není jen o tabulkách, ale o skutečné koordinaci na stavbě a partnerství s klienty i dodavateli.
   testimonialauthor: Jaromír Popek
   testimonialposition: Projektový manažer
   testimonialimage:
     - image-37.webp
+  projectslug: direct-pojistovna
+  projectname: Direct pojišťovna
+  projectimage:
+    - pojistovna-direct-11-dsc00379-1.webp
+- 
+  testimonialquote: V U1 mě baví volnost a důvěra, kterou dostáváme. Každý projekt je jiný a máme možnost přinášet vlastní řešení od prvního konceptu až po předání hotového interiéru.
+  testimonialauthor: Michal Grof
+  testimonialposition: Architekt & Vedoucí studia
+  testimonialimage:
+    - image-36.webp
+  projectslug: plzensky-prazdroj
+  projectname: Plzeňský Prazdroj
+  projectimage:
+    - prazdroj-dsf0723a4.webp
 - 
   testimonialquote: Spojení vlastního designu, výroby a realizace dává práci v U1 obrovský smysl. Vidět, jak se skica promění v reálný pracovní prostor, je ta nejlepší motivace.
   testimonialauthor: David L.
   testimonialposition: CEO & Partner
   testimonialimage:
     - david.webp
+  projectslug: hartmann-rico
+  projectname: Hartmann-Rico
+  projectimage:
+    - hartmann-1-1.webp
 
 ----
 

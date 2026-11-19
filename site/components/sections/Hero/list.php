@@ -16,11 +16,12 @@ if ($hero instanceof \Kirby\Cms\Field) {
     $hasHero = $hero->isNotEmpty();
 }
 
+$coverInput = $cover ?? null;
 $cover = null;
-if (isset($cover) && $cover instanceof \Kirby\Cms\File) {
-    // Already resolved file
-} elseif (isset($cover) && is_string($cover) && isset($page)) {
-    $cover = $page->file($cover);
+if ($coverInput instanceof \Kirby\Cms\File) {
+    $cover = $coverInput;
+} elseif (is_string($coverInput) && isset($page)) {
+    $cover = $page->file($coverInput);
 } elseif (isset($page) && $page->cover()->isNotEmpty()) {
     $cover = $page->cover()->toFile();
 }
@@ -38,15 +39,20 @@ if (isset($count) && $count !== null && $count !== false) {
 }
 ?>
 
-<section <?= $id ? 'id="' . esc($id) . '"' : '' ?> class="intro radius" theme="<?= $theme ?>" style="--in-delay: 500ms">
+<section <?= $id ? 'id="' . esc($id) . '"' : '' ?> class="intro radius" theme="<?= $cover ? 'dark' : $theme ?>" style="--in-delay: 500ms">
+	<?php if ($cover): ?>
+		<div class="intro__cover absolute inset__stretch grid overlay__harder" data-scroll>
+			<?= snippet('atoms/Image', ['img' => $cover, 'parallax' => 2, 'reveal' => false, 'css' => '']) ?>
+		</div>
+	<?php endif ?>
 	
-	<div data-scroll class="z__1 intro__header place__end-stretch grid__6 gap__2 mobile:grid__1 mobile:h__auto inner__4 mobile:inner-t__10 mobile:gap__2 relative">
+	<div data-scroll class="z__1 intro__header place__end-stretch grid__6 gap__2 mobile:grid__1 mobile:h__auto inner__4 mobile:inner-t__10 mobile:gap__2 relative <?= $cover ? 'color__invert' : '' ?>">
 		<div class="span__3 grid gap__1 place__end-start mobile:span__1">
 			<?php if (!empty($tabs)) : ?>
 				<div class="flex align__center gap__1 flex__wrap hero-tabs" data-scroll>
 					<?php foreach ($tabs as $index => $tabItem) : ?>
 						<?php if ($index > 0) : ?>
-							<div class="w__03 h__03 bg__text op__4"></div>
+							<div class="w__03 h__03 bg__invert op__4"></div>
 						<?php endif ?>
 						<h1 data-tab="<?= esc($tabItem['id']) ?>" class="cursor__pointer flex align__start gap__02 font__size__1" data-reveal-text>
 							<span><?= esc($tabItem['label']) ?></span>

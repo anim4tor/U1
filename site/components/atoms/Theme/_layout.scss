@@ -427,6 +427,15 @@ $pos: (
 	grid-template-rows: 0.8fr 1.2fr;
 }
 
+.grid__post {
+	display: grid;
+	grid-template-columns: 0.8fr 1.2fr;
+
+	@include sm-screen {
+		grid-template-columns: 1fr;
+	}
+}
+
 .rows__auto-1 {
 	grid-template-rows: auto 1fr;
 }

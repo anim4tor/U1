@@ -16,6 +16,7 @@ if (is_array($rawActive)) {
 $currentQuery = [];
 if ($ind    = get('industry'))   $currentQuery['industry']   = $ind;
 if ($sp     = get('space'))      $currentQuery['space']      = $sp;
+if ($cl     = get('client'))     $currentQuery['client']     = $cl;
 if ($sol    = get('solution'))   $currentQuery['solution']   = $sol;
 if ($prod   = get('production')) $currentQuery['production'] = $prod;
 if ($hash   = get('hash'))       $currentQuery['hash']       = $hash;
@@ -35,11 +36,11 @@ if (!empty($activeSlugs) && !empty($options)) {
 
 $countActive = count($activeSlugs);
 if ($countActive === 0) {
-    $buttonLabel = $label . ' ▾';
+    $buttonLabel = $label;
 } elseif ($countActive === 1 && !empty($activeLabels)) {
-    $buttonLabel = $label . ' (' . $activeLabels[0] . ') ▾';
+    $buttonLabel = $label . ' (' . $activeLabels[0] . ')';
 } else {
-    $buttonLabel = $label . ' (' . $countActive . ') ▾';
+    $buttonLabel = $label . ' (' . $countActive . ')';
 }
 $hiddenValue = implode(',', $activeSlugs);
 ?>
@@ -51,12 +52,18 @@ $hiddenValue = implode(',', $activeSlugs);
 
     <button 
       type="button" 
-      class="button font__size__button dropdown-toggle" 
+      class="button font__size__button dropdown-toggle flex align__center justify__space-between" 
       theme="<?= $countActive > 0 ? 'dark' : ($theme ?? 'ghost') ?>" 
+      hover="dark"
       aria-haspopup="listbox" 
       aria-expanded="false"
     >
-      <span><?= esc($buttonLabel) ?></span>
+      <span class="dropdown-toggle__label"><?= esc($buttonLabel) ?></span>
+      <span class="dropdown-toggle__chevron flex align__center justify__center" aria-hidden="true">
+        <svg viewBox="0 0 10 6" width="10" height="6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M1 1l4 4 4-4" />
+        </svg>
+      </span>
     </button>
 
     <ul class="dropdown-menu" role="listbox" theme="light" data-lenis-prevent>

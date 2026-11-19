@@ -5,140 +5,140 @@
  */
 
 :root {
-   /* ==========================================================================
+    /* ==========================================================================
        TYPOGRAPHY BRANDING FRAMEWORK
        ========================================================================== */
-   --ff-heading: 'Manrope';
-   --fw-heading: 600;
-   --tt-heading: none;
-   --ls-heading: -0.02em;
-   --ff-body: 'Manrope';
-   --fw-body: 500;
-   --tt-body: none;
-   --ls-body: 0em;
-   --ff-mono: 'Manrope';
+    --ff-heading: 'Manrope';
+    --fw-heading: 600;
+    --tt-heading: none;
+    --ls-heading: -0.02em;
+    --ff-body: 'Manrope';
+    --fw-body: 500;
+    --tt-body: none;
+    --ls-body: 0em;
+    --ff-mono: 'Manrope';
 
-   /* ==========================================================================
+    /* ==========================================================================
        FLUID RESPONSIVE SCALE PRESETS
        ========================================================================== */
-   --type-scale: 1.618;
-   --type-start-rem: 0.5rem;
-   --type-start-vw: 0.65vw;
-   --base-line-height: 1.12;
-   --body-scale: 1.222;
-   --body-start-rem: 0.7rem;
-   --body-start-vw: 0.75vw;
-   --base-body-line-height: 1.5;
+    --type-scale: 1.618;
+    --type-start-rem: 0.5rem;
+    --type-start-vw: 0.65vw;
+    --base-line-height: 1.12;
+    --body-scale: 1.222;
+    --body-start-rem: 0.7rem;
+    --body-start-vw: 0.75vw;
+    --base-body-line-height: 1.5;
 
-   /* ==========================================================================
+    /* ==========================================================================
        LAYOUT PADDING & GRID SPACING TOKENS (Odpovídá klientově --u = max(14px, 1.389vw))
        ========================================================================== */
-   --scale-min: 0.875;
-   --scale-fluid: 1.389;
-   --scale: 1;
-   --spacing: max(14px, 1.389vw);
-   --u: max(14px, 1.389vw);
-   --m: calc(4 * var(--spacing));
-   --gap: calc(2 * var(--spacing));
-   --sec: calc(5 * var(--spacing));
+    --scale-min: 0.875;
+    --scale-fluid: 1.389;
+    --scale: 1;
+    --spacing: max(14px, 1.389vw);
+    --u: max(14px, 1.389vw);
+    --m: calc(4 * var(--spacing));
+    --gap: calc(2 * var(--spacing));
+    --sec: calc(5 * var(--spacing));
 
-   /* ==========================================================================
+    /* ==========================================================================
        GLOBAL INTERACTIVE ANIMATIONS TOKENS
        ========================================================================== */
-   --animation-duration: 1000ms;
-   --animation-delay: 0ms;
-   --animation-stagger: 50ms;
-   --animation-timing: cubic-bezier(0.4, 0, 0.2, 1);
-   --toggle-parallax: 1;
-   --toggle-reveals: 1;
+    --animation-duration: 1000ms;
+    --animation-delay: 0ms;
+    --animation-stagger: 50ms;
+    --animation-timing: cubic-bezier(0.4, 0, 0.2, 1);
+    --toggle-parallax: 1;
+    --toggle-reveals: 1;
 
-   /* ==========================================================================
+    /* ==========================================================================
        ACTIVE THEME PALETTE MATRIX TOKENS
        ========================================================================== */
-   --color-acc: #ED1359;
-   --color-light: #EDECE7;
-   --color-dark: #0B0A0A;
-   --color-text: #151314;
-   --color-black: #0B0A0A;
-   --color-white: #FFFFFF;
-   --color-invert: #FFFFFF;
-   --color-delay: 300ms;
+    --color-acc: #ED1359;
+    --color-light: #EDECE7;
+    --color-dark: #0B0A0A;
+    --color-text: #151314;
+    --color-black: #0B0A0A;
+    --color-white: #FFFFFF;
+    --color-invert: #FFFFFF;
+    --color-delay: 300ms;
 
-   /* ==========================================================================
+    /* ==========================================================================
        RADIUS TOKENS (Nastaveno podle klienta: karty/fotky 0.5u = 10px, sekce 1u = 20px)
        ========================================================================== */
-   --radius: calc(1 * var(--spacing));
-   --radius-card: calc(0.5 * var(--spacing));
-   --radius-section: var(--spacing);
+    --radius: calc(1 * var(--spacing));
+    --radius-card: calc(0.5 * var(--spacing));
+    --radius-section: var(--spacing);
 
-   /* ==========================================================================
+    /* ==========================================================================
        BUTTON COMPONENTS TOKENS (Podle klienta výška 2.4u, rádius pilulka 999px)
        ========================================================================== */
-   --btn-padding: 0 calc(0.5 * var(--spacing));
-   --btn-radius: calc(0.5 * var(--spacing));
-   --btn-border: 1px;
+    --btn-padding: 0 calc(0.5 * var(--spacing));
+    --btn-radius: calc(0.75 * var(--spacing));
+    --btn-border: 1px;
 
-   /* ==========================================================================
+    /* ==========================================================================
        INDIVIDUAL TYPOGRAPHY ROLES (6 klientských rolí podle v65)
        ========================================================================== */
-   --font-size-figure: max(60px, 7vw);
-   --font-weight-figure: 600;
-   --letter-spacing-figure: -0.01em;
+    --font-size-figure: max(60px, 7vw);
+    --font-weight-figure: 600;
+    --letter-spacing-figure: -0.01em;
 
-   /* 1. NADPIS (54 px na 1440 px): h1, h2, font__size__1, font__size__2 */
-   --font-size-1: max(36px, 3.75vw);
-   --font-weight-1: 600;
-   --line-height-1: 1.12;
-   --letter-spacing-1: -0.02em;
+    /* 1. NADPIS (54 px na 1440 px): h1, h2, font__size__1, font__size__2 */
+    --font-size-1: max(36px, 3.75vw);
+    --font-weight-1: 600;
+    --line-height-1: 1.12;
+    --letter-spacing-1: -0.02em;
 
-   --font-size-2: max(36px, 3.75vw);
-   --font-weight-2: 600;
-   --line-height-2: 1.12;
-   --letter-spacing-2: -0.02em;
+    --font-size-2: max(36px, 3.75vw);
+    --font-weight-2: 600;
+    --line-height-2: 1.12;
+    --letter-spacing-2: -0.02em;
 
-   /* 2. VÝROK (36 px na 1440 px): font__size__large */
-   --font-size-large: max(26px, 2.5vw);
-   --font-weight-large: 500;
-   --line-height-large: 1.2;
-   --letter-spacing-large: -0.01em;
+    /* 2. VÝROK (36 px na 1440 px): font__size__large */
+    --font-size-large: max(26px, 2.5vw);
+    --font-weight-large: 500;
+    --line-height-large: 1.2;
+    --letter-spacing-large: -0.01em;
 
-   /* 3. PEREX (24 px na 1440 px): h3, font__size__3 */
-   --font-size-3: max(19px, 1.667vw);
-   --font-weight-3: 500;
-   --line-height-3: 1.3;
-   --letter-spacing-3: -0.01em;
+    /* 3. PEREX (24 px na 1440 px): h3, font__size__3 */
+    --font-size-3: max(19px, 1.667vw);
+    --font-weight-3: 500;
+    --line-height-3: 1.3;
+    --letter-spacing-3: -0.01em;
 
-   --font-size-4: max(19px, 1.667vw);
-   --font-weight-4: 500;
-   --line-height-4: 1.3;
-   --letter-spacing-4: -0.01em;
+    --font-size-4: max(19px, 1.667vw);
+    --font-weight-4: 500;
+    --line-height-4: 1.3;
+    --letter-spacing-4: -0.01em;
 
-   /* 4. TEXT (16 px na 1440 px): font__size__default, p */
-   --font-size-default: max(15px, 1.111vw);
-   --font-weight-default: 500;
-   --line-height-default: 1.5;
-   --letter-spacing-default: 0em;
+    /* 4. TEXT (16 px na 1440 px): font__size__default, p */
+    --font-size-default: max(15px, 1.111vw);
+    --font-weight-default: 500;
+    --line-height-default: 1.5;
+    --letter-spacing-default: 0em;
 
-   /* 5. ŠTÍTEK (12 px verzálky): button, label */
-   --font-size-button: max(11px, 0.833vw);
-   --font-family-button: 'Manrope';
-   --font-weight-button: 600;
-   --line-height-button: 1.5;
-   --letter-spacing-button: 0.08em;
-   --text-transform-button: uppercase;
+    /* 5. ŠTÍTEK (12 px verzálky): button, label */
+    --font-size-button: max(11px, 0.833vw);
+    --font-family-button: 'Manrope';
+    --font-weight-button: 600;
+    --line-height-button: 1.5;
+    --letter-spacing-button: 0.08em;
+    --text-transform-button: uppercase;
 
-   --font-size-label: max(11px, 0.833vw);
-   --font-family-label: 'Manrope';
-   --font-weight-label: 600;
-   --line-height-label: 1.5;
-   --letter-spacing-label: 0.08em;
-   --text-transform-label: uppercase;
-   --opacity-label: 0.7;
+    --font-size-label: max(11px, 0.833vw);
+    --font-family-label: 'Manrope';
+    --font-weight-label: 600;
+    --line-height-label: 1.5;
+    --letter-spacing-label: 0.08em;
+    --text-transform-label: uppercase;
+    --opacity-label: 0.7;
 
-   /* 6. POPISEK (12 px): font__size__small */
-   --font-size-small: max(11px, 0.833vw);
-   --font-weight-small: 500;
-   --line-height-small: 1.5;
-   --letter-spacing-small: 0em;
-   --text-transform-small: none;
+    /* 6. POPISEK (12 px): font__size__small */
+    --font-size-small: max(11px, 0.833vw);
+    --font-weight-small: 500;
+    --line-height-small: 1.5;
+    --letter-spacing-small: 0em;
+    --text-transform-small: none;
 }

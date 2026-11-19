@@ -2,9 +2,10 @@
 $ctaData = $page->resolvedCta('career');
 ?>
 <?php if ($ctaData && $ctaData->isNotEmpty()) : ?>
-<section class="cta radius" theme="dark" data-scroll>
+<?php $GLOBALS['hasCtaSection'] = true; ?>
+<section class="cta radius radius-b__0" theme="dark" data-scroll>
 	<div class="" >
-		<div class="bg radius absolute inset__stretch" >
+		<div class="bg radius radius-b__0 absolute inset__stretch" >
 			<!-- <?= asset('public/assets/images/cta_bg.png') ?> -->
 		</div>
 		<div class="relative grid__4 gap__2 mobile:grid__1 inner-x__4 inner-y__5 mobile:inner-x__1 mobile:inner-y__3">
@@ -23,9 +24,8 @@ $ctaData = $page->resolvedCta('career');
 			</div>
 		</div>
 	</div>
-</section>
 
-<script type="text/javascript">
+	<script type="text/javascript">
 	let targetX = 1, targetY = 1;
 	let currentX = 1, currentY = 1;
 	const ease = 0.05; // Lower is slower/smoother, higher is snappier
@@ -52,5 +52,6 @@ $ctaData = $page->resolvedCta('career');
 	}
 
 	animate();
-</script>
+	</script>
+</section>
 <?php endif ?>

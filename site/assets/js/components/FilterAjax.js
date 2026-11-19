@@ -136,6 +136,9 @@ class FilterAjax {
           morphStyle: 'innerHTML',
           ignoreActiveValue: true
         });
+        if (typeof window.initProjectFilter === 'function') {
+          window.initProjectFilter();
+        }
       }
 
       // 5. Keep the open dropdown open
@@ -162,8 +165,12 @@ class FilterAjax {
       }
 
       // 7. Make newly loaded cards visible
-      document.querySelectorAll('[data-ajax-filter-list] [data-reveal-image], [data-ajax-filter-list] [data-scroll]').forEach((el) => {
+      document.querySelectorAll('[data-ajax-filter-list] [data-reveal-image], [data-ajax-filter-list] [data-scroll], [data-ajax-filter-list] figure').forEach((el) => {
         el.classList.add('is-inview');
+        if (el.hasAttribute('data-reveal-image')) {
+          el.style.opacity = '1';
+          el.style.clipPath = 'inset(0% 0% 0% 0%)';
+        }
       });
 
       if (window.SCROLL && typeof window.SCROLL.resize === 'function') {

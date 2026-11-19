@@ -5,8 +5,8 @@ $steps = $page->contractSteps()->toStructure();
 ?>
 <section class="contract radius" theme="dark" data-scroll>
 	<div class="grid gap__3 inner-x__4 inner-y__5 mobile:inner-x__1 mobile:inner-y__3">
-		<div class="grid__4 gap__2 mobile:grid__1">
-			<div class="span__2 grid gap__1">
+		<div class="grid__12 gap__2 mobile:grid__1">
+			<div class="span__7 grid gap__1">
 				<h2 class="font__size__2" data-reveal-text><?= $heading ?></h2>
 				<p class="font__size__default op__7" data-reveal-text="lines"><?= $text ?></p>
 			</div>
@@ -22,8 +22,10 @@ $steps = $page->contractSteps()->toStructure();
 					?>
 					<li class="grid place__start-stretch gap__1 border__top inner-t__1">
 						<span class="label font__size__small color__acc"><?= $num ?></span>
-						<h3 class="" data-reveal-text><?= $step->title()->inline() ?></h3>
-						<p class="font__size__default op__7" data-reveal-text="lines"><?= $step->text()->inline() ?></p>
+						<div class="grid gap__05">
+							<h3 class="" data-reveal-text><?= $step->title()->inline() ?></h3>
+							<p class="font__size__default op__7" data-reveal-text="lines"><?= $step->text()->inline() ?></p>
+						</div>	
 					</li>
 				<?php endforeach ?>
 			</ol>

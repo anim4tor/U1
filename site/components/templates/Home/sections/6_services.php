@@ -5,16 +5,24 @@ if ($solutions->isEmpty()) {
 }
 ?>
 <?php if ($page->services()->isNotEmpty() && $solutions->isNotEmpty()) : ?>
-<section class="solutions radius" theme="dark" data-tabs="hoverable">
+<section class="solutions radius" theme="dark" data-tabs="hoverable" data-tabs-reset>
 	<div class="grid__4 gap__2 mobile:grid__1 inner-x__4 inner-y__5 mobile:inner-x__1 mobile:inner-y__3">
-		<div class="grid span__2 gap__3 place__start-stretch mobile:inner-x__0">
+		<div class="grid span__2 gap__3 place__space-between-stretch mobile:inner-x__0">
 			<div class="grid gap__1">
-				<?= snippet('molecules/Header', ['header' => $page->services(), 'type' => ['label', 'heading', 'text']]) ?>
+				<?= snippet('molecules/Header', ['header' => $page->services(), 'type' => ['label', 'heading']]) ?>
 				<div class="grid__stack place__start-start " data-pane-container data-scroll data-reveal-image >
+					<div class="services-intro" data-service-intro>
+						<?= snippet('molecules/Header', ['header' => $page->services(), 'type' => ['text']]) ?>
+					</div>
 					<?php foreach ($solutions as $solution) : ?>
+						<?php 
+						$serviceText = $solution->intro()->isNotEmpty() 
+							? $solution->intro()->inline() 
+							: ($solution->excerpt()->isNotEmpty() ? $solution->excerpt()->inline() : null);
+						?>
 						<div data-pane="service-<?= $solution->slug() ?>" class="" data-scroll data-scroll-ignore data-tab-reveal>
 							<div class="op__7">
-								<p data-reveal-text="lines" data-split-ignore ><?= $solution->intro()->inline() ?></p>
+								<?= snippet('atoms/Text', ['text' => $serviceText, 'reveal' => true, 'node' => 'data-split-ignore data-scroll-ignore']) ?>
 							</div>
 						</div>
 					<?php endforeach ?>

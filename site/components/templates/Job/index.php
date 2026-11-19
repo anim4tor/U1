@@ -93,6 +93,29 @@ if ($benefitsStructure->isNotEmpty()) {
         ];
     }
 }
+
+// Položky pro záložku Požadavky
+$requirementsStructure = $page->requirements()->toStructure();
+$requirementsItems = [];
+if ($requirementsStructure->isNotEmpty()) {
+    foreach ($requirementsStructure as $req) {
+        $requirementsItems[] = [
+            'text' => $req->text()->value()
+        ];
+    }
+} else {
+    $fallbackRequirements = [
+        'Praxe na obdobné pozici v oboru interiérů, architektury nebo stavebního fit-outu',
+        'Samostatnost, spolehlivost a tah na branku při řešení úkolů',
+        'Schopnost koordinace subdodavatelů, technické myšlení a smysl pro detail',
+        'Příjemné vystupování a profesionální komunikace s klienty i partnery',
+        'Uživatelská znalost práce na PC (MS Office / CAD nástroje)',
+        'Řidičský průkaz skupiny B'
+    ];
+    foreach ($fallbackRequirements as $fr) {
+        $requirementsItems[] = ['text' => $fr];
+    }
+}
 ?>
 
 <!-- Hero sekce služby -->
@@ -200,21 +223,6 @@ if ($benefitsStructure->isNotEmpty()) {
 					</div>
 				<?php endif ?>
 
-				<!-- Požadavky -->
-				<?php if ($requirements->isNotEmpty()): ?>
-					<div class="job-group grid gap__1">
-						<h3 class="larger"><?= t('job.requirements', 'Co od vás čekáme') ?></h3>
-						<ul class="grid gap__05 list-unstyled">
-							<?php foreach ($requirements as $item): ?>
-								<li class="flex gap__1 align__start">
-									<span class="color__acc font__size__small shrink__0">✓</span>
-									<span class="font__size__default op__8"><?= esc($item->text()) ?></span>
-								</li>
-							<?php endforeach ?>
-						</ul>
-					</div>
-				<?php endif ?>
-
 				<!-- Nabízíme -->
 				<?php if ($offers->isNotEmpty()): ?>
 					<div class="job-group grid gap__1">
@@ -230,41 +238,91 @@ if ($benefitsStructure->isNotEmpty()) {
 					</div>
 				<?php endif ?>
 
-				
-
 			</div>
 		</div>
 
-		
 	</div>
 </section>
 
-<!-- Sekce: Benefity (místo Proč pracovat u nás, podle v65) -->
-<section class="benefits-section radius relative z__2" theme="dark" aria-labelledby="benefits-heading">
+<!-- Sekce: Benefity a požadavky (Tabs layout podle v2) -->
+<section class="benefits-section radius relative z__2" theme="dark" aria-labelledby="ben-h" data-tabs="default">
 	<div class="inner-x__4 inner-y__5 mobile:inner-x__1 mobile:inner-y__3 grid gap__3">
 		
-		<div class="grid__4 gap__2 mobile:grid__1" data-scroll>
-			<div class="span__2">
-				<h2 id="benefits-heading" class="font__size__2" data-reveal-text>Benefity</h2>
+		<div class="benefits__header">
+			<div class="benefits__tabs flex gap__1 align__center " role="tablist" aria-label="Benefity a požadavky">
+				<h2 role="tab" class=" is-active" data-tab="benefits" aria-selected="true" data-active id="ben-h">Benefity</h2>
+				<div class="w__03 h__03 bg__invert op__4"></div>
+				<h2 role="tab" class="" data-tab="requirements" aria-selected="false">Požadavky</h2>
 			</div>
 		</div>
 
-		<ul class="grid__3 gap-x__2 gap-y__0 mobile:grid__1 list-unstyled" data-scroll>
-			<?php foreach ($benefitsItems as $bItem) : ?>
-				<li class="flex align__center gap__1 border__top inner-y__1">
-					<span class="color__acc shrink__0 flex place__center-center" style="width: 28px; height: 28px;">
-						<?= $bItem['icon'] ?>
-					</span>
-					<span class="font__size__default font__weight__500"><?= esc($bItem['text']) ?></span>
-				</li>
-			<?php endforeach ?>
-		</ul>
+		<div data-pane-container>
+			<!-- Záložka: Benefity -->
+			<div data-pane="benefits" class="benefits__pane" data-active data-tab-reveal>
+				<ul class="grid__3 gap-x__2 gap-y__0" data-scroll>
+					<?php foreach ($benefitsItems as $bItem) : ?>
+						<li class="benefits__item">
+							<span class="benefits__item-icon">
+								<?= $bItem['icon'] ?>
+							</span>
+							<span class="benefits__item-text"><?= esc($bItem['text']) ?></span>
+						</li>
+					<?php endforeach ?>
+				</ul>
+			</div>
+
+			<!-- Záložka: Požadavky -->
+			<div data-pane="requirements" class="benefits__pane" data-tab-reveal>
+				<ul class="grid__3 gap-x__2 gap-y__0" data-scroll>
+					<?php foreach ($requirementsItems as $rItem) : ?>
+						<li class="benefits__item benefits__item--requirement">
+							<span class="benefits__item-icon -wrap-t__02">
+								<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width: 18px; height: 18px;">
+									<polyline points="20 6 9 17 4 12"/>
+								</svg>
+							</span>
+							<span class="benefits__item-text"><?= esc($rItem['text']) ?></span>
+						</li>
+					<?php endforeach ?>
+				</ul>
+			</div>
+		</div>
 
 	</div>
 </section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+	document.querySelectorAll('.benefits-section').forEach(sec => {
+		const tabs = sec.querySelectorAll('.benefits__tab[data-tab]');
+		const panes = sec.querySelectorAll('.benefits__pane[data-pane]');
+		tabs.forEach(tab => {
+			tab.addEventListener('click', function(e) {
+				e.preventDefault();
+				const target = this.getAttribute('data-tab');
+				tabs.forEach(t => {
+					const isActive = t === tab;
+					t.classList.toggle('is-active', isActive);
+					t.setAttribute('aria-selected', String(isActive));
+					t.toggleAttribute('data-active', isActive);
+				});
+				panes.forEach(p => {
+					const isActive = p.getAttribute('data-pane') === target;
+					p.toggleAttribute('data-active', isActive);
+				});
+			});
+		});
+	});
+});
+</script>
+
+<!-- Recenze zaměstnanců (2-sloupcové taby se šipkami a fotkou projektu) -->
+<?= snippet('templates/Career/sections/5_references', ['theme' => 'light']) ?>
 
 <!-- Průběh výběrového řízení -->
 <?= snippet('templates/Career/sections/4_process') ?>
+
+
 
 <!-- Články ze života v U1 -->
 <?= snippet('sections/Feed/related') ?>

@@ -6,6 +6,7 @@ $jobsCount       = collection('Jobs')->count();
 $positionsPage   = page('career/positions') ?? page('career')->find('positions');
 $positionsUrl    = $positionsPage ? $positionsPage->url() : url('career/positions');
 $showFab         = ($templateName !== 'job');
+$showFab         = false;
 ?>
 <div>
 	<?php if ($showFab): ?>
@@ -43,7 +44,7 @@ $showFab         = ($templateName !== 'job');
 	</div>
 	<?php endif ?>
 	<section class="contact fixed" data-scroll data-contact data-lenis-prevent>
-		<div class="grid place__end-end inner__1 h__100v" >
+		<div class="contact__container grid place__start-center inner-x__05">
 			<?php if ($isCareerLanding || $isJobsContext): ?>
 				<?php snippet('organisms/Contact/career') ?>
 			<?php else: ?>

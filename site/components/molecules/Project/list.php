@@ -1,4 +1,8 @@
 <?php
+$cover = (isset($img) && $img instanceof \Kirby\Cms\File)
+	? $img
+	: ($project->cover()->toFile() ?? $project->image() ?? $project->images()->first());
+
 $meta = array_filter([
 	$project->industry()->isNotEmpty() ? implode(', ', $project->industry()->split()) : null,
 	$project->place()->isNotEmpty() ? $project->place()->value() : null,
@@ -8,8 +12,8 @@ $meta = array_filter([
 <div class="item --project relative" data-scroll>
 	<a href="<?= $project->url() ?>" class="grid gap__1 relative">	
 		<div class="relative">
-			<?php if ($cover = $project->cover()->toFile()) : ?>
-				<div class="item__figure grid img__radius"><?= snippet('atoms/Image', ['img' => $cover, 'reveal' => true, 'css' => 'aspect__4/3', 'node' => 'data-reveal-image']) ?></div>
+			<?php if ($cover) : ?>
+				<div class="item__figure grid img__radius"><?= snippet('atoms/Image', ['img' => $cover, 'parallax' => 1, 'reveal' => true, 'css' => 'aspect__4/3', 'node' => 'data-reveal-image']) ?></div>
 			<?php endif ?>
 		</div>
 		<div class="item__meta relative grid gap__05">

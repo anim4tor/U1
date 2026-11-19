@@ -9,6 +9,7 @@ return function ($page, $kirby, $site) {
     $filterProduction = get('production');
     $filterHash       = get('hash') ?? get('tag');
     $filterYear       = get('year') ?? get('rok');
+    $filterClient     = get('client') ?? get('klient');
     $filterGeneric    = get('filter');
     $filterSearch     = trim((string)(get('search') ?? get('q') ?? ''));
 
@@ -81,6 +82,10 @@ return function ($page, $kirby, $site) {
         $allProjects->pluck('solutions', ',', true)
     );
 
+    $clients = $extractTags(
+        $allProjects->pluck('client', ',', true)
+    );
+
     $productions = $extractTags(
         $allProjects->pluck('production', ',', true)
     );
@@ -125,12 +130,13 @@ return function ($page, $kirby, $site) {
     $filterIndustrySlugs   = $parseSlugs($filterIndustry);
     $filterSpaceSlugs      = $parseSlugs($filterSpace);
     $filterSolutionSlugs   = $parseSlugs($filterSolution);
+    $filterClientSlugs     = $parseSlugs($filterClient);
     $filterProductionSlugs = $parseSlugs($filterProduction);
     $filterHashSlugs       = $parseSlugs($filterHash);
     $filterYearSlugs       = $parseSlugs($filterYear);
     $genericSlugs         = $parseSlugs($filterGeneric);
 
-    $hasTagFilter = !empty($filterIndustrySlugs) || !empty($filterSpaceSlugs) || !empty($filterSolutionSlugs) || !empty($filterProductionSlugs) || !empty($filterHashSlugs) || !empty($filterYearSlugs) || !empty($genericSlugs);
+    $hasTagFilter = !empty($filterIndustrySlugs) || !empty($filterSpaceSlugs) || !empty($filterSolutionSlugs) || !empty($filterClientSlugs) || !empty($filterProductionSlugs) || !empty($filterHashSlugs) || !empty($filterYearSlugs) || !empty($genericSlugs);
     $hasSearch    = !empty($filterSearch);
     $isFiltered   = $hasTagFilter || $hasSearch;
     $filteredImages = null;
@@ -138,7 +144,15 @@ return function ($page, $kirby, $site) {
 
     // Filter projects if search is active
     if ($hasSearch) {
-        $projects = $projects->search($filterSearch, 'title|industry|space|solutions|production|hash|architect|location|intro');
+        $projects = $projects->search($filterSearch, 'title|client|industry|space|solutions|production|hash|architect|location|intro');
+    }
+
+    // Filter projects by client if active
+    if (!empty($filterClientSlugs)) {
+        $projects = $projects->filter(function($p) use ($filterClientSlugs) {
+            $projClients = array_map([Str::class, 'slug'], $p->client()->split(','));
+            return !empty(array_intersect($filterClientSlugs, $projClients));
+        });
     }
 
     // Filter projects by year if active
@@ -152,7 +166,7 @@ return function ($page, $kirby, $site) {
     // 3. Filter ONLY images matching active tags or search
     if ($isFiltered) {
         $filteredImages = $allImages->filter(function ($image) use (
-            $filterIndustrySlugs, $filterSpaceSlugs, $filterSolutionSlugs, $filterProductionSlugs, $filterHashSlugs, $filterYearSlugs, $genericSlugs, $filterSearch, $getYear
+            $filterIndustrySlugs, $filterSpaceSlugs, $filterSolutionSlugs, $filterClientSlugs, $filterProductionSlugs, $filterHashSlugs, $filterYearSlugs, $genericSlugs, $filterSearch, $getYear
         ) {
             $imageIndustries = array_map([Str::class, 'slug'], $image->industry()->split(','));
             $imageSpaces     = array_map([Str::class, 'slug'], $image->space()->split(','));
@@ -211,6 +225,14 @@ return function ($page, $kirby, $site) {
                 return false;
             }
 
+            // Client multiselect
+            if (!empty($filterClientSlugs)) {
+                $projClients = $parent ? array_map([Str::class, 'slug'], $parent->client()->split(',')) : [];
+                if (empty(array_intersect($filterClientSlugs, $projClients))) {
+                    return false;
+                }
+            }
+
             // Year multiselect
             if (!empty($filterYearSlugs) && (!$projYear || !in_array($projYear, $filterYearSlugs))) {
                 return false;
@@ -235,6 +257,7 @@ return function ($page, $kirby, $site) {
     $currentQuery = [];
     if (!empty($filterIndustrySlugs))   $currentQuery['industry']   = implode(',', $filterIndustrySlugs);
     if (!empty($filterSpaceSlugs))      $currentQuery['space']      = implode(',', $filterSpaceSlugs);
+    if (!empty($filterClientSlugs))     $currentQuery['client']     = implode(',', $filterClientSlugs);
     if (!empty($filterSolutionSlugs))   $currentQuery['solution']   = implode(',', $filterSolutionSlugs);
     if (!empty($filterProductionSlugs)) $currentQuery['production'] = implode(',', $filterProductionSlugs);
     if (!empty($filterHashSlugs))       $currentQuery['hash']       = implode(',', $filterHashSlugs);
@@ -275,11 +298,12 @@ return function ($page, $kirby, $site) {
 
     $buildTokens($filterSpaceSlugs, 'space', $spaces);
     $buildTokens($filterIndustrySlugs, 'industry', $industries);
+    $buildTokens($filterClientSlugs, 'client', $clients);
     $buildTokens($filterSolutionSlugs, 'solution', $solutions);
     $buildTokens($filterProductionSlugs, 'production', $productions);
     $buildTokens($filterHashSlugs, 'hash', $hashes, '#');
     $buildTokens($filterYearSlugs, 'year', $years);
-    $buildTokens($genericSlugs, 'filter', array_merge($industries, $spaces, $solutions, $productions, $hashes, $years));
+    $buildTokens($genericSlugs, 'filter', array_merge($industries, $spaces, $clients, $solutions, $productions, $hashes, $years));
 
     if (!empty($filterSearch)) {
         $q = $currentQuery; unset($q['search']); unset($q['q']);
@@ -294,12 +318,14 @@ return function ($page, $kirby, $site) {
     return [
         'industries'       => $industries, 
         'spaces'           => $spaces, 
+        'clients'          => $clients,
         'solutions'        => $solutions,
         'productions'      => $productions,
         'hashes'           => $hashes,
         'years'            => $years,
         'filterIndustry'   => !empty($filterIndustrySlugs) ? implode(',', $filterIndustrySlugs) : null,
         'filterSpace'      => !empty($filterSpaceSlugs) ? implode(',', $filterSpaceSlugs) : null,
+        'filterClient'     => !empty($filterClientSlugs) ? implode(',', $filterClientSlugs) : null,
         'filterSolution'   => !empty($filterSolutionSlugs) ? implode(',', $filterSolutionSlugs) : null,
         'filterProduction' => !empty($filterProductionSlugs) ? implode(',', $filterProductionSlugs) : null,
         'filterHash'       => !empty($filterHashSlugs) ? implode(',', $filterHashSlugs) : null,

@@ -89,14 +89,17 @@ function initHeaderCollapse() {
 
     const checkCollapse = () => {
         const y = window.scrollY || document.documentElement.scrollTop || 0;
-        if (y > 60) {
+        const isCollapsed = y > 60;
+        if (isCollapsed) {
             if (header) header.setAttribute('collapsed', 'true');
             if (fab) fab.setAttribute('collapsed', 'true');
             document.documentElement.setAttribute('header-collapsed', 'true');
+            document.documentElement.setAttribute('data-nav-compact', 'true');
         } else {
             if (header) header.removeAttribute('collapsed');
             if (fab) fab.removeAttribute('collapsed');
             document.documentElement.removeAttribute('header-collapsed');
+            document.documentElement.removeAttribute('data-nav-compact');
         }
     };
 

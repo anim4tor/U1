@@ -127,6 +127,22 @@ return [
               }
           ],
           [
+              'pattern' => ['zadani-v5', 'zadani-stare', 'zadani-2026-11-02'],
+              'action'  => function () {
+                  $file = kirby()->root('index') . '/public/zadani-v5.html';
+                  if (!file_exists($file)) {
+                      $file = kirby()->root('index') . '/zadani-v5.html';
+                  }
+                  if (!file_exists($file)) {
+                      $file = dirname(kirby()->root('site')) . '/public/zadani-v5.html';
+                  }
+                  if (file_exists($file)) {
+                      return new \Kirby\Http\Response(file_get_contents($file), 'text/html');
+                  }
+                  return site()->errorPage();
+              }
+          ],
+          [
               'pattern' => 'zadani/state',
               'method'  => 'GET|POST',
               'action'  => function () {
@@ -264,6 +280,9 @@ return [
                     }
                     foreach ($proj->industry()->split(',') as $i) {
                         $registerTag('industry', 'Odvětví', 'industry', $i, null);
+                    }
+                    foreach ($proj->client()->split(',') as $c) {
+                        $registerTag('client', 'Klient', 'client', $c, null);
                     }
                 }
 

@@ -64,6 +64,10 @@ class Contact {
 
         this.DOM.closeBtns.forEach(btn => btn.addEventListener('click', () => this.close()));
 
+        this.syncNavbarWidth();
+        window.addEventListener('resize', () => this.syncNavbarWidth());
+        window.addEventListener('scroll', () => this.syncNavbarWidth(), { passive: true });
+
         this.initScrollTriggers();
         this.initForms();
     }
@@ -221,6 +225,7 @@ class Contact {
 
     open(targetTab, isScrollPop = false) {
         if (this.state.isOpen) return;
+        this.syncNavbarWidth();
         this.state.isOpen = true;
         this.state.isScrollPop = isScrollPop;
 
@@ -313,6 +318,16 @@ class Contact {
     handleDocumentClick(e) {
         if (this.DOM.widget && !this.DOM.widget.contains(e.target) && !e.target.closest('[data-contact-toggle]')) {
             this.close();
+        }
+    }
+
+    syncNavbarWidth() {
+        const navbar = document.querySelector('[navbar]');
+        if (navbar) {
+            const w = Math.round(navbar.getBoundingClientRect().width);
+            if (w > 0) {
+                document.documentElement.style.setProperty('--navbar-width', `${w}px`);
+            }
         }
     }
 

@@ -108,7 +108,7 @@ Gradientto: #db6b57
 
 ----
 
-Cover: - file://vCCDPq5q9vUj2cvk
+Cover: - feed_hero.webp
 
 ----
 

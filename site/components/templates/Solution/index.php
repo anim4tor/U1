@@ -52,18 +52,54 @@ if ($faqs->isEmpty()) {
 
 // Fotogalerie
 $gallery = $page->gallery()->toFiles();
+
+// Fotografie pro příběh / postup zakázky (2–4 fotky)
+$storyImages = [];
+if ($gallery->isNotEmpty()) {
+    foreach ($gallery as $f) {
+        $storyImages[] = $f;
+    }
+}
+if (count($storyImages) < 4) {
+    $directProject = site()->find('projects/direct-pojistovna');
+    if ($directProject && $directProject->images()->isNotEmpty()) {
+        foreach ($directProject->images() as $f) {
+            $storyImages[] = $f;
+            if (count($storyImages) >= 6) break;
+        }
+    }
+}
+if (count($storyImages) < 4 && $relatedProjects->isNotEmpty()) {
+    foreach ($relatedProjects as $p) {
+        foreach ($p->images() as $f) {
+            $storyImages[] = $f;
+            if (count($storyImages) >= 6) break;
+        }
+    }
+}
+if (count($storyImages) < 4) {
+    foreach (site()->index()->filterBy('intendedTemplate', 'project') as $p) {
+        foreach ($p->images() as $f) {
+            $storyImages[] = $f;
+            if (count($storyImages) >= 6) break 2;
+        }
+    }
+}
 ?>
 
 <!-- Hero sekce služby -->
-<?= snippet('sections/Hero/') ?>
+<?= snippet('sections/Hero/index', [
+	'bottomRadius'   => false,
+	'gradientBottom' => true
+]) ?>
 
 
 <!-- Hlavní sekce: O službě & Parametry (U1 Design System) -->
-<section class="about solution-intro radius" theme="dark" aria-label="O službě">
-	<div data-scroll class="grid__8 gap__3 mobile:grid__1 inner-x__4 inner-y__5 mobile:inner-x__1 mobile:inner-y__3">
-
+<section class="about solution-intro radius-t__0" aria-label="O službě">
+	<div class="bg absolute inset__stretch radius-b radius-t__0" theme="dark"></div>
+	<div data-scroll class="grid__8 place__start-stretch gap__3 mobile:grid__1 inner-x__4 inner-y__5 mobile:inner-x__1 mobile:inner-y__3 color__invert relative">
 		<!-- Pravý sloupec: Specifikace služby & Další služby -->
-		<div class="span__3 mobile:span__1 solution-specs grid gap__2 align__start" data-scroll>
+		<div class="span__3 sticky top__3 mobile:span__1 solution-specs grid gap__2 align__start" data-scroll>
 			
 			<div class="grid gap__1">
 				
@@ -114,14 +150,10 @@ $gallery = $page->gallery()->toFiles();
 					</div>
 				</div>
 			<?php endif ?>
-
-
-
-
 		</div>
 		<div></div>
-		<!-- Levý sloupec: Popis a rozsah služby -->
-		<div class="span__4 mobile:span__1 flex flex__dir__col justify__space-between gap__3">
+		<!-- Hlavní sloupec: Popis, rozsah a příběh zakázky (roztažený sloupec span__5) -->
+		<div class="span__4 mobile:span__1 flex flex__dir__col gap__3">
 			<div class="grid gap__3">
 				
 				<div class="grid gap__1 place__start-start">
@@ -144,7 +176,7 @@ $gallery = $page->gallery()->toFiles();
 						<h3 class="larger"><?= esc($page->includesHeadline()->or('Co služba zahrnuje')) ?></h3>
 						<ul class="grid gap__1 list-unstyled">
 							<?php foreach ($includes as $item): ?>
-								<li class="flex gap__1 align__start">
+								<li class="flex gap__1 align__start relative">
 									<span class="color__acc font__size__small shrink__0">✓</span>
 									<div>
 										<?php if ($item->title()->isNotEmpty()): ?>
@@ -162,23 +194,23 @@ $gallery = $page->gallery()->toFiles();
 					<div class="solution-includes grid gap__1">
 						<h3 class="larger"><?= esc($page->includesHeadline()->or('Co služba zahrnuje')) ?></h3>
 						<ul class="grid gap__1 list-unstyled">
-							<li class="flex gap__1 align__start">
+							<li class="flex gap__1 align__start relative">
 								<span class="color__acc font__size__small shrink__0">✓</span>
 								<span>Architektonická studie a dispoziční řešení prostoru (space planning)</span>
 							</li>
-							<li class="flex gap__1 align__start">
+							<li class="flex gap__1 align__start relative">
 								<span class="color__acc font__size__small shrink__0">✓</span>
 								<span>Příprava rozpočtu, harmonogramu a technické koordinace</span>
 							</li>
-							<li class="flex gap__1 align__start">
+							<li class="flex gap__1 align__start relative">
 								<span class="color__acc font__size__small shrink__0">✓</span>
 								<span>Stavební úpravy, SDK příčky, skleněné stěny, podlahy a elektroinstalace</span>
 							</li>
-							<li class="flex gap__1 align__start">
+							<li class="flex gap__1 align__start relative">
 								<span class="color__acc font__size__small shrink__0">✓</span>
 								<span>Výroba autorského i atypického nábytku z vlastního závodu U1</span>
 							</li>
-							<li class="flex gap__1 align__start">
+							<li class="flex gap__1 align__start relative">
 								<span class="color__acc font__size__small shrink__0">✓</span>
 								<span>Autorský a technický dozor po celou dobu realizace až po předání</span>
 							</li>
@@ -186,8 +218,123 @@ $gallery = $page->gallery()->toFiles();
 					</div>
 				<?php endif ?>
 
-				
-			</div>
+				<!-- Příběh / postup zakázky: Od první schůzky po realizaci fit-outu -->
+				<div class="solution-story grid gap__3 " data-scroll>
+					<div class="grid gap__1 place__start-start">
+						<h3 class="larger">Příběh zakázky: Od první vize po realizaci fit-outu</h2>
+						<p class="font__size__default op__8 leading__relaxed">
+							Kompletní realizace interiéru v modelu Design &amp; Build není sledem náhodných kroků, ale promyšleným partnerským procesem. Od první konzultace až po předání klíčů držíme celou vizi, rozpočet i realizaci pod jednou střechou.
+						</p>
+					</div>
+
+					<!-- Fáze 01: Úvodní setkání a definice zadání -->
+					<article class="solution-step grid gap__1" data-scroll>
+						<div class="flex gap__1 align__baseline">
+							<h3 class="">Úvodní setkání &amp; space audit</h3>
+						</div>
+						<div class="grid gap__1 op__8 font__size__default leading__relaxed">
+							<p>
+								Každý projekt začíná nasloucháním. Během úvodního workshopu podrobně zjišťujeme, jak vaše firma doopravdy funguje, jaké máte firemní rituály, kolik času lidé tráví v týmech a kolik na soustředěnou práci. Zkoumáme nejen technické parametry budovy, ale i dynamiku plánovaného růstu firmy v horizontu tří až pěti let.
+							</p>
+							<p>
+								Provedeme důkladný stavebně-technický průzkum prostor a definujeme jasné mantinely: časový harmonogram a rozpočtový strop, který je pro nás od první chvíle závazný. Máte jediného partnera, který ručí za celý výsledek.
+							</p>
+						</div>
+						<?php if (!empty($storyImages[0])): ?>
+							<figure class="solution-step__figure grid gap__05 inner-t__05">
+								<div class="aspect__16/9 img__radius relative no__overflow" data-reveal-image>
+									<?= snippet('atoms/Image', [
+										'img'      => $storyImages[0],
+										'css'      => 'aspect__16/9 img__radius',
+										'parallax' => 1
+									]) ?>
+								</div>
+								<figcaption class="font__size__small op__5">Prostorový audit a materiálové vzorkování v úvodní fázi projektu</figcaption>
+							</figure>
+						<?php endif ?>
+					</article>
+
+					<!-- Fáze 02: Architektonický koncept & Space planning -->
+					<article class="solution-step grid gap__1" data-scroll>
+						<div class="flex gap__1 align__baseline">
+							<h3 class="">Architektonický koncept a 3D vizualizace</h3>
+						</div>
+						<div class="grid gap__1 op__8 font__size__default leading__relaxed">
+							<p>
+								Naši architekti přetaví zadání do funkčního dispozičního řešení (space planning). Připravujeme test-fity a varianty uspořádání, které reagují na světelné podmínky, ergonomii i akustickou pohodu. Zónujeme prostor tak, aby tok lidí byl přirozený a nerušil týmy při hluboké práci.
+							</p>
+							<p>
+								Společně ladíme materiály, textury a barevnost ve vzorkovně U1. Vytváříme detailní 3D vizualizace, díky kterým přesně vidíte budoucí atmosféru – od skleněných příček přes akustické podhledy až po osvětlení s proměnlivou chromatičností.
+							</p>
+						</div>
+						<?php if (!empty($storyImages[1])): ?>
+							<figure class="solution-step__figure grid gap__05 inner-t__05">
+								<div class="aspect__16/9 img__radius relative no__overflow" data-reveal-image>
+									<?= snippet('atoms/Image', [
+										'img'      => $storyImages[1],
+										'css'      => 'aspect__16/9 img__radius',
+										'parallax' => 1
+									]) ?>
+								</div>
+								<figcaption class="font__size__small op__5">Dispoziční řešení a návaznost zón pro soustředění i kolaboraci</figcaption>
+							</figure>
+						<?php endif ?>
+					</article>
+
+					<!-- Fáze 03: Vlastní výroba nábytku v dílnách U1 -->
+					<article class="solution-step grid gap__1" data-scroll>
+						<div class="flex gap__1 align__baseline">
+							<h3 class="">Zakázková výroba v dílnách U1</h3>
+						</div>
+						<div class="grid gap__1 op__8 font__size__default leading__relaxed">
+							<p>
+								Srdcem naší soběstačnosti je vlastní výrobní závod. Zatímco na stavbě probíhají přípravné práce, naši truhláři a technologové vyrábí atypický nábytek, recepční pulty, vestavné kuchyňky i modulární sezení přesně na milimetr dle autorského návrhu.
+							</p>
+							<p>
+								Vlastní výroba nám dává stoprocentní kontrolu nad kvalitou materiálů, detaily spojů a především nad termíny dodání. Nejsme závislí na zprostředkovatelích a garantujeme prémiové řemeslné zpracování s dlouhou životností.
+							</p>
+						</div>
+						<?php if (!empty($storyImages[2])): ?>
+							<figure class="solution-step__figure grid gap__05 inner-t__05">
+								<div class="aspect__16/9 img__radius relative no__overflow" data-reveal-image>
+									<?= snippet('atoms/Image', [
+										'img'      => $storyImages[2],
+										'css'      => 'aspect__16/9 img__radius',
+										'parallax' => 1
+									]) ?>
+								</div>
+								<figcaption class="font__size__small op__5">Atypická truhlářská výroba a autorské prvky z výrobního závodu U1</figcaption>
+							</figure>
+						<?php endif ?>
+					</article>
+
+					<!-- Fáze 04: Stavební fit-out a předání na klíč -->
+					<article class="solution-step grid gap__1" data-scroll>
+						<div class="flex gap__1 align__baseline">
+							<h3 class="">Stavební fit-out &amp; předání na klíč</h3>
+						</div>
+						<div class="grid gap__1 op__8 font__size__default leading__relaxed">
+							<p>
+								Koordinace stavby je disciplína, kde rozhoduje přesnost na dny. Náš projektový manažer řídí všechny profese: stavební úpravy, SDK příčky, skleněné stěny, vzduchotechniku, silnoproudé i slaboproudé rozvody a pokládku podlah. Všechny profese na sebe navazují v přesném taktu bez prostojů.
+							</p>
+							<p>
+								Finální fází je montáž nábytku, zapojení technologií, důkladné akustické doladění a hloubkový úklid. Předáváme vám prostor připravený k okamžitému užívání. Naší garancí a poprodejním servisem spolupráce teprve začíná.
+							</p>
+						</div>
+						<?php if (!empty($storyImages[3])): ?>
+							<figure class="solution-step__figure grid gap__05 inner-t__05">
+								<div class="aspect__16/9 img__radius relative no__overflow" data-reveal-image>
+									<?= snippet('atoms/Image', [
+										'img'      => $storyImages[3],
+										'css'      => 'aspect__16/9 img__radius',
+										'parallax' => 1
+									]) ?>
+								</div>
+								<figcaption class="font__size__small op__5">Finální předání zrealizovaného interiéru připraveného k okamžitému provozu</figcaption>
+							</figure>
+						<?php endif ?>
+					</article>
+				</div>
 		</div>
 
 		

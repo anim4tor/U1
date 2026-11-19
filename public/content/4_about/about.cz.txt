@@ -126,23 +126,23 @@ Awards:
 - 
   year: "2025"
   title: Kanceláře roku
-  detail: vítěz, Direct pojišťovna
+  detail: Vítěz – Direct pojišťovna
 - 
   year: "2023"
-  title: Grand Prix architektů
-  detail: nominace
+  title: Architekt roku & Grand Prix architektů
+  detail: Nominace – Volareza Restaurace Evropa
 - 
   year: "2022"
   title: Interiér roku
-  detail: nominace
+  detail: Nominace – Plzeňský Prazdroj
 - 
   year: "2021"
-  title: Interiér roku, Kanceláře roku
-  detail: nominace
+  title: Kanceláře roku & Interiér roku
+  detail: Nominace – Hartmann-Rico
 - 
   year: "2018"
   title: Designblok
-  detail: Nejlepší novinka výrobce, ONLY2
+  detail: Vítěz – Nejlepší novinka výrobce, ONLY2
 
 ----
 

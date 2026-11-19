@@ -4,22 +4,51 @@
 
 class ProjectFilter {
 	constructor(panel) {
-		this.panel     = panel;
-		this.form      = panel.querySelector('form') || panel;
-		this.input     = panel.querySelector('input[name="search"]');
-		this.list      = panel.querySelector('[data-search-list]');
-		this.apiUrl    = panel.querySelector('[data-api-url]')?.dataset.apiUrl || '/ajax/projects/search';
+		this.panel = panel;
 		this.debounceTimer = null;
-		this.cache         = {};
+		this.cache = {};
 		this.selectedIndex = -1;
-		this.currentItems  = [];
+		this.currentItems = [];
 
 		this.init();
 	}
 
+	get form() {
+		return this.panel.querySelector('form') || this.panel;
+	}
+
+	get input() {
+		return this.panel.querySelector('input[name="search"]');
+	}
+
+	get list() {
+		return this.panel.querySelector('[data-search-list]');
+	}
+
+	get apiUrl() {
+		return this.panel.querySelector('[data-api-url]')?.dataset.apiUrl || '/ajax/projects/search';
+	}
+
 	init() {
-		// 1. Dropdown Form Mode Option Selection (Multiselect)
+		// 1. Click delegation: Dropdown options + Autocomplete suggestions
 		this.panel.addEventListener('click', (e) => {
+			// Click on an autocomplete tag
+			const tagPill = e.target.closest('.project-filter__tag-pill');
+			if (tagPill) {
+				e.preventDefault();
+				e.stopPropagation();
+				const word = tagPill.dataset.word;
+				if (word && this.input) {
+					this.input.value = word;
+				}
+				if (this.list) {
+					this.list.innerHTML = '';
+				}
+				this.submitFilterForm();
+				return;
+			}
+
+			// Click on a form-mode dropdown option
 			const optionBtn = e.target.closest('[data-form-filter-option]');
 			if (!optionBtn) return;
 
@@ -34,7 +63,7 @@ class ProjectFilter {
 
 			const param     = dropdown.dataset.filterParam;
 			const hiddenInp = dropdown.querySelector(`[data-form-filter-input="${param}"]`);
-			const toggleBtn = dropdown.querySelector('.dropdown-toggle span[aria-label], .dropdown-toggle');
+			const toggleLabel = dropdown.querySelector('.dropdown-toggle__label') || dropdown.querySelector('.dropdown-toggle span[aria-label], .dropdown-toggle');
 			const isCurrentlyActive = optionBtn.classList.contains('is-active');
 
 			const checkmark = optionBtn.querySelector('.dropdown-checkmark');
@@ -61,13 +90,13 @@ class ProjectFilter {
 
 			const toggleAtom = dropdown.querySelector('.dropdown-toggle');
 			if (activeSlugs.length === 0) {
-				if (toggleBtn) toggleBtn.textContent = baseLabel + ' ▾';
+				if (toggleLabel) toggleLabel.textContent = baseLabel;
 				if (toggleAtom) toggleAtom.setAttribute('theme', 'ghost');
 			} else if (activeSlugs.length === 1) {
-				if (toggleBtn) toggleBtn.textContent = baseLabel + ' (' + activeLabels[0] + ') ▾';
+				if (toggleLabel) toggleLabel.textContent = baseLabel + ' (' + activeLabels[0] + ')';
 				if (toggleAtom) toggleAtom.setAttribute('theme', 'dark');
 			} else {
-				if (toggleBtn) toggleBtn.textContent = baseLabel + ' (' + activeSlugs.length + ') ▾';
+				if (toggleLabel) toggleLabel.textContent = baseLabel + ' (' + activeSlugs.length + ')';
 				if (toggleAtom) toggleAtom.setAttribute('theme', 'dark');
 			}
 
@@ -75,53 +104,51 @@ class ProjectFilter {
 			this.submitFilterForm();
 		});
 
-		// 2. Form Submit
-		if (this.form) {
-			this.form.addEventListener('submit', (e) => {
-				e.preventDefault();
-				this.submitFilterForm();
-			});
-		}
+		// 2. Form Submit delegation
+		this.panel.addEventListener('submit', (e) => {
+			e.preventDefault();
+			this.submitFilterForm();
+		});
 
-		// 3. Search Input Autocomplete
-		if (this.input) {
-			this.input.addEventListener('input', () => {
-				const query = this.input.value.trim();
-
+		// 3. Search Input Autocomplete delegation (persists across Idiomorph morphs)
+		this.panel.addEventListener('input', (e) => {
+			if (e.target.matches('input[name="search"]')) {
+				const query = e.target.value.trim();
 				clearTimeout(this.debounceTimer);
 				this.debounceTimer = setTimeout(() => {
 					this.fetchResults(query);
 				}, 150);
-			});
+			}
+		});
 
-			this.input.addEventListener('keydown', (e) => {
-				const itemsCount = this.currentItems.length;
+		this.panel.addEventListener('keydown', (e) => {
+			if (!e.target.matches('input[name="search"]')) return;
+			const itemsCount = this.currentItems.length;
 
-				if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
-					if (itemsCount > 0) {
-						e.preventDefault();
-						this.selectedIndex = (this.selectedIndex + 1) % itemsCount;
-						this.updateSelection();
-					}
-				} else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
-					if (itemsCount > 0) {
-						e.preventDefault();
-						this.selectedIndex = (this.selectedIndex - 1 + itemsCount) % itemsCount;
-						this.updateSelection();
-					}
-				} else if (e.key === 'Enter') {
-					if (this.selectedIndex >= 0 && this.currentItems[this.selectedIndex]) {
-						e.preventDefault();
-						const selectedWord = this.currentItems[this.selectedIndex].title;
-						if (selectedWord) {
-							this.input.value = selectedWord;
-							if (this.list) this.list.innerHTML = '';
-							this.submitFilterForm();
-						}
+			if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
+				if (itemsCount > 0) {
+					e.preventDefault();
+					this.selectedIndex = (this.selectedIndex + 1) % itemsCount;
+					this.updateSelection();
+				}
+			} else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
+				if (itemsCount > 0) {
+					e.preventDefault();
+					this.selectedIndex = (this.selectedIndex - 1 + itemsCount) % itemsCount;
+					this.updateSelection();
+				}
+			} else if (e.key === 'Enter') {
+				if (this.selectedIndex >= 0 && this.currentItems[this.selectedIndex]) {
+					e.preventDefault();
+					const selectedWord = this.currentItems[this.selectedIndex].title;
+					if (selectedWord) {
+						if (this.input) this.input.value = selectedWord;
+						if (this.list) this.list.innerHTML = '';
+						this.submitFilterForm();
 					}
 				}
-			});
-		}
+			}
+		});
 	}
 
 	submitFilterForm() {
@@ -129,7 +156,7 @@ class ProjectFilter {
 		const formData = new FormData(this.form);
 
 		// Clear existing search parameters on target
-		['industry', 'space', 'solution', 'production', 'hash', 'tag', 'year', 'rok', 'filter', 'search', 'q'].forEach(p => {
+		['industry', 'space', 'client', 'solution', 'production', 'hash', 'tag', 'year', 'rok', 'filter', 'search', 'q'].forEach(p => {
 			targetUrl.searchParams.delete(p);
 		});
 
@@ -196,7 +223,7 @@ class ProjectFilter {
 
 		const html = this.currentItems.map((item, index) => {
 			return `
-				<button type="button" class="button --small project-filter__tag-pill" theme="ghost" hover="dark" role="option" data-index="${index}" data-word="${this.escapeHtml(item.title)}">
+				<button type="button" class="button --small project-filter__tag-pill" theme="light" hover="dark" role="option" data-index="${index}" data-word="${this.escapeHtml(item.title)}">
 					<span>${this.escapeHtml(item.title)}</span>
 				</button>
 			`;
@@ -205,18 +232,6 @@ class ProjectFilter {
 		this.list.innerHTML = html;
 
 		this.list.querySelectorAll('.project-filter__tag-pill').forEach((btn, idx) => {
-			btn.addEventListener('click', (e) => {
-				e.preventDefault();
-				const word = btn.dataset.word;
-				if (word && this.input) {
-					this.input.value = word;
-					this.toggleClearBtn(true);
-					this.list.innerHTML = '';
-					this.input.focus();
-					this.submitFilterForm();
-				}
-			});
-
 			btn.addEventListener('mouseenter', () => {
 				this.selectedIndex = idx;
 				this.updateSelection();
@@ -287,6 +302,9 @@ function initProjectFilter() {
 	});
 }
 
+// Expose globally
+window.initProjectFilter = initProjectFilter;
+
 // Global initialization
 if (typeof window._filterTriggerInitialized === 'undefined') {
 	window._filterTriggerInitialized = true;
@@ -298,4 +316,3 @@ if (document.readyState === 'loading') {
 } else {
 	initProjectFilter();
 }
-

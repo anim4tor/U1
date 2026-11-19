@@ -4,19 +4,49 @@
 
 .post-article {
   position: relative;
+  overflow: hidden;
 
   .post-body {
-    max-width: 780px;
-    margin-inline: auto;
+    width: 100%;
 
-    h2 {
-      margin-top: 3rem;
-      margin-bottom: 1rem;
+    .post-block-content {
+      max-width: 780px;
+      margin-inline: auto;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .post-block-bleed {
+      width: 100%;
+      margin-block: 2.5rem;
+
+      .block__image {
+        width: 100%;
+
+        figure {
+          width: 100%;
+          margin: 0;
+          border-radius: 0;
+
+          img {
+            width: 100%;
+            height: auto;
+            max-height: 80vh;
+            object-fit: cover;
+            display: block;
+          }
+        }
+      }
+    }
+
+    .block__heading {
+      margin-top: calc(var(--spacing) * 1);
+      margin-bottom: calc(var(--spacing) * 0.5);
     }
 
     h3 {
-      margin-top: 2rem;
-      margin-bottom: 0.75rem;
+      margin-top: calc(var(--spacing) * 1);
+      margin-bottom: calc(var(--spacing) * 0.5);
     }
 
     p {

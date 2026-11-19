@@ -4,7 +4,36 @@
 
 */
 
-.intro:not(.--home) .intro__header {
+.intro:not(.--home) .intro__header:not(.intro__rows) {
   height: 54svh;
   min-height: 405px;
+}
+
+/* Hero bez spodního rádiusu a s plynulým spodním gradientem do navazující tmavé sekce */
+.intro--gradient-bottom,
+.intro.radius-b__0 {
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+
+  &:after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    top: 50%;
+    z-index: 1;
+    pointer-events: none;
+    background: linear-gradient(to top,
+        var(--color-dark, #0b0a0a) 0%,
+        transparent 50%);
+  }
+
+  .intro__cover,
+  .block__cover,
+  figure,
+  img {
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+  }
+
+
 }

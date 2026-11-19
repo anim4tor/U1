@@ -1,7 +1,7 @@
 <?php
     // Catch empty strings, unset parameters, or spaces, and force clean fallbacks
     $theme   = (!isset($theme)   || trim($theme)   === '') ? false : $theme;
-    $hover   = (!isset($hover)   || trim($hover)   === '') ? false    : $hover; 
+    $hover   = (isset($hover) && ($hover === false || $hover === 'none' || $hover === '' || $hover === 'false')) ? false : 'acc'; 
     $url     = (!isset($url)     || trim($url)     === '') ? false    : $url;
     $label   = (!isset($label)   || trim($label)   === '') ? false    : $label;
     $css     = (!isset($css)     || trim($css)     === '') ? ''       : $css;

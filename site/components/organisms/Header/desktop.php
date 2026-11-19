@@ -2,9 +2,10 @@
 	<div navbar class="grid bg__dark/60 color__invert bg__blur img__radius">
 		<div navbar-header data-scroll class="flex gap__0 align__center inner-x__02">
 			<div class="header__seg header__logo flex justify__start align__center" data-reveal>
-				<a class="button flex justify__center align__center" href="<?= page('home')->url() ?>" aria-label="U1 Space Design">
-					<div class="header__logo-full flex align__center wrap-b__01"><?= svg('public/assets/images/fig_logo_type.svg') ?></div>
-					<div class="header__logo-compact flex align__center wrap-b__01"><?= svg('public/assets/images/fig_logo.svg') ?></div>
+				<a class="header__logo-link flex align__center" href="<?= page('home')->url() ?>" aria-label="U1 Space Design">
+					<div class="header__logo-wrap flex align__center">
+						<?= svg('public/assets/images/fig_logo_type.svg') ?>
+					</div>
 				</a>	
 			</div>
 
@@ -33,8 +34,8 @@
 					<?= snippet('atoms/Label', ['text' => 'Close', 'css' => 'op__10', 'reveal' => false]) ?>
 				</div> -->
 				<div class="header__toggle-icon grid__stack place__center-end" data-on-navbar-toggle>
-					<?= snippet('atoms/Button', [ 'label' => false, 'icon' => 'menu', 'node' => 'data-navbar-toggle data-default', 'theme' => 'transparent', 'css' => 'circle' ]) ?>
-					<?= snippet('atoms/Button', [ 'label' => false, 'icon' => 'close', 'node' => 'data-navbar-toggle', 'theme' => 'transparent', 'css' => 'circle' ]) ?>
+					<?= snippet('atoms/Button', [ 'label' => false, 'icon' => 'menu', 'node' => 'data-navbar-toggle data-default', 'theme' => 'transparent', 'hover' => false, 'css' => 'circle' ]) ?>
+					<?= snippet('atoms/Button', [ 'label' => false, 'icon' => 'close', 'node' => 'data-navbar-toggle', 'theme' => 'transparent', 'hover' => false, 'css' => 'circle' ]) ?>
 				</div>
 			</div>
 

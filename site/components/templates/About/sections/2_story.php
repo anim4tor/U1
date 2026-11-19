@@ -45,7 +45,7 @@ if ($milestones->isEmpty()) {
 				</div>
 
 				<div class="story__figures">
-					<?= snippet('sections/Figures', ['figures' => $milestones]) ?>
+					<?= snippet('sections/Figures', ['figures' => $milestones, 'grid' => 'grid__3 gap__2']) ?>
 				</div>
 			</div>
 

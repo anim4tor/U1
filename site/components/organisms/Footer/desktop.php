@@ -6,8 +6,14 @@ $featuredServices = [
 	'services/interior-tailoring' => 'Nábytek na míru',
 	'services/realizace-pro-architekty' => 'Pro architekty',
 ];
+
+$hasCta = !empty($GLOBALS['hasCtaSection']);
+if (!$hasCta && method_exists($page, 'resolvedCta')) {
+	$cta = $page->resolvedCta('contact') ?? $page->resolvedCta('career');
+	$hasCta = ($cta && $cta->isNotEmpty());
+}
 ?>
-<footer id="footer" class="footer radius" theme="dark" data-footer data-scroll>
+<footer id="footer" class="footer border__top radius<?= $hasCta ? ' radius-t__0' : '' ?>" theme="dark" data-footer data-scroll>
 	<div class="inner-x__4 inner-y__5 mobile:inner-x__1 mobile:inner-y__3">
 		
 		<div class="footer__grid">

@@ -14,6 +14,11 @@ footer,
 	border-radius: var(--radius-large, 1.5rem) var(--radius-large, 1.5rem) 0 0;
 	// margin-top: 2px;
 
+	&.radius-t__0 {
+		border-top-left-radius: 0 !important;
+		border-top-right-radius: 0 !important;
+	}
+
 	&>* {
 		pointer-events: all;
 	}
@@ -164,3 +169,14 @@ footer,
 }
 
 [data-footer] {}
+
+/* 0 horní rádius pokud footeru předchází CTA sekce */
+.cta + footer,
+.cta + .footer,
+.cta + script + footer,
+.cta + script + .footer,
+main:has(> .cta:last-of-type) footer,
+main:has(> .cta:last-of-type) .footer {
+	border-top-left-radius: 0 !important;
+	border-top-right-radius: 0 !important;
+}
