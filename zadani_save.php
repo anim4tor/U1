@@ -62,3 +62,4 @@ if ($newestData) {
 }
 
 echo json_encode(['checked' => []]);
+

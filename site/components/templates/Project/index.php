@@ -258,30 +258,33 @@ $gallery = $page->gallery()->toFiles()->not($usedImages);
 <!-- Další projekt (Next project podle klienta v2) -->
 <?php $next = $page->nextListed() ?? collection('Projects')->first(); ?>
 <?php if ($next) : ?>
-<section class="intro radius" theme="invert" >
-	<div data-scroll class="z__1 intro__header place__stretch-stretch grid__4 mobile:grid__1 h__100v intro__rows mobile:h__auto inner__1 mobile:inner-t__10 mobile:gap__2 relative ">
-		<div class="h__1"></div>
-		<a href="<?= $next->url() ?>" class="span__4 grid place__stretch-stretch">
-			<div class="span__4 border__top inner-t__05 grid grid__post gap__2">
+	<?php
+	$meta = array_filter([
+		$next->industry()->isNotEmpty() ? implode(', ', $next->industry()->split()) : null,
+		$next->place()->isNotEmpty() ? $next->place()->value() : null,
+		$next->date()->isNotEmpty() ? $next->date()->toDate('Y') : null,
+	]);
+	?>
 
-				<div class="grid__2">
-					<span class="upper font__size__small">(Next)</span>
-				</div>
-				<div class="grid gap__2 place__space-between-stretch">
-					<div class="">
+	<section class="intro radius" theme="dark" >
+		<div data-scroll class="z__1 grid mobile:grid__1 mobile:h__auto inner__1 mobile:inner-t__10 mobile:gap__2 relative ">
+
+			<a href="<?= $next->url() ?>" class="span__4 grid place__center-stretch">
+				<div class="inner-x__4 inner-y__5 grid__2 gap__2 place__center-stretch">
+					<div class="grid gap__1">
+						<span class="label">Další projekt</span>
 						<h2 class="font__size__1">
 							<div data-reveal-text=""><?= $next->title() ?></div>
 						</h2>
+						<div class="font__size__small op__7"><?= implode(' · ', $meta) ?></div>
 					</div>
 					<?php if ($cover = $next->cover()->toFile()) : ?>
-					<div class="intro__cover grid span__2 " data-scroll ><?= snippet('atoms/Image', ['img' => $cover, 'parallax' => 2, 'reveal' => false, 'css' => 'grid h__20']) ?></div>
+						<div class="intro__cover grid" data-scroll ><?= snippet('atoms/Image', ['img' => $cover, 'parallax' => 2, 'reveal' => false, 'css' => 'grid h__20']) ?></div>
 					<?php endif ?>
-					
 				</div>
-			</div>
-		</a>
-	</div>
-</section>
+			</a>
+		</div>
+	</section>
 <?php endif; ?>
 
 <!-- Články (Related articles carousel) -->
